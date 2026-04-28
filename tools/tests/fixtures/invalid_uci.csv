@@ -1,3 +1,3 @@
-ocs1,canonical_name,eco_legacy,parent_ocs1,moves_uci,depth,aliases,flags,notes
+ocn1,canonical_name,eco_legacy,parent_ocn1,moves_uci,depth,aliases,flags,notes
 B,Semi-Open,,,,0,,,
 B.Sic,Sicilian,B20,B,xx99 c7c5,1,,,bogus UCI token — should fail

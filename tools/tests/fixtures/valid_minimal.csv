@@ -1,4 +1,4 @@
-ocs1,canonical_name,eco_legacy,parent_ocs1,moves_uci,depth,aliases,flags,notes
+ocn1,canonical_name,eco_legacy,parent_ocn1,moves_uci,depth,aliases,flags,notes
 A,Flank Openings,,,,0,,,Top-level class.
 B,Semi-Open Games,,,,0,,,1.e4 with anything but ...e5.
 B.Sic,Sicilian Defence,B20|B99,B,e2e4 c7c5,1,,,1.e4 c5.

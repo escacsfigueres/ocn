@@ -1,15 +1,15 @@
 #!/usr/bin/env python3
-"""Validate the OCS-1 catalogue against the spec.
+"""Validate the OCN-1 catalogue against the spec.
 
 Checks performed:
 
-1. Every row's `ocs1` matches the format `<A-E>(\\.[A-Za-z0-9-]+)*`.
+1. Every row's `ocn1` matches the format `<A-E>(\\.[A-Za-z0-9-]+)*`.
 2. The first segment of every slug is a valid class (A/B/C/D/E) — except
    the class roots themselves, which are exactly that single letter.
-3. Each non-root entry has a `parent_ocs1` that exists in the catalogue
+3. Each non-root entry has a `parent_ocn1` that exists in the catalogue
    and that has a `depth` exactly one less than this entry's depth.
 4. `depth` matches `slug.count('.')`.
-5. No two rows share the same `ocs1` (uniqueness).
+5. No two rows share the same `ocn1` (uniqueness).
 6. Maximum depth is 6 (i.e. at most 6 dots, 7 segments).
 7. `eco_legacy` codes (when present) match the `[A-E]\\d{2}` pattern.
 8. Family/variation/subline segments are 3 characters by default; longer
@@ -19,7 +19,7 @@ Checks performed:
 Exits with code 0 on success, 1 on the first error encountered.
 
 Usage:
-    python3 tools/validate.py [catalog/ocs-1.csv]
+    python3 tools/validate.py [catalog/ocn-1.csv]
 """
 from __future__ import annotations
 
@@ -28,10 +28,10 @@ import re
 import sys
 from pathlib import Path
 
-DEFAULT_CATALOG = Path(__file__).resolve().parent.parent / "catalog" / "ocs-1.csv"
+DEFAULT_CATALOG = Path(__file__).resolve().parent.parent / "catalog" / "ocn-1.csv"
 
 # Slug character set: alphanumerics + `=` for promotion + `-` for O-O / O-O-O.
-# `+` (check) and `#` (mate) are NOT part of OCS slugs — they describe a
+# `+` (check) and `#` (mate) are NOT part of OCN slugs — they describe a
 # move event, not a variation, so they would be redundant here.
 SLUG_RE = re.compile(r"^[A-E](?:\.[A-Za-z0-9_=-]+)*$")
 ECO_RE = re.compile(r"^[A-E]\d{2}$")
@@ -80,9 +80,9 @@ def validate(path: Path) -> None:
     warnings = 0
 
     for i, row in enumerate(rows, start=2):  # start=2 to align with CSV row numbers (header is row 1)
-        slug = (row.get("ocs1") or "").strip()
+        slug = (row.get("ocn1") or "").strip()
         if not slug:
-            fail(f"row {i}: missing ocs1")
+            fail(f"row {i}: missing ocn1")
 
         # 1. Format
         if not SLUG_RE.match(slug):
@@ -170,14 +170,14 @@ def validate(path: Path) -> None:
     # 3. Parent existence and depth-1 rule (second pass)
     for slug, row in seen_slugs.items():
         depth = int(row["depth"])
-        parent = (row.get("parent_ocs1") or "").strip()
+        parent = (row.get("parent_ocn1") or "").strip()
         if depth == 0:
             if parent:
                 fail(f"row {row['_row']}: class root '{slug}' should not have a parent "
                      f"(found '{parent}')")
             continue
         if not parent:
-            fail(f"row {row['_row']}: slug '{slug}' has depth {depth} but no parent_ocs1")
+            fail(f"row {row['_row']}: slug '{slug}' has depth {depth} but no parent_ocn1")
         if parent not in seen_slugs:
             fail(f"row {row['_row']}: slug '{slug}' references missing parent '{parent}'")
         parent_depth = int(seen_slugs[parent]["depth"])

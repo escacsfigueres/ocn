@@ -1,4 +1,4 @@
-ocs1,canonical_name,eco_legacy,parent_ocs1,moves_uci,depth,aliases,flags,notes
+ocn1,canonical_name,eco_legacy,parent_ocn1,moves_uci,depth,aliases,flags,notes
 A,Flank Openings,,,,0,,,Top-level class. Any opening that is neither 1.e4 nor an early 1.d4-with-2.c4 falls here.
 B,Semi-Open Games,,,,0,,,Top-level class. 1.e4 with any reply other than 1...e5.
 C,Open Games,,,,0,,,Top-level class. 1.e4 e5.

@@ -50,7 +50,7 @@ def run_validator(fixture: Path) -> subprocess.CompletedProcess[str]:
 class ValidatorTests(unittest.TestCase):
     def test_canonical_catalogue_validates(self) -> None:
         """The shipped catalogue must always validate clean."""
-        catalogue = REPO_ROOT / "catalog" / "ocs-1.csv"
+        catalogue = REPO_ROOT / "catalog" / "ocn-1.csv"
         self.assertTrue(catalogue.exists(), f"missing {catalogue}")
         result = run_validator(catalogue)
         self.assertEqual(

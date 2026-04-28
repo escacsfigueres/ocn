@@ -1,11 +1,11 @@
-# OCS-1 — Open Chess Slug, version 1
+# OCN-1 — Open Chess Naming, version 1
 
 **Status**: Draft v0.1 · 2026-04-28
 **Author**: Club d'Escacs Figueres
 **License**: CC-BY-4.0 (this document and the catalogue)
-**Repository**: https://github.com/escacsfigueres/ocs
+**Repository**: https://github.com/escacsfigueres/ocn
 
-## Why OCS
+## Why OCN
 
 The Encyclopaedia of Chess Openings (ECO), introduced by Šahovski Informator
 in 1971, has been the de facto naming standard for chess openings for
@@ -21,7 +21,7 @@ is the Sveshnikov, "E97" is the King's Indian Classical, and "C67" is the
 Ruy López Berlin Endgame is a feat of memorisation that does not benefit
 the player learning openings or the database designer running queries.
 
-OCS-1 is **a hierarchical companion to ECO**, not a replacement. It keeps
+OCN-1 is **a hierarchical companion to ECO**, not a replacement. It keeps
 the A/B/C/D/E top-level classification — that is the part of ECO that
 deserves to live another 50 years — and replaces the arbitrary 00-99
 sub-code with a small, human-readable, hierarchical slug.
@@ -32,10 +32,10 @@ sub-code with a small, human-readable, hierarchical slug.
    and never need to look it up.
 2. **Hierarchical**. Parent-child relationships are explicit. All Sicilian
    lines start with `B.Sic`.
-3. **Compatible**. Every OCS-1 slug carries a back-reference to its ECO
+3. **Compatible**. Every OCN-1 slug carries a back-reference to its ECO
    code(s). ECO is preserved in the catalogue as `eco_legacy`.
 4. **Open**. The specification and the catalogue are CC-BY-4.0. Anyone may
-   adopt OCS-1 in their own database, book or product.
+   adopt OCN-1 in their own database, book or product.
 5. **Stable**. Once a slug is published in a tagged release, it MUST NOT
    change meaning. New openings extend the catalogue; existing entries are
    amended only via aliases or deprecation, never by re-pointing.
@@ -79,9 +79,9 @@ moves of the variation**, not from a single rigid rule. The intent is:
   middlegame. Includes King's Indian Defence, Nimzo-Indian, Queen's
   Indian, Bogo-Indian, Old Indian, Grünfeld, Catalan-without-d5.
 
-The class is a property of the **OCS-1 slug**, not of the literal
+The class is a property of the **OCN-1 slug**, not of the literal
 move-order that produced it. Two transposing move-orders that converge to
-the same canonical position therefore share the same OCS-1 slug.
+the same canonical position therefore share the same OCN-1 slug.
 
 #### Borderline rules
 
@@ -144,7 +144,7 @@ they describe the move, not the variation.
 
 The depth tail is appended only when the SAN move is **the canonical tabiya
 that opening literature attaches a name to**. Random middlegame moves do
-not become OCS-1 slugs.
+not become OCN-1 slugs.
 
 ### Maximum depth
 
@@ -155,14 +155,14 @@ hash, not by slug.
 
 ## Catalogue
 
-The reference catalogue is `catalog/ocs-1.csv`. Each row has the columns:
+The reference catalogue is `catalog/ocn-1.csv`. Each row has the columns:
 
 | Column | Type | Description |
 |---|---|---|
-| `ocs1` | string | The slug (primary key). |
+| `ocn1` | string | The slug (primary key). |
 | `canonical_name` | string | Full human-readable name with accents and punctuation. |
 | `eco_legacy` | string | Pipe-separated ECO codes that this slug covers (`B90`, or `B90\|B91`). |
-| `parent_ocs1` | string null | Parent slug. NULL for class roots like `A`. |
+| `parent_ocn1` | string null | Parent slug. NULL for class roots like `A`. |
 | `moves_uci` | string null | Canonical UCI move sequence reaching the slug's reference position (space-separated, e.g. `e2e4 c7c5 g1f3 d7d6 d2d4 c5d4 f3d4 g8f6 b1c3 a7a6`). NULL for class roots, which are filters, not positions. |
 | `depth` | int | 0 for class roots, increments by 1 per dot. |
 | `aliases` | string null | Pipe-separated alternative names (Lasker–Pelikan, etc.). |
@@ -178,9 +178,9 @@ Polyglot Zobrist hash into `openings.parquet`. Consumers can then JOIN
 
 ### Looking up a slug from an ECO code
 
-A single ECO code can map to several OCS-1 slugs (e.g. `B90` covers the
+A single ECO code can map to several OCN-1 slugs (e.g. `B90` covers the
 Najdorf family root and several depth-3 lines). Tools resolving "ECO →
-OCS-1" SHOULD apply the **deepest-match** rule:
+OCN-1" SHOULD apply the **deepest-match** rule:
 
 1. Filter rows whose `eco_legacy` contains the queried code.
 2. Among those, pick the row with the highest `depth` whose path is
@@ -195,7 +195,7 @@ filter; the canonical zobrist is the unambiguous identifier.
 
 ## Versioning
 
-OCS-1 follows semantic versioning at the catalogue level:
+OCN-1 follows semantic versioning at the catalogue level:
 
 - **Patch** (1.0.x): clarifications, typo fixes, alias additions.
 - **Minor** (1.x): new entries that do not change the meaning of existing
@@ -203,16 +203,16 @@ OCS-1 follows semantic versioning at the catalogue level:
   allowed in a minor version.
 - **Major** (2.x): changes to the slug format itself.
 
-Once a release is tagged, an entry's `ocs1` MUST NOT be re-pointed to a
+Once a release is tagged, an entry's `ocn1` MUST NOT be re-pointed to a
 different position. If a slug is found to be wrong, mark it `deprecated`
 in `flags` and add the correct slug as a new entry.
 
 ## Examples
 
-The full canonical example set lives in `catalog/ocs-1.csv`. A few
+The full canonical example set lives in `catalog/ocn-1.csv`. A few
 illustrative ones:
 
-| OCS-1 | ECO | Canonical name |
+| OCN-1 | ECO | Canonical name |
 |---|---|---|
 | `A.Eng.Sym` | A30–A39 | English Opening, Symmetrical Variation |
 | `A.Hol.Lng` | A87–A89 | Dutch Defence, Leningrad Variation |
@@ -236,31 +236,31 @@ illustrative ones:
 
 ## Lichess long-tail integration
 
-OCS-1 is intentionally curated and small — it names ~120 of the most
+OCN-1 is intentionally curated and small — it names ~120 of the most
 frequently-played openings, the ones a human can memorise and read. It
 does NOT attempt to name every line that ever appeared in a game.
 
 For the long tail (Bird's Australian Variation, Polish Sokolsky
 Defended, Englund Gambit Complex…), consumers SHOULD layer the Lichess
-Opening Book (`lichess-org/chess-openings`, CC0) on top of OCS-1:
+Opening Book (`lichess-org/chess-openings`, CC0) on top of OCN-1:
 
-1. Resolve a position to OCS-1 first via `positions.zobrist =
+1. Resolve a position to OCN-1 first via `positions.zobrist =
    openings.zobrist`.
-2. If no OCS-1 match, fall back to the Lichess catalogue keyed by the
+2. If no OCN-1 match, fall back to the Lichess catalogue keyed by the
    same Polyglot Zobrist.
-3. Lichess entries carry a `parent_ocs1` field — the deepest OCS-1
-   ancestor of that line — so even unnamed-by-OCS positions can be
-   shown grouped under a familiar OCS-1 family.
+3. Lichess entries carry a `parent_ocn1` field — the deepest OCN-1
+   ancestor of that line — so even unnamed-by-OCN positions can be
+   shown grouped under a familiar OCN-1 family.
 
 The reference EFCDB toolchain provides this layering as Table 6
 (`lichess_openings`); see the EFCDB-v1 spec for the schema and the
 join recipe. With both tables loaded, every position in a real game
-database can be resolved to a name: ~25% via curated OCS-1 names, the
-rest via Lichess's CC0 names with an OCS-1 family as breadcrumb.
+database can be resolved to a name: ~25% via curated OCN-1 names, the
+rest via Lichess's CC0 names with an OCN-1 family as breadcrumb.
 
 ## Acknowledgements
 
-OCS-1 builds on the work of:
+OCN-1 builds on the work of:
 
 - Šahovski Informator (1971) for the A/B/C/D/E classification.
 - Lichess Chess Openings (CC0) for canonical English names.
