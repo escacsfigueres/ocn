@@ -91,16 +91,21 @@ D.QGD.Cmb,"QGD, Cambridge Springs",D52,D.QGD,d2d4 d7d5 c2c4 e7e6 b1c3 g8f6 c1g5 
 D.QGD.Exc,"QGD, Exchange",D35|D36,D.QGD,d2d4 d7d5 c2c4 e7e6 b1c3 g8f6 c4d5 e6d5,2,Exchange Variation,closed,4.cxd5 cxd5.
 D.QGA,Queen's Gambit Accepted,D20|D21|D22|D23|D24|D25|D26|D27|D28|D29,D,d2d4 d7d5 c2c4 d5c4,1,,,1.d4 d5 2.c4 dxc4.
 D.Sla,Slav Defence,D10|D11|D12|D13|D14|D15|D16|D17|D18|D19,D,d2d4 d7d5 c2c4 c7c6,1,,,1.d4 d5 2.c4 c6.
-D.Sla.Sem,Semi-Slav,D43|D44|D45|D46|D47|D48|D49,D.Sla,d2d4 d7d5 c2c4 c7c6 g1f3 g8f6 b1c3 e7e6,2,Semi-Slav,,...e6 hybrid with Slav structure.
-D.Sla.Sem.Mer,"Semi-Slav, Meran",D47|D48|D49,D.Sla.Sem,d2d4 d7d5 c2c4 c7c6 g1f3 g8f6 b1c3 e7e6 e2e3 b8d7 f1d3 d5c4 d3c4 b7b5,3,Meran Variation,sharp,"...dxc4 ...b5 main lines. Karpov's 6.Qc2 (the genuine anti-Meran) not yet catalogued."
-D.Sla.Sem.Mos,"Semi-Slav, Moscow Variation",D43|D44,D.Sla.Sem,d2d4 d7d5 c2c4 c7c6 g1f3 g8f6 b1c3 e7e6 c1g5,3,Moscow Variation|Anti-Moscow group,sharp|theoretical,"5.Bg5 family. Three sibling lines: 5...dxc4 -> Botvinnik (D.Sla.Sem.Bot); 5...h6 6.Bxf6 -> Moscow proper; 5...h6 6.Bh4 -> Anti-Moscow."
-D.Sla.Sem.Bot,"Semi-Slav, Botvinnik",D44,D.Sla.Sem,d2d4 d7d5 c2c4 c7c6 g1f3 g8f6 b1c3 e7e6 c1g5 d5c4 e2e4 b7b5,3,Botvinnik Variation,sharp|theoretical,"5.Bg5 dxc4 (immediate central capture, no h6). Sibling of Moscow proper (5...h6 6.Bxf6) and Anti-Moscow (5...h6 6.Bh4); all three live under D.Sla.Sem.Mos."
+D.Sem,Semi-Slav,D43|D44|D45|D46|D47|D48|D49,D,d2d4 d7d5 c2c4 c7c6 g1f3 g8f6 b1c3 e7e6,1,Semi-Slav,,"Promoted to peer of Slav: Semi-Slav is reachable from Slav (1.d4 d5 2.c4 c6 3.Nf3 Nf6 4.Nc3 e6) AND from QGD (1.d4 d5 2.c4 e6 3.Nc3 Nf6 4.Nf3 c6). Filiation by transposition is meaningless; OCN groups by structural identity, not by move-order entry."
+D.Sem.Mer,"Semi-Slav, Meran",D47|D48|D49,D.Sem,d2d4 d7d5 c2c4 c7c6 g1f3 g8f6 b1c3 e7e6 e2e3 b8d7 f1d3 d5c4 d3c4 b7b5,2,Meran Variation,sharp,"...dxc4 ...b5 main lines. Karpov's 6.Qc2 (the genuine anti-Meran) not yet catalogued."
+D.Sem.Mos,"Semi-Slav, Moscow Variation",D43|D44,D.Sem,d2d4 d7d5 c2c4 c7c6 g1f3 g8f6 b1c3 e7e6 c1g5,2,Moscow Variation|Anti-Moscow group,sharp|theoretical,"5.Bg5 family. Three sibling lines: 5...dxc4 -> Botvinnik (D.Sem.Bot); 5...h6 6.Bxf6 -> Moscow proper; 5...h6 6.Bh4 -> Anti-Moscow."
+D.Sem.Mos.Bxf6,"Moscow proper (5.Bg5 h6 6.Bxf6)",D43,D.Sem.Mos,d2d4 d7d5 c2c4 c7c6 g1f3 g8f6 b1c3 e7e6 c1g5 h7h6 g5f6,3,Moscow Proper,sharp,"6.Bxf6 — exchange on f6 to weaken the kingside structure."
+D.Sem.Mos.Bh4,"Anti-Moscow (5.Bg5 h6 6.Bh4)",D43,D.Sem.Mos,d2d4 d7d5 c2c4 c7c6 g1f3 g8f6 b1c3 e7e6 c1g5 h7h6 g5h4,3,Anti-Moscow,sharp|theoretical,"6.Bh4 — keeps the bishop, sharpest theoretical territory."
+D.Sem.Bot,"Semi-Slav, Botvinnik",D44,D.Sem,d2d4 d7d5 c2c4 c7c6 g1f3 g8f6 b1c3 e7e6 c1g5 d5c4 e2e4 b7b5,2,Botvinnik Variation,sharp|theoretical,"5.Bg5 dxc4 (immediate central capture, no h6). Sibling of Moscow proper (D.Sem.Mos.Bxf6) and Anti-Moscow (D.Sem.Mos.Bh4)."
 D.Sla.Exc,"Slav, Exchange",D10|D13,D.Sla,d2d4 d7d5 c2c4 c7c6 c4d5 c6d5,2,Exchange Slav,closed,3.cxd5 cxd5.
 D.Sla.Cls,"Slav, Classical",D17|D18|D19,D.Sla,d2d4 d7d5 c2c4 c7c6 g1f3 g8f6 b1c3 d5c4 a2a4 c8f5,2,Classical Slav,,...dxc4 ...Bf5 main line.
 D.Cat,Catalan Opening,E00|E01|E02|E03|E04|E05|E06|E07|E08|E09,D,d2d4 d7d5 c2c4 e7e6 g1f3 g8f6 g2g3,1,,,1.d4 d5 2.c4 e6 3.Nf3 Nf6 4.g3 (Black plays ...d5).
 D.Cat.Ope,"Catalan, Open",E04|E05,D.Cat,d2d4 d7d5 c2c4 e7e6 g1f3 g8f6 g2g3 d5c4,2,Open Catalan,,...dxc4.
 D.Cat.Cls,"Catalan, Closed",E06|E07|E08|E09,D.Cat,d2d4 d7d5 c2c4 e7e6 g1f3 g8f6 g2g3 f8e7 f1g2 e8g8 e1g1 b8d7,2,Closed Catalan,closed,...Be7 maintaining d5.
 D.Tar,Tarrasch Defence,D32|D33|D34,D,d2d4 d7d5 c2c4 e7e6 b1c3 c7c5,1,,,1.d4 d5 2.c4 e6 3.Nc3 c5 IQP.
+D.STa,Semi-Tarrasch,D40|D41|D42,D,d2d4 d7d5 c2c4 e7e6 b1c3 g8f6 g1f3 c7c5,1,Semi-Tarrasch Defence,,"Reaches via QGD or Slav-style move-orders alike (Albert-style transposition awareness): 1.d4 d5 2.c4 e6 3.Nc3 Nf6 4.Nf3 c5. Peer of Tarrasch, not a sub-line."
+D.QGD.Vie,"QGD, Vienna Variation",D37|D38|D39,D.QGD,d2d4 d7d5 c2c4 e7e6 b1c3 g8f6 g1f3 d5c4,2,Vienna Variation,sharp|theoretical,"4.Nf3 dxc4 — pawn-grab branch within QGD with Nc3 + Nf3."
+D.QGD.Rag,"QGD, Ragozin",D38|D39,D.QGD,d2d4 d7d5 c2c4 e7e6 b1c3 g8f6 g1f3 f8b4,2,Ragozin Defence,,"4.Nf3 Bb4 — Nimzo-style pin while keeping ...d5."
 D.Alb,Albin Counter-Gambit,D08|D09,D,d2d4 d7d5 c2c4 e7e5,1,Albin Counter-Gambit,gambit|sharp,2...e5.
 D.Bgm,Blackmar-Diemer Gambit,D00,D,d2d4 d7d5 e2e4,1,Blackmar-Diemer Gambit,gambit|sharp,1.d4 d5 2.e4 IM-rare gambit.
 E.KID,King's Indian Defence,E60|E61|E62|E63|E64|E65|E66|E67|E68|E69|E70|E71|E72|E73|E74|E75|E76|E77|E78|E79|E80|E81|E82|E83|E84|E85|E86|E87|E88|E89|E90|E91|E92|E93|E94|E95|E96|E97|E98|E99,E,d2d4 g8f6 c2c4 g7g6 b1c3 f8g7,1,KID,,1.d4 Nf6 2.c4 g6 3.Nc3 Bg7.
