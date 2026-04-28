@@ -1,0 +1,36 @@
+name: ci
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    name: validate ocs-1 catalogue (py${{ matrix.python }})
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python: ["3.10", "3.11", "3.12"]
+    steps:
+      - name: checkout
+        uses: actions/checkout@v4
+
+      - name: set up Python ${{ matrix.python }}
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python }}
+
+      - name: byte-compile validate.py
+        run: python3 -m py_compile tools/validate.py
+
+      - name: validate canonical catalogue
+        run: python3 tools/validate.py
+
+      - name: run validator test suite
+        run: python3 tools/tests/test_validate.py

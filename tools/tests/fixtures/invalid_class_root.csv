@@ -1,0 +1,2 @@
+ocs1,canonical_name,eco_legacy,parent_ocs1,moves_uci,depth,aliases,flags,notes
+Z,Bogus Class,,,,0,,,Z is not a valid top-level class — should fail

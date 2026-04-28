@@ -1,5 +1,6 @@
 # OCS — Open Chess Slug
 
+[![CI](https://github.com/escacsfigueres/ocs/actions/workflows/ci.yml/badge.svg)](https://github.com/escacsfigueres/ocs/actions/workflows/ci.yml)
 [![Spec license: CC BY 4.0](https://img.shields.io/badge/spec-CC%20BY%204.0-lightgrey.svg)](LICENSE-SPEC)
 [![Code license: MIT](https://img.shields.io/badge/code-MIT-blue.svg)](LICENSE-CODE)
 [![Status](https://img.shields.io/badge/status-alpha-orange.svg)](#status)
@@ -106,6 +107,13 @@ d'Escacs Figueres" and link to this repository.
 - [`tools/validate.py`](tools/validate.py) — checks the catalogue for
   format errors, slug collisions, broken parent references, profile
   depth limits.
+- [`tools/tests/test_validate.py`](tools/tests/test_validate.py) — test
+  suite that runs the validator against the canonical catalogue plus
+  positive and negative fixtures (`tools/tests/fixtures/`). CI runs it
+  on every push and pull request via [`.github/workflows/ci.yml`](.github/workflows/ci.yml).
+- [`tools/fetch_lichess.sh`](tools/fetch_lichess.sh) — pulls the
+  upstream Lichess Opening Book TSVs (CC0) into `external/`, used by
+  `escacsfigueres/chess-parquet`'s Lichess companion-table builder.
 
 Future tools (planned):
 
