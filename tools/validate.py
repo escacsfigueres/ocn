@@ -37,6 +37,10 @@ ECO_RE = re.compile(r"^[A-E]\d{2}$")
 SAN_RE = re.compile(
     r"^(O-O(?:-O)?|[NBRQK]?[a-h]?[1-8]?x?[a-h][1-8](?:=[NBRQ])?)$"
 )
+# A UCI move: from-square + to-square (+ optional promotion piece).
+# e.g. e2e4, g1f3, e7e8q. Castling is encoded as the king's two-square move
+# (e1g1 / e1c1 / e8g8 / e8c8).
+UCI_RE = re.compile(r"^[a-h][1-8][a-h][1-8][nbrq]?$")
 
 # Tokens that intentionally break the "3 characters" rule.
 KNOWN_LONG_TOKENS = {
@@ -137,6 +141,18 @@ def validate(path: Path) -> None:
                     warn(f"row {i}: ECO code '{code}' not in standard A00-E99 form "
                          f"(slug '{slug}')")
                     warnings += 1
+
+        # 9. moves_uci format (when present): space-separated UCI tokens.
+        moves_uci = (row.get("moves_uci") or "").strip()
+        if moves_uci:
+            if depth == 0:
+                warn(f"row {i}: class root '{slug}' should not have moves_uci "
+                     f"(it is a filter, not a position)")
+                warnings += 1
+            for tok in moves_uci.split():
+                if not UCI_RE.match(tok):
+                    fail(f"row {i}: invalid UCI move '{tok}' in slug '{slug}' "
+                         f"(expected format like e2e4, g1f3, e7e8q)")
 
         # Flags whitelist (pipe-separated, same as eco_legacy and aliases)
         flags = (row.get("flags") or "").strip()
