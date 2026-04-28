@@ -1,0 +1,17 @@
+# OS
+.DS_Store
+
+# Editors
+.idea/
+.vscode/
+
+# Python (tools/)
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Local data caches (we may keep them out of the repo)
+/build
+/out
+*.parquet

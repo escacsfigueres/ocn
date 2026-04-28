@@ -1,0 +1,17 @@
+OCS — Open Chess Slug
+
+This repository uses dual licensing:
+
+- The specification documents (in `spec/`) and the curated catalogues
+  (in `catalog/`) are licensed under the Creative Commons Attribution 4.0
+  International License (CC-BY-4.0). See `LICENSE-SPEC`.
+
+- All code (in `tools/` and elsewhere) is licensed under the MIT License.
+  See `LICENSE-CODE`.
+
+Copyright © 2026 Club d'Escacs Figueres.
+
+You are free to use, share and adapt the OCS-1 specification and catalogues
+provided that you give appropriate credit to "Club d'Escacs Figueres". You
+are free to use, modify and redistribute the code under the terms of the
+MIT License.
