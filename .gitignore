@@ -15,3 +15,6 @@ venv/
 /build
 /out
 *.parquet
+
+# Upstream data — fetched by tools/fetch_lichess.sh, not vendored
+/external/

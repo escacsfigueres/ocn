@@ -234,6 +234,30 @@ illustrative ones:
 | `E.Nim.Cls` | E32–E33 | Nimzo-Indian, Classical Variation |
 | `E.Gru.Exc` | D85 | Grünfeld, Exchange Variation |
 
+## Lichess long-tail integration
+
+OCS-1 is intentionally curated and small — it names ~120 of the most
+frequently-played openings, the ones a human can memorise and read. It
+does NOT attempt to name every line that ever appeared in a game.
+
+For the long tail (Bird's Australian Variation, Polish Sokolsky
+Defended, Englund Gambit Complex…), consumers SHOULD layer the Lichess
+Opening Book (`lichess-org/chess-openings`, CC0) on top of OCS-1:
+
+1. Resolve a position to OCS-1 first via `positions.zobrist =
+   openings.zobrist`.
+2. If no OCS-1 match, fall back to the Lichess catalogue keyed by the
+   same Polyglot Zobrist.
+3. Lichess entries carry a `parent_ocs1` field — the deepest OCS-1
+   ancestor of that line — so even unnamed-by-OCS positions can be
+   shown grouped under a familiar OCS-1 family.
+
+The reference EFCDB toolchain provides this layering as Table 6
+(`lichess_openings`); see the EFCDB-v1 spec for the schema and the
+join recipe. With both tables loaded, every position in a real game
+database can be resolved to a name: ~25% via curated OCS-1 names, the
+rest via Lichess's CC0 names with an OCS-1 family as breadcrumb.
+
 ## Acknowledgements
 
 OCS-1 builds on the work of:

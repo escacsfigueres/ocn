@@ -19,7 +19,7 @@ A.Lon,London System,A48,A,d2d4 d7d5 g1f3 g8f6 c1f4,1,,closed,1.d4 with Bf4 setup
 A.Bir,Bird's Opening,A02|A03,A,f2f4,1,,,1.f4.
 A.Lar,Larsen Attack,A01,A,b2b3,1,Nimzo-Larsen Attack,,1.b3.
 A.Ret,Réti Opening,A04|A05|A06|A07|A08|A09,A,g1f3,1,,,1.Nf3 with c4/g3 plan.
-A.Owe,Owen's Defence,A40|B00,A,e2e4 b7b6,1,,,1.e4 b6 or 1.d4 b6 — also has B00 ECO mapping.
+A.Owe,Owen's Defence,A40|B00,A,d2d4 b7b6,1,,,1.d4 b6 — flank reply to queen-pawn (class A). For 1.e4 b6 use B.OwM.
 A.Pol,Polish Opening,A00,A,b2b4,1,Sokolsky,,1.b4.
 B.Sic,Sicilian Defence,B20|B21|B22|B23|B24|B25|B26|B27|B28|B29|B30|B31|B32|B33|B34|B35|B36|B37|B38|B39|B40|B41|B42|B43|B44|B45|B46|B47|B48|B49|B50|B51|B52|B53|B54|B55|B56|B57|B58|B59|B60|B61|B62|B63|B64|B65|B66|B67|B68|B69|B70|B71|B72|B73|B74|B75|B76|B77|B78|B79|B80|B81|B82|B83|B84|B85|B86|B87|B88|B89|B90|B91|B92|B93|B94|B95|B96|B97|B98|B99,B,e2e4 c7c5,1,,,1.e4 c5.
 B.Sic.Naj,"Sicilian, Najdorf",B90|B91|B92|B93|B94|B95|B96|B97|B98|B99,B.Sic,e2e4 c7c5 g1f3 d7d6 d2d4 c5d4 f3d4 g8f6 b1c3 a7a6,2,Najdorf Variation,sharp,5...a6.
