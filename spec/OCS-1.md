@@ -122,15 +122,21 @@ Variation`. The 3-letter slug is purely for compact reference.
 
 For lines that are routinely identified by a specific tabiya beyond the
 named variation, append literal SAN moves (capitalised pieces, no
-file/rank disambiguation) separated by dots:
+file/rank disambiguation) separated by dots. The grammar permits up to
+two trailing move segments:
 
 ```
-B.Sic.Naj.Eng.Be3.e5     6.Be3 e5 main line of the English Attack
-B.Sic.Naj.Eng.Be3.e6     6.Be3 e6 Scheveningen-style
-B.Sic.Sve.Nd5            11.Nd5 main Sveshnikov tabiya
-B.Sic.Sve.Nd5.Nb8        Nb8 retreat under 11.Nd5
-C.RyL.Ber.End.dxe5       After ...dxe5 in the Berlin Endgame
+B.Sic.Sve.Nd5            11.Nd5 main Sveshnikov tabiya  (one move)
+B.Sic.Sve.Bxf6           9.Bxf6 line                    (one move)
+B.Sic.Naj.Eng.Be3.e5     6.Be3 e5 main line of the English Attack  (two moves)
+B.Sic.Naj.Eng.Be3.e6     6.Be3 e6 Scheveningen-style                (two moves)
+C.RyL.Ber.End.dxe5       After ...dxe5 in the Berlin Endgame        (one move)
 ```
+
+Examples like `B.Sic.Naj.Eng.Be3.e5` are illustrative of the grammar. The
+0.1 reference catalogue does not yet enumerate every depth-5 tabiya; the
+catalogue grows as the community contributes lines that meet the
+"named-tabiya" bar (see below).
 
 Castling is `O-O` (kingside) or `O-O-O` (queenside). Captures use `x`.
 Promotions: `=Q`. Check (`+`) and mate (`#`) are not part of the slug —
@@ -157,14 +163,35 @@ The reference catalogue is `catalog/ocs-1.csv`. Each row has the columns:
 | `canonical_name` | string | Full human-readable name with accents and punctuation. |
 | `eco_legacy` | string | Pipe-separated ECO codes that this slug covers (`B90`, or `B90\|B91`). |
 | `parent_ocs1` | string null | Parent slug. NULL for class roots like `A`. |
+| `moves_uci` | string null | Canonical UCI move sequence reaching the slug's reference position (space-separated, e.g. `e2e4 c7c5 g1f3 d7d6 d2d4 c5d4 f3d4 g8f6 b1c3 a7a6`). NULL for class roots, which are filters, not positions. |
 | `depth` | int | 0 for class roots, increments by 1 per dot. |
 | `aliases` | string null | Pipe-separated alternative names (Lasker–Pelikan, etc.). |
-| `flags` | string null | Comma-separated tags: `gambit`, `sharp`, `closed`, `endgame`, `theoretical`. |
+| `flags` | string null | Pipe-separated tags from the closed set `{gambit, sharp, closed, endgame, theoretical, deprecated}`. |
 | `notes` | string null | Free text explaining edge cases or borderline classification. |
 
-The catalogue is normative for the slugs it contains. Tools and consumers
-SHOULD look up unknown ECO codes by querying the catalogue with
-`eco_legacy LIKE '%<code>%'`.
+Producers MAY emit a derived `zobrist` (INT64) column alongside the
+catalogue when serialising to a position-indexed format. The reference
+toolchain (`escacsfigueres/chess-parquet`'s `efcdb-openings` crate)
+replays `moves_uci` from the standard initial position and writes the
+Polyglot Zobrist hash into `openings.parquet`. Consumers can then JOIN
+`openings.zobrist` against any position-indexed dataset directly.
+
+### Looking up a slug from an ECO code
+
+A single ECO code can map to several OCS-1 slugs (e.g. `B90` covers the
+Najdorf family root and several depth-3 lines). Tools resolving "ECO →
+OCS-1" SHOULD apply the **deepest-match** rule:
+
+1. Filter rows whose `eco_legacy` contains the queried code.
+2. Among those, pick the row with the highest `depth` whose path is
+   consistent with the available context (e.g. the move list).
+3. If multiple rows tie at the same depth, the consumer SHOULD report
+   the ambiguity rather than silently picking one.
+
+When precise matching matters (preparation, novelty hunting,
+move-order-aware analysis) consumers SHOULD JOIN by `zobrist` against a
+position-indexed dataset rather than rely on ECO at all. ECO is a coarse
+filter; the canonical zobrist is the unambiguous identifier.
 
 ## Versioning
 
@@ -201,7 +228,7 @@ illustrative ones:
 | `C.Ita.Evn` | C51 | Italian, Evans Gambit |
 | `C.Pet` | C42 | Petrov Defence |
 | `D.QGD.Tar` | D58–D59 | Queen's Gambit Declined, Tartakower |
-| `D.Sla.Mer` | D47 | Slav, Semi-Slav, Mèran Variation |
+| `D.Sla.Sem.Mer` | D47 | Slav, Semi-Slav, Mèran Variation |
 | `D.Cat.Ope` | E04–E05 | Catalan, Open Variation |
 | `E.KID.Sml` | E80–E89 | King's Indian Defence, Sämisch Variation |
 | `E.Nim.Cls` | E32–E33 | Nimzo-Indian, Classical Variation |

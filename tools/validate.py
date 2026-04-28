@@ -30,7 +30,10 @@ from pathlib import Path
 
 DEFAULT_CATALOG = Path(__file__).resolve().parent.parent / "catalog" / "ocs-1.csv"
 
-SLUG_RE = re.compile(r"^[A-E](?:\.[A-Za-z0-9_=+#-]+)*$")
+# Slug character set: alphanumerics + `=` for promotion + `-` for O-O / O-O-O.
+# `+` (check) and `#` (mate) are NOT part of OCS slugs — they describe a
+# move event, not a variation, so they would be redundant here.
+SLUG_RE = re.compile(r"^[A-E](?:\.[A-Za-z0-9_=-]+)*$")
 ECO_RE = re.compile(r"^[A-E]\d{2}$")
 # A SAN-like move-segment: castling, or a piece/file move with optional
 # disambiguation, capture, target square and promotion.

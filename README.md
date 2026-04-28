@@ -18,7 +18,7 @@ short, parent-aware slugs.
 | `B33` | `B.Sic.Sve` | Sicilian Sveshnikov |
 | `B90` | `B.Sic.Naj.Eng` | Najdorf English Attack |
 | `C67` | `C.RyL.Ber.End` | Ruy López, Berlin Endgame |
-| `D47` | `D.Sla.Mer` | Semi-Slav, Mèran |
+| `D47` | `D.Sla.Sem.Mer` | Semi-Slav, Mèran |
 | `E97` | `E.KID.Cls.Mar` | KID Classical, Mar del Plata |
 
 Read once, remember forever. No lookup table needed.
@@ -42,12 +42,15 @@ study an opening, nor the database designer running queries.
 OCS replaces that 50-year-old sub-numbering with hierarchical slugs:
 
 ```
-B          ← top level (ECO class preserved)
-B.Sic      ← family (Sicilian)
-B.Sic.Naj  ← variation (Najdorf)
-B.Sic.Naj.Eng  ← sub-line (English Attack)
-B.Sic.Naj.Eng.Be3.e5  ← specific tabiya (6.Be3 e5 main line)
+B              ← top level (ECO class preserved)
+B.Sic          ← family (Sicilian)
+B.Sic.Naj      ← variation (Najdorf)
+B.Sic.Naj.Eng  ← sub-line (English Attack, 6.Be3)
 ```
+
+For specific named tabiyas the slug may carry one or two trailing SAN
+moves (`B.Sic.Sve.Nd5` for the 11.Nd5 main line). See the spec for the
+full grammar; for everyday use the four levels above are enough.
 
 You can read the slug at any depth and immediately know:
 
@@ -60,15 +63,17 @@ You can read the slug at any depth and immediately know:
 ## Format
 
 ```
-<class> "." <family> [ "." <variation> [ "." <subline> [ "." <move> ] ] ]
+<class> "." <family> [ "." <variation> [ "." <subline> [ "." <move> [ "." <move> ] ] ] ]
 ```
 
 - **`class`**: 1 char from `A B C D E` (preserves ECO classification).
 - **`family`**: 3 chars, TitleCase (`Sic`, `RyL`, `KID`).
 - **`variation`** / **`subline`**: 3 chars each, TitleCase (`Naj`, `End`).
 - **`move`**: SAN-style, capitalised pieces (`Be3`, `e5`, `Bxf6`, `O-O`).
+  Up to two trailing move segments are allowed.
 - **Separator**: dot `.`.
-- **Maximum depth**: 6 segments (cap recommended at 5 for everyday use).
+- **Maximum depth**: 6 dots / 7 segments. Recommended cap is 5 segments
+  for everyday use; deeper slugs are reserved for legendary tabiyas.
 
 The full specification is in [`spec/OCS-1.md`](spec/OCS-1.md).
 
