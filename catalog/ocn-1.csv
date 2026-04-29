@@ -13,7 +13,8 @@ A.Hol.Sto,"Dutch Defence, Stonewall",A84|A85,A.Hol,d2d4 f7f5 g2g3 g8f6 f1g2 e7e6
 A.Hol.Cls,"Dutch Defence, Classical",A96|A97|A98|A99,A.Hol,d2d4 f7f5 g2g3 g8f6 f1g2 e7e6 g1f3 f8e7,2,,," ...e6 and ...d6, classical setup."
 A.Ben,Benoni Defence,A57|A58|A59|A60|A61|A62|A63|A64|A65|A66|A67|A68|A69|A70|A71|A72|A73|A74|A75|A76|A77|A78|A79,A,d2d4 g8f6 c2c4 c7c5,1,,sharp,1.d4 Nf6 2.c4 c5 with d5 push.
 A.Ben.Mod,Modern Benoni,A60|A61|A62|A63|A64|A65|A66|A67|A68|A69|A70|A71|A72|A73|A74|A75|A76|A77|A78|A79,A.Ben,d2d4 g8f6 c2c4 c7c5 d4d5 e7e6 b1c3 e6d5 c4d5 d7d6 e2e4 g7g6,2,,sharp,Modern setup with ...g6 and ...Bg7.
-A.Ben.Czk,Benko Gambit,A57|A58|A59,A.Ben,d2d4 g8f6 c2c4 c7c5 d4d5 b7b5,2,Benko-Volga Gambit,gambit|sharp,...b5 pawn sacrifice.
+A.Ben.Bnk,"Benko / Volga Gambit",A57|A58|A59,A.Ben,d2d4 g8f6 c2c4 c7c5 d4d5 b7b5,2,Benko Gambit|Volga Gambit,gambit|sharp,"...b5 pawn sacrifice. Slug 'Bnk' = Benko (the previous 'Czk' label was a mistake — that token is for the Czech Benoni, a separate opening)."
+A.Ben.Czk,Czech Benoni,A56,A.Ben,d2d4 g8f6 c2c4 c7c5 d4d5 e7e5,2,Czech Benoni,closed,"1.d4 Nf6 2.c4 c5 3.d5 e5 — locked-centre treatment, not a gambit."
 A.Tro,Trompowsky Attack,A45,A,d2d4 g8f6 c1g5,1,,,1.d4 Nf6 2.Bg5.
 A.Lon,London System,A48,A,d2d4 d7d5 g1f3 g8f6 c1f4,1,,closed,1.d4 with Bf4 setup.
 A.Bir,Bird's Opening,A02|A03,A,f2f4,1,,,1.f4.
