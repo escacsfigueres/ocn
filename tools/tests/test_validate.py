@@ -4,9 +4,12 @@ Iterates fixtures under tools/tests/fixtures/ and asserts that:
 
 - valid_*.csv files validate cleanly (exit 0, "OK: ..." in stdout).
 - invalid_*.csv files fail (exit 1) with an expected substring in
-  stderr. The expected substring is encoded in the filename so a
-  reader (and CI) can see at a glance which rule each fixture
-  exercises.
+  stderr.
+- warn_*.csv files validate cleanly (exit 0) but with at least one
+  WARN line in stderr matching an expected substring.
+
+The expected substring is encoded in the filename / EXPECTED_* dict so
+a reader (and CI) can see at a glance which rule each fixture exercises.
 
 Run it directly:
     python3 tools/tests/test_validate.py
@@ -36,6 +39,12 @@ EXPECTED_INVALID: dict[str, str] = {
     "invalid_class_root.csv": "does not match format",
     "invalid_check_in_slug.csv": "does not match format",
     "invalid_attribution_no_source.csv": "without 'attribution_source'",
+}
+
+# Fixtures that MUST validate (exit 0) but emit a specific warning.
+# The validator prints warnings to stderr with the prefix "WARN:".
+EXPECTED_WARN: dict[str, str] = {
+    "warn_orphan_attribution_source.csv": "orphan citation",
 }
 
 
@@ -110,6 +119,43 @@ class ValidatorTests(unittest.TestCase):
             spurious,
             f"EXPECTED_INVALID entries without a fixture file: {spurious}",
         )
+
+    def test_warn_fixtures_validate_with_expected_warning(self) -> None:
+        """warn_*.csv files MUST validate (exit 0) AND emit the expected
+        WARN substring on stderr. They guard against the warning being
+        accidentally promoted to an error or silently dropped."""
+        for fixture_name, expected in EXPECTED_WARN.items():
+            fixture = FIXTURES / fixture_name
+            with self.subTest(fixture=fixture_name):
+                self.assertTrue(
+                    fixture.exists(), f"missing fixture {fixture_name}"
+                )
+                result = run_validator(fixture)
+                self.assertEqual(
+                    result.returncode,
+                    0,
+                    f"{fixture_name} should validate (exit 0). "
+                    f"stdout={result.stdout!r}, stderr={result.stderr!r}",
+                )
+                self.assertIn(
+                    "WARN:",
+                    result.stderr,
+                    f"{fixture_name}: expected a WARN line, got "
+                    f"stderr={result.stderr!r}",
+                )
+                self.assertIn(
+                    expected,
+                    result.stderr,
+                    f"{fixture_name}: expected {expected!r} in stderr, "
+                    f"got {result.stderr!r}",
+                )
+
+    def test_every_warn_fixture_has_an_expected_message(self) -> None:
+        on_disk = {p.name for p in FIXTURES.glob("warn_*.csv")}
+        registered = set(EXPECTED_WARN)
+        self.assertEqual(on_disk, registered,
+                         f"warn fixtures vs EXPECTED_WARN drift: "
+                         f"on_disk={on_disk}, registered={registered}")
 
 
 if __name__ == "__main__":

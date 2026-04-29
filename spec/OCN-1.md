@@ -168,6 +168,16 @@ The reference catalogue is `catalog/ocn-1.csv`. Each row has the columns:
 | `aliases` | string null | Pipe-separated alternative names (Lasker–Pelikan, etc.). |
 | `flags` | string null | Pipe-separated tags from the closed set `{gambit, sharp, closed, endgame, theoretical, deprecated}`. |
 | `notes` | string null | Free text explaining edge cases or borderline classification. |
+| `attributed_to` | string null | Player(s), school, or event the opening is associated with. Free text. |
+| `attribution_source` | string null | Citation supporting `attributed_to`. **Required** when `attributed_to` is non-empty — the validator rejects unsourced claims. Free text but should reference a book, an article, a tournament game, or a corpus signal. |
+| `historical_notes` | string null | Longer-form context (transmission history, popularisation, calibration against the corpus). |
+
+The three attribution columns form the catalogue's "Layer 2" — curated,
+human-asserted history. They sit alongside the corpus-derived `Layer 1`
+table `opening_provenance` (EFCDB-v1 Table 8), which stores
+machine-recomputable signals (first/last game, top players, total
+games). Joining the two by `ocn1` lets a reader see what the literature
+claims AND what the corpus shows, and notice when they disagree.
 
 Producers MAY emit a derived `zobrist` (INT64) column alongside the
 catalogue when serialising to a position-indexed format. The reference
