@@ -1,138 +1,138 @@
-ocn1,canonical_name,eco_legacy,parent_ocn1,moves_uci,depth,aliases,flags,notes
-A,Flank Openings,,,,0,,,Top-level class. Any opening that is neither 1.e4 nor an early 1.d4-with-2.c4 falls here.
-B,Semi-Open Games,,,,0,,,Top-level class. 1.e4 with any reply other than 1...e5.
-C,Open Games,,,,0,,,Top-level class. 1.e4 e5.
-D,Closed Queen's Pawn,,,,0,,,Top-level class. 1.d4 d5 (or any line with an early ...d5).
-E,Indian Defences,,,,0,,,Top-level class. 1.d4 Nf6 with Black declining ...d5 in the early phase.
-A.Eng,English Opening,A10|A11|A12|A13|A14|A15|A16|A17|A18|A19|A20|A21|A22|A23|A24|A25|A26|A27|A28|A29|A30|A31|A32|A33|A34|A35|A36|A37|A38|A39,A,c2c4,1,,,1.c4 family.
-A.Eng.Sym,"English Opening, Symmetrical",A30|A31|A32|A33|A34|A35|A36|A37|A38|A39,A.Eng,c2c4 c7c5,2,,closed,1.c4 c5.
-A.Eng.Rev,"English Opening, Reversed Sicilian",A20|A21|A22|A23|A24|A25|A26|A27|A28|A29,A.Eng,c2c4 e7e5,2,Reversed Sicilian,,1.c4 e5 — English with a tempo extra for White.
-A.Hol,Dutch Defence,A80|A81|A82|A83|A84|A85|A86|A87|A88|A89|A90|A91|A92|A93|A94|A95|A96|A97|A98|A99,A,d2d4 f7f5,1,,sharp,1.d4 f5.
-A.Hol.Lng,"Dutch Defence, Leningrad",A87|A88|A89,A.Hol,d2d4 f7f5 g2g3 g8f6 f1g2 g7g6,2,Leningrad Dutch,sharp,...g6 and ...Bg7 setup.
-A.Hol.Sto,"Dutch Defence, Stonewall",A84|A85,A.Hol,d2d4 f7f5 g2g3 g8f6 f1g2 e7e6 g1f3 d7d5,2,Stonewall Dutch,closed,...d5 and ...e6 with f5 frozen pawn structure.
-A.Hol.Cls,"Dutch Defence, Classical",A96|A97|A98|A99,A.Hol,d2d4 f7f5 g2g3 g8f6 f1g2 e7e6 g1f3 f8e7,2,,," ...e6 and ...d6, classical setup."
-A.Ben,Benoni Defence,A57|A58|A59|A60|A61|A62|A63|A64|A65|A66|A67|A68|A69|A70|A71|A72|A73|A74|A75|A76|A77|A78|A79,A,d2d4 g8f6 c2c4 c7c5,1,,sharp,1.d4 Nf6 2.c4 c5 with d5 push.
-A.Ben.Mod,Modern Benoni,A60|A61|A62|A63|A64|A65|A66|A67|A68|A69|A70|A71|A72|A73|A74|A75|A76|A77|A78|A79,A.Ben,d2d4 g8f6 c2c4 c7c5 d4d5 e7e6 b1c3 e6d5 c4d5 d7d6 e2e4 g7g6,2,,sharp,Modern setup with ...g6 and ...Bg7.
-A.Ben.Bnk,"Benko / Volga Gambit",A57|A58|A59,A.Ben,d2d4 g8f6 c2c4 c7c5 d4d5 b7b5,2,Benko Gambit|Volga Gambit,gambit|sharp,"...b5 pawn sacrifice. Slug 'Bnk' = Benko (the previous 'Czk' label was a mistake — that token is for the Czech Benoni, a separate opening)."
-A.Ben.Czk,Czech Benoni,A56,A.Ben,d2d4 g8f6 c2c4 c7c5 d4d5 e7e5,2,Czech Benoni,closed,"1.d4 Nf6 2.c4 c5 3.d5 e5 — locked-centre treatment, not a gambit."
-A.Tro,Trompowsky Attack,A45,A,d2d4 g8f6 c1g5,1,,,1.d4 Nf6 2.Bg5.
-A.Lon,London System,A48,A,d2d4 d7d5 g1f3 g8f6 c1f4,1,,closed,1.d4 with Bf4 setup.
-A.Bir,Bird's Opening,A02|A03,A,f2f4,1,,,1.f4.
-A.Lar,Larsen Attack,A01,A,b2b3,1,Nimzo-Larsen Attack,,1.b3.
-A.Ret,Réti Opening,A04|A05|A06|A07|A08|A09,A,g1f3,1,,,1.Nf3 with c4/g3 plan.
-A.Owe,Owen's Defence,A40|B00,A,d2d4 b7b6,1,,,1.d4 b6 — flank reply to queen-pawn (class A). For 1.e4 b6 use B.OwM.
-A.Pol,Polish Opening,A00,A,b2b4,1,Sokolsky,,1.b4.
-B.Sic,Sicilian Defence,B20|B21|B22|B23|B24|B25|B26|B27|B28|B29|B30|B31|B32|B33|B34|B35|B36|B37|B38|B39|B40|B41|B42|B43|B44|B45|B46|B47|B48|B49|B50|B51|B52|B53|B54|B55|B56|B57|B58|B59|B60|B61|B62|B63|B64|B65|B66|B67|B68|B69|B70|B71|B72|B73|B74|B75|B76|B77|B78|B79|B80|B81|B82|B83|B84|B85|B86|B87|B88|B89|B90|B91|B92|B93|B94|B95|B96|B97|B98|B99,B,e2e4 c7c5,1,,,1.e4 c5.
-B.Sic.Naj,"Sicilian, Najdorf",B90|B91|B92|B93|B94|B95|B96|B97|B98|B99,B.Sic,e2e4 c7c5 g1f3 d7d6 d2d4 c5d4 f3d4 g8f6 b1c3 a7a6,2,Najdorf Variation,sharp,5...a6.
-B.Sic.Naj.Eng,"Sicilian Najdorf, English Attack",B90,B.Sic.Naj,e2e4 c7c5 g1f3 d7d6 d2d4 c5d4 f3d4 g8f6 b1c3 a7a6 c1e3,3,,sharp|theoretical,6.Be3.
-B.Sic.Naj.Sch,"Sicilian Najdorf, Scheveningen",B92|B93,B.Sic.Naj,e2e4 c7c5 g1f3 d7d6 d2d4 c5d4 f3d4 g8f6 b1c3 a7a6 f1e2 e7e6,3,,, ...e6 hybrid Scheveningen-Najdorf.
-B.Sic.Naj.Adm,"Sicilian Najdorf, Adams Attack",B90,B.Sic.Naj,e2e4 c7c5 g1f3 d7d6 d2d4 c5d4 f3d4 g8f6 b1c3 a7a6 h2h3,3,,sharp,6.h3.
-B.Sic.Naj.Pol,"Sicilian Najdorf, Polugaevsky",B96,B.Sic.Naj,e2e4 c7c5 g1f3 d7d6 d2d4 c5d4 f3d4 g8f6 b1c3 a7a6 c1g5 e7e6 f2f4 b7b5,3,,sharp,...b5 Polugaevsky line.
-B.Sic.Naj.Pst,"Sicilian Najdorf, Poisoned Pawn",B97,B.Sic.Naj,e2e4 c7c5 g1f3 d7d6 d2d4 c5d4 f3d4 g8f6 b1c3 a7a6 c1g5 e7e6 f2f4 d8b6,3,,sharp|theoretical,6.Bg5 e6 7.f4 Qb6.
-B.Sic.Sve,Sicilian Sveshnikov,B33,B.Sic,e2e4 c7c5 g1f3 b8c6 d2d4 c5d4 f3d4 g8f6 b1c3 e7e5,2,Lasker-Pelikan|Cheliabinsk,sharp,"...e5 and ...Nf6. Critical position is 6.Ndb5 d6 7.Bg5 a6 8.Na3 b5; from there White picks 9.Nd5 (modern) or 9.Bxf6 (older)."
-B.Sic.Sve.Nd5,"Sveshnikov, 9.Nd5 (Modern Main)",B33,B.Sic.Sve,e2e4 c7c5 g1f3 b8c6 d2d4 c5d4 f3d4 g8f6 b1c3 e7e5 d4b5 d7d6 c1g5 a7a6 b5a3 b7b5 c3d5,3,Modern Main Line,sharp|theoretical,"9.Nd5 — White posts the knight on d5 BEFORE exchanging on f6. Dominant since the late 1990s."
-B.Sic.Sve.Nd5.Be7,"Sveshnikov 9.Nd5, ...Be7",B33,B.Sic.Sve.Nd5,e2e4 c7c5 g1f3 b8c6 d2d4 c5d4 f3d4 g8f6 b1c3 e7e5 d4b5 d7d6 c1g5 a7a6 b5a3 b7b5 c3d5 f8e7,4,,sharp|theoretical,"9...Be7 — canonical reply, attacks the Bg5."
-B.Sic.Sve.Nd5.Be7.Bxf6,"Sveshnikov 9.Nd5 Be7, 10.Bxf6 Bxf6",B33,B.Sic.Sve.Nd5.Be7,e2e4 c7c5 g1f3 b8c6 d2d4 c5d4 f3d4 g8f6 b1c3 e7e5 d4b5 d7d6 c1g5 a7a6 b5a3 b7b5 c3d5 f8e7 g5f6 e7f6,5,,sharp|theoretical,"10.Bxf6 Bxf6 — modern tabiya. Black has the bishop pair, White owns d5."
-B.Sic.Sve.Nd5.Qa5,"Sveshnikov 9.Nd5, ...Qa5+",B33,B.Sic.Sve.Nd5,e2e4 c7c5 g1f3 b8c6 d2d4 c5d4 f3d4 g8f6 b1c3 e7e5 d4b5 d7d6 c1g5 a7a6 b5a3 b7b5 c3d5 d8a5,4,Qa5+ Sideline,sharp,"9...Qa5+ — check sideline; less common than 9...Be7 but theoretically respected."
-B.Sic.Sve.Bxf6,"Sveshnikov, 9.Bxf6 (Old Main)",B33,B.Sic.Sve,e2e4 c7c5 g1f3 b8c6 d2d4 c5d4 f3d4 g8f6 b1c3 e7e5 d4b5 d7d6 c1g5 a7a6 b5a3 b7b5 g5f6 g7f6,3,,,"9.Bxf6 gxf6 — exchange first, decide later. Doubles f-pawns; was main treatment until ~2000."
-B.Sic.Sve.Bxf6.Nd5,"Sveshnikov 9.Bxf6, 10.Nd5",B33,B.Sic.Sve.Bxf6,e2e4 c7c5 g1f3 b8c6 d2d4 c5d4 f3d4 g8f6 b1c3 e7e5 d4b5 d7d6 c1g5 a7a6 b5a3 b7b5 g5f6 g7f6 c3d5,4,Chelyabinsk Complex,sharp|theoretical,"10.Nd5 — Soviet-era analysis core (the broader 'Chelyabinsk complex'). Black branches into 10...Bg7 (Novosibirsk) or 10...f5."
-B.Sic.Sve.Bxf6.Nd5.Bg7,"Novosibirsk (10...Bg7)",B33,B.Sic.Sve.Bxf6.Nd5,e2e4 c7c5 g1f3 b8c6 d2d4 c5d4 f3d4 g8f6 b1c3 e7e5 d4b5 d7d6 c1g5 a7a6 b5a3 b7b5 g5f6 g7f6 c3d5 f8g7,5,Novosibirsk Variation,sharp|theoretical,"10...Bg7 — fianchetto on the long diagonal. The Novosibirsk school's signature treatment. Sibling of 10...f5."
-B.Sic.Sve.Bxf6.Nd5.f5,"Sveshnikov 10...f5 (counterpunch)",B33,B.Sic.Sve.Bxf6.Nd5,e2e4 c7c5 g1f3 b8c6 d2d4 c5d4 f3d4 g8f6 b1c3 e7e5 d4b5 d7d6 c1g5 a7a6 b5a3 b7b5 g5f6 g7f6 c3d5 f6f5,5,,sharp,"10...f5 — challenge e4 immediately. NOT the Novosibirsk; that name belongs to 10...Bg7."
-B.Sic.Dra,Sicilian Dragon,B70|B71|B72|B73|B74|B75|B76|B77|B78|B79,B.Sic,e2e4 c7c5 g1f3 d7d6 d2d4 c5d4 f3d4 g8f6 b1c3 g7g6,2,,sharp|theoretical,...g6 and ...Bg7 fianchetto.
-B.Sic.Dra.Yug,"Sicilian Dragon, Yugoslav Attack",B76|B77|B78|B79,B.Sic.Dra,e2e4 c7c5 g1f3 d7d6 d2d4 c5d4 f3d4 g8f6 b1c3 g7g6 c1e3 f8g7 f2f3 e8g8 d1d2 b8c6 f1c4,3,Yugoslav Attack,sharp,9.Bc4 / 9.O-O-O setups.
-B.Sic.Sch,Sicilian Scheveningen,B80|B81|B82|B83|B84|B85|B86|B87|B88|B89,B.Sic,e2e4 c7c5 g1f3 d7d6 d2d4 c5d4 f3d4 g8f6 b1c3 e7e6,2,,closed,...e6 and ...d6 small centre.
-B.Sic.Sch.Krs,"Sicilian Scheveningen, Keres Attack",B81,B.Sic.Sch,e2e4 c7c5 g1f3 d7d6 d2d4 c5d4 f3d4 g8f6 b1c3 e7e6 g2g4,3,Keres Attack,sharp,6.g4.
-B.Sic.Tay,Sicilian Taimanov,B40|B41|B42|B43|B44|B45|B46|B47|B48|B49,B.Sic,e2e4 c7c5 g1f3 e7e6 d2d4 c5d4 f3d4 b8c6,2,Taimanov-Bastrikov,,...e6 and ...Nc6.
-B.Sic.Kan,Sicilian Kan,B41|B42|B43,B.Sic,e2e4 c7c5 g1f3 e7e6 d2d4 c5d4 f3d4 a7a6,2,Paulsen-Kan,,...e6 and ...a6 without ...Nc6.
-B.Sic.Cls,Sicilian Classical,B56|B57|B58|B59|B60|B61|B62|B63|B64|B65|B66|B67|B68|B69,B.Sic,e2e4 c7c5 g1f3 d7d6 d2d4 c5d4 f3d4 g8f6 b1c3 b8c6,2,,,...Nc6 and ...d6 with ...Nf6.
-B.Sic.Ros,Sicilian Rossolimo,B30|B31,B.Sic,e2e4 c7c5 g1f3 b8c6 f1b5,2,Rossolimo Variation,,3.Bb5 against ...Nc6 Sicilian.
-B.Sic.Mor,Sicilian Moscow,B51|B52,B.Sic,e2e4 c7c5 g1f3 d7d6 f1b5,2,Moscow Variation,,3.Bb5+ against ...d6 Sicilian.
-B.Sic.Alp,Sicilian Alapin,B22,B.Sic,e2e4 c7c5 c2c3,2,c3 Sicilian|Alapin Variation,,2.c3 anti-Sicilian.
-B.Sic.SmM,Sicilian Smith-Morra Gambit,B21,B.Sic,e2e4 c7c5 d2d4 c5d4 c2c3,2,Smith-Morra Gambit,gambit|sharp,2.d4 cxd4 3.c3 pawn sacrifice.
-B.Sic.Cls.Rch,"Sicilian Classical, Richter-Rauzer",B60|B61|B62|B63|B64|B65|B66|B67|B68|B69,B.Sic.Cls,e2e4 c7c5 g1f3 d7d6 d2d4 c5d4 f3d4 g8f6 b1c3 b8c6 c1g5,3,Richter-Rauzer Attack,,6.Bg5.
-B.Sic.OKn,"Sicilian, Open Knights",B50,B.Sic,e2e4 c7c5 g1f3 d7d6 d2d4 c5d4 f3d4,2,,,Generic Open Sicilian without committed setup.
-B.CaK,Caro-Kann Defence,B10|B11|B12|B13|B14|B15|B16|B17|B18|B19,B,e2e4 c7c6,1,,,1.e4 c6.
-B.CaK.Adv,"Caro-Kann, Advance",B12,B.CaK,e2e4 c7c6 d2d4 d7d5 e4e5,2,,closed,3.e5 push.
-B.CaK.Cls,"Caro-Kann, Classical",B18|B19,B.CaK,e2e4 c7c6 d2d4 d7d5 b1c3 d5e4 c3e4 c8f5,2,,closed,4...Bf5 main line.
-B.CaK.Pmv,"Caro-Kann, Panov-Botvinnik Attack",B13|B14,B.CaK,e2e4 c7c6 d2d4 d7d5 e4d5 c6d5 c2c4,2,Panov-Botvinnik Attack,sharp,3.exd5 cxd5 4.c4 IQP setup.
-B.CaK.Two,"Caro-Kann, Two Knights",B11,B.CaK,e2e4 c7c6 b1c3 d7d5 g1f3,2,Two Knights Variation,,3.Nc3 + Nf3.
-B.Fre,French Defence,C00|C01|C02|C03|C04|C05|C06|C07|C08|C09|C10|C11|C12|C13|C14|C15|C16|C17|C18|C19,B,e2e4 e7e6,1,,,1.e4 e6 — classified B because Black avoids 1...e5.
-B.Fre.Win,"French, Winawer",C15|C16|C17|C18|C19,B.Fre,e2e4 e7e6 d2d4 d7d5 b1c3 f8b4,2,,sharp,3.Nc3 Bb4.
-B.Fre.Tar,"French, Tarrasch",C03|C04|C05|C06|C07|C08|C09,B.Fre,e2e4 e7e6 d2d4 d7d5 b1d2,2,,,3.Nd2.
-B.Fre.Adv,"French, Advance",C02,B.Fre,e2e4 e7e6 d2d4 d7d5 e4e5,2,,closed,3.e5.
-B.Fre.Cls,"French, Classical",C13|C14,B.Fre,e2e4 e7e6 d2d4 d7d5 b1c3 g8f6,2,,,3.Nc3 Nf6.
-B.Fre.Exc,"French, Exchange",C01,B.Fre,e2e4 e7e6 d2d4 d7d5 e4d5 e6d5,2,,closed,3.exd5.
-B.Pir,Pirc Defence,B07|B08|B09,B,e2e4 d7d6 d2d4 g8f6 b1c3 g7g6,1,,,1.e4 d6 with ...Nf6 and ...g6.
-B.Mod,Modern Defence,B06,B,e2e4 g7g6,1,,,1.e4 g6 (without ...Nf6 commitment).
-B.Sca,Scandinavian Defence,B01,B,e2e4 d7d5,1,Centre Counter,,1.e4 d5.
-B.Ale,Alekhine Defence,B02|B03|B04|B05,B,e2e4 g8f6,1,,,1.e4 Nf6.
-B.OwM,Owen's Modern (...b6 vs e4),B00,B,e2e4 b7b6,1,,,Sometimes mapped to A.Owe — see notes.
-C.RyL,Ruy López,C60|C61|C62|C63|C64|C65|C66|C67|C68|C69|C70|C71|C72|C73|C74|C75|C76|C77|C78|C79|C80|C81|C82|C83|C84|C85|C86|C87|C88|C89|C90|C91|C92|C93|C94|C95|C96|C97|C98|C99,C,e2e4 e7e5 g1f3 b8c6 f1b5,1,Spanish Opening,,1.e4 e5 2.Nf3 Nc6 3.Bb5.
-C.RyL.Ber,"Ruy López, Berlin Defence",C65|C66|C67,C.RyL,e2e4 e7e5 g1f3 b8c6 f1b5 g8f6,2,,closed,3...Nf6.
-C.RyL.Ber.End,Berlin Endgame,C67,C.RyL.Ber,e2e4 e7e5 g1f3 b8c6 f1b5 g8f6 e1g1 f6e4 d2d4 e4d6 b5c6 d7c6 d4e5 d6f5 d1d8 e8d8,3,Berlin Wall,closed|endgame,4.O-O Nxe4 5.d4 Nd6 line.
-C.RyL.Mar,"Ruy López, Marshall Attack",C89,C.RyL,e2e4 e7e5 g1f3 b8c6 f1b5 a7a6 b5a4 g8f6 e1g1 f8e7 f1e1 b7b5 a4b3 e8g8 c2c3 d7d5,2,Marshall Counterattack,gambit|sharp,8...d5 pawn sacrifice.
-C.RyL.AntM,"Ruy López, Anti-Marshall",C88,C.RyL,e2e4 e7e5 g1f3 b8c6 f1b5 a7a6 b5a4 g8f6 e1g1 f8e7 f1e1 b7b5 a4b3 e8g8 a2a4,2,Anti-Marshall,,8.a4/h3 avoiding the Marshall.
-C.RyL.Cls,"Ruy López, Closed Spanish",C84|C85|C86|C87|C88|C89|C90|C91|C92|C93|C94|C95|C96|C97|C98|C99,C.RyL,e2e4 e7e5 g1f3 b8c6 f1b5 a7a6 b5a4 g8f6 e1g1 f8e7 f1e1 b7b5 a4b3 d7d6,2,,closed,...Be7 and ...d6 Steinitz/Closed mainlines.
-C.RyL.Brk,"Ruy López, Breyer",C92|C93|C94|C95,C.RyL,e2e4 e7e5 g1f3 b8c6 f1b5 a7a6 b5a4 g8f6 e1g1 f8e7 f1e1 b7b5 a4b3 d7d6 c2c3 e8g8 h2h3 c6b8,2,Breyer Defence,closed,...Nb8 manoeuvre.
-C.RyL.Zai,"Ruy López, Zaitsev",C92|C93|C94|C95,C.RyL,e2e4 e7e5 g1f3 b8c6 f1b5 a7a6 b5a4 g8f6 e1g1 f8e7 f1e1 b7b5 a4b3 d7d6 c2c3 e8g8 h2h3 c8b7 d2d4 f8e8,2,Zaitsev Variation,,...Re8 and ...Bf8.
-C.RyL.Cha,"Ruy López, Chigorin",C97|C98|C99,C.RyL,e2e4 e7e5 g1f3 b8c6 f1b5 a7a6 b5a4 g8f6 e1g1 f8e7 f1e1 b7b5 a4b3 d7d6 c2c3 e8g8 h2h3 c6a5,2,Chigorin Variation,,...Na5 manoeuvre.
-C.RyL.Exc,"Ruy López, Exchange",C68|C69,C.RyL,e2e4 e7e5 g1f3 b8c6 f1b5 a7a6 b5c6,2,Exchange Spanish,closed,4.Bxc6.
-C.Ita,Italian Game,C50|C51|C52|C53|C54|C55|C56|C57|C58|C59,C,e2e4 e7e5 g1f3 b8c6 f1c4,1,,,1.e4 e5 2.Nf3 Nc6 3.Bc4.
-C.Ita.Two,"Italian, Two Knights",C55|C56|C57|C58|C59,C.Ita,e2e4 e7e5 g1f3 b8c6 f1c4 g8f6,2,Two Knights Defence,sharp,3...Nf6.
-C.Ita.Evn,"Italian, Evans Gambit",C51|C52,C.Ita,e2e4 e7e5 g1f3 b8c6 f1c4 f8c5 b2b4,2,Evans Gambit,gambit|sharp,4.b4.
-C.Ita.Pia,"Italian, Giuoco Pianissimo",C50,C.Ita,e2e4 e7e5 g1f3 b8c6 f1c4 f8c5 d2d3,2,Giuoco Pianissimo,closed,"4.d3 quiet line. The 3-letter token is 'Pia' (Pianissimo)."
-C.KGm,King's Gambit,C30|C31|C32|C33|C34|C35|C36|C37|C38|C39,C,e2e4 e7e5 f2f4,1,,gambit|sharp,2.f4.
-C.KGm.Acc,King's Gambit Accepted,C33|C34|C35|C36|C37|C38|C39,C.KGm,e2e4 e7e5 f2f4 e5f4,2,,gambit|sharp,2...exf4.
-C.KGm.Dec,King's Gambit Declined,C30|C31|C32,C.KGm,e2e4 e7e5 f2f4 f8c5,2,,gambit,2...Bc5 / 2...d5.
-C.Pet,Petrov Defence,C42|C43,C,e2e4 e7e5 g1f3 g8f6,1,Russian Defence,,2...Nf6.
-C.Sco,Scotch Game,C44|C45,C,e2e4 e7e5 g1f3 b8c6 d2d4,1,,,3.d4.
-C.Sco.Mie,"Scotch, Mieses",C45,C.Sco,e2e4 e7e5 g1f3 b8c6 d2d4 e5d4 f3d4 g8f6,2,,,Modern 4...Bc5/4...Nf6 + Mieses tabiya.
-C.Vie,Vienna Game,C25|C26|C27|C28|C29,C,e2e4 e7e5 b1c3,1,,,2.Nc3.
-C.PhD,Philidor Defence,C41,C,e2e4 e7e5 g1f3 d7d6,1,,,2...d6.
-C.LtO,Latvian Gambit,C40,C,e2e4 e7e5 g1f3 f7f5,1,Latvian Gambit,gambit|sharp,2...f5.
-D.QGD,Queen's Gambit Declined,D30|D31|D32|D33|D34|D35|D36|D37|D38|D39|D40|D41|D42|D43|D44|D45|D46|D47|D48|D49|D50|D51|D52|D53|D54|D55|D56|D57|D58|D59|D60|D61|D62|D63|D64|D65|D66|D67|D68|D69,D,d2d4 d7d5 c2c4 e7e6,1,,,1.d4 d5 2.c4 e6.
-D.QGD.Ort,"QGD, Orthodox",D60|D61|D62|D63|D64|D65|D66|D67|D68|D69,D.QGD,d2d4 d7d5 c2c4 e7e6 b1c3 g8f6 c1g5 f8e7 e2e3 b8d7,2,Orthodox Defence,closed,...Nbd7/...c6 setup.
-D.QGD.Tar,"QGD, Tartakower",D58|D59,D.QGD,d2d4 d7d5 c2c4 e7e6 b1c3 g8f6 c1g5 f8e7 e2e3 e8g8 g1f3 b7b6,2,Tartakower Variation,,...b6 fianchetto.
-D.QGD.Lsk,"QGD, Lasker",D55|D56|D57,D.QGD,d2d4 d7d5 c2c4 e7e6 b1c3 g8f6 c1g5 f8e7 e2e3 e8g8 g1f3 h7h6 g5h4 f6e4,2,Lasker Defence,,...Ne4 manoeuvre.
-D.QGD.Cmb,"QGD, Cambridge Springs",D52,D.QGD,d2d4 d7d5 c2c4 e7e6 b1c3 g8f6 c1g5 b8d7 e2e3 c7c6 g1f3 d8a5,2,Cambridge Springs,sharp,...Qa5.
-D.QGD.Exc,"QGD, Exchange",D35|D36,D.QGD,d2d4 d7d5 c2c4 e7e6 b1c3 g8f6 c4d5 e6d5,2,Exchange Variation,closed,4.cxd5 cxd5.
-D.QGA,Queen's Gambit Accepted,D20|D21|D22|D23|D24|D25|D26|D27|D28|D29,D,d2d4 d7d5 c2c4 d5c4,1,,,1.d4 d5 2.c4 dxc4.
-D.Sla,Slav Defence,D10|D11|D12|D13|D14|D15|D16|D17|D18|D19,D,d2d4 d7d5 c2c4 c7c6,1,,,1.d4 d5 2.c4 c6.
-D.Sem,Semi-Slav,D43|D44|D45|D46|D47|D48|D49,D,d2d4 d7d5 c2c4 c7c6 g1f3 g8f6 b1c3 e7e6,1,Semi-Slav,,"Promoted to peer of Slav: Semi-Slav is reachable from Slav (1.d4 d5 2.c4 c6 3.Nf3 Nf6 4.Nc3 e6) AND from QGD (1.d4 d5 2.c4 e6 3.Nc3 Nf6 4.Nf3 c6). Filiation by transposition is meaningless; OCN groups by structural identity, not by move-order entry."
-D.Sem.Mer,"Semi-Slav, Meran",D47|D48|D49,D.Sem,d2d4 d7d5 c2c4 c7c6 g1f3 g8f6 b1c3 e7e6 e2e3 b8d7 f1d3 d5c4 d3c4 b7b5,2,Meran Variation,sharp,"...dxc4 ...b5 main lines. Karpov's 6.Qc2 (the genuine anti-Meran) not yet catalogued."
-D.Sem.Mos,"Semi-Slav, Moscow Variation",D43|D44,D.Sem,d2d4 d7d5 c2c4 c7c6 g1f3 g8f6 b1c3 e7e6 c1g5,2,Moscow Variation|Anti-Moscow group,sharp|theoretical,"5.Bg5 family. Three sibling lines: 5...dxc4 -> Botvinnik (D.Sem.Bot); 5...h6 6.Bxf6 -> Moscow proper; 5...h6 6.Bh4 -> Anti-Moscow."
-D.Sem.Mos.Bxf6,"Moscow proper (5.Bg5 h6 6.Bxf6)",D43,D.Sem.Mos,d2d4 d7d5 c2c4 c7c6 g1f3 g8f6 b1c3 e7e6 c1g5 h7h6 g5f6,3,Moscow Proper,sharp,"6.Bxf6 — exchange on f6 to weaken the kingside structure."
-D.Sem.Mos.Bh4,"Anti-Moscow (5.Bg5 h6 6.Bh4)",D43,D.Sem.Mos,d2d4 d7d5 c2c4 c7c6 g1f3 g8f6 b1c3 e7e6 c1g5 h7h6 g5h4,3,Anti-Moscow,sharp|theoretical,"6.Bh4 — keeps the bishop, sharpest theoretical territory."
-D.Sem.Bot,"Semi-Slav, Botvinnik",D44,D.Sem,d2d4 d7d5 c2c4 c7c6 g1f3 g8f6 b1c3 e7e6 c1g5 d5c4 e2e4 b7b5,2,Botvinnik Variation,sharp|theoretical,"5.Bg5 dxc4 (immediate central capture, no h6). Sibling of Moscow proper (D.Sem.Mos.Bxf6) and Anti-Moscow (D.Sem.Mos.Bh4)."
-D.Sla.Exc,"Slav, Exchange",D10|D13,D.Sla,d2d4 d7d5 c2c4 c7c6 c4d5 c6d5,2,Exchange Slav,closed,3.cxd5 cxd5.
-D.Sla.Cls,"Slav, Classical",D17|D18|D19,D.Sla,d2d4 d7d5 c2c4 c7c6 g1f3 g8f6 b1c3 d5c4 a2a4 c8f5,2,Classical Slav,,...dxc4 ...Bf5 main line.
-D.Cat,Catalan Opening,E00|E01|E02|E03|E04|E05|E06|E07|E08|E09,D,d2d4 d7d5 c2c4 e7e6 g1f3 g8f6 g2g3,1,,,1.d4 d5 2.c4 e6 3.Nf3 Nf6 4.g3 (Black plays ...d5).
-D.Cat.Ope,"Catalan, Open",E04|E05,D.Cat,d2d4 d7d5 c2c4 e7e6 g1f3 g8f6 g2g3 d5c4,2,Open Catalan,,...dxc4.
-D.Cat.Cls,"Catalan, Closed",E06|E07|E08|E09,D.Cat,d2d4 d7d5 c2c4 e7e6 g1f3 g8f6 g2g3 f8e7 f1g2 e8g8 e1g1 b8d7,2,Closed Catalan,closed,...Be7 maintaining d5.
-D.Tar,Tarrasch Defence,D32|D33|D34,D,d2d4 d7d5 c2c4 e7e6 b1c3 c7c5,1,,,1.d4 d5 2.c4 e6 3.Nc3 c5 IQP.
-D.STa,Semi-Tarrasch,D40|D41|D42,D,d2d4 d7d5 c2c4 e7e6 b1c3 g8f6 g1f3 c7c5,1,Semi-Tarrasch Defence,,"Reaches via QGD or Slav-style move-orders alike (Albert-style transposition awareness): 1.d4 d5 2.c4 e6 3.Nc3 Nf6 4.Nf3 c5. Peer of Tarrasch, not a sub-line."
-D.QGD.Vie,"QGD, Vienna Variation",D37|D38|D39,D.QGD,d2d4 d7d5 c2c4 e7e6 b1c3 g8f6 g1f3 d5c4,2,Vienna Variation,sharp|theoretical,"4.Nf3 dxc4 — pawn-grab branch within QGD with Nc3 + Nf3."
-D.QGD.Rag,"QGD, Ragozin",D38|D39,D.QGD,d2d4 d7d5 c2c4 e7e6 b1c3 g8f6 g1f3 f8b4,2,Ragozin Defence,,"4.Nf3 Bb4 — Nimzo-style pin while keeping ...d5."
-D.Alb,Albin Counter-Gambit,D08|D09,D,d2d4 d7d5 c2c4 e7e5,1,Albin Counter-Gambit,gambit|sharp,2...e5.
-D.Bgm,Blackmar-Diemer Gambit,D00,D,d2d4 d7d5 e2e4,1,Blackmar-Diemer Gambit,gambit|sharp,1.d4 d5 2.e4 IM-rare gambit.
-E.KID,King's Indian Defence,E60|E61|E62|E63|E64|E65|E66|E67|E68|E69|E70|E71|E72|E73|E74|E75|E76|E77|E78|E79|E80|E81|E82|E83|E84|E85|E86|E87|E88|E89|E90|E91|E92|E93|E94|E95|E96|E97|E98|E99,E,d2d4 g8f6 c2c4 g7g6 b1c3 f8g7,1,KID,,1.d4 Nf6 2.c4 g6 3.Nc3 Bg7.
-E.KID.Sml,"KID, Sämisch",E80|E81|E82|E83|E84|E85|E86|E87|E88|E89,E.KID,d2d4 g8f6 c2c4 g7g6 b1c3 f8g7 e2e4 d7d6 f2f3,2,Saemisch Variation,closed|sharp,5.f3.
-E.KID.Cls,"KID, Classical",E91|E92|E93|E94|E95|E96|E97|E98|E99,E.KID,d2d4 g8f6 c2c4 g7g6 b1c3 f8g7 e2e4 d7d6 g1f3,2,Classical KID,sharp|theoretical,5.Nf3.
-E.KID.Cls.Mar,"KID, Mar del Plata",E97,E.KID.Cls,d2d4 g8f6 c2c4 g7g6 b1c3 f8g7 e2e4 d7d6 g1f3 e8g8 f1e2 e7e5 e1g1 b8c6 d4d5 c6e7,3,Mar del Plata Variation,sharp|theoretical,9...Ne7 — main attacking line.
-E.KID.Fch,"KID, Fianchetto",E60|E61|E62|E63|E64|E65|E66|E67|E68|E69,E.KID,d2d4 g8f6 c2c4 g7g6 b1c3 f8g7 g1f3 e8g8 g2g3 d7d6,2,Fianchetto Variation,closed,5.g3.
-E.KID.Avk,"KID, Averbakh",E73,E.KID,d2d4 g8f6 c2c4 g7g6 b1c3 f8g7 e2e4 d7d6 f1e2 e8g8 c1g5,2,Averbakh Variation,,5.Be2 Bg5 setup.
-E.KID.Fou,"KID, Four Pawns Attack",E76|E77|E78|E79,E.KID,d2d4 g8f6 c2c4 g7g6 b1c3 f8g7 e2e4 d7d6 f2f4,2,Four Pawns Attack,sharp,5.f4.
-E.Nim,Nimzo-Indian Defence,E20|E21|E22|E23|E24|E25|E26|E27|E28|E29|E30|E31|E32|E33|E34|E35|E36|E37|E38|E39|E40|E41|E42|E43|E44|E45|E46|E47|E48|E49|E50|E51|E52|E53|E54|E55|E56|E57|E58|E59,E,d2d4 g8f6 c2c4 e7e6 b1c3 f8b4,1,NID|Nimzo,,3...Bb4.
-E.Nim.Rub,"Nimzo, Rubinstein",E40|E41|E42|E43|E44|E45|E46|E47|E48|E49|E50|E51|E52|E53|E54|E55|E56|E57|E58|E59,E.Nim,d2d4 g8f6 c2c4 e7e6 b1c3 f8b4 e2e3,2,Rubinstein Complex,,4.e3.
-E.Nim.Cls,"Nimzo, Classical",E32|E33|E34|E35|E36|E37|E38|E39,E.Nim,d2d4 g8f6 c2c4 e7e6 b1c3 f8b4 d1c2,2,Classical Nimzo,,4.Qc2.
-E.Nim.Sml,"Nimzo, Sämisch",E25|E26|E27|E28|E29,E.Nim,d2d4 g8f6 c2c4 e7e6 b1c3 f8b4 a2a3,2,Saemisch Variation,sharp,4.a3.
-E.Nim.Lng,"Nimzo, Leningrad",E30|E31,E.Nim,d2d4 g8f6 c2c4 e7e6 b1c3 f8b4 c1g5,2,Leningrad Variation,sharp,4.Bg5.
-E.QID,Queen's Indian Defence,E12|E13|E14|E15|E16|E17|E18|E19,E,d2d4 g8f6 c2c4 e7e6 g1f3 b7b6,1,QID,,3...b6.
-E.QID.Pet,"QID, Petrosian",E12|E13,E.QID,d2d4 g8f6 c2c4 e7e6 g1f3 b7b6 a2a3,2,Petrosian Variation,,4.a3.
-E.QID.Mod,"QID, Modern",E15|E16|E17|E18|E19,E.QID,d2d4 g8f6 c2c4 e7e6 g1f3 b7b6 g2g3 c8b7,2,,,4.g3 Bb7 main.
-E.Bog,Bogo-Indian Defence,E11,E,d2d4 g8f6 c2c4 e7e6 g1f3 f8b4,1,,,3...Bb4+.
-E.OldI,Old Indian Defence,A53|A54|A55,E,d2d4 g8f6 c2c4 d7d6,1,,,1.d4 Nf6 2.c4 d6 — non-fianchetto.
-E.Gru,Grünfeld Defence,D70|D71|D72|D73|D74|D75|D76|D77|D78|D79|D80|D81|D82|D83|D84|D85|D86|D87|D88|D89|D90|D91|D92|D93|D94|D95|D96|D97|D98|D99,E,d2d4 g8f6 c2c4 g7g6 b1c3 d7d5,1,Gruenfeld,,1.d4 Nf6 2.c4 g6 3.Nc3 d5 — class E despite legacy ECO D codes (see spec borderlines).
-E.Gru.Exc,"Grünfeld, Exchange",D85|D86,E.Gru,d2d4 g8f6 c2c4 g7g6 b1c3 d7d5 c4d5 f6d5 e2e4,2,,sharp,Main line 4.cxd5 Nxd5 5.e4.
-E.Gru.Rus,"Grünfeld, Russian",D96|D97|D98|D99,E.Gru,d2d4 g8f6 c2c4 g7g6 b1c3 d7d5 g1f3 f8g7 d1b3,2,Russian System,,4.Nf3 Bg7 5.Qb3.
-E.Gru.Fch,"Grünfeld, Fianchetto",D78|D79,E.Gru,d2d4 g8f6 c2c4 g7g6 b1c3 d7d5 g1f3 f8g7 g2g3,2,Fianchetto Variation,,5.g3.
+ocn1,canonical_name,eco_legacy,parent_ocn1,moves_uci,depth,aliases,flags,notes,attributed_to,attribution_source,historical_notes
+A,Flank Openings,,,,0,,,Top-level class. Any opening that is neither 1.e4 nor an early 1.d4-with-2.c4 falls here.,,,
+B,Semi-Open Games,,,,0,,,Top-level class. 1.e4 with any reply other than 1...e5.,,,
+C,Open Games,,,,0,,,Top-level class. 1.e4 e5.,,,
+D,Closed Queen's Pawn,,,,0,,,Top-level class. 1.d4 d5 (or any line with an early ...d5).,,,
+E,Indian Defences,,,,0,,,Top-level class. 1.d4 Nf6 with Black declining ...d5 in the early phase.,,,
+A.Eng,English Opening,A10|A11|A12|A13|A14|A15|A16|A17|A18|A19|A20|A21|A22|A23|A24|A25|A26|A27|A28|A29|A30|A31|A32|A33|A34|A35|A36|A37|A38|A39,A,c2c4,1,,,1.c4 family.,,,
+A.Eng.Sym,"English Opening, Symmetrical",A30|A31|A32|A33|A34|A35|A36|A37|A38|A39,A.Eng,c2c4 c7c5,2,,closed,1.c4 c5.,,,
+A.Eng.Rev,"English Opening, Reversed Sicilian",A20|A21|A22|A23|A24|A25|A26|A27|A28|A29,A.Eng,c2c4 e7e5,2,Reversed Sicilian,,1.c4 e5 — English with a tempo extra for White.,,,
+A.Hol,Dutch Defence,A80|A81|A82|A83|A84|A85|A86|A87|A88|A89|A90|A91|A92|A93|A94|A95|A96|A97|A98|A99,A,d2d4 f7f5,1,,sharp,1.d4 f5.,,,
+A.Hol.Lng,"Dutch Defence, Leningrad",A87|A88|A89,A.Hol,d2d4 f7f5 g2g3 g8f6 f1g2 g7g6,2,Leningrad Dutch,sharp,...g6 and ...Bg7 setup.,,,
+A.Hol.Sto,"Dutch Defence, Stonewall",A84|A85,A.Hol,d2d4 f7f5 g2g3 g8f6 f1g2 e7e6 g1f3 d7d5,2,Stonewall Dutch,closed,...d5 and ...e6 with f5 frozen pawn structure.,,,
+A.Hol.Cls,"Dutch Defence, Classical",A96|A97|A98|A99,A.Hol,d2d4 f7f5 g2g3 g8f6 f1g2 e7e6 g1f3 f8e7,2,,," ...e6 and ...d6, classical setup.",,,
+A.Ben,Benoni Defence,A57|A58|A59|A60|A61|A62|A63|A64|A65|A66|A67|A68|A69|A70|A71|A72|A73|A74|A75|A76|A77|A78|A79,A,d2d4 g8f6 c2c4 c7c5,1,,sharp,1.d4 Nf6 2.c4 c5 with d5 push.,,,
+A.Ben.Mod,Modern Benoni,A60|A61|A62|A63|A64|A65|A66|A67|A68|A69|A70|A71|A72|A73|A74|A75|A76|A77|A78|A79,A.Ben,d2d4 g8f6 c2c4 c7c5 d4d5 e7e6 b1c3 e6d5 c4d5 d7d6 e2e4 g7g6,2,,sharp,Modern setup with ...g6 and ...Bg7.,,,
+A.Ben.Bnk,Benko / Volga Gambit,A57|A58|A59,A.Ben,d2d4 g8f6 c2c4 c7c5 d4d5 b7b5,2,Benko Gambit|Volga Gambit,gambit|sharp,"...b5 pawn sacrifice. Slug 'Bnk' = Benko (the previous 'Czk' label was a mistake — that token is for the Czech Benoni, a separate opening).",Pal Benko (systematiser); Soviet 'Volga' analysts (parallel discovery),"Benko, 'The Benko Gambit' (RHM Press, 1974); the alternative name 'Volga Gambit' traces to 1940s Soviet analyses centred around the Volga river region.","Two independent traditions converged on the same opening, hence the dual name. Benko (Hungarian-American GM) wrote the canonical English-language monograph. Soviet sources had been calling it the Volga Gambit for decades."
+A.Ben.Czk,Czech Benoni,A56,A.Ben,d2d4 g8f6 c2c4 c7c5 d4d5 e7e5,2,Czech Benoni,closed,"1.d4 Nf6 2.c4 c5 3.d5 e5 — locked-centre treatment, not a gambit.",,,
+A.Tro,Trompowsky Attack,A45,A,d2d4 g8f6 c1g5,1,,,1.d4 Nf6 2.Bg5.,,,
+A.Lon,London System,A48,A,d2d4 d7d5 g1f3 g8f6 c1f4,1,,closed,1.d4 with Bf4 setup.,,,
+A.Bir,Bird's Opening,A02|A03,A,f2f4,1,,,1.f4.,,,
+A.Lar,Larsen Attack,A01,A,b2b3,1,Nimzo-Larsen Attack,,1.b3.,,,
+A.Ret,Réti Opening,A04|A05|A06|A07|A08|A09,A,g1f3,1,,,1.Nf3 with c4/g3 plan.,,,
+A.Owe,Owen's Defence,A40|B00,A,d2d4 b7b6,1,,,1.d4 b6 — flank reply to queen-pawn (class A). For 1.e4 b6 use B.OwM.,,,
+A.Pol,Polish Opening,A00,A,b2b4,1,Sokolsky,,1.b4.,,,
+B.Sic,Sicilian Defence,B20|B21|B22|B23|B24|B25|B26|B27|B28|B29|B30|B31|B32|B33|B34|B35|B36|B37|B38|B39|B40|B41|B42|B43|B44|B45|B46|B47|B48|B49|B50|B51|B52|B53|B54|B55|B56|B57|B58|B59|B60|B61|B62|B63|B64|B65|B66|B67|B68|B69|B70|B71|B72|B73|B74|B75|B76|B77|B78|B79|B80|B81|B82|B83|B84|B85|B86|B87|B88|B89|B90|B91|B92|B93|B94|B95|B96|B97|B98|B99,B,e2e4 c7c5,1,,,1.e4 c5.,,,
+B.Sic.Naj,"Sicilian, Najdorf",B90|B91|B92|B93|B94|B95|B96|B97|B98|B99,B.Sic,e2e4 c7c5 g1f3 d7d6 d2d4 c5d4 f3d4 g8f6 b1c3 a7a6,2,Najdorf Variation,sharp,5...a6.,Miguel Najdorf (Polish-Argentine GM),"Najdorf's own analyses and tournament practice from the 1940s–50s; the variation bears his name in standard literature (e.g. Geller, Kasparov chess histories).","Najdorf championed the line as Black; Fischer and Kasparov both adopted it as their main weapon, cementing the name."
+B.Sic.Naj.Eng,"Sicilian Najdorf, English Attack",B90,B.Sic.Naj,e2e4 c7c5 g1f3 d7d6 d2d4 c5d4 f3d4 g8f6 b1c3 a7a6 c1e3,3,,sharp|theoretical,6.Be3.,,,
+B.Sic.Naj.Sch,"Sicilian Najdorf, Scheveningen",B92|B93,B.Sic.Naj,e2e4 c7c5 g1f3 d7d6 d2d4 c5d4 f3d4 g8f6 b1c3 a7a6 f1e2 e7e6,3,,, ...e6 hybrid Scheveningen-Najdorf.,,,
+B.Sic.Naj.Adm,"Sicilian Najdorf, Adams Attack",B90,B.Sic.Naj,e2e4 c7c5 g1f3 d7d6 d2d4 c5d4 f3d4 g8f6 b1c3 a7a6 h2h3,3,,sharp,6.h3.,,,
+B.Sic.Naj.Pol,"Sicilian Najdorf, Polugaevsky",B96,B.Sic.Naj,e2e4 c7c5 g1f3 d7d6 d2d4 c5d4 f3d4 g8f6 b1c3 a7a6 c1g5 e7e6 f2f4 b7b5,3,,sharp,...b5 Polugaevsky line.,,,
+B.Sic.Naj.Pst,"Sicilian Najdorf, Poisoned Pawn",B97,B.Sic.Naj,e2e4 c7c5 g1f3 d7d6 d2d4 c5d4 f3d4 g8f6 b1c3 a7a6 c1g5 e7e6 f2f4 d8b6,3,,sharp|theoretical,6.Bg5 e6 7.f4 Qb6.,,,
+B.Sic.Sve,Sicilian Sveshnikov,B33,B.Sic,e2e4 c7c5 g1f3 b8c6 d2d4 c5d4 f3d4 g8f6 b1c3 e7e5,2,Lasker-Pelikan|Cheliabinsk,sharp,...e5 and ...Nf6. Critical position is 6.Ndb5 d6 7.Bg5 a6 8.Na3 b5; from there White picks 9.Nd5 (modern) or 9.Bxf6 (older).,Yevgeny Sveshnikov (modern systematiser); Jorge Pelikan (early adopter),"Sveshnikov, 'The Complete Sveshnikov Sicilian' (Gambit, 2003); corpus first appearance Tarrasch–Mieses 1888 antedates Pelikan's 1972 Buenos Aires game by 84 years.",The corpus shows the position itself was reached as early as 1888 (Tarrasch–Mieses); Pelikan adopted it as Black in the 1950s–70s in Argentina; Sveshnikov's analysis from the 1970s onwards turned it into mainline theory and the line carries his name today. Hence the alias 'Lasker-Pelikan'.
+B.Sic.Sve.Nd5,"Sveshnikov, 9.Nd5 (Modern Main)",B33,B.Sic.Sve,e2e4 c7c5 g1f3 b8c6 d2d4 c5d4 f3d4 g8f6 b1c3 e7e5 d4b5 d7d6 c1g5 a7a6 b5a3 b7b5 c3d5,3,Modern Main Line,sharp|theoretical,9.Nd5 — White posts the knight on d5 BEFORE exchanging on f6. Dominant since the late 1990s.,,,
+B.Sic.Sve.Nd5.Be7,"Sveshnikov 9.Nd5, ...Be7",B33,B.Sic.Sve.Nd5,e2e4 c7c5 g1f3 b8c6 d2d4 c5d4 f3d4 g8f6 b1c3 e7e5 d4b5 d7d6 c1g5 a7a6 b5a3 b7b5 c3d5 f8e7,4,,sharp|theoretical,"9...Be7 — canonical reply, attacks the Bg5.",,,
+B.Sic.Sve.Nd5.Be7.Bxf6,"Sveshnikov 9.Nd5 Be7, 10.Bxf6 Bxf6",B33,B.Sic.Sve.Nd5.Be7,e2e4 c7c5 g1f3 b8c6 d2d4 c5d4 f3d4 g8f6 b1c3 e7e5 d4b5 d7d6 c1g5 a7a6 b5a3 b7b5 c3d5 f8e7 g5f6 e7f6,5,,sharp|theoretical,"10.Bxf6 Bxf6 — modern tabiya. Black has the bishop pair, White owns d5.",,,
+B.Sic.Sve.Nd5.Qa5,"Sveshnikov 9.Nd5, ...Qa5+",B33,B.Sic.Sve.Nd5,e2e4 c7c5 g1f3 b8c6 d2d4 c5d4 f3d4 g8f6 b1c3 e7e5 d4b5 d7d6 c1g5 a7a6 b5a3 b7b5 c3d5 d8a5,4,Qa5+ Sideline,sharp,9...Qa5+ — check sideline; less common than 9...Be7 but theoretically respected.,,,
+B.Sic.Sve.Bxf6,"Sveshnikov, 9.Bxf6 (Old Main)",B33,B.Sic.Sve,e2e4 c7c5 g1f3 b8c6 d2d4 c5d4 f3d4 g8f6 b1c3 e7e5 d4b5 d7d6 c1g5 a7a6 b5a3 b7b5 g5f6 g7f6,3,,,"9.Bxf6 gxf6 — exchange first, decide later. Doubles f-pawns; was main treatment until ~2000.",,,
+B.Sic.Sve.Bxf6.Nd5,"Sveshnikov 9.Bxf6, 10.Nd5",B33,B.Sic.Sve.Bxf6,e2e4 c7c5 g1f3 b8c6 d2d4 c5d4 f3d4 g8f6 b1c3 e7e5 d4b5 d7d6 c1g5 a7a6 b5a3 b7b5 g5f6 g7f6 c3d5,4,Chelyabinsk Complex,sharp|theoretical,10.Nd5 — Soviet-era analysis core (the broader 'Chelyabinsk complex'). Black branches into 10...Bg7 (Novosibirsk) or 10...f5.,,,
+B.Sic.Sve.Bxf6.Nd5.Bg7,Novosibirsk (10...Bg7),B33,B.Sic.Sve.Bxf6.Nd5,e2e4 c7c5 g1f3 b8c6 d2d4 c5d4 f3d4 g8f6 b1c3 e7e5 d4b5 d7d6 c1g5 a7a6 b5a3 b7b5 g5f6 g7f6 c3d5 f8g7,5,Novosibirsk Variation,sharp|theoretical,10...Bg7 — fianchetto on the long diagonal. The Novosibirsk school's signature treatment. Sibling of 10...f5.,Anatoly Vaisser (popularizer; Novosibirsk school),Vaisser's tournament practice 1985–1990; corpus shows 26 games as Black starting Klinger–Vaisser 1985.,"Anatoly Vaisser (b. 1949 Novosibirsk, later France) is the player most associated with promoting 10...Bg7. The corpus does not support the claim that he played it FIRST — the earliest game in the Gigabase is Fraile–Pelikan 1972 — but Vaisser is the GM who turned it into a recognised treatment from the mid-1980s on. The variant inherits its name from his hometown."
+B.Sic.Sve.Bxf6.Nd5.f5,Sveshnikov 10...f5 (counterpunch),B33,B.Sic.Sve.Bxf6.Nd5,e2e4 c7c5 g1f3 b8c6 d2d4 c5d4 f3d4 g8f6 b1c3 e7e5 d4b5 d7d6 c1g5 a7a6 b5a3 b7b5 g5f6 g7f6 c3d5 f6f5,5,,sharp,10...f5 — challenge e4 immediately. NOT the Novosibirsk; that name belongs to 10...Bg7.,,,
+B.Sic.Dra,Sicilian Dragon,B70|B71|B72|B73|B74|B75|B76|B77|B78|B79,B.Sic,e2e4 c7c5 g1f3 d7d6 d2d4 c5d4 f3d4 g8f6 b1c3 g7g6,2,,sharp|theoretical,...g6 and ...Bg7 fianchetto.,,,
+B.Sic.Dra.Yug,"Sicilian Dragon, Yugoslav Attack",B76|B77|B78|B79,B.Sic.Dra,e2e4 c7c5 g1f3 d7d6 d2d4 c5d4 f3d4 g8f6 b1c3 g7g6 c1e3 f8g7 f2f3 e8g8 d1d2 b8c6 f1c4,3,Yugoslav Attack,sharp,9.Bc4 / 9.O-O-O setups.,,,
+B.Sic.Sch,Sicilian Scheveningen,B80|B81|B82|B83|B84|B85|B86|B87|B88|B89,B.Sic,e2e4 c7c5 g1f3 d7d6 d2d4 c5d4 f3d4 g8f6 b1c3 e7e6,2,,closed,...e6 and ...d6 small centre.,,,
+B.Sic.Sch.Krs,"Sicilian Scheveningen, Keres Attack",B81,B.Sic.Sch,e2e4 c7c5 g1f3 d7d6 d2d4 c5d4 f3d4 g8f6 b1c3 e7e6 g2g4,3,Keres Attack,sharp,6.g4.,,,
+B.Sic.Tay,Sicilian Taimanov,B40|B41|B42|B43|B44|B45|B46|B47|B48|B49,B.Sic,e2e4 c7c5 g1f3 e7e6 d2d4 c5d4 f3d4 b8c6,2,Taimanov-Bastrikov,,...e6 and ...Nc6.,,,
+B.Sic.Kan,Sicilian Kan,B41|B42|B43,B.Sic,e2e4 c7c5 g1f3 e7e6 d2d4 c5d4 f3d4 a7a6,2,Paulsen-Kan,,...e6 and ...a6 without ...Nc6.,,,
+B.Sic.Cls,Sicilian Classical,B56|B57|B58|B59|B60|B61|B62|B63|B64|B65|B66|B67|B68|B69,B.Sic,e2e4 c7c5 g1f3 d7d6 d2d4 c5d4 f3d4 g8f6 b1c3 b8c6,2,,,...Nc6 and ...d6 with ...Nf6.,,,
+B.Sic.Ros,Sicilian Rossolimo,B30|B31,B.Sic,e2e4 c7c5 g1f3 b8c6 f1b5,2,Rossolimo Variation,,3.Bb5 against ...Nc6 Sicilian.,,,
+B.Sic.Mor,Sicilian Moscow,B51|B52,B.Sic,e2e4 c7c5 g1f3 d7d6 f1b5,2,Moscow Variation,,3.Bb5+ against ...d6 Sicilian.,,,
+B.Sic.Alp,Sicilian Alapin,B22,B.Sic,e2e4 c7c5 c2c3,2,c3 Sicilian|Alapin Variation,,2.c3 anti-Sicilian.,,,
+B.Sic.SmM,Sicilian Smith-Morra Gambit,B21,B.Sic,e2e4 c7c5 d2d4 c5d4 c2c3,2,Smith-Morra Gambit,gambit|sharp,2.d4 cxd4 3.c3 pawn sacrifice.,,,
+B.Sic.Cls.Rch,"Sicilian Classical, Richter-Rauzer",B60|B61|B62|B63|B64|B65|B66|B67|B68|B69,B.Sic.Cls,e2e4 c7c5 g1f3 d7d6 d2d4 c5d4 f3d4 g8f6 b1c3 b8c6 c1g5,3,Richter-Rauzer Attack,,6.Bg5.,,,
+B.Sic.OKn,"Sicilian, Open Knights",B50,B.Sic,e2e4 c7c5 g1f3 d7d6 d2d4 c5d4 f3d4,2,,,Generic Open Sicilian without committed setup.,,,
+B.CaK,Caro-Kann Defence,B10|B11|B12|B13|B14|B15|B16|B17|B18|B19,B,e2e4 c7c6,1,,,1.e4 c6.,,,
+B.CaK.Adv,"Caro-Kann, Advance",B12,B.CaK,e2e4 c7c6 d2d4 d7d5 e4e5,2,,closed,3.e5 push.,,,
+B.CaK.Cls,"Caro-Kann, Classical",B18|B19,B.CaK,e2e4 c7c6 d2d4 d7d5 b1c3 d5e4 c3e4 c8f5,2,,closed,4...Bf5 main line.,,,
+B.CaK.Pmv,"Caro-Kann, Panov-Botvinnik Attack",B13|B14,B.CaK,e2e4 c7c6 d2d4 d7d5 e4d5 c6d5 c2c4,2,Panov-Botvinnik Attack,sharp,3.exd5 cxd5 4.c4 IQP setup.,,,
+B.CaK.Two,"Caro-Kann, Two Knights",B11,B.CaK,e2e4 c7c6 b1c3 d7d5 g1f3,2,Two Knights Variation,,3.Nc3 + Nf3.,,,
+B.Fre,French Defence,C00|C01|C02|C03|C04|C05|C06|C07|C08|C09|C10|C11|C12|C13|C14|C15|C16|C17|C18|C19,B,e2e4 e7e6,1,,,1.e4 e6 — classified B because Black avoids 1...e5.,,,
+B.Fre.Win,"French, Winawer",C15|C16|C17|C18|C19,B.Fre,e2e4 e7e6 d2d4 d7d5 b1c3 f8b4,2,,sharp,3.Nc3 Bb4.,,,
+B.Fre.Tar,"French, Tarrasch",C03|C04|C05|C06|C07|C08|C09,B.Fre,e2e4 e7e6 d2d4 d7d5 b1d2,2,,,3.Nd2.,,,
+B.Fre.Adv,"French, Advance",C02,B.Fre,e2e4 e7e6 d2d4 d7d5 e4e5,2,,closed,3.e5.,,,
+B.Fre.Cls,"French, Classical",C13|C14,B.Fre,e2e4 e7e6 d2d4 d7d5 b1c3 g8f6,2,,,3.Nc3 Nf6.,,,
+B.Fre.Exc,"French, Exchange",C01,B.Fre,e2e4 e7e6 d2d4 d7d5 e4d5 e6d5,2,,closed,3.exd5.,,,
+B.Pir,Pirc Defence,B07|B08|B09,B,e2e4 d7d6 d2d4 g8f6 b1c3 g7g6,1,,,1.e4 d6 with ...Nf6 and ...g6.,,,
+B.Mod,Modern Defence,B06,B,e2e4 g7g6,1,,,1.e4 g6 (without ...Nf6 commitment).,,,
+B.Sca,Scandinavian Defence,B01,B,e2e4 d7d5,1,Centre Counter,,1.e4 d5.,,,
+B.Ale,Alekhine Defence,B02|B03|B04|B05,B,e2e4 g8f6,1,,,1.e4 Nf6.,,,
+B.OwM,Owen's Modern (...b6 vs e4),B00,B,e2e4 b7b6,1,,,Sometimes mapped to A.Owe — see notes.,,,
+C.RyL,Ruy López,C60|C61|C62|C63|C64|C65|C66|C67|C68|C69|C70|C71|C72|C73|C74|C75|C76|C77|C78|C79|C80|C81|C82|C83|C84|C85|C86|C87|C88|C89|C90|C91|C92|C93|C94|C95|C96|C97|C98|C99,C,e2e4 e7e5 g1f3 b8c6 f1b5,1,Spanish Opening,,1.e4 e5 2.Nf3 Nc6 3.Bb5.,,,
+C.RyL.Ber,"Ruy López, Berlin Defence",C65|C66|C67,C.RyL,e2e4 e7e5 g1f3 b8c6 f1b5 g8f6,2,,closed,3...Nf6.,,,
+C.RyL.Ber.End,Berlin Endgame,C67,C.RyL.Ber,e2e4 e7e5 g1f3 b8c6 f1b5 g8f6 e1g1 f6e4 d2d4 e4d6 b5c6 d7c6 d4e5 d6f5 d1d8 e8d8,3,Berlin Wall,closed|endgame,4.O-O Nxe4 5.d4 Nd6 line.,Vladimir Kramnik (resurrector at GM level),"Kasparov–Kramnik World Championship match, London 2000 (Kramnik adopted it as Black against Kasparov's 1.e4 and drew the match's Berlin games convincingly).","The position dates back to Wemmers–Riemann 1880 (per the corpus), but the Berlin Wall as a modern weapon at world-championship level is owed to Kramnik's 2000 match. Almost every elite tournament since features it."
+C.RyL.Mar,"Ruy López, Marshall Attack",C89,C.RyL,e2e4 e7e5 g1f3 b8c6 f1b5 a7a6 b5a4 g8f6 e1g1 f8e7 f1e1 b7b5 a4b3 e8g8 c2c3 d7d5,2,Marshall Counterattack,gambit|sharp,8...d5 pawn sacrifice.,,,
+C.RyL.AntM,"Ruy López, Anti-Marshall",C88,C.RyL,e2e4 e7e5 g1f3 b8c6 f1b5 a7a6 b5a4 g8f6 e1g1 f8e7 f1e1 b7b5 a4b3 e8g8 a2a4,2,Anti-Marshall,,8.a4/h3 avoiding the Marshall.,,,
+C.RyL.Cls,"Ruy López, Closed Spanish",C84|C85|C86|C87|C88|C89|C90|C91|C92|C93|C94|C95|C96|C97|C98|C99,C.RyL,e2e4 e7e5 g1f3 b8c6 f1b5 a7a6 b5a4 g8f6 e1g1 f8e7 f1e1 b7b5 a4b3 d7d6,2,,closed,...Be7 and ...d6 Steinitz/Closed mainlines.,,,
+C.RyL.Brk,"Ruy López, Breyer",C92|C93|C94|C95,C.RyL,e2e4 e7e5 g1f3 b8c6 f1b5 a7a6 b5a4 g8f6 e1g1 f8e7 f1e1 b7b5 a4b3 d7d6 c2c3 e8g8 h2h3 c6b8,2,Breyer Defence,closed,...Nb8 manoeuvre.,,,
+C.RyL.Zai,"Ruy López, Zaitsev",C92|C93|C94|C95,C.RyL,e2e4 e7e5 g1f3 b8c6 f1b5 a7a6 b5a4 g8f6 e1g1 f8e7 f1e1 b7b5 a4b3 d7d6 c2c3 e8g8 h2h3 c8b7 d2d4 f8e8,2,Zaitsev Variation,,...Re8 and ...Bf8.,,,
+C.RyL.Cha,"Ruy López, Chigorin",C97|C98|C99,C.RyL,e2e4 e7e5 g1f3 b8c6 f1b5 a7a6 b5a4 g8f6 e1g1 f8e7 f1e1 b7b5 a4b3 d7d6 c2c3 e8g8 h2h3 c6a5,2,Chigorin Variation,,...Na5 manoeuvre.,,,
+C.RyL.Exc,"Ruy López, Exchange",C68|C69,C.RyL,e2e4 e7e5 g1f3 b8c6 f1b5 a7a6 b5c6,2,Exchange Spanish,closed,4.Bxc6.,,,
+C.Ita,Italian Game,C50|C51|C52|C53|C54|C55|C56|C57|C58|C59,C,e2e4 e7e5 g1f3 b8c6 f1c4,1,,,1.e4 e5 2.Nf3 Nc6 3.Bc4.,,,
+C.Ita.Two,"Italian, Two Knights",C55|C56|C57|C58|C59,C.Ita,e2e4 e7e5 g1f3 b8c6 f1c4 g8f6,2,Two Knights Defence,sharp,3...Nf6.,,,
+C.Ita.Evn,"Italian, Evans Gambit",C51|C52,C.Ita,e2e4 e7e5 g1f3 b8c6 f1c4 f8c5 b2b4,2,Evans Gambit,gambit|sharp,4.b4.,,,
+C.Ita.Pia,"Italian, Giuoco Pianissimo",C50,C.Ita,e2e4 e7e5 g1f3 b8c6 f1c4 f8c5 d2d3,2,Giuoco Pianissimo,closed,4.d3 quiet line. The 3-letter token is 'Pia' (Pianissimo).,,,
+C.KGm,King's Gambit,C30|C31|C32|C33|C34|C35|C36|C37|C38|C39,C,e2e4 e7e5 f2f4,1,,gambit|sharp,2.f4.,,,
+C.KGm.Acc,King's Gambit Accepted,C33|C34|C35|C36|C37|C38|C39,C.KGm,e2e4 e7e5 f2f4 e5f4,2,,gambit|sharp,2...exf4.,,,
+C.KGm.Dec,King's Gambit Declined,C30|C31|C32,C.KGm,e2e4 e7e5 f2f4 f8c5,2,,gambit,2...Bc5 / 2...d5.,,,
+C.Pet,Petrov Defence,C42|C43,C,e2e4 e7e5 g1f3 g8f6,1,Russian Defence,,2...Nf6.,,,
+C.Sco,Scotch Game,C44|C45,C,e2e4 e7e5 g1f3 b8c6 d2d4,1,,,3.d4.,,,
+C.Sco.Mie,"Scotch, Mieses",C45,C.Sco,e2e4 e7e5 g1f3 b8c6 d2d4 e5d4 f3d4 g8f6,2,,,Modern 4...Bc5/4...Nf6 + Mieses tabiya.,,,
+C.Vie,Vienna Game,C25|C26|C27|C28|C29,C,e2e4 e7e5 b1c3,1,,,2.Nc3.,,,
+C.PhD,Philidor Defence,C41,C,e2e4 e7e5 g1f3 d7d6,1,,,2...d6.,,,
+C.LtO,Latvian Gambit,C40,C,e2e4 e7e5 g1f3 f7f5,1,Latvian Gambit,gambit|sharp,2...f5.,,,
+D.QGD,Queen's Gambit Declined,D30|D31|D32|D33|D34|D35|D36|D37|D38|D39|D40|D41|D42|D43|D44|D45|D46|D47|D48|D49|D50|D51|D52|D53|D54|D55|D56|D57|D58|D59|D60|D61|D62|D63|D64|D65|D66|D67|D68|D69,D,d2d4 d7d5 c2c4 e7e6,1,,,1.d4 d5 2.c4 e6.,,,
+D.QGD.Ort,"QGD, Orthodox",D60|D61|D62|D63|D64|D65|D66|D67|D68|D69,D.QGD,d2d4 d7d5 c2c4 e7e6 b1c3 g8f6 c1g5 f8e7 e2e3 b8d7,2,Orthodox Defence,closed,...Nbd7/...c6 setup.,,,
+D.QGD.Tar,"QGD, Tartakower",D58|D59,D.QGD,d2d4 d7d5 c2c4 e7e6 b1c3 g8f6 c1g5 f8e7 e2e3 e8g8 g1f3 b7b6,2,Tartakower Variation,,...b6 fianchetto.,,,
+D.QGD.Lsk,"QGD, Lasker",D55|D56|D57,D.QGD,d2d4 d7d5 c2c4 e7e6 b1c3 g8f6 c1g5 f8e7 e2e3 e8g8 g1f3 h7h6 g5h4 f6e4,2,Lasker Defence,,...Ne4 manoeuvre.,,,
+D.QGD.Cmb,"QGD, Cambridge Springs",D52,D.QGD,d2d4 d7d5 c2c4 e7e6 b1c3 g8f6 c1g5 b8d7 e2e3 c7c6 g1f3 d8a5,2,Cambridge Springs,sharp,...Qa5.,,,
+D.QGD.Exc,"QGD, Exchange",D35|D36,D.QGD,d2d4 d7d5 c2c4 e7e6 b1c3 g8f6 c4d5 e6d5,2,Exchange Variation,closed,4.cxd5 cxd5.,,,
+D.QGA,Queen's Gambit Accepted,D20|D21|D22|D23|D24|D25|D26|D27|D28|D29,D,d2d4 d7d5 c2c4 d5c4,1,,,1.d4 d5 2.c4 dxc4.,,,
+D.Sla,Slav Defence,D10|D11|D12|D13|D14|D15|D16|D17|D18|D19,D,d2d4 d7d5 c2c4 c7c6,1,,,1.d4 d5 2.c4 c6.,,,
+D.Sem,Semi-Slav,D43|D44|D45|D46|D47|D48|D49,D,d2d4 d7d5 c2c4 c7c6 g1f3 g8f6 b1c3 e7e6,1,Semi-Slav,,"Promoted to peer of Slav: Semi-Slav is reachable from Slav (1.d4 d5 2.c4 c6 3.Nf3 Nf6 4.Nc3 e6) AND from QGD (1.d4 d5 2.c4 e6 3.Nc3 Nf6 4.Nf3 c6). Filiation by transposition is meaningless; OCN groups by structural identity, not by move-order entry.",,,
+D.Sem.Mer,"Semi-Slav, Meran",D47|D48|D49,D.Sem,d2d4 d7d5 c2c4 c7c6 g1f3 g8f6 b1c3 e7e6 e2e3 b8d7 f1d3 d5c4 d3c4 b7b5,2,Meran Variation,sharp,...dxc4 ...b5 main lines. Karpov's 6.Qc2 (the genuine anti-Meran) not yet catalogued.,Akiba Rubinstein (key game) at the Meran 1924 tournament,"Rubinstein–Tartakower, Meran 1924; the variation took its name from the venue.",Rubinstein's handling of the line at the 1924 South Tyrol tournament gave it the place-name we still use a century later. Top corpus White today is Pravec; Black is Dreev (80 games).
+D.Sem.Mos,"Semi-Slav, Moscow Variation",D43|D44,D.Sem,d2d4 d7d5 c2c4 c7c6 g1f3 g8f6 b1c3 e7e6 c1g5,2,Moscow Variation|Anti-Moscow group,sharp|theoretical,5.Bg5 family. Three sibling lines: 5...dxc4 -> Botvinnik (D.Sem.Bot); 5...h6 6.Bxf6 -> Moscow proper; 5...h6 6.Bh4 -> Anti-Moscow.,,,
+D.Sem.Mos.Bxf6,Moscow proper (5.Bg5 h6 6.Bxf6),D43,D.Sem.Mos,d2d4 d7d5 c2c4 c7c6 g1f3 g8f6 b1c3 e7e6 c1g5 h7h6 g5f6,3,Moscow Proper,sharp,6.Bxf6 — exchange on f6 to weaken the kingside structure.,,,
+D.Sem.Mos.Bh4,Anti-Moscow (5.Bg5 h6 6.Bh4),D43,D.Sem.Mos,d2d4 d7d5 c2c4 c7c6 g1f3 g8f6 b1c3 e7e6 c1g5 h7h6 g5h4,3,Anti-Moscow,sharp|theoretical,"6.Bh4 — keeps the bishop, sharpest theoretical territory.",,,
+D.Sem.Bot,"Semi-Slav, Botvinnik",D44,D.Sem,d2d4 d7d5 c2c4 c7c6 g1f3 g8f6 b1c3 e7e6 c1g5 d5c4 e2e4 b7b5,2,Botvinnik Variation,sharp|theoretical,"5.Bg5 dxc4 (immediate central capture, no h6). Sibling of Moscow proper (D.Sem.Mos.Bxf6) and Anti-Moscow (D.Sem.Mos.Bh4).",,,
+D.Sla.Exc,"Slav, Exchange",D10|D13,D.Sla,d2d4 d7d5 c2c4 c7c6 c4d5 c6d5,2,Exchange Slav,closed,3.cxd5 cxd5.,,,
+D.Sla.Cls,"Slav, Classical",D17|D18|D19,D.Sla,d2d4 d7d5 c2c4 c7c6 g1f3 g8f6 b1c3 d5c4 a2a4 c8f5,2,Classical Slav,,...dxc4 ...Bf5 main line.,,,
+D.Cat,Catalan Opening,E00|E01|E02|E03|E04|E05|E06|E07|E08|E09,D,d2d4 d7d5 c2c4 e7e6 g1f3 g8f6 g2g3,1,,,1.d4 d5 2.c4 e6 3.Nf3 Nf6 4.g3 (Black plays ...d5).,Savielly Tartakower (named at the 1929 Barcelona tournament),"Hooper & Whyld, Oxford Companion to Chess (1984), entry 'Catalan Opening'.","Named by Tartakower at the 1929 Barcelona tournament, where the local organisers asked the masters to invent something with a 'Catalan' flavour. Today closely associated with Vladimir Kramnik and Boris Gelfand at elite level — Gelfand is the corpus top White player with 170 games."
+D.Cat.Ope,"Catalan, Open",E04|E05,D.Cat,d2d4 d7d5 c2c4 e7e6 g1f3 g8f6 g2g3 d5c4,2,Open Catalan,,...dxc4.,,,
+D.Cat.Cls,"Catalan, Closed",E06|E07|E08|E09,D.Cat,d2d4 d7d5 c2c4 e7e6 g1f3 g8f6 g2g3 f8e7 f1g2 e8g8 e1g1 b8d7,2,Closed Catalan,closed,...Be7 maintaining d5.,,,
+D.Tar,Tarrasch Defence,D32|D33|D34,D,d2d4 d7d5 c2c4 e7e6 b1c3 c7c5,1,,,1.d4 d5 2.c4 e6 3.Nc3 c5 IQP.,,,
+D.STa,Semi-Tarrasch,D40|D41|D42,D,d2d4 d7d5 c2c4 e7e6 b1c3 g8f6 g1f3 c7c5,1,Semi-Tarrasch Defence,,"Reaches via QGD or Slav-style move-orders alike (Albert-style transposition awareness): 1.d4 d5 2.c4 e6 3.Nc3 Nf6 4.Nf3 c5. Peer of Tarrasch, not a sub-line.",,,
+D.QGD.Vie,"QGD, Vienna Variation",D37|D38|D39,D.QGD,d2d4 d7d5 c2c4 e7e6 b1c3 g8f6 g1f3 d5c4,2,Vienna Variation,sharp|theoretical,4.Nf3 dxc4 — pawn-grab branch within QGD with Nc3 + Nf3.,,,
+D.QGD.Rag,"QGD, Ragozin",D38|D39,D.QGD,d2d4 d7d5 c2c4 e7e6 b1c3 g8f6 g1f3 f8b4,2,Ragozin Defence,,4.Nf3 Bb4 — Nimzo-style pin while keeping ...d5.,,,
+D.Alb,Albin Counter-Gambit,D08|D09,D,d2d4 d7d5 c2c4 e7e5,1,Albin Counter-Gambit,gambit|sharp,2...e5.,,,
+D.Bgm,Blackmar-Diemer Gambit,D00,D,d2d4 d7d5 e2e4,1,Blackmar-Diemer Gambit,gambit|sharp,1.d4 d5 2.e4 IM-rare gambit.,,,
+E.KID,King's Indian Defence,E60|E61|E62|E63|E64|E65|E66|E67|E68|E69|E70|E71|E72|E73|E74|E75|E76|E77|E78|E79|E80|E81|E82|E83|E84|E85|E86|E87|E88|E89|E90|E91|E92|E93|E94|E95|E96|E97|E98|E99,E,d2d4 g8f6 c2c4 g7g6 b1c3 f8g7,1,KID,,1.d4 Nf6 2.c4 g6 3.Nc3 Bg7.,,,
+E.KID.Sml,"KID, Sämisch",E80|E81|E82|E83|E84|E85|E86|E87|E88|E89,E.KID,d2d4 g8f6 c2c4 g7g6 b1c3 f8g7 e2e4 d7d6 f2f3,2,Saemisch Variation,closed|sharp,5.f3.,,,
+E.KID.Cls,"KID, Classical",E91|E92|E93|E94|E95|E96|E97|E98|E99,E.KID,d2d4 g8f6 c2c4 g7g6 b1c3 f8g7 e2e4 d7d6 g1f3,2,Classical KID,sharp|theoretical,5.Nf3.,,,
+E.KID.Cls.Mar,"KID, Mar del Plata",E97,E.KID.Cls,d2d4 g8f6 c2c4 g7g6 b1c3 f8g7 e2e4 d7d6 g1f3 e8g8 f1e2 e7e5 e1g1 b8c6 d4d5 c6e7,3,Mar del Plata Variation,sharp|theoretical,9...Ne7 — main attacking line.,Najdorf and Gligorić (Mar del Plata 1953 tournament),"Najdorf–Gligorić, Mar del Plata (Argentina), 1953; the line takes its name from the venue.",The 1953 game between the two great KID-philes Najdorf (W) and Gligorić (B) crystallised the 9...Ne7 plan and gave it the name. Bronstein and later Kasparov championed it for Black.
+E.KID.Fch,"KID, Fianchetto",E60|E61|E62|E63|E64|E65|E66|E67|E68|E69,E.KID,d2d4 g8f6 c2c4 g7g6 b1c3 f8g7 g1f3 e8g8 g2g3 d7d6,2,Fianchetto Variation,closed,5.g3.,,,
+E.KID.Avk,"KID, Averbakh",E73,E.KID,d2d4 g8f6 c2c4 g7g6 b1c3 f8g7 e2e4 d7d6 f1e2 e8g8 c1g5,2,Averbakh Variation,,5.Be2 Bg5 setup.,,,
+E.KID.Fou,"KID, Four Pawns Attack",E76|E77|E78|E79,E.KID,d2d4 g8f6 c2c4 g7g6 b1c3 f8g7 e2e4 d7d6 f2f4,2,Four Pawns Attack,sharp,5.f4.,,,
+E.Nim,Nimzo-Indian Defence,E20|E21|E22|E23|E24|E25|E26|E27|E28|E29|E30|E31|E32|E33|E34|E35|E36|E37|E38|E39|E40|E41|E42|E43|E44|E45|E46|E47|E48|E49|E50|E51|E52|E53|E54|E55|E56|E57|E58|E59,E,d2d4 g8f6 c2c4 e7e6 b1c3 f8b4,1,NID|Nimzo,,3...Bb4.,,,
+E.Nim.Rub,"Nimzo, Rubinstein",E40|E41|E42|E43|E44|E45|E46|E47|E48|E49|E50|E51|E52|E53|E54|E55|E56|E57|E58|E59,E.Nim,d2d4 g8f6 c2c4 e7e6 b1c3 f8b4 e2e3,2,Rubinstein Complex,,4.e3.,,,
+E.Nim.Cls,"Nimzo, Classical",E32|E33|E34|E35|E36|E37|E38|E39,E.Nim,d2d4 g8f6 c2c4 e7e6 b1c3 f8b4 d1c2,2,Classical Nimzo,,4.Qc2.,,,
+E.Nim.Sml,"Nimzo, Sämisch",E25|E26|E27|E28|E29,E.Nim,d2d4 g8f6 c2c4 e7e6 b1c3 f8b4 a2a3,2,Saemisch Variation,sharp,4.a3.,,,
+E.Nim.Lng,"Nimzo, Leningrad",E30|E31,E.Nim,d2d4 g8f6 c2c4 e7e6 b1c3 f8b4 c1g5,2,Leningrad Variation,sharp,4.Bg5.,,,
+E.QID,Queen's Indian Defence,E12|E13|E14|E15|E16|E17|E18|E19,E,d2d4 g8f6 c2c4 e7e6 g1f3 b7b6,1,QID,,3...b6.,,,
+E.QID.Pet,"QID, Petrosian",E12|E13,E.QID,d2d4 g8f6 c2c4 e7e6 g1f3 b7b6 a2a3,2,Petrosian Variation,,4.a3.,,,
+E.QID.Mod,"QID, Modern",E15|E16|E17|E18|E19,E.QID,d2d4 g8f6 c2c4 e7e6 g1f3 b7b6 g2g3 c8b7,2,,,4.g3 Bb7 main.,,,
+E.Bog,Bogo-Indian Defence,E11,E,d2d4 g8f6 c2c4 e7e6 g1f3 f8b4,1,,,3...Bb4+.,,,
+E.OldI,Old Indian Defence,A53|A54|A55,E,d2d4 g8f6 c2c4 d7d6,1,,,1.d4 Nf6 2.c4 d6 — non-fianchetto.,,,
+E.Gru,Grünfeld Defence,D70|D71|D72|D73|D74|D75|D76|D77|D78|D79|D80|D81|D82|D83|D84|D85|D86|D87|D88|D89|D90|D91|D92|D93|D94|D95|D96|D97|D98|D99,E,d2d4 g8f6 c2c4 g7g6 b1c3 d7d5,1,Gruenfeld,,1.d4 Nf6 2.c4 g6 3.Nc3 d5 — class E despite legacy ECO D codes (see spec borderlines).,,,
+E.Gru.Exc,"Grünfeld, Exchange",D85|D86,E.Gru,d2d4 g8f6 c2c4 g7g6 b1c3 d7d5 c4d5 f6d5 e2e4,2,,sharp,Main line 4.cxd5 Nxd5 5.e4.,,,
+E.Gru.Rus,"Grünfeld, Russian",D96|D97|D98|D99,E.Gru,d2d4 g8f6 c2c4 g7g6 b1c3 d7d5 g1f3 f8g7 d1b3,2,Russian System,,4.Nf3 Bg7 5.Qb3.,,,
+E.Gru.Fch,"Grünfeld, Fianchetto",D78|D79,E.Gru,d2d4 g8f6 c2c4 g7g6 b1c3 d7d5 g1f3 f8g7 g2g3,2,Fianchetto Variation,,5.g3.,,,

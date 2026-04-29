@@ -167,6 +167,24 @@ def validate(path: Path) -> None:
                          f"Allowed: {sorted(ALLOWED_FLAGS)}")
                     warnings += 1
 
+        # 10. Attribution columns (Layer 2 metadata) — optional, but
+        #     the contract is: any non-empty `attributed_to` MUST come
+        #     paired with a non-empty `attribution_source`. We refuse
+        #     unsourced historical claims so the catalogue is auditable
+        #     by anyone who reads it later.
+        attributed_to = (row.get("attributed_to") or "").strip()
+        attribution_source = (row.get("attribution_source") or "").strip()
+        if attributed_to and not attribution_source:
+            fail(f"row {i}: slug '{slug}' has 'attributed_to' "
+                 f"({attributed_to!r}) without 'attribution_source'. "
+                 f"Every attribution must cite a source — fill the column "
+                 f"or remove the claim.")
+        if attribution_source and not attributed_to:
+            warn(f"row {i}: slug '{slug}' has 'attribution_source' but "
+                 f"empty 'attributed_to' — orphan citation, prefer to "
+                 f"name the attributed party.")
+            warnings += 1
+
     # 3. Parent existence and depth-1 rule (second pass)
     for slug, row in seen_slugs.items():
         depth = int(row["depth"])

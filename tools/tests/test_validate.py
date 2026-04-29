@@ -35,6 +35,7 @@ EXPECTED_INVALID: dict[str, str] = {
     "invalid_uci.csv": "invalid UCI move",
     "invalid_class_root.csv": "does not match format",
     "invalid_check_in_slug.csv": "does not match format",
+    "invalid_attribution_no_source.csv": "without 'attribution_source'",
 }
 
 
