@@ -1,4 +1,4 @@
-ocn1,canonical_name,eco_legacy,parent_ocn1,moves_uci,depth,aliases,flags,notes
-B,Semi-Open,,,,0,,,
-B.Sic,Sicilian,B20,B,e2e4 c7c5,1,,,
-B.Sic.Bg5+,Bogus check in slug,B90,B.Sic,e2e4 c7c5 g1f3 d7d6 d2d4 c5d4 f3d4 g8f6 b1c3 a7a6 c1g5,3,,,+ is not part of OCN slugs (per spec) — should fail
+ocn1,canonical_name,eco_legacy,parent_ocn1,moves_uci,depth,aliases,flags,notes,attributed_to,attribution_source,historical_notes
+B,Semi-Open,,,,0,,,,,,
+B.Sic,Sicilian,B20,B,e2e4 c7c5,1,,,,,,
+B.Sic.Bg5+,Bogus check in slug,B90,B.Sic,e2e4 c7c5 g1f3 d7d6 d2d4 c5d4 f3d4 g8f6 b1c3 a7a6 c1g5,3,,,+ is not part of OCN slugs (per spec) — should fail,,,

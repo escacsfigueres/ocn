@@ -58,6 +58,21 @@ ALLOWED_FLAGS = {
     "gambit", "sharp", "closed", "endgame", "theoretical", "deprecated",
 }
 
+REQUIRED_COLUMNS = [
+    "ocn1",
+    "canonical_name",
+    "eco_legacy",
+    "parent_ocn1",
+    "moves_uci",
+    "depth",
+    "aliases",
+    "flags",
+    "notes",
+    "attributed_to",
+    "attribution_source",
+    "historical_notes",
+]
+
 
 def fail(msg: str) -> None:
     print(f"ERROR: {msg}", file=sys.stderr)
@@ -74,6 +89,12 @@ def validate(path: Path) -> None:
 
     with path.open(newline="", encoding="utf-8") as f:
         reader = csv.DictReader(f)
+        missing_columns = [
+            column for column in REQUIRED_COLUMNS
+            if column not in (reader.fieldnames or [])
+        ]
+        if missing_columns:
+            fail(f"catalogue missing required column(s): {', '.join(missing_columns)}")
         rows = list(reader)
 
     seen_slugs: dict[str, dict] = {}
@@ -114,26 +135,54 @@ def validate(path: Path) -> None:
             if segments[0] not in {"A", "B", "C", "D", "E"}:
                 fail(f"row {i}: class root '{slug}' is not A/B/C/D/E")
 
-        # 8. Segment length policy
+        # 8. Segment length policy + position-aware SAN tail.
+        #
+        # The grammar is: class . named+ ( . san_move )*
+        # i.e. the slug starts with the class root, must include at
+        # least one *named* segment (3-char token or KNOWN_LONG_TOKEN)
+        # before any SAN move tail can begin, and once a SAN-only token
+        # (e.g. `e4`, `Bxf6`, `O-O`) appears, every subsequent segment
+        # must also parse as SAN. This rules out malformed slugs like
+        # `A.e4` (move directly after class, no family named) and
+        # `B.Sic.e4.Naj` (named segment after a move tail has started).
+        #
+        # 3-char tokens that happen to also be SAN (`Be3`, `Nd5`) are
+        # treated as named when they appear in the named region — the
+        # catalogue uses them as variation labels there.
+        in_tail = False
         for seg_idx, seg in enumerate(segments):
             if seg_idx == 0:
                 if seg not in {"A", "B", "C", "D", "E"}:
                     fail(f"row {i}: first segment '{seg}' must be A/B/C/D/E")
                 continue
-            # Family/variation/subline segments are 3 chars by default. Move
-            # segments (anywhere from index 3 onwards once the slug has named
-            # the variation) match SAN syntax and can be 2-5 chars. Known
-            # long tokens are an explicit exception list.
-            if SAN_RE.match(seg):
+            if in_tail:
+                if not SAN_RE.match(seg):
+                    fail(f"row {i}: segment '{seg}' (slug '{slug}') is not SAN "
+                         f"but follows a move tail — named tokens cannot reappear "
+                         f"after the tail has started")
                 if not (1 <= len(seg) <= 6):
                     fail(f"row {i}: move segment '{seg}' length out of range (1-6)")
                 continue
+            # We're still in the named region.
             if seg in KNOWN_LONG_TOKENS:
                 continue
-            if len(seg) != 3:
-                warn(f"row {i}: non-standard segment length: '{seg}' "
-                     f"(in slug '{slug}'). Add to KNOWN_LONG_TOKENS if intentional.")
-                warnings += 1
+            if len(seg) == 3:
+                # Named token (possibly SAN-shaped like `Be3`, `Nd5`).
+                continue
+            if SAN_RE.match(seg):
+                # SAN-only move triggers the tail. Require at least one
+                # named segment between the class and this point.
+                if seg_idx == 1:
+                    fail(f"row {i}: slug '{slug}' opens with SAN move '{seg}' "
+                         f"immediately after the class — a named family segment "
+                         f"is required first (e.g. `A.Eng.e4`, not `A.e4`)")
+                if not (1 <= len(seg) <= 6):
+                    fail(f"row {i}: move segment '{seg}' length out of range (1-6)")
+                in_tail = True
+                continue
+            warn(f"row {i}: non-standard segment length: '{seg}' "
+                 f"(in slug '{slug}'). Add to KNOWN_LONG_TOKENS if intentional.")
+            warnings += 1
 
         # 7. ECO legacy format
         eco_legacy = (row.get("eco_legacy") or "").strip()
@@ -163,9 +212,8 @@ def validate(path: Path) -> None:
             for flag in flags.split("|"):
                 flag = flag.strip()
                 if flag and flag not in ALLOWED_FLAGS:
-                    warn(f"row {i}: unknown flag '{flag}' (slug '{slug}'). "
+                    fail(f"row {i}: unknown flag '{flag}' (slug '{slug}'). "
                          f"Allowed: {sorted(ALLOWED_FLAGS)}")
-                    warnings += 1
 
         # 10. Attribution columns (Layer 2 metadata) — optional, but
         #     the contract is: any non-empty `attributed_to` MUST come

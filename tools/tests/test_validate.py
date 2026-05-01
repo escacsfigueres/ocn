@@ -39,6 +39,10 @@ EXPECTED_INVALID: dict[str, str] = {
     "invalid_class_root.csv": "does not match format",
     "invalid_check_in_slug.csv": "does not match format",
     "invalid_attribution_no_source.csv": "without 'attribution_source'",
+    "invalid_san_at_class_root.csv": "immediately after the class",
+    "invalid_named_after_tail.csv": "follows a move tail",
+    "invalid_unknown_flag.csv": "unknown flag",
+    "invalid_missing_schema_column.csv": "missing required column",
 }
 
 # Fixtures that MUST validate (exit 0) but emit a specific warning.

@@ -11,7 +11,7 @@ permissions:
 
 jobs:
   validate:
-    name: validate ocs-1 catalogue (py${{ matrix.python }})
+    name: validate ocn-1 catalogue (py${{ matrix.python }})
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
