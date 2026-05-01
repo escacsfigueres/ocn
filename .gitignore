@@ -18,3 +18,7 @@ venv/
 
 # Upstream data — fetched by tools/fetch_lichess.sh, not vendored
 /external/
+
+# Local agent context — never tracked
+.wolf/
+.claude/
