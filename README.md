@@ -154,7 +154,10 @@ choices, documented in the spec:
   it in the D range (D70-D99). Rationale: Grünfeld is structurally an
   Indian defence, and grouping it with KID, Nimzo, QID, Bogo gives a
   cleaner parent-child hierarchy.
-- **Benoni** is `A` (flank) because 2...c5 declines the d5/c4 symmetry.
+- **Benoni / Benko** is `E` (Indian) even though legacy ECO places it in
+  the A range. Rationale: the main Benoni and Benko families are Indian
+  defences by structure and move-order (`1.d4 Nf6 2.c4 c5`), so they
+  belong beside KID and Grünfeld rather than under flank openings.
 
 See [`spec/OCN-1.md`](spec/OCN-1.md) for the full reasoning.
 

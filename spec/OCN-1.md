@@ -62,9 +62,9 @@ Adding two `move` segments brings the practical maximum to ~20 characters.
 The class is derived from the position **after the principal opening
 moves of the variation**, not from a single rigid rule. The intent is:
 
-- **A** — Flank openings: any line that does not start with 1.e4 or with
-  1.d4 followed by an early 2.c4. Includes Réti, English, Bird, Larsen,
-  the Dutch family, Trompowsky, Benoni, and other "non-classical" centre
+- **A** — Flank openings: lines outside 1.e4 and outside the main
+  1.d4/2.c4 Indian-defence complex. Includes Réti, English, Bird,
+  Larsen, the Dutch family, Trompowsky, and other "non-classical" centre
   treatments.
 - **B** — Semi-Open: 1.e4 followed by **any reply other than 1...e5**.
   Includes Sicilian, Caro-Kann, French, Pirc, Modern, Alekhine,
@@ -75,9 +75,11 @@ moves of the variation**, not from a single rigid rule. The intent is:
   in which Black plays an early ...d5. Includes Queen's Gambit (declined,
   accepted), Slav, Semi-Slav, Catalan (Black plays ...d5; otherwise see
   below), Tarrasch, Albin.
-- **E** — Indian: 1.d4 Nf6 with Black declining ...d5 in the early
-  middlegame. Includes King's Indian Defence, Nimzo-Indian, Queen's
-  Indian, Bogo-Indian, Old Indian, Grünfeld, Catalan-without-d5.
+- **E** — Indian: 1.d4 Nf6 with Black defining the game by an Indian
+  piece setup or hypermodern central strike rather than by the classical
+  1...d5 queen-pawn symmetry. Includes King's Indian Defence,
+  Nimzo-Indian, Queen's Indian, Bogo-Indian, Old Indian, Grünfeld,
+  Benoni/Benko, and Catalan-without-d5.
 
 The class is a property of the **OCN-1 slug**, not of the literal
 move-order that produced it. Two transposing move-orders that converge to
@@ -96,8 +98,12 @@ the same canonical position therefore share the same OCN-1 slug.
   the parent-child hierarchy clean.
 - **Queen's Gambit Accepted**: `D.QGA`. Black plays ...d5 then ...dxc4.
   Stays in D.
-- **Benoni**: `A.Ben`. The 2...c5 reply against 1.d4 declines the d5/c4
-  symmetry; it is a flank treatment of the centre.
+- **Benoni / Benko**: `E.Ben`. Even though the legacy ECO range is `A43`
+  and `A56`-`A79`, the main Benoni and Benko families arise from
+  `1.d4 Nf6 2.c4 c5` Indian move-orders and should live beside King's
+  Indian and Grünfeld structures. Immediate Old Benoni move-orders
+  without ...Nf6 stay in the same family to avoid splitting a single
+  named opening across classes.
 
 ### Family abbreviation rules
 
