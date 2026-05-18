@@ -96,6 +96,10 @@ the same canonical position therefore share the same OCN-1 slug.
   in the D range. Spec rationale: Grünfeld is structurally an Indian
   defence (1.d4 Nf6 first), and grouping it with the Indian family makes
   the parent-child hierarchy clean.
+- **Budapest / Fajarowicz**: `E.Bud`. The legacy ECO codes are `A51` and
+  `A52`, but `1.d4 Nf6 2.c4 e5` is an Indian countergambit against the
+  d4/c4 complex, so it belongs with the Indian defences rather than with
+  flank openings.
 - **Queen's Gambit Accepted**: `D.QGA`. Black plays ...d5 then ...dxc4.
   Stays in D.
 - **Benoni / Benko**: `E.Ben`. Even though the legacy ECO range is `A43`
