@@ -1543,3 +1543,6 @@ B.Sca.Nf6.Nf3.Cha,"Scandinavian Modern Treatment, Charlie's Choice",B01,B.Sca.Nf
 B.Sca.Nf6.Chk,"Scandinavian 2...Nf6, Check Line",B01,B.Sca.Nf6,e2e4 d7d5 e4d5 g8f6 f1b5,3,Check!,sharp,"3.Bb5+; Smerdon's Scandinavian Section Four treats this as Check!.",,,
 B.Sca.Nf6.Chk.Bd7,"Scandinavian Check Line, Bd7",B01,B.Sca.Nf6.Chk,e2e4 d7d5 e4d5 g8f6 f1b5 c8d7,4,Bd7 Line,sharp,"3.Bb5+ Bd7; Smerdon's Scandinavian Chapter 14.",,,
 B.Sca.Nf6.Chk.Nbd,"Scandinavian Check Line, Nbd7",B01,B.Sca.Nf6.Chk,e2e4 d7d5 e4d5 g8f6 f1b5 b8d7,4,Nbd7 Line,sharp,"3.Bb5+ Nbd7; Smerdon's Scandinavian Chapter 15.",,,
+B.CaK.Two.Nf6,"Caro-Kann Two Knights, Nf6 Line",B11,B.CaK.Two,e2e4 c7c6 b1c3 d7d5 g1f3 d5e4 c3e4 g8f6,3,Nf6 Line,closed,"3.Nf3 dxe4 4.Nxe4 Nf6; Q25 surfaced Schandorff's Grandmaster Repertoire recommendation of this solid Two Knights treatment.",,,
+B.CaK.Two.Bf5,"Caro-Kann Two Knights, Bf5 Line",B11,B.CaK.Two,e2e4 c7c6 b1c3 d7d5 g1f3 d5e4 c3e4 c8f5,3,Bf5 Line,sharp,"3.Nf3 dxe4 4.Nxe4 Bf5; Q25 surfaced Schandorff's note that this can transpose toward Classical structures but allows independent attacking tries.",,,
+B.CaK.Tar.Be3,"Caro-Kann Tartakower, Be3 Line",B15,B.CaK.Tar,e2e4 c7c6 d2d4 d7d5 b1c3 d5e4 c3e4 g8f6 e4f6 e7f6 c1e3,3,Be3 Line,closed,"5.Nxf6+ exf6 6.Be3; Q25 surfaced this continuation from Reimagining 1.e4's treatment of the exf6 Tartakower structure.",,,
