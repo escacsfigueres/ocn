@@ -27,7 +27,7 @@ jobs:
           python-version: ${{ matrix.python }}
 
       - name: byte-compile tools
-        run: python3 -m py_compile tools/audit_chess.py tools/chess_uci.py tools/from_eco.py tools/from_uci.py tools/validate.py
+        run: python3 -m py_compile tools/audit_chess.py tools/chess_uci.py tools/from_eco.py tools/from_position.py tools/from_uci.py tools/validate.py
 
       - name: validate canonical catalogue
         run: python3 tools/validate.py

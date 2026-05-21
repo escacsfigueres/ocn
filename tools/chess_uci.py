@@ -171,6 +171,47 @@ class Board:
     def move_name(self, move: Move) -> str:
         return square_name(move.src) + square_name(move.dst) + move.promotion
 
+    def fen_key(self) -> str:
+        """Return a FEN position key: board, turn, castling, en-passant.
+
+        The halfmove clock and fullmove number are intentionally omitted:
+        OCN catalogue lookup is about the opening position itself, not
+        draw-clock metadata.
+        """
+        ranks: list[str] = []
+        for rank in range(7, -1, -1):
+            empty = 0
+            text = ""
+            for file in range(8):
+                piece = self.squares[rank * 8 + file]
+                if piece:
+                    if empty:
+                        text += str(empty)
+                        empty = 0
+                    text += piece
+                else:
+                    empty += 1
+            if empty:
+                text += str(empty)
+            ranks.append(text)
+
+        turn = "w" if self.white_to_move else "b"
+        castling = "".join(right for right in "KQkq" if right in self.castling) or "-"
+        ep_square = self.legal_ep_square()
+        ep = "-" if ep_square is None else square_name(ep_square)
+        return f"{'/'.join(ranks)} {turn} {castling} {ep}"
+
+    def legal_ep_square(self) -> int | None:
+        if self.ep_square is None:
+            return None
+        pawn = "P" if self.white_to_move else "p"
+        for src, piece in enumerate(self.squares):
+            if piece != pawn:
+                continue
+            if self.is_legal(Move(src, self.ep_square)):
+                return self.ep_square
+        return None
+
     def _disambiguation(self, move: Move, piece: str) -> str:
         has_other = False
         same_file = False
@@ -331,6 +372,16 @@ def validate_uci_sequence(moves: str) -> list[str]:
         except (ValueError, IndexError) as exc:
             raise ValueError(f"illegal UCI move '{token}': {exc}") from exc
     return sans
+
+
+def fen_key_after_uci(moves: str) -> str:
+    board = Board()
+    for token in moves.split():
+        try:
+            board.push_uci(token)
+        except (ValueError, IndexError) as exc:
+            raise ValueError(f"illegal UCI move '{token}': {exc}") from exc
+    return board.fen_key()
 
 
 def last_move_san(parent_moves: str, child_moves: str) -> str | None:

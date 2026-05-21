@@ -124,6 +124,10 @@ d'Escacs Figueres" and link to this repository.
 - [`tools/from_eco.py`](tools/from_eco.py) — given an ECO code, PGN file,
   or inline PGN text with an `[ECO "..."]` tag, returns the unique deepest
   OCN-1 match. Ambiguous codes report candidates with `--all`.
+- [`tools/from_position.py`](tools/from_position.py) — given a FEN
+  position, returns matching OCN-1 catalogue rows. It matches on board,
+  side to move, castling rights, and en-passant square, ignoring halfmove
+  and fullmove counters.
 - [`tools/tests/`](tools/tests/) — tool test suite covering validation,
   strict chess checks, lookup behaviour, and positive/negative fixtures
   (`tools/tests/fixtures/`). CI runs it
@@ -131,11 +135,6 @@ d'Escacs Figueres" and link to this repository.
 - [`tools/fetch_lichess.sh`](tools/fetch_lichess.sh) — pulls the
   upstream Lichess Opening Book TSVs (CC0) into `external/`, used by
   `escacsfigueres/chess-parquet`'s Lichess companion-table builder.
-
-Future tools (planned):
-
-- `tools/from_position.py` — given a FEN or Polyglot zobrist, return
-  the OCN-1 slug.
 
 ## Compatibility with ECO
 
@@ -171,9 +170,10 @@ See [`spec/OCN-1.md`](spec/OCN-1.md) for the full reasoning.
 
 ## Roadmap
 
-- **0.1** *(current)* — Core spec, top ~120 entries, validator.
-- **0.2** — Tooling: `from_position`. Lichess
-  Opening Book mapping for the long tail (~3500 entries).
+- **0.1** *(current)* — Core spec, 2,000-entry catalogue, strict
+  validator, and lookup tools.
+- **0.2** — Lichess Opening Book mapping for the long tail (~3500
+  entries).
 - **0.3** — Internationalised aliases: Catalan, Spanish, French, German
   display names. The English `canonical_name` stays definitive.
 - **1.0** — Frozen format and stable catalogue. Public release with an
