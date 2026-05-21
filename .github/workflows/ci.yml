@@ -26,8 +26,8 @@ jobs:
         with:
           python-version: ${{ matrix.python }}
 
-      - name: byte-compile validate.py
-        run: python3 -m py_compile tools/validate.py
+      - name: byte-compile tools
+        run: python3 -m py_compile tools/audit_chess.py tools/chess_uci.py tools/from_uci.py tools/validate.py
 
       - name: validate canonical catalogue
         run: python3 tools/validate.py
@@ -35,5 +35,5 @@ jobs:
       - name: validate canonical catalogue with strict chess checks
         run: python3 tools/validate.py --strict-chess
 
-      - name: run validator test suite
-        run: python3 tools/tests/test_validate.py
+      - name: run tool test suite
+        run: python3 -m unittest discover -s tools/tests

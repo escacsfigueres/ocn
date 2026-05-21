@@ -117,9 +117,13 @@ d'Escacs Figueres" and link to this repository.
   legality/SAN checks across the full catalogue and reports every issue
   instead of stopping at the first one. Use it as a batch cleanup report
   if strict validation ever fails.
-- [`tools/tests/test_validate.py`](tools/tests/test_validate.py) — test
-  suite that runs the validator against the canonical catalogue plus
-  positive and negative fixtures (`tools/tests/fixtures/`). CI runs it
+- [`tools/from_uci.py`](tools/from_uci.py) — given a legal UCI move
+  sequence, returns the deepest OCN-1 catalogue row whose moves are a
+  prefix of that sequence. Supports TSV output by default and JSON with
+  `--json`.
+- [`tools/tests/`](tools/tests/) — tool test suite covering validation,
+  strict chess checks, lookup behaviour, and positive/negative fixtures
+  (`tools/tests/fixtures/`). CI runs it
   on every push and pull request via [`.github/workflows/ci.yml`](.github/workflows/ci.yml).
 - [`tools/fetch_lichess.sh`](tools/fetch_lichess.sh) — pulls the
   upstream Lichess Opening Book TSVs (CC0) into `external/`, used by
@@ -131,8 +135,6 @@ Future tools (planned):
   specific OCN-1 slug.
 - `tools/from_position.py` — given a FEN or Polyglot zobrist, return
   the OCN-1 slug.
-- `tools/from_uci.py` — given a UCI move sequence, return the deepest
-  matching OCN-1 slug.
 
 ## Compatibility with ECO
 
@@ -169,7 +171,7 @@ See [`spec/OCN-1.md`](spec/OCN-1.md) for the full reasoning.
 ## Roadmap
 
 - **0.1** *(current)* — Core spec, top ~120 entries, validator.
-- **0.2** — Tooling: `from_eco`, `from_position`, `from_uci`. Lichess
+- **0.2** — Tooling: `from_eco`, `from_position`. Lichess
   Opening Book mapping for the long tail (~3500 entries).
 - **0.3** — Internationalised aliases: Catalan, Spanish, French, German
   display names. The English `canonical_name` stays definitive.
