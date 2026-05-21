@@ -52,10 +52,11 @@ sub-code with a small, human-readable, hierarchical slug.
 | `family` | 3 chars | TitleCase or known ALLCAPS abbreviation | `Sic`, `Fre`, `RyL`, `KID`, `QGD` |
 | `variation` | 3 chars | TitleCase | `Naj`, `Sve`, `Mar`, `Tar`, `Sml` |
 | `subline` | 3 chars | TitleCase | `Eng`, `End`, `Ope`, `Cls` |
-| `move` | 2-4 chars | SAN-style, capitalised pieces | `Be3`, `e5`, `Bxf6`, `O-O` |
+| `move` | 1-6 chars | SAN-style, check/mate stripped | `Be3`, `e5`, `Bxf6`, `O-O`, `O-O-O` |
 
-Total length is bounded: maximum 4 segments after the class give 1 + 3×4 = 13 characters.
-Adding two `move` segments brings the practical maximum to ~20 characters.
+Total depth is bounded at 6 dots / 7 segments. Named segments are normally
+3-character tokens; up to two trailing SAN move segments may extend the
+slug when a named tabiya needs move-level precision.
 
 ### Class assignment
 
@@ -131,9 +132,9 @@ Variation`. The 3-letter slug is purely for compact reference.
 ### `move` segments — the depth tail
 
 For lines that are routinely identified by a specific tabiya beyond the
-named variation, append literal SAN moves (capitalised pieces, no
-file/rank disambiguation) separated by dots. The grammar permits up to
-two trailing move segments:
+named variation, append literal SAN moves separated by dots. Check (`+`)
+and mate (`#`) are stripped. File/rank disambiguation is allowed when SAN
+requires it. The grammar permits up to two trailing move segments:
 
 ```
 B.Sic.Sve.Nd5            11.Nd5 main Sveshnikov tabiya  (one move)

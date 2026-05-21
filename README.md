@@ -80,9 +80,9 @@ The full specification is in [`spec/OCN-1.md`](spec/OCN-1.md).
 
 ## Status
 
-**Alpha (2026-04-29).** The format is stable; the catalogue covers the
-~120 most-frequent opening lines. Comments, corrections and additions
-welcome via issues.
+**Alpha (2026-05-21).** The format is stable; the reference catalogue has
+2,000 entries and passes strict legal-move/SAN validation in CI. Comments,
+corrections and additions welcome via issues.
 
 > Naming history: previously drafted as **OCS — Open Chess Slug** during
 > alpha. Renamed to OCN before public release because "slug" carries
