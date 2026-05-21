@@ -11,6 +11,7 @@ from pathlib import Path
 
 REPO_ROOT = Path(__file__).resolve().parent.parent.parent
 TOOL = REPO_ROOT / "tools" / "lichess_parent_map.py"
+FIXTURES = REPO_ROOT / "tools" / "tests" / "fixtures"
 
 
 def run_tool(*args: str) -> subprocess.CompletedProcess[str]:
@@ -50,6 +51,28 @@ class LichessParentMapTests(unittest.TestCase):
         self.assertEqual(result.returncode, 1)
         self.assertIn("parse_errors=1", result.stdout)
         self.assertIn("Bad row", result.stderr)
+
+    def test_check_passes_when_all_rows_have_parent(self) -> None:
+        result = run_tool("--check", str(FIXTURES / "lichess_sample.tsv"))
+        self.assertEqual(result.returncode, 0, result.stderr)
+        self.assertIn("unmatched=0 parse_errors=0", result.stdout)
+
+    def test_check_fails_on_unmatched_rows(self) -> None:
+        with (
+            tempfile.NamedTemporaryFile("w", encoding="utf-8", suffix=".csv") as catalog,
+            tempfile.NamedTemporaryFile("w", encoding="utf-8", suffix=".tsv") as lichess,
+        ):
+            catalog.write("ocn1,canonical_name,eco_legacy,parent_ocn1,moves_uci,depth\n")
+            catalog.write("A.Eng,English Opening,A10,A,c2c4,1\n")
+            catalog.flush()
+            lichess.write("eco\tname\tpgn\n")
+            lichess.write("A00\tUnknown first move\t1. a3 h5\n")
+            lichess.flush()
+            result = run_tool("--check", "--catalog", catalog.name, lichess.name)
+
+        self.assertEqual(result.returncode, 1)
+        self.assertIn("unmatched=1", result.stdout)
+        self.assertIn("coverage check failed", result.stderr)
 
 
 if __name__ == "__main__":

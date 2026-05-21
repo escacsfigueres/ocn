@@ -37,3 +37,6 @@ jobs:
 
       - name: run tool test suite
         run: python3 -m unittest discover -s tools/tests
+
+      - name: check Lichess parent mapping fixture
+        run: python3 tools/lichess_parent_map.py --check tools/tests/fixtures/lichess_sample.tsv

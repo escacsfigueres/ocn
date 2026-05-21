@@ -115,6 +115,11 @@ def print_summary(rows: list[MappedOpening], errors: list[str]) -> None:
         print(f"ERROR_SAMPLE: {error}", file=sys.stderr)
 
 
+def coverage_status(rows: list[MappedOpening], errors: list[str]) -> tuple[int, int]:
+    unmatched = sum(1 for row in rows if not row.parent_ocn1)
+    return unmatched, len(errors)
+
+
 def main() -> int:
     args = sys.argv[1:]
     json_output = False
@@ -126,6 +131,11 @@ def main() -> int:
     if "--summary" in args:
         summary = True
         args.remove("--summary")
+
+    check = False
+    if "--check" in args:
+        check = True
+        args.remove("--check")
 
     limit: int | None = None
     if "--limit" in args:
@@ -152,7 +162,7 @@ def main() -> int:
         limit=limit,
     )
 
-    if summary:
+    if summary or check:
         print_summary(rows, errors)
     elif json_output:
         print(
@@ -164,6 +174,15 @@ def main() -> int:
         )
     else:
         print_tsv(rows)
+
+    unmatched, parse_errors = coverage_status(rows, errors)
+    if check and (unmatched or parse_errors):
+        print(
+            f"ERROR: Lichess parent coverage check failed: "
+            f"unmatched={unmatched} parse_errors={parse_errors}",
+            file=sys.stderr,
+        )
+        return 1
     return 1 if errors else 0
 
 
