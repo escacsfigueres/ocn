@@ -5,6 +5,7 @@ from __future__ import annotations
 import csv
 import json
 import sys
+from collections import Counter
 from dataclasses import dataclass
 from pathlib import Path
 
@@ -115,6 +116,33 @@ def print_summary(rows: list[MappedOpening], errors: list[str]) -> None:
         print(f"ERROR_SAMPLE: {error}", file=sys.stderr)
 
 
+def print_quality(rows: list[MappedOpening], errors: list[str], *, top: int = 20) -> None:
+    print_summary(rows, errors)
+    depth_counts = Counter(row.parent_depth for row in rows if row.parent_depth is not None)
+    print(
+        "by_parent_depth="
+        + ",".join(
+            f"{depth}:{depth_counts[depth]}"
+            for depth in sorted(depth_counts)
+        )
+    )
+
+    parent_counts = Counter(row.parent_ocn1 for row in rows if row.parent_ocn1)
+    parent_names = {
+        row.parent_ocn1: row.parent_name
+        for row in rows
+        if row.parent_ocn1
+    }
+    parent_depths = {
+        row.parent_ocn1: row.parent_depth
+        for row in rows
+        if row.parent_ocn1
+    }
+    print("top_parents:")
+    for parent, count in parent_counts.most_common(top):
+        print(f"{count}\tdepth={parent_depths[parent]}\t{parent}\t{parent_names[parent]}")
+
+
 def coverage_status(rows: list[MappedOpening], errors: list[str]) -> tuple[int, int]:
     unmatched = sum(1 for row in rows if not row.parent_ocn1)
     return unmatched, len(errors)
@@ -131,6 +159,20 @@ def main() -> int:
     if "--summary" in args:
         summary = True
         args.remove("--summary")
+
+    quality = False
+    if "--quality" in args:
+        quality = True
+        args.remove("--quality")
+
+    top = 20
+    if "--top" in args:
+        index = args.index("--top")
+        try:
+            top = int(args[index + 1])
+        except (IndexError, ValueError):
+            fail("--top requires an integer", code=2)
+        del args[index:index + 2]
 
     check = False
     if "--check" in args:
@@ -162,7 +204,9 @@ def main() -> int:
         limit=limit,
     )
 
-    if summary or check:
+    if quality:
+        print_quality(rows, errors, top=top)
+    elif summary or check:
         print_summary(rows, errors)
     elif json_output:
         print(

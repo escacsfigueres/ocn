@@ -74,6 +74,13 @@ class LichessParentMapTests(unittest.TestCase):
         self.assertIn("unmatched=1", result.stdout)
         self.assertIn("coverage check failed", result.stderr)
 
+    def test_quality_reports_depths_and_top_parents(self) -> None:
+        result = run_tool("--quality", "--top", "2", str(FIXTURES / "lichess_sample.tsv"))
+        self.assertEqual(result.returncode, 0, result.stderr)
+        self.assertIn("by_parent_depth=", result.stdout)
+        self.assertIn("top_parents:", result.stdout)
+        self.assertIn("A.Eng.Sym", result.stdout)
+
 
 if __name__ == "__main__":
     unittest.main()

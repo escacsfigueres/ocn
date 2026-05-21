@@ -131,7 +131,8 @@ d'Escacs Figueres" and link to this repository.
 - [`tools/lichess_parent_map.py`](tools/lichess_parent_map.py) — reads
   Lichess Opening Book TSV rows, converts their SAN PGN lines to UCI, and
   emits the deepest matching OCN-1 parent for each row. Use `--check` to
-  fail if any row cannot be parsed or assigned to an OCN-1 parent.
+  fail if any row cannot be parsed or assigned to an OCN-1 parent, and
+  `--quality` to inspect depth distribution and the most common parents.
 - [`tools/tests/`](tools/tests/) — tool test suite covering validation,
   strict chess checks, lookup behaviour, and positive/negative fixtures
   (`tools/tests/fixtures/`). CI runs it
