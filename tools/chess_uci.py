@@ -7,11 +7,14 @@ dependency, so CI can run it anywhere Python runs.
 """
 from __future__ import annotations
 
+import re
 from dataclasses import dataclass
 
 
 FILES = "abcdefgh"
 PROMOTIONS = {"q", "r", "b", "n"}
+RESULT_TOKENS = {"1-0", "0-1", "1/2-1/2", "*"}
+MOVE_NUMBER_RE = re.compile(r"^\d+\.(?:\.\.)?")
 
 
 @dataclass(frozen=True)
@@ -168,6 +171,18 @@ class Board:
         self._push_unchecked(move)
         return san
 
+    def legal_moves(self) -> list[Move]:
+        moves: list[Move] = []
+        seen: set[Move] = set()
+        for src, piece in enumerate(self.squares):
+            if not piece or piece_color(piece) != self.white_to_move:
+                continue
+            for move in self._pseudo_candidates(src, piece):
+                if move not in seen and self.is_legal(move):
+                    seen.add(move)
+                    moves.append(move)
+        return moves
+
     def move_name(self, move: Move) -> str:
         return square_name(move.src) + square_name(move.dst) + move.promotion
 
@@ -233,6 +248,82 @@ class Board:
         if not same_rank:
             return str(move.src // 8 + 1)
         return square_name(move.src)
+
+    def _pseudo_candidates(self, src: int, piece: str) -> list[Move]:
+        file = src % 8
+        rank = src // 8
+        kind = piece.lower()
+        if kind == "p":
+            return self._pawn_candidates(src, piece)
+        if kind == "n":
+            return [
+                Move(src, (rank + dr) * 8 + file + df)
+                for df, dr in (
+                    (1, 2), (2, 1), (2, -1), (1, -2),
+                    (-1, -2), (-2, -1), (-2, 1), (-1, 2),
+                )
+                if 0 <= file + df < 8 and 0 <= rank + dr < 8
+            ]
+        if kind == "b":
+            return self._ray_candidates(src, ((1, 1), (1, -1), (-1, 1), (-1, -1)))
+        if kind == "r":
+            return self._ray_candidates(src, ((1, 0), (-1, 0), (0, 1), (0, -1)))
+        if kind == "q":
+            return self._ray_candidates(
+                src,
+                (
+                    (1, 0), (-1, 0), (0, 1), (0, -1),
+                    (1, 1), (1, -1), (-1, 1), (-1, -1),
+                ),
+            )
+        if kind == "k":
+            moves = [
+                Move(src, (rank + dr) * 8 + file + df)
+                for df in (-1, 0, 1)
+                for dr in (-1, 0, 1)
+                if (df or dr) and 0 <= file + df < 8 and 0 <= rank + dr < 8
+            ]
+            if file == 4:
+                moves.extend([Move(src, rank * 8 + 6), Move(src, rank * 8 + 2)])
+            return moves
+        return []
+
+    def _pawn_candidates(self, src: int, piece: str) -> list[Move]:
+        file = src % 8
+        rank = src // 8
+        direction = 1 if piece.isupper() else -1
+        promotion_rank = 7 if piece.isupper() else 0
+        candidates: list[Move] = []
+        for df, steps in ((0, 1), (0, 2), (-1, 1), (1, 1)):
+            dst_file = file + df
+            dst_rank = rank + direction * steps
+            if not (0 <= dst_file < 8 and 0 <= dst_rank < 8):
+                continue
+            dst = dst_rank * 8 + dst_file
+            if dst_rank == promotion_rank:
+                candidates.extend(Move(src, dst, promo) for promo in sorted(PROMOTIONS))
+            else:
+                candidates.append(Move(src, dst))
+        return candidates
+
+    def _ray_candidates(
+        self,
+        src: int,
+        directions: tuple[tuple[int, int], ...],
+    ) -> list[Move]:
+        file = src % 8
+        rank = src // 8
+        moves: list[Move] = []
+        for df, dr in directions:
+            nf, nr = file + df, rank + dr
+            while 0 <= nf < 8 and 0 <= nr < 8:
+                dst = nr * 8 + nf
+                moves.append(Move(src, dst))
+                if self.squares[dst]:
+                    break
+                nf += df
+                nr += dr
+        return moves
 
     def _is_pseudo_legal(self, move: Move) -> bool:
         if not (0 <= move.src < 64 and 0 <= move.dst < 64):
@@ -372,6 +463,56 @@ def validate_uci_sequence(moves: str) -> list[str]:
         except (ValueError, IndexError) as exc:
             raise ValueError(f"illegal UCI move '{token}': {exc}") from exc
     return sans
+
+
+def normalize_san_token(token: str) -> str:
+    token = token.strip()
+    token = token.replace("0-0-0", "O-O-O").replace("0-0", "O-O")
+    token = token.rstrip("!?")
+    return token.rstrip("+#")
+
+
+def pgn_tokens(pgn: str) -> list[str]:
+    text = re.sub(r"\{[^}]*\}", " ", pgn)
+    text = re.sub(r"\([^)]*\)", " ", text)
+    tokens: list[str] = []
+    for raw in text.split():
+        token = raw.strip()
+        while True:
+            cleaned = MOVE_NUMBER_RE.sub("", token, count=1)
+            if cleaned == token:
+                break
+            token = cleaned
+        token = token.strip()
+        if not token or token in RESULT_TOKENS or token.startswith("$"):
+            continue
+        tokens.append(token)
+    return tokens
+
+
+def parse_san_move(board: Board, token: str) -> Move:
+    wanted = normalize_san_token(token)
+    matches = [
+        move for move in board.legal_moves()
+        if normalize_san_token(board.san(move)) == wanted
+    ]
+    if len(matches) != 1:
+        detail = "no legal match" if not matches else "ambiguous SAN"
+        raise ValueError(f"{detail} for SAN move '{token}'")
+    return matches[0]
+
+
+def uci_sequence_from_pgn(pgn: str) -> str:
+    board = Board()
+    moves: list[str] = []
+    for token in pgn_tokens(pgn):
+        try:
+            move = parse_san_move(board, token)
+        except ValueError as exc:
+            raise ValueError(str(exc)) from exc
+        moves.append(board.move_name(move))
+        board._push_unchecked(move)
+    return " ".join(moves)
 
 
 def fen_key_after_uci(moves: str) -> str:

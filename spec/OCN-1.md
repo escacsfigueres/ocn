@@ -257,8 +257,8 @@ illustrative ones:
 
 ## Lichess long-tail integration
 
-OCN-1 is intentionally curated and small — it names ~120 of the most
-frequently-played openings, the ones a human can memorise and read. It
+OCN-1 is intentionally curated and compact — it names 2,000 important
+opening families, variations, and tabiyas that humans can memorise. It
 does NOT attempt to name every line that ever appeared in a game.
 
 For the long tail (Bird's Australian Variation, Polish Sokolsky
@@ -278,6 +278,10 @@ The reference EFCDB toolchain provides this layering as Table 6
 join recipe. With both tables loaded, every position in a real game
 database can be resolved to a name: ~25% via curated OCN-1 names, the
 rest via Lichess's CC0 names with an OCN-1 family as breadcrumb.
+
+The repository includes `tools/lichess_parent_map.py` as a lightweight
+CSV/TSV bridge: it converts Lichess SAN PGN lines to UCI and assigns the
+deepest OCN-1 parent by move-prefix match.
 
 ## Acknowledgements
 
