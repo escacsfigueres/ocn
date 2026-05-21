@@ -51,10 +51,18 @@ EXPECTED_WARN: dict[str, str] = {
     "warn_orphan_attribution_source.csv": "orphan citation",
 }
 
+# Strict chess fixtures run with --strict-chess. The canonical catalogue
+# does not use this mode yet because it intentionally exposes historical
+# catalogue debt that is being cleaned in follow-up batches.
+EXPECTED_STRICT_INVALID: dict[str, str] = {
+    "strict_invalid_illegal_move.csv": "illegal UCI move",
+    "strict_invalid_san_mismatch.csv": "does not match appended move SAN",
+}
 
-def run_validator(fixture: Path) -> subprocess.CompletedProcess[str]:
+
+def run_validator(fixture: Path, *extra_args: str) -> subprocess.CompletedProcess[str]:
     return subprocess.run(
-        [sys.executable, str(VALIDATE), str(fixture)],
+        [sys.executable, str(VALIDATE), *extra_args, str(fixture)],
         capture_output=True,
         text=True,
         check=False,
@@ -159,6 +167,34 @@ class ValidatorTests(unittest.TestCase):
         registered = set(EXPECTED_WARN)
         self.assertEqual(on_disk, registered,
                          f"warn fixtures vs EXPECTED_WARN drift: "
+                         f"on_disk={on_disk}, registered={registered}")
+
+    def test_strict_chess_fixtures_fail_with_expected_message(self) -> None:
+        for fixture_name, expected in EXPECTED_STRICT_INVALID.items():
+            fixture = FIXTURES / fixture_name
+            with self.subTest(fixture=fixture_name):
+                self.assertTrue(
+                    fixture.exists(), f"missing fixture {fixture_name}"
+                )
+                result = run_validator(fixture, "--strict-chess")
+                self.assertNotEqual(
+                    result.returncode,
+                    0,
+                    f"{fixture_name} should NOT validate in strict chess mode. "
+                    f"stdout={result.stdout!r}, stderr={result.stderr!r}",
+                )
+                self.assertIn(
+                    expected,
+                    result.stderr,
+                    f"{fixture_name}: expected {expected!r} in stderr, "
+                    f"got {result.stderr!r}",
+                )
+
+    def test_every_strict_fixture_has_an_expected_message(self) -> None:
+        on_disk = {p.name for p in FIXTURES.glob("strict_invalid_*.csv")}
+        registered = set(EXPECTED_STRICT_INVALID)
+        self.assertEqual(on_disk, registered,
+                         f"strict fixtures vs EXPECTED_STRICT_INVALID drift: "
                          f"on_disk={on_disk}, registered={registered}")
 
 

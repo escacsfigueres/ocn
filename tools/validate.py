@@ -15,11 +15,14 @@ Checks performed:
 8. Family/variation/subline segments are 3 characters by default; longer
    tokens are allowed only if explicitly listed in `KNOWN_LONG_TOKENS`
    (handful of legacy compounds like `KID`, `QGD`, `RyL`).
+9. With `--strict-chess`, every `moves_uci` sequence must be legal chess
+   from the initial position, and one-move child extensions with SAN-like
+   trailing slugs must match the appended move's SAN.
 
 Exits with code 0 on success, 1 on the first error encountered.
 
 Usage:
-    python3 tools/validate.py [catalog/ocn-1.csv]
+    python3 tools/validate.py [--strict-chess] [catalog/ocn-1.csv]
 """
 from __future__ import annotations
 
@@ -27,6 +30,11 @@ import csv
 import re
 import sys
 from pathlib import Path
+
+try:
+    from chess_uci import last_move_san, validate_uci_sequence
+except ImportError:  # pragma: no cover - only for unusual direct imports.
+    from tools.chess_uci import last_move_san, validate_uci_sequence
 
 DEFAULT_CATALOG = Path(__file__).resolve().parent.parent / "catalog" / "ocn-1.csv"
 
@@ -83,7 +91,11 @@ def warn(msg: str) -> None:
     print(f"WARN:  {msg}", file=sys.stderr)
 
 
-def validate(path: Path) -> None:
+def normalize_san(san: str) -> str:
+    return san.rstrip("+#")
+
+
+def validate(path: Path, *, strict_chess: bool = False) -> None:
     if not path.exists():
         fail(f"catalogue not found: {path}")
 
@@ -205,6 +217,11 @@ def validate(path: Path) -> None:
                 if not UCI_RE.match(tok):
                     fail(f"row {i}: invalid UCI move '{tok}' in slug '{slug}' "
                          f"(expected format like e2e4, g1f3, e7e8q)")
+            if strict_chess:
+                try:
+                    validate_uci_sequence(moves_uci)
+                except ValueError as exc:
+                    fail(f"row {i}: {exc} in slug '{slug}'")
 
         # Flags whitelist (pipe-separated, same as eco_legacy and aliases)
         flags = (row.get("flags") or "").strip()
@@ -255,12 +272,33 @@ def validate(path: Path) -> None:
         if not slug.startswith(parent + "."):
             fail(f"row {row['_row']}: slug '{slug}' does not start with parent '{parent}.'")
 
+        if strict_chess:
+            parent_moves = (seen_slugs[parent].get("moves_uci") or "").strip()
+            child_moves = (row.get("moves_uci") or "").strip()
+            last_segment = slug.rsplit(".", 1)[-1]
+            if child_moves and SAN_RE.match(last_segment):
+                try:
+                    san = last_move_san(parent_moves, child_moves)
+                except ValueError as exc:
+                    fail(f"row {row['_row']}: {exc} in slug '{slug}'")
+                if san is not None and normalize_san(san) != last_segment:
+                    fail(f"row {row['_row']}: last slug segment '{last_segment}' "
+                         f"does not match appended move SAN '{normalize_san(san)}' "
+                         f"(slug '{slug}')")
+
     print(f"OK: {len(seen_slugs)} entries validated, {warnings} warning(s)")
 
 
 def main() -> int:
-    path = Path(sys.argv[1]) if len(sys.argv) > 1 else DEFAULT_CATALOG
-    validate(path)
+    args = sys.argv[1:]
+    strict_chess = False
+    if "--strict-chess" in args:
+        strict_chess = True
+        args.remove("--strict-chess")
+    if len(args) > 1:
+        fail("usage: python3 tools/validate.py [--strict-chess] [catalog/ocn-1.csv]")
+    path = Path(args[0]) if args else DEFAULT_CATALOG
+    validate(path, strict_chess=strict_chess)
     return 0
 
 
