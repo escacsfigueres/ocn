@@ -111,14 +111,12 @@ d'Escacs Figueres" and link to this repository.
 
 - [`tools/validate.py`](tools/validate.py) — checks the catalogue for
   format errors, slug collisions, broken parent references, profile
-  depth limits. It also has an opt-in `--strict-chess` mode that checks
-  legal UCI move sequences and one-move SAN tail consistency; this mode
-  currently exposes catalogue cleanup debt and is not yet the default CI
-  gate.
+  depth limits. CI also runs its `--strict-chess` mode, which checks
+  legal UCI move sequences and one-move SAN tail consistency.
 - [`tools/audit_chess.py`](tools/audit_chess.py) — runs the strict chess
   legality/SAN checks across the full catalogue and reports every issue
-  instead of stopping at the first one. This is the working list for the
-  hardening cleanup before `--strict-chess` becomes a CI gate.
+  instead of stopping at the first one. Use it as a batch cleanup report
+  if strict validation ever fails.
 - [`tools/tests/test_validate.py`](tools/tests/test_validate.py) — test
   suite that runs the validator against the canonical catalogue plus
   positive and negative fixtures (`tools/tests/fixtures/`). CI runs it

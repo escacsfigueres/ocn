@@ -32,5 +32,8 @@ jobs:
       - name: validate canonical catalogue
         run: python3 tools/validate.py
 
+      - name: validate canonical catalogue with strict chess checks
+        run: python3 tools/validate.py --strict-chess
+
       - name: run validator test suite
         run: python3 tools/tests/test_validate.py

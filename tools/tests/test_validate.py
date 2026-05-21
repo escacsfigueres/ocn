@@ -51,9 +51,8 @@ EXPECTED_WARN: dict[str, str] = {
     "warn_orphan_attribution_source.csv": "orphan citation",
 }
 
-# Strict chess fixtures run with --strict-chess. The canonical catalogue
-# does not use this mode yet because it intentionally exposes historical
-# catalogue debt that is being cleaned in follow-up batches.
+# Strict chess fixtures run with --strict-chess; the canonical catalogue
+# is also expected to pass strict mode now that move-order debt is cleared.
 EXPECTED_STRICT_INVALID: dict[str, str] = {
     "strict_invalid_illegal_move.csv": "illegal UCI move",
     "strict_invalid_san_mismatch.csv": "does not match appended move SAN",
@@ -74,13 +73,15 @@ class ValidatorTests(unittest.TestCase):
         """The shipped catalogue must always validate clean."""
         catalogue = REPO_ROOT / "catalog" / "ocn-1.csv"
         self.assertTrue(catalogue.exists(), f"missing {catalogue}")
-        result = run_validator(catalogue)
-        self.assertEqual(
-            result.returncode,
-            0,
-            f"canonical catalogue failed: stderr={result.stderr!r}",
-        )
-        self.assertIn("OK:", result.stdout)
+        for extra_args in ((), ("--strict-chess",)):
+            with self.subTest(args=extra_args):
+                result = run_validator(catalogue, *extra_args)
+                self.assertEqual(
+                    result.returncode,
+                    0,
+                    f"canonical catalogue failed: stderr={result.stderr!r}",
+                )
+                self.assertIn("OK:", result.stdout)
 
     def test_valid_fixtures_pass(self) -> None:
         for fixture in sorted(FIXTURES.glob("valid_*.csv")):
