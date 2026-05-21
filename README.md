@@ -81,7 +81,7 @@ The full specification is in [`spec/OCN-1.md`](spec/OCN-1.md).
 ## Status
 
 **Alpha (2026-05-21).** The format is stable; the reference catalogue has
-2,103 entries and passes strict legal-move/SAN validation in CI. Comments,
+2,135 entries and passes strict legal-move/SAN validation in CI. Comments,
 corrections and additions welcome via issues.
 
 > Naming history: previously drafted as **OCS — Open Chess Slug** during
@@ -175,7 +175,7 @@ See [`spec/OCN-1.md`](spec/OCN-1.md) for the full reasoning.
 
 ## Roadmap
 
-- **0.1** *(current)* — Core spec, 2,103-entry catalogue, strict
+- **0.1** *(current)* — Core spec, 2,135-entry catalogue, strict
   validator, and lookup tools.
 - **0.2** — Lichess Opening Book mapping for the long tail (~3500
   entries).
