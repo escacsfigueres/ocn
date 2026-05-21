@@ -3,6 +3,7 @@ from __future__ import annotations
 
 import subprocess
 import sys
+import tempfile
 import unittest
 from pathlib import Path
 
@@ -46,7 +47,11 @@ class FromUciTests(unittest.TestCase):
         self.assertIn("illegal UCI move", result.stderr)
 
     def test_unmatched_legal_sequence_fails(self) -> None:
-        result = run_from_uci("e2e4")
+        with tempfile.NamedTemporaryFile("w", encoding="utf-8", suffix=".csv") as f:
+            f.write("ocn1,canonical_name,eco_legacy,parent_ocn1,moves_uci,depth\n")
+            f.write("A.Eng,English Opening,A10,A,c2c4,1\n")
+            f.flush()
+            result = run_from_uci("--catalog", f.name, "e2e4")
         self.assertNotEqual(result.returncode, 0)
         self.assertIn("no OCN-1 match", result.stderr)
 
