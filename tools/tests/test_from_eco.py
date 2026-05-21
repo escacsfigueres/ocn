@@ -33,16 +33,16 @@ class FromEcoTests(unittest.TestCase):
 
     def test_pgn_file_eco_tag_is_supported(self) -> None:
         with tempfile.NamedTemporaryFile("w", encoding="utf-8", suffix=".pgn") as f:
-            f.write('[Event "OCN smoke"]\n[ECO "A10"]\n\n1. c4 *\n')
+            f.write('[Event "OCN smoke"]\n[ECO "A11"]\n\n1. c4 *\n')
             f.flush()
             result = run_from_eco(f.name)
         self.assertEqual(result.returncode, 0, result.stderr)
-        self.assertTrue(result.stdout.startswith("A.Eng\t"), result.stdout)
+        self.assertTrue(result.stdout.startswith("A.Ret.Ang.MLn.Nf6\t"), result.stdout)
 
     def test_inline_pgn_eco_tag_is_supported(self) -> None:
-        result = run_from_eco('[ECO "A10"]', "1.", "c4", "*")
+        result = run_from_eco('[ECO "A11"]', "1.", "c4", "*")
         self.assertEqual(result.returncode, 0, result.stderr)
-        self.assertTrue(result.stdout.startswith("A.Eng\t"), result.stdout)
+        self.assertTrue(result.stdout.startswith("A.Ret.Ang.MLn.Nf6\t"), result.stdout)
 
     def test_ambiguous_code_fails_without_all(self) -> None:
         result = run_from_eco("B90")
@@ -57,10 +57,10 @@ class FromEcoTests(unittest.TestCase):
         self.assertIn("B.Sic.Naj.Eng.e5.Nb3.Be6\t", result.stdout)
 
     def test_json_output(self) -> None:
-        result = run_from_eco("--json", "A10")
+        result = run_from_eco("--json", "A11")
         self.assertEqual(result.returncode, 0, result.stderr)
         payload = json.loads(result.stdout)
-        self.assertEqual(payload[0]["ocn1"], "A.Eng")
+        self.assertEqual(payload[0]["ocn1"], "A.Ret.Ang.MLn.Nf6")
 
     def test_invalid_eco_fails(self) -> None:
         result = run_from_eco("Z99")
