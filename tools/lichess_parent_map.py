@@ -1,20 +1,24 @@
 #!/usr/bin/env python3
-"""Map Lichess opening TSV rows to their deepest OCN-1 parent."""
+"""Map Lichess opening TSV rows to their deepest OCN-1 parent.
+
+The mapper uses both literal UCI prefixes and equivalent FEN positions, so
+transposed move orders can still resolve to the same catalogue tabiya.
+"""
 from __future__ import annotations
 
 import csv
 import json
 import sys
 from collections import Counter
-from dataclasses import dataclass
+from dataclasses import dataclass, replace
 from pathlib import Path
 
 try:
-    from chess_uci import uci_sequence_from_pgn
-    from from_uci import find_match, load_catalog
+    from chess_uci import fen_key_after_uci, fen_keys_after_uci, uci_sequence_from_pgn
+    from from_uci import Match, find_match, load_catalog
 except ImportError:  # pragma: no cover - only for unusual direct imports.
-    from tools.chess_uci import uci_sequence_from_pgn
-    from tools.from_uci import find_match, load_catalog
+    from tools.chess_uci import fen_key_after_uci, fen_keys_after_uci, uci_sequence_from_pgn
+    from tools.from_uci import Match, find_match, load_catalog
 
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
@@ -33,6 +37,27 @@ class MappedOpening:
     parent_name: str
     parent_depth: int | None
     parent_matched_ply: int | None
+
+
+def better_match(
+    left: Match | None,
+    right: Match | None,
+    *,
+    tie_break_ocn: bool = True,
+) -> Match | None:
+    if left is None:
+        return right
+    if right is None:
+        return left
+    if (right.matched_ply, right.depth) > (left.matched_ply, left.depth):
+        return right
+    if (
+        tie_break_ocn
+        and (right.matched_ply, right.depth) == (left.matched_ply, left.depth)
+        and right.ocn1 > left.ocn1
+    ):
+        return right
+    return left
 
 
 def fail(message: str, *, code: int = 1) -> None:
@@ -60,6 +85,47 @@ def lichess_rows(path: Path) -> list[tuple[Path, dict[str, str]]]:
     return rows
 
 
+def catalog_fen_index(catalog: list[dict[str, str]]) -> dict[str, Match]:
+    index: dict[str, Match] = {}
+    for row in catalog:
+        row_moves = (row.get("moves_uci") or "").strip()
+        if not row_moves:
+            continue
+        match = Match(
+            ocn1=row["ocn1"],
+            canonical_name=row["canonical_name"],
+            eco_legacy=row["eco_legacy"],
+            depth=int(row["depth"]),
+            matched_ply=len(row_moves.split()),
+            moves_uci=row_moves,
+        )
+        key = fen_key_after_uci(row_moves)
+        index[key] = better_match(index.get(key), match) or match
+    return index
+
+
+def find_position_match(fen_index: dict[str, Match], moves_uci: str) -> Match | None:
+    best: Match | None = None
+    for ply, key in enumerate(fen_keys_after_uci(moves_uci), start=1):
+        match = fen_index.get(key)
+        if match is None:
+            continue
+        best = better_match(best, replace(match, matched_ply=ply))
+    return best
+
+
+def find_parent_match(
+    catalog: list[dict[str, str]],
+    fen_index: dict[str, Match],
+    moves_uci: str,
+) -> Match | None:
+    return better_match(
+        find_match(catalog, moves_uci),
+        find_position_match(fen_index, moves_uci),
+        tie_break_ocn=False,
+    )
+
+
 def map_rows(
     rows: list[tuple[Path, dict[str, str]]],
     catalog: list[dict[str, str]],
@@ -68,6 +134,7 @@ def map_rows(
 ) -> tuple[list[MappedOpening], list[str]]:
     mapped: list[MappedOpening] = []
     errors: list[str] = []
+    fen_index = catalog_fen_index(catalog)
     for file, row in rows[:limit]:
         pgn = row["pgn"].strip()
         try:
@@ -76,7 +143,7 @@ def map_rows(
             errors.append(f"{file.name}: {row['name']}: {exc}")
             continue
 
-        match = find_match(catalog, moves_uci)
+        match = find_parent_match(catalog, fen_index, moves_uci)
         mapped.append(
             MappedOpening(
                 source=file.name,

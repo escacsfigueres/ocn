@@ -41,6 +41,43 @@ class LichessParentMapTests(unittest.TestCase):
         self.assertEqual(rows[0]["parent_ocn1"], "A.Eng.Sym")
         self.assertEqual(rows[1]["parent_ocn1"], "B.Sic.Naj.Eng.e5.Nb3")
 
+    def test_maps_transposed_positions_to_deeper_parent(self) -> None:
+        with (
+            tempfile.NamedTemporaryFile("w", encoding="utf-8", suffix=".csv") as catalog,
+            tempfile.NamedTemporaryFile("w", encoding="utf-8", suffix=".tsv") as lichess,
+        ):
+            catalog.write("ocn1,canonical_name,eco_legacy,parent_ocn1,moves_uci,depth\n")
+            catalog.write("D.Root,Queen Pawn,D00,D,d2d4,1\n")
+            catalog.write("D.Root.Deep,QGD Structure,D30,D.Root,d2d4 d7d5 c2c4 e7e6,2\n")
+            catalog.flush()
+            lichess.write("eco\tname\tpgn\n")
+            lichess.write("D30\tQGD transposition\t1. d4 e6 2. c4 d5\n")
+            lichess.flush()
+            result = run_tool("--catalog", catalog.name, lichess.name)
+
+        self.assertEqual(result.returncode, 0, result.stderr)
+        rows = list(csv.DictReader(result.stdout.splitlines(), delimiter="\t"))
+        self.assertEqual(rows[0]["parent_ocn1"], "D.Root.Deep")
+        self.assertEqual(rows[0]["parent_matched_ply"], "4")
+
+    def test_prefix_match_wins_equivalent_transposition_tie(self) -> None:
+        with (
+            tempfile.NamedTemporaryFile("w", encoding="utf-8", suffix=".csv") as catalog,
+            tempfile.NamedTemporaryFile("w", encoding="utf-8", suffix=".tsv") as lichess,
+        ):
+            catalog.write("ocn1,canonical_name,eco_legacy,parent_ocn1,moves_uci,depth\n")
+            catalog.write("A.Trans,A move order,A40,A,d2d4 e7e6 c2c4 d7d5,2\n")
+            catalog.write("D.Trans,D move order,D30,D,d2d4 d7d5 c2c4 e7e6,2\n")
+            catalog.flush()
+            lichess.write("eco\tname\tpgn\n")
+            lichess.write("A40\tExplicit A order\t1. d4 e6 2. c4 d5\n")
+            lichess.flush()
+            result = run_tool("--catalog", catalog.name, lichess.name)
+
+        self.assertEqual(result.returncode, 0, result.stderr)
+        rows = list(csv.DictReader(result.stdout.splitlines(), delimiter="\t"))
+        self.assertEqual(rows[0]["parent_ocn1"], "A.Trans")
+
     def test_summary_reports_parse_errors(self) -> None:
         with tempfile.NamedTemporaryFile("w", encoding="utf-8", suffix=".tsv") as f:
             f.write("eco\tname\tpgn\n")

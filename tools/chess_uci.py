@@ -525,6 +525,18 @@ def fen_key_after_uci(moves: str) -> str:
     return board.fen_key()
 
 
+def fen_keys_after_uci(moves: str) -> list[str]:
+    board = Board()
+    keys: list[str] = []
+    for token in moves.split():
+        try:
+            board.push_uci(token)
+        except (ValueError, IndexError) as exc:
+            raise ValueError(f"illegal UCI move '{token}': {exc}") from exc
+        keys.append(board.fen_key())
+    return keys
+
+
 def last_move_san(parent_moves: str, child_moves: str) -> str | None:
     parent = parent_moves.split()
     child = child_moves.split()

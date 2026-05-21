@@ -3,7 +3,7 @@ from __future__ import annotations
 
 import unittest
 
-from tools.chess_uci import fen_key_after_uci, pgn_tokens, uci_sequence_from_pgn
+from tools.chess_uci import fen_key_after_uci, fen_keys_after_uci, pgn_tokens, uci_sequence_from_pgn
 
 
 class ChessUciTests(unittest.TestCase):
@@ -29,6 +29,14 @@ class ChessUciTests(unittest.TestCase):
         self.assertEqual(
             fen_key_after_uci("c2c4 c7c5"),
             "rnbqkbnr/pp1ppppp/8/2p5/2P5/8/PP1PPPPP/RNBQKBNR w KQkq -",
+        )
+
+    def test_fen_keys_after_each_uci_ply(self) -> None:
+        keys = fen_keys_after_uci("d2d4 d7d5 c2c4")
+        self.assertEqual(len(keys), 3)
+        self.assertEqual(
+            keys[-1],
+            "rnbqkbnr/ppp1pppp/8/3p4/2PP4/8/PP2PPPP/RNBQKBNR b KQkq -",
         )
 
 
