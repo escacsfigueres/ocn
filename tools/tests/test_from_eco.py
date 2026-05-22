@@ -37,12 +37,18 @@ class FromEcoTests(unittest.TestCase):
             f.flush()
             result = run_from_eco(f.name)
         self.assertEqual(result.returncode, 0, result.stderr)
-        self.assertTrue(result.stdout.startswith("A.Ret.Ang.MLn.Nf6\t"), result.stdout)
+        self.assertTrue(
+            result.stdout.startswith("A.KIA.Bg2.c6.O-O.Bf5.d3\t"),
+            result.stdout,
+        )
 
     def test_inline_pgn_eco_tag_is_supported(self) -> None:
         result = run_from_eco('[ECO "A11"]', "1.", "c4", "*")
         self.assertEqual(result.returncode, 0, result.stderr)
-        self.assertTrue(result.stdout.startswith("A.Ret.Ang.MLn.Nf6\t"), result.stdout)
+        self.assertTrue(
+            result.stdout.startswith("A.KIA.Bg2.c6.O-O.Bf5.d3\t"),
+            result.stdout,
+        )
 
     def test_ambiguous_code_fails_without_all(self) -> None:
         result = run_from_eco("B90")
@@ -60,7 +66,7 @@ class FromEcoTests(unittest.TestCase):
         result = run_from_eco("--json", "A11")
         self.assertEqual(result.returncode, 0, result.stderr)
         payload = json.loads(result.stdout)
-        self.assertEqual(payload[0]["ocn1"], "A.Ret.Ang.MLn.Nf6")
+        self.assertEqual(payload[0]["ocn1"], "A.KIA.Bg2.c6.O-O.Bf5.d3")
 
     def test_invalid_eco_fails(self) -> None:
         result = run_from_eco("Z99")
