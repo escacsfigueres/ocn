@@ -4116,3 +4116,4 @@ E.Ind.Cat.d5.Bg2.dxc4.Qa4,"Indian Catalan Open, Qa4+",E03|E04,E.Ind.Cat.d5.Bg2.d
 E.Ind.Cat.d5.Bg2.dxc4.Nf3,"Indian Catalan Open, Nf3",E04|E05,E.Ind.Cat.d5.Bg2.dxc4,d2d4 g8f6 c2c4 e7e6 g2g3 d7d5 f1g2 d5c4 g1f3,6,Nf3 Line,closed,"Nf3 after ...dxc4 in the early Indian Catalan move order.",,,
 E.Ind.e6.Nf3.d5.e3.b6,"Anti-Nimzo e3, b6",E14,E.Ind.e6.Nf3.d5.e3,d2d4 g8f6 c2c4 e7e6 g1f3 d7d5 e2e3 b7b6,6,Queen's Indian Transposition,closed,"...b6 after e3 in the Anti-Nimzo d5 move order.",,,
 E.Ind.e6.Nf3.d5.e3.Be7,"Anti-Nimzo e3, Be7",E14,E.Ind.e6.Nf3.d5.e3,d2d4 g8f6 c2c4 e7e6 g1f3 d7d5 e2e3 f8e7,6,Quiet QGD Transposition,closed,"...Be7 after e3 in the Anti-Nimzo d5 move order.",,,
+E.Ben.Old.Adv.Nf6.Nf3.c4,"Old Benoni Hawk Variation",A43,E.Ben.Old.Adv.Nf6.Nf3,d2d4 c7c5 d4d5 g8f6 g1f3 c5c4,6,Hawk Variation,sharp,"...c4 against Nf3 in the Old Benoni / Benoni-Indian move order.",,,
