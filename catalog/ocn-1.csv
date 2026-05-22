@@ -4142,3 +4142,5 @@ A.Lar.Mod.e3,"Larsen Modern, e3",,A.Lar.Mod,b2b3 e7e5 c1b2 b8c6 e2e3,3,e3 Line,c
 A.Lar.Mod.e3.d5,"Larsen Modern e3, d5",,A.Lar.Mod.e3,b2b3 e7e5 c1b2 b8c6 e2e3 d7d5,4,d5 Line,closed,"...d5 against the Larsen Modern e3 setup.",,,
 A.Lar.Mod.e3.d5.Bb5,"Larsen Modern e3 d5, Bb5",,A.Lar.Mod.e3.d5,b2b3 e7e5 c1b2 b8c6 e2e3 d7d5 f1b5,5,Bb5 Line,sharp,"Bb5 against ...d5 in the Larsen Modern e3 setup.",,,
 A.Lar.Mod.e3.d5.Bb5.Ne7,"Larsen Modern, Leela Gambit",,A.Lar.Mod.e3.d5.Bb5,b2b3 e7e5 c1b2 b8c6 e2e3 d7d5 f1b5 g8e7,6,Leela Gambit|Lc0 Gambit,gambit|sharp,"Black's ...Ne7 gambit against the b3/Bb2/e3/Bb5 Nimzo-Larsen setup.",,,
+B.Fre.Stn.MLn.f4.c5.dxc5,"French Steinitz f4 c5, dxc5",,B.Fre.Stn.MLn.f4.c5,e2e4 e7e6 d2d4 d7d5 b1c3 g8f6 e4e5 f6d7 f2f4 c7c5 d4c5,6,dxc5 Line,sharp,"dxc5 in the French Steinitz f4/c5 structure.",,,
+B.Fre.Stn.MLn.f4.c5.Nf3,"French Steinitz f4 c5, Nf3",,B.Fre.Stn.MLn.f4.c5,e2e4 e7e6 d2d4 d7d5 b1c3 g8f6 e4e5 f6d7 f2f4 c7c5 g1f3,6,Nf3 Line|Boleslavsky Prefix,closed,"Nf3 in the French Steinitz f4/c5 structure.",,,
