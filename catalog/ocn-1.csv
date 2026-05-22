@@ -4138,3 +4138,7 @@ B.Sic.OKn.Nf6.Nc3.g6.Be2,"Sicilian Open Knights Dragon Prefix, Be2",,B.Sic.OKn.N
 B.Sic.OKn.Nf6.Nc3.g6.g3,"Sicilian Open Knights Dragon Prefix, g3",,B.Sic.OKn.Nf6.Nc3.g6,e2e4 c7c5 g1f3 d7d6 d2d4 c5d4 f3d4 g8f6 b1c3 g7g6 g2g3,6,Fianchetto Dragon Prefix,closed,"g3 after the Open Knights Dragon prefix; canonical Dragon lines live under B.Sic.Dra.",,,
 B.Sic.OKn.Nf6.Nc3.g6.f4,"Sicilian Open Knights Dragon Prefix, f4",,B.Sic.OKn.Nf6.Nc3.g6,e2e4 c7c5 g1f3 d7d6 d2d4 c5d4 f3d4 g8f6 b1c3 g7g6 f2f4,6,Levenfish Prefix,sharp,"f4 after the Open Knights Dragon prefix; canonical Dragon lines live under B.Sic.Dra.",,,
 B.Sic.OKn.Nf6.Nc3.g6.Be3,"Sicilian Open Knights Dragon Prefix, Be3",,B.Sic.OKn.Nf6.Nc3.g6,e2e4 c7c5 g1f3 d7d6 d2d4 c5d4 f3d4 g8f6 b1c3 g7g6 c1e3,6,Be3 Dragon Prefix,sharp,"Be3 after the Open Knights Dragon prefix; canonical Dragon lines live under B.Sic.Dra.",,,
+A.Lar.Mod.e3,"Larsen Modern, e3",,A.Lar.Mod,b2b3 e7e5 c1b2 b8c6 e2e3,3,e3 Line,closed,"e3 in the Larsen Modern setup.",,,
+A.Lar.Mod.e3.d5,"Larsen Modern e3, d5",,A.Lar.Mod.e3,b2b3 e7e5 c1b2 b8c6 e2e3 d7d5,4,d5 Line,closed,"...d5 against the Larsen Modern e3 setup.",,,
+A.Lar.Mod.e3.d5.Bb5,"Larsen Modern e3 d5, Bb5",,A.Lar.Mod.e3.d5,b2b3 e7e5 c1b2 b8c6 e2e3 d7d5 f1b5,5,Bb5 Line,sharp,"Bb5 against ...d5 in the Larsen Modern e3 setup.",,,
+A.Lar.Mod.e3.d5.Bb5.Ne7,"Larsen Modern, Leela Gambit",,A.Lar.Mod.e3.d5.Bb5,b2b3 e7e5 c1b2 b8c6 e2e3 d7d5 f1b5 g8e7,6,Leela Gambit|Lc0 Gambit,gambit|sharp,"Black's ...Ne7 gambit against the b3/Bb2/e3/Bb5 Nimzo-Larsen setup.",,,
