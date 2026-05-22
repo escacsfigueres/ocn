@@ -4144,3 +4144,7 @@ A.Lar.Mod.e3.d5.Bb5,"Larsen Modern e3 d5, Bb5",,A.Lar.Mod.e3.d5,b2b3 e7e5 c1b2 b
 A.Lar.Mod.e3.d5.Bb5.Ne7,"Larsen Modern, Leela Gambit",,A.Lar.Mod.e3.d5.Bb5,b2b3 e7e5 c1b2 b8c6 e2e3 d7d5 f1b5 g8e7,6,Leela Gambit|Lc0 Gambit,gambit|sharp,"Black's ...Ne7 gambit against the b3/Bb2/e3/Bb5 Nimzo-Larsen setup.",,,
 B.Fre.Stn.MLn.f4.c5.dxc5,"French Steinitz f4 c5, dxc5",,B.Fre.Stn.MLn.f4.c5,e2e4 e7e6 d2d4 d7d5 b1c3 g8f6 e4e5 f6d7 f2f4 c7c5 d4c5,6,dxc5 Line,sharp,"dxc5 in the French Steinitz f4/c5 structure.",,,
 B.Fre.Stn.MLn.f4.c5.Nf3,"French Steinitz f4 c5, Nf3",,B.Fre.Stn.MLn.f4.c5,e2e4 e7e6 d2d4 d7d5 b1c3 g8f6 e4e5 f6d7 f2f4 c7c5 g1f3,6,Nf3 Line|Boleslavsky Prefix,closed,"Nf3 in the French Steinitz f4/c5 structure.",,,
+C.PhD.d4.Nd7.Bc4.c6.c3,"Philidor Hanham Delmar Variation",,C.PhD.d4.Nd7.Bc4.c6,e2e4 e7e5 g1f3 d7d6 d2d4 b8d7 f1c4 c7c6 c2c3,6,Delmar Variation,closed,"c3 in the Philidor Hanham c6 line.",,,
+C.PhD.d4.Nd7.Bc4.c6.O-O,"Philidor Hanham Krause Variation",,C.PhD.d4.Nd7.Bc4.c6,e2e4 e7e5 g1f3 d7d6 d2d4 b8d7 f1c4 c7c6 e1g1,6,Krause Variation|Steiner Prefix,closed,"Castling in the Philidor Hanham c6 line.",,,
+C.PhD.d4.Nd7.Bc4.c6.Nc3,"Philidor Hanham Schlechter Variation",,C.PhD.d4.Nd7.Bc4.c6,e2e4 e7e5 g1f3 d7d6 d2d4 b8d7 f1c4 c7c6 b1c3,6,Schlechter Variation,closed,"Nc3 in the Philidor Hanham c6 line.",,,
+C.PhD.d4.Nd7.Bc4.c6.Ng5,"Philidor Hanham Kmoch Variation",,C.PhD.d4.Nd7.Bc4.c6,e2e4 e7e5 g1f3 d7d6 d2d4 b8d7 f1c4 c7c6 f3g5,6,Kmoch Variation,sharp,"Ng5 in the Philidor Hanham c6 line.",,,
