@@ -78,6 +78,24 @@ class LichessParentMapTests(unittest.TestCase):
         rows = list(csv.DictReader(result.stdout.splitlines(), delimiter="\t"))
         self.assertEqual(rows[0]["parent_ocn1"], "A.Trans")
 
+    def test_prefix_match_wins_same_ply_transposition_even_when_shallower(self) -> None:
+        with (
+            tempfile.NamedTemporaryFile("w", encoding="utf-8", suffix=".csv") as catalog,
+            tempfile.NamedTemporaryFile("w", encoding="utf-8", suffix=".tsv") as lichess,
+        ):
+            catalog.write("ocn1,canonical_name,eco_legacy,parent_ocn1,moves_uci,depth\n")
+            catalog.write("A.Trans.Deep,Deep transposition,A40,A,d2d4 e7e6 c2c4 d7d5,3\n")
+            catalog.write("D.Trans,Literal move order,D30,D,d2d4 d7d5 c2c4 e7e6,1\n")
+            catalog.flush()
+            lichess.write("eco\tname\tpgn\n")
+            lichess.write("D30\tExplicit D order\t1. d4 d5 2. c4 e6\n")
+            lichess.flush()
+            result = run_tool("--catalog", catalog.name, lichess.name)
+
+        self.assertEqual(result.returncode, 0, result.stderr)
+        rows = list(csv.DictReader(result.stdout.splitlines(), delimiter="\t"))
+        self.assertEqual(rows[0]["parent_ocn1"], "D.Trans")
+
     def test_summary_reports_parse_errors(self) -> None:
         with tempfile.NamedTemporaryFile("w", encoding="utf-8", suffix=".tsv") as f:
             f.write("eco\tname\tpgn\n")

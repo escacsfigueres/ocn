@@ -119,11 +119,15 @@ def find_parent_match(
     fen_index: dict[str, Match],
     moves_uci: str,
 ) -> Match | None:
-    return better_match(
-        find_match(catalog, moves_uci),
-        find_position_match(fen_index, moves_uci),
-        tie_break_ocn=False,
-    )
+    literal = find_match(catalog, moves_uci)
+    transposed = find_position_match(fen_index, moves_uci)
+    if literal is None:
+        return transposed
+    if transposed is None:
+        return literal
+    if literal.matched_ply == transposed.matched_ply:
+        return literal
+    return better_match(literal, transposed, tie_break_ocn=False)
 
 
 def map_rows(
