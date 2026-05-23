@@ -2,10 +2,10 @@
 
 ## Current state
 
-- Catalogue size: **6,096** rows.
-- Duplicate FEN groups: **316** total — **24 resolved** by
-  `transposes_to`, **292 unresolved**.
-- Rows in unresolved groups: **593**.
+- Catalogue size: **6,056** rows.
+- Duplicate FEN groups: **280** total — **52 resolved** by
+  `transposes_to`, **228 unresolved**.
+- Rows in unresolved groups: **461**.
 - Top group size observed: **3**.
 
 Numbers are produced by:
@@ -294,6 +294,56 @@ position is universally named Queen's Indian.
 - `E.QID` gains alias `English Defence Nf3 move-order`.
 - `A.Owe.Eng.Nf3.Nf6.notes` reworded as transposition pointer.
 - No rows deleted. `E.QID` keeps its 9 children intact.
+
+### Resolved batch — high-confidence transpositions (multi-family)
+
+Big multi-family pass over the top 80 ranked unresolved groups,
+driven by parallel agent classification with same-FEN verification
+on every proposal. Two patterns applied:
+
+1. **`transposes_to` arrow** when both rows have substantive
+   children or are family-level anchors that should stay alive as
+   navigation breadcrumbs.
+2. **Physical deletion** when a row is a Lichess-imported descriptor
+   sibling that has identical FEN to its direct parent, 0 children,
+   and 0 inbound `transposes_to` refs — adding no information.
+
+**Families covered**
+
+| Family pattern | Canonical side | Transposing side | Pairs | Deletions |
+|---|---|---|---|---|
+| Horwitz French ↔ QGD | `D.QGD.*` (Queen's Gambit Declined named tree) | `A.Hor.Fch.*` (1.d4 e6 c4 d5 move-order) | 13 | 0 |
+| Kangaroo ↔ Nimzo (deep continuation) | `E.Nim.Rub.*` | `A.Kan.MLn.e3.*` | 4 | 0 |
+| Horwitz Keres ↔ Bogo-Indian | `E.Bog` | `A.Hor.Ker` | 1 | 0 |
+| Vampire-Mengarini ↔ Scandinavian | `B.Sca.Nc3*` (ECO B01) | `A.Van.d5.e4.*` (A00 curiosity) | 4 | 0 |
+| Reti Anglo ↔ English Caro-Kann path | `A.Ret.Ang*` | `A.Eng.CKa.Nf3.d5*` | 2 | 1 leaf |
+| Reti QGI ↔ English Agincourt path | `A.Ret.QGI` | `A.Eng.Agi.Nf3.d5` | 1 | 1 leaf |
+| Yugoslav Dragon path collapse | `B.Sic.Dra.Yug` | `B.Sic.Dra.Yug.Nc6.Bc4` (kept w/ children) | 1 TT | 2 leaves |
+| Four Knights ↔ Petrov 3-Knights | `C.Fou` | `C.Pet.Thr.Fou` | 1 | 0 |
+| Anti-Berlin ↔ Portuguese path | `C.RyL.Ber.d3` | `C.KPO.Prt.MLn.Nc6.Nf3*` | 1 | 0 |
+| Centre Game vs Pirc prefix (mixed) | `C.Cen.d6` (literary, 1 child) | `B.Pir.Pre.d4.e5` (0 kids) | — | 1 |
+| Intra-D Lichess-descriptor cleanup | various D parents | various deep `.Std` / `.Mer` / `.Cze` / `.Sch` etc. leaves | — | 20 |
+| Intra-E Lichess-descriptor cleanup | various E parents | `.Trd` / `.TrP` / `.Pan` / `.Rub` / `.Bob.Rub` / `.Flo.Fis` etc. | — | 6 |
+| Intra-A / intra-B / intra-C / mixed | various canonical anchors | Lichess deep-path descriptors | 1 TT | 10 |
+
+**Totals applied**: 28 new `transposes_to` arrows + 40 row deletions.
+All deletions verified to have 0 children and 0 inbound references at
+apply time. The validator's same-FEN check confirmed every new
+`transposes_to` link.
+
+**Deferred from this batch** (do not touch yet):
+
+- French Classical / Veresov 3-way (`B.Fre.Cls.MLn ⇄ A.Ver.Cls.MLn.Be7 ⇄ D.QPG.Ver.MLn.Be7`).
+- Veresov A↔D triple (`A.Ver ⇄ D.QPG.Ver ⇄ D.QPG.Ver.Ric`) and its
+  subtree (`A.Ver.Ric`, `A.Ver.Cls.MLn`, `D.QPG.Ver.MLn`).
+- Intra-E triple `E.KID.Cls.Old.e5 ⇄ E.KID.Cls.e5.O-O.Nbd7 ⇄ ...O-O`
+  (3-way intra-E, needs careful subtree review).
+- Intra-E triple `E.Ben.Mod.Cls ⇄ Trd ⇄ E.Ind.e6...` (parent/child
+  same FEN + cross-family E, needs structural review).
+- `D.Rub ↔ A.Col.Zuk` (Rubinstein Opening vs Colle-Zukertort —
+  different conceptual families, no clear precedent yet).
+- A handful of MEDIUM-confidence groups where both sides have
+  substantive children (logged by the agents).
 
 ## Workflow
 
