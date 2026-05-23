@@ -90,6 +90,39 @@ class ValidatorTests(unittest.TestCase):
                 )
                 self.assertIn("OK:", result.stdout)
 
+    def test_canonical_catalogue_header_matches_downstream_contract(self) -> None:
+        """OCN 0.2 ships 14 columns in a fixed order. Downstream tools
+        (chess-parquet's efcdb-openings) parse the catalogue against
+        this exact contract; any reordering or addition is a breaking
+        change and MUST be coordinated with the downstream release.
+        """
+        import csv
+
+        catalogue = REPO_ROOT / "catalog" / "ocn-1.csv"
+        with catalogue.open(newline="") as f:
+            header = next(csv.reader(f))
+        self.assertEqual(
+            header,
+            [
+                "ocn1",
+                "canonical_name",
+                "eco_legacy",
+                "parent_ocn1",
+                "moves_uci",
+                "depth",
+                "aliases",
+                "flags",
+                "notes",
+                "attributed_to",
+                "attribution_source",
+                "historical_notes",
+                "transposes_to",
+                "same_as",
+            ],
+            "OCN 0.2 catalogue header drift — downstream chess-parquet "
+            "consumers depend on this exact 14-column order",
+        )
+
     def test_valid_fixtures_pass(self) -> None:
         for fixture in sorted(FIXTURES.glob("valid_*.csv")):
             with self.subTest(fixture=fixture.name):

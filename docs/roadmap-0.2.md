@@ -19,11 +19,25 @@ validator) and lays out the next phases through public alpha.
 | — — multiple_canonical | 6 |
 | — unresolved | 116 |
 | rows in unresolved groups | 233 |
+| rows with `transposes_to` set | 73 |
+| rows with `same_as` set | 12 |
+| FENs with ≥2 canonical OCNs ⭐ | 122 |
 | classes_mixed_groups | 0 |
-| Tests | 59 / 59 OK |
+| Tests | 60 / 60 OK |
 | Validator (`--strict-chess`) | 0 warnings |
 | `audit_chess` (legality + SAN) | 0 illegal, 0 mismatch |
 | Lichess parent map | 3,690 / 3,690 matched |
+
+⭐ The "FENs with ≥2 canonical OCNs" count (122) is the metric
+that matters most to downstream zobrist joins. It includes both
+the 6 declared `multiple_canonical` groups AND the unresolved
+groups where ≥2 rows happen to share a FEN without (yet) being
+linked by `transposes_to` or `same_as` declarations. **Consumers
+joining on zobrist MUST handle multi-row returns regardless of
+which kind they encounter.** The 6-vs-122 gap will shrink as the
+intra-family audit progresses (Phase 1), but it will never reach
+1:1 — the 6 declared cases are intentional preservation, not a
+TODO.
 
 ### Schema
 
