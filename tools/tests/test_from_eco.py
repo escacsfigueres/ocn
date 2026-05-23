@@ -60,7 +60,7 @@ class FromEcoTests(unittest.TestCase):
         result = run_from_eco("--all", "B90")
         self.assertEqual(result.returncode, 0, result.stderr)
         self.assertIn("B.Sic.Naj.Eng.MLn.f3.Nbd7\t", result.stdout)
-        self.assertIn("B.Sic.Naj.Eng.e5.Nb3.Be6\t", result.stdout)
+        self.assertIn("B.Sic.Naj.Eng.MLn\t", result.stdout)
 
     def test_json_output(self) -> None:
         result = run_from_eco("--json", "A11")

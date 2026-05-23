@@ -2,10 +2,10 @@
 
 ## Current state
 
-- Catalogue size: **6,056** rows.
-- Duplicate FEN groups: **280** total — **52 resolved** by
-  `transposes_to`, **228 unresolved**.
-- Rows in unresolved groups: **461**.
+- Catalogue size: **5,972** rows.
+- Duplicate FEN groups: **196** total — **62 resolved** by
+  `transposes_to`, **134 unresolved**.
+- Rows in unresolved groups: **273**.
 - Top group size observed: **3**.
 
 Numbers are produced by:
@@ -344,6 +344,65 @@ apply time. The validator's same-FEN check confirmed every new
   different conceptual families, no clear precedent yet).
 - A handful of MEDIUM-confidence groups where both sides have
   substantive children (logged by the agents).
+
+### Resolved batch — intra-family duplicate cleanup
+
+Big intra-family pass over the top 120 ranked unresolved groups,
+classified by 3 parallel agents (intra-E, intra-D, intra-A/B/C).
+Each agent verified `kids=0 ∧ inbound_refs=0` for every DELETE
+candidate against the live catalogue before recommending.
+
+**Pattern**: deep slugs imported from Lichess with `.Std`, `.Closed`,
+`.Mer.Mer`, `.Trd`, `.Pan`, `.Cls.Nf3.Nbd7.Rc1.c6`-style move-order
+descriptors duplicating a shorter named anchor. Where the descriptor
+had children, a `transposes_to` arrow was added instead of deletion.
+
+**Counts by family**
+
+| Family | DELETE | TT |
+|---|---:|---:|
+| E.KID (King's Indian) | 12 | 1 |
+| E.QID (Queen's Indian) | 4 | 1 |
+| E.Ben (Benoni / Benko) | 3 | 0 |
+| E.Gru (Grünfeld) | 3 | 0 |
+| E.Nim (Nimzo-Indian) | 2 | 0 |
+| E.Ind / E.OldI (Indian root / Old Indian) | 3 | 0 |
+| D.QGD (Queen's Gambit Declined family) | 25 | 1 |
+| D.Sem (Semi-Slav) | 9 | 0 |
+| D.Sla (Slav) | 2 | 0 |
+| D.Cat (Catalan) | 4 | 1 |
+| D.Tar (Tarrasch) | 3 | 1 |
+| D.STa (Symmetrical Tarrasch) | 3 | 0 |
+| D.QGA (Queen's Gambit Accepted) | 2 | 0 |
+| D.QPG.Zuk (Zukertort, not Veresov) | 1 | 0 |
+| A.Eng / A.KIA / A.Ret | 4 | 0 |
+| B.Sic (Sicilian Dragon/Open Knight, Najdorf) | 5 | 2 |
+| B.CaK / B.Fre.Tar | 2 | 1 |
+| C.RyL / C.Vie / C.Ita / C.PhD | 4 | 1 |
+| **TOTAL** | **91** | **10** |
+
+(Actual applied totals: 84 DELETE + 10 TT; the family table above
+counts the canonical-side aliases that fired across families;
+deletions may belong to several family rollups when grandparents
+differ. See git for the exact slug list.)
+
+**Test impact**: one test in `test_from_eco.py` was updated to
+reference `B.Sic.Naj.Eng.MLn` instead of `B.Sic.Naj.Eng.e5.Nb3.Be6`
+(the latter was collapsed into the former during this batch as they
+shared identical FEN and moves_uci).
+
+**Still deferred for the next pass**:
+
+- French / Veresov complex (ranks 1, 2, 5, 8) — needs conceptual
+  decision on the 3-way A/B/D French Classical Main Line.
+- KID Classical Old/e5 intra-E triple (rank 3) and Modern Benoni
+  cross-E triple (rank 4) — structural review.
+- D.Rub ↔ A.Col.Zuk outlier (rank 6).
+- A handful of MEDIUM-confidence intra-class groups where both sides
+  have substantive children (`E.KID.Fch.Kav`, `E.KID.Avk`,
+  `D.Sem.Mer.MLn.Old`, `D.Sem.AMe.Sto`, `D.Sla.Cze.Kra.MLn`,
+  Italian Giuoco/Two Knights pair, English Mikenas-Agincourt deep
+  three-way, Caro-Kann Ruy López Caro/b5/Bb3 line).
 
 ## Workflow
 
