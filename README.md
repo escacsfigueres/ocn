@@ -137,9 +137,18 @@ d'Escacs Figueres" and link to this repository.
   catalogue rows by FEN position key and reports every group with two or
   more entries (TSV by default, structured JSON with `--json`). Useful for
   preparing canonical/alias decisions across move orders. Supports
-  `--summary`, `--min-size N`, and `--class A/B/C/D/E` to focus the
-  report. The audit is informational: transpositions are expected, not
-  errors.
+  `--summary`, `--min-size N`, `--class A/B/C/D/E`, and a scoring mode
+  `--ranked [--limit N]` that surfaces the groups most likely to require
+  a structural decision (class mixing, depth span, ECO/name/parent
+  divergence, A/D, A/E and D/E family bonuses). See
+  [`docs/transpositions.md`](docs/transpositions.md) for the resolution
+  workflow and the current top families to decide. Typical usage:
+
+  ```
+  python3 tools/audit_transpositions.py --ranked --limit 20
+  ```
+
+  The audit is informational: transpositions are expected, not errors.
 - [`tools/lichess_parent_map.py`](tools/lichess_parent_map.py) — reads
   Lichess Opening Book TSV rows, converts their SAN PGN lines to UCI, and
   emits the deepest matching OCN-1 parent for each row. Use `--check` to

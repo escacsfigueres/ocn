@@ -36,6 +36,32 @@ TSV_FIELDS = [
     "depth",
     "moves_uci",
 ]
+RANKED_TSV_FIELDS = [
+    "rank",
+    "score",
+    "fen_key",
+    "group_size",
+    "depth_span",
+    "classes",
+    "eco_set",
+    "ocn1",
+    "canonical_name",
+    "parent_ocn1",
+    "depth",
+    "moves_uci",
+]
+
+# Scoring weights for --ranked. Intent: surface the groups most likely to
+# require a structural decision (canonical vs alias) before pure
+# move-order duplicates of the same family.
+SCORE_CLASS_MIXING = 5   # per extra class beyond the first
+SCORE_DEPTH_SPAN = 2     # per depth level of spread
+SCORE_ECO_DIVERGENCE = 3 # per extra distinct eco_legacy beyond the first
+SCORE_NAME_DIVERGENCE = 1
+SCORE_PARENT_DIVERGENCE = 1
+SCORE_FAMILY_BONUS_CROSS = 3  # A/D, A/E or D/E present
+SCORE_FAMILY_BONUS_DE = 1     # D or E present (but not crossed)
+SCORE_SIZE_BONUS = 1  # per entry beyond the second
 
 
 def fail(message: str, *, code: int = 1) -> None:
@@ -124,6 +150,60 @@ def filter_groups(
     return out
 
 
+def _eco_set(group: dict[str, object]) -> list[str]:
+    eco_values = {
+        (entry["eco_legacy"] or "").strip()
+        for entry in group["entries"]  # type: ignore[index]
+    }
+    return sorted(value for value in eco_values if value)
+
+
+def score_group(group: dict[str, object]) -> int:
+    classes: list[str] = group["classes"]  # type: ignore[assignment]
+    entries: list[dict[str, object]] = group["entries"]  # type: ignore[assignment]
+    eco = _eco_set(group)
+    names = {(e["canonical_name"] or "").strip() for e in entries}
+    parents = {(e["parent_ocn1"] or "").strip() for e in entries}
+
+    class_set = set(classes)
+    family_bonus = 0
+    if {"A", "D"} <= class_set or {"A", "E"} <= class_set or {"D", "E"} <= class_set:
+        family_bonus = SCORE_FAMILY_BONUS_CROSS
+    elif "D" in class_set or "E" in class_set:
+        family_bonus = SCORE_FAMILY_BONUS_DE
+
+    return (
+        max(len(classes) - 1, 0) * SCORE_CLASS_MIXING
+        + int(group["depth_span"]) * SCORE_DEPTH_SPAN  # type: ignore[arg-type]
+        + max(len(eco) - 1, 0) * SCORE_ECO_DIVERGENCE
+        + max(len(names) - 1, 0) * SCORE_NAME_DIVERGENCE
+        + max(len(parents) - 1, 0) * SCORE_PARENT_DIVERGENCE
+        + family_bonus
+        + max(int(group["group_size"]) - 2, 0) * SCORE_SIZE_BONUS  # type: ignore[arg-type]
+    )
+
+
+def rank_groups(groups: list[dict[str, object]]) -> list[dict[str, object]]:
+    annotated: list[dict[str, object]] = []
+    for group in groups:
+        enriched = dict(group)
+        enriched["score"] = score_group(group)
+        enriched["eco_set"] = _eco_set(group)
+        annotated.append(enriched)
+    annotated.sort(
+        key=lambda g: (-int(g["score"]), -int(g["group_size"]), str(g["fen_key"]))
+    )
+    for index, group in enumerate(annotated, start=1):
+        group["rank"] = index
+    return annotated
+
+
+def apply_limit(groups: list[dict[str, object]], limit: int | None) -> list[dict[str, object]]:
+    if limit is None:
+        return groups
+    return groups[:limit]
+
+
 def write_tsv(groups: list[dict[str, object]], out) -> None:
     writer = csv.DictWriter(out, fieldnames=TSV_FIELDS, delimiter="\t", lineterminator="\n")
     writer.writeheader()
@@ -139,6 +219,33 @@ def write_tsv(groups: list[dict[str, object]], out) -> None:
                     "ocn1": entry["ocn1"],
                     "canonical_name": entry["canonical_name"],
                     "eco_legacy": entry["eco_legacy"],
+                    "parent_ocn1": entry["parent_ocn1"],
+                    "depth": entry["depth"],
+                    "moves_uci": entry["moves_uci"],
+                }
+            )
+
+
+def write_ranked_tsv(groups: list[dict[str, object]], out) -> None:
+    writer = csv.DictWriter(
+        out, fieldnames=RANKED_TSV_FIELDS, delimiter="\t", lineterminator="\n"
+    )
+    writer.writeheader()
+    for group in groups:
+        classes_str = ",".join(group["classes"])  # type: ignore[arg-type]
+        eco_str = "/".join(group["eco_set"])  # type: ignore[arg-type]
+        for entry in group["entries"]:  # type: ignore[index]
+            writer.writerow(
+                {
+                    "rank": group["rank"],
+                    "score": group["score"],
+                    "fen_key": group["fen_key"],
+                    "group_size": group["group_size"],
+                    "depth_span": group["depth_span"],
+                    "classes": classes_str,
+                    "eco_set": eco_str,
+                    "ocn1": entry["ocn1"],
+                    "canonical_name": entry["canonical_name"],
                     "parent_ocn1": entry["parent_ocn1"],
                     "depth": entry["depth"],
                     "moves_uci": entry["moves_uci"],
@@ -191,6 +298,20 @@ def parse_args(argv: list[str]) -> argparse.Namespace:
         choices=CLASS_ROOTS,
         help="only report groups that include this top-level class",
     )
+    parser.add_argument(
+        "--ranked",
+        action="store_true",
+        help=(
+            "score groups by class mixing, depth span, ECO/name/parent "
+            "divergence and family bonuses, then emit ranked TSV with "
+            "rank/score/eco_set columns"
+        ),
+    )
+    parser.add_argument(
+        "--limit",
+        type=int,
+        help="truncate output to the first N groups (after sorting)",
+    )
     return parser.parse_args(argv)
 
 
@@ -198,19 +319,30 @@ def main() -> int:
     args = parse_args(sys.argv[1:])
     if args.min_size < 2:
         fail("--min-size must be >= 2 (groups need at least two entries)")
+    if args.ranked and args.json:
+        fail("--ranked and --json are mutually exclusive")
+    if args.limit is not None and args.limit < 1:
+        fail("--limit must be >= 1")
 
     groups = build_groups(load_catalog(args.catalog))
     groups = filter_groups(groups, min_size=args.min_size, class_filter=args.class_filter)
+    if args.ranked:
+        groups = rank_groups(groups)
+    groups = apply_limit(groups, args.limit)
 
     if args.out:
         args.out.parent.mkdir(parents=True, exist_ok=True)
         with args.out.open("w", newline="", encoding="utf-8") as f:
             if args.json:
                 write_json(groups, f)
+            elif args.ranked:
+                write_ranked_tsv(groups, f)
             else:
                 write_tsv(groups, f)
     elif args.json:
         write_json(groups, sys.stdout)
+    elif args.ranked:
+        write_ranked_tsv(groups, sys.stdout)
     else:
         write_tsv(groups, sys.stdout)
 

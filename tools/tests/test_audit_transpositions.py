@@ -149,5 +149,110 @@ class AuditTranspositionsTests(unittest.TestCase):
         self.assertIn("ERROR", result.stderr)
 
 
+class RankedAuditTests(unittest.TestCase):
+    def _write_catalog(self, tmp: str, rows: str) -> Path:
+        catalog = Path(tmp) / "catalog.csv"
+        catalog.write_text(HEADER + rows, encoding="utf-8")
+        return catalog
+
+    def _mixed_and_intra_class_catalog(self, tmp: str) -> Path:
+        # Mixed-class group: A.Tr1 (eco D02) and D.Tr2 (eco D02) reach the
+        # same FEN via different move orders.
+        # Intra-class group: two E rows that reach a shared FEN via the
+        # same move order would not be a duplicate; instead we use two
+        # genuine E openings that arrive at the same KID FEN.
+        return self._write_catalog(
+            tmp,
+            catalog_row("A", "Flank Openings", "A", "", "", "0")
+            + catalog_row("D", "Closed Queen's Pawn", "D", "", "", "0")
+            + catalog_row("E", "Indian Defences", "E", "", "", "0")
+            + catalog_row(
+                "A.Tr1", "AD Trans One", "D02", "A", "d2d4 g8f6 c2c4 e7e6", "1"
+            )
+            + catalog_row(
+                "D.Tr2", "AD Trans Two", "D02", "D", "c2c4 g8f6 d2d4 e7e6", "1"
+            )
+            + catalog_row(
+                "E.Tr1", "E Trans One", "E60", "E", "d2d4 g8f6 c2c4 g7g6", "1"
+            )
+            + catalog_row(
+                "E.Tr2", "E Trans Two", "E60", "E", "c2c4 g8f6 d2d4 g7g6", "1"
+            ),
+        )
+
+    def test_ranked_places_class_mixed_group_first(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            catalog = self._mixed_and_intra_class_catalog(tmp)
+            result = run_audit("--catalog", str(catalog), "--ranked")
+
+        self.assertEqual(result.returncode, 0, result.stderr)
+        rows = list(csv.DictReader(result.stdout.splitlines(), delimiter="\t"))
+        self.assertEqual(
+            [
+                "rank",
+                "score",
+                "fen_key",
+                "group_size",
+                "depth_span",
+                "classes",
+                "eco_set",
+                "ocn1",
+                "canonical_name",
+                "parent_ocn1",
+                "depth",
+                "moves_uci",
+            ],
+            list(rows[0].keys()),
+        )
+        first_rank_rows = [row for row in rows if row["rank"] == "1"]
+        first_classes = {row["classes"] for row in first_rank_rows}
+        self.assertEqual(first_classes, {"A,D"})
+        self.assertTrue(int(first_rank_rows[0]["score"]) > 0)
+
+    def test_limit_truncates_output(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            catalog = self._mixed_and_intra_class_catalog(tmp)
+            result = run_audit(
+                "--catalog", str(catalog), "--ranked", "--limit", "1"
+            )
+
+        self.assertEqual(result.returncode, 0, result.stderr)
+        rows = list(csv.DictReader(result.stdout.splitlines(), delimiter="\t"))
+        self.assertEqual({row["rank"] for row in rows}, {"1"})
+        slugs = sorted(row["ocn1"] for row in rows)
+        self.assertEqual(slugs, ["A.Tr1", "D.Tr2"])
+
+    def test_json_still_works_alongside_ranking(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            catalog = self._mixed_and_intra_class_catalog(tmp)
+            result = run_audit("--catalog", str(catalog), "--json")
+
+        self.assertEqual(result.returncode, 0, result.stderr)
+        payload = json.loads(result.stdout)
+        self.assertEqual(len(payload["groups"]), 2)
+        sizes = sorted(g["group_size"] for g in payload["groups"])
+        self.assertEqual(sizes, [2, 2])
+
+    def test_ranked_and_json_are_mutually_exclusive(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            catalog = self._mixed_and_intra_class_catalog(tmp)
+            result = run_audit(
+                "--catalog", str(catalog), "--ranked", "--json"
+            )
+
+        self.assertNotEqual(result.returncode, 0)
+        self.assertIn("mutually exclusive", result.stderr)
+
+    def test_limit_validates_positive(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            catalog = self._mixed_and_intra_class_catalog(tmp)
+            result = run_audit(
+                "--catalog", str(catalog), "--ranked", "--limit", "0"
+            )
+
+        self.assertNotEqual(result.returncode, 0)
+        self.assertIn("ERROR", result.stderr)
+
+
 if __name__ == "__main__":
     unittest.main()
