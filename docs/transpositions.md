@@ -58,6 +58,45 @@ with a single family-level decision rather than group by group.
 | **A.Hor / A.Col ↔ D.QGD / D.QPG**           | Horwitz French and Colle move orders transposing into QGD / Zukertort.                   | D-side canonical; A-side becomes alias.                   |
 | **E.Ben.Mod ↔ E.Ind.e6**                    | Intra-E: Modern Benoni and Indian-via-…e6 reaching the same FEN.                         | `E.Ben.Mod.*` canonical; `E.Ind.e6.*` collapsed.          |
 
+## Resolved
+
+### Kangaroo ↔ Nimzo (partial, by FEN)
+
+OCN classifies by **position**, not by intended move order. A.Kan
+slugs whose FEN coincides with an E.Nim slug are recorded as
+move-order transpositions; the E.Nim slug owns the position.
+
+A.Kan slugs whose FEN does **not** coincide with any E.Nim slug
+(notably the root `A.Kan = 1.d4 e6 2.c4 Bb4+` before ...Nf6 and the
+intermediate `A.Kan.MLn`) remain canonical Kangaroo entries.
+
+**Pairings recorded** (E.Nim canonical, A.Kan move-order):
+
+| FEN pattern                              | Canonical          | Transposition           |
+|------------------------------------------|--------------------|-------------------------|
+| Nimzo, 4.Nf3                             | `E.Nim.Kas`        | `A.Kan.Nf3`             |
+| Nimzo, 4.e3 (Rubinstein)                 | `E.Nim.Rub`        | `A.Kan.MLn.e3`          |
+| Rubinstein with ...O-O                   | `E.Nim.Rub.O-O`    | `A.Kan.MLn.e3.O-O`      |
+| Rubinstein ...O-O Nf3                    | `E.Nim.Rub.O-O.Nf3`| `A.Kan.MLn.e3.O-O.Nf3`  |
+| Rubinstein with ...c5                    | `E.Nim.Rub.c5`     | `A.Kan.MLn.e3.c5`       |
+
+**Changes applied to the catalogue:**
+
+- Each E.Nim row above gains pipe-separated aliases pointing at the
+  Kangaroo move-order label.
+- Each A.Kan row above gets a `notes` field of the form
+  `Move-order transposition to E.Nim.*: same FEN ...`.
+- Two redundant E.Nim siblings deleted (no children, identical FEN to
+  their parent): `E.Nim.Kas.TKn`, `E.Nim.Rub.Sys`.
+
+**Still open in this family:** none of the 5 transposition pairs above
+are physically merged. Their FEN duplicates remain visible in
+`audit_transpositions.py --summary` because OCN keeps both slugs alive
+for navigation from the Kangaroo subtree. The pairs are now
+**catalogued**, not removed. Physical merge of A.Kan.* into E.Nim.* is
+out of scope for this sprint; it requires either a `transposes_to`
+column or careful reassignment of A.Kan children.
+
 ## Workflow
 
 1. Generate a ranked report:
