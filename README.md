@@ -133,6 +133,13 @@ d'Escacs Figueres" and link to this repository.
   counter-normalised `fen`, and transposition group size for each concrete
   catalogue row. Polyglot Zobrist materialisation is handled by the
   `efcdb openings` producer in `escacsfigueres/chess-parquet`.
+- [`tools/audit_transpositions.py`](tools/audit_transpositions.py) — groups
+  catalogue rows by FEN position key and reports every group with two or
+  more entries (TSV by default, structured JSON with `--json`). Useful for
+  preparing canonical/alias decisions across move orders. Supports
+  `--summary`, `--min-size N`, and `--class A/B/C/D/E` to focus the
+  report. The audit is informational: transpositions are expected, not
+  errors.
 - [`tools/lichess_parent_map.py`](tools/lichess_parent_map.py) — reads
   Lichess Opening Book TSV rows, converts their SAN PGN lines to UCI, and
   emits the deepest matching OCN-1 parent for each row. Use `--check` to
