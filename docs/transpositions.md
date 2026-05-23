@@ -97,6 +97,66 @@ for navigation from the Kangaroo subtree. The pairs are now
 out of scope for this sprint; it requires either a `transposes_to`
 column or careful reassignment of A.Kan children.
 
+### Modern Averbakh / Old Indian ↔ KID (partial, by FEN)
+
+Same principle as Kangaroo ↔ Nimzo: classify by FEN, not by intent.
+A.Mod / A.OID slugs that have reached a Classical KID FEN (i.e. after
+...Nf6 and the d4/c4/e4 + Bg7/d6 KID tabiya is on the board) are
+recorded as move-order transpositions; the matching E.KID slug owns
+the position. A.Mod and A.OID slugs that have **not** yet transposed
+to a KID FEN (no ...Nf6) remain canonical Modern / Old Indian
+entries.
+
+**Pairings recorded** (E side canonical, A side move-order):
+
+| FEN pattern                              | Canonical                  | Transposition                       |
+|------------------------------------------|----------------------------|-------------------------------------|
+| 1.d4 Nf6 2.c4 d6 (Old Indian)            | `E.OldI`                   | `A.OID.Nf6`                         |
+| Classical KID Normal                     | `E.KID.Cls.Nrm`            | `A.OID.Mod.MLn.Nf6`                 |
+| Normal, 5.Be2                            | `E.KID.Cls.Nrm.Be2`        | `A.OID.Mod.MLn.Nf6.Be2`             |
+| Normal, 5.Bg5 (Accelerated Averbakh)     | `E.KID.Cls.Nrm.Bg5`        | `A.OID.Mod.MLn.Nf6.Bg5`             |
+| Normal, 5.Nge2 (Kramer)                  | `E.KID.Cls.Nrm.Nge2`       | `A.OID.Mod.MLn.Nf6.Nge2`            |
+| Normal, 5.g3 (Deferred Fianchetto)       | `E.KID.Cls.Nrm.g3`         | `A.OID.Mod.MLn.Nf6.g3`              |
+| Orthodox Classical (5.Nf3 O-O 6.Be2)     | `E.KID.Cls.Oth`            | `A.Mod.Avk.MLn.Be2`                 |
+| Orthodox + ...Na6 (Kazakh)               | `E.KID.Cls.Oth.Na6`        | `A.Mod.Avk.MLn.Be2.Na6`             |
+| Classical Mar del Plata prefix (...e5)   | `E.KID.Cls.e5`             | `A.Mod.Avk.MLn.Be2.e5`              |
+| Classical Mar del Plata + ...O-O         | `E.KID.Cls.e5.O-O`         | `A.Mod.Avk.MLn.Be2.e5.O-O`          |
+
+**Changes applied to the catalogue:**
+
+- Each E.KID row above gains an alias of the form
+  `Old Indian Modern ... move-order` or `Modern Averbakh ... move-order`.
+- Each A-side row above gets a `notes` field of the form
+  `Move-order transposition to E.KID.*: same FEN ...`.
+- No rows deleted. No intra-E redundants in this family.
+
+**Preserved as canonical** (no FEN coincidence with E.KID):
+
+- `A.Mod` root and its non-...Nf6 children (Robatsch / Modern Defence
+  against 1.d4, e.g. `A.Mod.e4`, `A.Mod.Avk` itself).
+- `A.OID` root and its non-...Nf6 children (e.g. `A.OID.Mod`,
+  `A.OID.Mod.MLn` before the Nf6 move).
+- `A.Mod.Avk.MLn` (after castling but on a unique FEN, no E.KID
+  equivalent).
+
+**Deferred to OCN 0.2 (requires `transposes_to`):** five intra-Modern
+groups where the A-side and B-side reach the same pre-KID Averbakh /
+extended-centre Modern FEN through 1.d4 vs 1.e4 move orders:
+
+- `A.Mod.Avk` ⇄ `B.Mod.Avk` ⇄ `A.OID.Mod.MLn`
+- `A.Mod.Avk.Nc6` ⇄ `B.Mod.Avk.MLn`
+- `A.Mod.e4` ⇄ `B.Mod.Std.Ctr`
+- `A.Mod.e4.c5` ⇄ `B.Mod.Std.Ctr.PtC`
+- `A.Mod.e4.e5` ⇄ `B.Mod.Std.Ctr.e5`
+
+These are pre-KID Modern Defence positions (no ...Nf6). OCN has no
+rule that selects a canonical between the 1.d4 (A) and 1.e4 (B)
+move-order trees for the same Modern FEN — both are literature-valid
+labels (B06 is the ECO-canonical Modern Defence; A40-A42 are the
+Modern against 1.d4). Resolving them by mutual cross-reference would
+require either a tie-breaker rule (which OCN has not adopted) or the
+`transposes_to` column proposed for 0.2.
+
 ## Workflow
 
 1. Generate a ranked report:
