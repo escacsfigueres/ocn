@@ -3,9 +3,9 @@
 ## Current state
 
 - Catalogue size: **6,097** rows.
-- Duplicate FEN groups: **316** total — **15 resolved** by
-  `transposes_to`, **301 unresolved**.
-- Rows in unresolved groups: **613**.
+- Duplicate FEN groups: **316** total — **20 resolved** by
+  `transposes_to`, **296 unresolved**.
+- Rows in unresolved groups: **603**.
 - Top group size observed: **3**.
 
 Numbers are produced by:
@@ -151,23 +151,45 @@ ranked report.
 - `A.Mod.Avk.MLn` (after castling but on a unique FEN, no E.KID
   equivalent).
 
-**Deferred to OCN 0.2 (requires `transposes_to`):** five intra-Modern
-groups where the A-side and B-side reach the same pre-KID Averbakh /
-extended-centre Modern FEN through 1.d4 vs 1.e4 move orders:
+### Modern intra-family A↔B (resolved, by FEN)
 
-- `A.Mod.Avk` ⇄ `B.Mod.Avk` ⇄ `A.OID.Mod.MLn`
-- `A.Mod.Avk.Nc6` ⇄ `B.Mod.Avk.MLn`
-- `A.Mod.e4` ⇄ `B.Mod.Std.Ctr`
-- `A.Mod.e4.c5` ⇄ `B.Mod.Std.Ctr.PtC`
-- `A.Mod.e4.e5` ⇄ `B.Mod.Std.Ctr.e5`
+Five pre-KID Modern Defence groups where the A-side (1.d4 move order)
+and B-side (1.e4 move order) reach the same FEN. The
+canonicalisation rule applied: **B.Mod is canonical** when the
+position is reached with both `1.e4` and `1.d4` on the board.
 
-These are pre-KID Modern Defence positions (no ...Nf6). OCN has no
-rule that selects a canonical between the 1.d4 (A) and 1.e4 (B)
-move-order trees for the same Modern FEN — both are literature-valid
-labels (B06 is the ECO-canonical Modern Defence; A40-A42 are the
-Modern against 1.d4). Resolving them by mutual cross-reference would
-require either a tie-breaker rule (which OCN has not adopted) or the
-`transposes_to` column proposed for 0.2.
+Rationale: ECO/textbook Modern Defence is `B06`/`B07`; the A-side
+slugs (`A.Mod.*`, `A.OID.Mod.MLn`) are 1.d4-side or Old-Indian-side
+move-order breadcrumbs into the same Modern tabiya. Choosing B
+matches the literature default and aligns with consumers that key
+Modern Defence by its ECO range.
+
+**Pairings recorded** (B side canonical, A / OID side move-order):
+
+| Position                                  | Canonical              | Transposition         |
+|-------------------------------------------|------------------------|-----------------------|
+| Modern Averbakh tabiya (4.e4 vs Bg7+d6)   | `B.Mod.Avk`            | `A.Mod.Avk`           |
+| Same tabiya via 1...d6 Old Indian         | `B.Mod.Avk`            | `A.OID.Mod.MLn`       |
+| Modern Averbakh Main Line (4...Nc6)       | `B.Mod.Avk.MLn`        | `A.Mod.Avk.Nc6`       |
+| Modern extended centre (3...d6 4.c4)      | `B.Mod.Std.Ctr`        | `A.Mod.e4`            |
+| Central Pterodactyl (...c5)               | `B.Mod.Std.Ctr.PtC`    | `A.Mod.e4.c5`         |
+| Neo-Modern Defence (...e5)                | `B.Mod.Std.Ctr.e5`     | `A.Mod.e4.e5`         |
+
+**Changes applied to the catalogue:**
+
+- Each B-side row gains a short alias of the form
+  `Modern [Averbakh|e4 ...] move-order` so a reader can find it by
+  the move-order label too.
+- Each A / OID-side row gets a `notes` field of the form
+  `Move-order transposition to B.Mod...`.
+- Each A / OID-side row carries `transposes_to=<B-side slug>`.
+- No rows deleted. The triple `A.Mod.Avk ⇄ B.Mod.Avk ⇄ A.OID.Mod.MLn`
+  is resolved with TWO non-canonical pointers into the same B
+  canonical, which the audit's resolved-detection logic accepts.
+
+All five groups now report as **resolved** in
+`audit_transpositions.py --summary` and are hidden from the default
+ranked report.
 
 ## Workflow
 

@@ -160,7 +160,7 @@ B.Ale.Exc,"Alekhine, Exchange",B03,B.Ale,e2e4 g8f6 e4e5 f6d5 d2d4 d7d6 c2c4 d5b6
 B.Pir.Aus,"Pirc, Austrian Attack",B09,B.Pir,e2e4 d7d6 d2d4 g8f6 b1c3 g7g6 f2f4,2,Austrian Attack,sharp,4.f4 aggressive Pirc setup.,,,,
 B.Pir.Cls,"Pirc, Classical",B08,B.Pir,e2e4 d7d6 d2d4 g8f6 b1c3 g7g6 g1f3,2,Classical System,,4.Nf3 classical development.,,,,
 B.Pir.Fch,"Pirc, Fianchetto",B07,B.Pir,e2e4 d7d6 d2d4 g8f6 b1c3 g7g6 g2g3,2,Fianchetto Variation,closed,White answers the Pirc with kingside fianchetto.,,,,
-B.Mod.Avk,"Modern Defence, Averbakh",B06,B.Mod,e2e4 g7g6 d2d4 f8g7 c2c4 d7d6 b1c3,2,Averbakh System,closed,Modern Defence with White's broad c4/d4/e4 centre.,,,,
+B.Mod.Avk,"Modern Defence, Averbakh",B06,B.Mod,e2e4 g7g6 d2d4 f8g7 c2c4 d7d6 b1c3,2,Averbakh System|Modern Averbakh via 1.d4 move-order|Old Indian Modern move-order,closed,Modern Defence with White's broad c4/d4/e4 centre.,,,,
 B.Fre.Rub,"French, Rubinstein",C10,B.Fre,e2e4 e7e6 d2d4 d7d5 b1c3 d5e4,2,Rubinstein Variation,closed,3.Nc3 dxe4 simplifying French line.,,,,
 B.Fre.Bur,"French, Burn",C11,B.Fre,e2e4 e7e6 d2d4 d7d5 b1c3 g8f6 c1g5 d5e4,2,Burn Variation,,3.Nc3 Nf6 4.Bg5 dxe4.,,,,
 B.Fre.Mac,"French, MacCutcheon",C12,B.Fre,e2e4 e7e6 d2d4 d7d5 b1c3 g8f6 c1g5 f8b4,2,MacCutcheon Variation,sharp,3.Nc3 Nf6 4.Bg5 Bb4.,,,,
@@ -653,7 +653,7 @@ A.OID,Old Indian Move Order,A41,A,d2d4 d7d6 c2c4,1,1...d6 Move Order,closed,1.d4
 A.OID.Wad,"Old Indian, Wade Defence",A41,A.OID,d2d4 d7d6 g1f3 c8g4,2,Wade Defence|Tartakower-Wade,sharp,1.d4 d6 2.Nf3 Bg4 early bishop development.,,,,
 A.OID.Nf6,"Old Indian Move Order, Nf6 Line",A41,A.OID,d2d4 d7d6 c2c4 g8f6,2,Nf6 Line,closed,Move-order transposition to E.OldI: same FEN after ...Nf6 via the 1...d6 Old Indian move order.,,,,E.OldI
 A.Mod,"Modern Defence against d4",A42,A,d2d4 g7g6 c2c4 f8g7,1,Robatsch Defence,closed,Modern/Robatsch setup against queen-pawn openings.,,,,
-A.Mod.Avk,"Modern Defence, Averbakh System",A42,A.Mod,d2d4 g7g6 c2c4 f8g7 b1c3 d7d6 e2e4,2,Averbakh System,closed,White builds the c4/d4/e4 centre against the Modern.,,,,
+A.Mod.Avk,"Modern Defence, Averbakh System",A42,A.Mod,d2d4 g7g6 c2c4 f8g7 b1c3 d7d6 e2e4,2,Averbakh System,closed,Move-order transposition to B.Mod.Avk: same Modern Averbakh FEN reached via the 1.d4 g6 move order.,,,,B.Mod.Avk
 A.Mod.Ran,"Modern Defence, Randspringer Variation",A42,A.Mod,d2d4 g7g6 c2c4 f8g7 b1c3 d7d6 e2e4 f7f5,2,Randspringer Variation,sharp,...f5 counterplay against the Averbakh centre.,,,,
 A.Mod.Pte,"Modern Defence, Pterodactyl Setup",A42,A.Mod,d2d4 g7g6 c2c4 f8g7 b1c3 c7c5 d4d5 d8a5,2,Pterodactyl Setup,sharp,...c5 and ...Qa5 pressure in Modern structures.,,,,
 A.PQI,Pseudo-Queen's Indian Defence,A47,A,d2d4 g8f6 g1f3 b7b6,1,Pseudo-QID,closed,Queen's Indian setup before White commits c4.,,,,
@@ -917,7 +917,7 @@ B.Car.Ham.MLn,"Carr Hammerschlag, Main Line",B00,B.Car.Ham,e2e4 h7h6 d2d4 a7a6 g
 B.Gld.Pck.MLn,"Goldsmith Picklepuss, Main Line",B00,B.Gld.Pck,e2e4 h7h5 d2d4 h5h4 g1f3 d7d6,3,Main Line,sharp,Nf3 against the Picklepuss advance.,,,,
 B.Hip.Ama.MLn,"Hippopotamus Amar, Main Line",B00,B.Hip.Ama,e2e4 g8h6 d2d4 g7g6 b1c3 f8g7,3,Main Line,closed,...Bg7 in the Amar Hippopotamus setup.,,,,
 B.War.Mat.MLn,"Ware Defence Meadow, Main Line",B00,B.War.Mat,e2e4 a7a5 d2d4 h7h5 g1f3 d7d6,3,Main Line,,...d6 after the Ware Defence flank setup.,,,,
-B.Mod.Avk.MLn,"Modern Averbakh, Main Line",B06,B.Mod.Avk,e2e4 g7g6 d2d4 f8g7 c2c4 d7d6 b1c3 b8c6,3,Main Line,closed,...Nc6 against the Averbakh Modern.,,,,
+B.Mod.Avk.MLn,"Modern Averbakh, Main Line",B06,B.Mod.Avk,e2e4 g7g6 d2d4 f8g7 c2c4 d7d6 b1c3 b8c6,3,Main Line|Modern Averbakh Kotov via 1.d4 move-order,closed,...Nc6 against the Averbakh Modern.,,,,
 B.OwM.Smi.MLn,"Owen's Modern Smith, Main Line",B00,B.OwM.Smi,e2e4 b7b6 d2d4 c8b7 f1d3 e7e6 g1f3 g8f6,3,Main Line,closed,Nf3 and ...Nf6 in the Smith Owen's Modern.,,,,
 C.Dam.Nim.MLn,"Damiano Nimzowitsch, Main Line",C40,C.Dam.Nim,e2e4 e7e5 g1f3 f7f6 f3e5 d8e7 e5f3,3,Main Line,sharp,Nf3 retreat in the Damiano Nimzowitsch line.,,,,
 C.Dam.Ger.MLn,"Damiano Gering, Main Line",C40,C.Dam.Ger,e2e4 e7e5 g1f3 f7f6 d2d4 e5d4 f3d4,3,Main Line,sharp,Nxd4 in the Gering Damiano line.,,,,
@@ -957,7 +957,7 @@ A.Hor.Fch.MLn,"Horwitz French Setup, Main Line",A40,A.Hor.Fch,d2d4 e7e6 c2c4 d7d
 A.And.Pol.MLn,"Anderssen Polish Line, Main Line",A00,A.And.Pol,a2a3 a7a5 b2b4 a5b4 a3b4,3,Main Line,,Recapture on b4 in the Anderssen Polish line.,,,,
 A.Clm.Spk.MLn,"Clemenz Spike Line, Main Line",A00,A.Clm.Spk,h2h3 h7h5 g2g4 h5g4 h3g4,3,Main Line,sharp,Wing-pawn recapture in the Clemenz Spike line.,,,,
 A.Egl.Har.MLn,"Englund Hartlaub-Charlick, Main Line",A40,A.Egl.Har,d2d4 e7e5 d4e5 b8c6 g1f3 d8e7 b1c3 c6e5,3,Main Line,gambit|sharp,...Nxe5 in the Hartlaub-Charlick Englund.,,,,
-A.OID.Mod.MLn,"Old Indian Modern, Main Line",A53,A.OID.Mod,d2d4 d7d6 c2c4 g7g6 b1c3 f8g7 e2e4,3,Main Line,closed,e4 in the Modern Old Indian setup.,,,,
+A.OID.Mod.MLn,"Old Indian Modern, Main Line",A53,A.OID.Mod,d2d4 d7d6 c2c4 g7g6 b1c3 f8g7 e2e4,3,Main Line,closed,Move-order transposition to B.Mod.Avk: same Modern Averbakh FEN reached via the 1...d6 Old Indian move order.,,,,B.Mod.Avk
 A.Ret.KIA.MLn.e4,"Reti KIA Main Line, e4",A07,A.Ret.KIA.MLn,g1f3 d7d5 g2g3 g8f6 f1g2 e7e6 e1g1 f8e7 d2d3 e8g8 b1d2 c7c5 e2e4,4,e4 Line,closed,e4 break in the Reti King's Indian Attack setup.,,,,
 B.Nim.Ken.MLn,"Nimzowitsch Kennedy, Main Line",B00,B.Nim.Ken,e2e4 b8c6 d2d4 e7e5 d4d5 c6e7,3,Main Line,sharp,...Ne7 retreat in the Kennedy Nimzowitsch.,,,,
 B.Nim.ScD.MLn,"Nimzowitsch Scandinavian, Main Line",B00,B.Nim.ScD,e2e4 b8c6 d2d4 d7d5 e4e5 c8f5,3,Main Line,sharp,...Bf5 against the Scandinavian Nimzowitsch centre.,,,,
@@ -2390,9 +2390,9 @@ B.Mod.Std.Bd3,"Modern Defence, Wind Gambit",B06,B.Mod.Std,e2e4 g7g6 d2d4 f8g7 f1
 B.Mod.Std.Fia,"Modern Defence, Fianchetto System",B06,B.Mod.Std,e2e4 g7g6 d2d4 f8g7 g2g3,3,Fianchetto System,closed,"3.g3 against the Standard Modern.",,,,
 B.Mod.Std.Fia.PtK,"Pterodactyl Defence, Fianchetto King",B06,B.Mod.Std.Fia,e2e4 g7g6 d2d4 f8g7 g2g3 c7c5 g1f3 d8a5,4,King Pterodactyl,sharp,"...c5 and ...Qa5+ against the g3 Modern.",,,,
 B.Mod.Std.Fia.PtR,"Pterodactyl Defence, Fianchetto Rhamphorhynchus",B06,B.Mod.Std.Fia,e2e4 g7g6 d2d4 f8g7 g2g3 c7c5 d4c5 d8a5,4,Rhamphorhynchus,sharp,"dxc5 and ...Qa5+ in the fianchetto Pterodactyl.",,,,
-B.Mod.Std.Ctr,"Modern Defence, c4 Centre",B06,B.Mod.Std,e2e4 g7g6 d2d4 f8g7 c2c4,3,,closed,"White's broad c4/d4/e4 centre against the Modern.",,,,
+B.Mod.Std.Ctr,"Modern Defence, c4 Centre",B06,B.Mod.Std,e2e4 g7g6 d2d4 f8g7 c2c4,3,Modern e4 move-order,closed,White's broad c4/d4/e4 centre against the Modern.,,,,
 B.Mod.Std.Ctr.Dun,"Modern Defence, Dunworthy Variation",B06,B.Mod.Std.Ctr,e2e4 g7g6 d2d4 f8g7 c2c4 d7d5 e4d5 c7c6 d5c6 g7d4,4,Dunworthy Variation,gambit|sharp,"...d5 and ...c6 against the c4 Modern centre.",,,,
-B.Mod.Std.Ctr.PtC,"Pterodactyl Defence, Central",B06,B.Mod.Std.Ctr,e2e4 g7g6 d2d4 f8g7 c2c4 c7c5,4,Central Pterodactyl,sharp,"...c5 against the central c4 Modern setup.",,,,
+B.Mod.Std.Ctr.PtC,"Pterodactyl Defence, Central",B06,B.Mod.Std.Ctr,e2e4 g7g6 d2d4 f8g7 c2c4 c7c5,4,Central Pterodactyl|Modern e4 c5 move-order,sharp,...c5 against the central c4 Modern setup.,,,,
 B.Mod.Std.Ctr.PtC.AnH,"Central Pterodactyl, Anhanguera",B06,B.Mod.Std.Ctr.PtC,e2e4 g7g6 d2d4 f8g7 c2c4 c7c5 b1c3 d7d6 c1e3 d8a5,5,Anhanguera,sharp,"Nc3/Be3 and ...Qa5 in the Central Pterodactyl.",,,,
 B.Mod.Std.Ctr.PtC.Ben,"Central Pterodactyl, Benoni Quetzalcoatlus",B06,B.Mod.Std.Ctr.PtC,e2e4 g7g6 d2d4 f8g7 c2c4 c7c5 d4d5 d7d6 b1c3 d8a5,5,Benoni Quetzalcoatlus,sharp,"d5 and ...Qa5 in the Central Pterodactyl.",,,,
 B.Mod.Std.Ctr.PtC.Qtz,"Central Pterodactyl, Quetzalcoatlus Gambit",B06,B.Mod.Std.Ctr.PtC,e2e4 g7g6 d2d4 f8g7 c2c4 c7c5 b1c3 d7d6 d4c5 d8a5,5,Quetzalcoatlus Gambit,gambit|sharp,"dxc5 and ...Qa5 in the Central Pterodactyl.",,,,
@@ -5674,7 +5674,7 @@ B.Sca.Mod.Mie.Bf5.Ne5,"Scandinavian Mieses-Kotrc Classical, Ne5",B01,B.Sca.Mod.M
 B.Sca.Mod.Mie.Bf5.Ne5.g4,"Scandinavian Mieses-Kotrc, Grunfeld Variation",B01,B.Sca.Mod.Mie.Bf5.Ne5,e2e4 d7d5 e4d5 d8d5 b1c3 d5a5 d2d4 g8f6 g1f3 c8f5 f3e5 c7c6 g2g4,6,Grunfeld Variation,sharp,g4 after Ne5 and ...c6 in the Classical Scandinavian.,,,,
 B.Pir.Aus.Drg.e5,"Pirc Austrian Dragon, Unzicker Attack",B09,B.Pir.Aus.Drg,e2e4 d7d6 d2d4 g8f6 b1c3 g7g6 f2f4 f8g7 g1f3 e8g8 e4e5,4,Unzicker Attack,sharp,e5 against the castled Austrian Pirc Dragon formation.,,,,
 B.Mod.Std.Nc3.StD.f4,"Modern Standard Defence, Pseudo-Austrian Attack",B06,B.Mod.Std.Nc3.StD,e2e4 g7g6 d2d4 f8g7 b1c3 d7d6 f2f4,5,Pseudo-Austrian Attack,sharp,f4 against the Modern Standard Defence.,,,,
-B.Mod.Std.Ctr.e5,"Modern c4 Centre, Neo-Modern Defence",A41,B.Mod.Std.Ctr,e2e4 g7g6 d2d4 f8g7 c2c4 e7e5,4,Neo-Modern Defence,closed,...e5 against the c4 centre in the Modern Defence.,,,,
+B.Mod.Std.Ctr.e5,"Modern c4 Centre, Neo-Modern Defence",A41,B.Mod.Std.Ctr,e2e4 g7g6 d2d4 f8g7 c2c4 e7e5,4,Neo-Modern Defence|Modern e4 e5 move-order,closed,...e5 against the c4 centre in the Modern Defence.,,,,
 B.Mod.Std.Ctr.d6,"Modern c4 Centre, d6 Line",A42,B.Mod.Std.Ctr,e2e4 g7g6 d2d4 f8g7 c2c4 d7d6,4,d6 Line,closed,...d6 against the c4 centre in the Modern Defence.,,,,
 B.Mod.Std.Ctr.d6.Be3,"Modern Averbakh, Pseudo-Saemisch",A42,B.Mod.Std.Ctr.d6,e2e4 g7g6 d2d4 f8g7 c2c4 d7d6 c1e3 g8f6,5,Pseudo-Saemisch,closed,Be3 and ...Nf6 in the Averbakh Modern structure.,,,,
 B.Mod.Std.Ctr.d6.Be3.f3,"Modern Averbakh Pseudo-Saemisch, f3",A42,B.Mod.Std.Ctr.d6.Be3,e2e4 g7g6 d2d4 f8g7 c2c4 d7d6 c1e3 g8f6 f2f3,6,f3 Line,closed,f3 reinforces the centre in the Pseudo-Saemisch Modern.,,,,
@@ -6034,12 +6034,12 @@ A.Van.d5.e4.dxe4.Bc4,"Van Geet Opening, Hector Gambit",A00,A.Van.d5.e4.dxe4,b1c3
 A.Eng.CKa.Nf3,"English Caro-Kann, Nf3",A11,A.Eng.CKa,c2c4 c7c6 g1f3,3,Nf3 Line,closed,Nf3 against the English Caro-Kann defensive system.,,,,
 A.Eng.CKa.Nf3.d5,"English Caro-Kann Nf3, d5",A11,A.Eng.CKa.Nf3,c2c4 c7c6 g1f3 d7d5,4,d5 Line,closed,...d5 after Nf3 in the English Caro-Kann move order.,,,,
 A.Eng.CKa.Nf3.d5.e3,"Reti Anglo-Slav, Gurevich System",A11,A.Eng.CKa.Nf3.d5,c2c4 c7c6 g1f3 d7d5 e2e3,5,Gurevich System,closed,e3 in the c4/c6/Nf3/d5 Anglo-Slav move order.,,,,
-A.Mod.e4,"Modern Defence, e4 Line",A40|A42,A.Mod,d2d4 g7g6 c2c4 f8g7 e2e4,2,e4 Line,closed,White builds a d4/c4/e4 centre against the Modern Defence.,,,,
-A.Mod.e4.e5,"Modern Defence, Neo-Modern Defence",A41,A.Mod.e4,d2d4 g7g6 c2c4 f8g7 e2e4 e7e5,3,Neo-Modern Defense,closed,...e5 against the d4/c4/e4 Modern centre.,,,,
-A.Mod.e4.c5,"Modern Defence e4, c5",A40,A.Mod.e4,d2d4 g7g6 c2c4 f8g7 e2e4 c7c5,3,c5 Line,sharp,...c5 counterplay against the d4/c4/e4 Modern centre.,,,,
+A.Mod.e4,"Modern Defence, e4 Line",A40|A42,A.Mod,d2d4 g7g6 c2c4 f8g7 e2e4,2,e4 Line,closed,Move-order transposition to B.Mod.Std.Ctr: same extended-centre Modern FEN reached via the 1.d4 g6 move order.,,,,B.Mod.Std.Ctr
+A.Mod.e4.e5,"Modern Defence, Neo-Modern Defence",A41,A.Mod.e4,d2d4 g7g6 c2c4 f8g7 e2e4 e7e5,3,Neo-Modern Defense,closed,Move-order transposition to B.Mod.Std.Ctr.e5: same FEN as the Neo-Modern Defence.,,,,B.Mod.Std.Ctr.e5
+A.Mod.e4.c5,"Modern Defence e4, c5",A40,A.Mod.e4,d2d4 g7g6 c2c4 f8g7 e2e4 c7c5,3,c5 Line,sharp,Move-order transposition to B.Mod.Std.Ctr.PtC: same FEN as the Central Pterodactyl.,,,,B.Mod.Std.Ctr.PtC
 A.Mod.e4.c5.d5,"Modern Defence e4 c5, d5",A40,A.Mod.e4.c5,d2d4 g7g6 c2c4 f8g7 e2e4 c7c5 d4d5,4,Benoni Pterodactyl Prefix,sharp,d5 advance against the Modern ...c5 setup.,,,,
 A.Mod.e4.c5.d5.Qa5,"Pterodactyl Defence, Central Benoni",A40,A.Mod.e4.c5.d5,d2d4 g7g6 c2c4 f8g7 e2e4 c7c5 d4d5 d8a5,5,Central Benoni Pterodactyl,sharp,...Qa5+ pressure in the central Benoni Pterodactyl setup.,,,,
-A.Mod.Avk.Nc6,"Modern Defence, Kotov Variation",A42,A.Mod.Avk,d2d4 g7g6 c2c4 f8g7 b1c3 d7d6 e2e4 b8c6,3,Kotov Variation,closed,...Nc6 against the Averbakh centre in the Modern Defence.,,,,
+A.Mod.Avk.Nc6,"Modern Defence, Kotov Variation",A42,A.Mod.Avk,d2d4 g7g6 c2c4 f8g7 b1c3 d7d6 e2e4 b8c6,3,Kotov Variation,closed,Move-order transposition to B.Mod.Avk.MLn: same FEN as the Modern Averbakh Main Line.,,,,B.Mod.Avk.MLn
 B.Sic.Fre.d4.a6,"Sicilian French, Drazic Variation",B40,B.Sic.Fre.d4,e2e4 c7c5 g1f3 e7e6 d2d4 a7a6,4,Drazic Variation,,...a6 before resolving the central tension in the Sicilian French open setup.,,,,
 B.Ale.Fou.Trd.MLn.IlZ,"Alekhine Four Pawns, Ilyin-Zhenevsky Variation",B03,B.Ale.Fou.Trd.MLn,e2e4 g8f6 e4e5 f6d5 d2d4 d7d6 c2c4 d5b6 f2f4 d6e5 f4e5 b8c6 g1f3 c8g4 e5e6 f7e6 c4c5,5,Ilyin-Zhenevsky Variation,sharp,Exact Ilyin-Zhenevsky tabiya in the Alekhine Four Pawns Trifunovic main line.,,,,
 B.CaK.Adv.Bf5.VdW,"Caro-Kann Advance, Van der Wiel Attack",B12,B.CaK.Adv.Bf5,e2e4 c7c6 d2d4 d7d5 e4e5 c8f5 b1c3 e7e6 g2g4 f5g6 g1e2 c6c5 h2h4,4,Van der Wiel Attack,sharp,Nge2 and h4 expansion in the Advance Caro-Kann with Nc3 and ...e6.,,,,
