@@ -140,12 +140,15 @@ d'Escacs Figueres" and link to this repository.
   `--summary`, `--min-size N`, `--class A/B/C/D/E`, and a scoring mode
   `--ranked [--limit N]` that surfaces the groups most likely to require
   a structural decision (class mixing, depth span, ECO/name/parent
-  divergence, A/D, A/E and D/E family bonuses). See
+  divergence, A/D, A/E and D/E family bonuses). Groups already resolved
+  by the catalogue's `transposes_to` link (see below) are **hidden by
+  default**; pass `--include-resolved` to see them. See
   [`docs/transpositions.md`](docs/transpositions.md) for the resolution
   workflow and the current top families to decide. Typical usage:
 
   ```
   python3 tools/audit_transpositions.py --ranked --limit 20
+  python3 tools/audit_transpositions.py --ranked --include-resolved --limit 20
   ```
 
   The audit is informational: transpositions are expected, not errors.
@@ -161,6 +164,27 @@ d'Escacs Figueres" and link to this repository.
 - [`tools/fetch_lichess.sh`](tools/fetch_lichess.sh) — pulls the
   upstream Lichess Opening Book TSVs (CC0) into `external/`, used by
   `escacsfigueres/chess-parquet`'s Lichess companion-table builder.
+
+## Two relations per slug
+
+Each catalogue row carries **two** relations to other slugs, and they
+mean different things:
+
+- `parent_ocn1` — nominal hierarchy. Groups slugs by literature
+  lineage and lets a reader navigate from a family root down to a
+  specific tabiya. The parent chain is what produces a readable slug
+  (`E.Nim.Rub.O-O.Nf3` is a child of `E.Nim.Rub.O-O`).
+- `transposes_to` — canonicalisation by position. Points from a slug
+  whose FEN coincides with another slug's FEN to that other slug —
+  the FEN-canonical one. Set when this row is a move-order
+  transposition of another. NULL when this row is itself canonical.
+
+A position-indexed consumer (e.g. `chess-parquet`) should follow
+`transposes_to` once to canonicalise an OCN-1 result. A
+literature-oriented consumer (a book, a teaching tool) should follow
+`parent_ocn1` to render the human hierarchy. The validator and
+`audit_transpositions.py` enforce that `transposes_to` only points
+to rows whose FEN matches.
 
 ## Compatibility with ECO
 

@@ -15,12 +15,13 @@ AUDIT_TOOL = REPO_ROOT / "tools" / "audit_transpositions.py"
 
 HEADER = (
     "ocn1,canonical_name,eco_legacy,parent_ocn1,moves_uci,depth,"
-    "aliases,flags,notes,attributed_to,attribution_source,historical_notes\n"
+    "aliases,flags,notes,attributed_to,attribution_source,historical_notes,"
+    "transposes_to\n"
 )
 
 
 def catalog_row(*fields: str) -> str:
-    return ",".join(fields + ("",) * (12 - len(fields))) + "\n"
+    return ",".join(fields + ("",) * (13 - len(fields))) + "\n"
 
 
 def run_audit(*args: str) -> subprocess.CompletedProcess[str]:
@@ -196,11 +197,13 @@ class RankedAuditTests(unittest.TestCase):
                 "depth_span",
                 "classes",
                 "eco_set",
+                "resolved",
                 "ocn1",
                 "canonical_name",
                 "parent_ocn1",
                 "depth",
                 "moves_uci",
+                "transposes_to",
             ],
             list(rows[0].keys()),
         )

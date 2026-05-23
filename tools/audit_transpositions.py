@@ -29,12 +29,14 @@ TSV_FIELDS = [
     "group_size",
     "depth_span",
     "classes",
+    "resolved",
     "ocn1",
     "canonical_name",
     "eco_legacy",
     "parent_ocn1",
     "depth",
     "moves_uci",
+    "transposes_to",
 ]
 RANKED_TSV_FIELDS = [
     "rank",
@@ -44,11 +46,13 @@ RANKED_TSV_FIELDS = [
     "depth_span",
     "classes",
     "eco_set",
+    "resolved",
     "ocn1",
     "canonical_name",
     "parent_ocn1",
     "depth",
     "moves_uci",
+    "transposes_to",
 ]
 
 # Scoring weights for --ranked. Intent: surface the groups most likely to
@@ -117,6 +121,7 @@ def build_groups(rows: Iterable[dict[str, str]]) -> list[dict[str, object]]:
                 "parent_ocn1": r.get("parent_ocn1") or "",
                 "depth": _depth(r),
                 "moves_uci": (r.get("moves_uci") or "").strip(),
+                "transposes_to": (r.get("transposes_to") or "").strip(),
             }
             for r in members_sorted
         ]
@@ -127,6 +132,7 @@ def build_groups(rows: Iterable[dict[str, str]]) -> list[dict[str, object]]:
                 "depth_span": max(depths) - min(depths),
                 "classes": classes,
                 "entries": entries,
+                "resolved": _is_resolved(entries),
             }
         )
 
@@ -134,17 +140,38 @@ def build_groups(rows: Iterable[dict[str, str]]) -> list[dict[str, object]]:
     return groups
 
 
+def _is_resolved(entries: list[dict[str, object]]) -> bool:
+    """A duplicate group is "resolved" when exactly one entry is canonical
+    (empty transposes_to) and every other entry has transposes_to pointing
+    to another entry within the same group. The audit treats resolved
+    groups as documented transpositions — known and intended noise — and
+    hides them from the default report.
+    """
+    slugs_in_group = {str(e["ocn1"]) for e in entries}
+    canonicals = [e for e in entries if not (e.get("transposes_to") or "")]
+    if len(canonicals) != 1:
+        return False
+    pointers_into_group = [
+        e for e in entries
+        if (e.get("transposes_to") or "") in slugs_in_group
+    ]
+    return len(canonicals) + len(pointers_into_group) == len(entries)
+
+
 def filter_groups(
     groups: list[dict[str, object]],
     *,
     min_size: int,
     class_filter: str | None,
+    include_resolved: bool = True,
 ) -> list[dict[str, object]]:
     out: list[dict[str, object]] = []
     for group in groups:
         if int(group["group_size"]) < min_size:  # type: ignore[arg-type]
             continue
         if class_filter and class_filter not in group["classes"]:  # type: ignore[operator]
+            continue
+        if not include_resolved and group.get("resolved"):
             continue
         out.append(group)
     return out
@@ -209,6 +236,7 @@ def write_tsv(groups: list[dict[str, object]], out) -> None:
     writer.writeheader()
     for group in groups:
         classes_str = ",".join(group["classes"])  # type: ignore[arg-type]
+        resolved_str = "1" if group.get("resolved") else "0"
         for entry in group["entries"]:  # type: ignore[index]
             writer.writerow(
                 {
@@ -216,12 +244,14 @@ def write_tsv(groups: list[dict[str, object]], out) -> None:
                     "group_size": group["group_size"],
                     "depth_span": group["depth_span"],
                     "classes": classes_str,
+                    "resolved": resolved_str,
                     "ocn1": entry["ocn1"],
                     "canonical_name": entry["canonical_name"],
                     "eco_legacy": entry["eco_legacy"],
                     "parent_ocn1": entry["parent_ocn1"],
                     "depth": entry["depth"],
                     "moves_uci": entry["moves_uci"],
+                    "transposes_to": entry.get("transposes_to", ""),
                 }
             )
 
@@ -234,6 +264,7 @@ def write_ranked_tsv(groups: list[dict[str, object]], out) -> None:
     for group in groups:
         classes_str = ",".join(group["classes"])  # type: ignore[arg-type]
         eco_str = "/".join(group["eco_set"])  # type: ignore[arg-type]
+        resolved_str = "1" if group.get("resolved") else "0"
         for entry in group["entries"]:  # type: ignore[index]
             writer.writerow(
                 {
@@ -244,11 +275,13 @@ def write_ranked_tsv(groups: list[dict[str, object]], out) -> None:
                     "depth_span": group["depth_span"],
                     "classes": classes_str,
                     "eco_set": eco_str,
+                    "resolved": resolved_str,
                     "ocn1": entry["ocn1"],
                     "canonical_name": entry["canonical_name"],
                     "parent_ocn1": entry["parent_ocn1"],
                     "depth": entry["depth"],
                     "moves_uci": entry["moves_uci"],
+                    "transposes_to": entry.get("transposes_to", ""),
                 }
             )
 
@@ -260,14 +293,20 @@ def write_json(groups: list[dict[str, object]], out) -> None:
 def print_summary(groups: list[dict[str, object]]) -> None:
     duplicate_groups = len(groups)
     rows_in_groups = sum(int(g["group_size"]) for g in groups)  # type: ignore[arg-type]
-    classes_mixed = sum(1 for g in groups if len(g["classes"]) > 1)  # type: ignore[arg-type]
-    depth_varying = sum(1 for g in groups if int(g["depth_span"]) > 0)  # type: ignore[arg-type]
-    sizes = Counter(int(g["group_size"]) for g in groups)  # type: ignore[arg-type]
+    resolved = [g for g in groups if g.get("resolved")]
+    unresolved = [g for g in groups if not g.get("resolved")]
+    rows_in_unresolved = sum(int(g["group_size"]) for g in unresolved)  # type: ignore[arg-type]
+    classes_mixed = sum(1 for g in unresolved if len(g["classes"]) > 1)  # type: ignore[arg-type]
+    depth_varying = sum(1 for g in unresolved if int(g["depth_span"]) > 0)  # type: ignore[arg-type]
+    sizes = Counter(int(g["group_size"]) for g in unresolved)  # type: ignore[arg-type]
     top_group_size = max(sizes) if sizes else 0
     print(
         "SUMMARY "
         f"duplicate_groups={duplicate_groups} "
+        f"resolved_groups={len(resolved)} "
+        f"unresolved_groups={len(unresolved)} "
         f"rows_in_groups={rows_in_groups} "
+        f"rows_in_unresolved_groups={rows_in_unresolved} "
         f"classes_mixed_groups={classes_mixed} "
         f"depth_varying_groups={depth_varying} "
         f"top_group_size={top_group_size}",
@@ -312,6 +351,16 @@ def parse_args(argv: list[str]) -> argparse.Namespace:
         type=int,
         help="truncate output to the first N groups (after sorting)",
     )
+    parser.add_argument(
+        "--include-resolved",
+        action="store_true",
+        help=(
+            "include groups already resolved by transposes_to. By default "
+            "the audit hides resolved groups (one canonical entry + every "
+            "other entry pointing to a slug within the group) so the "
+            "report focuses on duplicates that still need a decision"
+        ),
+    )
     return parser.parse_args(argv)
 
 
@@ -325,7 +374,18 @@ def main() -> int:
         fail("--limit must be >= 1")
 
     groups = build_groups(load_catalog(args.catalog))
-    groups = filter_groups(groups, min_size=args.min_size, class_filter=args.class_filter)
+    summary_groups = filter_groups(
+        groups,
+        min_size=args.min_size,
+        class_filter=args.class_filter,
+        include_resolved=True,
+    )
+    groups = filter_groups(
+        groups,
+        min_size=args.min_size,
+        class_filter=args.class_filter,
+        include_resolved=args.include_resolved,
+    )
     if args.ranked:
         groups = rank_groups(groups)
     groups = apply_limit(groups, args.limit)
@@ -347,7 +407,7 @@ def main() -> int:
         write_tsv(groups, sys.stdout)
 
     if args.summary:
-        print_summary(groups)
+        print_summary(summary_groups)
     return 0
 
 

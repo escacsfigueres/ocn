@@ -2,9 +2,10 @@
 
 ## Current state
 
-- Catalogue size: **6,099** rows.
-- Duplicate FEN groups: **316**.
-- Rows participating in duplicate groups: **645**.
+- Catalogue size: **6,097** rows.
+- Duplicate FEN groups: **316** total — **15 resolved** by
+  `transposes_to`, **301 unresolved**.
+- Rows in unresolved groups: **613**.
 - Top group size observed: **3**.
 
 Numbers are produced by:
@@ -12,10 +13,14 @@ Numbers are produced by:
 ```
 python3 tools/audit_transpositions.py --summary
 python3 tools/audit_transpositions.py --ranked --limit 20
+python3 tools/audit_transpositions.py --ranked --include-resolved --limit 20
 ```
 
 `audit_transpositions.py` groups concrete rows by FEN position key
 (board + side to move + castling + en-passant, ignoring move counters).
+By default it hides groups already resolved by `transposes_to` so the
+report focuses on duplicates that still need a decision. Use
+`--include-resolved` to see everything.
 
 ## Principle
 
@@ -86,16 +91,17 @@ intermediate `A.Kan.MLn`) remain canonical Kangaroo entries.
   Kangaroo move-order label.
 - Each A.Kan row above gets a `notes` field of the form
   `Move-order transposition to E.Nim.*: same FEN ...`.
+- Each A.Kan row above carries `transposes_to=<E.Nim slug>` so the
+  audit can treat the pair as resolved and consumers can canonicalise
+  by FEN computationally.
 - Two redundant E.Nim siblings deleted (no children, identical FEN to
   their parent): `E.Nim.Kas.TKn`, `E.Nim.Rub.Sys`.
 
-**Still open in this family:** none of the 5 transposition pairs above
-are physically merged. Their FEN duplicates remain visible in
-`audit_transpositions.py --summary` because OCN keeps both slugs alive
-for navigation from the Kangaroo subtree. The pairs are now
-**catalogued**, not removed. Physical merge of A.Kan.* into E.Nim.* is
-out of scope for this sprint; it requires either a `transposes_to`
-column or careful reassignment of A.Kan children.
+All five Kangaroo ↔ Nimzo groups now report as **resolved** in
+`audit_transpositions.py --summary` and are hidden from the default
+ranked report. Physical merge of `A.Kan.*` into `E.Nim.*` (slug
+removal and child reparenting) remains out of scope; `transposes_to`
+makes that future merge unnecessary for canonical lookup.
 
 ### Modern Averbakh / Old Indian ↔ KID (partial, by FEN)
 
@@ -128,7 +134,13 @@ entries.
   `Old Indian Modern ... move-order` or `Modern Averbakh ... move-order`.
 - Each A-side row above gets a `notes` field of the form
   `Move-order transposition to E.KID.*: same FEN ...`.
+- Each A-side row above carries `transposes_to=<E side slug>` so the
+  audit reports the pair as resolved.
 - No rows deleted. No intra-E redundants in this family.
+
+All ten Modern/OID ↔ KID groups now report as **resolved** in
+`audit_transpositions.py --summary` and are hidden from the default
+ranked report.
 
 **Preserved as canonical** (no FEN coincidence with E.KID):
 

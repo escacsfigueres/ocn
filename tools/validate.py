@@ -32,9 +32,13 @@ import sys
 from pathlib import Path
 
 try:
-    from chess_uci import last_move_san, validate_uci_sequence
+    from chess_uci import fen_key_after_uci, last_move_san, validate_uci_sequence
 except ImportError:  # pragma: no cover - only for unusual direct imports.
-    from tools.chess_uci import last_move_san, validate_uci_sequence
+    from tools.chess_uci import (
+        fen_key_after_uci,
+        last_move_san,
+        validate_uci_sequence,
+    )
 
 DEFAULT_CATALOG = Path(__file__).resolve().parent.parent / "catalog" / "ocn-1.csv"
 
@@ -79,6 +83,7 @@ REQUIRED_COLUMNS = [
     "attributed_to",
     "attribution_source",
     "historical_notes",
+    "transposes_to",
 ]
 
 
@@ -285,6 +290,51 @@ def validate(path: Path, *, strict_chess: bool = False) -> None:
                     fail(f"row {row['_row']}: last slug segment '{last_segment}' "
                          f"does not match appended move SAN '{normalize_san(san)}' "
                          f"(slug '{slug}')")
+
+    # 11. transposes_to (Layer: canonical link, OCN 0.2).
+    #
+    # A row may declare `transposes_to=<another slug>` to say "this row
+    # is a move-order transposition; the FEN-canonical entry is over
+    # there". The contract:
+    #   - Target slug must exist.
+    #   - Target must differ from the row's own slug.
+    #   - Target must NOT be a class root (A/B/C/D/E).
+    #   - Class roots themselves must NOT carry transposes_to.
+    #   - When both rows have moves_uci, their FEN keys must match —
+    #     otherwise the "transposition" claim is false by FEN and the
+    #     catalogue would be lying to its consumers.
+    for slug, row in seen_slugs.items():
+        target = (row.get("transposes_to") or "").strip()
+        depth = int(row["depth"])
+        if not target:
+            continue
+        if depth == 0:
+            fail(f"row {row['_row']}: class root '{slug}' must not have "
+                 f"transposes_to (found '{target}')")
+        if target == slug:
+            fail(f"row {row['_row']}: slug '{slug}' has transposes_to pointing "
+                 f"to itself")
+        if target not in seen_slugs:
+            fail(f"row {row['_row']}: slug '{slug}' has transposes_to='{target}' "
+                 f"but that slug is missing from the catalogue")
+        target_row = seen_slugs[target]
+        target_depth = int(target_row["depth"])
+        if target_depth == 0:
+            fail(f"row {row['_row']}: slug '{slug}' has transposes_to='{target}' "
+                 f"but target is a class root (class roots are filters, not "
+                 f"positions)")
+        row_moves = (row.get("moves_uci") or "").strip()
+        target_moves = (target_row.get("moves_uci") or "").strip()
+        if row_moves and target_moves:
+            try:
+                row_fen = fen_key_after_uci(row_moves)
+                target_fen = fen_key_after_uci(target_moves)
+            except ValueError as exc:
+                fail(f"row {row['_row']}: {exc} in slug '{slug}'")
+            if row_fen != target_fen:
+                fail(f"row {row['_row']}: slug '{slug}' has "
+                     f"transposes_to='{target}' but their FEN keys differ "
+                     f"(this is not a transposition by position)")
 
     print(f"OK: {len(seen_slugs)} entries validated, {warnings} warning(s)")
 

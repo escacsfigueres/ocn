@@ -43,6 +43,9 @@ EXPECTED_INVALID: dict[str, str] = {
     "invalid_named_after_tail.csv": "follows a move tail",
     "invalid_unknown_flag.csv": "unknown flag",
     "invalid_missing_schema_column.csv": "missing required column",
+    "invalid_transposes_to_missing.csv": "transposes_to='A.Bar'",
+    "invalid_transposes_to_self.csv": "pointing to itself",
+    "invalid_transposes_to_fen_mismatch.csv": "FEN keys differ",
 }
 
 # Fixtures that MUST validate (exit 0) but emit a specific warning.

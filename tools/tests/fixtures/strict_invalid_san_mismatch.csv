@@ -1,4 +1,4 @@
-ocn1,canonical_name,eco_legacy,parent_ocn1,moves_uci,depth,aliases,flags,notes,attributed_to,attribution_source,historical_notes
-B,Semi-Open Games,,,,0,,,Top-level class.,,,
-B.Sic,Sicilian Defence,B20,B,e2e4 c7c5,1,,,1.e4 c5.,,,
-B.Sic.Nc3,"Sicilian Defence, Nc3",B20,B.Sic,e2e4 c7c5 g1f3,2,,,Last slug segment says Nc3 but appended move is Nf3.,,,
+ocn1,canonical_name,eco_legacy,parent_ocn1,moves_uci,depth,aliases,flags,notes,attributed_to,attribution_source,historical_notes,transposes_to
+B,Semi-Open Games,,,,0,,,Top-level class.,,,,
+B.Sic,Sicilian Defence,B20,B,e2e4 c7c5,1,,,1.e4 c5.,,,,
+B.Sic.Nc3,"Sicilian Defence, Nc3",B20,B.Sic,e2e4 c7c5 g1f3,2,,,Last slug segment says Nc3 but appended move is Nf3.,,,,

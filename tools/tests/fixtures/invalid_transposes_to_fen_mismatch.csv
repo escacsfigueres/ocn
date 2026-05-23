@@ -1,0 +1,5 @@
+ocn1,canonical_name,eco_legacy,parent_ocn1,moves_uci,depth,aliases,flags,notes,attributed_to,attribution_source,historical_notes,transposes_to
+A,Flank Openings,,,,0,,,Top-level class.,,,,
+E,Indian Defences,,,,0,,,Top-level class.,,,,
+A.Foo,"Foo Opening",,A,d2d4 d7d5,1,,,Different FEN from its declared transposition target.,,,,E.Bar
+E.Bar,"Bar Indian",,E,d2d4 g8f6,1,,,Reached via a different move set.,,,,

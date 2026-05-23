@@ -1,5 +1,5 @@
-ocn1,canonical_name,eco_legacy,parent_ocn1,moves_uci,depth,aliases,flags,notes,attributed_to,attribution_source,historical_notes
-A,Flank Openings,,,,0,,,Top-level class.,,,
-B,Semi-Open Games,,,,0,,,1.e4 with anything but ...e5.,,,
-B.Sic,Sicilian Defence,B20|B99,B,e2e4 c7c5,1,,,1.e4 c5.,,,
-B.Sic.Naj,"Sicilian, Najdorf",B90|B91|B92|B93|B94|B95|B96|B97|B98|B99,B.Sic,e2e4 c7c5 g1f3 d7d6 d2d4 c5d4 f3d4 g8f6 b1c3 a7a6,2,Najdorf Variation,sharp,5...a6.,,,
+ocn1,canonical_name,eco_legacy,parent_ocn1,moves_uci,depth,aliases,flags,notes,attributed_to,attribution_source,historical_notes,transposes_to
+A,Flank Openings,,,,0,,,Top-level class.,,,,
+B,Semi-Open Games,,,,0,,,1.e4 with anything but ...e5.,,,,
+B.Sic,Sicilian Defence,B20|B99,B,e2e4 c7c5,1,,,1.e4 c5.,,,,
+B.Sic.Naj,"Sicilian, Najdorf",B90|B91|B92|B93|B94|B95|B96|B97|B98|B99,B.Sic,e2e4 c7c5 g1f3 d7d6 d2d4 c5d4 f3d4 g8f6 b1c3 a7a6,2,Najdorf Variation,sharp,5...a6.,,,,

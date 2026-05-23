@@ -1,5 +1,5 @@
-ocn1,canonical_name,eco_legacy,parent_ocn1,moves_uci,depth,aliases,flags,notes,attributed_to,attribution_source,historical_notes
-A,Flank,,,,0,,,,,,
-A.Eng,English,,A,c2c4,1,,,,,,
-A.Eng.e4,English with e4 tail,,A.Eng,c2c4 e7e5,2,,,,,,
-A.Eng.e4.Naj,Bogus named after move tail,,A.Eng.e4,c2c4 e7e5,3,,,Named token cannot follow a SAN move tail,,,
+ocn1,canonical_name,eco_legacy,parent_ocn1,moves_uci,depth,aliases,flags,notes,attributed_to,attribution_source,historical_notes,transposes_to
+A,Flank,,,,0,,,,,,,
+A.Eng,English,,A,c2c4,1,,,,,,,
+A.Eng.e4,English with e4 tail,,A.Eng,c2c4 e7e5,2,,,,,,,
+A.Eng.e4.Naj,Bogus named after move tail,,A.Eng.e4,c2c4 e7e5,3,,,Named token cannot follow a SAN move tail,,,,

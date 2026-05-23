@@ -182,6 +182,7 @@ The reference catalogue is `catalog/ocn-1.csv`. Each row has the columns:
 | `attributed_to` | string null | Player(s), school, or event the opening is associated with. Free text. |
 | `attribution_source` | string null | Citation supporting `attributed_to`. **Required** when `attributed_to` is non-empty — the validator rejects unsourced claims. Free text but should reference a book, an article, a tournament game, or a corpus signal. |
 | `historical_notes` | string null | Longer-form context (transmission history, popularisation, calibration against the corpus). |
+| `transposes_to` | string null | Slug of the FEN-canonical OCN-1 entry that owns this position. Set when this row is a move-order transposition of another. NULL when this row is itself canonical. See "Canonicalisation by position" below. |
 
 The three attribution columns form the catalogue's "Layer 2" — curated,
 human-asserted history. They sit alongside the corpus-derived `Layer 1`
@@ -203,6 +204,48 @@ with `fen_key` (board, turn, castling, legal en-passant), canonical
 counter-normalised `fen` (`fen_key 0 1`), and
 `transposition_group_size`. This export is for audit and text workflows;
 the Polyglot `zobrist` contract remains the EFCDB/openings artefact.
+
+### Canonicalisation by position (`transposes_to`)
+
+OCN-1 has two distinct relations between slugs:
+
+- **`parent_ocn1`** is the **nominal hierarchy**. It groups slugs by
+  literature lineage and lets a human reader navigate from a family
+  root (`A.Kan`, `E.Nim`) down to a specific tabiya. The parent chain
+  is what produces a readable slug.
+- **`transposes_to`** is **canonicalisation by position**. It points
+  from a slug whose FEN coincides with another slug's FEN to that
+  other slug — the FEN-canonical one. It does not change the
+  parent-child tree.
+
+Many openings are reached by more than one move order. OCN-1 keeps
+each named move order alive (so a reader following the Kangaroo
+literature can still find the Kangaroo entries) but records on each
+non-canonical entry that the position **is** another OCN-1 slug by
+FEN. Consumers building a position index SHOULD treat
+`transposes_to` as the canonicalisation arrow: when resolving a FEN
+to OCN-1, follow `transposes_to` once and report the target slug.
+
+Contract:
+
+- `transposes_to` is a single `ocn1` value or NULL.
+- It MUST differ from `ocn1`.
+- The target MUST exist in the catalogue.
+- The target MUST NOT be a class root (class roots are filters, not
+  positions).
+- Class roots themselves MUST NOT carry `transposes_to`.
+- When both rows have `moves_uci`, their FEN keys (board + side to
+  move + castling + en-passant) MUST match. The validator rejects
+  rows whose declared transposition does not hold by FEN.
+- `transposes_to` does not replace `aliases` or `notes`. Aliases
+  preserve human-readable alternate names; notes capture move-order
+  context. `transposes_to` makes the relation computable.
+
+A duplicate FEN group is "resolved" when exactly one entry has empty
+`transposes_to` (the canonical) and every other entry points into
+the group with `transposes_to`. `tools/audit_transpositions.py`
+hides resolved groups by default and surfaces them with
+`--include-resolved`.
 
 ### Looking up a slug from an ECO code
 
