@@ -3,10 +3,12 @@
 ## Current state
 
 - Catalogue size: **5,966** rows.
-- Duplicate FEN groups: **191** total — **71 resolved** by
-  `transposes_to` (**2 with multiple canonicals**, 69 single
-  canonical), **120 unresolved**.
-- Rows in unresolved groups: **241**.
+- Duplicate FEN groups: **191** total — **75 resolved** (**6 with
+  multiple canonicals**, 69 single canonical), **116 unresolved**.
+- Rows in unresolved groups: **233**.
+- Resolution channels: `transposes_to` (non-canonical →
+  canonical, asymmetric) and `same_as` (canonical ↔ canonical,
+  symmetric, OCN 0.3).
 - Top group size observed: **3**.
 
 Numbers are produced by:
@@ -73,7 +75,7 @@ under rule 4 or 6, pending a human decision:
 | ~~Veresov A↔D subtree~~ | ~~A.Ver ⇄ D.QPG.Ver ⇄ D.QPG.Ver.Ric~~ | **RESOLVED** with the same commit. D.QPG.Ver subtree now points into A.Ver canonicals. |
 | ~~KID Old / Classical e5~~ | ~~3-way intra-E~~ | **RESOLVED** in commit `<see below>` — multiple_canonical at rank 1 (Old Main Line E91 + Castled Nbd7 E95 coexist), single_canonical at the two child mirror groups (Old.e5.c6/Re1 canonical, e5.O-O.Nbd7.c6/Re1 → TT). See "KID Classical Old/e5" section below. |
 | ~~Modern Benoni Classical/Traditional~~ | ~~3-way Benoni + Indian~~ | **RESOLVED** as single_canonical — counter-example to KID Classical where 3 slugs converged on one FEN but only one carried independent literary identity. See "Modern Benoni Classical" section below. |
-| **D.Rub ↔ A.Col.Zuk** (rank 1 post-Modern-Benoni) | `D.Rub` and `A.Col.Zuk` | Rubinstein Opening (historical) and Colle-Zukertort (contemporary) — two real literary identities on the same FEN, both with substantive subtrees, no third slug to act as in-group pointer. **First case that justifies a `same_as` declaration channel.** Draft proposal in [`rubinstein-colle-zukertort-proposal.md`](rubinstein-colle-zukertort-proposal.md) recommends defer + same_as infrastructure follow-up. |
+| ~~D.Rub ↔ A.Col.Zuk~~ | ~~Rubinstein ⇄ Colle-Zukertort~~ | **RESOLVED via `same_as`** in the OCN 0.3 schema extension. See "same_as-resolved groups" section below. |
 | **Italian Giuoco / Two Knights post-castling** (ranks 21, 22) | `C.Ita.Giu.O-O.Nf6 ⇄ C.Ita.Two.O-O.Bc5` and `.d4` deeper | Classic transposition: Giuoco Piano with Black's …Nf6 reaches the same castled tabiya as Two Knights with Black's …Bc5. Both real lines, both with children. |
 | **Philidor Nimzowitsch / Lion castled** (ranks 16, 17) | `C.PhD.Nim ⇄ C.PhD.Lio.MLn.O-O` and `.Re1` deeper | Nimzowitsch Variation and Lion Defence Main Line converge after castling. Lion is the path (kids); Nimzowitsch is the named ECO-C41 anchor. Candidate for TT under rule 1, but Lion has substantive identity — defer pending rule 4 review. |
 | **English Mikenas / Agincourt** (rank 12 + family) | `A.Eng.Mik ⇄ A.Eng.Agi.Nc3.Nf6.e4` | Same English Opening family, both literary (Mikenas-Carls vs Agincourt) reaching the same FEN after `1.c4 Nf6 2.Nc3 e5 3.e4`. Pure rule 4 case. |
@@ -495,6 +497,38 @@ groups.
 literature distinguishes both names at the same FEN AND a
 third-party pointer exists to declare the relation. Leaf mirrors
 without independent literary identity default to single_canonical.
+
+### `same_as`-resolved groups (OCN 0.3)
+
+Schema extension shipped in commit `84f18fc`. The new `same_as`
+column declares co-canonical pairs without forcing one to be
+non-canonical. The audit treats in-group `same_as` edges as
+undirected and reports such groups as `multiple_canonical`.
+
+**Groups resolved purely via `same_as`** (no in-group
+`transposes_to` pointer; both rows canonical by editorial decision):
+
+| pair | classes | both ECO | rationale |
+|---|---|---|---|
+| `D.Rub` ⇄ `A.Col.Zuk` | A, D | D05 | Rubinstein Opening (historical) and Colle-Zukertort (contemporary) — the textbook case the schema was introduced for. |
+| `E.Nim.Rub.Kmo` ⇄ `E.Nim.Sml.Bot.MLn` | E | E40 / E25 | Nimzo Kmoch (Rubinstein move order) and Sämisch Botvinnik Main Line (Sämisch move order); both literary, different ECOs, same FEN. |
+| `C.Ita.Giu.O-O.Nf6` ⇄ `C.Ita.Two.O-O.Bc5` | C | C50-C54 / C55-C56 | Giuoco Piano and Two Knights Defence converge after castling — textbook ECO transposition between two named openings. |
+| `C.Ita.Giu.O-O.Nf6.d4` ⇄ `C.Ita.Two.O-O.Bc5.d4` | C | C54 / C56 | Same convergence one move deeper (4.d4). |
+
+**Groups previously multi-canonical via in-group pointer, now also
+carrying explicit `same_as`** (declaration made more readable; no
+behaviour change):
+
+| pair | how |
+|---|---|
+| `B.Fre.Cls.MLn` ⇄ `A.Ver.Cls.MLn.Be7` | Pre-existing TT from `D.QPG.Ver.MLn.Be7` provided the in-group pointer; `same_as` now makes the bilateral relation explicit between the two canonicals. |
+| `E.KID.Cls.Old.e5` ⇄ `E.KID.Cls.e5.O-O.Nbd7` | Same shape — TT from `E.KID.Cls.e5.O-O.Nbd7.O-O` is the in-group pointer; `same_as` makes the canonical relation explicit. |
+
+**Total multiple_canonical groups after this commit**: **6** (was 2
+before `same_as`). All 6 reported by `audit_transpositions.py
+--summary` as `multiple_canonical_groups=6`. The new mechanism
+declared 4 cases that previously could not be expressed without
+either schema growth or contortions.
 
 ### Modern Benoni Classical (resolved, single_canonical — counter-example to KID)
 

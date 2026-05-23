@@ -1,8 +1,14 @@
 # Rubinstein Opening ↔ Colle-Zukertort — arbitration proposal
 
-**Status**: draft proposal — NOT yet applied to `catalog/ocn-1.csv`.
+**Status**: **APPLIED via `same_as` schema extension (OCN 0.3)**. See
+`docs/transpositions.md` → "`same_as`-resolved groups" for the
+applied outcome. The proposal also triggered the schema extension
+itself (commit `84f18fc`: `same_as` column added with full
+validator + audit support) and the bulk apply (this commit:
+populated 6 co-canonical pairs).
+
 **Companion**: builds on `spec/OCN-1.md` → "Canonicalisation
-arbitration" and the precedents from Veresov / KID / Modern Benoni.
+arbitration" and "Co-canonical preservation".
 
 ## Context
 
