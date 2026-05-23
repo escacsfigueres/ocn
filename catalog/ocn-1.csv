@@ -127,7 +127,7 @@ E.Nim.Rub,"Nimzo, Rubinstein",E40|E41|E42|E43|E44|E45|E46|E47|E48|E49|E50|E51|E5
 E.Nim.Cls,"Nimzo, Classical",E32|E33|E34|E35|E36|E37|E38|E39,E.Nim,d2d4 g8f6 c2c4 e7e6 b1c3 f8b4 d1c2,2,Classical Nimzo,,4.Qc2.,,,,
 E.Nim.Sml,"Nimzo, Sämisch",E25|E26|E27|E28|E29,E.Nim,d2d4 g8f6 c2c4 e7e6 b1c3 f8b4 a2a3,2,Saemisch Variation,sharp,4.a3.,,,,
 E.Nim.Lng,"Nimzo, Leningrad",E30|E31,E.Nim,d2d4 g8f6 c2c4 e7e6 b1c3 f8b4 c1g5,2,Leningrad Variation|4.Bg5 System,sharp,"4.Bg5. The established Leningrad name is canonical; 4.Bg5 is kept as a transparent alias.",,,,
-E.QID,Queen's Indian Defence,E12|E13|E14|E15|E16|E17|E18|E19,E,d2d4 g8f6 c2c4 e7e6 g1f3 b7b6,1,QID,,3...b6.,,,,
+E.QID,Queen's Indian Defence,E12|E13|E14|E15|E16|E17|E18|E19,E,d2d4 g8f6 c2c4 e7e6 g1f3 b7b6,1,QID|English Defence Nf3 move-order,,3...b6.,,,,
 E.QID.Pet,"QID, Petrosian",E12|E13,E.QID,d2d4 g8f6 c2c4 e7e6 g1f3 b7b6 a2a3,2,Petrosian Variation,,4.a3.,,,,
 E.QID.Mod,"QID, Modern",E15|E16|E17|E18|E19,E.QID,d2d4 g8f6 c2c4 e7e6 g1f3 b7b6 g2g3 c8b7,2,,,4.g3 Bb7 main.,,,,
 E.Bog,Bogo-Indian Defence,E11,E,d2d4 g8f6 c2c4 e7e6 g1f3 f8b4,1,,,3...Bb4+.,,,,
@@ -1992,7 +1992,7 @@ A.Ver.Hub.c5.g3,"Veresov Opening, Hubsch Gambit, c5, g3",D01,A.Ver.Hub.c5,d2d4 d
 A.Van.ReN.Nf3,"Van Geet Opening, Reversed Nimzowitsch, Nf3",A00,A.Van.ReN,b1c3 e7e5 g1f3,3,,closed,"Nf3 in the Van Geet Opening, Reversed Nimzowitsch.",,,,
 A.Van.ReS.Nf6,"Van Geet Opening, Reversed Scandinavian, Nf6",A00,A.Van.ReS,b1c3 e7e5 d2d4 e5d4 d1d4 b8c6 d4a4 g8f6,3,,closed,"Nf6 in the Van Geet Opening, Reversed Scandinavian.",,,,
 A.Owe.Eng.Nf3,"English Defence, Nf3",A40,A.Owe.Eng,d2d4 b7b6 c2c4 e7e6 g1f3,3,,closed,Nf3 in the English Defence.,,,,
-A.Owe.Eng.Nf3.Nf6,"English Defence, Nf3, Nf6",A40,A.Owe.Eng.Nf3,d2d4 b7b6 c2c4 e7e6 g1f3 g8f6,4,,closed,"Nf6 in the English Defence, Nf3.",,,,
+A.Owe.Eng.Nf3.Nf6,"English Defence, Nf3, Nf6",A40,A.Owe.Eng.Nf3,d2d4 b7b6 c2c4 e7e6 g1f3 g8f6,4,,closed,Move-order transposition to E.QID: same Queen's Indian FEN reached via the English Defence Nf3 move order.,,,,E.QID
 A.PQI.Tor.d5,"Pseudo-Queen's Indian, Torre Line, d5",A47,A.PQI.Tor,d2d4 g8f6 g1f3 b7b6 c1g5 c8b7 d4d5,3,,closed,"d5 in the Pseudo-Queen's Indian, Torre Line.",,,,
 A.PQI.Tor.d5.c5,"Pseudo-Queen's Indian, Torre Line, d5, c5",A47,A.PQI.Tor.d5,d2d4 g8f6 g1f3 b7b6 c1g5 c8b7 d4d5 c7c5,4,,closed,"c5 in the Pseudo-Queen's Indian, Torre Line, d5.",,,,
 A.PQI.Bf4.MLn.d5,"Pseudo-Queen's Indian Bf4 Line, Main Line, d5",A47,A.PQI.Bf4.MLn,d2d4 g8f6 g1f3 b7b6 c1f4 c8b7 e2e3 e7e6 d4d5,4,,closed,"d5 in the Pseudo-Queen's Indian Bf4 Line, Main Line.",,,,

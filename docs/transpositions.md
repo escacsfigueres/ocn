@@ -3,9 +3,9 @@
 ## Current state
 
 - Catalogue size: **6,096** rows.
-- Duplicate FEN groups: **316** total — **23 resolved** by
-  `transposes_to`, **293 unresolved**.
-- Rows in unresolved groups: **595**.
+- Duplicate FEN groups: **316** total — **24 resolved** by
+  `transposes_to`, **292 unresolved**.
+- Rows in unresolved groups: **593**.
 - Top group size observed: **3**.
 
 Numbers are produced by:
@@ -270,6 +270,30 @@ After this sprint the audit still reports **316 duplicate groups**:
 the deleted row collapsed the triple into a pair, but the remaining
 pair is still a duplicate by FEN — it is now **resolved** through
 `transposes_to`, so it disappears from the default ranked report.
+
+### Queen's Indian ↔ English Defence (resolved, by FEN)
+
+Single pair. When the FEN reaches a true Queen's Indian structure
+(`1.d4 Nf6 2.c4 e6 3.Nf3 b6`), the canonical slug is the E-side
+Indian name regardless of which move order produced it.
+
+| Position           | Canonical | Transposition           |
+|--------------------|-----------|--------------------------|
+| Queen's Indian, 3...b6 | `E.QID` | `A.Owe.Eng.Nf3.Nf6`     |
+
+Rationale: this reinforces the rule **Indian-structure-by-FEN → E
+canonical**, already applied for Kangaroo↔Nimzo, Modern/OID↔KID,
+and Catalan Qc2 (where the rule pointed the other way because of
+the explicit `...d5` Catalan exception). The English Defence
+(`1.d4 b6`) is a legitimate move-order route but the destination
+position is universally named Queen's Indian.
+
+**Changes applied:**
+
+- `A.Owe.Eng.Nf3.Nf6.transposes_to = E.QID`.
+- `E.QID` gains alias `English Defence Nf3 move-order`.
+- `A.Owe.Eng.Nf3.Nf6.notes` reworded as transposition pointer.
+- No rows deleted. `E.QID` keeps its 9 children intact.
 
 ## Workflow
 
