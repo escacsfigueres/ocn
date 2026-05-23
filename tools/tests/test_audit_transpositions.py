@@ -198,6 +198,8 @@ class RankedAuditTests(unittest.TestCase):
                 "classes",
                 "eco_set",
                 "resolved",
+                "resolution_kind",
+                "canonical_count",
                 "ocn1",
                 "canonical_name",
                 "parent_ocn1",
@@ -255,6 +257,130 @@ class RankedAuditTests(unittest.TestCase):
 
         self.assertNotEqual(result.returncode, 0)
         self.assertIn("ERROR", result.stderr)
+
+
+class ResolutionKindTests(unittest.TestCase):
+    def _write_catalog(self, tmp: str, rows: str) -> Path:
+        catalog = Path(tmp) / "catalog.csv"
+        catalog.write_text(HEADER + rows, encoding="utf-8")
+        return catalog
+
+    def test_single_canonical_group_is_resolved(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            catalog = self._write_catalog(
+                tmp,
+                catalog_row("A", "Flank Openings", "A", "", "", "0")
+                + catalog_row("D", "Closed Queen's Pawn", "D", "", "", "0")
+                + catalog_row(
+                    "A.Tr1", "AD Trans One", "D02", "A", "d2d4 g8f6 c2c4 e7e6",
+                    "1", "", "", "", "", "", "", "D.Tr2",
+                )
+                + catalog_row(
+                    "D.Tr2", "AD Trans Two", "D02", "D", "c2c4 g8f6 d2d4 e7e6",
+                    "1",
+                ),
+            )
+
+            result = run_audit("--catalog", str(catalog), "--json", "--include-resolved")
+
+        self.assertEqual(result.returncode, 0, result.stderr)
+        payload = json.loads(result.stdout)
+        self.assertEqual(len(payload["groups"]), 1)
+        group = payload["groups"][0]
+        self.assertEqual(group["resolution_kind"], "single_canonical")
+        self.assertEqual(group["canonical_count"], 1)
+        self.assertTrue(group["resolved"])
+
+    def test_multiple_canonical_group_is_resolved_with_kind(self) -> None:
+        # Two canonical rows (empty transposes_to) coexist by design,
+        # and a third row points into the group.
+        with tempfile.TemporaryDirectory() as tmp:
+            catalog = self._write_catalog(
+                tmp,
+                catalog_row("A", "Flank Openings", "A", "", "", "0")
+                + catalog_row("B", "Semi-Open Games", "B", "", "", "0")
+                + catalog_row("D", "Closed Queen's Pawn", "D", "", "", "0")
+                + catalog_row(
+                    "A.Can", "A Canonical", "A45", "A",
+                    "d2d4 g8f6 b1c3 d7d5 c1g5 e7e6 e2e4 f8e7",
+                    "1",
+                )
+                + catalog_row(
+                    "B.Can", "B Canonical", "C14", "B",
+                    "e2e4 e7e6 d2d4 d7d5 b1c3 g8f6 c1g5 f8e7",
+                    "1",
+                )
+                + catalog_row(
+                    "D.Pnt", "D Pointer", "D01", "D",
+                    "d2d4 d7d5 b1c3 g8f6 c1g5 e7e6 e2e4 f8e7",
+                    "1", "", "", "", "", "", "", "A.Can",
+                ),
+            )
+
+            result = run_audit("--catalog", str(catalog), "--json", "--include-resolved")
+
+        self.assertEqual(result.returncode, 0, result.stderr)
+        payload = json.loads(result.stdout)
+        self.assertEqual(len(payload["groups"]), 1)
+        group = payload["groups"][0]
+        self.assertEqual(group["resolution_kind"], "multiple_canonical")
+        self.assertEqual(group["canonical_count"], 2)
+        self.assertTrue(group["resolved"])
+
+    def test_multiple_canonicals_without_pointer_remain_unresolved(self) -> None:
+        # Same FEN reached by three rows but no transposes_to declared
+        # anywhere: the group is not catalogued, it must stay visible.
+        with tempfile.TemporaryDirectory() as tmp:
+            catalog = self._write_catalog(
+                tmp,
+                catalog_row("A", "Flank Openings", "A", "", "", "0")
+                + catalog_row("B", "Semi-Open Games", "B", "", "", "0")
+                + catalog_row(
+                    "A.Can", "A Canonical", "A45", "A",
+                    "d2d4 g8f6 b1c3 d7d5 c1g5 e7e6 e2e4 f8e7",
+                    "1",
+                )
+                + catalog_row(
+                    "B.Can", "B Canonical", "C14", "B",
+                    "e2e4 e7e6 d2d4 d7d5 b1c3 g8f6 c1g5 f8e7",
+                    "1",
+                ),
+            )
+
+            result = run_audit("--catalog", str(catalog), "--summary")
+
+        self.assertEqual(result.returncode, 0, result.stderr)
+        self.assertIn("unresolved_groups=1", result.stderr)
+        self.assertIn("multiple_canonical_groups=0", result.stderr)
+
+    def test_external_pointer_remains_unresolved(self) -> None:
+        # A non-canonical pointer that targets a slug outside the group
+        # must not count as resolved.
+        with tempfile.TemporaryDirectory() as tmp:
+            catalog = self._write_catalog(
+                tmp,
+                catalog_row("A", "Flank Openings", "A", "", "", "0")
+                + catalog_row("D", "Closed Queen's Pawn", "D", "", "", "0")
+                + catalog_row(
+                    "D.Other", "D Other", "D02", "D",
+                    "d2d4 g8f6 c2c4 e7e6 b1c3", "1",
+                )
+                + catalog_row(
+                    "A.Tr1", "AD Trans One", "D02", "A",
+                    "d2d4 g8f6 c2c4 e7e6", "1",
+                    "", "", "", "", "", "", "D.Other",
+                )
+                + catalog_row(
+                    "D.Tr2", "AD Trans Two", "D02", "D",
+                    "c2c4 g8f6 d2d4 e7e6", "1",
+                ),
+            )
+
+            result = run_audit("--catalog", str(catalog), "--summary")
+
+        self.assertEqual(result.returncode, 0, result.stderr)
+        self.assertIn("unresolved_groups=1", result.stderr)
+        self.assertIn("resolved_groups=0", result.stderr)
 
 
 if __name__ == "__main__":

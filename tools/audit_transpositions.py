@@ -30,6 +30,8 @@ TSV_FIELDS = [
     "depth_span",
     "classes",
     "resolved",
+    "resolution_kind",
+    "canonical_count",
     "ocn1",
     "canonical_name",
     "eco_legacy",
@@ -47,6 +49,8 @@ RANKED_TSV_FIELDS = [
     "classes",
     "eco_set",
     "resolved",
+    "resolution_kind",
+    "canonical_count",
     "ocn1",
     "canonical_name",
     "parent_ocn1",
@@ -125,6 +129,7 @@ def build_groups(rows: Iterable[dict[str, str]]) -> list[dict[str, object]]:
             }
             for r in members_sorted
         ]
+        kind, canonical_count = _resolution_kind(entries)
         groups.append(
             {
                 "fen_key": key,
@@ -132,7 +137,9 @@ def build_groups(rows: Iterable[dict[str, str]]) -> list[dict[str, object]]:
                 "depth_span": max(depths) - min(depths),
                 "classes": classes,
                 "entries": entries,
-                "resolved": _is_resolved(entries),
+                "resolution_kind": kind,
+                "canonical_count": canonical_count,
+                "resolved": kind != "unresolved",
             }
         )
 
@@ -140,22 +147,57 @@ def build_groups(rows: Iterable[dict[str, str]]) -> list[dict[str, object]]:
     return groups
 
 
-def _is_resolved(entries: list[dict[str, object]]) -> bool:
-    """A duplicate group is "resolved" when exactly one entry is canonical
-    (empty transposes_to) and every other entry has transposes_to pointing
-    to another entry within the same group. The audit treats resolved
-    groups as documented transpositions — known and intended noise — and
-    hides them from the default report.
+RESOLUTION_UNRESOLVED = "unresolved"
+RESOLUTION_SINGLE_CANONICAL = "single_canonical"
+RESOLUTION_MULTIPLE_CANONICAL = "multiple_canonical"
+
+
+def _resolution_kind(entries: list[dict[str, object]]) -> tuple[str, int]:
+    """Classify a duplicate group's resolution state.
+
+    A group is "resolved" iff every non-canonical entry has
+    ``transposes_to`` pointing at another entry within the same
+    group, AND at least one such pointer exists (a group with no
+    declarations at all is still unresolved — its FEN duplication
+    has not been catalogued).
+
+    Two resolved sub-kinds are distinguished:
+      - ``single_canonical`` — exactly one canonical entry, every
+        other entry points to it. The common case: one literary
+        name owns the FEN, the rest are documented move-order
+        transpositions.
+      - ``multiple_canonical`` — two or more canonical entries
+        coexist by design. Used when a FEN is reached by distinct
+        opening traditions that each carry an established literary
+        identity (e.g. French Classical Main Line and Veresov
+        Classical Main Line). All non-canonical entries still
+        point into the group; the surviving canonicals are
+        preserved on purpose, not by oversight.
+
+    Returns ``(kind, canonical_count)``.
     """
     slugs_in_group = {str(e["ocn1"]) for e in entries}
     canonicals = [e for e in entries if not (e.get("transposes_to") or "")]
-    if len(canonicals) != 1:
-        return False
+    canonical_count = len(canonicals)
     pointers_into_group = [
         e for e in entries
         if (e.get("transposes_to") or "") in slugs_in_group
     ]
-    return len(canonicals) + len(pointers_into_group) == len(entries)
+
+    # No declarations at all → the group's FEN equivalence has not
+    # been catalogued yet; treat as unresolved even if every entry
+    # has empty transposes_to.
+    if not pointers_into_group:
+        return RESOLUTION_UNRESOLVED, canonical_count
+
+    # Any transposes_to pointing outside the group is escape; the
+    # group is not internally resolved.
+    if canonical_count + len(pointers_into_group) != len(entries):
+        return RESOLUTION_UNRESOLVED, canonical_count
+
+    if canonical_count == 1:
+        return RESOLUTION_SINGLE_CANONICAL, 1
+    return RESOLUTION_MULTIPLE_CANONICAL, canonical_count
 
 
 def filter_groups(
@@ -245,6 +287,8 @@ def write_tsv(groups: list[dict[str, object]], out) -> None:
                     "depth_span": group["depth_span"],
                     "classes": classes_str,
                     "resolved": resolved_str,
+                    "resolution_kind": group.get("resolution_kind", RESOLUTION_UNRESOLVED),
+                    "canonical_count": group.get("canonical_count", 0),
                     "ocn1": entry["ocn1"],
                     "canonical_name": entry["canonical_name"],
                     "eco_legacy": entry["eco_legacy"],
@@ -276,6 +320,8 @@ def write_ranked_tsv(groups: list[dict[str, object]], out) -> None:
                     "classes": classes_str,
                     "eco_set": eco_str,
                     "resolved": resolved_str,
+                    "resolution_kind": group.get("resolution_kind", RESOLUTION_UNRESOLVED),
+                    "canonical_count": group.get("canonical_count", 0),
                     "ocn1": entry["ocn1"],
                     "canonical_name": entry["canonical_name"],
                     "parent_ocn1": entry["parent_ocn1"],
@@ -295,6 +341,10 @@ def print_summary(groups: list[dict[str, object]]) -> None:
     rows_in_groups = sum(int(g["group_size"]) for g in groups)  # type: ignore[arg-type]
     resolved = [g for g in groups if g.get("resolved")]
     unresolved = [g for g in groups if not g.get("resolved")]
+    multiple_canonical = [
+        g for g in groups
+        if g.get("resolution_kind") == RESOLUTION_MULTIPLE_CANONICAL
+    ]
     rows_in_unresolved = sum(int(g["group_size"]) for g in unresolved)  # type: ignore[arg-type]
     classes_mixed = sum(1 for g in unresolved if len(g["classes"]) > 1)  # type: ignore[arg-type]
     depth_varying = sum(1 for g in unresolved if int(g["depth_span"]) > 0)  # type: ignore[arg-type]
@@ -305,6 +355,7 @@ def print_summary(groups: list[dict[str, object]]) -> None:
         f"duplicate_groups={duplicate_groups} "
         f"resolved_groups={len(resolved)} "
         f"unresolved_groups={len(unresolved)} "
+        f"multiple_canonical_groups={len(multiple_canonical)} "
         f"rows_in_groups={rows_in_groups} "
         f"rows_in_unresolved_groups={rows_in_unresolved} "
         f"classes_mixed_groups={classes_mixed} "
