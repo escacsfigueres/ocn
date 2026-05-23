@@ -183,6 +183,7 @@ The reference catalogue is `catalog/ocn-1.csv`. Each row has the columns:
 | `attribution_source` | string null | Citation supporting `attributed_to`. **Required** when `attributed_to` is non-empty — the validator rejects unsourced claims. Free text but should reference a book, an article, a tournament game, or a corpus signal. |
 | `historical_notes` | string null | Longer-form context (transmission history, popularisation, calibration against the corpus). |
 | `transposes_to` | string null | Slug of the FEN-canonical OCN-1 entry that owns this position. Set when this row is a move-order transposition of another. NULL when this row is itself canonical. See "Canonicalisation by position" below. |
+| `same_as` | string null | Pipe-separated list of OCN-1 slug(s) that share this row's FEN and are preserved alongside it as co-canonical entries. Set when two or more rows are both canonical literary identities of the same position. Mutually exclusive with `transposes_to` on a single row. NULL when this row has no declared co-canonical partner. See "Co-canonical preservation" below. |
 
 The three attribution columns form the catalogue's "Layer 2" — curated,
 human-asserted history. They sit alongside the corpus-derived `Layer 1`
@@ -246,6 +247,58 @@ A duplicate FEN group is "resolved" when exactly one entry has empty
 the group with `transposes_to`. `tools/audit_transpositions.py`
 hides resolved groups by default and surfaces them with
 `--include-resolved`.
+
+### Co-canonical preservation (`same_as`)
+
+`transposes_to` records the relation **non-canonical → canonical**:
+one slug is the FEN-canonical entry, the other is a documented
+move-order transposition. There is one canonical per FEN, by design.
+
+`same_as` records a different relation: **canonical ↔ canonical**.
+Two (or more) slugs reach the same FEN but each carries an
+established literary identity that the catalogue preserves on
+purpose. Neither is "the alias" of the other; both are real names
+in chess literature, often from different historical traditions
+(Rubinstein Opening ⇄ Colle-Zukertort, Italian Giuoco ⇄ Two
+Knights after castling, Nimzo Rubinstein Kmoch ⇄ Sämisch Botvinnik).
+
+Contract:
+
+- `same_as` is a pipe-separated list of `ocn1` slugs, or NULL.
+- `same_as` and `transposes_to` are **mutually exclusive** on a
+  single row. A row is either non-canonical (declares
+  `transposes_to`) or co-canonical (declares `same_as`), never
+  both.
+- Each target slug must exist in the catalogue.
+- No self-reference.
+- Class roots cannot carry `same_as`.
+- When both rows have `moves_uci`, their FEN keys must match. The
+  validator rejects rows whose declared co-canonical does not hold
+  by FEN.
+- The relation is conceptually symmetric. The CSV may declare it
+  one-way or bilaterally; bilateral is preferred for human
+  readability. `tools/audit_transpositions.py` treats in-group
+  `same_as` edges as undirected when classifying a group's
+  resolution.
+
+A duplicate FEN group counts as `multiple_canonical` (resolved) iff
+all non-canonical entries point into the group via `transposes_to`
+AND at least one of these declarations exists:
+- a non-canonical pointer (the original mechanism, French / Veresov
+  and KID Classical precedents), OR
+- an in-group `same_as` edge between two canonical entries (the
+  OCN 0.3 mechanism, for cases without a third descriptor slug).
+
+Three slug-level relations now coexist:
+
+- **`parent_ocn1`** — nominal hierarchy. Groups slugs by literature
+  lineage. Produces readable slugs (`E.Nim.Rub.O-O.Nf3` is a child
+  of `E.Nim.Rub.O-O`).
+- **`transposes_to`** — canonicalisation by position, asymmetric.
+  Points from a non-canonical row to the canonical that owns its
+  FEN.
+- **`same_as`** — co-canonical preservation, symmetric. Links two
+  canonical rows that share a FEN by editorial decision.
 
 ### Canonicalisation arbitration
 

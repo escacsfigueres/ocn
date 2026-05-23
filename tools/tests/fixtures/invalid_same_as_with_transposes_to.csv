@@ -1,0 +1,6 @@
+ocn1,canonical_name,eco_legacy,parent_ocn1,moves_uci,depth,aliases,flags,notes,attributed_to,attribution_source,historical_notes,transposes_to,same_as
+A,Flank Openings,,,,0,,,Top-level class.,,,,,
+E,Indian Defences,,,,0,,,Top-level class.,,,,,
+A.Foo,"Foo Opening",,A,d2d4 g8f6 c2c4 e7e6,1,,,Cannot be both non-canonical (transposes_to) and co-canonical (same_as).,,,,E.Bar,E.Baz
+E.Bar,"Bar Indian",,E,d2d4 g8f6 c2c4 e7e6,1,,,Same FEN as A.Foo via shared move sequence.,,,,,
+E.Baz,"Baz Indian",,E,d2d4 g8f6 c2c4 e7e6,1,,,Same FEN as A.Foo via shared move sequence.,,,,,

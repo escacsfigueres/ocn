@@ -16,12 +16,12 @@ EXPORT_POSITIONS = REPO_ROOT / "tools" / "export_positions.py"
 HEADER = (
     "ocn1,canonical_name,eco_legacy,parent_ocn1,moves_uci,depth,"
     "aliases,flags,notes,attributed_to,attribution_source,historical_notes,"
-    "transposes_to\n"
+    "transposes_to,same_as\n"
 )
 
 
 def catalog_row(*fields: str) -> str:
-    return ",".join(fields + ("",) * (13 - len(fields))) + "\n"
+    return ",".join(fields + ("",) * (14 - len(fields))) + "\n"
 
 
 def run_export(*args: str) -> subprocess.CompletedProcess[str]:

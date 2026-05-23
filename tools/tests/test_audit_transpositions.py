@@ -16,12 +16,12 @@ AUDIT_TOOL = REPO_ROOT / "tools" / "audit_transpositions.py"
 HEADER = (
     "ocn1,canonical_name,eco_legacy,parent_ocn1,moves_uci,depth,"
     "aliases,flags,notes,attributed_to,attribution_source,historical_notes,"
-    "transposes_to\n"
+    "transposes_to,same_as\n"
 )
 
 
 def catalog_row(*fields: str) -> str:
-    return ",".join(fields + ("",) * (13 - len(fields))) + "\n"
+    return ",".join(fields + ("",) * (14 - len(fields))) + "\n"
 
 
 def run_audit(*args: str) -> subprocess.CompletedProcess[str]:
@@ -206,6 +206,7 @@ class RankedAuditTests(unittest.TestCase):
                 "depth",
                 "moves_uci",
                 "transposes_to",
+                "same_as",
             ],
             list(rows[0].keys()),
         )
@@ -381,6 +382,105 @@ class ResolutionKindTests(unittest.TestCase):
         self.assertEqual(result.returncode, 0, result.stderr)
         self.assertIn("unresolved_groups=1", result.stderr)
         self.assertIn("resolved_groups=0", result.stderr)
+
+
+class SameAsResolutionTests(unittest.TestCase):
+    def _write_catalog(self, tmp: str, rows: str) -> Path:
+        catalog = Path(tmp) / "catalog.csv"
+        catalog.write_text(HEADER + rows, encoding="utf-8")
+        return catalog
+
+    def test_two_canonicals_with_bilateral_same_as_resolve_multiple(self) -> None:
+        # Two slugs reach the same FEN, both canonical, declared
+        # co-canonical via bilateral same_as. No third slug, no
+        # transposes_to. Must resolve as multiple_canonical.
+        with tempfile.TemporaryDirectory() as tmp:
+            catalog = self._write_catalog(
+                tmp,
+                catalog_row("A", "Flank Openings", "A", "", "", "0")
+                + catalog_row("D", "Closed Queen's Pawn", "D", "", "", "0")
+                + catalog_row(
+                    "A.Can", "A Canonical", "D05", "A",
+                    "d2d4 g8f6 g1f3 e7e6 e2e3", "1",
+                    "", "", "", "", "", "", "", "D.Can",
+                )
+                + catalog_row(
+                    "D.Can", "D Canonical", "D05", "D",
+                    "d2d4 g8f6 g1f3 e7e6 e2e3", "1",
+                    "", "", "", "", "", "", "", "A.Can",
+                ),
+            )
+
+            result = run_audit("--catalog", str(catalog), "--json", "--include-resolved")
+
+        self.assertEqual(result.returncode, 0, result.stderr)
+        payload = json.loads(result.stdout)
+        self.assertEqual(len(payload["groups"]), 1)
+        group = payload["groups"][0]
+        self.assertEqual(group["resolution_kind"], "multiple_canonical")
+        self.assertEqual(group["canonical_count"], 2)
+        self.assertTrue(group["resolved"])
+
+    def test_one_way_same_as_also_resolves(self) -> None:
+        # The contract says same_as is conceptually symmetric — a
+        # one-way declaration in the CSV still resolves the group.
+        with tempfile.TemporaryDirectory() as tmp:
+            catalog = self._write_catalog(
+                tmp,
+                catalog_row("A", "Flank Openings", "A", "", "", "0")
+                + catalog_row("D", "Closed Queen's Pawn", "D", "", "", "0")
+                + catalog_row(
+                    "A.Can", "A Canonical", "D05", "A",
+                    "d2d4 g8f6 g1f3 e7e6 e2e3", "1",
+                    "", "", "", "", "", "", "", "D.Can",
+                )
+                + catalog_row(
+                    "D.Can", "D Canonical", "D05", "D",
+                    "d2d4 g8f6 g1f3 e7e6 e2e3", "1",
+                ),
+            )
+
+            result = run_audit("--catalog", str(catalog), "--summary")
+
+        self.assertEqual(result.returncode, 0, result.stderr)
+        self.assertIn("resolved_groups=1", result.stderr)
+        self.assertIn("multiple_canonical_groups=1", result.stderr)
+
+    def test_same_as_combined_with_transposes_to_pointer(self) -> None:
+        # Mixed group: two canonicals linked by same_as plus one
+        # non-canonical row with transposes_to into the group.
+        # Should resolve as multiple_canonical with canonical_count=2.
+        with tempfile.TemporaryDirectory() as tmp:
+            catalog = self._write_catalog(
+                tmp,
+                catalog_row("A", "Flank Openings", "A", "", "", "0")
+                + catalog_row("D", "Closed Queen's Pawn", "D", "", "", "0")
+                + catalog_row("E", "Indian Defences", "E", "", "", "0")
+                + catalog_row(
+                    "A.Can", "A Canonical", "D05", "A",
+                    "d2d4 g8f6 g1f3 e7e6 e2e3", "1",
+                    "", "", "", "", "", "", "", "D.Can",
+                )
+                + catalog_row(
+                    "D.Can", "D Canonical", "D05", "D",
+                    "d2d4 g8f6 g1f3 e7e6 e2e3", "1",
+                    "", "", "", "", "", "", "", "A.Can",
+                )
+                + catalog_row(
+                    "E.Pnt", "E Pointer", "E40", "E",
+                    "d2d4 e7e6 g1f3 g8f6 e2e3", "1",
+                    "", "", "", "", "", "", "A.Can",
+                ),
+            )
+
+            result = run_audit("--catalog", str(catalog), "--json", "--include-resolved")
+
+        self.assertEqual(result.returncode, 0, result.stderr)
+        payload = json.loads(result.stdout)
+        self.assertEqual(len(payload["groups"]), 1)
+        group = payload["groups"][0]
+        self.assertEqual(group["resolution_kind"], "multiple_canonical")
+        self.assertEqual(group["canonical_count"], 2)
 
 
 if __name__ == "__main__":

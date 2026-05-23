@@ -28,6 +28,7 @@ FIELDS = [
     "fen",
     "transposition_group_size",
     "transposes_to",
+    "same_as",
 ]
 
 
@@ -76,6 +77,7 @@ def derive_rows(rows: Iterable[dict[str, str]], *, include_roots: bool) -> list[
                 "fen": f"{fen_key} 0 1" if fen_key else "",
                 "transposition_group_size": str(group_sizes[fen_key]) if fen_key else "",
                 "transposes_to": (row.get("transposes_to") or "").strip(),
+                "same_as": (row.get("same_as") or "").strip(),
             }
         )
     return derived

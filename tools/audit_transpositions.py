@@ -39,6 +39,7 @@ TSV_FIELDS = [
     "depth",
     "moves_uci",
     "transposes_to",
+    "same_as",
 ]
 RANKED_TSV_FIELDS = [
     "rank",
@@ -57,6 +58,7 @@ RANKED_TSV_FIELDS = [
     "depth",
     "moves_uci",
     "transposes_to",
+    "same_as",
 ]
 
 # Scoring weights for --ranked. Intent: surface the groups most likely to
@@ -126,6 +128,7 @@ def build_groups(rows: Iterable[dict[str, str]]) -> list[dict[str, object]]:
                 "depth": _depth(r),
                 "moves_uci": (r.get("moves_uci") or "").strip(),
                 "transposes_to": (r.get("transposes_to") or "").strip(),
+                "same_as": (r.get("same_as") or "").strip(),
             }
             for r in members_sorted
         ]
@@ -155,11 +158,15 @@ RESOLUTION_MULTIPLE_CANONICAL = "multiple_canonical"
 def _resolution_kind(entries: list[dict[str, object]]) -> tuple[str, int]:
     """Classify a duplicate group's resolution state.
 
-    A group is "resolved" iff every non-canonical entry has
-    ``transposes_to`` pointing at another entry within the same
-    group, AND at least one such pointer exists (a group with no
-    declarations at all is still unresolved — its FEN duplication
-    has not been catalogued).
+    A group is "resolved" iff:
+      - every non-canonical entry (with ``transposes_to``) points at
+        another entry within the same group, AND
+      - at least one declaration exists — either a non-canonical
+        ``transposes_to`` pointer into the group, or an in-group
+        ``same_as`` edge between two canonical entries.
+
+    A group with no declarations of any kind is still unresolved:
+    the FEN duplication has not been catalogued.
 
     Two resolved sub-kinds are distinguished:
       - ``single_canonical`` — exactly one canonical entry, every
@@ -167,12 +174,12 @@ def _resolution_kind(entries: list[dict[str, object]]) -> tuple[str, int]:
         name owns the FEN, the rest are documented move-order
         transpositions.
       - ``multiple_canonical`` — two or more canonical entries
-        coexist by design. Used when a FEN is reached by distinct
-        opening traditions that each carry an established literary
-        identity (e.g. French Classical Main Line and Veresov
-        Classical Main Line). All non-canonical entries still
-        point into the group; the surviving canonicals are
-        preserved on purpose, not by oversight.
+        coexist by design. Declared either by an in-group
+        non-canonical pointer (the original mechanism, French /
+        Veresov and KID Classical precedents) or by ``same_as``
+        edges between the canonicals (the OCN 0.3 mechanism, used
+        when there is no third descriptor slug to act as pointer,
+        e.g. Rubinstein Opening ⇄ Colle-Zukertort).
 
     Returns ``(kind, canonical_count)``.
     """
@@ -184,10 +191,23 @@ def _resolution_kind(entries: list[dict[str, object]]) -> tuple[str, int]:
         if (e.get("transposes_to") or "") in slugs_in_group
     ]
 
+    # Detect in-group same_as edges between canonical entries.
+    # The relation is treated as undirected: an edge from A to B
+    # also resolves the pair regardless of B's same_as field.
+    same_as_edges_into_group = []
+    for e in canonicals:
+        targets = [
+            t.strip()
+            for t in (e.get("same_as") or "").split("|")
+            if t.strip()
+        ]
+        if any(t in slugs_in_group and t != e["ocn1"] for t in targets):
+            same_as_edges_into_group.append(e)
+
     # No declarations at all → the group's FEN equivalence has not
-    # been catalogued yet; treat as unresolved even if every entry
-    # has empty transposes_to.
-    if not pointers_into_group:
+    # been catalogued yet; treat as unresolved.
+    has_declaration = bool(pointers_into_group) or bool(same_as_edges_into_group)
+    if not has_declaration:
         return RESOLUTION_UNRESOLVED, canonical_count
 
     # Any transposes_to pointing outside the group is escape; the
@@ -296,6 +316,7 @@ def write_tsv(groups: list[dict[str, object]], out) -> None:
                     "depth": entry["depth"],
                     "moves_uci": entry["moves_uci"],
                     "transposes_to": entry.get("transposes_to", ""),
+                    "same_as": entry.get("same_as", ""),
                 }
             )
 
@@ -328,6 +349,7 @@ def write_ranked_tsv(groups: list[dict[str, object]], out) -> None:
                     "depth": entry["depth"],
                     "moves_uci": entry["moves_uci"],
                     "transposes_to": entry.get("transposes_to", ""),
+                    "same_as": entry.get("same_as", ""),
                 }
             )
 

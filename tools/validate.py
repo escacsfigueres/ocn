@@ -84,6 +84,7 @@ REQUIRED_COLUMNS = [
     "attribution_source",
     "historical_notes",
     "transposes_to",
+    "same_as",
 ]
 
 
@@ -335,6 +336,62 @@ def validate(path: Path, *, strict_chess: bool = False) -> None:
                 fail(f"row {row['_row']}: slug '{slug}' has "
                      f"transposes_to='{target}' but their FEN keys differ "
                      f"(this is not a transposition by position)")
+
+    # 12. same_as (Layer: co-canonical link, OCN 0.3).
+    #
+    # A row may declare `same_as=<other slug>[|<other slug>...]` to say
+    # "this row shares its FEN with the listed slug(s), and all of us
+    # are preserved as canonicals by editorial decision". Where
+    # `transposes_to` records non-canonical → canonical, `same_as`
+    # records canonical ↔ canonical. The contract:
+    #   - same_as and transposes_to are mutually exclusive on a row.
+    #   - Each pipe-separated target slug must exist.
+    #   - No self-reference.
+    #   - Class roots cannot carry same_as.
+    #   - When both rows have moves_uci, their FEN keys must match.
+    #   - The relation is conceptually symmetric; the audit treats
+    #     in-group same_as edges as undirected when deciding whether
+    #     a duplicate group is resolved as multiple_canonical. The
+    #     CSV may declare it one-way or bilaterally; bilateral is
+    #     preferred for human readability.
+    for slug, row in seen_slugs.items():
+        same_as_raw = (row.get("same_as") or "").strip()
+        transposes_to_raw = (row.get("transposes_to") or "").strip()
+        depth = int(row["depth"])
+        if not same_as_raw:
+            continue
+        if transposes_to_raw:
+            fail(f"row {row['_row']}: slug '{slug}' has both same_as "
+                 f"({same_as_raw!r}) and transposes_to ({transposes_to_raw!r}); "
+                 f"a row is either non-canonical (transposes_to) or "
+                 f"co-canonical (same_as), never both")
+        if depth == 0:
+            fail(f"row {row['_row']}: class root '{slug}' must not have "
+                 f"same_as (found '{same_as_raw}')")
+        targets = [t.strip() for t in same_as_raw.split("|") if t.strip()]
+        for target in targets:
+            if target == slug:
+                fail(f"row {row['_row']}: slug '{slug}' has same_as pointing "
+                     f"to itself")
+            if target not in seen_slugs:
+                fail(f"row {row['_row']}: slug '{slug}' has same_as='{target}' "
+                     f"but that slug is missing from the catalogue")
+            target_row = seen_slugs[target]
+            if int(target_row["depth"]) == 0:
+                fail(f"row {row['_row']}: slug '{slug}' has same_as='{target}' "
+                     f"but target is a class root")
+            row_moves = (row.get("moves_uci") or "").strip()
+            target_moves = (target_row.get("moves_uci") or "").strip()
+            if row_moves and target_moves:
+                try:
+                    row_fen = fen_key_after_uci(row_moves)
+                    target_fen = fen_key_after_uci(target_moves)
+                except ValueError as exc:
+                    fail(f"row {row['_row']}: {exc} in slug '{slug}'")
+                if row_fen != target_fen:
+                    fail(f"row {row['_row']}: slug '{slug}' has "
+                         f"same_as='{target}' but their FEN keys differ "
+                         f"(this is not a co-canonical pair by position)")
 
     print(f"OK: {len(seen_slugs)} entries validated, {warnings} warning(s)")
 

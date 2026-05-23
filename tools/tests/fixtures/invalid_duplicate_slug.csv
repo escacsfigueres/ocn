@@ -1,5 +1,5 @@
-ocn1,canonical_name,eco_legacy,parent_ocn1,moves_uci,depth,aliases,flags,notes,attributed_to,attribution_source,historical_notes,transposes_to
-A,Flank Openings,,,,0,,,,,,,
-B,Semi-Open,,,,0,,,,,,,
-B.Sic,Sicilian,B20,B,e2e4 c7c5,1,,,first,,,,
-B.Sic,Sicilian Dup,B20,B,e2e4 c7c5,1,,,second occurrence — should fail,,,,
+ocn1,canonical_name,eco_legacy,parent_ocn1,moves_uci,depth,aliases,flags,notes,attributed_to,attribution_source,historical_notes,transposes_to,same_as
+A,Flank Openings,,,,0,,,,,,,,
+B,Semi-Open,,,,0,,,,,,,,
+B.Sic,Sicilian,B20,B,e2e4 c7c5,1,,,first,,,,,
+B.Sic,Sicilian Dup,B20,B,e2e4 c7c5,1,,,second occurrence — should fail,,,,,

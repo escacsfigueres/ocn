@@ -165,26 +165,31 @@ d'Escacs Figueres" and link to this repository.
   upstream Lichess Opening Book TSVs (CC0) into `external/`, used by
   `escacsfigueres/chess-parquet`'s Lichess companion-table builder.
 
-## Two relations per slug
+## Three relations per slug
 
-Each catalogue row carries **two** relations to other slugs, and they
-mean different things:
+Each catalogue row carries **three** relations to other slugs:
 
 - `parent_ocn1` — nominal hierarchy. Groups slugs by literature
   lineage and lets a reader navigate from a family root down to a
   specific tabiya. The parent chain is what produces a readable slug
   (`E.Nim.Rub.O-O.Nf3` is a child of `E.Nim.Rub.O-O`).
-- `transposes_to` — canonicalisation by position. Points from a slug
-  whose FEN coincides with another slug's FEN to that other slug —
-  the FEN-canonical one. Set when this row is a move-order
+- `transposes_to` — canonicalisation by position, **asymmetric**.
+  Points from a slug whose FEN coincides with another slug's FEN
+  to the FEN-canonical one. Set when this row is a move-order
   transposition of another. NULL when this row is itself canonical.
+- `same_as` — co-canonical preservation, **symmetric**. Pipe-separated
+  list of slugs that share this row's FEN and are preserved as
+  co-canonicals (both / all are real literary names — e.g.
+  Rubinstein Opening ⇄ Colle-Zukertort). Mutually exclusive with
+  `transposes_to` on a single row.
 
 A position-indexed consumer (e.g. `chess-parquet`) should follow
-`transposes_to` once to canonicalise an OCN-1 result. A
+`transposes_to` once to canonicalise an OCN-1 result; rows linked
+by `same_as` are all canonical and may be returned together. A
 literature-oriented consumer (a book, a teaching tool) should follow
 `parent_ocn1` to render the human hierarchy. The validator and
-`audit_transpositions.py` enforce that `transposes_to` only points
-to rows whose FEN matches.
+`audit_transpositions.py` enforce that both `transposes_to` and
+`same_as` only point to rows whose FEN matches.
 
 ## Compatibility with ECO
 

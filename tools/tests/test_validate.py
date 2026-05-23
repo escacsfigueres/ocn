@@ -46,6 +46,10 @@ EXPECTED_INVALID: dict[str, str] = {
     "invalid_transposes_to_missing.csv": "transposes_to='A.Bar'",
     "invalid_transposes_to_self.csv": "pointing to itself",
     "invalid_transposes_to_fen_mismatch.csv": "FEN keys differ",
+    "invalid_same_as_missing.csv": "same_as='A.Bar'",
+    "invalid_same_as_self.csv": "same_as pointing to itself",
+    "invalid_same_as_fen_mismatch.csv": "this is not a co-canonical pair",
+    "invalid_same_as_with_transposes_to.csv": "both same_as",
 }
 
 # Fixtures that MUST validate (exit 0) but emit a specific warning.
