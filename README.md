@@ -225,15 +225,22 @@ See [`spec/OCN-1.md`](spec/OCN-1.md) for the full reasoning.
 
 ## Roadmap
 
-- **0.1** *(current)* — Core spec, 6,099-entry catalogue, strict
-  validator, lookup tools, and a derived FEN position export.
-- **0.2** — Position-indexed release artefacts: publish
-  `ocn-1.positions.tsv`, `openings.parquet` with Polyglot Zobrist, and a
-  transposition audit over the duplicate FEN groups.
-- **0.3** — Internationalised aliases: Catalan, Spanish, French, German
-  display names. The English `canonical_name` stays definitive.
-- **1.0** — Frozen format and stable catalogue. Public release with an
-  open call for feedback from the wider chess data community.
+- **0.1** — Core spec, ~6,100-entry catalogue, strict validator,
+  lookup tools, and a derived FEN position export.
+- **0.2** *(in progress)* — Position canonicalisation and downstream
+  artefacts. 5,966-row catalogue with `transposes_to` (asymmetric)
+  and `same_as` (symmetric) relations; `audit_transpositions.py`
+  classifies duplicate FEN groups as `single_canonical` or
+  `multiple_canonical`. Remaining work: finish intra-family
+  cleanup (target `unresolved_groups < 50`); integrate downstream
+  with `chess-parquet`; ship `ocn-1.positions.tsv` +
+  `openings.parquet`. See [`docs/roadmap-0.2.md`](docs/roadmap-0.2.md)
+  for the phased plan and downstream change list.
+- **0.3** — Internationalised aliases: Catalan, Spanish, French,
+  German display names. The English `canonical_name` stays
+  definitive.
+- **1.0** — Frozen format and stable catalogue. Public release with
+  an open call for feedback from the wider chess data community.
 
 ## Acknowledgements
 
