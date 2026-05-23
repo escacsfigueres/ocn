@@ -16,7 +16,7 @@ E.Ben.Mod,Modern Benoni,A60|A61|A62|A63|A64|A65|A66|A67|A68|A69|A70|A71|A72|A73|
 E.Ben.Bnk,Benko / Volga Gambit,A57|A58|A59,E.Ben,d2d4 g8f6 c2c4 c7c5 d4d5 b7b5,2,Benko Gambit|Volga Gambit,gambit|sharp,"...b5 pawn sacrifice. Slug 'Bnk' = Benko (the previous 'Czk' label was a mistake — that token is for the Czech Benoni, a separate opening).",Pal Benko (systematiser); Soviet 'Volga' analysts (parallel discovery),"Benko, 'The Benko Gambit' (RHM Press, 1974); the alternative name 'Volga Gambit' traces to 1940s Soviet analyses centred around the Volga river region.","Two independent traditions converged on the same opening, hence the dual name. Benko (Hungarian-American GM) wrote the canonical English-language monograph. Soviet sources had been calling it the Volga Gambit for decades.",
 E.Ben.Czk,Czech Benoni,A56,E.Ben,d2d4 g8f6 c2c4 c7c5 d4d5 e7e5,2,Czech Benoni,closed,"1.d4 Nf6 2.c4 c5 3.d5 e5 — locked-centre treatment, not a gambit.",,,,
 A.Tro,Trompowsky Attack,A45,A,d2d4 g8f6 c1g5,1,,,1.d4 Nf6 2.Bg5.,,,,
-A.Lon,London System,A48,A,d2d4 d7d5 g1f3 g8f6 c1f4,1,,closed,1.d4 with Bf4 setup.,,,,
+A.Lon,London System,A48,A,d2d4 d7d5 g1f3 g8f6 c1f4,1,Zukertort London move-order,closed,1.d4 with Bf4 setup.,,,,
 A.Bir,Bird's Opening,A02|A03,A,f2f4,1,,,1.f4.,,,,
 A.Lar,Larsen Attack,A01,A,b2b3,1,Nimzo-Larsen Attack,,1.b3.,,,,
 A.Ret,Réti Opening,A04|A05|A06|A07|A08|A09,A,g1f3,1,,,1.Nf3 with c4/g3 plan.,,,,
@@ -6075,7 +6075,7 @@ D.QGD.Ort.Rc1.a6,"QGD Orthodox Rc1, Henneberger a6 Line",D63,D.QGD.Ort.Rc1,d2d4 
 C.Pet.Thr.Fou.Gun,"Four Knights Spanish, Gunsberg Counterattack",C49,C.Pet.Thr.Fou,e2e4 e7e5 g1f3 g8f6 b1c3 b8c6 f1b5 f8b4 e1g1 e8g8 c3d5 f6d5 e4d5 e5e4,4,Gunsberg Counterattack,sharp,...Nxd5 and ...e4 counterplay in the Spanish Four Knights via the Petrov move order.,,,,
 B.Pir.Pre.d4.e5,"Pirc Precursor, Maróczy Defence",,B.Pir.Pre.d4,e2e4 d7d6 d2d4 e7e5,4,Maroczy Defense,closed,"...e5 after 1.e4 d6 2.d4; Lichess maps this compact centre line as King's Pawn Game: Maróczy Defense (B07).",,,,
 B.Sca.Nf6.Mar.Gip,"Scandinavian Marshall, Gipslis Variation",,B.Sca.Nf6.Mar,e2e4 d7d5 e4d5 g8f6 d2d4 f6d5 g1f3 c8g4,4,Gipslis Variation,sharp,"Nf3 and ...Bg4 in the 2...Nf6 Marshall Scandinavian; Lichess maps this line to B01.",,,,
-D.QPG.Zuk.Nf6.Bf4,"Queen's Pawn Zukertort, London System",D02,D.QPG.Zuk.Nf6,d2d4 d7d5 g1f3 g8f6 c1f4,4,London System,closed,Bf4 London setup from the Zukertort Nf6 position.,,,,
+D.QPG.Zuk.Nf6.Bf4,"Queen's Pawn Zukertort, London System",D02,D.QPG.Zuk.Nf6,d2d4 d7d5 g1f3 g8f6 c1f4,4,London System,closed,Move-order transposition to A.Lon: same London System FEN reached from the Zukertort Nf6 move order.,,,,A.Lon
 D.QGD.PTr,"QGD, Pseudo-Tarrasch",D30,D.QGD,d2d4 d7d5 c2c4 e7e6 g1f3 c7c5,2,Pseudo-Tarrasch Defence,closed,Nf3 and ...c5 before Nc3 in the QGD Pseudo-Tarrasch.,,,,
 D.Sla.Nf3.Nf6.Exc.Trf,"Slav Exchange, Trifunovic Variation",,D.Sla.Nf3.Nf6.Exc,d2d4 d7d5 c2c4 c7c6 g1f3 g8f6 c4d5 c6d5 b1c3 b8c6 c1f4 c8f5 e2e3 e7e6 d1b3 f8b4,5,Trifunovic Variation,closed,Qb3 and ...Bb4 in the Nf3/Nf6 Exchange Slav.,,,,
 D.QGD.Har.Har.MLn,"QGD Harrwitz, dxc5 Main Line",,D.QGD.Har.Har,d2d4 g8f6 c2c4 e7e6 g1f3 d7d5 b1c3 f8e7 c1f4 e8g8 e2e3 c7c5 d4c5 e7c5,4,Main Line,closed,dxc5 and ...Bxc5 in the Harrwitz Attack main line.,,,,

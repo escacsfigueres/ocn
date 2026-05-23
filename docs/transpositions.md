@@ -3,9 +3,9 @@
 ## Current state
 
 - Catalogue size: **6,097** rows.
-- Duplicate FEN groups: **316** total — **20 resolved** by
-  `transposes_to`, **296 unresolved**.
-- Rows in unresolved groups: **603**.
+- Duplicate FEN groups: **316** total — **21 resolved** by
+  `transposes_to`, **295 unresolved**.
+- Rows in unresolved groups: **600**.
 - Top group size observed: **3**.
 
 Numbers are produced by:
@@ -190,6 +190,34 @@ Modern Defence by its ECO range.
 All five groups now report as **resolved** in
 `audit_transpositions.py --summary` and are hidden from the default
 ranked report.
+
+### London ↔ Zukertort London (resolved, by FEN)
+
+Single pair where the same London System FEN (`1.d4 d5 2.Nf3 Nf6
+3.Bf4`) is reached via two named routes:
+
+| FEN pattern                | Canonical | Transposition         |
+|----------------------------|-----------|-----------------------|
+| London System (Bf4 setup)  | `A.Lon`   | `D.QPG.Zuk.Nf6.Bf4`   |
+
+This is the **first canonical decision where the A side wins**.
+Reason: "London System" is the strong literature name (ECO A48
+assigns the position to the A range when reached this way); the
+D-side slug is a Zukertort move-order descriptor with the literal
+alias `London System` already on it. The choice acknowledges that
+canonicalisation by FEN should also respect which slug carries the
+stronger literary identity — the parent chain and the slug name
+matter when the FEN alone is ambiguous between two equally valid
+routes.
+
+**Changes applied:**
+
+- `D.QPG.Zuk.Nf6.Bf4.transposes_to = A.Lon`.
+- `A.Lon` gains alias `Zukertort London move-order` (it had no
+  aliases before; this is the first one).
+- `D.QPG.Zuk.Nf6.Bf4.notes` reworded as a move-order transposition
+  pointer.
+- No rows deleted. `A.Lon` keeps its 4 children intact.
 
 ## Workflow
 
