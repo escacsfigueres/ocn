@@ -33,6 +33,64 @@ which slug is canonical and which slugs are aliases or named children.
 The audit surfaces every duplicate. Resolution is a manual, per-family
 decision made on the catalogue itself.
 
+## Arbitration policy
+
+Operational summary of the canonicalisation rules. Full text and
+reasoning live in [`spec/OCN-1.md`](../spec/OCN-1.md) under
+"Canonicalisation arbitration". Rules are **ordered** — apply rule
+1 first, fall through to the next if it does not resolve.
+
+1. **Established name beats descriptor.** Literary opening name vs
+   path / Lichess label → literary name canonical.
+2. **Spec-governed structural classes win.** Borderline rules in
+   the spec (Catalan ...d5 → D, Indian without ...d5 → E, Grünfeld
+   → E, Benoni / Benko → E, OID with ...Nf6 reaching a KID FEN →
+   E.KID, …) take precedence.
+3. **Parent–child same-FEN redundancy.** Parent is canonical; child
+   may be deleted only if leaf + no inbound refs + no literature
+   identity beyond the parent.
+4. **Two real names → preserve both.** Default to preservation. Use
+   `transposes_to` only when one side is unambiguously dominant for
+   position lookup. Otherwise **defer**.
+5. **Family tabiya beats move-order breadcrumb.** Family tabiya
+   canonical; breadcrumb gets `transposes_to`.
+6. **Prefer `transposes_to` over slug surgery when surgery
+   cascades.** Physical deletion is reserved for leaves with no
+   children, no inbound refs, and descriptor-only identity.
+7. **ECO is evidence, not authority.** Record ECO in `eco_legacy`
+   and `notes`; do not let a flat 1971 code override a stronger
+   structural or literary rule.
+
+## Deferred conceptual families
+
+Groups in the current top 30 that are flagged "do not auto-resolve"
+under rule 4 or 6, pending a human decision:
+
+| Group | Slugs | Why deferred |
+|---|---|---|
+| **French / Veresov** (rank 1) | `B.Fre.Cls.MLn ⇄ A.Ver.Cls.MLn.Be7 ⇄ D.QPG.Ver.MLn.Be7` | 3-way A↔B↔D across three established literary identities. French Classical, Richter-Veresov, and Queen's Pawn Veresov are all real names. A single canonical choice would erase one of the other two. Needs a written conceptual choice. |
+| **Veresov A↔D subtree** (ranks 2, 5, 8) | `A.Ver ⇄ D.QPG.Ver ⇄ D.QPG.Ver.Ric` and descendants | Same problem one level deeper: A.Ver (Richter-Veresov Attack) and D.QPG.Ver (Queen's Pawn Veresov) are both literature-valid. Pending the French / Veresov call. |
+| **KID Old / Classical e5** (rank 3) | `E.KID.Cls.Old.e5 ⇄ E.KID.Cls.e5.O-O.Nbd7 ⇄ ...Nbd7.O-O` | Intra-E triple where one side is the canonical "Old Main Line" and the other a structural path through the same FEN. Both have children. Resolution needs to decide which is the OCN canonical for the Mar del Plata / Classical e5 tabiya. |
+| **Modern Benoni Classical/Traditional** (rank 4) | `E.Ben.Mod.Cls ⇄ E.Ben.Mod.Cls.Trd ⇄ E.Ind.e6.Nf3.c5.d5.Be2` | Parent / child same FEN inside Benoni + a cross-E path slug from the Indian root. Trd ("Traditional Variation") and Cls (Classical Benoni) are both literary identities of the same tabiya. |
+| **D.Rub ↔ A.Col.Zuk** (rank 6) | `D.Rub` and `A.Col.Zuk` | Rubinstein Opening (D.Rub, 1.Nf3 d5 2.e3 ... → with c4 inserted later) and Colle-Zukertort (A.Col.Zuk, Colle System with Nf3 deferment). Different conceptual families, no clear OCN precedent. |
+| **Italian Giuoco / Two Knights post-castling** (ranks 21, 22) | `C.Ita.Giu.O-O.Nf6 ⇄ C.Ita.Two.O-O.Bc5` and `.d4` deeper | Classic transposition: Giuoco Piano with Black's …Nf6 reaches the same castled tabiya as Two Knights with Black's …Bc5. Both real lines, both with children. |
+| **Philidor Nimzowitsch / Lion castled** (ranks 16, 17) | `C.PhD.Nim ⇄ C.PhD.Lio.MLn.O-O` and `.Re1` deeper | Nimzowitsch Variation and Lion Defence Main Line converge after castling. Lion is the path (kids); Nimzowitsch is the named ECO-C41 anchor. Candidate for TT under rule 1, but Lion has substantive identity — defer pending rule 4 review. |
+| **English Mikenas / Agincourt** (rank 12 + family) | `A.Eng.Mik ⇄ A.Eng.Agi.Nc3.Nf6.e4` | Same English Opening family, both literary (Mikenas-Carls vs Agincourt) reaching the same FEN after `1.c4 Nf6 2.Nc3 e5 3.e4`. Pure rule 4 case. |
+| **Reverse-direction Meran** (rank 9) | `D.Sem.Mer.MLn.Old ⇄ D.Sem.Mer.MLn.c5.e5` | Same FEN; `.Old` carries "Old Variation" literary tag with 0 kids while `c5.e5` is structural path with 1 kid. Reverse of the usual direction (descriptor with children). Defer until OCN-0.3 decides whether a kid-bearing path can be transposed to a leaf-named slug. |
+
+### What this list means
+
+These are the **conceptual residue** after the high-confidence
+intra-family cleanup. None of them can be safely resolved by the
+patterns established so far. Each one needs an explicit choice
+written into the catalogue's notes (and possibly into this document)
+before any `transposes_to` arrow is added.
+
+Once the French / Veresov complex is decided, several of the
+others (KID Old/e5 triple, Modern Benoni Classical/Traditional)
+will likely follow the same conceptual pattern and can be resolved
+together.
+
 ## Categories of relationship
 
 When two or more rows share a FEN, exactly one of these labels applies:

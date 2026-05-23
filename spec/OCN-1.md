@@ -247,6 +247,102 @@ the group with `transposes_to`. `tools/audit_transpositions.py`
 hides resolved groups by default and surfaces them with
 `--include-resolved`.
 
+### Canonicalisation arbitration
+
+When two or more rows share the same FEN, exactly one of them must
+be canonical and the others must declare a `transposes_to` pointing
+into the group (or be deleted as redundant). The following rules
+arbitrate that choice. They are **ordered**: apply rule 1 first; if
+it does not resolve the case, fall through to rule 2; and so on.
+
+**Rule 1 — Established name beats descriptor.**
+If one side carries an established literary opening name (London,
+Colle, Trompowsky, Nimzo, Sicilian Najdorf, Queen's Indian, Catalan,
+…) and the other side is a path descriptor whose slug or
+`canonical_name` essentially restates a parent's name or an imported
+Lichess label (e.g. `.Std`, `.Closed`, `.Cls.Nf3.Nbd7.Rc1.c6`), the
+established name is canonical and the descriptor either gets
+`transposes_to` or is deleted (rule 6 governs which).
+
+**Rule 2 — Spec-governed structural classes win.**
+If the position falls under a rule explicitly written elsewhere in
+this spec — Catalan with `...d5` is `D`, Indian without `...d5` is
+`E`, Grünfeld is `E`, Benoni / Benko is `E`, Old Indian with `...Nf6`
+reaching a KID FEN is `E.KID.*`, etc. — the slug whose class matches
+that rule is canonical, regardless of which family produced the
+shorter slug or appeared first by ECO order.
+
+**Rule 3 — Parent–child same-FEN redundancy.**
+If one of the duplicate rows is a direct child of another and they
+share the same FEN, the parent is the canonical anchor. The child
+may be deleted iff it has zero children of its own AND zero inbound
+`transposes_to` references AND its `canonical_name` adds no
+literature identity beyond the parent's. Otherwise it stays alive
+with `transposes_to` pointing at the parent.
+
+**Rule 4 — Two real names: prefer to preserve both.**
+If both rows carry distinct, established literary names from
+different opening traditions (e.g. French Classical Main Line ⇄
+Veresov Classical Main Line, KID Old Main Line ⇄ KID Classical
+e5 castled, Italian Giuoco ⇄ Italian Two Knights when O-O is on the
+board), the default is to **preserve both rows**. Use
+`transposes_to` only when one side is unambiguously dominant for
+canonical position lookup (e.g. the position is universally cited
+by one of the two names in literature). When dominance is not
+unambiguous, mark the group as deferred and document the conceptual
+choice in `docs/transpositions.md` before acting.
+
+**Rule 5 — Family tabiya beats move-order breadcrumb.**
+If one row is the canonical named tabiya of a family (`E.Nim.Rub`,
+`E.KID.Cls.Nrm`, `B.Sic.Dra`) and the other is a path through a
+different family's move-order that happens to arrive at that tabiya
+(`A.Kan.MLn.e3`, `A.OID.Mod.MLn.Nf6`, `B.Sic.OKn.Nf6.Nc3.g6`), the
+family tabiya is canonical and the breadcrumb gets `transposes_to`.
+The breadcrumb stays alive so a reader navigating the move-order
+subtree can still reach its FEN counterpart.
+
+**Rule 6 — Prefer `transposes_to` over slug surgery when surgery
+cascades.**
+If resolving a group would require reparenting many descendants of
+the non-canonical row, or would orphan rows referenced by external
+consumers, prefer `transposes_to`. Physical deletion is reserved
+for leaf rows with zero children, zero inbound references, and a
+descriptor-only identity (rule 1 + rule 3 satisfied). Move-order
+breadcrumbs with substantive subtrees are kept alive with
+`transposes_to`.
+
+**Rule 7 — ECO is evidence, not authority.**
+ECO codes inform canonical choice (a position cited by every ECO
+publication as `B06` is more likely to be canonically `B.Mod` than
+`A.Mod`), but they are not the final arbiter. ECO is a flat 1971
+classification with known coarseness and frozen choices. When ECO
+and a stronger rule (1, 2, 4 or 5) disagree, the stronger rule
+wins. Record the ECO observation in `eco_legacy` and `notes`, not
+in the canonical slug choice.
+
+#### Do not resolve automatically
+
+Some FEN duplicates are not safe to auto-resolve and MUST go
+through human review before any `transposes_to` arrow is written or
+any row deleted:
+
+- The **French / Veresov** complex (`B.Fre.Cls.MLn ⇄ A.Ver.Cls.MLn.Be7
+  ⇄ D.QPG.Ver.MLn.Be7` and its `A.Ver` / `D.QPG.Ver` subtree).
+  Three established literary identities converge on the same FEN; a
+  single canonical choice would erase one of them.
+- Groups with **multiple strong literary identities** on different
+  sides (rule 4 applies).
+- Groups where the **shorter slug carries a name that disappears
+  if deleted** — e.g. a Lichess-imported alias is the only place a
+  particular opening label survives in the catalogue.
+- Groups where **both rows have substantive children**: deletion
+  would orphan; `transposes_to` is technically safe but the
+  canonical choice still needs human judgement.
+
+When in doubt, deferred is better than wrong. The
+`audit_transpositions.py --ranked` report keeps deferred groups
+visible until they are resolved.
+
 ### Looking up a slug from an ECO code
 
 A single ECO code can map to several OCN-1 slugs (e.g. `B90` covers the
