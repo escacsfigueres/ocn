@@ -1,6 +1,11 @@
 # Modern Benoni triple — arbitration proposal
 
-**Status**: draft proposal — NOT yet applied to `catalog/ocn-1.csv`.
+**Status**: **APPLIED** — see `docs/transpositions.md` →
+"Modern Benoni Classical (resolved, single_canonical — counter-example
+to KID)" for the per-row outcomes. First top-1 case to resolve as
+single_canonical despite a 3-way group; sets the precedent that
+group size alone does not determine resolution kind.
+
 **Companion**: builds on the rules in `spec/OCN-1.md` →
 "Canonicalisation arbitration" and the precedents from
 `veresov-french-proposal.md` and

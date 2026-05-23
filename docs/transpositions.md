@@ -2,11 +2,11 @@
 
 ## Current state
 
-- Catalogue size: **5,968** rows.
-- Duplicate FEN groups: **192** total — **69 resolved** by
-  `transposes_to` (**2 with multiple canonicals**, 67 single
-  canonical), **123 unresolved**.
-- Rows in unresolved groups: **248**.
+- Catalogue size: **5,966** rows.
+- Duplicate FEN groups: **191** total — **71 resolved** by
+  `transposes_to` (**2 with multiple canonicals**, 69 single
+  canonical), **120 unresolved**.
+- Rows in unresolved groups: **241**.
 - Top group size observed: **3**.
 
 Numbers are produced by:
@@ -72,7 +72,7 @@ under rule 4 or 6, pending a human decision:
 | ~~French / Veresov~~ | ~~3-way A↔B↔D~~ | **RESOLVED** in commit `c0ffee2` — see "French / Veresov complex" section below for the applied resolution (multiple-canonical group for rank 1; transposes_to + targeted deletions for the rest). |
 | ~~Veresov A↔D subtree~~ | ~~A.Ver ⇄ D.QPG.Ver ⇄ D.QPG.Ver.Ric~~ | **RESOLVED** with the same commit. D.QPG.Ver subtree now points into A.Ver canonicals. |
 | ~~KID Old / Classical e5~~ | ~~3-way intra-E~~ | **RESOLVED** in commit `<see below>` — multiple_canonical at rank 1 (Old Main Line E91 + Castled Nbd7 E95 coexist), single_canonical at the two child mirror groups (Old.e5.c6/Re1 canonical, e5.O-O.Nbd7.c6/Re1 → TT). See "KID Classical Old/e5" section below. |
-| **Modern Benoni Classical/Traditional** (rank 1 post-KID) | `E.Ben.Mod.Cls ⇄ E.Ben.Mod.Cls.Trd ⇄ E.Ind.e6.Nf3.c5.d5.Be2` | Parent / child same FEN inside Benoni + cross-E Indian leaf. **Draft proposal in [`modern-benoni-transposition-proposal.md`](modern-benoni-transposition-proposal.md)** pending review: single_canonical (`E.Ben.Mod.Cls` is the only literary anchor; the other two are move-order descriptors with 0 kids and self-described as such). Counter-example to KID Classical — 3 slugs but only 1 real name. |
+| ~~Modern Benoni Classical/Traditional~~ | ~~3-way Benoni + Indian~~ | **RESOLVED** as single_canonical — counter-example to KID Classical where 3 slugs converged on one FEN but only one carried independent literary identity. See "Modern Benoni Classical" section below. |
 | **D.Rub ↔ A.Col.Zuk** (rank 6) | `D.Rub` and `A.Col.Zuk` | Rubinstein Opening (D.Rub, 1.Nf3 d5 2.e3 ... → with c4 inserted later) and Colle-Zukertort (A.Col.Zuk, Colle System with Nf3 deferment). Different conceptual families, no clear OCN precedent. |
 | **Italian Giuoco / Two Knights post-castling** (ranks 21, 22) | `C.Ita.Giu.O-O.Nf6 ⇄ C.Ita.Two.O-O.Bc5` and `.d4` deeper | Classic transposition: Giuoco Piano with Black's …Nf6 reaches the same castled tabiya as Two Knights with Black's …Bc5. Both real lines, both with children. |
 | **Philidor Nimzowitsch / Lion castled** (ranks 16, 17) | `C.PhD.Nim ⇄ C.PhD.Lio.MLn.O-O` and `.Re1` deeper | Nimzowitsch Variation and Lion Defence Main Line converge after castling. Lion is the path (kids); Nimzowitsch is the named ECO-C41 anchor. Candidate for TT under rule 1, but Lion has substantive identity — defer pending rule 4 review. |
@@ -495,6 +495,49 @@ groups.
 literature distinguishes both names at the same FEN AND a
 third-party pointer exists to declare the relation. Leaf mirrors
 without independent literary identity default to single_canonical.
+
+### Modern Benoni Classical (resolved, single_canonical — counter-example to KID)
+
+Third top-1 case in a row, but the **first to resolve as
+single_canonical** despite a 3-way group. See
+[`modern-benoni-transposition-proposal.md`](modern-benoni-transposition-proposal.md)
+for the full analysis.
+
+**Rank 1 — three slugs, one literary anchor**
+
+| slug | role | action |
+|---|---|---|
+| `E.Ben.Mod.Cls` | "Modern Benoni, Classical" (ECO A70-A79, 7 named children) — only literary anchor | **PRESERVED canonical**. Alias `Traditional Variation` added so the Lichess label remains searchable. |
+| `E.Ben.Mod.Cls.Trd` | Self-described move-order descriptor ("Nf3 move order into the Classical Modern Benoni"); 0 kids | TT → `E.Ben.Mod.Cls`. Kept as breadcrumb. |
+| `E.Ind.e6.Nf3.c5.d5.Be2` | Same `moves_uci` literally identical to `.Trd`; 0 kids | DELETE. Pure duplicate descriptor parented under the Anti-Nimzo Indian tree. |
+
+**Why not multiple_canonical**: `multiple_canonical` is reserved
+for cases where literature distinguishes two names on the same
+FEN with independent identity (distinct ECO codes, own subtrees,
+literature treating them as separate openings). Here both
+non-canonical slugs are self-described move-order descriptors, the
+ECO range is identical (A70), and only `E.Ben.Mod.Cls` carries the
+substantive subtree (7 children for actual White plans). Number of
+slugs in the group does not decide the resolution kind — content
+does.
+
+**Cascading cleanups in the same commit**:
+
+- Rank 70: `E.Ben.Mod.Cls.MLn.Re8.Nd2` deleted (sibling mirror of
+  `E.Ben.Mod.Cls.MLn.Re8.Tal`, both aliased "Tal Line"; literary
+  Tal label survives, move-name redundant removed). The group
+  collapses to size 1 and disappears from the audit.
+- Rank 111: `E.Ben.Bnk.Acc.MLn.g6.f4` → TT to
+  `E.Ben.Bnk.Acc.MLn.Bxa6.f4`. Two Benko Accepted leaves with
+  the same `Central Storming Variation` alias and notes; Bxa6 is
+  the canonical Benko move order at this depth.
+
+**Net change**: 2 TT + 2 deletions + alias/notes touches. No
+reparenting.
+
+**Precedent reinforced**: group size alone does not determine
+resolution kind. `multiple_canonical` requires *content evidence*
+of two real names, not just a count.
 
 ### Resolved batch — intra-family duplicate cleanup
 
