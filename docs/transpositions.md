@@ -2,10 +2,10 @@
 
 ## Current state
 
-- Catalogue size: **6,097** rows.
-- Duplicate FEN groups: **316** total — **22 resolved** by
-  `transposes_to`, **294 unresolved**.
-- Rows in unresolved groups: **598**.
+- Catalogue size: **6,096** rows.
+- Duplicate FEN groups: **316** total — **23 resolved** by
+  `transposes_to`, **293 unresolved**.
+- Rows in unresolved groups: **595**.
 - Top group size observed: **3**.
 
 Numbers are produced by:
@@ -241,6 +241,35 @@ keeps its 4 children (`A.Col.Kol`, `A.Col.Zuk`, `A.Col.Phn`,
   aliases before; this is the first one — same pattern as London).
 - `D.QPG.Zuk.Col.Bd3.notes` reworded as a move-order transposition
   pointer.
+
+### Catalan Qc2 (resolved, by FEN — first deletion since Kangaroo)
+
+Triple group resolved by combining a `transposes_to` arrow with a
+physical row deletion of an intra-D redundant sibling.
+
+| Position                                  | Outcome                                              |
+|-------------------------------------------|------------------------------------------------------|
+| `D.Cat.Cls.Qc2`                           | **Canonical**. Keeps 5 children (the deleted .Clo was the 6th, leaf). |
+| `D.Cat.Cls.Qc2.Clo`                       | **Deleted**. Same FEN as its parent, 0 children, 0 inbound references — a Lichess-imported "Closed" label that added no information. |
+| `E.Ind.Cat.d5.Bg2.Be7.Qc2`                | **Transposition**: `transposes_to = D.Cat.Cls.Qc2`. |
+
+Rationale: the spec rule on Catalan classification says Catalan is
+`D` when `...d5` structures the position; this FEN has `...d5` on
+the board, so D-canonical is the principled choice. The E-side
+slug describes the Indian Catalan move order with `...d5` inserted
+late — same FEN, different route, marked as transposition.
+
+**Changes applied:**
+
+- `E.Ind.Cat.d5.Bg2.Be7.Qc2.transposes_to = D.Cat.Cls.Qc2`.
+- `D.Cat.Cls.Qc2` gains alias `Indian Catalan Qc2 move-order`.
+- `E.Ind.Cat.d5.Bg2.Be7.Qc2.notes` reworded as transposition pointer.
+- `D.Cat.Cls.Qc2.Clo` row deleted (0 children, 0 inbound refs).
+
+After this sprint the audit still reports **316 duplicate groups**:
+the deleted row collapsed the triple into a pair, but the remaining
+pair is still a duplicate by FEN — it is now **resolved** through
+`transposes_to`, so it disappears from the default ranked report.
 
 ## Workflow
 
