@@ -1,17 +1,23 @@
 # OCN 0.2 — pre-release checklist
 
-**State**: ready for internal OCN 0.2 tag once pushed.
-**Last updated**: against commit `ecf7193`.
+**State**: pushed; ready for the internal OCN 0.2 tag at the maintainer's discretion.
+**Last updated**: against commit `094c616` (this checklist + post-push re-verification).
 
 ## Coordinates
 
 | field | value |
 |---|---|
-| OCN repo HEAD | `ecf7193` (Finalize OCN 0.2 catalogue emission) |
-| OCN branch | `main` (local) |
-| chess-parquet compatible commit | `94a43d04ddfeb177c45edc9052aeabaf81b436ce` |
-| chess-parquet key commit (downstream support) | `71c14fc` (producer(openings): support OCN 0.2 identity columns) |
-| OCN local commits ahead of `origin/main` | 150 |
+| OCN repo HEAD | `094c616` (Add OCN 0.2 release checklist) |
+| OCN branch | `main`, synced with `origin/main` |
+| chess-parquet compatible commit | `a56bd569d190734193136f16bf229033cbaa8b80` (`docs(corpus): record Reckless timeout investigation`) |
+| chess-parquet key commit (downstream support) | `71c14fc` (producer(openings): support OCN 0.2 identity columns) — unchanged since 0.2 emission landed |
+| OCN local commits ahead of `origin/main` | 0 (pushed) |
+
+The two newer chess-parquet commits (`94a43d0` Batch 3 risky weapon
+depth jobs, `a56bd56` Reckless timeout investigation doc) do **not**
+modify the downstream openings producer or the 14-column contract;
+they consume the catalogue and the runner. The 0.2 schema is stable
+for both.
 
 ## Catalogue snapshot
 
@@ -46,7 +52,8 @@ guards the order.
 
 ## Tests and validators executed
 
-All run against commit `ecf7193`:
+All run against commit `094c616` (re-verified post-push; identical
+metrics to the original `ecf7193` run — no catalogue drift):
 
 | command | result |
 |---|---|
@@ -107,19 +114,20 @@ against the CSV.
 
 ## Release decision
 
-**Ready for internal OCN 0.2 tag once pushed.**
+**Pushed; ready for the internal OCN 0.2 tag at the maintainer's discretion.**
 
 The catalogue, schema, validator, audit, export and downstream
-producer are all aligned at commit `ecf7193`. No outstanding
+producer are all aligned at commit `094c616`. No outstanding
 contract issues. Test suite green. Downstream `chess-parquet`
-already consumes the 0.2 schema. Phase 1 cleanup work is
-incremental, not gating.
+already consumes the 0.2 schema and has since landed two consumer-side
+commits (Batch 3 risky weapon depth jobs, Reckless timeout
+investigation doc) that do not change the producer contract.
+Phase 1 cleanup work is incremental, not gating.
 
-### Recommended sequence
+### Recommended sequence (updated)
 
-1. `git push origin main` (150 commits ahead) — requires explicit
-   GO from the maintainer; not run by tooling.
-2. Tag `ocn-1.0.2` (or similar) on the pushed commit.
+1. ~~`git push origin main`~~ — done; HEAD is on `origin/main`.
+2. Tag `ocn-1.0.2` (or similar) on `094c616`. Not yet applied.
 3. Regenerate `ocn-1.positions.tsv` from the tag and attach to the
    release.
 4. Coordinate with `chess-parquet` to pin its `openings.parquet`
