@@ -1,6 +1,10 @@
 # KID Classical Old/e5 — arbitration proposal
 
-**Status**: draft proposal — NOT yet applied to `catalog/ocn-1.csv`.
+**Status**: **APPLIED** — see `docs/transpositions.md` → "KID
+Classical Old/e5 (resolved, mixed multiple + single canonical)" for
+the per-row outcomes. Sets the precedent that `multiple_canonical`
+requires at least one in-group pointer to be computable today.
+
 **Companion**: builds on the rules in `spec/OCN-1.md` →
 "Canonicalisation arbitration" and the precedent set by the Veresov
 / French resolution (`docs/veresov-french-proposal.md`).

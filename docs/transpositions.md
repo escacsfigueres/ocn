@@ -3,10 +3,10 @@
 ## Current state
 
 - Catalogue size: **5,968** rows.
-- Duplicate FEN groups: **192** total — **66 resolved** by
-  `transposes_to` (**1 with multiple canonicals**, 65 single
-  canonical), **126 unresolved**.
-- Rows in unresolved groups: **255**.
+- Duplicate FEN groups: **192** total — **69 resolved** by
+  `transposes_to` (**2 with multiple canonicals**, 67 single
+  canonical), **123 unresolved**.
+- Rows in unresolved groups: **248**.
 - Top group size observed: **3**.
 
 Numbers are produced by:
@@ -71,7 +71,7 @@ under rule 4 or 6, pending a human decision:
 |---|---|---|
 | ~~French / Veresov~~ | ~~3-way A↔B↔D~~ | **RESOLVED** in commit `c0ffee2` — see "French / Veresov complex" section below for the applied resolution (multiple-canonical group for rank 1; transposes_to + targeted deletions for the rest). |
 | ~~Veresov A↔D subtree~~ | ~~A.Ver ⇄ D.QPG.Ver ⇄ D.QPG.Ver.Ric~~ | **RESOLVED** with the same commit. D.QPG.Ver subtree now points into A.Ver canonicals. |
-| **KID Old / Classical e5** (rank 1 post-Veresov) | `E.KID.Cls.Old.e5 ⇄ E.KID.Cls.e5.O-O.Nbd7 ⇄ ...Nbd7.O-O` | Intra-E triple where one side is the canonical "Old Main Line" (E91) and the other a structural path (E95) through the same FEN. Both have children. **Draft proposal in [`kid-classical-transposition-proposal.md`](kid-classical-transposition-proposal.md)** pending review: multiple_canonical at rank 1 (E91 + E95 coexist), single_canonical at the two child mirror groups (ranks 15, 16). |
+| ~~KID Old / Classical e5~~ | ~~3-way intra-E~~ | **RESOLVED** in commit `<see below>` — multiple_canonical at rank 1 (Old Main Line E91 + Castled Nbd7 E95 coexist), single_canonical at the two child mirror groups (Old.e5.c6/Re1 canonical, e5.O-O.Nbd7.c6/Re1 → TT). See "KID Classical Old/e5" section below. |
 | **Modern Benoni Classical/Traditional** (rank 4) | `E.Ben.Mod.Cls ⇄ E.Ben.Mod.Cls.Trd ⇄ E.Ind.e6.Nf3.c5.d5.Be2` | Parent / child same FEN inside Benoni + a cross-E path slug from the Indian root. Trd ("Traditional Variation") and Cls (Classical Benoni) are both literary identities of the same tabiya. |
 | **D.Rub ↔ A.Col.Zuk** (rank 6) | `D.Rub` and `A.Col.Zuk` | Rubinstein Opening (D.Rub, 1.Nf3 d5 2.e3 ... → with c4 inserted later) and Colle-Zukertort (A.Col.Zuk, Colle System with Nf3 deferment). Different conceptual families, no clear OCN precedent. |
 | **Italian Giuoco / Two Knights post-castling** (ranks 21, 22) | `C.Ita.Giu.O-O.Nf6 ⇄ C.Ita.Two.O-O.Bc5` and `.d4` deeper | Classic transposition: Giuoco Piano with Black's …Nf6 reaches the same castled tabiya as Two Knights with Black's …Bc5. Both real lines, both with children. |
@@ -453,6 +453,48 @@ Net change: **5 transposes_to arrows + 4 row deletions** + alias
 and note touches. No reparenting. The `A.Ver` subtree preserves
 its 3 children intact; `D.QPG.Ver` keeps `Nbd7`, `Nbd7.Nf3`, `Ne4`
 as still-canonical sibling slugs (no Ric mirror needed any more).
+
+### KID Classical Old/e5 (resolved, mixed multiple + single canonical)
+
+Second case where the `multiple_canonical` resolution kind applies,
+and the first where it lives **inside a single class** (E). Three
+FEN groups handled together; see
+[`kid-classical-transposition-proposal.md`](kid-classical-transposition-proposal.md)
+for the full reasoning.
+
+**Rank 1 — Old Main Line (E91) and Castled Nbd7 (E95) coexist**
+
+| slug | role | action |
+|---|---|---|
+| `E.KID.Cls.Old.e5` | E91 Old Main Line — literary anchor on the `Old Main Line` branch | **PRESERVED canonical** |
+| `E.KID.Cls.e5.O-O.Nbd7` | E95 Castled with Nbd7 — structural anchor on the `e5 Prefix` branch | **PRESERVED canonical** |
+| `E.KID.Cls.e5.O-O.Nbd7.O-O` | E94 "Positional Defence" via the OID move order | TT → `E.KID.Cls.e5.O-O.Nbd7`. Kept alive so the group has a declared pointer (precedent: `multiple_canonical` requires at least one in-group pointer; without it the group would stay `unresolved`). |
+
+The OID descriptor was kept alive (with TT) rather than deleted —
+this is the lever that makes the `multiple_canonical` resolution
+computable today, without growing the schema (no `same_as` column
+needed yet).
+
+**Ranks 15 and 16 — mirror leaves, single canonical**
+
+Two paired leaves whose pair distinction is structural mirror
+only (same ECO code on both sides, no separate literary identity
+beyond the parent decision):
+
+| from | → | to (canonical) | parent rationale |
+|---|---|---|---|
+| `E.KID.Cls.e5.O-O.Nbd7.c6` | → | `E.KID.Cls.Old.e5.c6` | E96 c6 line; the Old.e5 branch carries the literary anchor. |
+| `E.KID.Cls.e5.O-O.Nbd7.Re1` | → | `E.KID.Cls.Old.e5.Re1` | E95 Re1 line; same reasoning. |
+
+**Net change**: 3 transposes_to arrows, 5 cross-reference notes,
+0 deletions. The 7 rows that were in 3 unresolved groups now sit
+in 1 resolved-multiple_canonical group + 2 resolved-single_canonical
+groups.
+
+**Precedent set**: `multiple_canonical` is reserved for cases where
+literature distinguishes both names at the same FEN AND a
+third-party pointer exists to declare the relation. Leaf mirrors
+without independent literary identity default to single_canonical.
 
 ### Resolved batch — intra-family duplicate cleanup
 
