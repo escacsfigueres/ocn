@@ -197,6 +197,13 @@ replays `moves_uci` from the standard initial position and writes the
 Polyglot Zobrist hash into `openings.parquet`. Consumers can then JOIN
 `openings.zobrist` against any position-indexed dataset directly.
 
+The OCN repository also provides a lightweight derived export:
+`tools/export_positions.py` emits one row per concrete catalogue entry
+with `fen_key` (board, turn, castling, legal en-passant), canonical
+counter-normalised `fen` (`fen_key 0 1`), and
+`transposition_group_size`. This export is for audit and text workflows;
+the Polyglot `zobrist` contract remains the EFCDB/openings artefact.
+
 ### Looking up a slug from an ECO code
 
 A single ECO code can map to several OCN-1 slugs (e.g. `B90` covers the

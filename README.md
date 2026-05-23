@@ -128,6 +128,11 @@ d'Escacs Figueres" and link to this repository.
   position, returns matching OCN-1 catalogue rows. It matches on board,
   side to move, castling rights, and en-passant square, ignoring halfmove
   and fullmove counters.
+- [`tools/export_positions.py`](tools/export_positions.py) — exports a
+  derived position-indexed TSV/JSON view with `fen_key`, canonical
+  counter-normalised `fen`, and transposition group size for each concrete
+  catalogue row. Polyglot Zobrist materialisation is handled by the
+  `efcdb openings` producer in `escacsfigueres/chess-parquet`.
 - [`tools/lichess_parent_map.py`](tools/lichess_parent_map.py) — reads
   Lichess Opening Book TSV rows, converts their SAN PGN lines to UCI, and
   emits the deepest matching OCN-1 parent for each row. Use `--check` to
@@ -176,9 +181,10 @@ See [`spec/OCN-1.md`](spec/OCN-1.md) for the full reasoning.
 ## Roadmap
 
 - **0.1** *(current)* — Core spec, 6,099-entry catalogue, strict
-  validator, and lookup tools.
-- **0.2** — Lichess Opening Book quality pass across the 3,690 upstream
-  rows.
+  validator, lookup tools, and a derived FEN position export.
+- **0.2** — Position-indexed release artefacts: publish
+  `ocn-1.positions.tsv`, `openings.parquet` with Polyglot Zobrist, and a
+  transposition audit over the duplicate FEN groups.
 - **0.3** — Internationalised aliases: Catalan, Spanish, French, German
   display names. The English `canonical_name` stays definitive.
 - **1.0** — Frozen format and stable catalogue. Public release with an
