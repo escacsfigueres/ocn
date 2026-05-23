@@ -3,9 +3,9 @@
 ## Current state
 
 - Catalogue size: **6,097** rows.
-- Duplicate FEN groups: **316** total — **21 resolved** by
-  `transposes_to`, **295 unresolved**.
-- Rows in unresolved groups: **600**.
+- Duplicate FEN groups: **316** total — **22 resolved** by
+  `transposes_to`, **294 unresolved**.
+- Rows in unresolved groups: **598**.
 - Top group size observed: **3**.
 
 Numbers are produced by:
@@ -218,6 +218,29 @@ routes.
 - `D.QPG.Zuk.Nf6.Bf4.notes` reworded as a move-order transposition
   pointer.
 - No rows deleted. `A.Lon` keeps its 4 children intact.
+
+### Colle ↔ Zukertort Colle (resolved, by FEN)
+
+Single pair following the London precedent: A-side canonical because
+the literary name is stronger than the D-side move-order descriptor.
+
+| FEN pattern                              | Canonical | Transposition          |
+|------------------------------------------|-----------|------------------------|
+| Colle System (1.d4 d5 Nf3 Nf6 e3 e6 Bd3) | `A.Col`   | `D.QPG.Zuk.Col.Bd3`    |
+
+The D-side row already carried the alias `Colle System` and was
+explicitly tagged as a Zukertort prefix into the Colle structure.
+The transposition arrow makes that relation computable; `A.Col`
+keeps its 4 children (`A.Col.Kol`, `A.Col.Zuk`, `A.Col.Phn`,
+`A.Col.Bd6`) intact.
+
+**Changes applied:**
+
+- `D.QPG.Zuk.Col.Bd3.transposes_to = A.Col`.
+- `A.Col` gains alias `Zukertort Colle move-order` (it had no
+  aliases before; this is the first one — same pattern as London).
+- `D.QPG.Zuk.Col.Bd3.notes` reworded as a move-order transposition
+  pointer.
 
 ## Workflow
 

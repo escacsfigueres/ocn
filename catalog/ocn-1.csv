@@ -148,7 +148,7 @@ A.Van,Van Geet Opening,A00,A,b1c3,1,Dunst Opening,,1.Nc3 independent queen-knigh
 A.Bir.Fro,"Bird's Opening, From's Gambit",A02,A.Bir,f2f4 e7e5,2,From Gambit,gambit|sharp,1.f4 e5 gambit response.,,,,
 A.Tor,Torre Attack,A46,A,d2d4 g8f6 g1f3 e7e6 c1g5,1,,closed,Queen-pawn system with Nf3 and Bg5.,,,,
 A.Ver,Richter-Veresov Attack,A45|D01,A,d2d4 g8f6 b1c3 d7d5 c1g5,1,Veresov Attack,sharp,Queen-pawn system with Nc3 and Bg5.,,,,
-A.Col,Colle System,D04|D05,A,d2d4 d7d5 g1f3 g8f6 e2e3 e7e6 f1d3,1,,closed,Queen-pawn system with e3/Bd3/c3 plans.,,,,
+A.Col,Colle System,D04|D05,A,d2d4 d7d5 g1f3 g8f6 e2e3 e7e6 f1d3,1,Zukertort Colle move-order,closed,Queen-pawn system with e3/Bd3/c3 plans.,,,,
 A.Lon.Job,"London System, Jobava-Prié",A45|D00,A.Lon,d2d4 d7d5 b1c3 g8f6 c1f4,2,Jobava London|Jobava-Prié Attack,sharp,London-family setup with early Nc3 and Bf4.,,,,
 B.Nim,Nimzowitsch Defence,B00,B,e2e4 b8c6,1,Nimzowitsch Defense,,1.e4 Nc6.,,,,
 B.Nim.Ken,"Nimzowitsch Defence, Kennedy",B00,B.Nim,e2e4 b8c6 d2d4 e7e5,2,Kennedy Variation,,1.e4 Nc6 2.d4 e5 counterstrike.,,,,
@@ -6089,7 +6089,7 @@ A.Eng.Rev.Fou.BBV,"English Four Knights, Bradley Beach Variation",A28,A.Eng.Rev.
 A.Owe.Eng.e4.Bb7.f3.Nh6,"English Defence, Poli Gambit",,A.Owe.Eng.e4.Bb7.f3,d2d4 b7b6 c2c4 e7e6 e2e4 c8b7 f2f3 f7f5 e4f5 g8h6,6,Poli Gambit,gambit|sharp,...f5 exf5 and ...Nh6 in the English Defence Poli Gambit.,,,,
 B.Sic.OKn.g6,"Sicilian Open Knights, Accelerated Dragon",B54,B.Sic.OKn,e2e4 c7c5 g1f3 d7d6 d2d4 c5d4 f3d4 g7g6,3,Dragon Variation|Accelerated Dragon,sharp,...g6 before ...Nf6 in the 2...d6 Open Sicilian; Lichess maps this compact tabiya to B54.,,,,
 D.QGA.Jan.e3.b5,"QGA Janowski-Larsen e3, Haberditz Variation",,D.QGA.Jan.e3,d2d4 d7d5 c2c4 d5c4 g1f3 a7a6 e2e3 b7b5,4,Haberditz Variation,sharp,"...b5 holds the c4 pawn in the Janowski-Larsen e3 branch.",,,,
-D.QPG.Zuk.Col.Bd3,"Queen's Pawn Zukertort Colle, Bd3",,D.QPG.Zuk.Col,d2d4 d7d5 g1f3 g8f6 e2e3 e7e6 f1d3,4,Colle System,closed,"Bd3 completes the compact Colle setup from the D-side Zukertort Colle prefix.",,,,
+D.QPG.Zuk.Col.Bd3,"Queen's Pawn Zukertort Colle, Bd3",,D.QPG.Zuk.Col,d2d4 d7d5 g1f3 g8f6 e2e3 e7e6 f1d3,4,Colle System,closed,Move-order transposition to A.Col: same Colle System FEN reached from the Zukertort Colle prefix.,,,,A.Col
 B.Sic.Clo.GPr.MLn.Sch,"Closed Sicilian Grand Prix, Schofman Variation",,B.Sic.Clo.GPr.MLn,e2e4 c7c5 b1c3 b8c6 f2f4 g7g6 g1f3 f8g7 f1c4 e7e6 f4f5,5,Schofman Variation,sharp,Exact Schofman tabiya with Nf3/Bc4 and f5; Lichess maps this line to B23.,,,,
 B.Sic.Alp.Cen.MLn.Nc6.Mil,"Sicilian Alapin Barmen, Milner-Barry Attack",,B.Sic.Alp.Cen.MLn.Nc6,e2e4 c7c5 c2c3 d7d5 e4d5 d8d5 d2d4 b8c6 g1f3 c5d4 c3d4 e7e5 b1c3 f8b4 f1e2,6,Milner-Barry Attack,sharp,Exact Milner-Barry Attack tabiya in the Alapin Barmen ...Nc6 line; Lichess maps this line to B22.,,,,
 A.Ret.Eng.c5.b3.Nc6.Be7,"Reti English Tarrasch Defence",,A.Ret.Eng.c5.b3.Nc6,g1f3 g8f6 c2c4 e7e6 g2g3 d7d5 f1g2 c7c5 b2b3 b8c6 e1g1 f8e7,6,"Agincourt Defense, Tarrasch Defense",closed,"Lichess A13 transposition: c4/e6/Nf3/d5/g3/Nf6/Bg2/c5/b3/Nc6/O-O/Be7, represented under the existing Reti English move order.",,,,
