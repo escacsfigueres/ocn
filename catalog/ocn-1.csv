@@ -6088,3 +6088,7 @@ B.CaK.Adv.Bf5.c3.e6,"Caro-Kann Advance Bf5 c3, e6",B12,B.CaK.Adv.Bf5.c3,e2e4 c7c
 B.CaK.Adv.Bf5.c3.e6.Be2,"Caro-Kann Advance c3, Short Variation",B12,B.CaK.Adv.Bf5.c3.e6,e2e4 c7c6 d2d4 d7d5 e4e5 c8f5 c2c3 e7e6 f1e2,6,Short Variation,closed,Be2 completes the Lichess Short Variation tabiya after c3 and ...e6.,,,
 C.Fou.Gun,"Four Knights, Gunsberg Variation",C47,C.Fou,e2e4 e7e5 g1f3 b8c6 b1c3 g8f6 a2a3,2,Gunsberg Variation,,4.a3 waiting move in the Four Knights Game.,,,
 A.Eng.Rev.Fou.BBV,"English Four Knights, Bradley Beach Variation",A28,A.Eng.Rev.Fou,c2c4 e7e5 b1c3 g8f6 g1f3 b8c6 d2d4 e5e4,4,Bradley Beach Variation,sharp,...e4 after d4 in the English Four Knights.,,,
+A.Owe.Eng.e4.Bb7.f3.Nh6,"English Defence, Poli Gambit",,A.Owe.Eng.e4.Bb7.f3,d2d4 b7b6 c2c4 e7e6 e2e4 c8b7 f2f3 f7f5 e4f5 g8h6,6,Poli Gambit,gambit|sharp,...f5 exf5 and ...Nh6 in the English Defence Poli Gambit.,,,
+B.Sic.OKn.g6,"Sicilian Open Knights, Accelerated Dragon",B54,B.Sic.OKn,e2e4 c7c5 g1f3 d7d6 d2d4 c5d4 f3d4 g7g6,3,Dragon Variation|Accelerated Dragon,sharp,...g6 before ...Nf6 in the 2...d6 Open Sicilian; Lichess maps this compact tabiya to B54.,,,
+D.QGA.Jan.e3.b5,"QGA Janowski-Larsen e3, Haberditz Variation",,D.QGA.Jan.e3,d2d4 d7d5 c2c4 d5c4 g1f3 a7a6 e2e3 b7b5,4,Haberditz Variation,sharp,"...b5 holds the c4 pawn in the Janowski-Larsen e3 branch.",,,
+D.QPG.Zuk.Col.Bd3,"Queen's Pawn Zukertort Colle, Bd3",,D.QPG.Zuk.Col,d2d4 d7d5 g1f3 g8f6 e2e3 e7e6 f1d3,4,Colle System,closed,"Bd3 completes the compact Colle setup from the D-side Zukertort Colle prefix.",,,
