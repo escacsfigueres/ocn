@@ -2,10 +2,10 @@
 
 ## Current state
 
-- Catalogue size: **5,966** rows.
-- Duplicate FEN groups: **191** total — **75 resolved** (**6 with
-  multiple canonicals**, 69 single canonical), **116 unresolved**.
-- Rows in unresolved groups: **233**.
+- Catalogue size: **5,965** rows.
+- Duplicate FEN groups: **190** total — **83 resolved** (**6 with
+  multiple canonicals**, 77 single canonical), **107 unresolved**.
+- Rows in unresolved groups: **215**.
 - Resolution channels: `transposes_to` (non-canonical →
   canonical, asymmetric) and `same_as` (canonical ↔ canonical,
   symmetric, OCN 0.3).
@@ -572,6 +572,39 @@ reparenting.
 **Precedent reinforced**: group size alone does not determine
 resolution kind. `multiple_canonical` requires *content evidence*
 of two real names, not just a count.
+
+### Post-0.2 Phase 1 cleanup batch 1
+
+First post-tag (`ocn-1.0.2`) cleanup pass, scoped to the 9 top-9
+unresolved intra-family groups that survived the OCN 0.2 release.
+All HIGH-confidence single_canonical or DELETE; no schema changes,
+no new `same_as` cases, no proposals required.
+
+| rank pre-sprint | action | canonical | from | rationale |
+|---|---|---|---|---|
+| 1 | TT | `E.KID.Fch.Kav` | `E.KID.Fch.Kav.Nc3.e5` | "Kavalek System" (E62) literary anchor beats Nc3-path depth-5 |
+| 2 | TT | `D.Sem.Mer.MLn.Old` | `D.Sem.Mer.MLn.c5.e5` | "Old Variation" (D48) literary beats generic "e5 Line" |
+| 3 | TT | `E.Gru.Rus.Hng` | `E.Gru.Rus.Hng.e4` | identical `moves_uci` — parent-child redundancy, kept for breadcrumbs |
+| 4 | DELETE | (none) | `A.Eng.Agi.Nc3.Nf6.e4` | leaf, 0/0 refs, self-described move-order descriptor of Mikenas-Carls; its previous kids were deleted in the prior intra-family batch |
+| 5 | TT | `C.RyL.Mor.Car.MLn` | `C.RyL.Mor.Ba4.b5.Bb3` | "Caro Main Line" literary beats "Bb3 Retreat" structural |
+| 6 | TT | `C.RyL.Mor.Car` | `C.RyL.Mor.Ba4.b5` | "Caro Variation" literary; .Ba4.b5 self-described as "Caro Prefix" |
+| 7 | TT | `E.KID.Avk` | `E.KID.Avk.Cst.Bg5` | "Averbakh Variation" (E73) literary beats generic "Bg5 Line" |
+| 8 | TT | `C.PhD.Nim` | `C.PhD.Lio.MLn.O-O` | "Nimzowitsch Variation" (C41) literary; Lion descendant has no alias |
+| 9 | TT | `C.PhD.Nim.MLn` | `C.PhD.Lio.MLn.O-O.Re1` | same logic one depth deeper |
+
+**Net change**: 8 transposes_to arrows + 1 row deletion.
+
+**Audit impact**:
+- duplicate_groups: 191 → 190 (rank 4 collapsed to size 1 after delete)
+- resolved_groups: 75 → 83 (+8)
+- unresolved_groups: 116 → 107 (−9)
+- rows_in_unresolved_groups: 233 → 215 (−18)
+- multiple_canonical_groups: 6 (unchanged)
+
+All 9 listed groups exited the unresolved set. The new top of the
+ranked default is the Van Geet / Van't Kruijs triple (deferred
+case) followed by score-5 long-tail intra-family residuals — the
+target zone for the next Phase 1 batch.
 
 ### Resolved batch — intra-family duplicate cleanup
 
