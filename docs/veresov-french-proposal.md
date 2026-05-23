@@ -1,9 +1,13 @@
 # Veresov / French complex — arbitration proposal
 
-**Status**: draft proposal — NOT yet applied to `catalog/ocn-1.csv`.
+**Status**: **APPLIED** — see `docs/transpositions.md` →
+"French / Veresov complex (resolved, with multiple canonicals)"
+for the per-row outcomes. Tool support shipped alongside as
+`single_canonical` / `multiple_canonical` resolution kinds in
+`tools/audit_transpositions.py`.
+
 **Companion**: builds on the rules in `spec/OCN-1.md` →
-"Canonicalisation arbitration" and the list in
-`docs/transpositions.md` → "Deferred conceptual families".
+"Canonicalisation arbitration".
 
 ## Why this complex is different
 

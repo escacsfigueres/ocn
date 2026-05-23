@@ -2,10 +2,11 @@
 
 ## Current state
 
-- Catalogue size: **5,972** rows.
-- Duplicate FEN groups: **196** total — **62 resolved** by
-  `transposes_to`, **134 unresolved**.
-- Rows in unresolved groups: **273**.
+- Catalogue size: **5,968** rows.
+- Duplicate FEN groups: **192** total — **66 resolved** by
+  `transposes_to` (**1 with multiple canonicals**, 65 single
+  canonical), **126 unresolved**.
+- Rows in unresolved groups: **255**.
 - Top group size observed: **3**.
 
 Numbers are produced by:
@@ -68,8 +69,8 @@ under rule 4 or 6, pending a human decision:
 
 | Group | Slugs | Why deferred |
 |---|---|---|
-| **French / Veresov** (rank 1) | `B.Fre.Cls.MLn ⇄ A.Ver.Cls.MLn.Be7 ⇄ D.QPG.Ver.MLn.Be7` | 3-way A↔B↔D across three established literary identities. French Classical, Richter-Veresov, and Queen's Pawn Veresov are all real names. A single canonical choice would erase one of the other two. **Draft proposal in [`veresov-french-proposal.md`](veresov-french-proposal.md)** pending review. |
-| **Veresov A↔D subtree** (ranks 2, 5, 8) | `A.Ver ⇄ D.QPG.Ver ⇄ D.QPG.Ver.Ric` and descendants | Same problem one level deeper: A.Ver (Richter-Veresov Attack) and D.QPG.Ver (Queen's Pawn Veresov) are both literature-valid. Covered by the same [draft proposal](veresov-french-proposal.md). |
+| ~~French / Veresov~~ | ~~3-way A↔B↔D~~ | **RESOLVED** in commit `c0ffee2` — see "French / Veresov complex" section below for the applied resolution (multiple-canonical group for rank 1; transposes_to + targeted deletions for the rest). |
+| ~~Veresov A↔D subtree~~ | ~~A.Ver ⇄ D.QPG.Ver ⇄ D.QPG.Ver.Ric~~ | **RESOLVED** with the same commit. D.QPG.Ver subtree now points into A.Ver canonicals. |
 | **KID Old / Classical e5** (rank 3) | `E.KID.Cls.Old.e5 ⇄ E.KID.Cls.e5.O-O.Nbd7 ⇄ ...Nbd7.O-O` | Intra-E triple where one side is the canonical "Old Main Line" and the other a structural path through the same FEN. Both have children. Resolution needs to decide which is the OCN canonical for the Mar del Plata / Classical e5 tabiya. |
 | **Modern Benoni Classical/Traditional** (rank 4) | `E.Ben.Mod.Cls ⇄ E.Ben.Mod.Cls.Trd ⇄ E.Ind.e6.Nf3.c5.d5.Be2` | Parent / child same FEN inside Benoni + a cross-E path slug from the Indian root. Trd ("Traditional Variation") and Cls (Classical Benoni) are both literary identities of the same tabiya. |
 | **D.Rub ↔ A.Col.Zuk** (rank 6) | `D.Rub` and `A.Col.Zuk` | Rubinstein Opening (D.Rub, 1.Nf3 d5 2.e3 ... → with c4 inserted later) and Colle-Zukertort (A.Col.Zuk, Colle System with Nf3 deferment). Different conceptual families, no clear OCN precedent. |
@@ -402,6 +403,56 @@ apply time. The validator's same-FEN check confirmed every new
   different conceptual families, no clear precedent yet).
 - A handful of MEDIUM-confidence groups where both sides have
   substantive children (logged by the agents).
+
+### French / Veresov complex (resolved, with multiple canonicals)
+
+First case where two canonical slugs coexist in the same FEN group
+**by design**. Proposed in
+[`veresov-french-proposal.md`](veresov-french-proposal.md) and
+applied here. Supporting tool change: the audit now distinguishes
+`single_canonical` from `multiple_canonical` resolution kinds
+(`tools/audit_transpositions.py --summary` reports
+`multiple_canonical_groups`).
+
+**Rank 1 — three names, one FEN, two canonicals preserved**
+
+| slug | role | action |
+|---|---|---|
+| `B.Fre.Cls.MLn` | French Classical Main Line (ECO C13/C14) | **PRESERVED canonical**. Note extended to cross-reference Richter-Veresov. |
+| `A.Ver.Cls.MLn.Be7` | Richter-Veresov Classical Be7 (ECO D01) | **PRESERVED canonical**. |
+| `D.QPG.Ver.MLn.Be7` | Queen's Pawn Veresov Main Line Be7 | TT → `A.Ver.Cls.MLn.Be7`. |
+
+The audit now reports rank 1 as `resolution_kind=multiple_canonical`,
+`canonical_count=2`. The group is resolved (hidden from the default
+ranked report) because the only non-canonical entry points into the
+group; the two canonicals are kept on purpose.
+
+**Veresov A↔D subtree — D.QPG.Ver collapses into A.Ver**
+
+| from (D-side breadcrumb) | → | to (A-side canonical) |
+|---|---|---|
+| `D.QPG.Ver` | → | `A.Ver` |
+| `D.QPG.Ver.Ric` | → | `A.Ver` |
+| `D.QPG.Ver.Ric.Bf5` | → | `A.Ver.Ric` |
+| `D.QPG.Ver.MLn` | → | `A.Ver.Cls.MLn` |
+
+`A.Ver` canonicals receive a short alias of the form
+`Queen's Pawn Veresov [...] move-order`.
+
+**Deleted as redundant mirrors** (leaves, 0 children, 0 inbound refs):
+
+- `D.QPG.Ver.Ric.Nbd7.Nf3` — mirror of `D.QPG.Ver.Nbd7.Nf3` via the
+  Nf6 move order.
+- `D.QPG.Ver.Ric.Nbd7` — parent of the above; becomes leaf after
+  the cascade.
+- `D.QPG.Ver.Ric.Ne4` — mirror of `D.QPG.Ver.Ne4` via Nf6 move order.
+- `B.Fre.Cls.MLn.e5.Nfd7.Qxe7` — mirror of `B.Fre.Cls.MLn.e5.Qxe7`
+  via the explicit Nfd7 path.
+
+Net change: **5 transposes_to arrows + 4 row deletions** + alias
+and note touches. No reparenting. The `A.Ver` subtree preserves
+its 3 children intact; `D.QPG.Ver` keeps `Nbd7`, `Nbd7.Nf3`, `Ne4`
+as still-canonical sibling slugs (no Ric mirror needed any more).
 
 ### Resolved batch — intra-family duplicate cleanup
 
