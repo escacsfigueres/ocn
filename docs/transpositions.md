@@ -635,7 +635,7 @@ target.
 - rank 1: `A.Van.ReN.e3.d5 / d5.e3.e5 / VtK.e5.Nc3.d5` (Van Geet / Van't Kruijs triple).
 - rank 7-9 post-batch: `B.Mod.Std.Nf3.C5S ⇄ B.Sic.HAc.d4.Bg7` (cross-family Modern/Sicilian).
 - rank 8: `E.Nim.Sml.Bot ⇄ E.Nim.Sml.Kmo` (Botvinnik vs Kmoch — both literary Sämisch siblings).
-- rank 10: `A.Lar.Cls.MLn ⇄ A.Ret.Nim.MLn` (Larsen vs Reti Nimzowitsch-Larsen — both real opening names).
+- rank 10 (now rank 4 post-batch 2): `A.Lar.Cls.MLn ⇄ A.Ret.Nim.MLn` (Larsen vs Reti Nimzowitsch-Larsen — both real opening names). **Draft proposal in [`larsen-reti-nimzowitsch-proposal.md`](larsen-reti-nimzowitsch-proposal.md)** recommends bilateral `same_as`, no deletes, no schema work — direct mirror of the Rubinstein/Colle-Zukertort precedent.
 - rank 19: `A.QPO.Nf6.Nf3.c6 ⇄ A.QPO.c6.Nf3.Nf6` (Czech-Indian path mirror).
 - rank 20: `A.Eng.Sym.Nc3.Nf6.Nf3 ⇄ A.Eng.Sym.Nf3.Nf6.Nc3` (English Symmetrical Three Knights — both real names).
 - rank 40: `D.QGA.Flo.MLn ⇄ D.QGA.Jan.e3.b5` (Flohr vs Haberditz Variation).
