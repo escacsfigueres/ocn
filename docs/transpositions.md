@@ -547,7 +547,24 @@ genuine literary canonicals, so Option D (mixed `same_as` + `transposes_to`)
 was the honest resolution. Multi-target remains available for a
 future case with three genuine literary identities on one FEN.
 
-### Modern Benoni Classical (resolved, single_canonical — counter-example to KID)
+### Resolved: English Symmetrical Three Knights mirror
+
+Pure descriptive move-order mirror under `A.Eng.Sym.Nf3.Nf6` / `A.Eng.Sym.Nc3.Nf6`. Both slugs reach the same FEN
+`rnbqkb1r/pp1ppppp/5n2/2p5/2P5/2N2N2/PP1PPPPP/R1BQKB1R b KQkq -`
+(Symmetrical English Three Knights, after `1.c4 c5` and the {Nc3, Nf3, Nf6} development) via swapped white-knight order.
+
+**Resolution**: `single_canonical` with `transposes_to`.
+
+| slug | role | reason |
+|---|---|---|
+| `A.Eng.Sym.Nf3.Nf6.Nc3` (A34) | **CANONICAL** | Hosts the developed Four Knights subtree (5 named children: `.Nc6`, `.d4`, `.g3`, `.O-O` Mecking, `.d5`). Editorial choice already encoded by the deeper structure. Promoted to carry both aliases: `Nc3 Line|Three Knights Line`. |
+| `A.Eng.Sym.Nc3.Nf6.Nf3` (A34/A35) | `transposes_to = A.Eng.Sym.Nf3.Nf6.Nc3` | Mirror move order. Has 1 child (`.e5` line, A35) which remains a distinct branch under this path. |
+
+No same_as: no two literary identities at this FEN — just two descriptive paths to the same Symmetrical English Three Knights position. No deletions, no reparenting, no cascade.
+
+**Net change**: 1 TT + alias merge + notes cross-reference on both rows.
+
+
 
 Third top-1 case in a row, but the **first to resolve as
 single_canonical** despite a 3-way group. See
@@ -654,7 +671,7 @@ target.
 - rank 8: `E.Nim.Sml.Bot ⇄ E.Nim.Sml.Kmo` (Botvinnik vs Kmoch — both literary Sämisch siblings). **ON HOLD — naming review pending**. See [`nimzo-saemisch-botvinnik-kmoch-proposal.md`](nimzo-saemisch-botvinnik-kmoch-proposal.md). User challenge raised: 365Chess and Chess.com both attribute "Kmoch Variation" to the depth-2 `4.f3` move (the slug `E.Nim.Fou` already canonically carries the "Kmoch Variation" alias at depth 2, ECO E20), not to the depth-3 Sämisch sub-line. Apply same_as only after naming review confirms both Botvinnik and Kmoch are genuine depth-3 attributions.
 - ~~Larsen ↔ Reti Nimzowitsch-Larsen~~: **RESOLVED via bilateral `same_as`** — `A.Lar.Cls.MLn ⇄ A.Ret.Nim.MLn` (Nimzo-Larsen Attack A01 ⇄ Reti Nimzowitsch-Larsen A06). Cleanest `same_as` case to date: no deletes, no cascades, no schema work, ECO-distinct on both sides. Mirrors the Rubinstein/Colle-Zukertort precedent. See [`larsen-reti-nimzowitsch-proposal.md`](larsen-reti-nimzowitsch-proposal.md) for the per-row analysis.
 - rank 19: `A.QPO.Nf6.Nf3.c6 ⇄ A.QPO.c6.Nf3.Nf6` (Czech-Indian path mirror).
-- rank 20: `A.Eng.Sym.Nc3.Nf6.Nf3 ⇄ A.Eng.Sym.Nf3.Nf6.Nc3` (English Symmetrical Three Knights — both real names).
+- ~~rank 20: `A.Eng.Sym.Nc3.Nf6.Nf3 ⇄ A.Eng.Sym.Nf3.Nf6.Nc3` (English Symmetrical Three Knights — both real names).~~ **RESOLVED via single_canonical** — `Nc3.Nf6.Nf3.transposes_to = Nf3.Nf6.Nc3`. Pure descriptive path mirror (no player-name dispute). Canonical chosen by subtree development: Nf3.Nf6.Nc3 hosts 5 named children including the Four Knights subtree; Nc3.Nf6.Nf3 has 1 (.e5). "Three Knights Line" alias promoted to the canonical side. See section below.
 - ~~QGA Flohr ↔ Janowski-Haberditz~~: **RESOLVED via bilateral `same_as`** — `D.QGA.Flo.MLn ⇄ D.QGA.Jan.e3.b5` (Flohr Variation D20 vs Haberditz Variation literary leaf under Janowski-Larsen). Smallest possible `same_as` sprint since Larsen — single pair, no cascade, no deletes. See [`qga-flohr-janowski-proposal.md`](qga-flohr-janowski-proposal.md) for the per-row analysis.
 - ~~London Classical ↔ Mason~~: **RESOLVED via bilateral `same_as`** on both paired ranks. `A.Lon.Cls.MLn ⇄ A.Lon.Msn.MLn.Nbd2` (Classical London contemporary vs Mason London historical, both A48) plus the cascading `.c4` pair. Mirror of the Italian Giuoco/Two Knights cascade. See [`london-classical-mason-proposal.md`](london-classical-mason-proposal.md) for the per-row analysis.
 - rank 76: `A.PQI.e3 ⇄ A.PQI.e3.Bb7` (parent-child same-FEN, structural review needed).
