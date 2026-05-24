@@ -653,7 +653,7 @@ target.
 - ~~Larsen ↔ Reti Nimzowitsch-Larsen~~: **RESOLVED via bilateral `same_as`** — `A.Lar.Cls.MLn ⇄ A.Ret.Nim.MLn` (Nimzo-Larsen Attack A01 ⇄ Reti Nimzowitsch-Larsen A06). Cleanest `same_as` case to date: no deletes, no cascades, no schema work, ECO-distinct on both sides. Mirrors the Rubinstein/Colle-Zukertort precedent. See [`larsen-reti-nimzowitsch-proposal.md`](larsen-reti-nimzowitsch-proposal.md) for the per-row analysis.
 - rank 19: `A.QPO.Nf6.Nf3.c6 ⇄ A.QPO.c6.Nf3.Nf6` (Czech-Indian path mirror).
 - rank 20: `A.Eng.Sym.Nc3.Nf6.Nf3 ⇄ A.Eng.Sym.Nf3.Nf6.Nc3` (English Symmetrical Three Knights — both real names).
-- rank 40: `D.QGA.Flo.MLn ⇄ D.QGA.Jan.e3.b5` (Flohr vs Haberditz Variation).
+- rank 40 (now rank 5 post-cleanup): `D.QGA.Flo.MLn ⇄ D.QGA.Jan.e3.b5` (Flohr Variation vs Haberditz Variation, both real QGA literary names). **Draft proposal in [`qga-flohr-janowski-proposal.md`](qga-flohr-janowski-proposal.md)** recommends bilateral `same_as`, no deletes, no cascade — mirror of the Larsen precedent. Expected: +1 multi_canonical (→ 12), −1 unresolved (→ 31).
 - ~~London Classical ↔ Mason~~: **RESOLVED via bilateral `same_as`** on both paired ranks. `A.Lon.Cls.MLn ⇄ A.Lon.Msn.MLn.Nbd2` (Classical London contemporary vs Mason London historical, both A48) plus the cascading `.c4` pair. Mirror of the Italian Giuoco/Two Knights cascade. See [`london-classical-mason-proposal.md`](london-classical-mason-proposal.md) for the per-row analysis.
 - rank 76: `A.PQI.e3 ⇄ A.PQI.e3.Bb7` (parent-child same-FEN, structural review needed).
 
