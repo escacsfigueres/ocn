@@ -855,7 +855,7 @@ A.Eng.Rev.Fou.MLn,"English Four Knights, Main Line",A28,A.Eng.Rev.Fou,c2c4 e7e5 
 A.Eng.Rev.Bot.MLn,"English Botvinnik System, Main Line",A22,A.Eng.Rev.Bot,c2c4 e7e5 b1c3 b8c6 g2g3 g7g6 f1g2 f8g7 e2e4 d7d6 g1e2 c8e6 d2d3,4,Main Line,closed,Be6 and d3 in the English Botvinnik System.,,,,,
 A.Eng.Mik.MLn,"English Mikenas-Carls, Main Line",A18,A.Eng.Mik,c2c4 g8f6 b1c3 e7e6 e2e4 d7d5 e4e5 d5d4,3,Main Line,sharp,...d4 advance in the Mikenas-Carls English.,,,,,
 A.Ret.KIA.MLn,"Reti KIA Setup, Main Line",A07,A.Ret.KIA,g1f3 d7d5 g2g3 g8f6 f1g2 e7e6 e1g1 f8e7 d2d3 e8g8 b1d2,3,Main Line,closed,Nbd2 in the Reti King's Indian Attack setup.,,,,,
-A.Ret.Nim.MLn,"Reti Nimzowitsch-Larsen, Main Line",A06,A.Ret.Nim,g1f3 d7d5 b2b3 g8f6 c1b2 e7e6 e2e3 f8e7,3,Main Line,closed,e3 and Be7 in the Reti Nimzowitsch-Larsen setup.,,,,,
+A.Ret.Nim.MLn,"Reti Nimzowitsch-Larsen, Main Line",A06,A.Ret.Nim,g1f3 d7d5 b2b3 g8f6 c1b2 e7e6 e2e3 f8e7,3,Main Line,closed,"e3 and Be7 in the Reti Nimzowitsch-Larsen setup. Co-canonical with A.Lar.Cls.MLn (Larsen Classical Line Main Line, A01) — same FEN via the 1.b3 Larsen move order.",,,,,A.Lar.Cls.MLn
 A.Lon.Cls.MLn,"London Classical, Main Line",A48,A.Lon.Cls,d2d4 d7d5 g1f3 g8f6 c1f4 e7e6 e2e3 c7c5 c2c3 b8c6 b1d2,3,Main Line,closed,Nbd2 in the Classical London System.,,,,,
 A.Col.Kol.MLn,"Colle Koltanowski, Main Line",D04,A.Col.Kol,d2d4 d7d5 g1f3 g8f6 e2e3 e7e6 f1d3 c7c5 c2c3 b8c6 b1d2 f8d6,3,Main Line,closed,Nbd2 and ...Bd6 in the Koltanowski Colle.,,,,,
 A.Pol.Cen.MLn,"Polish Opening Central, Main Line",A00,A.Pol.Cen,b2b4 d7d5 c1b2 g8f6 e2e3 e7e6 c2c4,3,Main Line,closed,c4 expansion in the central Polish Opening.,,,,,
@@ -1701,7 +1701,7 @@ A.Tor.Yus.MLn.c3,"Torre Yusupov-Rubinstein Main Line, c3",A46,A.Tor.Yus.MLn,d2d4
 A.Tor.Yus.MLn.c3.Bb7,"Torre Yusupov-Rubinstein c3 Line, Bb7",A46,A.Tor.Yus.MLn.c3,d2d4 g8f6 g1f3 e7e6 c1g5 c7c5 e2e3 b7b6 c2c3 c8b7,5,Bb7 Line,closed,...Bb7 in the Torre Yusupov-Rubinstein c3 line.,,,,,
 A.Ver.Cls.MLn,"Richter-Veresov Classical, Main Line",D01,A.Ver.Cls,d2d4 g8f6 b1c3 d7d5 c1g5 e7e6 e2e4,3,Main Line|Queen's Pawn Veresov MLn move-order,sharp,e4 in the Classical Veresov.,,,,,
 A.Ver.Cls.MLn.Be7,"Richter-Veresov Classical Main Line, Be7",D01,A.Ver.Cls.MLn,d2d4 g8f6 b1c3 d7d5 c1g5 e7e6 e2e4 f8e7,4,Be7 Line,sharp,...Be7 in the Classical Veresov main line.,,,,,B.Fre.Cls.MLn
-A.Lar.Cls.MLn,"Larsen Classical Line, Main Line",A01,A.Lar.Cls,b2b3 d7d5 c1b2 g8f6 e2e3 e7e6 g1f3 f8e7,3,Main Line,closed,Nf3 and ...Be7 in the Larsen Classical line.,,,,,
+A.Lar.Cls.MLn,"Larsen Classical Line, Main Line",A01,A.Lar.Cls,b2b3 d7d5 c1b2 g8f6 e2e3 e7e6 g1f3 f8e7,3,Main Line,closed,"Nf3 and ...Be7 in the Larsen Classical line. Co-canonical with A.Ret.Nim.MLn (Reti Nimzowitsch-Larsen Main Line, A06) — same FEN via the 1.Nf3 then 2.b3 Reti move order.",,,,,A.Ret.Nim.MLn
 A.Lar.Cls.MLn.Be2,"Larsen Classical Main Line, Be2",A01,A.Lar.Cls.MLn,b2b3 d7d5 c1b2 g8f6 e2e3 e7e6 g1f3 f8e7 f1e2,4,Be2 Line,closed,Be2 in the Larsen Classical main line.,,,,,
 A.Pol.Bhm.MLn,"Polish Birmingham Gambit, Main Line",A00,A.Pol.Bhm,b2b4 c7c5 b4c5 e7e5,3,Main Line,gambit|sharp,...e5 after bxc5 in the Birmingham Gambit.,,,,,
 A.Pol.Bhm.MLn.Bb2,"Polish Birmingham Main Line, Bb2",A00,A.Pol.Bhm.MLn,b2b4 c7c5 b4c5 e7e5 c1b2,4,Bb2 Line,gambit|sharp,Bb2 in the Birmingham Gambit main line.,,,,,

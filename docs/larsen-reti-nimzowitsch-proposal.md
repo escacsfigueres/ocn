@@ -1,6 +1,10 @@
 # Larsen ↔ Reti Nimzowitsch-Larsen — arbitration proposal
 
-**Status**: draft proposal — NOT yet applied to `catalog/ocn-1.csv`.
+**Status**: **APPLIED via bilateral `same_as`**. See
+`docs/transpositions.md` → "`same_as`-resolved groups" for the
+applied outcome. First post-OCN-1.0.3 `same_as` addition; mirrors
+the Rubinstein/Colle-Zukertort precedent exactly.
+
 **Companion**: builds on `spec/OCN-1.md` → "Canonicalisation
 arbitration" and the precedents from Veresov / KID / Modern Benoni
 / Rubinstein-Colle-Zukertort.

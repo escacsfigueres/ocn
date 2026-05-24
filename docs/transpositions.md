@@ -3,9 +3,9 @@
 ## Current state
 
 - Catalogue size: **5,905** rows.
-- Duplicate FEN groups: **130** total — **93 resolved** (**6 with
-  multiple canonicals**, 87 single canonical), **37 unresolved**.
-- Rows in unresolved groups: **75**.
+- Duplicate FEN groups: **130** total — **94 resolved** (**7 with
+  multiple canonicals**, 87 single canonical), **36 unresolved**.
+- Rows in unresolved groups: **73**.
 - Resolution channels: `transposes_to` (non-canonical →
   canonical, asymmetric) and `same_as` (canonical ↔ canonical,
   symmetric, OCN 0.3).
@@ -514,6 +514,7 @@ undirected and reports such groups as `multiple_canonical`.
 | `E.Nim.Rub.Kmo` ⇄ `E.Nim.Sml.Bot.MLn` | E | E40 / E25 | Nimzo Kmoch (Rubinstein move order) and Sämisch Botvinnik Main Line (Sämisch move order); both literary, different ECOs, same FEN. |
 | `C.Ita.Giu.O-O.Nf6` ⇄ `C.Ita.Two.O-O.Bc5` | C | C50-C54 / C55-C56 | Giuoco Piano and Two Knights Defence converge after castling — textbook ECO transposition between two named openings. |
 | `C.Ita.Giu.O-O.Nf6.d4` ⇄ `C.Ita.Two.O-O.Bc5.d4` | C | C54 / C56 | Same convergence one move deeper (4.d4). |
+| `A.Lar.Cls.MLn` ⇄ `A.Ret.Nim.MLn` | A | A01 / A06 | Nimzo-Larsen Attack (1.b3 move order) and Reti Nimzowitsch-Larsen (1.Nf3 then 2.b3 move order) — both real opening names with distinct ECO codes and independent family subtrees. First post-OCN-1.0.3 `same_as` addition. |
 
 **Groups previously multi-canonical via in-group pointer, now also
 carrying explicit `same_as`** (declaration made more readable; no
@@ -524,11 +525,11 @@ behaviour change):
 | `B.Fre.Cls.MLn` ⇄ `A.Ver.Cls.MLn.Be7` | Pre-existing TT from `D.QPG.Ver.MLn.Be7` provided the in-group pointer; `same_as` now makes the bilateral relation explicit between the two canonicals. |
 | `E.KID.Cls.Old.e5` ⇄ `E.KID.Cls.e5.O-O.Nbd7` | Same shape — TT from `E.KID.Cls.e5.O-O.Nbd7.O-O` is the in-group pointer; `same_as` makes the canonical relation explicit. |
 
-**Total multiple_canonical groups after this commit**: **6** (was 2
-before `same_as`). All 6 reported by `audit_transpositions.py
---summary` as `multiple_canonical_groups=6`. The new mechanism
-declared 4 cases that previously could not be expressed without
-either schema growth or contortions.
+**Total multiple_canonical groups**: **7** as of the Larsen ⇄ Reti
+Nimzowitsch-Larsen sprint (was 2 before `same_as`, 6 after the
+OCN 0.3 schema commit, +1 with Larsen). Reported by
+`audit_transpositions.py --summary` as
+`multiple_canonical_groups=7`.
 
 ### Modern Benoni Classical (resolved, single_canonical — counter-example to KID)
 
@@ -635,7 +636,7 @@ target.
 - rank 1: `A.Van.ReN.e3.d5 / d5.e3.e5 / VtK.e5.Nc3.d5` (Van Geet / Van't Kruijs triple).
 - rank 7-9 post-batch: `B.Mod.Std.Nf3.C5S ⇄ B.Sic.HAc.d4.Bg7` (cross-family Modern/Sicilian).
 - rank 8: `E.Nim.Sml.Bot ⇄ E.Nim.Sml.Kmo` (Botvinnik vs Kmoch — both literary Sämisch siblings).
-- rank 10 (now rank 4 post-batch 2): `A.Lar.Cls.MLn ⇄ A.Ret.Nim.MLn` (Larsen vs Reti Nimzowitsch-Larsen — both real opening names). **Draft proposal in [`larsen-reti-nimzowitsch-proposal.md`](larsen-reti-nimzowitsch-proposal.md)** recommends bilateral `same_as`, no deletes, no schema work — direct mirror of the Rubinstein/Colle-Zukertort precedent.
+- ~~Larsen ↔ Reti Nimzowitsch-Larsen~~: **RESOLVED via bilateral `same_as`** — `A.Lar.Cls.MLn ⇄ A.Ret.Nim.MLn` (Nimzo-Larsen Attack A01 ⇄ Reti Nimzowitsch-Larsen A06). Cleanest `same_as` case to date: no deletes, no cascades, no schema work, ECO-distinct on both sides. Mirrors the Rubinstein/Colle-Zukertort precedent. See [`larsen-reti-nimzowitsch-proposal.md`](larsen-reti-nimzowitsch-proposal.md) for the per-row analysis.
 - rank 19: `A.QPO.Nf6.Nf3.c6 ⇄ A.QPO.c6.Nf3.Nf6` (Czech-Indian path mirror).
 - rank 20: `A.Eng.Sym.Nc3.Nf6.Nf3 ⇄ A.Eng.Sym.Nf3.Nf6.Nc3` (English Symmetrical Three Knights — both real names).
 - rank 40: `D.QGA.Flo.MLn ⇄ D.QGA.Jan.e3.b5` (Flohr vs Haberditz Variation).
