@@ -640,7 +640,7 @@ target.
 - rank 19: `A.QPO.Nf6.Nf3.c6 ⇄ A.QPO.c6.Nf3.Nf6` (Czech-Indian path mirror).
 - rank 20: `A.Eng.Sym.Nc3.Nf6.Nf3 ⇄ A.Eng.Sym.Nf3.Nf6.Nc3` (English Symmetrical Three Knights — both real names).
 - rank 40: `D.QGA.Flo.MLn ⇄ D.QGA.Jan.e3.b5` (Flohr vs Haberditz Variation).
-- rank 65-66: `A.Lon.Cls.MLn` family vs `A.Lon.Msn.MLn.Nbd2` (Classical vs Mason London — both real systems).
+- rank 65-66 (now ranks 7-8 post-cleanup): `A.Lon.Cls.MLn` family vs `A.Lon.Msn.MLn.Nbd2` (Classical vs Mason London — both real systems). **Draft proposal in [`london-classical-mason-proposal.md`](london-classical-mason-proposal.md)** recommends bilateral `same_as` on BOTH paired groups (rank 7 + rank 8 cascade), mirror of the Italian Giuoco/Two Knights precedent. Expected: +2 multi_canonical (→ 9), −2 unresolved (→ 34).
 - rank 76: `A.PQI.e3 ⇄ A.PQI.e3.Bb7` (parent-child same-FEN, structural review needed).
 
 All deferred cases either fit `same_as` (two real names, future
