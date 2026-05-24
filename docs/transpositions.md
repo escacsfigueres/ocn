@@ -3,9 +3,9 @@
 ## Current state
 
 - Catalogue size: **5,905** rows.
-- Duplicate FEN groups: **130** total — **98 resolved** (**11 with
-  multiple canonicals**, 87 single canonical), **32 unresolved**.
-- Rows in unresolved groups: **64**.
+- Duplicate FEN groups: **130** total — **99 resolved** (**12 with
+  multiple canonicals**, 87 single canonical), **31 unresolved**.
+- Rows in unresolved groups: **62**.
 - Top group size in unresolved: **2** (all remaining unresolved
   are pairs; Van triple resolution removed the last conceptual
   triple).
@@ -522,6 +522,7 @@ undirected and reports such groups as `multiple_canonical`.
 | `A.Lon.Cls.MLn.c4` ⇄ `A.Lon.Msn.MLn.Nbd2.c4` | A | A48 / A48 | Same convergence one move deeper (`...c4`) inside the London System Cls/Msn pair. |
 | `A.Van.ReN.e3.d5` ⇄ `A.VtK.e5.Nc3.d5` | A | A00 / A00 | Van Geet Reversed Nimzowitsch d5 (1.Nc3) and Van't Kruijs Keoni-Hiva Ekolu Variation (1.e3) — both real opening-family identities. Same FEN via different first moves. Note: `A.Van.d5.e3.e5` is a third path through the same FEN but stayed as `transposes_to` (structural breadcrumb under "d5 Line" prefix, not literary). |
 | `A.Van.ReN.e3` ⇄ `A.VtK.e5.Nc3` | A | A00 / A00 | Parents of the rank-1 pair (after 3 plies). Reversed Nimzowitsch e3 prefix vs Keoni-Hiva Prefix — both anchored in their respective family root literary identities. |
+| `D.QGA.Flo.MLn` ⇄ `D.QGA.Jan.e3.b5` | D | D20 / (D25 inherited) | Flohr Variation Main Line vs Haberditz Variation (Janowski-Larsen e3 path). Both real QGA literary attributions; same FEN reached via different move orders inside the Queen's Gambit Accepted family. |
 
 **Groups previously multi-canonical via in-group pointer, now also
 carrying explicit `same_as`** (declaration made more readable; no
@@ -532,11 +533,12 @@ behaviour change):
 | `B.Fre.Cls.MLn` ⇄ `A.Ver.Cls.MLn.Be7` | Pre-existing TT from `D.QPG.Ver.MLn.Be7` provided the in-group pointer; `same_as` now makes the bilateral relation explicit between the two canonicals. |
 | `E.KID.Cls.Old.e5` ⇄ `E.KID.Cls.e5.O-O.Nbd7` | Same shape — TT from `E.KID.Cls.e5.O-O.Nbd7.O-O` is the in-group pointer; `same_as` makes the canonical relation explicit. |
 
-**Total multiple_canonical groups**: **11** as of the Van Geet /
-Van't Kruijs sprint (was 2 before `same_as`, 6 after the OCN 0.3
-schema commit, 7 after Larsen, 9 after London cascade, +2 with
-the Van cascade). Reported by `audit_transpositions.py --summary`
-as `multiple_canonical_groups=11`.
+**Total multiple_canonical groups**: **12** as of the QGA Flohr /
+Janowski-Haberditz sprint (was 2 before `same_as`, 6 after the
+OCN 0.3 schema commit, 7 after Larsen, 9 after London cascade,
+11 after Van cascade, +1 with QGA Flohr). Reported by
+`audit_transpositions.py --summary` as
+`multiple_canonical_groups=12`.
 
 **`same_as` multi-target (N=2 pipe-separated) usage so far**: 0.
 The schema supports it; the Van triple was the first plausible
@@ -653,7 +655,7 @@ target.
 - ~~Larsen ↔ Reti Nimzowitsch-Larsen~~: **RESOLVED via bilateral `same_as`** — `A.Lar.Cls.MLn ⇄ A.Ret.Nim.MLn` (Nimzo-Larsen Attack A01 ⇄ Reti Nimzowitsch-Larsen A06). Cleanest `same_as` case to date: no deletes, no cascades, no schema work, ECO-distinct on both sides. Mirrors the Rubinstein/Colle-Zukertort precedent. See [`larsen-reti-nimzowitsch-proposal.md`](larsen-reti-nimzowitsch-proposal.md) for the per-row analysis.
 - rank 19: `A.QPO.Nf6.Nf3.c6 ⇄ A.QPO.c6.Nf3.Nf6` (Czech-Indian path mirror).
 - rank 20: `A.Eng.Sym.Nc3.Nf6.Nf3 ⇄ A.Eng.Sym.Nf3.Nf6.Nc3` (English Symmetrical Three Knights — both real names).
-- rank 40 (now rank 5 post-cleanup): `D.QGA.Flo.MLn ⇄ D.QGA.Jan.e3.b5` (Flohr Variation vs Haberditz Variation, both real QGA literary names). **Draft proposal in [`qga-flohr-janowski-proposal.md`](qga-flohr-janowski-proposal.md)** recommends bilateral `same_as`, no deletes, no cascade — mirror of the Larsen precedent. Expected: +1 multi_canonical (→ 12), −1 unresolved (→ 31).
+- ~~QGA Flohr ↔ Janowski-Haberditz~~: **RESOLVED via bilateral `same_as`** — `D.QGA.Flo.MLn ⇄ D.QGA.Jan.e3.b5` (Flohr Variation D20 vs Haberditz Variation literary leaf under Janowski-Larsen). Smallest possible `same_as` sprint since Larsen — single pair, no cascade, no deletes. See [`qga-flohr-janowski-proposal.md`](qga-flohr-janowski-proposal.md) for the per-row analysis.
 - ~~London Classical ↔ Mason~~: **RESOLVED via bilateral `same_as`** on both paired ranks. `A.Lon.Cls.MLn ⇄ A.Lon.Msn.MLn.Nbd2` (Classical London contemporary vs Mason London historical, both A48) plus the cascading `.c4` pair. Mirror of the Italian Giuoco/Two Knights cascade. See [`london-classical-mason-proposal.md`](london-classical-mason-proposal.md) for the per-row analysis.
 - rank 76: `A.PQI.e3 ⇄ A.PQI.e3.Bb7` (parent-child same-FEN, structural review needed).
 

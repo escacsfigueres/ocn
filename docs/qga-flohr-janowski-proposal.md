@@ -1,6 +1,9 @@
 # QGA Flohr ↔ Janowski-Larsen Haberditz — arbitration proposal
 
-**Status**: draft proposal — NOT yet applied to `catalog/ocn-1.csv`.
+**Status**: **APPLIED via bilateral `same_as`**. See
+`docs/transpositions.md` → "`same_as`-resolved groups" for the
+applied outcome. Smallest `same_as` sprint since Larsen — single
+pair, no cascade, no deletes.
 **Companion**: builds on `spec/OCN-1.md` → "Canonicalisation
 arbitration" and the precedents from the 5 prior `same_as`
 applications (Rubinstein, Italian Giuoco/Two Knights, Larsen,
