@@ -2,10 +2,10 @@
 
 ## Current state
 
-- Catalogue size: **5,965** rows.
-- Duplicate FEN groups: **190** total — **83 resolved** (**6 with
-  multiple canonicals**, 77 single canonical), **107 unresolved**.
-- Rows in unresolved groups: **215**.
+- Catalogue size: **5,905** rows.
+- Duplicate FEN groups: **130** total — **93 resolved** (**6 with
+  multiple canonicals**, 87 single canonical), **37 unresolved**.
+- Rows in unresolved groups: **75**.
 - Resolution channels: `transposes_to` (non-canonical →
   canonical, asymmetric) and `same_as` (canonical ↔ canonical,
   symmetric, OCN 0.3).
@@ -572,6 +572,78 @@ reparenting.
 **Precedent reinforced**: group size alone does not determine
 resolution kind. `multiple_canonical` requires *content evidence*
 of two real names, not just a count.
+
+### Post-0.2 Phase 1 cleanup batch 2
+
+Mechanical descriptor cleanup over the top 80 unresolved. Same
+arbitration rules as batch 1, applied at scale.
+
+**Pattern dominant**: Lichess-imported descriptor leaves with the
+self-explaining `.Std`, `.Mer`, `.Sto`, `.Gel`, `.Bro`, `.Duz`,
+`.Lin`, `.Sad`, `.TKn`, `.Lut`, `.Hen`, `.Spi`, `.Lit`, `.Nrm`,
+`.Max.Max`, `.Bog.Std`, `.Nf6.Nrm`, `.Q-O.Hen` suffixes
+duplicating a literary anchor parent or sibling.
+
+**Counts by family** (60 DELETE + 10 TT, applied):
+
+| Family | DELETE | TT |
+|---|---:|---:|
+| D.QGA (Queen's Gambit Accepted) | 11 | 0 |
+| D.Sla (Slav family) | 11 | 0 |
+| D.Sem (Semi-Slav) | 5 | 1 |
+| D.STa (Semi-Tarrasch) | 4 | 2 |
+| D.Tar (Tarrasch) | 2 | 0 |
+| D.Bgm (Blackmar-Diemer) | 3 | 0 |
+| D.QGD (Cambridge Springs, Reshevsky, Vienna, Ragozin, etc.) | 7 | 0 |
+| D.QPG.Zuk | 1 | 0 |
+| E.KID (Yugoslav Fianchetto) | 1 | 0 |
+| E.Gru (Saemisch, Nf3) | 2 | 0 |
+| E.Nim (4.f3 Kmoch) | 1 | 0 |
+| E.Blf (Blumenfeld) | 1 | 0 |
+| E.Ind (Normal Variation) | 1 | 0 |
+| A.Eng (Symmetrical c5, Agincourt Nf6) | 2 | 0 |
+| A.Mik (Lithuanian) | 1 | 0 |
+| A.EID (Przepiorka / Fianchetto MLn) | 0 | 2 |
+| C.RyL (Exchange, Ba4 path collapses) | 4 | 1 |
+| C.Ita (Pianissimo Nor, Giuoco Cls, Two Knights Max/Spi) | 4 | 0 |
+| C.Fou (Spanish Rubinstein Henneberger) | 1 | 0 |
+| B.Sic (Closed Fianchetto, Naj reorg, CaK Karpov) | 2 | 1 |
+| B.CaK (Karpov Modern) | 1 | 0 |
+| B.Sca (Mieses Nf3) | 1 | 0 |
+| B.Fre (Winawer Poisoned Pawn Kd1) | 1 | 0 |
+| B.Nim (Kennedy d5 Nce7) | 1 | 1 |
+| D.QGD.Har (parent same-FEN with kids) | 0 | 1 |
+| D.Sla.Cze.Kra (Krause Main Line same-FEN) | 0 | 1 |
+| B.Sic.Cls (Boleslavsky vs Be2.e5) | 0 | 1 |
+| **TOTAL** | **60** | **10** |
+
+(Some families spread across multiple rows; the counts above
+group the work conceptually, not by exact subtree.)
+
+**Audit impact**:
+- duplicate_groups: 190 → 130 (−60: every DELETE collapsed its group)
+- resolved_groups: 83 → 93 (+10 TT)
+- unresolved_groups: 107 → **37** (−70)
+- rows_in_unresolved_groups: 215 → 75 (−140)
+- catalogue rows: 5,965 → 5,905 (−60)
+
+**Target was unresolved_groups < 100; result is 37** — well below
+target.
+
+**Deferred (10 groups)**, all conceptual or "two real names" cases:
+
+- rank 1: `A.Van.ReN.e3.d5 / d5.e3.e5 / VtK.e5.Nc3.d5` (Van Geet / Van't Kruijs triple).
+- rank 7-9 post-batch: `B.Mod.Std.Nf3.C5S ⇄ B.Sic.HAc.d4.Bg7` (cross-family Modern/Sicilian).
+- rank 8: `E.Nim.Sml.Bot ⇄ E.Nim.Sml.Kmo` (Botvinnik vs Kmoch — both literary Sämisch siblings).
+- rank 10: `A.Lar.Cls.MLn ⇄ A.Ret.Nim.MLn` (Larsen vs Reti Nimzowitsch-Larsen — both real opening names).
+- rank 19: `A.QPO.Nf6.Nf3.c6 ⇄ A.QPO.c6.Nf3.Nf6` (Czech-Indian path mirror).
+- rank 20: `A.Eng.Sym.Nc3.Nf6.Nf3 ⇄ A.Eng.Sym.Nf3.Nf6.Nc3` (English Symmetrical Three Knights — both real names).
+- rank 40: `D.QGA.Flo.MLn ⇄ D.QGA.Jan.e3.b5` (Flohr vs Haberditz Variation).
+- rank 65-66: `A.Lon.Cls.MLn` family vs `A.Lon.Msn.MLn.Nbd2` (Classical vs Mason London — both real systems).
+- rank 76: `A.PQI.e3 ⇄ A.PQI.e3.Bb7` (parent-child same-FEN, structural review needed).
+
+All deferred cases either fit `same_as` (two real names, future
+batch) or need conceptual proposals before any change.
 
 ### Post-0.2 Phase 1 cleanup batch 1
 
