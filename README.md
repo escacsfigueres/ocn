@@ -227,22 +227,23 @@ See [`spec/OCN-1.md`](spec/OCN-1.md) for the full reasoning.
 
 - **0.1** — Core spec, ~6,100-entry catalogue, strict validator,
   lookup tools, and a derived FEN position export.
-- **0.2** *(tagged · `ocn-1.0.2` at `415f1df`; main carries Phase 1
-  cleanup at `b582e6f`)* — Position canonicalisation and
-  downstream artefacts. 14-column catalogue with `transposes_to`
+- **0.2** *(tagged · `ocn-1.0.2` baseline at `415f1df`,
+  `ocn-1.0.3` post-cleanup release at `dd2abd3` with downloadable
+  artefacts)* — Position canonicalisation and downstream
+  artefacts. 14-column catalogue with `transposes_to`
   (asymmetric) and `same_as` (symmetric) relations;
   `audit_transpositions.py` classifies duplicate FEN groups as
   `single_canonical` or `multiple_canonical`. Downstream
   `chess-parquet` already consumes the 0.2 schema. Post-tag main
   has reduced unresolved duplicate groups from 116 → 37
-  (Phase 1 target `<50` cleared). See
-  [`docs/roadmap-0.2.md`](docs/roadmap-0.2.md) for the original
-  phased plan,
+  (Phase 1 target `<50` cleared). **Consumer guide:**
+  [`docs/consuming-ocn-0.2.md`](docs/consuming-ocn-0.2.md).
+  Other docs: [`docs/roadmap-0.2.md`](docs/roadmap-0.2.md) for the
+  original phased plan,
   [`docs/release-0.2-checklist.md`](docs/release-0.2-checklist.md)
   for the release decision record, and
   [`docs/post-0.2-next-steps.md`](docs/post-0.2-next-steps.md)
-  for what's next (artefact generation + first deferred
-  conceptual proposal).
+  for what's next.
 - **0.3** — Internationalised aliases: Catalan, Spanish, French,
   German display names. The English `canonical_name` stays
   definitive.
