@@ -1,6 +1,9 @@
 # London Classical ↔ Mason — arbitration proposal
 
-**Status**: draft proposal — NOT yet applied to `catalog/ocn-1.csv`.
+**Status**: **APPLIED via bilateral `same_as` on both paired ranks**.
+See `docs/transpositions.md` → "`same_as`-resolved groups" for the
+applied outcome. Mirror of the Italian Giuoco/Two Knights cascade
+precedent. Brings `multiple_canonical_groups` to 9.
 **Companion**: builds on `spec/OCN-1.md` → "Canonicalisation
 arbitration" and the precedents from
 [Rubinstein/Colle-Zukertort](rubinstein-colle-zukertort-proposal.md),

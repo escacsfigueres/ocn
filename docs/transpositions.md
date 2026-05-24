@@ -3,9 +3,9 @@
 ## Current state
 
 - Catalogue size: **5,905** rows.
-- Duplicate FEN groups: **130** total — **94 resolved** (**7 with
-  multiple canonicals**, 87 single canonical), **36 unresolved**.
-- Rows in unresolved groups: **73**.
+- Duplicate FEN groups: **130** total — **96 resolved** (**9 with
+  multiple canonicals**, 87 single canonical), **34 unresolved**.
+- Rows in unresolved groups: **69**.
 - Resolution channels: `transposes_to` (non-canonical →
   canonical, asymmetric) and `same_as` (canonical ↔ canonical,
   symmetric, OCN 0.3).
@@ -515,6 +515,8 @@ undirected and reports such groups as `multiple_canonical`.
 | `C.Ita.Giu.O-O.Nf6` ⇄ `C.Ita.Two.O-O.Bc5` | C | C50-C54 / C55-C56 | Giuoco Piano and Two Knights Defence converge after castling — textbook ECO transposition between two named openings. |
 | `C.Ita.Giu.O-O.Nf6.d4` ⇄ `C.Ita.Two.O-O.Bc5.d4` | C | C54 / C56 | Same convergence one move deeper (4.d4). |
 | `A.Lar.Cls.MLn` ⇄ `A.Ret.Nim.MLn` | A | A01 / A06 | Nimzo-Larsen Attack (1.b3 move order) and Reti Nimzowitsch-Larsen (1.Nf3 then 2.b3 move order) — both real opening names with distinct ECO codes and independent family subtrees. First post-OCN-1.0.3 `same_as` addition. |
+| `A.Lon.Cls.MLn` ⇄ `A.Lon.Msn.MLn.Nbd2` | A | A48 / A48 | Classical London System (contemporary literary name) and Mason London (historical, attributed to James Mason 19th–20th century) — both A48, both with their own subtree, cascading `.c4` pair also resolved bilaterally. |
+| `A.Lon.Cls.MLn.c4` ⇄ `A.Lon.Msn.MLn.Nbd2.c4` | A | A48 / A48 | Same convergence one move deeper (`...c4`) inside the London System Cls/Msn pair. |
 
 **Groups previously multi-canonical via in-group pointer, now also
 carrying explicit `same_as`** (declaration made more readable; no
@@ -525,11 +527,11 @@ behaviour change):
 | `B.Fre.Cls.MLn` ⇄ `A.Ver.Cls.MLn.Be7` | Pre-existing TT from `D.QPG.Ver.MLn.Be7` provided the in-group pointer; `same_as` now makes the bilateral relation explicit between the two canonicals. |
 | `E.KID.Cls.Old.e5` ⇄ `E.KID.Cls.e5.O-O.Nbd7` | Same shape — TT from `E.KID.Cls.e5.O-O.Nbd7.O-O` is the in-group pointer; `same_as` makes the canonical relation explicit. |
 
-**Total multiple_canonical groups**: **7** as of the Larsen ⇄ Reti
-Nimzowitsch-Larsen sprint (was 2 before `same_as`, 6 after the
-OCN 0.3 schema commit, +1 with Larsen). Reported by
-`audit_transpositions.py --summary` as
-`multiple_canonical_groups=7`.
+**Total multiple_canonical groups**: **9** as of the London
+Classical ⇄ Mason sprint (was 2 before `same_as`, 6 after the
+OCN 0.3 schema commit, 7 after Larsen, +2 with the London cascade).
+Reported by `audit_transpositions.py --summary` as
+`multiple_canonical_groups=9`.
 
 ### Modern Benoni Classical (resolved, single_canonical — counter-example to KID)
 
@@ -640,7 +642,7 @@ target.
 - rank 19: `A.QPO.Nf6.Nf3.c6 ⇄ A.QPO.c6.Nf3.Nf6` (Czech-Indian path mirror).
 - rank 20: `A.Eng.Sym.Nc3.Nf6.Nf3 ⇄ A.Eng.Sym.Nf3.Nf6.Nc3` (English Symmetrical Three Knights — both real names).
 - rank 40: `D.QGA.Flo.MLn ⇄ D.QGA.Jan.e3.b5` (Flohr vs Haberditz Variation).
-- rank 65-66 (now ranks 7-8 post-cleanup): `A.Lon.Cls.MLn` family vs `A.Lon.Msn.MLn.Nbd2` (Classical vs Mason London — both real systems). **Draft proposal in [`london-classical-mason-proposal.md`](london-classical-mason-proposal.md)** recommends bilateral `same_as` on BOTH paired groups (rank 7 + rank 8 cascade), mirror of the Italian Giuoco/Two Knights precedent. Expected: +2 multi_canonical (→ 9), −2 unresolved (→ 34).
+- ~~London Classical ↔ Mason~~: **RESOLVED via bilateral `same_as`** on both paired ranks. `A.Lon.Cls.MLn ⇄ A.Lon.Msn.MLn.Nbd2` (Classical London contemporary vs Mason London historical, both A48) plus the cascading `.c4` pair. Mirror of the Italian Giuoco/Two Knights cascade. See [`london-classical-mason-proposal.md`](london-classical-mason-proposal.md) for the per-row analysis.
 - rank 76: `A.PQI.e3 ⇄ A.PQI.e3.Bb7` (parent-child same-FEN, structural review needed).
 
 All deferred cases either fit `same_as` (two real names, future
