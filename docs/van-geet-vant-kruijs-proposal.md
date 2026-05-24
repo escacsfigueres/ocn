@@ -1,6 +1,13 @@
 # Van Geet ↔ Van't Kruijs — arbitration proposal
 
-**Status**: draft proposal — NOT yet applied to `catalog/ocn-1.csv`.
+**Status**: **APPLIED via Option D (mixed)** — 2 bilateral `same_as`
+pairs (rank 1 + rank 29) + 1 `transposes_to` arrow for the
+structural breadcrumb. See `docs/transpositions.md` →
+"`same_as`-resolved groups" for the applied outcome. First case
+in OCN that deliberately preserves a 3-slug FEN convergence as
+"2 canonicals + 1 breadcrumb" rather than forcing all 3 to be
+co-canonical. `same_as` multi-target (N=2 pipe) remains
+deliberately unused — feature waits for a real 3-literary case.
 **Companion**: builds on `spec/OCN-1.md` → "Canonicalisation
 arbitration", the `same_as` policy section, and the precedents from
 the 4 prior `same_as` applications (Rubinstein/Colle-Zukertort,

@@ -3,9 +3,12 @@
 ## Current state
 
 - Catalogue size: **5,905** rows.
-- Duplicate FEN groups: **130** total — **96 resolved** (**9 with
-  multiple canonicals**, 87 single canonical), **34 unresolved**.
-- Rows in unresolved groups: **69**.
+- Duplicate FEN groups: **130** total — **98 resolved** (**11 with
+  multiple canonicals**, 87 single canonical), **32 unresolved**.
+- Rows in unresolved groups: **64**.
+- Top group size in unresolved: **2** (all remaining unresolved
+  are pairs; Van triple resolution removed the last conceptual
+  triple).
 - Resolution channels: `transposes_to` (non-canonical →
   canonical, asymmetric) and `same_as` (canonical ↔ canonical,
   symmetric, OCN 0.3).
@@ -517,6 +520,8 @@ undirected and reports such groups as `multiple_canonical`.
 | `A.Lar.Cls.MLn` ⇄ `A.Ret.Nim.MLn` | A | A01 / A06 | Nimzo-Larsen Attack (1.b3 move order) and Reti Nimzowitsch-Larsen (1.Nf3 then 2.b3 move order) — both real opening names with distinct ECO codes and independent family subtrees. First post-OCN-1.0.3 `same_as` addition. |
 | `A.Lon.Cls.MLn` ⇄ `A.Lon.Msn.MLn.Nbd2` | A | A48 / A48 | Classical London System (contemporary literary name) and Mason London (historical, attributed to James Mason 19th–20th century) — both A48, both with their own subtree, cascading `.c4` pair also resolved bilaterally. |
 | `A.Lon.Cls.MLn.c4` ⇄ `A.Lon.Msn.MLn.Nbd2.c4` | A | A48 / A48 | Same convergence one move deeper (`...c4`) inside the London System Cls/Msn pair. |
+| `A.Van.ReN.e3.d5` ⇄ `A.VtK.e5.Nc3.d5` | A | A00 / A00 | Van Geet Reversed Nimzowitsch d5 (1.Nc3) and Van't Kruijs Keoni-Hiva Ekolu Variation (1.e3) — both real opening-family identities. Same FEN via different first moves. Note: `A.Van.d5.e3.e5` is a third path through the same FEN but stayed as `transposes_to` (structural breadcrumb under "d5 Line" prefix, not literary). |
+| `A.Van.ReN.e3` ⇄ `A.VtK.e5.Nc3` | A | A00 / A00 | Parents of the rank-1 pair (after 3 plies). Reversed Nimzowitsch e3 prefix vs Keoni-Hiva Prefix — both anchored in their respective family root literary identities. |
 
 **Groups previously multi-canonical via in-group pointer, now also
 carrying explicit `same_as`** (declaration made more readable; no
@@ -527,11 +532,18 @@ behaviour change):
 | `B.Fre.Cls.MLn` ⇄ `A.Ver.Cls.MLn.Be7` | Pre-existing TT from `D.QPG.Ver.MLn.Be7` provided the in-group pointer; `same_as` now makes the bilateral relation explicit between the two canonicals. |
 | `E.KID.Cls.Old.e5` ⇄ `E.KID.Cls.e5.O-O.Nbd7` | Same shape — TT from `E.KID.Cls.e5.O-O.Nbd7.O-O` is the in-group pointer; `same_as` makes the canonical relation explicit. |
 
-**Total multiple_canonical groups**: **9** as of the London
-Classical ⇄ Mason sprint (was 2 before `same_as`, 6 after the
-OCN 0.3 schema commit, 7 after Larsen, +2 with the London cascade).
-Reported by `audit_transpositions.py --summary` as
-`multiple_canonical_groups=9`.
+**Total multiple_canonical groups**: **11** as of the Van Geet /
+Van't Kruijs sprint (was 2 before `same_as`, 6 after the OCN 0.3
+schema commit, 7 after Larsen, 9 after London cascade, +2 with
+the Van cascade). Reported by `audit_transpositions.py --summary`
+as `multiple_canonical_groups=11`.
+
+**`same_as` multi-target (N=2 pipe-separated) usage so far**: 0.
+The schema supports it; the Van triple was the first plausible
+test case but structural analysis showed only 2 of 3 slugs are
+genuine literary canonicals, so Option D (mixed `same_as` + `transposes_to`)
+was the honest resolution. Multi-target remains available for a
+future case with three genuine literary identities on one FEN.
 
 ### Modern Benoni Classical (resolved, single_canonical — counter-example to KID)
 
@@ -635,7 +647,7 @@ target.
 
 **Deferred (10 groups)**, all conceptual or "two real names" cases:
 
-- rank 1: `A.Van.ReN.e3.d5 / d5.e3.e5 / VtK.e5.Nc3.d5` (Van Geet / Van't Kruijs triple) + related rank 29 parents (Van.ReN.e3 ⇄ VtK.e5.Nc3). **Draft proposal in [`van-geet-vant-kruijs-proposal.md`](van-geet-vant-kruijs-proposal.md)** recommends Option D (mixed): 2 bilateral `same_as` pairs (rank 1 + rank 29) + 1 `transposes_to` from the structural breadcrumb. Multi-target `same_as` (N=2) stays untested — structural analysis says 2 of 3 are literary, the third is descriptor.
+- ~~Van Geet / Van't Kruijs triple~~: **RESOLVED via mixed Option D** — `A.Van.ReN.e3.d5 ⇄ A.VtK.e5.Nc3.d5` bilateral `same_as` (rank 1) + `A.Van.ReN.e3 ⇄ A.VtK.e5.Nc3` bilateral `same_as` (rank 29 parents) + `A.Van.d5.e3.e5 → A.Van.ReN.e3.d5` `transposes_to`. Multi-target `same_as` (N=2) deliberately NOT used: structural analysis shows only 2 of the 3 are real literary canonicals; the third is a Van Geet d5-prefix breadcrumb. See [`van-geet-vant-kruijs-proposal.md`](van-geet-vant-kruijs-proposal.md).
 - rank 7-9 post-batch: `B.Mod.Std.Nf3.C5S ⇄ B.Sic.HAc.d4.Bg7` (cross-family Modern/Sicilian).
 - rank 8: `E.Nim.Sml.Bot ⇄ E.Nim.Sml.Kmo` (Botvinnik vs Kmoch — both literary Sämisch siblings).
 - ~~Larsen ↔ Reti Nimzowitsch-Larsen~~: **RESOLVED via bilateral `same_as`** — `A.Lar.Cls.MLn ⇄ A.Ret.Nim.MLn` (Nimzo-Larsen Attack A01 ⇄ Reti Nimzowitsch-Larsen A06). Cleanest `same_as` case to date: no deletes, no cascades, no schema work, ECO-distinct on both sides. Mirrors the Rubinstein/Colle-Zukertort precedent. See [`larsen-reti-nimzowitsch-proposal.md`](larsen-reti-nimzowitsch-proposal.md) for the per-row analysis.

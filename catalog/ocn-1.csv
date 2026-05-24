@@ -3694,13 +3694,13 @@ A.VtK.e5,"Van't Kruijs Opening, e5",A00,A.VtK,e2e3 e7e5,2,e5 Line,closed,"...e5 
 A.VtK.e5.Bc4,"Van't Kruijs e5, Bc4",A00,A.VtK.e5,e2e3 e7e5 f1c4,3,Bouncing Bishop Prefix,sharp,"Bc4 after ...e5 in Van't Kruijs Opening.",,,,,
 A.VtK.e5.Bc4.b5,"Van't Kruijs Bouncing Bishop, b5",A00,A.VtK.e5.Bc4,e2e3 e7e5 f1c4 b7b5,4,Bouncing Bishop Variation,sharp,"...b5 against Bc4 in Van't Kruijs Opening.",,,,,
 A.VtK.e5.Bc4.b5.Bb3,"Van't Kruijs Bouncing Bishop, Bb3",A00,A.VtK.e5.Bc4.b5,e2e3 e7e5 f1c4 b7b5 c4b3,5,Bb3 Line,sharp,"Bb3 in the Bouncing Bishop Variation.",,,,,
-A.VtK.e5.Nc3,"Van't Kruijs e5, Nc3",A00,A.VtK.e5,e2e3 e7e5 b1c3,3,Keoni-Hiva Prefix,gambit|sharp,"Nc3 after ...e5 in Van't Kruijs Opening.",,,,,
+A.VtK.e5.Nc3,"Van't Kruijs e5, Nc3",A00,A.VtK.e5,e2e3 e7e5 b1c3,3,Keoni-Hiva Prefix,gambit|sharp,"Nc3 after ...e5 in Van't Kruijs Opening (Keoni-Hiva Prefix). Co-canonical with A.Van.ReN.e3 (Van Geet Reversed Nimzowitsch e3 prefix, A00) — same FEN via the 1.Nc3 Van Geet move order.",,,,,A.Van.ReN.e3
 A.VtK.e5.Nc3.Nf6,"Van't Kruijs Keoni-Hiva, Nf6",A00,A.VtK.e5.Nc3,e2e3 e7e5 b1c3 g8f6,4,Akahi Variation,gambit|sharp,"...Nf6 in the Keoni-Hiva Gambit.",,,,,
 A.VtK.e5.Nc3.Nf6.f4,"Van't Kruijs Akahi, f4",A00,A.VtK.e5.Nc3.Nf6,e2e3 e7e5 b1c3 g8f6 f2f4,5,f4 Line,gambit|sharp,"f4 in the Keoni-Hiva Akahi Variation.",,,,,
 A.VtK.e5.Nc3.Nf6.f4.exf4,"Van't Kruijs Akahi, exf4",A00,A.VtK.e5.Nc3.Nf6.f4,e2e3 e7e5 b1c3 g8f6 f2f4 e5f4,6,exf4 Line,gambit|sharp,"...exf4 in the Keoni-Hiva Akahi Variation.",,,,,
 A.VtK.e5.Nc3.Nc6,"Van't Kruijs Keoni-Hiva, Nc6",A00,A.VtK.e5.Nc3,e2e3 e7e5 b1c3 b8c6,4,Alua Variation,gambit|sharp,"...Nc6 in the Keoni-Hiva Gambit.",,,,,
 A.VtK.e5.Nc3.Nc6.f4,"Van't Kruijs Alua, f4",A00,A.VtK.e5.Nc3.Nc6,e2e3 e7e5 b1c3 b8c6 f2f4,5,f4 Line,gambit|sharp,"f4 in the Keoni-Hiva Alua Variation.",,,,,
-A.VtK.e5.Nc3.d5,"Van't Kruijs Keoni-Hiva, d5",A00,A.VtK.e5.Nc3,e2e3 e7e5 b1c3 d7d5,4,Ekolu Variation,gambit|sharp,"...d5 in the Keoni-Hiva Gambit.",,,,,
+A.VtK.e5.Nc3.d5,"Van't Kruijs Keoni-Hiva, d5",A00,A.VtK.e5.Nc3,e2e3 e7e5 b1c3 d7d5,4,Ekolu Variation,gambit|sharp,"...d5 in the Keoni-Hiva Gambit (Ekolu Variation). Co-canonical with A.Van.ReN.e3.d5 (Van Geet Reversed Nimzowitsch d5, A00) — same FEN via the 1.Nc3 Van Geet move order.",,,,,A.Van.ReN.e3.d5
 A.VtK.e5.Nc3.d5.f4,"Van't Kruijs Ekolu, f4",A00,A.VtK.e5.Nc3.d5,e2e3 e7e5 b1c3 d7d5 f2f4,5,f4 Line,gambit|sharp,"f4 in the Keoni-Hiva Ekolu Variation.",,,,,
 A.Mod.Nc3,"Modern Defence, Nc3",A40|A42,A.Mod,d2d4 g7g6 c2c4 f8g7 b1c3,2,Nc3 Line,closed,"Nc3 against the Modern Defence with c4.",,,,,
 A.Mod.Nc3.c5,"Modern Defence Nc3, c5",A40|A42,A.Mod.Nc3,d2d4 g7g6 c2c4 f8g7 b1c3 c7c5,3,Pterodactyl Family,sharp,"...c5 against Nc3 in the Modern Defence.",,,,,
@@ -5467,12 +5467,12 @@ E.KID.Sml.Ort.d5.Nh5.Nxc4,"KID Saemisch Orthodox Bronstein, Nxc4",E87,E.KID.Sml.
 E.KID.Cls.Mar.MLn.f3.g4,"KID Mar del Plata f3, Benko Attack",E99,E.KID.Cls.Mar.MLn.f3,d2d4 g8f6 c2c4 g7g6 b1c3 f8g7 e2e4 d7d6 g1f3 e8g8 f1e2 e7e5 e1g1 b8c6 d4d5 c6e7 f3e1 f6d7 f2f3 f7f5 g2g4,6,Benko Attack,sharp,g4 in the Mar del Plata f3/f5 structure.,,,,,
 A.And.Shy,"Anderssen Opening, Shy Attack",A00,A.And,a2a3 e7e5 g2g3 d7d5 f1g2 g8f6 d2d3 b8c6 b1d2 f8d6 e2e3 e8g8 h2h3,2,Formation: Shy Attack,closed,"g3/Bg2 waiting formation from the Anderssen Opening.",,,,,
 A.Hng.e5.a3.d5.d3,"Hungarian Opening, Burk Gambit",A00,A.Hng.e5.a3.d5,g2g3 e7e5 a2a3 d7d5 g1f3 e5e4 f3h4 f8e7 d2d3,5,Burk Gambit,gambit|sharp,"Nf3-h4 and d3 in the Hungarian e5/a3/d5 line.",,,,,
-A.Van.ReN.e3,"Van Geet Reversed Nimzowitsch, e3",A00,A.Van.ReN,b1c3 e7e5 e2e3,3,e3 Line,sharp,"e3 in the Van Geet Reversed Nimzowitsch.",,,,,
-A.Van.ReN.e3.d5,"Van Geet Reversed Nimzowitsch, d5",A00,A.Van.ReN.e3,b1c3 e7e5 e2e3 d7d5,4,d5 Line,sharp,"...d5 against the e3 Reversed Nimzowitsch.",,,,,
+A.Van.ReN.e3,"Van Geet Reversed Nimzowitsch, e3",A00,A.Van.ReN,b1c3 e7e5 e2e3,3,e3 Line,sharp,"e3 in the Van Geet Reversed Nimzowitsch. Co-canonical with A.VtK.e5.Nc3 (Van't Kruijs Keoni-Hiva Prefix, A00) — same FEN via the 1.e3 Van't Kruijs move order.",,,,,A.VtK.e5.Nc3
+A.Van.ReN.e3.d5,"Van Geet Reversed Nimzowitsch, d5",A00,A.Van.ReN.e3,b1c3 e7e5 e2e3 d7d5,4,d5 Line,sharp,"...d5 against the e3 Reversed Nimzowitsch. Co-canonical with A.VtK.e5.Nc3.d5 (Van't Kruijs Keoni-Hiva Ekolu Variation, A00) — same FEN via the 1.e3 Van't Kruijs move order.",,,,,A.VtK.e5.Nc3.d5
 A.Van.ReN.e3.d5.Be6,"Van Geet Opening, Hulsemann Gambit",A00,A.Van.ReN.e3.d5,b1c3 e7e5 e2e3 d7d5 d1h5 c8e6,5,Hulsemann Gambit,gambit|sharp,"Qh5 and ...Be6 in the Van Geet e3/d5 line.",,,,,
 A.Van.ReN.e3.d5.Nf6,"Van Geet Opening, Liebig Gambit",A00,A.Van.ReN.e3.d5,b1c3 e7e5 e2e3 d7d5 d1h5 g8f6,5,Liebig Gambit,gambit|sharp,"Qh5 and ...Nf6 in the Van Geet e3/d5 line.",,,,,
 A.Van.d5.e3,"Van Geet d5, e3",A00,A.Van.d5,b1c3 d7d5 e2e3,3,e3 Line,sharp,"e3 against ...d5 in the Van Geet.",,,,,
-A.Van.d5.e3.e5,"Van Geet d5 e3, e5",A00,A.Van.d5.e3,b1c3 d7d5 e2e3 e7e5,4,e5 Line,sharp,"...e5 after e3 in the Van Geet d5 line.",,,,,
+A.Van.d5.e3.e5,"Van Geet d5 e3, e5",A00,A.Van.d5.e3,b1c3 d7d5 e2e3 e7e5,4,e5 Line,sharp,Move-order transposition to A.Van.ReN.e3.d5: same FEN reached via the Van Geet d5-first move order (1.Nc3 d5 2.e3 e5).,,,,A.Van.ReN.e3.d5,
 A.Van.d5.e3.e5.d4,"Van Geet d5 e3 e5, d4",A00,A.Van.d5.e3.e5,b1c3 d7d5 e2e3 e7e5 d2d4,5,d4 Line,sharp,"d4 in the Van Geet d5/e3/e5 structure.",,,,,
 A.Van.d5.e3.e5.d4.Bb4,"Van Geet Opening, Sleipnir Gambit",A00,A.Van.d5.e3.e5.d4,b1c3 d7d5 e2e3 e7e5 d2d4 f8b4,6,Sleipnir Gambit,gambit|sharp,"...Bb4 in the Van Geet d5/e3/e5/d4 line.",,,,,
 A.Pol.Nf6.Bb2.g6.d4,"Polish Opening King's Indian, Sokolsky Attack",A00,A.Pol.Nf6.Bb2.g6,b2b4 g8f6 c1b2 g7g6 c2c4 f8g7 e2e3 d7d6 g1f3 e8g8 d2d4,5,Sokolsky Attack,closed,"c4/e3/Nf3/d4 setup in the Polish King's Indian Variation.",,,,,
