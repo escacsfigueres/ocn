@@ -651,7 +651,7 @@ target.
 
 - ~~Van Geet / Van't Kruijs triple~~: **RESOLVED via mixed Option D** — `A.Van.ReN.e3.d5 ⇄ A.VtK.e5.Nc3.d5` bilateral `same_as` (rank 1) + `A.Van.ReN.e3 ⇄ A.VtK.e5.Nc3` bilateral `same_as` (rank 29 parents) + `A.Van.d5.e3.e5 → A.Van.ReN.e3.d5` `transposes_to`. Multi-target `same_as` (N=2) deliberately NOT used: structural analysis shows only 2 of the 3 are real literary canonicals; the third is a Van Geet d5-prefix breadcrumb. See [`van-geet-vant-kruijs-proposal.md`](van-geet-vant-kruijs-proposal.md).
 - rank 7-9 post-batch: `B.Mod.Std.Nf3.C5S ⇄ B.Sic.HAc.d4.Bg7` (cross-family Modern/Sicilian).
-- rank 8: `E.Nim.Sml.Bot ⇄ E.Nim.Sml.Kmo` (Botvinnik vs Kmoch — both literary Sämisch siblings).
+- rank 8: `E.Nim.Sml.Bot ⇄ E.Nim.Sml.Kmo` (Botvinnik vs Kmoch — both literary Sämisch siblings). **Proposed** via bilateral `same_as` in [`nimzo-saemisch-botvinnik-kmoch-proposal.md`](nimzo-saemisch-botvinnik-kmoch-proposal.md) — cleanest pattern in the series (symmetric depth-3 siblings under same family root, internal precedent at depth 4 already in catalogue).
 - ~~Larsen ↔ Reti Nimzowitsch-Larsen~~: **RESOLVED via bilateral `same_as`** — `A.Lar.Cls.MLn ⇄ A.Ret.Nim.MLn` (Nimzo-Larsen Attack A01 ⇄ Reti Nimzowitsch-Larsen A06). Cleanest `same_as` case to date: no deletes, no cascades, no schema work, ECO-distinct on both sides. Mirrors the Rubinstein/Colle-Zukertort precedent. See [`larsen-reti-nimzowitsch-proposal.md`](larsen-reti-nimzowitsch-proposal.md) for the per-row analysis.
 - rank 19: `A.QPO.Nf6.Nf3.c6 ⇄ A.QPO.c6.Nf3.Nf6` (Czech-Indian path mirror).
 - rank 20: `A.Eng.Sym.Nc3.Nf6.Nf3 ⇄ A.Eng.Sym.Nf3.Nf6.Nc3` (English Symmetrical Three Knights — both real names).
