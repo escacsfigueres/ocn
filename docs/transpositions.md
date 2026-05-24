@@ -635,7 +635,7 @@ target.
 
 **Deferred (10 groups)**, all conceptual or "two real names" cases:
 
-- rank 1: `A.Van.ReN.e3.d5 / d5.e3.e5 / VtK.e5.Nc3.d5` (Van Geet / Van't Kruijs triple).
+- rank 1: `A.Van.ReN.e3.d5 / d5.e3.e5 / VtK.e5.Nc3.d5` (Van Geet / Van't Kruijs triple) + related rank 29 parents (Van.ReN.e3 ⇄ VtK.e5.Nc3). **Draft proposal in [`van-geet-vant-kruijs-proposal.md`](van-geet-vant-kruijs-proposal.md)** recommends Option D (mixed): 2 bilateral `same_as` pairs (rank 1 + rank 29) + 1 `transposes_to` from the structural breadcrumb. Multi-target `same_as` (N=2) stays untested — structural analysis says 2 of 3 are literary, the third is descriptor.
 - rank 7-9 post-batch: `B.Mod.Std.Nf3.C5S ⇄ B.Sic.HAc.d4.Bg7` (cross-family Modern/Sicilian).
 - rank 8: `E.Nim.Sml.Bot ⇄ E.Nim.Sml.Kmo` (Botvinnik vs Kmoch — both literary Sämisch siblings).
 - ~~Larsen ↔ Reti Nimzowitsch-Larsen~~: **RESOLVED via bilateral `same_as`** — `A.Lar.Cls.MLn ⇄ A.Ret.Nim.MLn` (Nimzo-Larsen Attack A01 ⇄ Reti Nimzowitsch-Larsen A06). Cleanest `same_as` case to date: no deletes, no cascades, no schema work, ECO-distinct on both sides. Mirrors the Rubinstein/Colle-Zukertort precedent. See [`larsen-reti-nimzowitsch-proposal.md`](larsen-reti-nimzowitsch-proposal.md) for the per-row analysis.
