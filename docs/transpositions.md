@@ -609,6 +609,17 @@ All five non-ON-HOLD ones are `proposal_needed` (same_as or
 cross-family arbitration); none needs external bibliography except
 the Nimzo ON-HOLD case.
 
+The 3 `same_as` candidates ([10], [11], [12]) are analysed in
+[`final-same-as-candidates-proposal.md`](final-same-as-candidates-proposal.md).
+**Finding: only 2 are clean `same_as`.** KID Simagin/Uhlmann [11]
+→ bilateral `same_as`. Scandinavian Gipslis/Portuguese [12] →
+`same_as` (lean) or single_canonical TT. **QID Miles/Petrosian
+[10] → DEFER**: not a co-canonical case but a structural
+mis-parenting defect — `E.QID.Mil.MLn` carries the a3/Nc3
+Kasparov-Petrosian theory subtree under the wrong ("Miles" = 4.Bf4)
+parent, with a broken parent chain; needs a reparent/relabel
+review, not a same_as (the Nimzo lesson).
+
 ### Post-0.2 parent-child cleanup batch
 
 Mechanical sweep over the parent-child same-FEN residuals in the top-60 unresolved (a child slug carrying the identical FEN to its direct parent, reached either by an identical move list or a pure move-order variant). Same arbitration rules as the earlier batches: DELETE a leaf descriptor with no inbound refs and no independent literary name; `transposes_to` the parent when the child has its own children or carries a name worth preserving.
