@@ -2559,7 +2559,7 @@ B.Sic.Mod.d4.cxd4.Qxd4,"Sicilian Modern, Chekhover Variation",B53,B.Sic.Mod.d4.c
 B.Sic.Mod.d4.cxd4.Qxd4.Nc6,"Chekhover Variation, Zaitsev Defence",B53,B.Sic.Mod.d4.cxd4.Qxd4,e2e4 c7c5 g1f3 d7d6 d2d4 c5d4 d1d4 b8c6 f1b5 d8d7,6,Zaitsev Defense,sharp,"...Nc6, Bb5 and ...Qd7 in the Chekhover.",,,,,
 B.Sic.Mod.b4,"Sicilian Modern, Wing Gambit Deferred",B50,B.Sic.Mod,e2e4 c7c5 g1f3 d7d6 b2b4,3,Wing Gambit Deferred,gambit|sharp,"3.b4 against 2...d6.",,,,,
 B.Sic.HAc.d4,"Hyper-Accelerated Dragon, d4",B27,B.Sic.HAc,e2e4 c7c5 g1f3 g7g6 d2d4,3,,sharp,"3.d4 against the Hyper-Accelerated Dragon.",,,,,
-B.Sic.HAc.d4.Bg7,"Hyper-Accelerated Pterodactyl",B27,B.Sic.HAc.d4,e2e4 c7c5 g1f3 g7g6 d2d4 f8g7,4,Hyperaccelerated Pterodactyl,sharp,"...Bg7 after 3.d4.",,,,,
+B.Sic.HAc.d4.Bg7,"Hyper-Accelerated Pterodactyl",B27,B.Sic.HAc.d4,e2e4 c7c5 g1f3 g7g6 d2d4 f8g7,4,Hyperaccelerated Pterodactyl,sharp,"...Bg7 after 3.d4 (Sicilian 1.e4 c5 move order). Same FEN as B.Mod.Std.Nf3.C5S (Modern Nf3 c5 System, 1.e4 g6 order); co-canonical Western Pterodactyl, B27/B06.",,,,,B.Mod.Std.Nf3.C5S
 B.Sic.HAc.d4.Bg7.dxc5,"Hyper-Accelerated Pterodactyl, Rhamphorhynchus",B27,B.Sic.HAc.d4.Bg7,e2e4 c7c5 g1f3 g7g6 d2d4 f8g7 d4c5 d8a5,5,Rhamphorhynchus,sharp,"dxc5 and ...Qa5+ in the Hyper-Accelerated Pterodactyl.",,,,,
 B.Sic.HAc.d4.f5,"Hyper-Accelerated Dragon, Frederico Variation",B27,B.Sic.HAc.d4,e2e4 c7c5 g1f3 g7g6 d2d4 f7f5,4,Frederico Variation,sharp,"3.d4 f5.",,,,,
 B.Sic.HAc.c3,"Hyper-Accelerated Dragon, Western Pterodactyl",B27,B.Sic.HAc,e2e4 c7c5 g1f3 g7g6 c2c3 f8g7 d2d4 d8a5,3,Western Pterodactyl,sharp,"c3/d4 and ...Qa5 in the Hyper-Accelerated Dragon.",,,,,
@@ -4785,7 +4785,7 @@ E.Nim.Rub.O-O.Ne2,"Nimzo Rubinstein Castled, Ne2",E46,E.Nim.Rub.O-O,d2d4 g8f6 c2
 A.And.Hip,"Anderssen Opening, Hippopotamus Attack",A00,A.And,a2a3 e7e5 b2b3 d7d5 c2c3 g8f6 d2d3 b8c6 e2e3 f8d6 f2f3 e8g8 g2g3,2,Formation: Hippopotamus Attack,closed,"Hippopotamus-style build from 1.a3.",,,,,
 A.And.Bat,"Anderssen Opening, Battambang Variation",A00,A.And,a2a3 e7e5 b1c3,2,Battambang Variation,sharp,Nc3 after 1.a3 e5.,,,,,
 A.Ama.Par.Gen,"Amar Paris Gambit, Gent Gambit",A00,A.Ama.Par,g1h3 d7d5 g2g3 e7e5 f2f4 c8h3 f1h3 e5f4 e1g1 f4g3 h2g3,3,Gent Gambit,gambit|sharp,"Bxh3 and the g-pawn capture in the Amar Paris Gambit.",,,,,
-A.Hng.Par,"Hungarian Opening, Paris Gambit",A00,A.Hng,g2g3 e7e5 g1h3 d7d5 f2f4,2,Paris Gambit,gambit|sharp,"Hungarian move order into the Paris Gambit.",,,,,
+A.Hng.Par,"Hungarian Opening, Paris Gambit",A00,A.Hng,g2g3 e7e5 g1h3 d7d5 f2f4,2,Paris Gambit,gambit|sharp,"Hungarian move order into the Paris Gambit. Same FEN as A.Ama.Par (the Amar 1.Nh3 home of the Paris Gambit); transposes there.",,,,A.Ama.Par,
 A.Hng.Par.Gen,"Hungarian Paris Gambit, Gent Line",A00,A.Hng.Par,g2g3 e7e5 g1h3 d7d5 f2f4 c8h3 f1h3 e5f4 e1g1,3,Gent Line,gambit|sharp,"Bxh3 and exf4 in the Hungarian Paris Gambit.",,,,,
 A.Hng.ReA.Brk,"Hungarian Reversed Alekhine, Reversed Brooklyn",A00,A.Hng.ReA,g2g3 e7e5 g1f3 e5e4 f3g1,3,Reversed Brooklyn Defence,sharp,Ng1 retreat after ...e4.,,,,,
 A.Hng.ReA.Brk.Bnk,"Hungarian Reversed Brooklyn, Benko Gambit",A00,A.Hng.ReA.Brk,g2g3 e7e5 g1f3 e5e4 f3g1 g8f6 b2b4,4,Brooklyn Benko Gambit,gambit|sharp,b4 against the Reversed Brooklyn setup.,,,,,
@@ -5510,7 +5510,7 @@ B.Ale.Chs.Nd5.Bc4.e6.d6,"Alekhine Hunt Variation, Mikenas Setup",B02,B.Ale.Chs.N
 B.Ale.Chs.Nd5.Bc4.e6.Bxd5,"Alekhine Hunt Variation, Mikenas Gambit",B02,B.Ale.Chs.Nd5.Bc4.e6,e2e4 g8f6 e4e5 f6d5 c2c4 d5b6 c4c5 b6d5 f1c4 e7e6 b1c3 d7d6 c3d5 e6d5 c4d5,6,Mikenas Gambit,gambit|sharp,Nxd5 exd5 Bxd5 in the Alekhine Hunt Variation.,,,,,
 B.Mod.Std.Nc3.C5S.d5,"Eastern Pterodactyl, Benoni",B06,B.Mod.Std.Nc3.C5S,e2e4 g7g6 d2d4 f8g7 b1c3 c7c5 d4d5,5,Benoni Line,sharp,d5 against the Eastern Pterodactyl.,,,,,
 B.Mod.Std.Nc3.C5S.d5.Qa5,"Eastern Pterodactyl, Benoni Pterodactyl",B06,B.Mod.Std.Nc3.C5S.d5,e2e4 g7g6 d2d4 f8g7 b1c3 c7c5 d4d5 d8a5,6,Benoni Pterodactyl,sharp,...Qa5 after d5 in the Eastern Pterodactyl.,,,,,
-B.Mod.Std.Nf3.C5S,"Modern Defence Nf3, c5 System",B06,B.Mod.Std.Nf3,e2e4 g7g6 d2d4 f8g7 g1f3 c7c5,4,c5 System,sharp,...c5 against the Nf3 Modern setup.,,,,,
+B.Mod.Std.Nf3.C5S,"Modern Defence Nf3, c5 System",B06,B.Mod.Std.Nf3,e2e4 g7g6 d2d4 f8g7 g1f3 c7c5,4,c5 System,sharp,"...c5 against the Nf3 Modern setup (Modern 1.e4 g6 move order). Same FEN as B.Sic.HAc.d4.Bg7 (Hyper-Accelerated Pterodactyl, Sicilian 1.e4 c5 order); co-canonical Western Pterodactyl, B06/B27.",,,,,B.Sic.HAc.d4.Bg7
 B.Mod.Std.Nf3.C5S.Be3,"Modern Pterodactyl Western, Anhanguera",B06,B.Mod.Std.Nf3.C5S,e2e4 g7g6 d2d4 f8g7 g1f3 c7c5 c1e3 d8a5,5,Anhanguera,sharp,Be3 and ...Qa5 in the Western Pterodactyl.,,,,,
 B.Mod.Std.Nf3.C5S.Bc4,"Modern Pterodactyl Western, Siroccopteryx",B06,B.Mod.Std.Nf3.C5S,e2e4 g7g6 g1f3 f8g7 d2d4 c7c5 f1c4 c5d4 f3d4 d8a5,5,Siroccopteryx,sharp,Bc4 and ...Qa5 in the Western Pterodactyl.,,,,,
 B.Sic.HAc.d4.Bg7.dxc5.Bxc3,"Hyper-Accelerated Pterodactyl, Pteranodon",B27,B.Sic.HAc.d4.Bg7.dxc5,e2e4 c7c5 g1f3 g7g6 d2d4 f8g7 d4c5 d8a5 b1c3 g7c3 b2c3,6,Pteranodon,sharp,...Bxc3+ and bxc3 in the Rhamphorhynchus line.,,,,,

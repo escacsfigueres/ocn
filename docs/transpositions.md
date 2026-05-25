@@ -3,9 +3,13 @@
 ## Current state
 
 - Catalogue size: **5,900** rows.
-- Duplicate FEN groups: **125** total — **121 resolved** (**16 with
-  multiple canonicals**, 105 single canonical), **4 unresolved**.
-- Rows in unresolved groups: **8**.
+- Duplicate FEN groups: **125** total — **123 resolved** (**17 with
+  multiple canonicals**, 106 single canonical), **2 unresolved**.
+- Rows in unresolved groups: **4**.
+- **Only 2 unresolved groups remain, both deferred for dedicated
+  investigation** (not quick arbitrations): QID Miles/Petrosian
+  (structural mis-parenting defect) and Nimzo Bot/Kmo (naming
+  review, ON HOLD). Every other duplicate FEN group is resolved.
 - Top group size in unresolved: **2** (all remaining unresolved
   are pairs; Van triple resolution removed the last conceptual
   triple).
@@ -535,6 +539,7 @@ undirected and reports such groups as `multiple_canonical`.
 | `E.Bud.Adl.MLn.e3` ⇄ `E.Bud.Rub.MLn.e3` | E | A52 / A52 | Same Budapest Adler/Rubinstein convergence one move deeper (e3 + Nbd2 + O-O). Cascade level 2. |
 | `E.Bud.Adl.MLn.e3.Be2` ⇄ `E.Bud.Rub.MLn.e3.Be2` | E | A52 / A52 | Same convergence at the Be2 line (+...d6). Cascade level 3 — deepest same_as cascade in the series. The Adler-only `.Re8` leaf extends beyond and stays a normal descendant. |
 | `E.KID.Fch.Sim` ⇄ `E.KID.Fch.Uhl` | E | E62 / E62 | KID Fianchetto Simagin (Nc3-first) vs Uhlmann-Szabo (Nf3-first) — two named move-order routes to the same `...Nc6/...e5` tabiya. Sibling Panno (`Sim.MLn` transposes to `E.KID.Fch.Pan`) left as is. |
+| `B.Mod.Std.Nf3.C5S` ⇄ `B.Sic.HAc.d4.Bg7` | B (Modern/Sicilian) | B06 / B27 | The Western Pterodactyl — same `...g6/...c5/...Bg7` tabiya from the Modern (1.e4 g6) and Sicilian Hyper-Accelerated (1.e4 c5) families. Cross-family co-canonical; each side keeps its own Pterodactyl subtree. |
 
 **Groups previously multi-canonical via in-group pointer, now also
 carrying explicit `same_as`** (declaration made more readable; no
@@ -545,13 +550,14 @@ behaviour change):
 | `B.Fre.Cls.MLn` ⇄ `A.Ver.Cls.MLn.Be7` | Pre-existing TT from `D.QPG.Ver.MLn.Be7` provided the in-group pointer; `same_as` now makes the bilateral relation explicit between the two canonicals. |
 | `E.KID.Cls.Old.e5` ⇄ `E.KID.Cls.e5.O-O.Nbd7` | Same shape — TT from `E.KID.Cls.e5.O-O.Nbd7.O-O` is the in-group pointer; `same_as` makes the canonical relation explicit. |
 
-**Total multiple_canonical groups**: **16** as of the KID
-Simagin/Uhlmann sprint (was 2 before `same_as`, 6 after the
+**Total multiple_canonical groups**: **17** as of the Modern/Sicilian
+Western Pterodactyl sprint (was 2 before `same_as`, 6 after the
 OCN 0.3 schema commit, 7 after Larsen, 9 after London cascade,
 11 after Van cascade, 12 with QGA Flohr, 15 with the Budapest
-Adler/Rubinstein cascade, +1 with KID Simagin/Uhlmann). Reported by
+Adler/Rubinstein cascade, 16 with KID Simagin/Uhlmann, +1 with the
+Modern/Sicilian cross-family pair). Reported by
 `audit_transpositions.py --summary` as
-`multiple_canonical_groups=16`.
+`multiple_canonical_groups=17`.
 
 **`same_as` multi-target (N=2 pipe-separated) usage so far**: 0.
 The schema supports it; the Van triple was the first plausible
@@ -623,19 +629,23 @@ Kasparov-Petrosian theory subtree under the wrong ("Miles" = 4.Bf4)
 parent, with a broken parent chain; needs a reparent/relabel
 review, not a same_as (the Nimzo lesson).
 
-**4 unresolved groups remain** after this sprint: Modern/Sicilian
-cross-family [1], Nimzo Bot/Kmo ON HOLD [2], QID Miles/Petrosian
-structural defect [10], Amar/Hungarian cross-family [14].
+The 2 cross-family groups ([1], [14]) were analysed in
+[`final-cross-family-arbitration-proposal.md`](final-cross-family-arbitration-proposal.md)
+and **resolved with different treatments**: Modern/Sicilian (the
+Western Pterodactyl) → bilateral `same_as` (`B.Mod.Std.Nf3.C5S ⇄
+B.Sic.HAc.d4.Bg7`, B06 ⇄ B27, two genuine family homes). Amar/Hungarian
+(the Paris Gambit) → `transposes_to` `A.Hng.Par → A.Ama.Par`
+(one-home gambit; the Hungarian side self-describes as "Hungarian
+move order into the Paris Gambit").
 
-The 2 cross-family groups ([1], [14]) are analysed in
-[`final-cross-family-arbitration-proposal.md`](final-cross-family-arbitration-proposal.md).
-**They want different treatments**: Modern/Sicilian (the Western
-Pterodactyl) → bilateral `same_as` (two genuine family homes,
-B06 ⇄ B27, each with its own subtree). Amar/Hungarian (the Paris
-Gambit) → `transposes_to` `A.Hng.Par → A.Ama.Par` (one-home gambit;
-the Hungarian side self-describes as "Hungarian move order into the
-Paris Gambit"). After these, only QID [10] (structural) and Nimzo
-[2] (ON HOLD) would remain.
+**Only 2 unresolved groups remain**, both deferred for dedicated
+investigation:
+- **QID Miles/Petrosian [10]** — structural mis-parenting defect:
+  `E.QID.Mil.MLn` carries the a3/Nc3 Kasparov-Petrosian theory
+  subtree under the wrong ("Miles" = 4.Bf4) parent, with a broken
+  parent chain. Needs a reparent/relabel review, not a same_as.
+- **Nimzo Bot/Kmo [2]** — ON HOLD pending external naming review
+  (`E.Nim.Fou` already carries the "Kmoch" alias at depth 2).
 
 ### Post-0.2 parent-child cleanup batch
 

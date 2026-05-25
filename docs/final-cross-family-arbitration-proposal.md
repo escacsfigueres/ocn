@@ -1,11 +1,12 @@
 # Final cross-family arbitrations — proposal
 
-**Status**: PROPOSED (not applied). The last two
-`CROSS_FAMILY_CONCEPTUAL` groups from
-[`unresolved-map-20.md`](unresolved-map-20.md). After these, the
-only unresolved groups left are the two that need dedicated
-investigation: QID Miles/Petrosian (structural defect) and Nimzo
-Bot/Kmo (naming review, ON HOLD).
+**Status**: **APPLIED** (commit pending push). Modern/Sicilian
+resolved via bilateral `same_as`; Amar/Hungarian resolved via
+`transposes_to` (`A.Hng.Par → A.Ama.Par`). After these, only the
+two dedicated-investigation groups remain unresolved: QID
+Miles/Petrosian (structural defect) and Nimzo Bot/Kmo (naming
+review, ON HOLD). The last two `CROSS_FAMILY_CONCEPTUAL` groups
+from [`unresolved-map-20.md`](unresolved-map-20.md).
 
 **Headline**: the two groups want **different** treatments —
 Modern/Sicilian is a genuine two-home transposition (`same_as`);
