@@ -1,10 +1,13 @@
 # Final same_as candidates — arbitration proposal
 
-**Status**: PROPOSED (not applied). Covers the 3 candidates the
-unresolved map flagged as `SAME_AS_CANDIDATE`. **Key finding: only
-2 of the 3 are clean `same_as`; the QID Miles/Petrosian pair is
-actually a structural mis-parenting defect and is recommended for
-DEFER, not same_as.**
+**Status**: **PARTIALLY APPLIED**. KID Simagin/Uhlmann resolved via
+bilateral `same_as`; Scandinavian Gipslis/Portuguese resolved via
+`transposes_to` (conservative single_canonical — editor judged
+Gipslis a Lichess-derived leaf, not an independent literary name);
+QID Miles/Petrosian **DEFERRED** (structural mis-parenting defect —
+needs its own reparent/relabel sprint, not a same_as). **Key
+finding: only 2 of the 3 map "same_as candidates" were resolvable
+now, and only 1 as an actual same_as.**
 
 **Companion**: `spec/OCN-1.md` → "Canonicalisation arbitration",
 the 8 prior `same_as` applications, and
