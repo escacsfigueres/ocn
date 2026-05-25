@@ -12,7 +12,33 @@ Bot/Kmo group (`E.Nim.Sml.Bot ⇄ E.Nim.Sml.Kmo`). Companion to
 | **Lichess opening DB** (`external/lichess-openings/*.tsv`, in-repo) | ✅ used | **decisive** — this is the dataset OCN imported its opening names from, so it is authoritative for "what does this slug's name come from" |
 | OCN catalogue (`catalog/ocn-1.csv`) | ✅ used | internal cross-check |
 | General ECO / opening-theory knowledge | ✅ used | labelled as inference, corroborating only |
-| **NotebookLM (MCP)** | ❌ **not available** | `get_health` → `authenticated:false`, `list_notebooks` → `[]` (0 notebooks), checked twice including after a reconnect attempt. Not needed: the in-repo Lichess DB settles the question. |
+| **NotebookLM — `nlm` CLI** (albertpi@gmail.com, 93 notebooks) | ✅ **used** | secondary corroboration. The **MCP** server was unusable (`authenticated:false`, 0 notebooks), but the `nlm` CLI works — queried Q25 (Editorial chess: Quality/Gambit/Everyman/Thinkers, 123 sources) and Q30a (Telegram chess library, 207 sources). Findings below corroborate the Lichess conclusion. |
+
+### NotebookLM evidence (via `nlm` CLI — secondary, corroborating)
+
+Queried the opening-book corpora for the Kmoch/Botvinnik Nimzo
+naming. Both notebooks point the same way as Lichess:
+
+- **Q30a (Telegram chess library)** — *"the sources do not attribute
+  any specific Nimzo-Indian variation to [Kmoch]"* (he is mentioned
+  only as a player); the `4.a3 Bxc3+ 5.bxc3` doubled-pawn line "which
+  frequently features f3" is *"explicitly identified as the **Sämisch
+  Variation**"*; and *"Botvinnik worked out specific plans … involving
+  f2-f3 and e3-e4"* (the *Magnus Method* even calls `19.f3` "the
+  Botvinnik plan" in the Rubinstein Nimzo).
+- **Q25 (Editorial: Quality/Gambit/Everyman/Thinkers)** — citations
+  surface Botvinnik's own Nimzo games (Botvinnik–Chekhover 1938) and
+  the doubled-pawn Sämisch context, but **no source names a "Sämisch
+  Kmoch"**; "Botvinnik Variation" in this corpus most often refers to
+  the *Semi-Slav* Botvinnik or the *English* Botvinnik System
+  (different openings — corpus noise, not the Nimzo Sämisch).
+
+**Net**: the book corpus does **not** attest "Kmoch" as a Nimzo
+Sämisch variation name, identifies the doubled-pawn line as the
+**Sämisch**, and ties **Botvinnik** to the f3/e4 plan — fully
+consistent with the Lichess finding (Kmoch = 4.f3 only; the Sämisch
+f3-tabiya = Botvinnik; no "Sämisch Kmoch"). NotebookLM does not
+overturn anything; it reinforces Option B.
 
 ## Evidence table
 
