@@ -655,6 +655,9 @@ investigation:
   recommends re-slugging the 11-node subtree under `E.QID.Pet.KPe`
   (the empty correctly-named leaf) — OCN's first slug-rename, so
   apply only in a dedicated, downstream-coordinated, GO'd commit.
+  Exact old→new slug map + `canonical_name` relabel + verification
+  checklist in
+  [`qid-miles-petrosian-migration-preflight.md`](qid-miles-petrosian-migration-preflight.md).
 - **Nimzo Bot/Kmo [2]** — ON HOLD pending external naming review
   (`E.Nim.Fou` already carries the "Kmoch" alias at depth 2).
 

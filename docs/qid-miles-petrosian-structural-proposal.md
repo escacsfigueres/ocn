@@ -202,3 +202,9 @@ would be the ON-HOLD Nimzo Bot/Kmo naming review.
 Treat this as **reviewed and ready**, but apply only in a dedicated,
 GO'd, downstream-coordinated commit — not folded into other work.
 This proposal commit changes nothing in `catalog/ocn-1.csv`.
+
+The exact migration — every old→new slug, new parents, the
+**required `canonical_name` relabel** (the 10 descendants still read
+"QID Miles, …"), downstream impact, and a verification checklist —
+is fully specified in
+[`qid-miles-petrosian-migration-preflight.md`](qid-miles-petrosian-migration-preflight.md).
