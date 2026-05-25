@@ -664,9 +664,11 @@ investigation:
   `E.Nim.Sml.Bot` — correct); `E.Nim.Sml.Kmo`'s "Kmoch" is an
   artifact (no Lichess "Sämisch Kmoch"). Recommended: Option B —
   `E.Nim.Sml.Kmo.transposes_to = E.Nim.Sml.Bot` + drop the spurious
-  "Kmoch", NOT a `same_as`. Ready for a preflight + apply sprint.
-  See
+  "Kmoch", NOT a `same_as`. See
   [`nimzo-botvinnik-kmoch-naming-review.md`](nimzo-botvinnik-kmoch-naming-review.md).
+  Apply fully specified (TT + relabel + checklist) in
+  [`nimzo-botvinnik-kmoch-apply-preflight.md`](nimzo-botvinnik-kmoch-apply-preflight.md)
+  — ready for a dedicated GO'd commit.
 
 ### Post-0.2 parent-child cleanup batch
 

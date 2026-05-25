@@ -164,8 +164,9 @@ follow-up, independent of the duplicate-group count.
 ## Recommended next step
 
 Treat the bibliographic question as **settled** (Kmoch = 4.f3;
-the Sämisch f3-tabiya = Botvinnik). When ready, write a short
-apply-preflight (mirroring the QID one) covering the `transposes_to`
-+ relabel + the `Kmo.MLn` quirk + the `Rub.Kmo` follow-up, then
-apply with explicit GO. This review commit changes nothing in
+the Sämisch f3-tabiya = Botvinnik). The apply is fully specified in
+[`nimzo-botvinnik-kmoch-apply-preflight.md`](nimzo-botvinnik-kmoch-apply-preflight.md)
+(the `transposes_to` + relabel, the `Kmo.MLn` relabel, the `Rub.Kmo`
+follow-up marked out of scope, and a verification checklist). Apply
+in a dedicated, GO'd commit. This review commit changes nothing in
 `catalog/ocn-1.csv`.
