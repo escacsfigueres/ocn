@@ -547,6 +547,31 @@ genuine literary canonicals, so Option D (mixed `same_as` + `transposes_to`)
 was the honest resolution. Multi-target remains available for a
 future case with three genuine literary identities on one FEN.
 
+### Post-0.2 parent-child cleanup batch
+
+Mechanical sweep over the parent-child same-FEN residuals in the top-60 unresolved (a child slug carrying the identical FEN to its direct parent, reached either by an identical move list or a pure move-order variant). Same arbitration rules as the earlier batches: DELETE a leaf descriptor with no inbound refs and no independent literary name; `transposes_to` the parent when the child has its own children or carries a name worth preserving.
+
+**7 groups resolved (4 TT + 3 DELETE)**:
+
+| child | parent | action | reason |
+|---|---|---|---|
+| `A.PQI.e3.Bb7` | `A.PQI.e3` | TT | child has a `.Bb2` branch; preserve subtree |
+| `A.Tro.Bxf6.e3` | `A.Tro.Bxf6` | TT | child has a `.d5` branch; preserve subtree |
+| `A.Ret.f5.d3.e4` | `A.Ret.f5.d3` | TT | preserves the Lisitsyn Gambit Deferred name |
+| `A.Ret.Eng.Be7.O-O.NCD` | `A.Ret.Eng.Be7.O-O` | TT | preserves the Neo-Catalan Declined name (real opening identity) |
+| `A.Ret.Nh6.d4.g6` | — | DELETE | leaf, "Kingside Variation" already on parent, 0 inbound |
+| `A.Owe.Eng.e6` | — | DELETE | leaf, pure "e6 Move Order" descriptor, 0 inbound |
+| `A.And.Cre.ClD` | — | DELETE | leaf, Lichess exact-move-order descriptor, 0 inbound |
+
+**Audit impact**:
+- duplicate_groups: 130 → 127 (−3: each DELETE collapsed its group)
+- resolved_groups: 100 → 104 (+4 TT)
+- unresolved_groups: 30 → 23 (−7)
+- rows_in_unresolved_groups: 60 → 46 (−14)
+- catalogue rows: 5,905 → 5,902 (−3)
+
+No same_as, no reparenting, no conceptual decisions. Nimzo Sml Bot/Kmo left ON HOLD; Czech-Indian and Modern/Sicilian cross-family untouched.
+
 ### Resolved: English Symmetrical Three Knights mirror
 
 Pure descriptive move-order mirror under `A.Eng.Sym.Nf3.Nf6` / `A.Eng.Sym.Nc3.Nf6`. Both slugs reach the same FEN
