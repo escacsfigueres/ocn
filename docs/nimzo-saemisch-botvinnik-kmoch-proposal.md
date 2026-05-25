@@ -1,6 +1,17 @@
 # Nimzo Sämisch Botvinnik ↔ Kmoch — arbitration proposal
 
-**Status**: **ON HOLD — naming review pending**.
+**Status**: **NAMING REVIEW COMPLETE — ready for preflight + apply**
+(was ON HOLD). The bibliographic question is settled by the Lichess
+opening DB: see
+[`nimzo-botvinnik-kmoch-naming-review.md`](nimzo-botvinnik-kmoch-naming-review.md).
+**Outcome**: "Kmoch" = 4.f3 (Lichess E20, OCN `E.Nim.Fou` — correct);
+the Sämisch f3-tabiya = "Botvinnik" (Lichess E24, OCN `E.Nim.Sml.Bot`
+— correct); `E.Nim.Sml.Kmo`'s "Kmoch" is an **artifact**.
+**Recommended resolution: Option B** — `E.Nim.Sml.Kmo.transposes_to
+= E.Nim.Sml.Bot` + drop the spurious "Kmoch" name (NOT the bilateral
+`same_as` this proposal originally weighed). The original analysis
+below is retained for history but superseded by the review's
+Lichess-grounded finding.
 
 The original conclusion (bilateral `same_as`, Option A) was a clean
 move-order resolution at the FEN level. A user challenge raised

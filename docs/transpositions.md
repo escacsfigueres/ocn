@@ -658,8 +658,15 @@ investigation:
   Exact old→new slug map + `canonical_name` relabel + verification
   checklist in
   [`qid-miles-petrosian-migration-preflight.md`](qid-miles-petrosian-migration-preflight.md).
-- **Nimzo Bot/Kmo [2]** — ON HOLD pending external naming review
-  (`E.Nim.Fou` already carries the "Kmoch" alias at depth 2).
+- **Nimzo Bot/Kmo [2]** — **naming review COMPLETE** (was ON HOLD).
+  The Lichess opening DB is decisive: "Kmoch" = 4.f3 (E20,
+  `E.Nim.Fou` — correct); the Sämisch f3-tabiya = "Botvinnik" (E24,
+  `E.Nim.Sml.Bot` — correct); `E.Nim.Sml.Kmo`'s "Kmoch" is an
+  artifact (no Lichess "Sämisch Kmoch"). Recommended: Option B —
+  `E.Nim.Sml.Kmo.transposes_to = E.Nim.Sml.Bot` + drop the spurious
+  "Kmoch", NOT a `same_as`. Ready for a preflight + apply sprint.
+  See
+  [`nimzo-botvinnik-kmoch-naming-review.md`](nimzo-botvinnik-kmoch-naming-review.md).
 
 ### Post-0.2 parent-child cleanup batch
 
