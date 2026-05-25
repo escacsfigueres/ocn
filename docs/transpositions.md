@@ -2,22 +2,25 @@
 
 ## Current state
 
-- Catalogue size: **5,902** rows.
-- Duplicate FEN groups: **127** total — **107 resolved** (**15 with
-  multiple canonicals**, 92 single canonical), **20 unresolved**.
-- Rows in unresolved groups: **40**.
+- Catalogue size: **5,900** rows.
+- Duplicate FEN groups: **125** total — **119 resolved** (**15 with
+  multiple canonicals**, 104 single canonical), **6 unresolved**.
+- Rows in unresolved groups: **12**.
 - Top group size in unresolved: **2** (all remaining unresolved
   are pairs; Van triple resolution removed the last conceptual
   triple).
 - Resolution channels: `transposes_to` (non-canonical →
   canonical, asymmetric) and `same_as` (canonical ↔ canonical,
   symmetric, OCN 0.3).
-- **The 20 remaining unresolved groups are individually classified
-  in [`unresolved-map-20.md`](unresolved-map-20.md)** (snapshot at
-  `f06e242`): 14 mechanical (`transposes_to`/`delete`), 5
-  `proposal_needed` (cross-family + same_as candidates), 1
-  `ON_HOLD_NAMING_REVIEW` (Nimzo Bot/Kmo). Only that last one needs
-  external bibliography.
+- All remaining unresolved groups were classified in
+  [`unresolved-map-20.md`](unresolved-map-20.md) (snapshot at
+  `f06e242`). The 14 mechanical groups have since been resolved
+  (see "Post-map mechanical cleanup batch" below). **The 6 still
+  unresolved** are the conceptual / ON-HOLD set: Modern/Sicilian
+  cross-family, Nimzo Bot/Kmo (ON HOLD), QID Miles/Petrosian, KID
+  Simagin/Uhlmann, Scandinavian Gipslis/Portuguese, Amar/Hungarian
+  — all `proposal_needed` except the ON-HOLD Nimzo (the only one
+  needing external bibliography).
 
 Numbers are produced by:
 
@@ -555,6 +558,56 @@ test case but structural analysis showed only 2 of 3 slugs are
 genuine literary canonicals, so Option D (mixed `same_as` + `transposes_to`)
 was the honest resolution. Multi-target remains available for a
 future case with three genuine literary identities on one FEN.
+
+### Post-map mechanical cleanup batch
+
+Executed against the 14 mechanical groups classified in
+[`unresolved-map-20.md`](unresolved-map-20.md) (the 5
+`SINGLE_CANONICAL_MIRROR` + 9 `LONG_TAIL_MECHANICAL` groups). One
+commit, no proposals, no `same_as`. The 6 conceptual / ON-HOLD
+groups were deliberately left untouched.
+
+**12 `transposes_to` + 2 `DELETE`**:
+
+| group | action | non-canonical → canonical | family |
+|---|---|---|---|
+| Czech-Indian QPO | TT | `A.QPO.c6.Nf3.Nf6 → A.QPO.Nf6.Nf3.c6` | A — "Czech-Indian" name kept canonical |
+| French Winawer Advance | TT | `B.Fre.Win.Adv.MLn.Ne7.Nf3 → …MLn.Nf3` | B — leaf → developed |
+| Najdorf Scheveningen | TT | `B.Sic.Naj.Sch.MLn → …Sch.O-O` | B — 0 vs 3 children |
+| Reti/English Caro-Kann g3 | TT | `A.Eng.CKa.Nf3.d5.g3.Bg2 → A.Ret.Ang.g3.Nf6.Bg2` | A — cross-family, 0 vs 3 children |
+| Alekhine d6 | TT | `B.Ale.Nrm.Dpn.d6.c4.Nb6 → …d6.Nb6` | B — deeper-path → shallower |
+| KGm Bishop's Gambit | TT | `C.KGm.Acc.Bsh.Nf6.Nc3 → …Bsh.MLn` | C — shallower "Main Line" |
+| Semi-Slav Bg5 Accepted | TT | `D.Sem.Bg5.Acc → D.Sem.Bg5.dxc4` | D — Accepted = ...dxc4 |
+| Muzio Qxf3 node | TT | `C.KGm.Acc.Muz.Dbl.MLn → …Muz.MLn.Qxf3` | C — Double Muzio premature here |
+| Caro-Kann Tal | TT | `B.CaK.Adv.Tal.MLn → …Tal.h5` | B |
+| Caro-Kann Short | TT | `B.CaK.Adv.Sht.O-O → …Sht.MLn` | B — equal children, "Main Line" tiebreak |
+| Sicilian Scheveningen Keres | TT | `B.Sic.Sch.Krs.MLn → …Krs.h6` | B |
+| Muzio gxf3 node | TT | `C.KGm.Acc.Muz.Dbl → C.KGm.Acc.Muz.MLn` | C — Double Muzio premature here |
+| French Steinitz a6 | **DELETE** | `B.Fre.Nrm.d5.Nc3.a6.Nf3` (kept `.Nfd7` "Steinitz Variation") | B — identical move list, leaf |
+| Winawer Poisoned Pawn | **DELETE** | `B.Fre.Win.Psn.MLn.Qxg7` (kept `.Ne2`) | B — identical move list, leaf |
+
+**Double Muzio micro-check**: the `.Dbl`/`.Dbl.MLn` nodes share
+the FEN of the Muzio main line at the gxf3 and Qxf3 positions; the
+defining second sacrifice (Bxf7+) diverges *later* and correctly
+lives at `C.KGm.Acc.Muz.MLn.Dbl`. So the premature Double-Muzio
+slugs transpose into the main line (cascade: `.Dbl → .MLn`,
+`.Dbl.MLn → .MLn.Qxf3`).
+
+**Audit impact**:
+- duplicate_groups: 127 → 125 (−2: each DELETE collapsed its group)
+- resolved_groups: 107 → 119 (+12 TT)
+- unresolved_groups: 20 → **6** (−14)
+- rows_in_unresolved_groups: 40 → 12 (−28)
+- depth_varying_groups: 4 → 0
+- catalogue rows: 5,902 → 5,900 (−2)
+
+**The 6 remaining unresolved groups** are exactly the conceptual /
+ON-HOLD set from the map: Modern/Sicilian cross-family [1], Nimzo
+Bot/Kmo ON HOLD [2], QID Miles/Petrosian [10], KID Simagin/Uhlmann
+[11], Scandinavian Gipslis/Portuguese [12], Amar/Hungarian [14].
+All five non-ON-HOLD ones are `proposal_needed` (same_as or
+cross-family arbitration); none needs external bibliography except
+the Nimzo ON-HOLD case.
 
 ### Post-0.2 parent-child cleanup batch
 
