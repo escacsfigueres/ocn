@@ -523,6 +523,9 @@ undirected and reports such groups as `multiple_canonical`.
 | `A.Van.ReN.e3.d5` ⇄ `A.VtK.e5.Nc3.d5` | A | A00 / A00 | Van Geet Reversed Nimzowitsch d5 (1.Nc3) and Van't Kruijs Keoni-Hiva Ekolu Variation (1.e3) — both real opening-family identities. Same FEN via different first moves. Note: `A.Van.d5.e3.e5` is a third path through the same FEN but stayed as `transposes_to` (structural breadcrumb under "d5 Line" prefix, not literary). |
 | `A.Van.ReN.e3` ⇄ `A.VtK.e5.Nc3` | A | A00 / A00 | Parents of the rank-1 pair (after 3 plies). Reversed Nimzowitsch e3 prefix vs Keoni-Hiva Prefix — both anchored in their respective family root literary identities. |
 | `D.QGA.Flo.MLn` ⇄ `D.QGA.Jan.e3.b5` | D | D20 / (D25 inherited) | Flohr Variation Main Line vs Haberditz Variation (Janowski-Larsen e3 path). Both real QGA literary attributions; same FEN reached via different move orders inside the Queen's Gambit Accepted family. |
+| `E.Bud.Adl.MLn` ⇄ `E.Bud.Rub.MLn` | E | A52 / A52 | Budapest Adler (4.Nf3 order) vs Rubinstein (4.Bf4 order) main line — two real player-named move-order routes into the same A52 tabiya. Cascade level 1. |
+| `E.Bud.Adl.MLn.e3` ⇄ `E.Bud.Rub.MLn.e3` | E | A52 / A52 | Same Budapest Adler/Rubinstein convergence one move deeper (e3 + Nbd2 + O-O). Cascade level 2. |
+| `E.Bud.Adl.MLn.e3.Be2` ⇄ `E.Bud.Rub.MLn.e3.Be2` | E | A52 / A52 | Same convergence at the Be2 line (+...d6). Cascade level 3 — deepest same_as cascade in the series. The Adler-only `.Re8` leaf extends beyond and stays a normal descendant. |
 
 **Groups previously multi-canonical via in-group pointer, now also
 carrying explicit `same_as`** (declaration made more readable; no
@@ -533,12 +536,13 @@ behaviour change):
 | `B.Fre.Cls.MLn` ⇄ `A.Ver.Cls.MLn.Be7` | Pre-existing TT from `D.QPG.Ver.MLn.Be7` provided the in-group pointer; `same_as` now makes the bilateral relation explicit between the two canonicals. |
 | `E.KID.Cls.Old.e5` ⇄ `E.KID.Cls.e5.O-O.Nbd7` | Same shape — TT from `E.KID.Cls.e5.O-O.Nbd7.O-O` is the in-group pointer; `same_as` makes the canonical relation explicit. |
 
-**Total multiple_canonical groups**: **12** as of the QGA Flohr /
-Janowski-Haberditz sprint (was 2 before `same_as`, 6 after the
+**Total multiple_canonical groups**: **15** as of the Budapest
+Adler/Rubinstein sprint (was 2 before `same_as`, 6 after the
 OCN 0.3 schema commit, 7 after Larsen, 9 after London cascade,
-11 after Van cascade, +1 with QGA Flohr). Reported by
+11 after Van cascade, 12 with QGA Flohr, +3 with the Budapest
+Adler/Rubinstein 3-level cascade). Reported by
 `audit_transpositions.py --summary` as
-`multiple_canonical_groups=12`.
+`multiple_canonical_groups=15`.
 
 **`same_as` multi-target (N=2 pipe-separated) usage so far**: 0.
 The schema supports it; the Van triple was the first plausible
@@ -696,7 +700,7 @@ target.
 - rank 8: `E.Nim.Sml.Bot ⇄ E.Nim.Sml.Kmo` (Botvinnik vs Kmoch — both literary Sämisch siblings). **ON HOLD — naming review pending**. See [`nimzo-saemisch-botvinnik-kmoch-proposal.md`](nimzo-saemisch-botvinnik-kmoch-proposal.md). User challenge raised: 365Chess and Chess.com both attribute "Kmoch Variation" to the depth-2 `4.f3` move (the slug `E.Nim.Fou` already canonically carries the "Kmoch Variation" alias at depth 2, ECO E20), not to the depth-3 Sämisch sub-line. Apply same_as only after naming review confirms both Botvinnik and Kmoch are genuine depth-3 attributions.
 - ~~Larsen ↔ Reti Nimzowitsch-Larsen~~: **RESOLVED via bilateral `same_as`** — `A.Lar.Cls.MLn ⇄ A.Ret.Nim.MLn` (Nimzo-Larsen Attack A01 ⇄ Reti Nimzowitsch-Larsen A06). Cleanest `same_as` case to date: no deletes, no cascades, no schema work, ECO-distinct on both sides. Mirrors the Rubinstein/Colle-Zukertort precedent. See [`larsen-reti-nimzowitsch-proposal.md`](larsen-reti-nimzowitsch-proposal.md) for the per-row analysis.
 - rank 19: `A.QPO.Nf6.Nf3.c6 ⇄ A.QPO.c6.Nf3.Nf6` (Czech-Indian path mirror).
-- ranks 10-12: Budapest `E.Bud.Adl.MLn ⇄ E.Bud.Rub.MLn` 3-level cascade (`.MLn`, `.MLn.e3`, `.MLn.e3.Be2`). **Proposed** via bilateral `same_as` in [`budapest-adler-rubinstein-proposal.md`](budapest-adler-rubinstein-proposal.md) — Adler (4.Nf3) and Rubinstein (4.Bf4) are two real player-named move-order routes converging to the same A52 tabiya. Deepest same_as cascade so far; no internal naming conflict (unlike Nimzo). Direct precedent: London Classical/Mason cascade.
+- ~~ranks 10-12: Budapest `E.Bud.Adl.MLn ⇄ E.Bud.Rub.MLn` 3-level cascade~~ **RESOLVED via bilateral `same_as` cascade** (3 pairs: `.MLn`, `.MLn.e3`, `.MLn.e3.Be2`). Adler (4.Nf3) and Rubinstein (4.Bf4) are two real player-named move-order routes converging to the same A52 tabiya. Deepest same_as cascade in the series; no internal naming conflict (unlike Nimzo). See [`budapest-adler-rubinstein-proposal.md`](budapest-adler-rubinstein-proposal.md).
 - ~~rank 20: `A.Eng.Sym.Nc3.Nf6.Nf3 ⇄ A.Eng.Sym.Nf3.Nf6.Nc3` (English Symmetrical Three Knights — both real names).~~ **RESOLVED via single_canonical** — `Nc3.Nf6.Nf3.transposes_to = Nf3.Nf6.Nc3`. Pure descriptive path mirror (no player-name dispute). Canonical chosen by subtree development: Nf3.Nf6.Nc3 hosts 5 named children including the Four Knights subtree; Nc3.Nf6.Nf3 has 1 (.e5). "Three Knights Line" alias promoted to the canonical side. See section below.
 - ~~QGA Flohr ↔ Janowski-Haberditz~~: **RESOLVED via bilateral `same_as`** — `D.QGA.Flo.MLn ⇄ D.QGA.Jan.e3.b5` (Flohr Variation D20 vs Haberditz Variation literary leaf under Janowski-Larsen). Smallest possible `same_as` sprint since Larsen — single pair, no cascade, no deletes. See [`qga-flohr-janowski-proposal.md`](qga-flohr-janowski-proposal.md) for the per-row analysis.
 - ~~London Classical ↔ Mason~~: **RESOLVED via bilateral `same_as`** on both paired ranks. `A.Lon.Cls.MLn ⇄ A.Lon.Msn.MLn.Nbd2` (Classical London contemporary vs Mason London historical, both A48) plus the cascading `.c4` pair. Mirror of the Italian Giuoco/Two Knights cascade. See [`london-classical-mason-proposal.md`](london-classical-mason-proposal.md) for the per-row analysis.

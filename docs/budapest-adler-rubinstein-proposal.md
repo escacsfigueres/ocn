@@ -1,6 +1,6 @@
 # Budapest Adler ↔ Rubinstein — arbitration proposal
 
-**Status**: PROPOSED (not applied).
+**Status**: **APPLIED via bilateral `same_as` cascade** (3 pairs, 6 declarations). See `docs/transpositions.md` → "`same_as`-resolved groups" for the applied outcome. Deepest same_as cascade in the series; no deletes, no transposes_to, no reparenting.
 **Companion**: builds on `spec/OCN-1.md` → "Canonicalisation
 arbitration" and the precedents from the prior `same_as`
 applications (Rubinstein/Colle-Zukertort, Italian Giuoco/Two
