@@ -627,6 +627,16 @@ review, not a same_as (the Nimzo lesson).
 cross-family [1], Nimzo Bot/Kmo ON HOLD [2], QID Miles/Petrosian
 structural defect [10], Amar/Hungarian cross-family [14].
 
+The 2 cross-family groups ([1], [14]) are analysed in
+[`final-cross-family-arbitration-proposal.md`](final-cross-family-arbitration-proposal.md).
+**They want different treatments**: Modern/Sicilian (the Western
+Pterodactyl) → bilateral `same_as` (two genuine family homes,
+B06 ⇄ B27, each with its own subtree). Amar/Hungarian (the Paris
+Gambit) → `transposes_to` `A.Hng.Par → A.Ama.Par` (one-home gambit;
+the Hungarian side self-describes as "Hungarian move order into the
+Paris Gambit"). After these, only QID [10] (structural) and Nimzo
+[2] (ON HOLD) would remain.
+
 ### Post-0.2 parent-child cleanup batch
 
 Mechanical sweep over the parent-child same-FEN residuals in the top-60 unresolved (a child slug carrying the identical FEN to its direct parent, reached either by an identical move list or a pure move-order variant). Same arbitration rules as the earlier batches: DELETE a leaf descriptor with no inbound refs and no independent literary name; `transposes_to` the parent when the child has its own children or carries a name worth preserving.
