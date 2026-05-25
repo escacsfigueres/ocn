@@ -1,5 +1,11 @@
 # Transpositions in OCN-1
 
+> **Phase status: CLOSED except dedicated-research holds**
+> (baseline `0200e8e`). All actionable duplicate FEN groups are
+> resolved; the only 2 unresolved are deliberate research holds
+> (QID Miles/Petrosian structural, Nimzo Bot/Kmo naming). See
+> [`transposition-cleanup-closure.md`](transposition-cleanup-closure.md).
+
 ## Current state
 
 - Catalogue size: **5,900** rows.
