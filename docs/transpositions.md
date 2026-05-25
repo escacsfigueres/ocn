@@ -2,17 +2,22 @@
 
 ## Current state
 
-- Catalogue size: **5,905** rows.
-- Duplicate FEN groups: **130** total — **99 resolved** (**12 with
-  multiple canonicals**, 87 single canonical), **31 unresolved**.
-- Rows in unresolved groups: **62**.
+- Catalogue size: **5,902** rows.
+- Duplicate FEN groups: **127** total — **107 resolved** (**15 with
+  multiple canonicals**, 92 single canonical), **20 unresolved**.
+- Rows in unresolved groups: **40**.
 - Top group size in unresolved: **2** (all remaining unresolved
   are pairs; Van triple resolution removed the last conceptual
   triple).
 - Resolution channels: `transposes_to` (non-canonical →
   canonical, asymmetric) and `same_as` (canonical ↔ canonical,
   symmetric, OCN 0.3).
-- Top group size observed: **3**.
+- **The 20 remaining unresolved groups are individually classified
+  in [`unresolved-map-20.md`](unresolved-map-20.md)** (snapshot at
+  `f06e242`): 14 mechanical (`transposes_to`/`delete`), 5
+  `proposal_needed` (cross-family + same_as candidates), 1
+  `ON_HOLD_NAMING_REVIEW` (Nimzo Bot/Kmo). Only that last one needs
+  external bibliography.
 
 Numbers are produced by:
 
