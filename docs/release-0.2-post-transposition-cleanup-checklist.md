@@ -105,6 +105,13 @@ the release to the first-ever slug-migration.
 Either is defensible; **no immediate action is required**. This note
 exists so the choice is explicit when a release is wanted.
 
+> **UPDATE (2026-05-26): Option C selected.** The next release will
+> bundle the QID slug-migration to reach a clean "0 unresolved"
+> milestone, rather than tagging the current "1 unresolved" state
+> (Option B). Ordered runbook:
+> [`qid-release-cycle-checklist.md`](qid-release-cycle-checklist.md).
+> Not yet executed — the release cycle is GO-gated per step.
+
 ## Future commands (DO NOT EXECUTE here — release-time only)
 
 When a release (Option B or C) is GO'd:

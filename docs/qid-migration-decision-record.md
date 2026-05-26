@@ -7,6 +7,14 @@ This record is about *whether and when* to apply, not *how*.
 
 **No catalogue change accompanies this document.**
 
+> **DECISION: Option C SELECTED** (2026-05-26) — apply the QID
+> slug-migration inside a release cycle whose end state is
+> `unresolved_groups=0`, rather than now or as an "almost-resolved"
+> release. The ordered runbook is in
+> [`qid-release-cycle-checklist.md`](qid-release-cycle-checklist.md).
+> Still **not applied** — the release cycle is itself GO-gated per
+> step.
+
 ## Current state (`026c5e7`)
 
 - 5,900 rows · **124 resolved** · **1 unresolved** · 17 multiple-canonical · tags `ocn-1.0.2`/`ocn-1.0.3` intact.
