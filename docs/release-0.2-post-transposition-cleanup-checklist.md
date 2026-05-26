@@ -107,14 +107,20 @@ exists so the choice is explicit when a release is wanted.
 
 > **UPDATE (2026-05-26): Option C selected and the catalogue is now
 > at 0 unresolved.** The QID slug-migration was applied (`5208e08`);
-> the catalogue is fully resolved (5,899 rows). A **candidate
-> `positions.tsv` exists locally but is NOT uploaded**:
-> `/private/tmp/ocn-1.1.0-candidate/ocn-1.positions.tsv`
-> (sha256 `0e78c315c62b1c37a7267b5df3c82f98e1af4e1ae0dbe8e9d47fc68211d89d7d`,
-> 5,899 data rows). Remaining release steps (openings.parquet regen,
-> tag `ocn-1.1.0`, upload) are GO-gated — see
+> the catalogue is fully resolved (5,899 rows). **Candidate
+> artefacts exist locally but are NOT uploaded**, in
+> `/private/tmp/ocn-1.1.0-candidate/`:
+> - `ocn-1.positions.tsv` — sha256 `0e78c315c62b1c37a7267b5df3c82f98e1af4e1ae0dbe8e9d47fc68211d89d7d`, 5,899 data rows
+> - `openings.parquet` — sha256 `a9180bfcd4fee272f0a9a76e866ffbe4ca2311ea68f373b435a5aff75209a5c2`, 369,663 B, 13-col schema (unchanged), zobrist polyglot-v1.0
+> - `_efcdb_manifest.json` — sha256 `a8aa50e904328e240290c1f17c56578a3c71875629f953b901ff551ca4ede9f6`
+>
+> Both regenerated against the migrated catalogue and
+> downstream-verified (producer absorbed the 10 renamed
+> `canonical_ocn1`; no schema/code change; chess-parquet tests
+> green). Remaining release steps (final changelog, tag `ocn-1.1.0`,
+> upload) are GO-gated — see
 > [`qid-release-cycle-checklist.md`](qid-release-cycle-checklist.md)
-> steps 5-9.
+> steps 7-9.
 
 ## Future commands (DO NOT EXECUTE here — release-time only)
 

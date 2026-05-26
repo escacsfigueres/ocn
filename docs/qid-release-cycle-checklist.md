@@ -70,18 +70,32 @@ a new tagged release with assets.
    - 5 roots (empty fen: A/B/C/D/E) · 5,894 concrete · 5,765 unique fen_keys
    - verified: 10 `E.QID.Pet.KPe.*` present, **0 `E.QID.Mil.MLn*`**; TT example `E.Nim.Sml.Kmo → E.Nim.Sml.Bot`; SA example `E.KID.Fch.Uhl ↔ E.KID.Fch.Sim`; QID row `E.QID.Pet.KPe.d5.cxd5.Qc2` = "QID Kasparov-Petrosian, Kasparov Attack" (no "Miles")
 
-5. **[PENDING — GO-gated]** **Regenerate `openings.parquet`** via
-   `chess-parquet`'s `efcdb-openings` producer against the migrated
-   catalogue (coordinate in that repo).
+5. ✅ **DONE** — **Regenerated `openings.parquet`** via
+   `chess-parquet`'s `efcdb-cli openings` against the migrated OCN
+   catalogue (chess-parquet `643eace`, gh account `escacsfigueres`;
+   no chess-parquet code/commit change):
+   - command: `cargo run -p efcdb-cli -- openings --catalog /Users/albertpi/Code/ocn/catalog/ocn-1.csv -o /private/tmp/ocn-1.1.0-candidate --source ocn-1.1.0-candidate-e297d36`
+   - `openings.parquet`: **369,663 bytes**, sha256 **`a9180bfcd4fee272f0a9a76e866ffbe4ca2311ea68f373b435a5aff75209a5c2`** (local candidate, **NOT uploaded**)
+   - `_efcdb_manifest.json`: **328 bytes**, sha256 **`a8aa50e904328e240290c1f17c56578a3c71875629f953b901ff551ca4ede9f6`** — `efcdb_version 1.3`, `rows 5899`, `zobrist_variant polyglot-v1.0`, `source ocn-1.1.0-candidate-e297d36`, `schema_sha256 bde85c40…`
+   - schema (13 cols, **unchanged**): `ocn1, canonical_name, eco_legacy, parent_ocn1, canonical_ocn1, transposes_to, same_as, depth, aliases, flags, notes, moves_uci, zobrist`
 
-6. **Downstream smoke test** — confirm the producer:
-   - absorbs the 10 renamed `canonical_ocn1` values
-     (`E.QID.Mil.MLn.* → E.QID.Pet.KPe.*`) without error,
-   - emits the same schema (no column change),
-   - the parquet's zobrist/identity columns are unchanged for all
-     unaffected positions (only the QID rows' slug identity moves).
+6. ✅ **DONE — smoke test passed**:
+   - rows **5,899**; `transposes_to` non-empty **112**; `same_as`
+     non-empty **34** (= 17 multi-canonical × 2); `canonical_ocn1`
+     non-empty **5,899**, **0 rule violations** (canonical_ocn1 =
+     transposes_to if set else ocn1)
+   - distinct zobrist **5,765** = unique FEN; **124 multi-row zobrist
+     groups** = duplicate_groups ✓
+   - QID downstream: **0** `E.QID.Mil.MLn*`, **10** `E.QID.Pet.KPe.*`;
+     `E.QID.Pet.KPe.d5.cxd5.Qc2` = "QID Kasparov-Petrosian, Kasparov
+     Attack"; `E.QID.Mil` retained (4.Bf4)
+   - `cargo test -p efcdb-openings -p efcdb-core` → **15 + 10 passed**
+   - **no schema change, no code change** — producer absorbed the 10
+     renamed `canonical_ocn1` cleanly.
 
-7. **Update docs / changelog** —
+7. **[PENDING — GO-gated]** **Final release docs / changelog** (the
+   catalogue docs are already at 0 unresolved; what remains is the
+   release-tag changelog/consumer note) —
    - mark this checklist's steps done,
    - update `docs/transpositions.md` Current state to
      `unresolved_groups=0` / `resolved_groups=124`,
