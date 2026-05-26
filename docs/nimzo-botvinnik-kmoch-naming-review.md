@@ -1,8 +1,14 @@
 # Nimzo Botvinnik/Kmoch — naming review
 
-**Status**: REVIEW COMPLETE (docs-only, **no catalogue change**).
-Resolves the bibliographic question behind the ON-HOLD Nimzo
-Bot/Kmo group (`E.Nim.Sml.Bot ⇄ E.Nim.Sml.Kmo`). Companion to
+**Status**: REVIEW COMPLETE → **APPLIED** (Option B). The
+recommendation was applied: `E.Nim.Sml.Kmo.transposes_to =
+E.Nim.Sml.Bot` + the spurious "Kmoch" dropped (relabelled "a3 Move
+Order"). The Nimzo Bot/Kmo group is resolved (single_canonical);
+the only remaining unresolved group in the whole catalogue is now
+QID Miles/Petrosian. See
+[`nimzo-botvinnik-kmoch-apply-preflight.md`](nimzo-botvinnik-kmoch-apply-preflight.md).
+Resolves the bibliographic question behind the (formerly) ON-HOLD
+Nimzo Bot/Kmo group (`E.Nim.Sml.Bot ⇄ E.Nim.Sml.Kmo`). Companion to
 [`nimzo-saemisch-botvinnik-kmoch-proposal.md`](nimzo-saemisch-botvinnik-kmoch-proposal.md).
 
 ## Sources consulted

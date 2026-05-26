@@ -1,6 +1,11 @@
 # Nimzo Botvinnik/Kmoch — apply preflight checklist
 
-**Status**: PREFLIGHT (no catalogue change). Specifies the apply of
+**Status**: **APPLIED** (commit pending push). `E.Nim.Sml.Kmo`
+now `transposes_to = E.Nim.Sml.Bot` with the spurious "Kmoch"
+relabelled to "a3 Move Order"; `E.Nim.Sml.Kmo.MLn` relabelled to
+"e3 Main Line". Result: unresolved 2 → 1 (only QID remains),
+resolved 123 → 124. The `Rub.Kmo` artifact + `Kmo.MLn` parent-chain
+quirk remain out-of-scope follow-ups (below). Specifies the apply of
 **Option B** from
 [`nimzo-botvinnik-kmoch-naming-review.md`](nimzo-botvinnik-kmoch-naming-review.md):
 demote the spurious "Kmoch" on the depth-3 Sämisch node and point it

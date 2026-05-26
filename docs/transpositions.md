@@ -1,21 +1,24 @@
 # Transpositions in OCN-1
 
-> **Phase status: CLOSED except dedicated-research holds**
-> (baseline `0200e8e`). All actionable duplicate FEN groups are
-> resolved; the only 2 unresolved are deliberate research holds
-> (QID Miles/Petrosian structural, Nimzo Bot/Kmo naming). See
+> **Phase status: CLOSED — 1 research hold left** (Nimzo Bot/Kmo
+> now resolved via single_canonical TT). All actionable duplicate
+> FEN groups are resolved; the **only remaining unresolved group is
+> QID Miles/Petrosian** (structural slug-migration, preflighted).
+> See
 > [`transposition-cleanup-closure.md`](transposition-cleanup-closure.md).
 
 ## Current state
 
 - Catalogue size: **5,900** rows.
-- Duplicate FEN groups: **125** total — **123 resolved** (**17 with
-  multiple canonicals**, 106 single canonical), **2 unresolved**.
-- Rows in unresolved groups: **4**.
-- **Only 2 unresolved groups remain, both deferred for dedicated
-  investigation** (not quick arbitrations): QID Miles/Petrosian
-  (structural mis-parenting defect) and Nimzo Bot/Kmo (naming
-  review, ON HOLD). Every other duplicate FEN group is resolved.
+- Duplicate FEN groups: **125** total — **124 resolved** (**17 with
+  multiple canonicals**, 107 single canonical), **1 unresolved**.
+- Rows in unresolved groups: **2**.
+- **Only 1 unresolved group remains**: QID Miles/Petrosian
+  (structural slug-migration defect, preflighted — see
+  [`qid-miles-petrosian-migration-preflight.md`](qid-miles-petrosian-migration-preflight.md)).
+  Nimzo Bot/Kmo was resolved via single_canonical `transposes_to`
+  (the spurious "Kmoch" demoted; see the Nimzo section below).
+  Every other duplicate FEN group is resolved.
 - Top group size in unresolved: **2** (all remaining unresolved
   are pairs; Van triple resolution removed the last conceptual
   triple).
@@ -644,8 +647,14 @@ B.Sic.HAc.d4.Bg7`, B06 ⇄ B27, two genuine family homes). Amar/Hungarian
 (one-home gambit; the Hungarian side self-describes as "Hungarian
 move order into the Paris Gambit").
 
-**Only 2 unresolved groups remain**, both deferred for dedicated
-investigation:
+**Only 1 unresolved group remains** (Nimzo Bot/Kmo was resolved):
+- **Nimzo Bot/Kmo [2]** — ✅ **RESOLVED via single_canonical**:
+  `E.Nim.Sml.Kmo.transposes_to = E.Nim.Sml.Bot`, the spurious
+  "Kmoch" relabelled to "a3 Move Order" (Kmoch belongs to 4.f3 =
+  `E.Nim.Fou`, per Lichess E20). Follow-ups out of scope:
+  `E.Nim.Rub.Kmo`'s "Kmoch" artifact + the `E.Nim.Sml.Kmo.MLn`
+  parent-chain quirk. See
+  [`nimzo-botvinnik-kmoch-apply-preflight.md`](nimzo-botvinnik-kmoch-apply-preflight.md).
 - **QID Miles/Petrosian [10]** — structural mis-parenting defect:
   `E.QID.Mil.MLn` carries the a3/Nc3 Kasparov-Petrosian theory
   subtree under the wrong ("Miles" = 4.Bf4) parent, with a broken
