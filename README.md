@@ -235,9 +235,9 @@ See [`spec/OCN-1.md`](spec/OCN-1.md) for the full reasoning.
   `audit_transpositions.py` classifies duplicate FEN groups as
   `single_canonical` or `multiple_canonical`. Downstream
   `chess-parquet` already consumes the 0.2 schema. Post-tag main
-  has reduced unresolved duplicate groups from 116 → **2** (only
-  two deliberate research holds remain; transposition cleanup phase
-  closed — see
+  has reduced unresolved duplicate groups from 116 → **1** (only the
+  QID Miles/Petrosian slug-migration hold remains; transposition
+  cleanup phase closed — see
   [`docs/transposition-cleanup-closure.md`](docs/transposition-cleanup-closure.md)).
   **Consumer guide:**
   [`docs/consuming-ocn-0.2.md`](docs/consuming-ocn-0.2.md).

@@ -1,9 +1,27 @@
 # Transposition cleanup — phase closure
 
-**Status**: **CLOSED** (except two dedicated-research holds).
-**Final baseline**: `origin/main` at `0200e8e`.
-**No catalogue changes accompany this document** — it records the
+**Status**: **CLOSED**. Originally one of two research holds; the
+Nimzo Bot/Kmo hold was **resolved after closure** (commit
+`e036203`), leaving **QID Miles/Petrosian as the sole remaining
+unresolved group**.
+**Closure snapshot**: `origin/main` at `0200e8e` (the metrics
+tables below are this snapshot).
+**Current state**: `origin/main` at `e036203` —
+`unresolved_groups=1` (QID only), `resolved_groups=124`,
+`multiple_canonical_groups=17`, 5,900 rows.
+**No catalogue changes accompany this document** — it records
 state, it does not alter it.
+
+> **Post-closure update (`e036203`)**: Nimzo Bot/Kmo resolved via
+> single_canonical `transposes_to` (`E.Nim.Sml.Kmo → E.Nim.Sml.Bot`,
+> spurious "Kmoch" demoted — Lichess E20 places "Kmoch" at 4.f3,
+> `E.Nim.Fou`). See
+> [`nimzo-botvinnik-kmoch-naming-review.md`](nimzo-botvinnik-kmoch-naming-review.md)
+> and
+> [`nimzo-botvinnik-kmoch-apply-preflight.md`](nimzo-botvinnik-kmoch-apply-preflight.md).
+> The metrics/holds tables below are kept as the `0200e8e` closure
+> snapshot for history; see "Remaining holds" for the current
+> single hold.
 
 ## What this phase did
 
@@ -41,22 +59,22 @@ above is the slice of that arc that landed in this session.
 > **All actionable duplicate FEN groups are resolved** — every
 > mechanical mirror, descriptor duplicate, and clear conceptual
 > arbitration has been settled via `transposes_to`, `same_as`, or
-> DELETE. The two groups that remain unresolved are deliberately
-> held: each requires a dedicated investigation sprint, not a
-> clean-up edit.
+> DELETE. The groups that remain unresolved are deliberately held:
+> each requires a dedicated investigation sprint, not a clean-up
+> edit. *(At closure there were 2; Nimzo was resolved after closure
+> in `e036203`, leaving 1 — QID.)*
 
-## Remaining holds (2 groups)
+## Remaining holds — 1 group (was 2 at closure)
 
-| group | ECO | status | why held | next-sprint path |
+| group | ECO | status | why / outcome | next-sprint path |
 |---|---|---|---|---|
-| `E.Nim.Sml.Bot` ⇄ `E.Nim.Sml.Kmo` | E24/E25 ⇄ E26 | **ON HOLD — naming review** | Catalogue self-conflict: `E.Nim.Fou` (4.f3, depth 2) already carries the `Kmoch Variation\|4.f3 System` alias, so the depth-3 `Sml.Kmo` "Kmoch" attribution is disputed. A `same_as` would freeze a contested name. | External naming review (Lichess opening DB, ECO, Wikipedia, the lichess-org/chess-openings source); then rename / `same_as` / keep-hold. See [`nimzo-saemisch-botvinnik-kmoch-proposal.md`](nimzo-saemisch-botvinnik-kmoch-proposal.md). |
-| `E.QID.Mil.MLn` ⇄ `E.QID.Pet.KPe` | E12 ⇄ E12 | **DEFERRED — structural review** | `E.QID.Mil.MLn`'s move list (`…a3 Bb7 Nc3`) does not extend its parent `E.QID.Mil` (4.Bf4) — a **broken parent chain**. The whole a3/Nc3 Kasparov-Petrosian theory subtree (10 descendants) hangs under the mislabelled "Miles" branch, while the correctly-named `E.QID.Pet.KPe` is an empty leaf. | Reparent the `Mil.MLn` subtree under `E.QID.Pet`, or relabel, or collapse against `Pet.KPe`. Larger than a `same_as`. See [`final-same-as-candidates-proposal.md`](final-same-as-candidates-proposal.md). |
+| `E.Nim.Sml.Bot` ⇄ `E.Nim.Sml.Kmo` | E24/E25 ⇄ E26 | ✅ **RESOLVED after closure** (`e036203`) | Naming review (Lichess E20 = Kmoch is 4.f3; E24 = the Sämisch f3-tabiya is Botvinnik) showed `E.Nim.Sml.Kmo`'s "Kmoch" was an artifact. Resolved via `E.Nim.Sml.Kmo.transposes_to = E.Nim.Sml.Bot` + relabel ("a3 Move Order"). | done — follow-ups (`E.Nim.Rub.Kmo` artifact, `Kmo.MLn` parent-chain) noted in the apply preflight. |
+| `E.QID.Mil.MLn` ⇄ `E.QID.Pet.KPe` | E12 ⇄ E12 | **DEFERRED — structural review** (sole remaining hold) | `E.QID.Mil.MLn`'s move list (`…a3 Bb7 Nc3`) does not extend its parent `E.QID.Mil` (4.Bf4) — a **broken parent chain**. The whole a3/Nc3 Kasparov-Petrosian theory subtree (10 descendants) hangs under the mislabelled "Miles" branch, while the correctly-named `E.QID.Pet.KPe` is an empty leaf. | Re-slug the `Mil.MLn` subtree under `E.QID.Pet.KPe` (OCN's first slug-rename; coordinate `chess-parquet`). Fully preflighted in [`qid-miles-petrosian-migration-preflight.md`](qid-miles-petrosian-migration-preflight.md). |
 
-Both are visible in `audit_transpositions.py --ranked` as the only
-two remaining unresolved groups (ranks 1-2). Neither should be
-touched without its own investigation sprint — applying a quick
-`same_as` to either would bury a real problem (a contested name, or
-a broken parent chain).
+As of `e036203`, `audit_transpositions.py --ranked` shows **one**
+remaining unresolved group: QID Miles/Petrosian. It must not be
+touched without its dedicated slug-migration sprint — a quick
+`same_as` would bury the broken parent chain.
 
 ## Tags untouched
 
@@ -76,12 +94,12 @@ would change the positions.tsv checksum (additional `same_as` and
 ## Recommendation
 
 **Do not apply further catalogue changes to the transposition
-layer without a dedicated investigation sprint** for QID
-Miles/Petrosian (structural) or Nimzo Bot/Kmo (naming). The
-mechanical and clear-conceptual work is done; what remains is
-judgement requiring either external sources (Nimzo) or a
-reparent/relabel decision (QID). Treat `0200e8e` as the closed
-baseline for this phase.
+layer without a dedicated investigation sprint.** Nimzo Bot/Kmo is
+now done (`e036203`); the **only remaining hold is QID
+Miles/Petrosian** — a structural slug-migration (re-slug the
+mislabelled subtree under `E.QID.Pet.KPe`), fully preflighted, which
+needs `chess-parquet` coordination and its own GO. Treat `e036203`
+as the current baseline (`0200e8e` was the closure snapshot).
 
 ## Provenance
 
@@ -94,4 +112,8 @@ Per-case proposals: `larsen-reti-nimzowitsch-proposal.md`,
 `budapest-adler-rubinstein-proposal.md`,
 `final-same-as-candidates-proposal.md`,
 `final-cross-family-arbitration-proposal.md`,
-`nimzo-saemisch-botvinnik-kmoch-proposal.md` (ON HOLD).
+`nimzo-saemisch-botvinnik-kmoch-proposal.md` →
+`nimzo-botvinnik-kmoch-naming-review.md` →
+`nimzo-botvinnik-kmoch-apply-preflight.md` (RESOLVED `e036203`),
+`qid-miles-petrosian-structural-proposal.md` →
+`qid-miles-petrosian-migration-preflight.md` (remaining hold).
