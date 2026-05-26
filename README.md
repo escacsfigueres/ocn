@@ -244,7 +244,10 @@ See [`spec/OCN-1.md`](spec/OCN-1.md) for the full reasoning.
   Other docs: [`docs/roadmap-0.2.md`](docs/roadmap-0.2.md) for the
   original phased plan,
   [`docs/release-0.2-checklist.md`](docs/release-0.2-checklist.md)
-  for the release decision record, and
+  for the `ocn-1.0.3` release decision record,
+  [`docs/release-0.2-post-transposition-cleanup-checklist.md`](docs/release-0.2-post-transposition-cleanup-checklist.md)
+  for the current post-cleanup release candidate (`ad25527`,
+  not yet tagged), and
   [`docs/post-0.2-next-steps.md`](docs/post-0.2-next-steps.md)
   for what's next.
 - **0.3** — Internationalised aliases: Catalan, Spanish, French,
