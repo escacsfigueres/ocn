@@ -105,12 +105,16 @@ the release to the first-ever slug-migration.
 Either is defensible; **no immediate action is required**. This note
 exists so the choice is explicit when a release is wanted.
 
-> **UPDATE (2026-05-26): Option C selected.** The next release will
-> bundle the QID slug-migration to reach a clean "0 unresolved"
-> milestone, rather than tagging the current "1 unresolved" state
-> (Option B). Ordered runbook:
-> [`qid-release-cycle-checklist.md`](qid-release-cycle-checklist.md).
-> Not yet executed — the release cycle is GO-gated per step.
+> **UPDATE (2026-05-26): Option C selected and the catalogue is now
+> at 0 unresolved.** The QID slug-migration was applied (`5208e08`);
+> the catalogue is fully resolved (5,899 rows). A **candidate
+> `positions.tsv` exists locally but is NOT uploaded**:
+> `/private/tmp/ocn-1.1.0-candidate/ocn-1.positions.tsv`
+> (sha256 `0e78c315c62b1c37a7267b5df3c82f98e1af4e1ae0dbe8e9d47fc68211d89d7d`,
+> 5,899 data rows). Remaining release steps (openings.parquet regen,
+> tag `ocn-1.1.0`, upload) are GO-gated — see
+> [`qid-release-cycle-checklist.md`](qid-release-cycle-checklist.md)
+> steps 5-9.
 
 ## Future commands (DO NOT EXECUTE here — release-time only)
 

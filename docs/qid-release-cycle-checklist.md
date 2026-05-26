@@ -60,13 +60,19 @@ a new tagged release with assets.
      `E.QID.Mil.MLn*` left, all new parents resolve, no "Miles" in
      any `E.QID.Pet.KPe.*` canonical_name)
 
-4. **Export the position index** —
-   `python3 tools/export_positions.py --include-roots --stats --out /tmp/ocn-1.positions.tsv`
-   (record the new row/group counts).
+4. ✅ **DONE** (commit "Record QID release positions export") —
+   **Exported the position index** from `5208e08`:
+   - command: `python3 tools/export_positions.py --include-roots --out /private/tmp/ocn-1.1.0-candidate/ocn-1.positions.tsv`
+   - local path: `/private/tmp/ocn-1.1.0-candidate/ocn-1.positions.tsv` (**candidate, NOT uploaded**)
+   - size: **1,475,677 bytes** · lines: **5,900** (1 header + **5,899** data rows)
+   - **sha256: `0e78c315c62b1c37a7267b5df3c82f98e1af4e1ae0dbe8e9d47fc68211d89d7d`**
+   - header (11 cols): `ocn1, canonical_name, eco_legacy, parent_ocn1, depth, moves_uci, fen_key, fen, transposition_group_size, transposes_to, same_as`
+   - 5 roots (empty fen: A/B/C/D/E) · 5,894 concrete · 5,765 unique fen_keys
+   - verified: 10 `E.QID.Pet.KPe.*` present, **0 `E.QID.Mil.MLn*`**; TT example `E.Nim.Sml.Kmo → E.Nim.Sml.Bot`; SA example `E.KID.Fch.Uhl ↔ E.KID.Fch.Sim`; QID row `E.QID.Pet.KPe.d5.cxd5.Qc2` = "QID Kasparov-Petrosian, Kasparov Attack" (no "Miles")
 
-5. **Regenerate `openings.parquet`** via `chess-parquet`'s
-   `efcdb-openings` producer against the migrated catalogue
-   (coordinate in that repo).
+5. **[PENDING — GO-gated]** **Regenerate `openings.parquet`** via
+   `chess-parquet`'s `efcdb-openings` producer against the migrated
+   catalogue (coordinate in that repo).
 
 6. **Downstream smoke test** — confirm the producer:
    - absorbs the 10 renamed `canonical_ocn1` values
