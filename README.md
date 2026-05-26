@@ -246,10 +246,12 @@ See [`spec/OCN-1.md`](spec/OCN-1.md) for the full reasoning.
   [`docs/release-0.2-checklist.md`](docs/release-0.2-checklist.md)
   for the `ocn-1.0.3` release decision record,
   [`docs/release-0.2-post-transposition-cleanup-checklist.md`](docs/release-0.2-post-transposition-cleanup-checklist.md)
-  for the current post-cleanup release candidate (`ad25527`,
-  not yet tagged), and
+  for the post-cleanup release candidate, and
   [`docs/post-0.2-next-steps.md`](docs/post-0.2-next-steps.md)
-  for what's next.
+  for what's next. The catalogue is now **fully resolved
+  (0 unresolved)** and the candidate is **ready for the `ocn-1.1.0`
+  tag** — draft notes:
+  [`docs/release-ocn-1.1.0-notes.md`](docs/release-ocn-1.1.0-notes.md).
 - **0.3** — Internationalised aliases: Catalan, Spanish, French,
   German display names. The English `canonical_name` stays
   definitive.

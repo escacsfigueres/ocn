@@ -93,21 +93,20 @@ a new tagged release with assets.
    - **no schema change, no code change** — producer absorbed the 10
      renamed `canonical_ocn1` cleanly.
 
-7. **[PENDING — GO-gated]** **Final release docs / changelog** (the
-   catalogue docs are already at 0 unresolved; what remains is the
-   release-tag changelog/consumer note) —
-   - mark this checklist's steps done,
-   - update `docs/transpositions.md` Current state to
-     `unresolved_groups=0` / `resolved_groups=124`,
-   - update `docs/transposition-cleanup-closure.md` to "0 holds —
-     fully resolved",
-   - write a changelog/consumer note: "slug-migration: 10
-     `E.QID.Mil.MLn*` → `E.QID.Pet.KPe*`, 1 delete; no FEN/schema
-     change; canonical_ocn1 identity changed for 11 rows".
+7. ✅ **DONE** (commit "Document OCN 1.1.0 release notes") — **Final
+   release docs / changelog**: catalogue docs already at
+   `unresolved_groups=0`/`resolved_groups=124`
+   (`docs/transpositions.md`) and closure at "0 holds"
+   (`docs/transposition-cleanup-closure.md`); the release
+   changelog/consumer note is written in
+   [`release-ocn-1.1.0-notes.md`](release-ocn-1.1.0-notes.md)
+   (summary, compatibility/breaking note for the 10 slug renames,
+   asset sha256s, downstream smoke-test results, upgrade guidance).
 
-8. **Tag the release** — proposed tag below (decide patch vs minor):
-   - `git tag -a <tag> -m "OCN 0.2 — 0 unresolved; QID slug-migration"`
-   - `git push origin <tag>` (separate explicit GO)
+8. **[PENDING — GO-gated · REMOTE action]** **Tag the release** —
+   proposed `ocn-1.1.0` (minor bump; first slug-rename):
+   - `git tag -a ocn-1.1.0 -m "OCN 1.1.0 — fully resolved (0 unresolved); QID slug-migration"`
+   - `git push origin ocn-1.1.0` (separate explicit GO; reverify `gh auth status` = escacsfigueres first)
 
 9. **Upload release assets + checksums** —
    - `shasum -a 256 /tmp/ocn-1.positions.tsv /tmp/openings.parquet /tmp/_efcdb_manifest.json`
