@@ -1,24 +1,28 @@
 # Transpositions in OCN-1
 
-> **Phase status: CLOSED — 1 research hold left** (Nimzo Bot/Kmo
-> now resolved via single_canonical TT). All actionable duplicate
-> FEN groups are resolved; the **only remaining unresolved group is
-> QID Miles/Petrosian** (structural slug-migration, preflighted).
-> See
+> **Phase status: FULLY RESOLVED — 0 unresolved groups.** Every
+> duplicate FEN group in the catalogue is resolved. The last hold,
+> QID Miles/Petrosian, was fixed by the slug-migration (re-slug the
+> mislabelled subtree under `E.QID.Pet.KPe`); Nimzo Bot/Kmo was
+> resolved earlier via single_canonical TT. See
 > [`transposition-cleanup-closure.md`](transposition-cleanup-closure.md).
 
 ## Current state
 
-- Catalogue size: **5,900** rows.
-- Duplicate FEN groups: **125** total — **124 resolved** (**17 with
-  multiple canonicals**, 107 single canonical), **1 unresolved**.
-- Rows in unresolved groups: **2**.
-- **Only 1 unresolved group remains**: QID Miles/Petrosian
-  (structural slug-migration defect, preflighted — see
+- Catalogue size: **5,899** rows.
+- Duplicate FEN groups: **124** total — **124 resolved** (**17 with
+  multiple canonicals**, 107 single canonical), **0 unresolved**.
+- Rows in unresolved groups: **0**.
+- **The catalogue is fully resolved**: every duplicate FEN group is
+  classified. QID Miles/Petrosian — the last hold — was fixed by the
+  slug-migration (10 `E.QID.Mil.MLn.* → E.QID.Pet.KPe.*` + 1 delete;
+  see
   [`qid-miles-petrosian-migration-preflight.md`](qid-miles-petrosian-migration-preflight.md)).
   Nimzo Bot/Kmo was resolved via single_canonical `transposes_to`
-  (the spurious "Kmoch" demoted; see the Nimzo section below).
-  Every other duplicate FEN group is resolved.
+  (the spurious "Kmoch" demoted). The release-cycle artefact regen +
+  tag remain GO-gated
+  ([`qid-release-cycle-checklist.md`](qid-release-cycle-checklist.md)
+  steps 4-9).
 - Top group size in unresolved: **2** (all remaining unresolved
   are pairs; Van triple resolution removed the last conceptual
   triple).
@@ -647,7 +651,22 @@ B.Sic.HAc.d4.Bg7`, B06 ⇄ B27, two genuine family homes). Amar/Hungarian
 (one-home gambit; the Hungarian side self-describes as "Hungarian
 move order into the Paris Gambit").
 
-**Only 1 unresolved group remains** (Nimzo Bot/Kmo was resolved):
+**Both former holds are RESOLVED — 0 unresolved groups remain:**
+- **QID Miles/Petrosian [10]** — ✅ **RESOLVED via slug-migration**
+  (OCN's first slug-rename): the mislabelled a3/Nc3
+  Kasparov-Petrosian subtree was re-slugged `E.QID.Mil.MLn.* →
+  E.QID.Pet.KPe.*` (10 rows, parents fixed, `canonical_name`
+  relabelled "Miles"→"Kasparov-Petrosian", `moves_uci` unchanged) and
+  the duplicate `E.QID.Mil.MLn` deleted. Fixes the broken parent
+  chain + naming lie; rows 5,900 → 5,899, unresolved 1 → 0. Docs:
+  [`qid-miles-petrosian-structural-proposal.md`](qid-miles-petrosian-structural-proposal.md)
+  →
+  [`qid-miles-petrosian-migration-preflight.md`](qid-miles-petrosian-migration-preflight.md)
+  →
+  [`qid-migration-decision-record.md`](qid-migration-decision-record.md)
+  (Option C) →
+  [`qid-release-cycle-checklist.md`](qid-release-cycle-checklist.md)
+  (release-cycle artefact regen + tag still GO-gated, steps 4-9).
 - **Nimzo Bot/Kmo [2]** — ✅ **RESOLVED via single_canonical**:
   `E.Nim.Sml.Kmo.transposes_to = E.Nim.Sml.Bot`, the spurious
   "Kmoch" relabelled to "a3 Move Order" (Kmoch belongs to 4.f3 =
@@ -655,24 +674,6 @@ move order into the Paris Gambit").
   `E.Nim.Rub.Kmo`'s "Kmoch" artifact + the `E.Nim.Sml.Kmo.MLn`
   parent-chain quirk. See
   [`nimzo-botvinnik-kmoch-apply-preflight.md`](nimzo-botvinnik-kmoch-apply-preflight.md).
-- **QID Miles/Petrosian [10]** — structural mis-parenting defect:
-  `E.QID.Mil.MLn` carries the a3/Nc3 Kasparov-Petrosian theory
-  subtree under the wrong ("Miles" = 4.Bf4) parent, with a broken
-  parent chain. Needs a reparent/relabel review, not a same_as.
-  **Reviewed** in
-  [`qid-miles-petrosian-structural-proposal.md`](qid-miles-petrosian-structural-proposal.md):
-  recommends re-slugging the 11-node subtree under `E.QID.Pet.KPe`
-  (the empty correctly-named leaf) — OCN's first slug-rename, so
-  apply only in a dedicated, downstream-coordinated, GO'd commit.
-  Exact old→new slug map + `canonical_name` relabel + verification
-  checklist in
-  [`qid-miles-petrosian-migration-preflight.md`](qid-miles-petrosian-migration-preflight.md);
-  go/no-go decision in
-  [`qid-migration-decision-record.md`](qid-migration-decision-record.md)
-  — **Option C selected**: apply in a release cycle to reach
-  0 unresolved. Ordered runbook:
-  [`qid-release-cycle-checklist.md`](qid-release-cycle-checklist.md).
-  Not yet executed (GO-gated per step).
 - **Nimzo Bot/Kmo [2]** — **naming review COMPLETE** (was ON HOLD).
   The Lichess opening DB is decisive: "Kmoch" = 4.f3 (E20,
   `E.Nim.Fou` — correct); the Sämisch f3-tabiya = "Botvinnik" (E24,

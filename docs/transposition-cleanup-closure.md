@@ -1,27 +1,31 @@
 # Transposition cleanup — phase closure
 
-**Status**: **CLOSED**. Originally one of two research holds; the
-Nimzo Bot/Kmo hold was **resolved after closure** (commit
-`e036203`), leaving **QID Miles/Petrosian as the sole remaining
-unresolved group**.
+**Status**: **FULLY RESOLVED — 0 unresolved groups.** Both former
+research holds are fixed: Nimzo Bot/Kmo (`e036203`, single_canonical
+TT) and QID Miles/Petrosian (slug-migration — OCN's first
+slug-rename). Every duplicate FEN group in the catalogue is now
+resolved.
 **Closure snapshot**: `origin/main` at `0200e8e` (the metrics
-tables below are this snapshot).
-**Current state**: `origin/main` at `e036203` —
-`unresolved_groups=1` (QID only), `resolved_groups=124`,
-`multiple_canonical_groups=17`, 5,900 rows.
+tables below are this snapshot, when 2 holds remained).
+**Current state**: `unresolved_groups=0`, `resolved_groups=124`,
+`multiple_canonical_groups=17`, **5,899 rows**.
 **No catalogue changes accompany this document** — it records
 state, it does not alter it.
 
-> **Post-closure update (`e036203`)**: Nimzo Bot/Kmo resolved via
-> single_canonical `transposes_to` (`E.Nim.Sml.Kmo → E.Nim.Sml.Bot`,
-> spurious "Kmoch" demoted — Lichess E20 places "Kmoch" at 4.f3,
-> `E.Nim.Fou`). See
-> [`nimzo-botvinnik-kmoch-naming-review.md`](nimzo-botvinnik-kmoch-naming-review.md)
-> and
-> [`nimzo-botvinnik-kmoch-apply-preflight.md`](nimzo-botvinnik-kmoch-apply-preflight.md).
+> **Post-closure updates**:
+> - Nimzo Bot/Kmo resolved (`e036203`) via single_canonical
+>   `transposes_to` (`E.Nim.Sml.Kmo → E.Nim.Sml.Bot`, spurious
+>   "Kmoch" demoted — Lichess E20 places "Kmoch" at 4.f3).
+> - **QID Miles/Petrosian resolved** (slug-migration): re-slugged
+>   the 10-node mislabelled subtree `E.QID.Mil.MLn.* →
+>   E.QID.Pet.KPe.*` + deleted the duplicate `E.QID.Mil.MLn` →
+>   **unresolved 1 → 0**, rows 5,900 → 5,899. Release-cycle artefact
+>   regen + tag still GO-gated
+>   ([`qid-release-cycle-checklist.md`](qid-release-cycle-checklist.md)
+>   steps 4-9).
+>
 > The metrics/holds tables below are kept as the `0200e8e` closure
-> snapshot for history; see "Remaining holds" for the current
-> single hold.
+> snapshot for history; the catalogue is now fully resolved.
 
 ## What this phase did
 
@@ -64,17 +68,15 @@ above is the slice of that arc that landed in this session.
 > edit. *(At closure there were 2; Nimzo was resolved after closure
 > in `e036203`, leaving 1 — QID.)*
 
-## Remaining holds — 1 group (was 2 at closure)
+## Former holds — both RESOLVED (0 remaining)
 
-| group | ECO | status | why / outcome | next-sprint path |
-|---|---|---|---|---|
-| `E.Nim.Sml.Bot` ⇄ `E.Nim.Sml.Kmo` | E24/E25 ⇄ E26 | ✅ **RESOLVED after closure** (`e036203`) | Naming review (Lichess E20 = Kmoch is 4.f3; E24 = the Sämisch f3-tabiya is Botvinnik) showed `E.Nim.Sml.Kmo`'s "Kmoch" was an artifact. Resolved via `E.Nim.Sml.Kmo.transposes_to = E.Nim.Sml.Bot` + relabel ("a3 Move Order"). | done — follow-ups (`E.Nim.Rub.Kmo` artifact, `Kmo.MLn` parent-chain) noted in the apply preflight. |
-| `E.QID.Mil.MLn` ⇄ `E.QID.Pet.KPe` | E12 ⇄ E12 | **DEFERRED — structural review** (sole remaining hold) | `E.QID.Mil.MLn`'s move list (`…a3 Bb7 Nc3`) does not extend its parent `E.QID.Mil` (4.Bf4) — a **broken parent chain**. The whole a3/Nc3 Kasparov-Petrosian theory subtree (10 descendants) hangs under the mislabelled "Miles" branch, while the correctly-named `E.QID.Pet.KPe` is an empty leaf. | Re-slug the `Mil.MLn` subtree under `E.QID.Pet.KPe` (OCN's first slug-rename; coordinate `chess-parquet`). Fully preflighted in [`qid-miles-petrosian-migration-preflight.md`](qid-miles-petrosian-migration-preflight.md). |
+| group | ECO | status | outcome |
+|---|---|---|---|
+| `E.Nim.Sml.Bot` ⇄ `E.Nim.Sml.Kmo` | E24/E25 ⇄ E26 | ✅ **RESOLVED** (`e036203`) | Naming review (Lichess E20 = Kmoch is 4.f3; E24 = the Sämisch f3-tabiya is Botvinnik) showed `E.Nim.Sml.Kmo`'s "Kmoch" was an artifact. Resolved via `E.Nim.Sml.Kmo.transposes_to = E.Nim.Sml.Bot` + relabel ("a3 Move Order"). Follow-ups (`E.Nim.Rub.Kmo` artifact, `Kmo.MLn` parent-chain) noted in the apply preflight. |
+| `E.QID.Mil.MLn` ⇄ `E.QID.Pet.KPe` | E12 ⇄ E12 | ✅ **RESOLVED via slug-migration** (OCN's first slug-rename) | The a3/Nc3 Kasparov-Petrosian subtree (broken parent chain, mislabelled "Miles") was re-slugged `E.QID.Mil.MLn.* → E.QID.Pet.KPe.*` (10 rows, parents fixed, relabelled) and the duplicate `E.QID.Mil.MLn` deleted. rows 5,900 → 5,899, **unresolved 1 → 0**. Release-cycle artefact regen + tag still GO-gated ([`qid-release-cycle-checklist.md`](qid-release-cycle-checklist.md) steps 4-9). |
 
-As of `e036203`, `audit_transpositions.py --ranked` shows **one**
-remaining unresolved group: QID Miles/Petrosian. It must not be
-touched without its dedicated slug-migration sprint — a quick
-`same_as` would bury the broken parent chain.
+`audit_transpositions.py --ranked` now shows **no** unresolved
+groups. The catalogue is fully resolved.
 
 ## Tags untouched
 

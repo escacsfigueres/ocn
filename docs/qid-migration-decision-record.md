@@ -9,11 +9,14 @@ This record is about *whether and when* to apply, not *how*.
 
 > **DECISION: Option C SELECTED** (2026-05-26) — apply the QID
 > slug-migration inside a release cycle whose end state is
-> `unresolved_groups=0`, rather than now or as an "almost-resolved"
-> release. The ordered runbook is in
+> `unresolved_groups=0`. The ordered runbook is in
 > [`qid-release-cycle-checklist.md`](qid-release-cycle-checklist.md).
-> Still **not applied** — the release cycle is itself GO-gated per
-> step.
+>
+> **APPLY EXECUTED** (step 2, commit "Apply QID Miles Petrosian slug
+> migration"): the slug-migration is **done** — `unresolved_groups`
+> is now **0** (validated). The remaining release-cycle steps
+> (artefact regen, downstream smoke test, tag, asset upload) are
+> still GO-gated and NOT executed.
 
 ## Current state (`026c5e7`)
 

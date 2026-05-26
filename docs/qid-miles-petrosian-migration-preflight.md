@@ -1,14 +1,18 @@
 # QID Miles/Petrosian — migration preflight checklist
 
-**Status**: PREFLIGHT (no catalogue change). Companion to
-[`qid-miles-petrosian-structural-proposal.md`](qid-miles-petrosian-structural-proposal.md)
-(Option A recommended). This document fully specifies the future
-slug migration so the apply is mechanical and verifiable.
+**Status**: **APPLIED** (commit "Apply QID Miles Petrosian slug
+migration"). The 10 descendants were re-slugged `E.QID.Mil.MLn.* →
+E.QID.Pet.KPe.*` (parents fixed, `canonical_name` relabelled
+"Miles"→"Kasparov-Petrosian", `moves_uci` byte-unchanged) and
+`E.QID.Mil.MLn` deleted. Result: rows 5,900 → 5,899,
+**unresolved_groups 1 → 0** — the catalogue is now fully resolved.
+Downstream artefact regen + tag remain GO-gated (see
+[`qid-release-cycle-checklist.md`](qid-release-cycle-checklist.md)
+steps 4-9). Companion to
+[`qid-miles-petrosian-structural-proposal.md`](qid-miles-petrosian-structural-proposal.md).
 
-**Do not apply from this document.** The migration is OCN's first
-slug-rename and changes `canonical_ocn1` downstream — it needs a
-dedicated, GO'd, `chess-parquet`-coordinated commit. The **go/no-go
-decision** (whether/when to apply) is recorded separately in
+The migration was OCN's first slug-rename and changes
+`canonical_ocn1` downstream. The **go/no-go decision** is recorded in
 [`qid-migration-decision-record.md`](qid-migration-decision-record.md)
 (recommendation: bundle with the next release/tag, not an immediate
 out-of-band apply).

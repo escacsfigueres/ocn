@@ -37,15 +37,19 @@ a new tagged release with assets.
    - `python3 -m unittest discover tools/tests` → 60/60
    - grep tests for `E.QID.Mil.MLn` (update any pinned assertion as part of step 2)
 
-2. **[PENDING — GO-gated, NOT executed]** **Apply the QID
-   slug-migration** per
+2. ✅ **DONE** (commit "Apply QID Miles Petrosian slug migration") —
+   **Applied the QID slug-migration** per
    [`qid-miles-petrosian-migration-preflight.md`](qid-miles-petrosian-migration-preflight.md):
    delete `E.QID.Mil.MLn`, re-slug its 10 descendants
    `E.QID.Mil.MLn.* → E.QID.Pet.KPe.*` (fix `parent_ocn1`), relabel
    `canonical_name` to drop "Miles" → "Kasparov-Petrosian". No
    `moves_uci`/FEN change; no schema change.
 
-3. **Validate the migrated catalogue** — expected after step 2:
+3. ✅ **VALIDATED inline with the step-2 commit** (all green — see
+   results below; the `0 unresolved` milestone is reached). The
+   formal milestone sign-off + the downstream steps 4-9
+   (artefacts / tag / release) remain **GO-gated, NOT executed**.
+   Expected & confirmed after step 2:
    - rows **5,899** (−1: `E.QID.Mil.MLn` deleted)
    - duplicate_groups **124** (−1)
    - resolved_groups **124** (the group collapses; not counted resolved)
