@@ -23,15 +23,22 @@ a new tagged release with assets.
 > previous one. Steps 2 and 5 are the only ones that mutate state
 > (catalogue / downstream artefacts).
 
-1. **Pre-apply safety snapshot** — record the baseline before
-   touching anything:
+1. ✅ **DONE (`a60b7ae` baseline, 2026-05-26)** — **Pre-apply safety
+   snapshot** recorded in
+   [`qid-release-cycle-snapshot.md`](qid-release-cycle-snapshot.md):
+   all validations green (validate 5900/0, audit_chess 0/0, tests
+   60/60, lichess 3690/3690, summary `unresolved_groups=1`), and the
+   QID preconditions verified (11 migrating slugs present,
+   `E.QID.Pet.KPe` empty-leaf target, zero inbound refs). Original
+   commands:
    - `git status -sb` (clean, on `main`, synced)
    - `python3 tools/validate.py --strict-chess catalog/ocn-1.csv` → 0 warnings
    - `python3 tools/audit_transpositions.py --summary` → `unresolved_groups=1`, rows=5,900
    - `python3 -m unittest discover tools/tests` → 60/60
    - grep tests for `E.QID.Mil.MLn` (update any pinned assertion as part of step 2)
 
-2. **Apply the QID slug-migration** per
+2. **[PENDING — GO-gated, NOT executed]** **Apply the QID
+   slug-migration** per
    [`qid-miles-petrosian-migration-preflight.md`](qid-miles-petrosian-migration-preflight.md):
    delete `E.QID.Mil.MLn`, re-slug its 10 descendants
    `E.QID.Mil.MLn.* → E.QID.Pet.KPe.*` (fix `parent_ocn1`), relabel
