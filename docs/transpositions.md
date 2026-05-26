@@ -666,7 +666,10 @@ move order into the Paris Gambit").
   apply only in a dedicated, downstream-coordinated, GO'd commit.
   Exact old→new slug map + `canonical_name` relabel + verification
   checklist in
-  [`qid-miles-petrosian-migration-preflight.md`](qid-miles-petrosian-migration-preflight.md).
+  [`qid-miles-petrosian-migration-preflight.md`](qid-miles-petrosian-migration-preflight.md);
+  go/no-go decision (recommend: bundle with the next release/tag,
+  not an immediate out-of-band apply) in
+  [`qid-migration-decision-record.md`](qid-migration-decision-record.md).
 - **Nimzo Bot/Kmo [2]** — **naming review COMPLETE** (was ON HOLD).
   The Lichess opening DB is decisive: "Kmoch" = 4.f3 (E20,
   `E.Nim.Fou` — correct); the Sämisch f3-tabiya = "Botvinnik" (E24,

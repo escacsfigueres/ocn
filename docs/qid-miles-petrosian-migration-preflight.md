@@ -7,7 +7,11 @@ slug migration so the apply is mechanical and verifiable.
 
 **Do not apply from this document.** The migration is OCN's first
 slug-rename and changes `canonical_ocn1` downstream — it needs a
-dedicated, GO'd, `chess-parquet`-coordinated commit.
+dedicated, GO'd, `chess-parquet`-coordinated commit. The **go/no-go
+decision** (whether/when to apply) is recorded separately in
+[`qid-migration-decision-record.md`](qid-migration-decision-record.md)
+(recommendation: bundle with the next release/tag, not an immediate
+out-of-band apply).
 
 ## Preflight finding (important)
 

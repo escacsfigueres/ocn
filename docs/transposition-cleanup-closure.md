@@ -101,6 +101,12 @@ mislabelled subtree under `E.QID.Pet.KPe`), fully preflighted, which
 needs `chess-parquet` coordination and its own GO. Treat `e036203`
 as the current baseline (`0200e8e` was the closure snapshot).
 
+The **go/no-go decision** for that slug-migration is recorded in
+[`qid-migration-decision-record.md`](qid-migration-decision-record.md)
+— recommendation: **bundle it with the next release/tag cycle**, not
+an immediate out-of-band apply (the defect is internal/non-position
+and the catalogue is fully functional at `unresolved_groups=1`).
+
 ## Provenance
 
 Full per-group resolution log: [`transpositions.md`](transpositions.md).
