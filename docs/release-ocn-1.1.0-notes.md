@@ -73,6 +73,12 @@ the head moves; do not reuse `ocn-1.0.3` checksums.
 
 ## Downstream (chess-parquet)
 
+> **Post-release downstream verification (2026-05-27):** the
+> published release was downloaded by a real consumer and verified
+> end-to-end (sha256 match, 8/8 smoke-test, producer tests green).
+> See
+> [`release-ocn-1.1.0-downstream-verification.md`](release-ocn-1.1.0-downstream-verification.md).
+
 The `efcdb-cli openings` producer was run against the migrated
 catalogue and **smoke-tested**:
 
