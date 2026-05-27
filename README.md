@@ -253,6 +253,12 @@ See [`spec/OCN-1.md`](spec/OCN-1.md) for the full reasoning.
   [`docs/release-ocn-1.1.0-notes.md`](docs/release-ocn-1.1.0-notes.md),
   downstream-verified end-to-end by a real consumer:
   [`docs/release-ocn-1.1.0-downstream-verification.md`](docs/release-ocn-1.1.0-downstream-verification.md).
+- **post-1.1 · data quality** — naming / attribution audit (are the
+  eponyms *true*, and is the *kind* of attribution explicit:
+  invented vs published vs popularised vs event/game anchor?).
+  Methodology:
+  [`docs/naming-attribution-audit-methodology.md`](docs/naming-attribution-audit-methodology.md);
+  plan: [`docs/post-1.1-roadmap.md`](docs/post-1.1-roadmap.md).
 - **0.3** — Internationalised aliases: Catalan, Spanish, French,
   German display names. The English `canonical_name` stays
   definitive.
