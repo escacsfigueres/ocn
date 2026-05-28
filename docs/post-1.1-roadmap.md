@@ -30,9 +30,16 @@ popularised vs event-anchored)?
   explicit GO. Naming-only edits never touch `transposes_to` /
   `same_as`; structural (slug/parent) corrections ride a release
   boundary as a governed migration (the QID Miles/Petrosian precedent).
-- **Backlog** (see methodology for detail): `E.Nim.Rub.Kmo` Kmoch
-  question; `E.Nim.Sml.Kmo.MLn` parent-chain quirk; a player-eponym
-  classification sweep; source-specific/Lichess labels → aliases.
+- **Backlog** (see methodology for detail):
+  - `E.Nim.Rub.Kmo` Kmoch question — **proposal written**
+    ([`nimzo-rubinstein-kmoch-naming-proposal.md`](nimzo-rubinstein-kmoch-naming-proposal.md));
+    diagnosis: "Kmoch" is a borrowed label (not in Lichess, not in the
+    opening-book corpus), recommend relabel to a Rubinstein move-order
+    descriptor (option C). Awaiting apply GO; `same_as` reconsideration
+    deferred as a separate transposition-layer call.
+  - `E.Nim.Sml.Kmo.MLn` parent-chain quirk;
+  - a player-eponym classification sweep;
+  - source-specific/Lichess labels → aliases.
 
 ## Track 2 — 0.3 internationalised aliases
 
