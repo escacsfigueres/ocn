@@ -31,12 +31,12 @@ popularised vs event-anchored)?
   `same_as`; structural (slug/parent) corrections ride a release
   boundary as a governed migration (the QID Miles/Petrosian precedent).
 - **Backlog** (see methodology for detail):
-  - `E.Nim.Rub.Kmo` Kmoch question — **proposal written**
-    ([`nimzo-rubinstein-kmoch-naming-proposal.md`](nimzo-rubinstein-kmoch-naming-proposal.md));
-    diagnosis: "Kmoch" is a borrowed label (not in Lichess, not in the
-    opening-book corpus), recommend relabel to a Rubinstein move-order
-    descriptor (option C). Awaiting apply GO; `same_as` reconsideration
-    deferred as a separate transposition-layer call.
+  - `E.Nim.Rub.Kmo` Kmoch question — **APPLIED 2026-05-28** (option C,
+    strings-only):
+    ([`nimzo-rubinstein-kmoch-naming-proposal.md`](nimzo-rubinstein-kmoch-naming-proposal.md))
+    relabelled "Kmoch Variation" → "f3 Move Order" (borrowed label, not
+    in Lichess / opening-book corpus). `same_as` left unchanged
+    (option D deferred as a separate transposition-layer call).
   - `E.Nim.Sml.Kmo.MLn` parent-chain quirk;
   - a player-eponym classification sweep;
   - source-specific/Lichess labels → aliases.

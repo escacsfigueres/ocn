@@ -1,9 +1,11 @@
 # Naming audit proposal — `E.Nim.Rub.Kmo` ("Kmoch")
 
-**Status**: proposal, **docs-only**. No catalogue change accompanies
-this document. First naming-audit candidate executed under
+**Status**: **APPLIED 2026-05-28** (option C, strings-only). The
+naming fix below was applied to `catalog/ocn-1.csv` in the same commit
+as this status update. First naming-audit candidate executed under
 [`naming-attribution-audit-methodology.md`](naming-attribution-audit-methodology.md);
-follow-up to the resolved Nimzo Bot/Kmo case.
+follow-up to the resolved Nimzo Bot/Kmo case. **The `same_as` relation
+was NOT touched** (option D deferred — see below).
 
 **Scope fence**: this is a *naming* audit. It does **not** propose any
 edit to `transposes_to` / `same_as` / `moves_uci` / `parent_ocn1` in
@@ -127,10 +129,39 @@ Every other "Kmoch" in the catalogue is a **different opening**
 
 4. **What should change?** — see recommendation.
 
-## Recommendation
+## Applied (2026-05-28) — option C, strings-only
 
-**Primary — option C (relabel to a Rubinstein move-order descriptor),
-for a FUTURE apply, gated on its own GO. Not applied here.**
+Exact catalogue changes (2 rows, verified: only lines 434 + 644
+changed, all 5,897 other rows byte-identical; audit counts unchanged
+`unresolved=0` / `multiple_canonical=17`):
+
+- **`E.Nim.Rub.Kmo`**
+  - `canonical_name`: "Nimzo Rubinstein, Kmoch Variation" →
+    **"Nimzo Rubinstein, f3 Move Order"**
+  - `aliases`: "Kmoch Variation" → **"f3 Move Order"**
+  - `notes`: rewritten to "Rubinstein move order (4.e3 O-O 5.f3 d5 6.a3
+    Bxc3 7.bxc3 c5) reaching the Sämisch-Botvinnik Main Line tabiya;
+    co-canonical with E.Nim.Sml.Bot.MLn — same FEN via Rubinstein and
+    Sämisch move orders. The 'Kmoch Variation' name belongs to the
+    4.f3 line (E.Nim.Fou, E20), not this Rubinstein node; no source
+    attests a Rubinstein Kmoch label."
+  - **unchanged**: `ocn1` (slug stays `.Kmo`), `eco_legacy` (E40),
+    `parent_ocn1`, `moves_uci`, `depth`, `flags`, `transposes_to`
+    (empty), **`same_as` (still `E.Nim.Sml.Bot.MLn`)**.
+- **`E.Nim.Sml.Bot.MLn`** — one cross-reference phrase only:
+  `notes` "(Rubinstein Kmoch, ECO E40)" → "(Rubinstein f3 move order,
+  ECO E40)". All other fields incl. `same_as` unchanged.
+- **`E.Nim.Fou`** untouched — keeps `Kmoch Variation|4.f3 System`
+  (the real Kmoch home).
+
+**`same_as` decision = option D, DEFERRED / no change** — the
+co-canonical relation persists; any move to `transposes_to` is a
+separate transposition-layer call (lean: keep), not bundled here.
+
+## Recommendation (as proposed; primary option C now applied)
+
+**Primary — option C (relabel to a Rubinstein move-order descriptor).
+Applied 2026-05-28, strings-only.**
 
 Proposed catalogue-content edit (naming only) when approved:
 
