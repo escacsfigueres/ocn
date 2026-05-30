@@ -82,18 +82,110 @@ choice (see Options A1 vs A2 below). The methodology's governing rules:
 | # | source | claim | supports | confidence |
 |---|---|---|---|---|
 | 1 | `external/lichess-openings` (local corpus) | "QGD: Cambridge Springs Defense", ECO **D52**, `...Qa5` — exact move match to `D.QGD.Cmb` | name is a **real corpus label** (not type F/G) | **high** (verified locally) |
-| 2 | Standard reference knowledge (Oxford Companion to Chess, Hooper & Whyld 1984, entry "Cambridge Springs Defence") | the defence is **named after the Cambridge Springs 1904 tournament** | **tournament anchor** (type E) | **high** on the *fact*; **medium** that the exact OC entry wording must be confirmed in-hand before apply |
-| 3 | Standard reference knowledge | the `...Qa5` idea **predates 1904** (played earlier; the tournament popularised/named it) | type-A pre-history → `historical_notes`, not `attributed_to` | medium (state as pre-history, not as a dated first game) |
+| 2 | Wikipedia "QGD, Cambridge Springs Defense", citing Schiller (1984) + Panczyk & Ilczuk (2002); corroborated by chess.com & cs1904.com | the defence is **named after the Cambridge Springs 1904 tournament** (played in 3 games there) | **tournament anchor** (type E) | **high** — see Citation verification below (web-confirmed 2026-05-30) |
+| 3 | Same sources | the `...Qa5` idea **predates 1904** (Lasker 1892; Pillsbury, Nuremberg 1896) — the tournament popularised/named it | type-A pre-history → `historical_notes`, not `attributed_to` | **high** (sourced) |
 | 4 | Lichess sub-labels (Capablanca, Bogoljubow, Rubinstein, Argentine, Yugoslav) | strong players are tied to **sub-lines**, not to the head name | confirms the **head** name is the *event*, not a person | high |
 | 5 | — | a single identified model game that fixed the name | **none found** → do NOT assert a game | n/a |
 
-**Honesty note:** evidence #2 is the load-bearing citation and is given
-here from standard reference knowledge. **Before any apply, the Oxford
-Companion entry must be physically confirmed** (or replaced with an
-equivalent reliable opening-reference citation). No web was consulted for
-this proposal; `nlm` is available but was not needed for a
-proposal-stage diagnosis. This proposal is explicitly gated on that
-source confirmation.
+**Honesty note:** evidence #2 was the load-bearing citation. It has since
+been **verified by web sources** (see Citation verification below) — the
+origin claim is confirmed and now cites sources actually seen (Wikipedia +
+Schiller 1984 / Panczyk & Ilczuk 2002), not the unseen Oxford Companion
+entry. The `attribution_source` string in the table below is therefore
+**superseded** by the revised block in the Citation verification section.
+
+## Citation verification (2026-05-30)
+
+**Status: CONFIRMED (origin fact) · PARTIALLY CONFIRMED (exact Oxford
+Companion entry).** The naming claim — that the line is named for the
+**Cambridge Springs 1904 tournament** — is corroborated by multiple
+independent secondary sources with citable references. The *verbatim
+Oxford Companion (1984) entry wording* was **not** read first-hand, so a
+direct primary quote from that specific book remains unconfirmed; the
+attribution itself no longer depends on it.
+
+**Sources consulted:**
+
+- **Local repo / `external/`** — only the OCN docs themselves cite the
+  Oxford Companion (circular: that is the claim under test). The Lichess
+  TSVs confirm the *label* (D52) but say nothing about origin.
+- **NotebookLM (`nlm`)** — queried the Q25 editorial-chess notebook
+  (123 sources). It returned **two grounded opening-book excerpts**
+  confirming the line is real and called the "Cambridge Springs
+  variation/system" (`5...Nbd7 6.e3 Qa5`), but **neither excerpt
+  describes the origin of the name**. `nlm` honestly **disclaimed** its
+  Oxford-Companion paragraph as *"from outside the given sources …
+  independently verify it"* — ungrounded recall, correctly flagged.
+- **Web (Wikipedia + chess history sources)** — *succeeded* and is the
+  decisive evidence. Wikipedia "Queen's Gambit Declined, Cambridge
+  Springs Defense": **"The name derives from a 1904 tournament in
+  Cambridge Springs, Pennsylvania, where it was played several times."**
+  It cites real references — **Schiller, *Cambridge Springs Defense*
+  (1984)** and **Panczyk & Ilczuk, *The Cambridge Springs* (2002)** —
+  and notes the line **predates 1904** (first recorded Lasker 1892;
+  introduced by Pillsbury, Nuremberg 1896). Multiple corroborating
+  sources (chess.com, the cs1904.com tournament site) agree, and name
+  the three anchoring games: **Marshall–Teichmann, Hodges–Barry,
+  Schlechter–Teichmann** (Black scored only ½/3).
+
+**What IS confirmed (high):**
+
+1. The canonical name "Cambridge Springs" is a genuine corpus-attested
+   label (Lichess D52 + two opening books via `nlm`) — **not** a DB
+   artifact. (`canonical_name`/`aliases` unchanged; never in question.)
+2. **Origin = the 1904 tournament** — type-E venue/tournament anchor,
+   attributed to the **event/location, not a person and not a single
+   game** (three games carried it, no one game fixed it). Confirmed by
+   multiple independent secondary sources with citations.
+3. **Pre-1904 history** — the `...Qa5` idea predates the event (Lasker
+   1892; Pillsbury 1896) → a clean type-A `historical_notes` fact, exactly
+   as the Berlin Wall row records its 1880 pre-history.
+
+**What is NOT confirmed:** the **verbatim Oxford Companion (1984) entry**
+itself (the specific book was not opened in this session). This no longer
+blocks the attribution — the origin fact is independently sourced — but
+the proposed `attribution_source` string, which cites the Oxford
+Companion, should be **revised to cite a source actually seen** (see
+below).
+
+**Effect on the A1/A2 decision:** the **direction and strength are now
+solid** for a type-E event anchor (upgraded from "unverified" to
+**confirmed origin**). The remaining work before apply is purely the
+**`attribution_source` wording** — do not ship the Oxford Companion
+citation as written (unseen). Two honest options:
+
+1. **Confirm the Oxford Companion entry in-hand** → keep an OC citation.
+2. **Cite what was actually verified** (recommended) → the 1904
+   tournament as the anchor plus a real secondary reference, e.g.
+   Panczyk & Ilczuk, *The Cambridge Springs* (2002), and/or the named
+   1904 games — mirroring how `D.Sem.Mer`/`E.KID.Cls.Mar` cite the
+   venue/event directly. No unseen book asserted.
+
+**Recommendation after verification:** **A1** (event anchor in
+`attributed_to`, no invented person) is now well-supported and is the
+recommendation. The single change vs the originally-drafted A1 strings is
+the **`attribution_source`** — substitute the verified
+tournament+secondary-source citation (option 2 above) for the unseen
+Oxford Companion reference. With that one revision the proposal is
+**apply-ready pending GO**; the `historical_notes` should add the type-A
+pre-history (Lasker 1892 / Pillsbury 1896) now that it is sourced. The
+A1-vs-A2 field-design choice and the final `attribution_source` wording
+are the two points for the apply-time GO.
+
+### Revised proposed `attribution_source` (supersedes the table below)
+
+```
+attribution_source = Named for the Cambridge Springs 1904 international tournament (Pennsylvania), where the ...Qa5 defence was played in several games (Marshall–Teichmann, Hodges–Barry, Schlechter–Teichmann); cf. Panczyk & Ilczuk, 'The Cambridge Springs' (2002).
+```
+
+```
+historical_notes (revised) = The ...Qa5 defence takes its name from the Cambridge Springs 1904 tournament, where it appeared in several games. The idea predates the event (first recorded Lasker 1892; introduced by Pillsbury, Nuremberg 1896), so the tournament popularised and named the line rather than originating it. Sub-lines carry later eponyms (Capablanca's Bxf6, Bogoljubow's Qc2, Rubinstein's 7...dxc4).
+```
+
+The `attribution_source` / `historical_notes` rows in **"Exact proposed
+field changes"** below are the *original* draft (Oxford-Companion-based);
+the two blocks here **supersede** them and are what a future apply should
+use.
 
 ## Options
 
