@@ -42,6 +42,37 @@ Attack** row (secondary naming attestation + a verified dated game), and
 weaker only in that Marshall's anchoring game is famous while Winawer's
 1867 game is merely his earliest corpus use.
 
+## Source-read attempt 2 (2026-05-30)
+
+A second, focused attempt to lift this from PARTIAL to CLEAR with a
+reference-grade naming citation. **Outcome: still PARTIAL** — no
+reference-grade source was readable first-hand. What was tried and found:
+
+- **Oxford Companion to Chess full text** (archive.org djvu) — WebFetch
+  reached only the "A" section / archive nav interface; the **"W"
+  (Winawer) entry remained unreadable**. Not quoted.
+- **Edward Winter, "The French Defence"** (chesshistory.com) — does
+  **not** discuss the Winawer naming (only a Euwe–Gligorić sub-line
+  query). No help.
+- **A genuine reference-grade source exists but unread:** *The Wizard of
+  Warsaw — A Chess Biography of Szymon Winawer* (Lissowski & Bogdanovich).
+  The natural primary source for a future upgrade.
+- **Secondary corroboration** (chess.com "The French Winawer: A History",
+  pawnbreak, 365chess, modern-chess) — all agree the line is named for
+  Winawer, popularised by Nimzowitsch (1920s) / Botvinnik (1940s), and
+  that Winawer himself played it only a few times. None cites a reference
+  work.
+- A secondary claim of a **dated game "Paris 1878"** surfaced, but it is
+  instructional-site grade and **conflicts** with the Lumbra corpus
+  (Steinitz–Winawer, Paris **1867**). Treat with caution; **do not encode
+  1878** in the field strings.
+
+**Net:** the naming is uncontested and broadly attested, but the
+reference-grade citation gap is unchanged. The recommendation is
+unaffected — **Option A** (apply on the Marshall precedent) or **Option B**
+(hold for one read of the *Wizard of Warsaw* biography or the OC "W"
+entry). The choice remains yours.
+
 ## Diagnosis
 
 - **Attribution type: C (early practitioner / namesake), not inventor.**
