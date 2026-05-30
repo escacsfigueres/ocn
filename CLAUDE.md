@@ -56,3 +56,12 @@ git worktree add ../ocn-validator feat/validator-x
 Mai obrir dos streams al mateix WT (`/Users/albertpi/Code/ocn`) si una altra
 sessió hi treballa. Si trobes el WT en una branca aliena, treballa des d'un
 worktree separat (o demana a l'Albert que coordini).
+
+## Agentic development contract
+
+For OCN-specific agentic work, follow
+[`docs/agentic-development-playbook.md`](docs/agentic-development-playbook.md):
+Intent, Expectations, Context, Workflow — with explicit GO gates for
+apply / push / tag / release / dynamic workflows. It generalises the
+account, promotion, and worktree rules above into the full human–agent
+loop (task sizing + verification discipline).
