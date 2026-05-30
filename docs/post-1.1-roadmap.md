@@ -30,16 +30,27 @@ popularised vs event-anchored)?
   explicit GO. Naming-only edits never touch `transposes_to` /
   `same_as`; structural (slug/parent) corrections ride a release
   boundary as a governed migration (the QID Miles/Petrosian precedent).
-- **Backlog** (see methodology for detail):
+- **Discovery backlog** — **CREATED 2026-05-30** (dynamic-workflow,
+  4 parallel read-only sweeps, no catalogue change):
+  [`naming-attribution-audit-backlog.md`](naming-attribution-audit-backlog.md).
+  38 findings → 32 distinct slugs: 12 proposal candidates, 11
+  deeper-source-review, 14 ignore/keep, 1 cosmetic. Each item is
+  source-gated on its own proposal + explicit GO.
+- **Backlog items** (see the discovery backlog + methodology for detail):
   - `E.Nim.Rub.Kmo` Kmoch question — **APPLIED 2026-05-28** (option C,
     strings-only):
     ([`nimzo-rubinstein-kmoch-naming-proposal.md`](nimzo-rubinstein-kmoch-naming-proposal.md))
     relabelled "Kmoch Variation" → "f3 Move Order" (borrowed label, not
     in Lichess / opening-book corpus). `same_as` left unchanged
     (option D deferred as a separate transposition-layer call).
-  - `E.Nim.Sml.Kmo.MLn` parent-chain quirk;
-  - a player-eponym classification sweep;
-  - source-specific/Lichess labels → aliases.
+  - `E.Nim.Sml.Kmo.MLn` parent-chain quirk — **verified closeable**
+    (reads sensibly post-relabel; discovery backlog WS4).
+  - player-eponym classification sweep — **started**: top candidates
+    `B.Fre.Win`, `B.Ale`, `B.Sic.Tay/Ros/Alp`, `A.Tro`, `D.Tar`/`D.Chi`
+    (per-head only), `C.RyL.Mar` (game anchor), `D.QGD.Cmb` (event anchor).
+  - source-specific/Lichess labels → aliases — Kmoch cluster triaged
+    (corpus-confirmed, no demotions); next pass is a token-normalised
+    misplacement detector (backlog Top-5 #5).
 
 ## Track 2 — 0.3 internationalised aliases
 
