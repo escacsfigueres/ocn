@@ -185,6 +185,10 @@ historical_notes   = (empty — by design)
 - **Optional:** GO an *evidence sprint* (agent with web) to gather one
   citation per Group-B head, converting B into a real 3–6 row batch.
 
+## Evidence sprint result (2026-05-30)
+
+The Group-B evidence sprint ([`player-eponym-group-b-evidence-sprint.md`](player-eponym-group-b-evidence-sprint.md)), web-enabled, found real naming citations, and a follow-up **Lumbra Gigabase chronology addendum** firmed up the attribution types. **5 heads are batch-ready** — `A.Tro` (Trompowsky; Oxford Companion via Wikipedia), `B.Ale` (Alekhine; Budapest 1921 + Winter/Fahrni), `B.Sic.Ros` (Rossolimo; Winter/Benko 1975), `C.RyL.Mar` (Marshall; Winter + New York 1918), `B.Sic.Naj.Pol` (Polugaevsky; his own *Grandmaster Preparation*). Only `B.Fre.Win` (Winawer) stays PARTIAL — chronology fine, but no reference-grade *naming* source read yet. The chronology confirmed **all six are popularizer/introducer types (idea predates the eponym), none inventors** — strengthening the `historical_notes`, weakening no naming claim. Recommended next: **GO apply the 5-row batch** (refined strings in the sprint's Chronology addendum), or a conservative subset.
+
 ## See also
 
 - [`naming-attribution-audit-methodology.md`](naming-attribution-audit-methodology.md)
