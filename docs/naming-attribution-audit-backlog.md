@@ -7,6 +7,8 @@ explicit GO, exactly as the
 [`naming-attribution-audit-methodology.md`](naming-attribution-audit-methodology.md)
 requires. **Dynamic workflow used: yes** (4 parallel read-only sweeps).
 
+> **Event/venue batch map (2026-05-30):** a follow-up dynamic-workflow sweep classified event/venue/game anchors — result: **no batch-safe candidates** (venue tokens are F/G structure/place labels, not type-E event anchors). See [`event-venue-attribution-batch-proposal.md`](event-venue-attribution-batch-proposal.md). At most one source-gated individual proposal (Carlsbad); Marshall routes to the player-eponym track.
+
 This document sits on top of the methodology (it supplies the *what to
 audit next*; the methodology supplies the *how*). It changes nothing in
 `catalog/ocn-1.csv`.

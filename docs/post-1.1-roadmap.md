@@ -58,6 +58,7 @@ popularised vs event-anchored)?
     post-1.1 attribution edit and first event-anchor attribution.**
   - source-specific/Lichess labels → aliases — Kmoch cluster triaged
     (corpus-confirmed, no demotions); next pass is a token-normalised
+  - event/venue anchor batch — **MAPPED 2026-05-30** (dynamic-workflow, 4 read-only sweeps): **no batch-safe type-E candidates** — venue tokens are F/G structure/place labels. ([`event-venue-attribution-batch-proposal.md`](event-venue-attribution-batch-proposal.md)). Next event candidate at most Carlsbad (source-gated); Marshall → eponym track.
     misplacement detector (backlog Top-5 #5).
 
 ## Track 2 — 0.3 internationalised aliases
