@@ -48,6 +48,11 @@ popularised vs event-anchored)?
   - player-eponym classification sweep — **started**: top candidates
     `B.Fre.Win`, `B.Ale`, `B.Sic.Tay/Ros/Alp`, `A.Tro`, `D.Tar`/`D.Chi`
     (per-head only), `C.RyL.Mar` (game anchor), `D.QGD.Cmb` (event anchor).
+  - `D.QGD.Cmb` Cambridge Springs — **PROPOSAL WRITTEN 2026-05-30**
+    ([`qgd-cambridge-springs-attribution-proposal.md`](qgd-cambridge-springs-attribution-proposal.md)):
+    type-E tournament anchor, option A1, head row only, source-gated on
+    confirming the Oxford Companion entry before apply. First post-1.1
+    event-anchor attribution proposal.
   - source-specific/Lichess labels → aliases — Kmoch cluster triaged
     (corpus-confirmed, no demotions); next pass is a token-normalised
     misplacement detector (backlog Top-5 #5).
