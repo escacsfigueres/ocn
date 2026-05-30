@@ -111,7 +111,17 @@ per-candidate below so nothing is hidden.
 - **Upgrade path:** one reference-work entry (Oxford Companion 'Rossolimo')
   or a dated Rossolimo game tied to the name → promotes to CLEAR.
 
-### `B.Fre.Win` — French, Winawer — **PARTIAL ⚠**
+### `B.Fre.Win` — French, Winawer — **PARTIAL ⚠ → PROPOSAL WRITTEN 2026-05-30**
+
+> **Update:** a focused source sprint produced a proposal —
+> [`french-winawer-attribution-proposal.md`](french-winawer-attribution-proposal.md).
+> The naming is uncontested (multi-source secondary attestation + the
+> verified dated game Steinitz–Winawer, Paris 1867); still no
+> reference-grade source quoted first-hand, so it stays formally PARTIAL,
+> but the proposal recommends **apply on the Marshall precedent**
+> (secondary attestation + dated game), Oxford Companion noted as an
+> optional upgrade. Type C early-practitioner; idea predates him
+> (Paulsen 1861). Head row only.
 
 - **Type:** A+C (eponym Winawer; popularised by Nimzowitsch/Botvinnik).
   **Agent + orchestrator:** PARTIAL.
