@@ -1,10 +1,13 @@
 # Player-eponym Group B — evidence sprint (post-1.1)
 
-**Status**: **EVIDENCE SPRINT — no catalogue change.** Web-enabled
-sourcing for the 6 Group-B player-eponym heads, to determine which have a
-citable naming source good enough to apply. **Dynamic workflow used: yes**
-(6 parallel web-enabled agents, one per candidate). Applies nothing;
-every apply remains GO-gated.
+**Status**: **APPLIED 2026-05-30** (5-row batch, strings-only, head rows
+only). Web-enabled sourcing for the 6 Group-B player-eponym heads + a
+Lumbra chronology addendum. **Dynamic workflow used: yes** (6 parallel
+web-enabled agents). The 5 batch-ready rows (`A.Tro`, `B.Ale`,
+`B.Sic.Ros`, `C.RyL.Mar`, `B.Sic.Naj.Pol`) were applied with the refined
+strings below; **`B.Fre.Win` remains PARTIAL / held** (no reference-grade
+naming source yet). Verified: `CHANGED_ROWS` = exactly those 5, 0 child
+rows, rows still 5,899, `unresolved_groups=0`.
 
 > **Result: the sprint worked — a 5-row sourced batch is now possible.**
 > Unlike the prior discovery run (which returned "no batch" because web
@@ -259,7 +262,7 @@ type wording for all five and confirmed Marshall is a **player eponym +
 fine, naming source still not reference-grade). The 1893 Walbrodt precursor
 for Marshall independently corroborates Winter's note read in the sprint.
 
-### Refined 5-row field strings (chronology-backed — NOT applied here)
+### Refined 5-row field strings (chronology-backed — **APPLIED 2026-05-30**)
 
 Tier-1 house style; en-dash `–` (U+2013); head row only; `historical_notes`
 now carries the dated antedating fact. `attribution_source` cites only

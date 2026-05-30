@@ -45,9 +45,13 @@ popularised vs event-anchored)?
     (option D deferred as a separate transposition-layer call).
   - `E.Nim.Sml.Kmo.MLn` parent-chain quirk — **verified closeable**
     (reads sensibly post-relabel; discovery backlog WS4).
-  - player-eponym classification sweep — **started**: top candidates
-    `B.Fre.Win`, `B.Ale`, `B.Sic.Tay/Ros/Alp`, `A.Tro`, `D.Tar`/`D.Chi`
-    (per-head only), `C.RyL.Mar` (game anchor), `D.QGD.Cmb` (event anchor).
+  - player-eponym attribution — **batch-5 APPLIED 2026-05-30**: `A.Tro`
+    (Trompowsky), `B.Ale` (Alekhine), `B.Sic.Ros` (Rossolimo),
+    `C.RyL.Mar` (Marshall), `B.Sic.Naj.Pol` (Polugaevsky) — strings-only,
+    head rows only, evidence-sprint + Lumbra chronology backed (all
+    popularizer/introducer types). `B.Fre.Win` held PARTIAL pending a
+    reference-grade naming source; `B.Sic.Tay/Alp`, `D.Tar`, `D.Chi`
+    remain deeper-review (per-head only).
   - `D.QGD.Cmb` Cambridge Springs — **APPLIED 2026-05-30** (option A1,
     strings-only, head row only)
     ([`qgd-cambridge-springs-attribution-proposal.md`](qgd-cambridge-springs-attribution-proposal.md)):

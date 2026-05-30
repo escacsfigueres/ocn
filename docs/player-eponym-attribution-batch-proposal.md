@@ -1,10 +1,15 @@
 # Player-eponym attribution — batch proposal (post-1.1)
 
-**Status**: **PROPOSED — no catalogue change.** A classification map of
+**Status**: **batch-5 APPLIED 2026-05-30.** A classification map of
 player-eponym attribution candidates into *batch-safe* / *individual-proposal*
 / *deeper-review* / *ignore-keep*. **Dynamic workflow used: yes** (4
-parallel read-only sweeps). It applies nothing; every item is gated on
-its own proposal + first-hand evidence + explicit GO.
+parallel read-only sweeps; later a 6-agent evidence sprint + a Lumbra
+chronology addendum). The Group-B evidence pipeline produced a 5-row
+batch (`A.Tro`, `B.Ale`, `B.Sic.Ros`, `C.RyL.Mar`, `B.Sic.Naj.Pol`),
+**applied 2026-05-30** strings-only on the head rows; `B.Fre.Win` held as
+PARTIAL. See [`player-eponym-group-b-evidence-sprint.md`](player-eponym-group-b-evidence-sprint.md)
+for the applied strings. The original classification below is retained as
+the record.
 
 > **Headline: the safe batch is empty — but for a different reason than
 > the venue batch.** There venue tokens were the wrong *kind* (F/G labels,
