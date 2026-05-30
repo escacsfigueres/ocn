@@ -1,11 +1,20 @@
 # Naming audit proposal — `D.QGD.Cmb` (Cambridge Springs)
 
-**Status**: **PROPOSED — no catalogue change.** This document proposes a
-future attribution edit; it applies nothing. The first post-1.1
-event-anchor attribution candidate, drawn from
+**Status**: **APPLIED 2026-05-30** (option A1, strings-only, head row
+only). OCN's first post-1.1 attribution edit and first **event-anchor**
+attribution. Drawn from
 [`naming-attribution-audit-backlog.md`](naming-attribution-audit-backlog.md)
-(Top-5 #1, the single high-evidence item) and governed by
-[`naming-attribution-audit-methodology.md`](naming-attribution-audit-methodology.md).
+(Top-5 #1, the single high-evidence item), governed by
+[`naming-attribution-audit-methodology.md`](naming-attribution-audit-methodology.md),
+and verified per the Citation verification section below.
+
+> **APPLIED.** The three attribution fields were set on `D.QGD.Cmb` only;
+> no other row changed (verified: `CHANGED_ROWS=['D.QGD.Cmb']`, rows still
+> 5,899, `unresolved_groups=0`). **The Oxford Companion was NOT used as
+> the primary citation** — it was never read first-hand, so the verified
+> tournament + Panczyk & Ilczuk (2002) source was used instead. Exact
+> strings applied are recorded in "Applied result" below. Downstream
+> artefact regen + any tag remain GO-gated and NOT executed.
 
 **Scope fence**: a *naming* audit. It touches only
 `attributed_to` / `attribution_source` / `historical_notes` on the head
@@ -252,6 +261,28 @@ If the reviewer prefers maximal conservatism on the person-less point,
 **A2** is the fallback within the same recommendation (same source +
 notes, empty `attributed_to`). The choice between A1 and A2 is the single
 decision this proposal surfaces for GO.
+
+## Applied result (2026-05-30)
+
+Applied to **`D.QGD.Cmb` only** — 3 previously-empty fields set, nothing
+else touched. Verified: `CHANGED_ROWS=['D.QGD.Cmb']`, `ADDED=[]`,
+`REMOVED=[]`, rows still **5,899**, `unresolved_groups=0`,
+`multiple_canonical_groups=17`, `git diff --numstat` = `1 1
+catalog/ocn-1.csv`. **Exact strings as written to the CSV:**
+
+```
+attributed_to      = Named at the Cambridge Springs 1904 tournament (no individual eponym)
+attribution_source = Named for the Cambridge Springs 1904 international tournament (Pennsylvania), where the ...Qa5 defence was played in several games (Marshall–Teichmann, Hodges–Barry, Schlechter–Teichmann); cf. Panczyk & Ilczuk, 'The Cambridge Springs' (2002).
+historical_notes   = The ...Qa5 defence takes its name from the Cambridge Springs 1904 tournament, where it appeared in several games. The idea predates the event (first recorded Lasker 1892; introduced by Pillsbury, Nuremberg 1896), so the tournament popularised and named the line rather than originating it. Sub-lines carry later eponyms (Capablanca's Bxf6, Bogoljubow's Qc2, Rubinstein's 7...dxc4).
+```
+
+**Note on the citation:** the Oxford Companion to Chess was **not** used
+as the primary `attribution_source` because its entry was never read
+first-hand in this cycle. The applied citation uses the web-verified
+tournament origin plus Panczyk & Ilczuk (2002) — sources actually
+consulted — per the Citation verification decision above. `canonical_name`,
+`aliases`, `notes`, `flags`, `eco_legacy`, `moves_uci`, `parent_ocn1`,
+`depth`, `transposes_to`, `same_as` all unchanged; **0 child rows touched**.
 
 ## Exact proposed field changes (for a future apply — NOT applied here)
 

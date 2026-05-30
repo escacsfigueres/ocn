@@ -48,11 +48,14 @@ popularised vs event-anchored)?
   - player-eponym classification sweep — **started**: top candidates
     `B.Fre.Win`, `B.Ale`, `B.Sic.Tay/Ros/Alp`, `A.Tro`, `D.Tar`/`D.Chi`
     (per-head only), `C.RyL.Mar` (game anchor), `D.QGD.Cmb` (event anchor).
-  - `D.QGD.Cmb` Cambridge Springs — **PROPOSAL WRITTEN 2026-05-30**
+  - `D.QGD.Cmb` Cambridge Springs — **APPLIED 2026-05-30** (option A1,
+    strings-only, head row only)
     ([`qgd-cambridge-springs-attribution-proposal.md`](qgd-cambridge-springs-attribution-proposal.md)):
-    type-E tournament anchor, option A1, head row only, source-gated on
-    confirming the Oxford Companion entry before apply. First post-1.1
-    event-anchor attribution proposal.
+    type-E tournament anchor; `attributed_to`/`attribution_source`/
+    `historical_notes` set, web-verified source (Panczyk & Ilczuk 2002),
+    Oxford Companion not used (unseen first-hand). 0 child rows touched;
+    catalogue stays 5,899 rows / `unresolved_groups=0`. **OCN's first
+    post-1.1 attribution edit and first event-anchor attribution.**
   - source-specific/Lichess labels → aliases — Kmoch cluster triaged
     (corpus-confirmed, no demotions); next pass is a token-normalised
     misplacement detector (backlog Top-5 #5).

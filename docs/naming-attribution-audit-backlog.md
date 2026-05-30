@@ -70,7 +70,7 @@ the name and need no edit.
 
 | slug | current name | suspected issue | type | evidence | action | blast |
 |---|---|---|---|---|---|---|
-| `D.QGD.Cmb` | QGD, Cambridge Springs | Textbook tournament anchor (Cambridge Springs 1904), empty `attributed_to`/`historical_notes`; strictly parallel to attributed Meran/Mar del Plata. Strongest unattributed venue anchor. **→ PROPOSAL WRITTEN** ([`qgd-cambridge-springs-attribution-proposal.md`](qgd-cambridge-springs-attribution-proposal.md), 2026-05-30, option A1, source-gated). | E (tournament anchor) | **high** | proposal | 1 row + notes; 10 descendants inherit |
+| `D.QGD.Cmb` | QGD, Cambridge Springs | ~~Textbook tournament anchor, empty attribution.~~ **✅ APPLIED 2026-05-30** (option A1, strings-only, head row only) — `attributed_to`/`attribution_source`/`historical_notes` set to the 1904-tournament event anchor; web-verified source (Panczyk & Ilczuk 2002), Oxford Companion not used (unseen). See [`qgd-cambridge-springs-attribution-proposal.md`](qgd-cambridge-springs-attribution-proposal.md). **First post-1.1 attribution applied.** | E (tournament anchor) | **high** | **DONE** | 1 row; 0 children touched |
 | `B.Fre.Win` | French, Winawer | 3…Bb4 named for Winawer (1880s); empty `attributed_to`. Parallels the already-attributed `B.Fre.Exc.Uhl`/`B.Fre.Kor`. | A + B | medium | proposal | 1 row |
 | `B.Ale` | Alekhine Defence | Introducer **is** the namesake (Budapest 1921); the 1921 game is a type-A `historical_notes` anchor. | A + B | medium | proposal | 1 row |
 | `B.Sic.Tay` | Sicilian Taimanov | Taimanov's own system; dual alias Taimanov-Bastrikov signals a co-namer to reconcile. | C + B | medium | proposal | 1 row |
