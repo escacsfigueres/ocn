@@ -68,6 +68,14 @@ popularised vs event-anchored)?
   - event/venue anchor batch — **MAPPED 2026-05-30** (dynamic-workflow, 4 read-only sweeps): **no batch-safe type-E candidates** — venue tokens are F/G structure/place labels. ([`event-venue-attribution-batch-proposal.md`](event-venue-attribution-batch-proposal.md)). Next event candidate at most Carlsbad (source-gated); Marshall → eponym track.
   - player-eponym anchor batch — **MAPPED 2026-05-30** (dynamic-workflow, 4 read-only sweeps): **no batch-safe candidates** — strong eponyms, but no first-hand naming source opened (Lichess = type-G label). ([`player-eponym-attribution-batch-proposal.md`](player-eponym-attribution-batch-proposal.md)). Next: single source-gated proposal (A.Tro / B.Fre.Win) or an evidence sprint. Includes a reusable per-surname risk map + house-style templates.
     misplacement detector (backlog Top-5 #5).
+  - **triage automation** — **CREATED 2026-05-31** (`tools/audit_naming_attribution.py`,
+    [`naming-attribution-automation.md`](naming-attribution-automation.md)):
+    deterministic triage of all 5,899 rows into category / risk /
+    next-action + eponym head-groups, so a human points dynamic workflows
+    at the next *homogeneous* batch instead of auditing one row at a time.
+    **Automates triage, not truth** — no catalogue change, no source
+    invention. The scaling lever for the rest of this track; pipeline is
+    triage → select top groups → workflow evidence search → CLEAR-batch apply.
 
 ## Track 2 — 0.3 internationalised aliases
 
