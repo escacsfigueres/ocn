@@ -1,10 +1,20 @@
 # Parked naming-audit — source sweep (post-1.1)
 
-**Status**: **SOURCE SWEEP — no catalogue change, no apply.** A
-source-gated grading of the parked naming-audit items (Winawer, Maróczy
-Bind, Carlsbad, deeper-review eponyms). **Dynamic workflow used: yes**
-(5 parallel web-enabled read-only agents; one transient failed launch,
-then a clean re-run). Everything stays GO-gated.
+**Status**: **SOURCE SWEEP — Maróczy Bind 3-row batch APPLIED 2026-05-31;
+the rest remain parked.** A source-gated grading of the parked
+naming-audit items (Winawer, Maróczy Bind, Carlsbad, deeper-review
+eponyms). **Dynamic workflow used: yes** (5 parallel web-enabled
+read-only agents; one transient failed launch, then a clean re-run). The
+one CLEAR result — the 3 Maróczy Bind heads — was applied; Winawer,
+Carlsbad, Taimanov, Alapin, Tarrasch, Chigorin stay PARTIAL/parked.
+
+> **APPLIED 2026-05-31** (strings-only, head rows only): `B.Sic.Acc.Mar`,
+> `B.Sic.Kan.Mar`, `B.Sic.OKe.c4` — `attributed_to = "Géza Maróczy
+> (popularizer)"`, shared `attribution_source` (Winter / Oxford Companion
+> / Swiderski–Maróczy 1904), per-move-order `historical_notes` (each notes
+> Maróczy never played the bind as White). Verified:
+> `CHANGED_ROWS` = exactly those 3, 0 children, 0 parked items touched,
+> rows still 5,899, `unresolved_groups=0`.
 
 > **Headline: one CLEAR batch emerged — the 3 Maróczy Bind heads — while
 > everything else stays PARTIAL.** The Maróczy agent reached a
@@ -98,11 +108,10 @@ good unit is "find one reference per item," not "apply one row."
 
 ## Top next actions (max 3, ranked)
 
-1. **GO a Maróczy Bind apply proposal → 3-row batch (CLEAR, ready now).**
-   Highest yield and the only apply-ready item: the 3 heads are sourced
-   first-hand (Winter), homogeneous, head-rows-only, strings drafted
-   below. This resolves the one mis-filed case the taxonomy flagged
-   (structure-that's-really-a-person). Mirror the batch-5 apply exactly.
+1. **Maróczy Bind 3-row batch — ✅ APPLIED 2026-05-31.** The only
+   apply-ready item; done (strings below, head rows only). Resolved the
+   one mis-filed case the taxonomy flagged (structure-that's-really-a-
+   person).
 2. **Oxford Companion 'Winawer' read → close Group B 6/6.** One first-hand
    read lifts the last Group-B PARTIAL to CLEAR; proposal + fields already
    drafted.
