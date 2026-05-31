@@ -53,6 +53,7 @@ popularised vs event-anchored)?
     reference-grade naming source; `B.Sic.Tay/Alp`, `D.Tar`, `D.Chi`
     remain deeper-review (per-head only).
   - non-person name taxonomy — **MAPPED 2026-05-30** (dynamic-workflow, 6 read-only sweeps): why non-person names exist (geography/structure/move/metaphor/gambit/descriptor). Result: **no attribution batch** — the non-person space is already correctly unattributed (~46% of rows are pure editorial descriptors that must stay so). ([`non-person-opening-name-taxonomy.md`](non-person-opening-name-taxonomy.md)). Only Maróczy Bind is mis-filed (a person → eponym track); Carlsbad note is the one source-gated enrichment.
+  - parked-items source sweep — **MAPPED 2026-05-31** (dynamic-workflow, 5 read-only agents): graded Winawer, Maróczy Bind, Carlsbad, and the deeper-review eponyms — **all PARTIAL, no batch-apply candidate**; each needs one first-hand reference read. ([`parked-naming-audit-source-sweep.md`](parked-naming-audit-source-sweep.md)). Top upgrade: Oxford Companion 'Maróczy' → 3-row Maróczy Bind batch.
   - `D.QGD.Cmb` Cambridge Springs — **APPLIED 2026-05-30** (option A1,
     strings-only, head row only)
     ([`qgd-cambridge-springs-attribution-proposal.md`](qgd-cambridge-springs-attribution-proposal.md)):
