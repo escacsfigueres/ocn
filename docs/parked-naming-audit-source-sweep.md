@@ -62,13 +62,13 @@ TYPE support only. Counts are ballpark.
 
 | item | slug(s) | grade | type | action | the one upgrade read |
 |---|---|---|---|---|---|
-| **Winawer** | `B.Fre.Win` | PARTIAL | C early-practitioner (person) | keep-parked | Oxford Companion 'Winawer' **or** *Wizard of Warsaw* |
+| **Winawer** | `B.Fre.Win` | **CLEAR** (upgraded 2026-05-31, [source log](parked-attribution-reference-source-log.md)) | C early-practitioner (person) | **apply-ready** | *The Center Game* (nlm Q25) — "…named after him" |
 | **Maróczy Bind** | `B.Sic.Acc.Mar`, `B.Sic.Kan.Mar`, `B.Sic.OKe.c4` | **CLEAR** | C popularizer (Géza Maróczy) behind a structure label — named via Swiderski–Maróczy, Monte Carlo 1904 + his journalism; *he never played it as White* | **batch-apply candidate** (homogeneous 3-head set, one source) | already sourced (Winter, *Géza Maróczy*, chesshistory.com — verified first-hand) |
-| **Carlsbad** | `D.QGD.Exc.Car` | PARTIAL | E/H **non-person** place/structure label → `attributed_to` stays EMPTY | individual-proposal (`historical_notes` only) | Kmoch *Pawn Power* / Pachman structure monograph |
+| **Carlsbad** | `D.QGD.Exc.Car` | **CLEAR** (upgraded 2026-05-31) | E/H **non-person** label → `attributed_to` stays EMPTY | **apply-ready** (`historical_notes` only) | Karpov & Matsukevich, *Estrategia en el Ajedrez* p.61 (nlm Q9) |
 | **Taimanov** | `B.Sic.Tay` | PARTIAL | C eponym (Mark Taimanov; co-namer Bastrikov) | individual-proposal | Oxford Companion 'Taimanov' |
 | **Alapin** | `B.Sic.Alp` | PARTIAL | B/C eponym (Semyon Alapin, 2.c3) | individual-proposal | Oxford Companion 'Alapin' |
-| **Tarrasch** | `D.Tar` (QGD head only) | PARTIAL | B/C eponym (Siegbert Tarrasch) | individual-proposal | Oxford Companion 'Tarrasch' |
-| **Chigorin** | `D.Chi` (QGD head only) | PARTIAL | A/C eponym (Mikhail Chigorin) | individual-proposal | Oxford Companion 'Chigorin' |
+| **Tarrasch** | `D.Tar` (QGD head only) | **CLEAR** (upgraded 2026-05-31) | B/C eponym (Siegbert Tarrasch) | **apply-ready** (head only) | Avrukh *GM Repertoire 1.d4* + *The Power of Pawns* (nlm Q25) — "named after … Siegbert Tarrasch" |
+| **Chigorin** | `D.Chi` (QGD head only) | **CLEAR** (upgraded 2026-05-31) | A/C eponym (Mikhail Chigorin) | **apply-ready** (head only; distinct from Ruy López Chigorin `C.RyL.Cha`) | Avrukh *GM Repertoire 1.d4* (nlm Q25) — "named after … Mikhail Chigorin" |
 
 All head-row only; all current attribution fields verified **empty**.
 
