@@ -76,6 +76,22 @@ popularised vs event-anchored)?
     **Automates triage, not truth** — no catalogue change, no source
     invention. The scaling lever for the rest of this track; pipeline is
     triage → select top groups → workflow evidence search → CLEAR-batch apply.
+  - **batch apply engine** — **CREATED 2026-06-08**
+    (`tools/apply_attribution_manifest.py`,
+    [`attribution-batch-engine.md`](attribution-batch-engine.md)): the
+    executable form of the loop's final step. Consumes a JSON manifest
+    (`ocn.attribution_manifest.v1`: mode, expected rows, per-row field
+    changes + evidence grade + sources) and applies a CLEAR, homogeneous
+    batch with **zero collateral diff** (untouched rows kept byte-for-byte;
+    only named rows re-serialised). **Dry-run by default**; `--apply --out`
+    writes only under an explicit GO. Guardrails: 14-column schema, stale-
+    manifest row count, slug existence, mode field-whitelist, the
+    `attributed_to ⇒ attribution_source` invariant, and an exact
+    `expected_changed_rows` contract that rejects no-op / already-applied
+    batches. Optional `--validate` runs `validate.py` on the result and
+    aborts on failure. The automation foundation that turns
+    "triage → workflow → manifest → dry-run → human review → GO apply" into
+    repeatable, low-risk tooling instead of hand-editing the CSV.
 
 ## Track 2 — 0.3 internationalised aliases
 

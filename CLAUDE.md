@@ -66,6 +66,12 @@ apply / push / tag / release / dynamic workflows. It generalises the
 account, promotion, and worktree rules above into the full human–agent
 loop (task sizing + verification discipline).
 
+**Batch attribution/naming applies — never hand-edit the CSV.** Write an
+`ocn.attribution_manifest.v1` JSON and run `tools/apply_attribution_manifest.py`
+(dry-run by default; `--apply --out` only under an explicit GO). It enforces
+the field-scope, exact-changed-rows, and zero-collateral-diff guardrails. See
+[`docs/attribution-batch-engine.md`](docs/attribution-batch-engine.md).
+
 ## No middle-dot separator (AI tell)
 
 NEVER use the middle dot `·` (U+00B7) as a separator — e.g. `A · B`, `place · year`, `name · detail`. The interpunct as a separator is a dead giveaway of AI-generated text. Use a comma, a dash (— or -), a slash (/), a line break, or rewrite the phrase. Applies to ALL output: UI copy, editorial content, data labels, code, and comments.

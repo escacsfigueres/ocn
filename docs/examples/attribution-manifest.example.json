@@ -1,0 +1,40 @@
+{
+  "kind": "ocn.attribution_manifest.v1",
+  "title": "EXAMPLE ONLY — Flank-opening eponym attributions (Réti, Bird, Larsen)",
+  "description": "Illustrative example for docs/attribution-batch-engine.md. NOT an active proposal awaiting apply. It is a homogeneous, CLEAR, bedrock-encyclopedic batch (three player-eponym flank-opening heads) used to demonstrate the dry-run -> review -> apply workflow. Real batches are produced by an evidence sprint per docs/naming-attribution-automation.md, not hand-written here.",
+  "mode": "attribution_fields_only",
+  "expected_catalog_rows": 5899,
+  "expected_changed_rows": ["A.Ret", "A.Bir", "A.Lar"],
+  "changes": [
+    {
+      "ocn1": "A.Ret",
+      "evidence_grade": "CLEAR",
+      "source_refs": ["Hooper & Whyld, Oxford Companion to Chess (1984), entry 'Réti Opening'."],
+      "fields": {
+        "attributed_to": "Richard Réti",
+        "attribution_source": "Hooper & Whyld, Oxford Companion to Chess (1984), entry 'Réti Opening'.",
+        "historical_notes": "Named for Richard Réti (1889–1929), who championed 1.Nf3 in the 1920s — notably defeating Capablanca with it at New York 1924."
+      }
+    },
+    {
+      "ocn1": "A.Bir",
+      "evidence_grade": "CLEAR",
+      "source_refs": ["Hooper & Whyld, Oxford Companion to Chess (1984), entry 'Bird's Opening'."],
+      "fields": {
+        "attributed_to": "Henry Edward Bird",
+        "attribution_source": "Hooper & Whyld, Oxford Companion to Chess (1984), entry 'Bird's Opening'.",
+        "historical_notes": "Named for the English master Henry Edward Bird (1829–1908), a lifelong exponent of 1.f4."
+      }
+    },
+    {
+      "ocn1": "A.Lar",
+      "evidence_grade": "CLEAR",
+      "source_refs": ["Hooper & Whyld, Oxford Companion to Chess (1984), entry 'Larsen's Opening'."],
+      "fields": {
+        "attributed_to": "Bent Larsen",
+        "attribution_source": "Hooper & Whyld, Oxford Companion to Chess (1984), entry 'Larsen's Opening'.",
+        "historical_notes": "Named for the Danish grandmaster Bent Larsen (1935–2010), who employed 1.b3 at the top level in the 1960s–70s."
+      }
+    }
+  ]
+}

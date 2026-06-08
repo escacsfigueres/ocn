@@ -1,0 +1,6 @@
+ocn1,canonical_name,eco_legacy,parent_ocn1,moves_uci,depth,aliases,flags,notes,attributed_to,attribution_source,historical_notes,transposes_to,same_as
+A,Flank Openings,,,,0,,,Top-level class.,,,,,
+A.Tro,Trompowsky Attack,A45,A,d2d4 g8f6 c1g5,1,Ruth Opening,,"Quiet system.",Octávio Trompowsky,Oxford Companion to Chess,Named for the Brazilian player.,,
+B,Semi-Open Games,,,,0,,,1.e4 with anything but ...e5.,,,,,
+B.Fre,French Defence,C00,B,e2e4 e7e6,1,,,1.e4 e6.,,,,,
+B.Fre.Win,"French, Winawer",C18,B.Fre,e2e4 e7e6 d2d4 d7d5 b1c3 f8b4,2,,,5...a6.,,,,,
