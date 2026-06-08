@@ -1,0 +1,35 @@
+{
+  "kind": "ocn.attribution_manifest.v1",
+  "title": "Lot A — player-eponym attributions (Tarrasch, Chigorin QGD heads)",
+  "description": "Real attribution batch for the two fully-CLEAR person eponyms from docs/parked-attribution-reference-source-log.md. QGD HEAD ROWS ONLY (the surnames each span ~150 unrelated rows — French Tarrasch, Semi-Tarrasch, Ruy López Chigorin C.RyL.Cha, etc. — which are NOT covered). Winawer (B.Fre.Win) is deliberately EXCLUDED and stays parked: its naming passage is grounded but the exact author/year of 'The Center Game' was never surfaced (do not conflate with Mario Ziegler). Lot B (D.QGD.Exc.Car Carlsbad, historical_notes only) is a separate manifest. This file is for dry-run validation; apply only under an explicit GO.",
+  "mode": "attribution_fields_only",
+  "expected_catalog_rows": 5899,
+  "expected_changed_rows": ["D.Tar", "D.Chi"],
+  "changes": [
+    {
+      "ocn1": "D.Tar",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "Avrukh, 'GM Repertoire - 1.d4 Vol.1' (NotebookLM Q25): the starting position of the Tarrasch Defence, 'named after the famous German Grandmaster Siegbert Tarrasch.'",
+        "'The Power of Pawns' (NotebookLM Q25): 'the opening which was named after him.'"
+      ],
+      "fields": {
+        "attributed_to": "Siegbert Tarrasch (advocate)",
+        "attribution_source": "Avrukh, 'GM Repertoire - 1.d4 Vol.1': the Tarrasch Defence is 'named after the famous German Grandmaster Siegbert Tarrasch'; corroborated by 'The Power of Pawns' ('the opening which was named after him'). Both reached first-hand via NotebookLM (Q25) and orchestrator-reverified.",
+        "historical_notes": "1.d4 d5 2.c4 e6 3.Nc3 c5 - the Tarrasch Defence proper. Named after Siegbert Tarrasch, who advocated this active queen's-gambit defence. Attribution applies to this QGD head only; the 'Tarrasch' label recurs on unrelated openings (French Tarrasch B.Fre.Tar, Semi-Tarrasch D.STa), which this attribution does not cover."
+      }
+    },
+    {
+      "ocn1": "D.Chi",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "Avrukh, 'GM Repertoire - 1.d4' / 'The Queen's Gambit' (NotebookLM Q25): 'This opening is named after the famous 19th-century Russian grandmaster Mikhail Chigorin.'"
+      ],
+      "fields": {
+        "attributed_to": "Mikhail Chigorin (leading practitioner)",
+        "attribution_source": "Avrukh, 'GM Repertoire - 1.d4' (The Queen's Gambit): the Chigorin Defence is 'named after the famous 19th-century Russian grandmaster Mikhail Chigorin'. Reached first-hand via NotebookLM (Q25) and orchestrator-reverified.",
+        "historical_notes": "1.d4 d5 2.c4 Nc6 - the Chigorin Defence. Named after Mikhail Chigorin, its leading 19th-century practitioner. Attribution applies to this QGD head only; keep distinct from the Ruy Lopez Chigorin (C.RyL.Cha) and the many other 'Chigorin'-labelled lines."
+      }
+    }
+  ]
+}

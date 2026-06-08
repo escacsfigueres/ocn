@@ -16,6 +16,17 @@ Short citation snippets only — no long copyrighted text.
 > `B.Sic.Alp` (Alapin), `B.Sic.Tay` (Taimanov)** — `nlm` returned an
 > explicit *negative* (no source states the naming).
 
+> **Update 2026-06-08 — Lot A manifested + dry-run verified (no apply).**
+> The two strongest CLEARs, `D.Tar` (Tarrasch) and `D.Chi` (Chigorin), are now
+> drafted into a real engine manifest
+> ([`manifests/lot-a-player-eponyms.manifest.json`](manifests/lot-a-player-eponyms.manifest.json))
+> and pass `--dry-run --strict --validate` (2 rows, result validates 5899/0,
+> catalogue untouched) — see
+> [`lot-a-player-eponyms-dry-run.md`](lot-a-player-eponyms-dry-run.md). **Winawer
+> (`B.Fre.Win`) is held out** of that manifest pending an author/year pin for
+> *The Center Game*; Carlsbad (`D.QGD.Exc.Car`) is a separate Lot B. Apply is a
+> separate GO.
+
 ## Verification (orchestrator re-queried every item)
 
 I re-ran each item as a direct `nlm` query rather than trusting the
