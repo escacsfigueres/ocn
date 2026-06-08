@@ -116,13 +116,13 @@ popularised vs event-anchored)?
     `verify_doc_slugs` flagged 90 pre-existing stale slug refs across 14 docs
     (cleanup backlog). Still to build: `source_status_table`,
     `lumbra_chronology_helper`.
-  - **Lot 3 ECO-A eponym heads — manifest + dry-run** — **2026-06-08** (first
-    productive lot through the full tooling pipeline; no apply yet):
+  - **Lot 3 ECO-A eponym heads — APPLIED** — **2026-06-08** (first productive lot
+    through the full tooling pipeline, dry-run → apply under GO):
     `A.Bir` (Bird), `A.Lar` (Larsen), `A.Ret` (Réti), `A.Gro` (Grob), all CLEAR
     and head-only, sourced to Wikipedia (orchestrator-reverified) + ChessBase.
-    Manifest passes `--dry-run --strict --validate` (4 rows, validates 5899/0).
-    See [`lot-3-eco-a-eponyms-dry-run.md`](lot-3-eco-a-eponyms-dry-run.md). Apply
-    is a separate GO.
+    Applied (sha after `3e62cb06…`; 4 rows changed, attribution fields only, zero
+    collateral; validator 5899/0, 140 tests OK, audit unresolved_groups=0).
+    See [`lot-3-eco-a-eponyms-dry-run.md`](lot-3-eco-a-eponyms-dry-run.md). No push yet.
 
 ## Track 2 — 0.3 internationalised aliases
 

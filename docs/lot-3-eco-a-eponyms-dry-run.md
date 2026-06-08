@@ -1,9 +1,10 @@
 # Lot 3 ECO-A eponym attribution — evidence + dry-run record (2026-06-08)
 
-**Status: DRY-RUN ONLY. No catalogue change, no apply.** Produced via the factory
-tooling: `candidate_slice_export` → evidence sprint (4 read-only agents, one per
-head) → orchestrator re-verification → `scaffold_attribution_manifest` → human
-fill → engine `--dry-run --strict --validate`.
+**Status: APPLIED 2026-06-08** (commit "Apply Lot 3 ECO-A eponym attribution
+manifest"). Produced via the factory tooling: `candidate_slice_export` → evidence
+sprint (4 read-only agents, one per head) → orchestrator re-verification →
+`scaffold_attribution_manifest` → human fill → engine `--dry-run --strict
+--validate` → `--apply` under explicit GO.
 
 ## Manifest
 
@@ -59,20 +60,22 @@ python3 tools/apply_attribution_manifest.py \
   collateral diff on the other 5,895 rows); only `attributed_to` /
   `attribution_source` / `historical_notes` change.
 
-## No catalogue mutation
+## Applied (2026-06-08)
 
-`catalog/ocn-1.csv` is byte-identical before and after this exercise (SHA-256
-`014e3fd…`, `git status` clean). The dry-run wrote nothing.
+Applied under explicit GO with
+`apply_attribution_manifest.py --apply --out catalog/ocn-1.csv --strict --validate`.
 
-## Next step (separate GO)
-
-```bash
-python3 tools/apply_attribution_manifest.py \
-  --catalog catalog/ocn-1.csv \
-  --manifest docs/manifests/lot-3-eco-a-eponyms.manifest.json \
-  --apply --out catalog/ocn-1.csv --strict --validate
-# then: git diff --stat catalog/ocn-1.csv && python3 tools/validate.py --strict-chess catalog/ocn-1.csv
-```
+- SHA-256 **before**: `014e3fdc5f5340651c4de3e395e8b4865d0a6a45e481d8a4719bba7f6705f5e4`
+- SHA-256 **after**: `3e62cb065068728ebcebdfd91a567e49169995afbc2fff2f5a3e3d654f99ef42`
+  (identical to the dry-run would-be hash — no drift between plan and apply).
+- Row-level diff vs `origin/main`: **CHANGED_ROWS = exactly `A.Bir`, `A.Gro`,
+  `A.Lar`, `A.Ret`**; ADDED = REMOVED = []; row count 5899 → 5899; fields changed =
+  exactly `attributed_to` / `attribution_source` / `historical_notes`; no child
+  rows touched.
+- Post-apply gates: `validate.py --strict-chess` PASS (5899 / 0 warnings);
+  `unittest discover tools/tests` **140 tests OK**; `audit_transpositions.py
+  --summary` **unresolved_groups=0**; `git diff --check` clean.
+- Not done: no tag, no release, no asset regeneration, no push (separate GO).
 
 ## See also
 
