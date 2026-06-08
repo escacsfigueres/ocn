@@ -1,0 +1,61 @@
+{
+  "kind": "ocn.attribution_manifest.v1",
+  "title": "Lot 3 ECO-A eponym attributions",
+  "description": "Four ECO-A flank-opening eponym heads, all graded CLEAR in the Lot 3 evidence sprint and orchestrator-reverified against the cited sources (2026-06-08). Head rows only. Each eponym is a champion/popularizer (or analyst), NOT the inventor — every first move predates its namesake, stated conservatively in historical_notes. See docs/lot-3-eco-a-eponyms-dry-run.md.",
+  "mode": "attribution_fields_only",
+  "expected_catalog_rows": 5899,
+  "expected_changed_rows": ["A.Bir", "A.Lar", "A.Ret", "A.Gro"],
+  "changes": [
+    {
+      "ocn1": "A.Bir",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "Wikipedia, 'Bird's Opening' — https://en.wikipedia.org/wiki/Bird's_Opening",
+        "Wikipedia, 'Henry Bird (chess player)' — https://en.wikipedia.org/wiki/Henry_Bird_(chess_player)"
+      ],
+      "fields": {
+        "attributed_to": "Henry Edward Bird (popularizer)",
+        "attribution_source": "Wikipedia, 'Bird's Opening' / 'Henry Bird (chess player)' (re-verified 2026-06-08): 'Named after 19th-century English player Henry Bird'; he played 1.f4 from 1855 for some forty years and the Hereford Times named it after him in 1885. The move predates him (mentioned by Lucena c. 1497; later La Bourdonnais and Elijah Williams).",
+        "historical_notes": "1.f4, a flank opening named after the English master Henry Edward Bird (1829-1908), who championed it for roughly four decades. The move itself predates him, so the eponym marks the popularizer, not the inventor."
+      }
+    },
+    {
+      "ocn1": "A.Lar",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "Wikipedia, 'Nimzowitsch-Larsen Attack' — https://en.wikipedia.org/wiki/Nimzowitsch–Larsen_Attack",
+        "ChessBase, 'What's the name again? About the Nimzowitsch-Larsen Opening' — https://en.chessbase.com/post/what-is-the-name-again-about-the-nimzowitsch-larsen-opening"
+      ],
+      "fields": {
+        "attributed_to": "Bent Larsen (popularizer)",
+        "attribution_source": "Wikipedia, 'Nimzowitsch-Larsen Attack' (re-verified 2026-06-08): the 1.b3 opening 'is named for the Danish grandmaster Bent Larsen' and is also called 'Larsen's Opening'. Larsen played it frequently 1968-1972; earlier master exponents include John Owen (1870s) and Aron Nimzowitsch (1920s-30s), so the line predates him.",
+        "historical_notes": "1.b3 (queenside fianchetto, Bb2 bearing on the centre and kingside). Named for the Danish grandmaster Bent Larsen (1935-2010), who popularized it at top level around 1968-1972; it is co-named the Nimzowitsch-Larsen Attack (catalogue alias 'Nimzo-Larsen') for Aron Nimzowitsch's earlier advocacy. The move predates both, so the eponym marks the popularizers, not the inventor."
+      }
+    },
+    {
+      "ocn1": "A.Ret",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "Wikipedia, 'Réti Opening' — https://en.wikipedia.org/wiki/Réti_Opening"
+      ],
+      "fields": {
+        "attributed_to": "Richard Réti (popularizer)",
+        "attribution_source": "Wikipedia, 'Réti Opening' (re-verified 2026-06-08): 'The opening is named after Czechoslovak chess player Richard Réti (1889-1929)'; Hans Kmoch named the 'Réti System' after Réti-Rubinstein, Karlovy Vary (Carlsbad) 1923. The bare move 1.Nf3 predates Réti and is catalogued separately as the Zukertort Opening; the name marks his hypermodern treatment.",
+        "historical_notes": "1.Nf3 played as a hypermodern system (often with c4 and g3, fianchettoing against Black's centre). Named after Richard Réti (1889-1929), a leading hypermodernist who popularized the treatment, famously beating Capablanca with it at New York 1924. The bare move 1.Nf3 is older (treated separately as the Zukertort Opening), so the eponym marks Réti's system, not the move's invention."
+      }
+    },
+    {
+      "ocn1": "A.Gro",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "Wikipedia, 'Grob's Attack' — https://en.wikipedia.org/wiki/Grob's_Attack",
+        "Wikipedia, 'Henri Grob' — https://en.wikipedia.org/wiki/Henri_Grob"
+      ],
+      "fields": {
+        "attributed_to": "Henri Grob (analyst and popularizer)",
+        "attribution_source": "Wikipedia, 'Grob's Attack' / 'Henri Grob' (re-verified 2026-06-08): the opening 'takes its name from Swiss IM Henri Grob (1904-1974) who analysed it extensively and played hundreds of correspondence games with it' (and devoted a 1942 book, Angriff g2-g4, to it). Earlier players (e.g. Carl Ahlhausen) used 1.g4 before him.",
+        "historical_notes": "1.g4, named after the Swiss IM Henri Grob (1904-1974), who analysed it extensively, wrote a 1942 book on it (Angriff g2-g4), and played many correspondence games with it. Earlier players used 1.g4 before him, so the eponym marks the analyst and popularizer, not the inventor."
+      }
+    }
+  ]
+}
