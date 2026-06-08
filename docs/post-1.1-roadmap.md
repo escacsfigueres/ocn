@@ -107,6 +107,15 @@ popularised vs event-anchored)?
     (`scaffold_manifest`, `source_status_table`, `candidate_slice_export`,
     `docs_slug_verifier`, `lumbra_chronology_helper`). Next sprint =
     tooling → evidence (head-only safe lots) → one manifest batch.
+  - **factory tooling — 3 of 5 built** — **CREATED 2026-06-08**
+    ([`attribution-factory-tooling.md`](attribution-factory-tooling.md)):
+    `tools/candidate_slice_export.py`, `tools/scaffold_attribution_manifest.py`,
+    `tools/verify_doc_slugs.py` (37 tests). Pipeline: slice → fill → scaffold →
+    fill → engine dry-run → GO apply. The scaffold emits an empty-field skeleton
+    the engine rejects as a no-op until filled (enforced "fill before apply").
+    `verify_doc_slugs` flagged 90 pre-existing stale slug refs across 14 docs
+    (cleanup backlog). Still to build: `source_status_table`,
+    `lumbra_chronology_helper`.
 
 ## Track 2 — 0.3 internationalised aliases
 
