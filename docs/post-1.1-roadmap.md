@@ -98,6 +98,15 @@ popularised vs event-anchored)?
     [`lot-a-player-eponyms-dry-run.md`](lot-a-player-eponyms-dry-run.md));
     2 rows, validates 5899/0, `unresolved_groups=0`. Winawer held (citation
     author/year unpinned); Carlsbad (`D.QGD.Exc.Car`) is the parked Lot B.
+  - **whole-catalogue factory map** — **CREATED 2026-06-08** (12-agent read-only
+    dynamic workflow, no catalogue change):
+    [`whole-catalogue-attribution-factory-map.md`](whole-catalogue-attribution-factory-map.md).
+    Turns 5,877 empty-attribution rows into 10 ranked source-gated lots (6
+    safe-if-sourced, 4 hold), a 21-family do-not-touch map, 9 dangerous
+    multi-head surnames, a source strategy, and a 5-item tooling backlog
+    (`scaffold_manifest`, `source_status_table`, `candidate_slice_export`,
+    `docs_slug_verifier`, `lumbra_chronology_helper`). Next sprint =
+    tooling → evidence (head-only safe lots) → one manifest batch.
 
 ## Track 2 — 0.3 internationalised aliases
 

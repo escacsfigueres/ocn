@@ -17,6 +17,8 @@ requires. **Dynamic workflow used: yes** (4 parallel read-only sweeps).
 
 > **Lot A APPLIED (2026-06-08):** the two strongest CLEARs, `D.Tar` (Tarrasch) and `D.Chi` (Chigorin) QGD heads, were drafted into a real [Attribution Batch Engine](attribution-batch-engine.md) manifest ([`manifests/lot-a-player-eponyms.manifest.json`](manifests/lot-a-player-eponyms.manifest.json)), dry-run-verified, and then **APPLIED** with `--apply --strict --validate` (2 rows, head only, result validates 5899/0, `unresolved_groups=0`) — record in [`lot-a-player-eponyms-dry-run.md`](lot-a-player-eponyms-dry-run.md). **`B.Fre.Win` (Winawer) held out** pending an author/year pin for *The Center Game* (do not conflate with Mario Ziegler). `D.QGD.Exc.Car` (Carlsbad) is a separate Lot B (`historical_notes` only, still parked).
 
+> **Whole-catalogue factory map (2026-06-08):** a 12-agent read-only dynamic-workflow sweep over all 5,899 rows produced [`whole-catalogue-attribution-factory-map.md`](whole-catalogue-attribution-factory-map.md) — exact counts (22 attributed / 5,877 empty), **10 ranked source-gated lots** (6 safe-if-sourced, 4 hold; all head-only-by-default since the engine targets exact slugs), a 21-family do-not-touch map, 9 dangerous multi-head surnames, a source strategy, and a 5-item tooling backlog. It generalises this backlog from a hand-curated list into a repeatable factory; next = tooling sprint → evidence sprint (head-only safe lots) → one manifest batch. No catalogue change.
+
 This document sits on top of the methodology (it supplies the *what to
 audit next*; the methodology supplies the *how*). It changes nothing in
 `catalog/ocn-1.csv`.
