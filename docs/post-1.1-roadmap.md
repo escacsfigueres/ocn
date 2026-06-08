@@ -92,6 +92,12 @@ popularised vs event-anchored)?
     aborts on failure. The automation foundation that turns
     "triage → workflow → manifest → dry-run → human review → GO apply" into
     repeatable, low-risk tooling instead of hand-editing the CSV.
+    **First real batch APPLIED 2026-06-08** via the engine — Lot A player
+    eponyms `D.Tar` (Tarrasch) + `D.Chi` (Chigorin), QGD heads only, Avrukh-
+    sourced (`docs/manifests/lot-a-player-eponyms.manifest.json`,
+    [`lot-a-player-eponyms-dry-run.md`](lot-a-player-eponyms-dry-run.md));
+    2 rows, validates 5899/0, `unresolved_groups=0`. Winawer held (citation
+    author/year unpinned); Carlsbad (`D.QGD.Exc.Car`) is the parked Lot B.
 
 ## Track 2 — 0.3 internationalised aliases
 

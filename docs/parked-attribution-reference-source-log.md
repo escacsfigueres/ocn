@@ -16,16 +16,16 @@ Short citation snippets only — no long copyrighted text.
 > `B.Sic.Alp` (Alapin), `B.Sic.Tay` (Taimanov)** — `nlm` returned an
 > explicit *negative* (no source states the naming).
 
-> **Update 2026-06-08 — Lot A manifested + dry-run verified (no apply).**
-> The two strongest CLEARs, `D.Tar` (Tarrasch) and `D.Chi` (Chigorin), are now
+> **Update 2026-06-08 — Lot A APPLIED via the engine.**
+> The two strongest CLEARs, `D.Tar` (Tarrasch) and `D.Chi` (Chigorin), were
 > drafted into a real engine manifest
-> ([`manifests/lot-a-player-eponyms.manifest.json`](manifests/lot-a-player-eponyms.manifest.json))
-> and pass `--dry-run --strict --validate` (2 rows, result validates 5899/0,
-> catalogue untouched) — see
+> ([`manifests/lot-a-player-eponyms.manifest.json`](manifests/lot-a-player-eponyms.manifest.json)),
+> dry-run-verified, and then **APPLIED** with `--apply --strict --validate`
+> (2 rows changed, head rows only, result validates 5899/0,
+> `unresolved_groups=0`) — record in
 > [`lot-a-player-eponyms-dry-run.md`](lot-a-player-eponyms-dry-run.md). **Winawer
-> (`B.Fre.Win`) is held out** of that manifest pending an author/year pin for
-> *The Center Game*; Carlsbad (`D.QGD.Exc.Car`) is a separate Lot B. Apply is a
-> separate GO.
+> (`B.Fre.Win`) was held out** pending an author/year pin for *The Center Game*;
+> Carlsbad (`D.QGD.Exc.Car`) is a separate Lot B (still parked).
 
 ## Verification (orchestrator re-queried every item)
 
@@ -69,8 +69,8 @@ itself be wrong; re-query and quote before trusting either.)
 |---|---|---|---|---|
 | **Winawer** | `B.Fre.Win` | **CLEAR** | *The Center Game* (nlm Q25, src `a433382e`): "(3.Nc3 Bb4) **named after him**" | apply-ready |
 | **Carlsbad** | `D.QGD.Exc.Car` | **CLEAR** (non-person → `attributed_to` EMPTY) | Karpov & Matsukevich, *Estrategia en el Ajedrez* p.61 (nlm Q9, src `f463f146`): **Karlsbad 1923** origin | apply-ready (`historical_notes` only) |
-| **Tarrasch** | `D.Tar` (QGD head only) | **CLEAR** | Avrukh *GM Repertoire 1.d4 Vol.1* + *The Power of Pawns* (nlm Q25): "**named after … Siegbert Tarrasch**" | apply-ready (head only) |
-| **Chigorin** | `D.Chi` (QGD head only) | **CLEAR** | Avrukh *GM Repertoire 1.d4* (nlm Q25): "**named after the famous 19th-century Russian grandmaster Mikhail Chigorin**" | apply-ready (head only; keep distinct from Ruy López Chigorin `C.RyL.Cha`) |
+| **Tarrasch** | `D.Tar` (QGD head only) | **CLEAR** | Avrukh *GM Repertoire 1.d4 Vol.1* + *The Power of Pawns* (nlm Q25): "**named after … Siegbert Tarrasch**" | **APPLIED 2026-06-08** (head only) |
+| **Chigorin** | `D.Chi` (QGD head only) | **CLEAR** | Avrukh *GM Repertoire 1.d4* (nlm Q25): "**named after the famous 19th-century Russian grandmaster Mikhail Chigorin**" | **APPLIED 2026-06-08** (head only; distinct from Ruy López Chigorin `C.RyL.Cha`) |
 | **Alapin** | `B.Sic.Alp` | PARTIAL | nlm: no source names the 2.c3 Sicilian after Alapin; OC confirms label only | keep-parked |
 | **Taimanov** | `B.Sic.Tay` | PARTIAL | nlm: negative; secondary (Wikipedia) only | keep-parked |
 

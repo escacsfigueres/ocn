@@ -1,8 +1,13 @@
-# Lot A player-eponym attribution — dry-run record (2026-06-08)
+# Lot A player-eponym attribution — dry-run + apply record (2026-06-08)
 
-**Status: DRY-RUN ONLY. No catalogue change, no apply.** First real exercise
-of the [Attribution Batch Engine](attribution-batch-engine.md)
-(`tools/apply_attribution_manifest.py`) against `catalog/ocn-1.csv`.
+**Status: APPLIED 2026-06-08.** `D.Tar` and `D.Chi` are now attributed in
+`catalog/ocn-1.csv` (commit "Apply Lot A player-eponym attribution manifest").
+First real exercise of the [Attribution Batch Engine](attribution-batch-engine.md)
+(`tools/apply_attribution_manifest.py`) against `catalog/ocn-1.csv` — dry-run
+first (below), then `--apply --out catalog/ocn-1.csv --strict --validate`. The
+apply produced exactly the dry-run-predicted result (SHA-256 after =
+`014e3fd…`), changed 2 rows / `git diff` 2 insertions+2 deletions, and the
+result validates 5899/0 with `unresolved_groups=0`.
 
 ## Manifest
 
@@ -72,17 +77,22 @@ Applying to a throwaway copy produces a **4-line diff = exactly 2 rows**
 `39df01f…`, `git status` clean). The dry-run wrote nothing; the `--apply`
 verification above wrote only to a temporary file that was discarded.
 
-## Next step (separate GO)
+## Apply (done 2026-06-08)
 
-Under an explicit GO, apply with:
+Applied under GO with:
 
 ```bash
 python3 tools/apply_attribution_manifest.py \
   --catalog catalog/ocn-1.csv \
   --manifest docs/manifests/lot-a-player-eponyms.manifest.json \
   --apply --out catalog/ocn-1.csv --strict --validate
-# then: git diff --stat catalog/ocn-1.csv && python3 tools/validate.py --strict-chess catalog/ocn-1.csv
 ```
+
+Post-apply verification (all passed): `git diff --stat` = 2 insertions / 2
+deletions; programmatic diff vs the pre-apply commit = ADDED `[]`, REMOVED `[]`,
+CHANGED exactly `{D.Tar, D.Chi}`, only the three attribution fields differ, no
+`D.Tar*`/`D.Chi*` child rows touched, `B.Fre.Win` and `D.QGD.Exc.Car`
+unchanged; `validate.py --strict-chess` OK 5899/0; `unresolved_groups=0`.
 
 ## See also
 
