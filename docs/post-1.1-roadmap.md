@@ -123,6 +123,16 @@ popularised vs event-anchored)?
     Applied (sha after `3e62cb06…`; 4 rows changed, attribution fields only, zero
     collateral; validator 5899/0, 140 tests OK, audit unresolved_groups=0).
     See [`lot-3-eco-a-eponyms-dry-run.md`](lot-3-eco-a-eponyms-dry-run.md). No push yet.
+  - **360° project audit** — **CREATED 2026-06-10** (13-agent read-only
+    dynamic workflow + orchestrator re-verification, no catalogue change):
+    [`ocn-360-audit.md`](ocn-360-audit.md). 3 critical (LICENSE still says
+    OCS with the wrong attribution URL; unpushed apply commit; README row
+    count wrong), 29 high — incl. two genuinely misnamed openings
+    (`A.War.Mad`, `C.LtO.Nxe5.Qe7`), ~16 wrong ECO codes, diacritic splits at
+    scale (López/Grünfeld/Réti, ~570 rows), 6 phantom parent-child pairs, and
+    attribution/CI/tooling drift. Ranked P0/P1/P2 proposals + a 3-sprint plan
+    (hygiene wave → diacritic+ECO wave via a new `eco_legacy_only` engine
+    mode → release 1.2.0 with parquet regen). Audit + proposals only.
 
 ## Track 2 — 0.3 internationalised aliases
 
