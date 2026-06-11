@@ -1,15 +1,15 @@
 # OCN 1.2.0 — diacritic-true names, audited ECO, unconditional gate
 
-**Release notes (draft — tag not yet created).** Docs-only record; no
-tag/release/upload accompanies this document. Tag and parquet regen each
-wait for their own GO.
+**RELEASED 2026-06-11.** Tag `ocn-1.2.0` at `feb1098`; GitHub release
+published with the three assets (`ocn-1.positions.tsv`,
+`openings.parquet`, `_efcdb_manifest.json`), verified end-to-end — see
+`release-ocn-1.2.0-downstream-verification.md`.
 
-- **Proposed release**: `OCN 1.2.0 — diacritic-true names, audited ECO,
+- **Release**: `OCN 1.2.0 — diacritic-true names, audited ECO,
   unconditional gate`
-- **Proposed tag**: `ocn-1.2.0` (minor bump: 683 `canonical_name` changes
-  are consumer-visible; **no slug changes** — row identity is fully stable
-  across this boundary, unlike 1.1.0)
-- **Target commit**: current `main` (this notes commit or its successor)
+- **Tag**: `ocn-1.2.0` = `feb1098` (minor bump: 683 `canonical_name`
+  changes are consumer-visible; **no slug changes** — row identity is
+  fully stable across this boundary, unlike 1.1.0)
 - **Previous release**: `ocn-1.1.0`
 
 ## Summary
