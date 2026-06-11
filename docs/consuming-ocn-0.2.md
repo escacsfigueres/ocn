@@ -1,4 +1,7 @@
-# Consuming OCN 0.2
+# Consuming OCN
+
+*(Current as of `ocn-1.2.0`, 5,899 rows. The filename keeps its
+historical `-0.2` suffix so existing links survive.)*
 
 A short, practical guide for someone joining FEN / zobrist / game
 positions to OCN openings. If you have already implemented an
@@ -10,9 +13,9 @@ Read the [Quick start](#0-quick-start) and the
 
 For background and full normative definitions, see
 [`spec/OCN-1.md`](../spec/OCN-1.md). For the project roadmap, see
-[`roadmap-0.2.md`](roadmap-0.2.md). For the release with shipped
-artefacts, see
-[ocn-1.0.3](https://github.com/escacsfigueres/ocn/releases/tag/ocn-1.0.3).
+[`post-1.1-roadmap.md`](post-1.1-roadmap.md). For the release with
+shipped artefacts, see
+[ocn-1.2.0](https://github.com/escacsfigueres/ocn/releases/tag/ocn-1.2.0).
 
 ## 0. Quick start
 
@@ -50,11 +53,12 @@ The consequence for consumers:
   side, name-with-aka, etc.) is your product decision; OCN gives
   you the data to make it correctly.
 
-The current catalogue has **130 zobrists with ≥2 OCN rows**
-(out of 5,765 unique FENs). Consumers who collapse on zobrist
-silently lose between 6 (declared `multiple_canonical`) and 130
-(declared + intra-family residuals) distinct labels in real
-chess-game queries.
+The current catalogue has **124 positions with ≥2 OCN rows**
+(out of 5,765 unique FENs), all of them classified: every group is
+resolved by `transposes_to` or declared co-canonical via `same_as`
+(**17 declared groups, 34 rows**). Consumers who collapse on
+zobrist silently lose up to 124 distinct labels in real chess-game
+queries.
 
 ## 2. Three relations
 
@@ -105,8 +109,9 @@ Pick the right artefact for your input:
 |---|---|---|
 | Polyglot zobrist hash (INT64) | `openings.parquet` | `zobrist` |
 | Position object that can produce a Polyglot zobrist | `openings.parquet` | derive zobrist, then `zobrist` |
-| FEN string | `ocn-1.positions.tsv` | `fen_key` (board + side + castling + ep, ignoring counters) |
+| FEN string | `ocn-1.positions.tsv`, or `tools/ocn.py` | `fen_key` (board + side + castling + ep, ignoring counters) |
 | OCN slug | either, or `catalog/ocn-1.csv` directly | `ocn1` |
+| Lichess opening name / line | `catalog/ocn-1.lichess-xref.tsv` | exact SAN sequence → `ocn1` (every Lichess line on a position OCN covers resolves to a slug) |
 
 **Polyglot is the recommended canonical hash.** OCN's
 `openings.parquet` is generated with `polyglot-v1.0` (see
@@ -114,7 +119,16 @@ Pick the right artefact for your input:
 
 `fen_key` in `ocn-1.positions.tsv` is the same FEN with halfmove
 and fullmove counters stripped — match on that, not on the full
-FEN, since OCN doesn't record counters.
+FEN, since OCN doesn't record counters. **En passant trap:** most
+board libraries emit the ep square after *any* double push; the
+catalogue keys keep it only when an ep capture is actually legal.
+Normalise before matching (`tools/ocn.py`'s `fen_key()` does this
+for you) or positions like 1.e4 c5 will silently miss.
+
+Aliases (pipe-separated) now carry both systematic American
+spellings ("Sicilian Defense" alongside the British canonical) and
+1,300+ position-anchored Lichess labels, so name-based search
+covers the vocabulary your users actually type.
 
 Example (one position, two canonical rows by design):
 
@@ -199,13 +213,32 @@ C) Pick one by product policy (locale, recency, etc.):
 both is exactly that the literature uses both names; collapsing
 loses information your users may rely on.
 
-The current catalogue has six declared co-canonical groups:
-French Classical / Veresov Classical, KID Old / Castled-Nbd7,
-Rubinstein / Colle-Zukertort, Nimzo Kmoch / Sämisch-Botvinnik,
-Italian Giuoco / Two Knights (two depths). More may be added in
-future releases without schema changes.
+The current catalogue has **17 declared co-canonical groups**
+(34 rows carrying `same_as`). Enumerate them live with
+`tools/audit_transpositions.py --include-resolved` or, in Python,
+`Catalog.load().co_canonicals(slug)` from `tools/ocn.py`. More may
+be added in future releases without schema changes.
 
 ## 7. Recommended SQL / pseudocode
+
+### Python, zero dependencies (`tools/ocn.py`)
+
+If you are in Python and have the repo, the reader is the loop
+library — no parquet stack needed:
+
+```python
+import sys; sys.path.insert(0, "tools")
+from ocn import Catalog
+
+cat = Catalog.load()                       # catalog/ocn-1.csv
+row = cat.by_slug("B.Sic")                 # KeyError if absent
+hits = cat.by_fen(fen)                     # handles the ep trap for you
+for hit in hits:                           # ≥1 row per position by design
+    canonical = cat.by_slug(cat.resolve(hit["ocn1"]))
+    label = canonical["canonical_name"]
+    others = cat.co_canonicals(canonical["ocn1"])   # same_as partners
+tree = list(cat.walk("B.Sic"))             # whole subtree, breadcrumbs
+```
 
 ### Canonical OCN per row (SQL)
 
@@ -300,7 +333,7 @@ def display_name_for_zobrist(z, openings_table):
 1. **Assuming one OCN per zobrist.** The most frequent and
    highest-impact mistake. OCN's contract explicitly allows
    multi-row returns; consumers that join with `INNER JOIN ...
-   LIMIT 1` will silently mislabel ~130 zobrists today and more
+   LIMIT 1` will silently mislabel 124 positions today and more
    in future releases.
 
 2. **Treating multiple-canonical groups as data errors to
@@ -335,10 +368,14 @@ def display_name_for_zobrist(z, openings_table):
 ## 9. Links
 
 - Spec: [`spec/OCN-1.md`](../spec/OCN-1.md)
-- Roadmap: [`roadmap-0.2.md`](roadmap-0.2.md)
-- Release: [ocn-1.0.3](https://github.com/escacsfigueres/ocn/releases/tag/ocn-1.0.3)
+- Roadmap: [`post-1.1-roadmap.md`](post-1.1-roadmap.md)
+- Release: [ocn-1.2.0](https://github.com/escacsfigueres/ocn/releases/tag/ocn-1.2.0)
+- Lichess cross-reference (in-repo sidecar):
+  [`catalog/ocn-1.lichess-xref.tsv`](../catalog/ocn-1.lichess-xref.tsv)
+- Python reader: [`tools/ocn.py`](../tools/ocn.py)
 
 The release page hosts three downloadable artefacts:
 `ocn-1.positions.tsv`, `openings.parquet`, and
 `_efcdb_manifest.json`. Pin them by sha256 if you need
-reproducibility.
+reproducibility (`escacsfigueres/ocn` is private — download via an
+authenticated `gh release download`, not raw URLs).
