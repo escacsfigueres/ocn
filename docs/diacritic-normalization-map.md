@@ -117,6 +117,32 @@ evidence before any change. `Wurzburger` (1 alias): Lichess uses ASCII
 ("Wurzburger Trap"); if the eponym is the American Otto Wurzburger, ASCII
 is correct and this becomes a documented non-change.
 
+## Tier 3 — Lichess xref discoveries (2026-06-11)
+
+The position-keyed cross-reference (`tools/build_lichess_xref.py`,
+consumer sprint fase 1) surfaced 12 further diacritic divergences the
+audit-era surveys missed: rows whose Lichess label restores a diacritic
+the OCN text dropped. Eleven enter Tier 3 (~42 rows whole-catalogue,
+Kádas alone 23):
+
+| ASCII form | normalized | referent | evidence |
+|---|---|---|---|
+| `Kadas` | `Kádas` | Gábor Kádas | Lichess ✓; Hungarian orthography |
+| `Bucker` | `Bücker` | Stefan Bücker | Lichess ✓; WP |
+| `Kostic` | `Kostić` | Borislav Kostić | Lichess ✓; WP |
+| `Szen` | `Szén` | József Szén | Lichess ✓; WP |
+| `Suchting` | `Süchting` | Hugo Süchting | Lichess ✓; WP |
+| `Hubsch` | `Hübsch` | Hübsch Gambit | Lichess ✓; German orthography |
+| `Dory` | `Döry` | Ladislaus Döry | Lichess ✓; WP |
+| `Lohn` | `Löhn` | (no encyclopedia entry found) | Lichess + German orthography only — flagged for review |
+| `Schonemann` | `Schönemann` | (no encyclopedia entry found) | Lichess + German orthography only — flagged for review |
+| `Dusseldorf` | `Düsseldorf` | place name | unambiguous |
+| `Tubingen` | `Tübingen` | place name | unambiguous |
+
+The twelfth divergence is `Sorensen`/`Sörensen` — the xref re-confirms
+the split but the **parking stands** (per-row referents; Lichess itself
+writes ö and ø on different lines).
+
 ## Deliberate non-changes
 
 - `Sokolsky` (8 rows) — Alexey Sokolsky, romanized from Cyrillic; rule 2.

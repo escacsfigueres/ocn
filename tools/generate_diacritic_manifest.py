@@ -74,9 +74,42 @@ TIER2_PERSONS: dict[str, str] = {
     "Pelikán": "Jiří Pelikán",
 }
 
+# Tier 3: divergences surfaced by the Lichess xref triage (2026-06-11) —
+# rows whose position-anchored Lichess label restores a diacritic the
+# OCN text dropped. Sørensen stays parked (per-row referents; Lichess
+# itself splits ö/ø by line) and must NOT be added here.
+TIER3_FORMS: dict[str, tuple[str, ...]] = {
+    "Kádas": ("Kadas",),
+    "Bücker": ("Bucker",),
+    "Kostić": ("Kostic",),
+    "Szén": ("Szen",),
+    "Süchting": ("Suchting",),
+    "Hübsch": ("Hubsch",),
+    "Döry": ("Dory",),
+    "Löhn": ("Lohn",),
+    "Schönemann": ("Schonemann",),
+    "Düsseldorf": ("Dusseldorf",),
+    "Tübingen": ("Tubingen",),
+}
+
+TIER3_PERSONS: dict[str, str] = {
+    "Kádas": "Gábor Kádas",
+    "Bücker": "Stefan Bücker",
+    "Kostić": "Borislav Kostić",
+    "Szén": "József Szén",
+    "Süchting": "Hugo Süchting",
+    "Hübsch": "Hübsch (Hübsch Gambit; Lichess + German orthography)",
+    "Döry": "Ladislaus Döry",
+    "Löhn": "Löhn (Lichess + German orthography; no encyclopedia entry found)",
+    "Schönemann": "Schönemann (Lichess + German orthography; no encyclopedia entry found)",
+    "Düsseldorf": "Düsseldorf (place name)",
+    "Tübingen": "Tübingen (place name)",
+}
+
 TIER_SPECS: dict[int, tuple[dict[str, tuple[str, ...]], dict[str, str], str]] = {
     1: (TIER1_FORMS, TIER1_PERSONS, "Tier 1 (10 surnames)"),
     2: (TIER2_FORMS, TIER2_PERSONS, "Tier 2 (Czech/Lithuanian class)"),
+    3: (TIER3_FORMS, TIER3_PERSONS, "Tier 3 (Lichess xref discoveries)"),
 }
 
 # Columns the manifest may rewrite (the naming_strings_only field scope).

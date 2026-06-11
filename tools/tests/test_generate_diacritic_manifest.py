@@ -19,6 +19,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 from generate_diacritic_manifest import (  # noqa: E402
     TIER1_FORMS,
     TIER2_FORMS,
+    TIER3_FORMS,
     build_manifest,
     normalize_text,
 )
@@ -159,6 +160,43 @@ class Tier2Tests(unittest.TestCase):
         self.assertEqual(m["expected_changed_rows"], ["A.Mik"])
         self.assertEqual(
             m["changes"][0]["fields"], {"canonical_name": "Mikėnas Defence"}
+        )
+
+
+class Tier3Tests(unittest.TestCase):
+    def test_tier3_map_matches_the_xref_triage(self) -> None:
+        """The 11 divergences surfaced by the Lichess xref triage
+        (2026-06-11). Sörensen stays parked (per-row referents) and must
+        NOT appear."""
+        self.assertEqual(
+            set(TIER3_FORMS),
+            {
+                "Kádas", "Bücker", "Kostić", "Szén", "Süchting", "Hübsch",
+                "Döry", "Löhn", "Schönemann", "Düsseldorf", "Tübingen",
+            },
+        )
+
+    def test_tier3_manifest_uses_tier3_map_only(self) -> None:
+        rows = [
+            _row("A", canonical_name="Flank Openings"),
+            _row(
+                "A.Kad",
+                canonical_name="Kadas Opening",
+                depth="1",
+                parent_ocn1="A",
+            ),
+            _row(
+                "A.Mik",
+                canonical_name="Mikenas Defence",
+                depth="1",
+                parent_ocn1="A",
+            ),
+        ]
+        m = build_manifest(rows, tier=3)
+        self.assertIn("Tier 3", m["title"])
+        self.assertEqual(m["expected_changed_rows"], ["A.Kad"])
+        self.assertEqual(
+            m["changes"][0]["fields"], {"canonical_name": "Kádas Opening"}
         )
 
 
