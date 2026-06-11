@@ -1,3 +1,5 @@
+**Status: APPLIED 2026-06-11** under the fase 2a GO.
+
 # Attribution manifest — American-spelling aliases for British-spelled canonical names
 
 - kind: `ocn.attribution_manifest.v1`
