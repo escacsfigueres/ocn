@@ -1,3 +1,5 @@
+**Status: APPLIED 2026-06-11** — this report is the pre-apply dry-run record; the apply commit wrote sha256 `a89001c9…` to `catalog/ocn-1.csv` and populated `BANNED_ASCII_NAME_FORMS`.
+
 # Attribution manifest — Diacritic normalization — Tier 1 (10 surnames)
 
 - kind: `ocn.attribution_manifest.v1`

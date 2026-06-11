@@ -115,12 +115,29 @@ BANNED_CHAR_LABELS = {
 # Diacritic regression guard (see docs/diacritic-normalization-map.md).
 # Maps a banned ASCII surname form -> its normalized spelling. Word-boundary
 # match: error in canonical_name/aliases, warning in notes (notes may
-# legitimately quote titles). Ships EMPTY until the Tier 1 normalization lot
-# is applied — it is populated in the same commit as the lot, so data and
-# guard activate atomically. `--ban-ascii-form ASCII=Normalized` (repeatable)
-# extends it ad hoc, e.g. to pre-check a candidate CSV before the constant
-# is populated.
-BANNED_ASCII_NAME_FORMS: dict[str, str] = {}
+# legitimately quote titles). Populated by the same commit that applied the
+# Tier 1 normalization lot, so data and guard activated atomically; the
+# entries mirror tools/generate_diacritic_manifest.py's Tier 1 map (a test
+# pins them together). `--ban-ascii-form ASCII=Normalized` (repeatable)
+# extends it ad hoc, e.g. to pre-check a candidate CSV for a future tier.
+BANNED_ASCII_NAME_FORMS: dict[str, str] = {
+    "Lopez": "López",
+    "Grunfeld": "Grünfeld",
+    "Gruenfeld": "Grünfeld",
+    "Reti": "Réti",
+    "Saemisch": "Sämisch",
+    "Samisch": "Sämisch",
+    "Maroczy": "Maróczy",
+    "Goring": "Göring",
+    "Goering": "Göring",
+    "Hubner": "Hübner",
+    "Huebner": "Hübner",
+    "Lowenthal": "Löwenthal",
+    "Loewenthal": "Löwenthal",
+    "Hromadka": "Hromádka",
+    "Moller": "Møller",
+    "Moeller": "Møller",
+}
 
 # Canonical names temporarily allowed on more than one row: the three
 # duplicate groups found by the 360 audit, pending a merge / rename /

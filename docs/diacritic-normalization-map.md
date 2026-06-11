@@ -1,9 +1,11 @@
 # Diacritic normalization map
 
-**Status**: spec + survey (docs only). No catalogue change accompanies this
-document. The lot itself (audit P1 item 7) is generated from this map and
-applies only under an explicit GO. Survey run 2026-06-11 against
-`catalog/ocn-1.csv` post-P0 (5,899 rows).
+**Status**: **Tier 1 APPLIED 2026-06-11** under explicit GO (663 rows, sha256
+`e6853ef7…` → `a89001c9…`; `BANNED_ASCII_NAME_FORMS` populated in the same
+commit). Tier 2 decision 2026-06-11: **GO normalize** the Czech/Lithuanian
+class — prepared as a separate lot with its own dry-run and apply GO. The
+survey below describes the pre-apply catalogue (run 2026-06-11, post-P0,
+5,899 rows) and is kept as the lot's evidence record.
 
 ## Intent
 

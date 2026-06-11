@@ -223,6 +223,21 @@ class ValidatorTests(unittest.TestCase):
                          f"warn fixtures vs EXPECTED_WARN drift: "
                          f"on_disk={on_disk}, registered={registered}")
 
+    def test_banned_ascii_forms_match_the_tier1_map(self) -> None:
+        """Once the Tier 1 diacritic lot is applied, validate.py's
+        BANNED_ASCII_NAME_FORMS must mirror the generator's Tier 1 map —
+        data and guard activate atomically and stay in sync."""
+        sys.path.insert(0, str(REPO_ROOT / "tools"))
+        from generate_diacritic_manifest import TIER1_FORMS
+        from validate import BANNED_ASCII_NAME_FORMS
+
+        expected = {
+            variant: target
+            for target, variants in TIER1_FORMS.items()
+            for variant in variants
+        }
+        self.assertEqual(BANNED_ASCII_NAME_FORMS, expected)
+
     def test_child_shorter_check_is_opt_in(self) -> None:
         """The child-shorter heuristic fires on ~1,400 legitimate rows of
         the live catalogue (names shorten at depth by design), so it must
