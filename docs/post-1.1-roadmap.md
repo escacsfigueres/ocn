@@ -147,6 +147,20 @@ popularised vs event-anchored)?
     duplicate names 6 → 3) and attribution polish (3 rows; all 26
     attributed rows now carry a role parenthetical). Remaining from the
     audit: P1 (diacritic + ECO waves, validator wave, docs system) and P2.
+    **Sprint 2 + release 1.2.0 EXECUTED 2026-06-11**: diacritic
+    normalization Tiers 1+2 (713 rows, 14 surnames, person-orthography
+    policy in [`diacritic-normalization-map.md`](diacritic-normalization-map.md));
+    naming hygiene (26 rows, checks promoted to errors); `eco_legacy_only`
+    engine mode + ECO lot (12 rows double-sourced — 4 of the audit's 16
+    ECO claims refuted by independent Lichess derivation); phantom
+    path-markers spec-blessed + ECO-aligned and the 4 duplicate names
+    renamed ([`phantom-and-duplicate-name-decision.md`](phantom-and-duplicate-name-decision.md));
+    validator checks 13–20 unconditional (zero allowlists, zero standing
+    warnings, 165 tests). **Tag `ocn-1.2.0` released** with verified
+    assets ([`release-ocn-1.2.0-notes.md`](release-ocn-1.2.0-notes.md),
+    [`release-ocn-1.2.0-downstream-verification.md`](release-ocn-1.2.0-downstream-verification.md)).
+    Remaining from the audit: P1 docs system (INDEX/archive, stale refs,
+    consuming guide), 2 factory tools, and P2.
 
 ## Track 2 — 0.3 internationalised aliases
 
