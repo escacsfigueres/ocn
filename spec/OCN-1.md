@@ -1,6 +1,8 @@
 # OCN-1 — Open Chess Naming, version 1
 
-**Status**: Draft v0.1 · 2026-04-28
+**Status**: v1.1 — living spec for the released `ocn-1.1.x` catalogue line
+(first issued as Draft v0.1 on 2026-04-28; see "Spec history" under
+Versioning)
 **Author**: Club d'Escacs Figueres
 **License**: CC-BY-4.0 (this document and the catalogue)
 **Repository**: https://github.com/escacsfigueres/ocn
@@ -137,17 +139,17 @@ and mate (`#`) are stripped. File/rank disambiguation is allowed when SAN
 requires it. The grammar permits up to two trailing move segments:
 
 ```
-B.Sic.Sve.Nd5            11.Nd5 main Sveshnikov tabiya  (one move)
-B.Sic.Sve.Bxf6           9.Bxf6 line                    (one move)
-B.Sic.Naj.Eng.Be3.e5     6.Be3 e5 main line of the English Attack  (two moves)
-B.Sic.Naj.Eng.Be3.e6     6.Be3 e6 Scheveningen-style                (two moves)
-C.RyL.Ber.End.dxe5       After ...dxe5 in the Berlin Endgame        (one move)
+B.Sic.Sve.Nd5            11.Nd5 main Sveshnikov tabiya            (one move)
+B.Sic.Sve.Bxf6           9.Bxf6 line                              (one move)
+B.Sic.Naj.Eng.e5         6.Be3 e5 line of the English Attack      (one move)
+B.Sic.Naj.Eng.e6.Qd2     6.Be3 e6 7.Qd2 Scheveningen-style        (two moves)
+B.Sic.Naj.Eng.e6.g4      6.Be3 e6 7.g4 Delayed Keres              (two moves)
 ```
 
-Examples like `B.Sic.Naj.Eng.Be3.e5` are illustrative of the grammar. The
-0.1 reference catalogue does not yet enumerate every depth-5 tabiya; the
-catalogue grows as the community contributes lines that meet the
-"named-tabiya" bar (see below).
+All of the above are real catalogue entries (the `Eng` segment already
+encodes 6.Be3, so the move tail starts at Black's reply). The catalogue
+does not enumerate every deep tabiya; it grows as the community
+contributes lines that meet the "named-tabiya" bar (see below).
 
 Castling is `O-O` (kingside) or `O-O-O` (queenside). Captures use `x`.
 Promotions: `=Q`. Check (`+`) and mate (`#`) are not part of the slug —
@@ -427,6 +429,18 @@ Once a release is tagged, an entry's `ocn1` MUST NOT be re-pointed to a
 different position. If a slug is found to be wrong, mark it `deprecated`
 in `flags` and add the correct slug as a new entry.
 
+### Spec history
+
+- **Draft v0.1 (2026-04-28)** — initial public draft.
+- **v1.0 (2026-05, `ocn-1.0.2`/`ocn-1.0.3`)** — position canonicalisation:
+  `transposes_to` (asymmetric) and `same_as` (symmetric) relations added,
+  completing the 14-column catalogue.
+- **v1.1 (2026-05-26, `ocn-1.1.0`)** — transposition layer fully resolved
+  (`unresolved_groups=0`); attribution columns (`attributed_to`,
+  `attribution_source`, `historical_notes`) actively populated under the
+  sourced-attribution contract (a non-empty `attributed_to` MUST carry an
+  `attribution_source`).
+
 ## Examples
 
 The full canonical example set lives in `catalog/ocn-1.csv`. A few
@@ -440,15 +454,15 @@ illustrative ones:
 | `B.Sic` | B20–B99 | Sicilian Defence |
 | `B.Sic.Naj` | B90–B99 | Sicilian Defence, Najdorf Variation |
 | `B.Sic.Naj.Eng` | B90 | Sicilian Najdorf, English Attack |
-| `B.Sic.Naj.Eng.Be3.e5` | B90 | Najdorf English Attack, 6.Be3 e5 |
+| `B.Sic.Naj.Eng.e5` | B90 | Najdorf English Attack, 6.Be3 e5 |
 | `B.Sic.Sve` | B33 | Sicilian Sveshnikov (Lasker–Pelikan) |
 | `B.CaK.Adv` | B12 | Caro-Kann, Advance Variation |
 | `B.Fre.Win` | C15–C19 | French Defence, Winawer Variation |
-| `C.RyL.Ber.End` | C67 | Ruy López, Berlin Defence, Endgame |
+| `C.RyL.Ber.Wal.End` | C67 | Ruy López, Berlin Wall Endgame |
 | `C.Ita.Evn` | C51 | Italian, Evans Gambit |
 | `C.Pet` | C42 | Petrov Defence |
 | `D.QGD.Tar` | D58–D59 | Queen's Gambit Declined, Tartakower |
-| `D.Sla.Sem.Mer` | D47 | Slav, Semi-Slav, Mèran Variation |
+| `D.Sem.Mer` | D47 | Semi-Slav, Meran Variation |
 | `D.Cat.Ope` | E04–E05 | Catalan, Open Variation |
 | `E.KID.Sml` | E80–E89 | King's Indian Defence, Sämisch Variation |
 | `E.Nim.Cls` | E32–E33 | Nimzo-Indian, Classical Variation |
@@ -456,9 +470,10 @@ illustrative ones:
 
 ## Lichess long-tail integration
 
-OCN-1 is intentionally curated and compact — it names 2,025 important
-opening families, variations, and tabiyas that humans can memorise. It
-does NOT attempt to name every line that ever appeared in a game.
+OCN-1 is intentionally curated — it names 5,899 opening families,
+variations, and tabiyas (as of the `ocn-1.1.x` line) that carry real
+literary or practical identity. It does NOT attempt to name every line
+that ever appeared in a game.
 
 For the long tail (Bird's Australian Variation, Polish Sokolsky
 Defended, Englund Gambit Complex…), consumers SHOULD layer the Lichess

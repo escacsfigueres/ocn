@@ -1,0 +1,28 @@
+cff-version: 1.2.0
+message: >-
+  If you use the OCN-1 catalogue or specification, please cite it as below
+  (CC-BY-4.0 requires attribution; this is the canonical form).
+title: "OCN — Open Chess Naming (OCN-1 specification and catalogue)"
+type: dataset
+authors:
+  - name: "Club d'Escacs Figueres"
+    city: Figueres
+    country: ES
+repository-code: "https://github.com/escacsfigueres/ocn"
+url: "https://github.com/escacsfigueres/ocn"
+license: CC-BY-4.0
+version: 1.1.0
+date-released: 2026-05-26
+keywords:
+  - chess
+  - chess openings
+  - ECO
+  - naming scheme
+  - dataset
+abstract: >-
+  OCN-1 is a hierarchical, human-readable naming scheme for chess openings,
+  designed as a companion to ECO. The reference catalogue names 5,899
+  opening families, variations and tabiyas with parent-aware slugs,
+  position-identity relations (transposes_to, same_as) and sourced naming
+  attributions. Code in tools/ is MIT-licensed; the specification and
+  catalogue are CC-BY-4.0.

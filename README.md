@@ -3,7 +3,7 @@
 [![CI](https://github.com/escacsfigueres/ocn/actions/workflows/ci.yml/badge.svg)](https://github.com/escacsfigueres/ocn/actions/workflows/ci.yml)
 [![Spec license: CC BY 4.0](https://img.shields.io/badge/spec-CC%20BY%204.0-lightgrey.svg)](LICENSE-SPEC)
 [![Code license: MIT](https://img.shields.io/badge/code-MIT-blue.svg)](LICENSE-CODE)
-[![Status](https://img.shields.io/badge/status-alpha-orange.svg)](#status)
+[![Release](https://img.shields.io/badge/release-ocn--1.1.0-blue.svg)](#status)
 
 **OCN** is a hierarchical, human-readable naming scheme for chess
 openings, designed as a companion to ECO (the *Encyclopaedia of Chess
@@ -18,8 +18,8 @@ short, parent-aware slugs.
 |---|---|---|
 | `B33` | `B.Sic.Sve` | Sicilian Sveshnikov |
 | `B90` | `B.Sic.Naj.Eng` | Najdorf English Attack |
-| `C67` | `C.RyL.Ber.End` | Ruy López, Berlin Endgame |
-| `D47` | `D.Sla.Sem.Mer` | Semi-Slav, Mèran |
+| `C67` | `C.RyL.Ber.Wal.End` | Ruy López, Berlin Wall Endgame |
+| `D47` | `D.Sem.Mer` | Semi-Slav, Meran |
 | `E97` | `E.KID.Cls.Mar` | KID Classical, Mar del Plata |
 
 Read once, remember forever. No lookup table needed.
@@ -80,8 +80,11 @@ The full specification is in [`spec/OCN-1.md`](spec/OCN-1.md).
 
 ## Status
 
-**Alpha (2026-05-22).** The format is stable; the reference catalogue has
-6,099 entries and passes strict legal-move/SAN validation in CI. Comments,
+**Released — `ocn-1.1.0` (2026-05-26).** The format is stable; the reference
+catalogue has 5,899 entries, every duplicate-FEN group is resolved
+(`unresolved_groups=0`), and CI runs strict legal-move/SAN validation plus
+the full tool test suite. Post-1.1 work adds sourced naming attributions
+(see [`docs/post-1.1-roadmap.md`](docs/post-1.1-roadmap.md)). Comments,
 corrections and additions welcome via issues.
 
 > Naming history: previously drafted as **OCS — Open Chess Slug** during
@@ -92,16 +95,23 @@ corrections and additions welcome via issues.
 ## Catalogue
 
 The reference catalogue lives in [`catalog/ocn-1.csv`](catalog/ocn-1.csv)
-and contains, for each slug:
+— 14 columns per row:
 
-- the OCN-1 string (primary key)
-- the canonical English name
-- the ECO codes it covers (`eco_legacy`)
-- the parent slug
-- the depth in the hierarchy
-- known aliases (Sveshnikov a.k.a. Lasker–Pelikan)
-- tags (`gambit`, `sharp`, `closed`, `endgame`, `theoretical`)
-- free-text notes for borderline classifications
+- `ocn1` — the OCN-1 string (primary key)
+- `canonical_name` — the canonical English name
+- `eco_legacy` — the ECO codes it covers
+- `parent_ocn1` — the parent slug (nominal hierarchy)
+- `moves_uci` — the defining move sequence in UCI notation
+- `depth` — the depth in the hierarchy
+- `aliases` — known aliases (Sveshnikov a.k.a. Lasker–Pelikan)
+- `flags` — tags from the closed set `gambit`, `sharp`, `closed`,
+  `endgame`, `theoretical`, `deprecated`
+- `notes` — free-text notes for borderline classifications
+- `attributed_to`, `attribution_source`, `historical_notes` — sourced
+  naming attributions (who an opening is named for, with the citation;
+  every non-empty `attributed_to` must carry a source)
+- `transposes_to`, `same_as` — position-identity relations (see
+  "Three relations per slug" below)
 
 The catalogue is licensed under **CC-BY-4.0**: you may use, share and
 adapt it for any purpose, including commercial, provided you cite "Club
@@ -157,6 +167,23 @@ d'Escacs Figueres" and link to this repository.
   emits the deepest matching OCN-1 parent for each row. Use `--check` to
   fail if any row cannot be parsed or assigned to an OCN-1 parent, and
   `--quality` to inspect depth distribution and the most common parents.
+- [`tools/audit_naming_attribution.py`](tools/audit_naming_attribution.py) —
+  deterministic naming/attribution triage of all rows (category, risk,
+  next action, eponym head-groups). Automates triage, not truth; never
+  edits the catalogue.
+- [`tools/apply_attribution_manifest.py`](tools/apply_attribution_manifest.py) —
+  the attribution batch engine: applies an evidence-backed JSON manifest
+  (`ocn.attribution_manifest.v1`) with strict guardrails and zero collateral
+  diff. Dry-run by default; see
+  [`docs/attribution-batch-engine.md`](docs/attribution-batch-engine.md).
+- [`tools/candidate_slice_export.py`](tools/candidate_slice_export.py) and
+  [`tools/scaffold_attribution_manifest.py`](tools/scaffold_attribution_manifest.py)
+  — factory helpers: export a review slice of rows, and scaffold a manifest
+  skeleton from reviewed slugs. See
+  [`docs/attribution-factory-tooling.md`](docs/attribution-factory-tooling.md).
+- [`tools/verify_doc_slugs.py`](tools/verify_doc_slugs.py) — verifies that
+  backtick-quoted OCN slugs in docs exist in the live catalogue (stale-ref
+  detector).
 - [`tools/tests/`](tools/tests/) — tool test suite covering validation,
   strict chess checks, lookup behaviour, and positive/negative fixtures
   (`tools/tests/fixtures/`). CI runs it
@@ -227,7 +254,7 @@ See [`spec/OCN-1.md`](spec/OCN-1.md) for the full reasoning.
 
 - **0.1** — Core spec, ~6,100-entry catalogue, strict validator,
   lookup tools, and a derived FEN position export.
-- **0.2** *(tagged · `ocn-1.0.2` baseline at `415f1df`,
+- **0.2** *(tagged: `ocn-1.0.2` baseline at `415f1df`,
   `ocn-1.0.3` post-cleanup release at `dd2abd3` with downloadable
   artefacts)* — Position canonicalisation and downstream
   artefacts. 14-column catalogue with `transposes_to`
@@ -253,7 +280,7 @@ See [`spec/OCN-1.md`](spec/OCN-1.md) for the full reasoning.
   [`docs/release-ocn-1.1.0-notes.md`](docs/release-ocn-1.1.0-notes.md),
   downstream-verified end-to-end by a real consumer:
   [`docs/release-ocn-1.1.0-downstream-verification.md`](docs/release-ocn-1.1.0-downstream-verification.md).
-- **post-1.1 · data quality** — naming / attribution audit (are the
+- **post-1.1 — data quality** — naming / attribution audit (are the
   eponyms *true*, and is the *kind* of attribution explicit:
   invented vs published vs popularised vs event/game anchor?).
   Methodology:
