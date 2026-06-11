@@ -1,0 +1,155 @@
+{
+  "kind": "ocn.attribution_manifest.v1",
+  "title": "ECO corrections: London D02, Yugoslav B78, QID Nimzowitsch E15",
+  "description": "Audit P1 item 8 via the new eco_legacy_only mode. Every correction double-sourced: audit claim + independent longest-SAN-prefix derivation against lichess-org/chess-openings. The audit's four remaining claims (E.Nim.Kas.b6.Bg5 E44, D.Sla.Sch Flo/Smy non-D94, B.Lio B07) were REFUTED by exact-match derivation (Lichess codes those exact sequences E13, D94, D94, B00) and are deliberately not in this lot.",
+  "mode": "eco_legacy_only",
+  "expected_catalog_rows": 5899,
+  "expected_changed_rows": [
+    "A.Lon",
+    "A.Lon.Cls",
+    "A.Lon.Cls.MLn",
+    "A.Lon.Cls.MLn.c4",
+    "A.Lon.Cls.MLn.c4.g3",
+    "A.Lon.Cls.MLn.c4.g3.g6",
+    "A.Lon.Msn",
+    "A.Lon.Msn.MLn",
+    "A.Lon.Msn.MLn.Nbd2",
+    "A.Lon.Msn.MLn.Nbd2.c4",
+    "B.Sic.Dra.Yug.Bd7.O-O-O",
+    "E.QID.Nim"
+  ],
+  "changes": [
+    {
+      "ocn1": "A.Lon",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "lichess-org/chess-openings (fetched 2026-06-11): \"Queen's Pawn Game: London System\" = D02, longest-SAN-prefix derivation (family prefix); previous code was A48.",
+        "docs/ocn-360-audit.md, 'ECO misassignments' (audit claim independently re-derived; 12 of the audit's 16 confirmed, 4 refuted and left unchanged)."
+      ],
+      "fields": {
+        "eco_legacy": "D02"
+      }
+    },
+    {
+      "ocn1": "A.Lon.Cls",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "lichess-org/chess-openings (fetched 2026-06-11): \"Queen's Pawn Game: London System\" = D02, longest-SAN-prefix derivation (family prefix); previous code was A48.",
+        "docs/ocn-360-audit.md, 'ECO misassignments' (audit claim independently re-derived; 12 of the audit's 16 confirmed, 4 refuted and left unchanged)."
+      ],
+      "fields": {
+        "eco_legacy": "D02"
+      }
+    },
+    {
+      "ocn1": "A.Lon.Msn",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "lichess-org/chess-openings (fetched 2026-06-11): \"Queen's Pawn Game: London System\" = D02, longest-SAN-prefix derivation (family prefix); previous code was A48.",
+        "docs/ocn-360-audit.md, 'ECO misassignments' (audit claim independently re-derived; 12 of the audit's 16 confirmed, 4 refuted and left unchanged)."
+      ],
+      "fields": {
+        "eco_legacy": "D02"
+      }
+    },
+    {
+      "ocn1": "A.Lon.Cls.MLn",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "lichess-org/chess-openings (fetched 2026-06-11): \"Queen's Pawn Game: London System\" = D02, longest-SAN-prefix derivation (family prefix); previous code was A48.",
+        "docs/ocn-360-audit.md, 'ECO misassignments' (audit claim independently re-derived; 12 of the audit's 16 confirmed, 4 refuted and left unchanged)."
+      ],
+      "fields": {
+        "eco_legacy": "D02"
+      }
+    },
+    {
+      "ocn1": "A.Lon.Msn.MLn",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "lichess-org/chess-openings (fetched 2026-06-11): \"Queen's Pawn Game: London System\" = D02, longest-SAN-prefix derivation (family prefix); previous code was A48.",
+        "docs/ocn-360-audit.md, 'ECO misassignments' (audit claim independently re-derived; 12 of the audit's 16 confirmed, 4 refuted and left unchanged)."
+      ],
+      "fields": {
+        "eco_legacy": "D02"
+      }
+    },
+    {
+      "ocn1": "A.Lon.Msn.MLn.Nbd2",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "lichess-org/chess-openings (fetched 2026-06-11): \"Queen's Pawn Game: London System\" = D02, longest-SAN-prefix derivation (family prefix); previous code was A48.",
+        "docs/ocn-360-audit.md, 'ECO misassignments' (audit claim independently re-derived; 12 of the audit's 16 confirmed, 4 refuted and left unchanged)."
+      ],
+      "fields": {
+        "eco_legacy": "D02"
+      }
+    },
+    {
+      "ocn1": "A.Lon.Cls.MLn.c4",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "lichess-org/chess-openings (fetched 2026-06-11): \"Queen's Pawn Game: London System\" = D02, longest-SAN-prefix derivation (family prefix); previous code was A48.",
+        "docs/ocn-360-audit.md, 'ECO misassignments' (audit claim independently re-derived; 12 of the audit's 16 confirmed, 4 refuted and left unchanged)."
+      ],
+      "fields": {
+        "eco_legacy": "D02"
+      }
+    },
+    {
+      "ocn1": "A.Lon.Cls.MLn.c4.g3",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "lichess-org/chess-openings (fetched 2026-06-11): \"Queen's Pawn Game: London System\" = D02, longest-SAN-prefix derivation (family prefix); previous code was A48.",
+        "docs/ocn-360-audit.md, 'ECO misassignments' (audit claim independently re-derived; 12 of the audit's 16 confirmed, 4 refuted and left unchanged)."
+      ],
+      "fields": {
+        "eco_legacy": "D02"
+      }
+    },
+    {
+      "ocn1": "A.Lon.Msn.MLn.Nbd2.c4",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "lichess-org/chess-openings (fetched 2026-06-11): \"Queen's Pawn Game: London System\" = D02, longest-SAN-prefix derivation (family prefix); previous code was A48.",
+        "docs/ocn-360-audit.md, 'ECO misassignments' (audit claim independently re-derived; 12 of the audit's 16 confirmed, 4 refuted and left unchanged)."
+      ],
+      "fields": {
+        "eco_legacy": "D02"
+      }
+    },
+    {
+      "ocn1": "A.Lon.Cls.MLn.c4.g3.g6",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "lichess-org/chess-openings (fetched 2026-06-11): \"Queen's Pawn Game: London System\" = D02, longest-SAN-prefix derivation (family prefix); previous code was A48.",
+        "docs/ocn-360-audit.md, 'ECO misassignments' (audit claim independently re-derived; 12 of the audit's 16 confirmed, 4 refuted and left unchanged)."
+      ],
+      "fields": {
+        "eco_legacy": "D02"
+      }
+    },
+    {
+      "ocn1": "B.Sic.Dra.Yug.Bd7.O-O-O",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "lichess-org/chess-openings (fetched 2026-06-11): 'Sicilian Defense: Dragon, Yugoslav Attack' = B78, longest-SAN-prefix derivation (exact 19/19 plies); previous code was B76.",
+        "docs/ocn-360-audit.md, 'ECO misassignments' (audit claim independently re-derived; 12 of the audit's 16 confirmed, 4 refuted and left unchanged)."
+      ],
+      "fields": {
+        "eco_legacy": "B78"
+      }
+    },
+    {
+      "ocn1": "E.QID.Nim",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "lichess-org/chess-openings (fetched 2026-06-11): \"Queen's Indian Defense: Fianchetto, Nimzowitsch\" = E15, longest-SAN-prefix derivation (exact 8/8 plies); previous code was E17.",
+        "docs/ocn-360-audit.md, 'ECO misassignments' (audit claim independently re-derived; 12 of the audit's 16 confirmed, 4 refuted and left unchanged)."
+      ],
+      "fields": {
+        "eco_legacy": "E15"
+      }
+    }
+  ]
+}
