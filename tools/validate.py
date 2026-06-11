@@ -132,6 +132,11 @@ DUPLICATE_NAME_ALLOWLIST: dict[str, frozenset[str]] = {
     ),
     "King's Indian Attack": frozenset({"A.KIA", "A.Ret.d5.g3"}),
     "King's Pawn Game": frozenset({"C.KPO", "B.KPG"}),
+    # Revealed (not created) by the Tier 1 diacritic lot: the family root
+    # carried "Reti Opening" while the Réti proper (1.Nf3 d5 2.c4) already
+    # carried "Réti Opening" — the spelling split was masking a real
+    # duplicate. Same decision queue as the A.KIA pair above.
+    "Réti Opening": frozenset({"A.Ret", "A.Ret.d5.c4"}),
 }
 
 REQUIRED_COLUMNS = [

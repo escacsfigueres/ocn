@@ -141,6 +141,15 @@ carries the ASCII forms) and is populated in the same commit that applies
 the lot, so guard and data activate atomically. The check mechanism itself
 is tested with an injected list from day one.
 
+## Dry-run finding (2026-06-11)
+
+Normalizing `A.Ret` ("Reti Opening" → "Réti Opening") collides with
+`A.Ret.d5.c4`, which already carried "Réti Opening": the spelling split was
+masking a genuine duplicate name. The whole-catalogue sweep found **no other
+new collision**. The pair joins `DUPLICATE_NAME_ALLOWLIST` (with `A.KIA` /
+`A.Ret.d5.g3`, the same subtree) pending the duplicate-names decision — the
+lot stays purely mechanical and does not invent a differentiating name.
+
 ## Release impact
 
 621 `canonical_name` changes force the next release to be a **minor
