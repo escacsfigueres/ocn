@@ -242,6 +242,42 @@ class ValidatorTests(unittest.TestCase):
         }
         self.assertEqual(BANNED_ASCII_NAME_FORMS, expected)
 
+    def test_duplicate_name_allowlist_mechanism(self) -> None:
+        """The shipped allowlist is empty (all four audit pairs resolved
+        2026-06-11), but the mechanism must keep working for any future
+        pending pair: an exact name+slug-set entry suppresses the error."""
+        import contextlib
+        import io
+        from unittest import mock
+
+        sys.path.insert(0, str(REPO_ROOT / "tools"))
+        import validate as validate_mod
+
+        fixture = FIXTURES / "invalid_duplicate_canonical_name.csv"
+        entry = {"English Opening": frozenset({"A.Eng", "A.Ret"})}
+        with mock.patch.dict(validate_mod.DUPLICATE_NAME_ALLOWLIST, entry), \
+                contextlib.redirect_stdout(io.StringIO()), \
+                contextlib.redirect_stderr(io.StringIO()):
+            validate_mod.validate(fixture)  # must not SystemExit
+
+    def test_phantom_eco_allowlist_mechanism(self) -> None:
+        """Same guarantee for the phantom-pair ECO allowlist: a pinned
+        child slug suppresses the same-moves-ECO error."""
+        import contextlib
+        import io
+        from unittest import mock
+
+        sys.path.insert(0, str(REPO_ROOT / "tools"))
+        import validate as validate_mod
+
+        fixture = FIXTURES / "invalid_same_moves_eco_mismatch.csv"
+        with mock.patch.object(
+            validate_mod, "PHANTOM_PAIR_ECO_ALLOWLIST",
+            frozenset({"A.Tro.Sub"}),
+        ), contextlib.redirect_stdout(io.StringIO()), \
+                contextlib.redirect_stderr(io.StringIO()):
+            validate_mod.validate(fixture)  # must not SystemExit
+
     def test_child_shorter_check_is_opt_in(self) -> None:
         """The child-shorter heuristic fires on ~1,400 legitimate rows of
         the live catalogue (names shorten at depth by design), so it must

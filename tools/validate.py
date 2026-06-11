@@ -151,28 +151,18 @@ BANNED_ASCII_NAME_FORMS: dict[str, str] = {
     "Pelikan": "Pelikán",
 }
 
-# Canonical names temporarily allowed on more than one row: the three
-# duplicate groups found by the 360 audit, pending a merge / rename /
-# spec-bless decision (audit P1 item 9). Each entry pins the exact slug
-# set, so a NEW duplication of the same name still fails.
-DUPLICATE_NAME_ALLOWLIST: dict[str, frozenset[str]] = {
-    "English Reversed Sicilian g3, d5": frozenset(
-        {"A.Eng.Rev.g3.Nf6.Bg2.d5", "A.Eng.Rev.Nc3.Nf6.g3.d5"}
-    ),
-    "King's Indian Attack": frozenset({"A.KIA", "A.Ret.d5.g3"}),
-    "King's Pawn Game": frozenset({"C.KPO", "B.KPG"}),
-    # Revealed (not created) by the Tier 1 diacritic lot: the family root
-    # carried "Reti Opening" while the Réti proper (1.Nf3 d5 2.c4) already
-    # carried "Réti Opening" — the spelling split was masking a real
-    # duplicate. Same decision queue as the A.KIA pair above.
-    "Réti Opening": frozenset({"A.Ret", "A.Ret.d5.c4"}),
-}
+# Canonical names temporarily allowed on more than one row, pending an
+# explicit decision (each entry pins the exact slug set, so a NEW
+# duplication of the same name still fails). EMPTY since 2026-06-11: the
+# four audit pairs were resolved by the duplicate-name renames lot
+# (docs/phantom-and-duplicate-name-decision.md).
+DUPLICATE_NAME_ALLOWLIST: dict[str, frozenset[str]] = {}
 
-# Phantom parent-child pairs (child moves_uci identical to parent's) whose
-# eco_legacy also disagrees with the parent — the contradiction is real but
-# resolving it belongs to the phantom-pair decision (audit P1 item 9), not
-# to a unilateral validator fix. Pinned pending that decision.
-PHANTOM_PAIR_ECO_ALLOWLIST = frozenset({"E.Gru.Rus.Hng.e4", "E.QID.Euw.Bd3"})
+# Phantom path-marker children whose eco_legacy disagrees with their
+# parent, pinned pending a decision. EMPTY since 2026-06-11: the two
+# contradictions were ECO-aligned under the approved decision record, and
+# the spec now blesses path-markers that carry their parent's code.
+PHANTOM_PAIR_ECO_ALLOWLIST: frozenset[str] = frozenset()
 
 REQUIRED_COLUMNS = [
     "ocn1",

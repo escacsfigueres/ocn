@@ -1,11 +1,12 @@
 # Decision record — phantom pairs and duplicate canonical names
 
-**Status: PROPOSED 2026-06-11, decisions pending GO.** Audit P1 item 9's
-last open piece: a documented decision on the 6 phantom parent-child pairs
-and the (now) 4 duplicate-name pairs. Both validator guards are already
-live with pinned allowlists (`PHANTOM_PAIR_ECO_ALLOWLIST`,
-`DUPLICATE_NAME_ALLOWLIST`); the decisions below shrink both allowlists to
-empty. No catalogue change accompanies this document.
+**Status: APPROVED AND EXECUTED 2026-06-11.** Albert approved all
+recommendations the same day; both micro-lots applied via the engine
+(`phantom-eco-align`, 2 rows; `duplicate-name-renames`, 5 rows), the spec
+gained the path-marker blessing, and both allowlists
+(`PHANTOM_PAIR_ECO_ALLOWLIST`, `DUPLICATE_NAME_ALLOWLIST`) are now empty —
+validator checks 13 and 19 run unconditionally. The analysis below is the
+decision's evidence record.
 
 ## The 6 phantom pairs — recommendation: spec-bless + ECO-align
 

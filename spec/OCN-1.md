@@ -250,6 +250,15 @@ the group with `transposes_to`. `tools/audit_transpositions.py`
 hides resolved groups by default and surfaces them with
 `--include-resolved`.
 
+**Path-marker children.** A child entry MAY carry `moves_uci`
+byte-identical to its parent's when it documents that the named line is
+reached by another move order. Such a path-marker MUST declare the
+move-order relation in its `notes` and MUST carry its parent's
+`eco_legacy` — same position, same classification (the validator
+enforces the latter). Path-markers deliberately do not use
+`transposes_to`: the canonicalisation layer records cross-tree
+position identity, not parent-child move-order refinement.
+
 ### Co-canonical preservation (`same_as`)
 
 `transposes_to` records the relation **non-canonical → canonical**:
