@@ -1,0 +1,53 @@
+{
+  "kind": "ocn.attribution_manifest.v1",
+  "title": "Attribution polish: role parentheticals for the Moskalenko-batch rows",
+  "description": "Audit P0 micro-lot (docs/ocn-360-audit.md): the only 3 attributed rows without a role parenthetical (all from the pre-engine Moskalenko batch) gain one, with the role grounded in re-verified sources; empty historical_notes filled conservatively; the Korchnoi/Kortchnoi spelling contradiction resolved by keeping the source's spelling verbatim and noting it explicitly. attributed_to/attribution_source/historical_notes only.",
+  "mode": "attribution_fields_only",
+  "expected_catalog_rows": 5899,
+  "expected_changed_rows": [
+    "B.Fre.Exc.Uhl",
+    "A.KIA.Fre.Bar",
+    "B.Fre.Kor"
+  ],
+  "changes": [
+    {
+      "ocn1": "B.Fre.Exc.Uhl",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "Fishbein, The Exchange French Comes to Life, chapter 'The Uhlmann Gambit' (existing citation).",
+        "Wikipedia, 'Wolfgang Uhlmann' (re-verified 2026-06-11): 'one of the world's leading experts on the French Defence'; he played the French almost exclusively against 1.e4."
+      ],
+      "fields": {
+        "attributed_to": "Wolfgang Uhlmann (leading practitioner)",
+        "attribution_source": "Fishbein, The Exchange French Comes to Life, chapter 'The Uhlmann Gambit'; Wikipedia, 'Wolfgang Uhlmann' (re-verified 2026-06-11): 'one of the world's leading experts on the French Defence'.",
+        "historical_notes": "Black's ...c5 gambit try in the Exchange French (4.Nf3 Nf6 5.Bd3 c5), named for Wolfgang Uhlmann, one of the world's leading French Defence experts, who employed the French almost exclusively against 1.e4. Named per Fishbein's chapter 'The Uhlmann Gambit'."
+      }
+    },
+    {
+      "ocn1": "A.KIA.Fre.Bar",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "Moskalenko, Even More Flexible French, chapter on King's Indian Attack / Barcza System (existing citation).",
+        "Wikipedia, 'Gedeon Barcza' (re-verified 2026-06-11): 'The Barcza System is named after him.'"
+      ],
+      "fields": {
+        "attributed_to": "Gedeon Barcza (system namesake)",
+        "attribution_source": "Moskalenko, Even More Flexible French, chapter on King's Indian Attack / Barcza System; Wikipedia, 'Gedeon Barcza' (re-verified 2026-06-11): 'The Barcza System is named after him.'",
+        "historical_notes": "The King's Indian Attack treatment against the French, covered by Moskalenko under the King's Indian Attack / Barcza System heading. The underlying Nf3-with-g3 move-order complex is the Barcza System, named after the Hungarian grandmaster Gedeon Barcza, noted for his flexible g3 systems."
+      }
+    },
+    {
+      "ocn1": "B.Fre.Kor",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "Moskalenko, Even More Flexible French, chapter on Kortchnoi's 'wedge' against the French Super Gambit (existing citation; the source spells the surname 'Kortchnoi').",
+        "ChessBase shop/article, 'The Korchnoi Gambit against the French' (Collins) — the b4 wing-gambit line carries Korchnoi's name in current literature (re-verified 2026-06-11)."
+      ],
+      "fields": {
+        "attributed_to": "Viktor Korchnoi (eponymous practitioner)",
+        "attribution_source": "Moskalenko, Even More Flexible French, chapter on Kortchnoi's 'wedge' against the French Super Gambit; corroborated by ChessBase, 'The Korchnoi Gambit against the French' (Collins). The cited book spells the surname 'Kortchnoi'.",
+        "historical_notes": "White's wing-gambit setup against the French (2.Nf3 d5 3.e5 c5 4.b4). Named for Viktor Korchnoi: both Moskalenko's chapter ('Kortchnoi's wedge' — the source's spelling of the surname) and ChessBase's 'Korchnoi Gambit' coverage attach his name to the line."
+      }
+    }
+  ]
+}
