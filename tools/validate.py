@@ -137,6 +137,11 @@ BANNED_ASCII_NAME_FORMS: dict[str, str] = {
     "Hromadka": "Hromádka",
     "Moller": "Møller",
     "Moeller": "Møller",
+    # Tier 2 (Czech/Lithuanian class), applied 2026-06-11.
+    "Mikenas": "Mikėnas",
+    "Krejcik": "Krejčík",
+    "Opocensky": "Opočenský",
+    "Pelikan": "Pelikán",
 }
 
 # Canonical names temporarily allowed on more than one row: the three

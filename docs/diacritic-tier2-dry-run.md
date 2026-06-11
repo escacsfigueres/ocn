@@ -1,3 +1,5 @@
+**Status: APPLIED 2026-06-11** — this report is the pre-apply dry-run record; the apply commit wrote sha256 `0d3318d4…` to `catalog/ocn-1.csv` and added the four Tier 2 pairs to `BANNED_ASCII_NAME_FORMS`.
+
 # Attribution manifest — Diacritic normalization — Tier 2 (Czech/Lithuanian class)
 
 - kind: `ocn.attribution_manifest.v1`

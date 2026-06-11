@@ -1,11 +1,13 @@
 # Diacritic normalization map
 
 **Status**: **Tier 1 APPLIED 2026-06-11** under explicit GO (663 rows, sha256
-`e6853ef7…` → `a89001c9…`; `BANNED_ASCII_NAME_FORMS` populated in the same
-commit). Tier 2 decision 2026-06-11: **GO normalize** the Czech/Lithuanian
-class — prepared as a separate lot with its own dry-run and apply GO. The
-survey below describes the pre-apply catalogue (run 2026-06-11, post-P0,
-5,899 rows) and is kept as the lot's evidence record.
+`e6853ef7…` → `a89001c9…`). **Tier 2 APPLIED 2026-06-11** under the wave GO
+(50 rows, sha256 `a89001c9…` → `0d3318d4…`). `BANNED_ASCII_NAME_FORMS`
+carries all 20 variants, populated in the same commits as their lots and
+pinned to the generator maps by test. Still parked (per-row referent
+evidence needed): Sørensen, Würzburger. The survey below describes the
+pre-apply catalogue (run 2026-06-11, post-P0, 5,899 rows) and is kept as
+the lots' evidence record.
 
 ## Intent
 
