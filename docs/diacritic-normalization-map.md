@@ -1,0 +1,167 @@
+# Diacritic normalization map
+
+**Status**: spec + survey (docs only). No catalogue change accompanies this
+document. The lot itself (audit P1 item 7) is generated from this map and
+applies only under an explicit GO. Survey run 2026-06-11 against
+`catalog/ocn-1.csv` post-P0 (5,899 rows).
+
+## Intent
+
+OCN-1 canonical names must spell eponym surnames the way the person spelled
+them. This is not a new policy: `spec/OCN-1.md` already defines
+`canonical_name` as *"full human-readable name with accents and punctuation"*
+and uses `Sämisch` as its worked example. The catalogue violates this at
+scale, and inconsistently — the same surname appears in both forms, sometimes
+inside one subtree (`E.Gru.Exc` mixes `Grunfeld` and `Grünfeld`). One
+evidence-backed, engine-applied lot closes the gap and a validator guard
+keeps it closed.
+
+## Policy
+
+1. **Person orthography decides.** Natively Latin-script names take their
+   native spelling; the operative source is the person's Wikipedia article
+   (with the catalogue's own `attributed_to` strings as internal
+   corroboration — e.g. rows already carrying "Géza Maróczy").
+2. **Transliterated names stay plain.** Names romanized from Cyrillic or
+   other non-Latin scripts use the standard English transliteration with no
+   invented diacritics: `Sokolsky`, `Najdorf`, `Alekhine` are correct as-is.
+3. **Reference corpora corroborate, they do not decide.** Lichess
+   (`lichess-org/chess-openings`) is inconsistent: it spells `Grünfeld`,
+   `Réti`, `Sämisch`, `Maróczy`, `Göring`, `Hübner`, `Löwenthal`,
+   `Hromádka`, `Møller` with diacritics, but `Ruy Lopez` and the whole
+   Czech/Lithuanian class without. Where Lichess agrees it is cited as
+   corroboration; where it disagrees the person's orthography wins (rule 1).
+
+## Survey
+
+Word-boundary matches per column, post-P0 catalogue. "rows" = distinct rows
+matching in any naming column.
+
+| target | canonical | aliases | notes | attr. fields | rows | families (canonical) |
+|---|---:|---:|---:|---:|---:|---|
+| López | 273 | 6 | 60 | 1 | 275 | C.RyL, C.Bsh, C.PhD |
+| Grünfeld | 149 | 19 | 137 | 0 | 159 | E.Gru, A.EID, A.Eng, A.Hng, B.Sca, D.QPG, D.Tar, E.Bog |
+| Réti | 86 | 6 | 79 | 0 | 90 | A.Ret, B.Fre, B.Sic, D.Tar |
+| Sämisch | 72 | 16 | 66 | 0 | 79 | E.KID, E.Nim, E.Gru, E.Ben, A.Kan, B.Ale, B.Mod, D.Sla |
+| Maróczy | 25 | 14 | 17 | 0 | 32 | B.Sic, B.Ale, B.CaK, B.Fre, C.Fou, C.Ita |
+| Göring | 10 | 2 | 10 | 0 | 12 | C.Sco |
+| Møller | 7 | 1 | 13 | 0 | 14 | C.Ita |
+| Hübner | 5 | 1 | 5 | 0 | 6 | E.Nim |
+| Löwenthal | 1 | 1 | 1 | 0 | 2 | B.Sic |
+| Hromádka | 0 | 1 | 0 | 0 | 1 | E.Ben |
+| Mikėnas? | 27 | 8 | 20 | 0 | 28 | A.Eng, A.Mik, B.Ale, B.Nim, E.Ben, E.Nim |
+| Krejčík? | 9 | 4 | 6 | 0 | 10 | A.Hol, B.Ale, C.Bsh |
+| Opočenský? | 7 | 4 | 6 | 0 | 9 | B.Sic.Naj, E.Gru |
+| Sørensen? | 4 | 4 | 1 | 0 | 4 | B.Fre, C.Cen, C.KGm |
+| Pelikán? | 1 | 2 | 0 | 4 | 3 | B.Fre |
+| Würzburger? | 0 | 1 | 0 | 0 | 1 | C.Vie |
+
+The audit's estimate was ~570 rows; the real Tier 1 scope is **663 distinct
+rows (621 canonical_name changes)** because `Sämisch` (79) and the
+`ae`/`oe` transliteration variants (`Gruenfeld`, `Saemisch`, `Huebner`,
+`Goering`, `Moeller`, `Loewenthal`) were not in the estimate.
+
+## Tier 1 — the map (GO-ready)
+
+All persons natively Latin-script, orthography unambiguous, Lichess
+corroborating except where noted.
+
+| ASCII forms found | normalized | person | evidence |
+|---|---|---|---|
+| `Lopez` | `López` | Ruy López de Segura | WP person article. Lichess diverges ("Ruy Lopez") — rule 1 wins; spec example + 34 existing `López` rows in-catalogue. |
+| `Grunfeld`, `Gruenfeld` | `Grünfeld` | Ernst Grünfeld | WP; Lichess ✓ |
+| `Reti` | `Réti` | Richard Réti | WP; Lichess ✓ ("Réti Opening") |
+| `Saemisch`, `Samisch` | `Sämisch` | Friedrich Sämisch | WP; Lichess ✓; spec's own example |
+| `Maroczy` | `Maróczy` | Géza Maróczy | WP; Lichess ✓; in-catalogue `attributed_to` already "Géza Maróczy" |
+| `Goring`, `Goering` | `Göring` | Carl Theodor Göring | WP; Lichess ✓ ("Göring Gambit") |
+| `Hubner`, `Huebner` | `Hübner` | Robert Hübner | WP; Lichess ✓ |
+| `Lowenthal`, `Loewenthal` | `Löwenthal` | Johann Löwenthal | WP; Lichess ✓ ("Sicilian: Löwenthal Variation") |
+| `Hromadka` | `Hromádka` | Karel Hromádka | WP; Lichess ✓; in-catalogue precedent `C.Vie.Nc6.Bc4.Nf6.Hro` |
+| `Moller`, `Moeller` | `Møller` | Jørgen Møller (Danish) | WP (Giuoco "Møller Attack"); Lichess ✓ (ø in "Ruy Lopez: Morphy Defense, Møller Variation") |
+
+## Tier 2 — parked, one batched decision
+
+**The Czech/Lithuanian class** — `Mikėnas` (Vladas Mikėnas), `Krejčík`
+(Josef Krejčík), `Opočenský` (Karel Opočenský), `Pelikán` (Jiří/Jorge
+Pelikán): rule 1 says normalize (all natively Latin-script), but here
+Lichess *and* mainstream English literature uniformly use ASCII, unlike the
+Tier 1 names where usage is split. Normalizing is policy-coherent but makes
+OCN diverge from every reference corpus at once (~50 rows). This is one
+decision, taken once for the whole class: **normalize / keep ASCII /
+spec-bless ASCII as the documented exception**. Recommendation: normalize,
+for coherence with rule 1 — but it needs its own GO, separate from Tier 1.
+Note `Pelikán` also touches an applied `attributed_to` string ("Jorge
+Pelikan (early adopter)" on `B.Sic.Sve`).
+
+**Per-row referent cases** — `Sorensen` (4 rows): Lichess itself splits the
+spelling by line (ö in "Danish Gambit Declined: Sörensen Defense" and the
+two KGA gambits, ø in "French Advance Milner-Barry, Sørensen Variation"),
+and the existing in-catalogue `Sörensen` (`C.Vie.Nc6.Srn`) may itself be
+ö-for-ø if the referent is the Dane S. A. Sørensen. Needs per-row referent
+evidence before any change. `Wurzburger` (1 alias): Lichess uses ASCII
+("Wurzburger Trap"); if the eponym is the American Otto Wurzburger, ASCII
+is correct and this becomes a documented non-change.
+
+## Deliberate non-changes
+
+- `Sokolsky` (8 rows) — Alexey Sokolsky, romanized from Cyrillic; rule 2.
+  Lichess ✓ ASCII.
+- `Dubois` (3 rows) — Serafino Dubois, Italian; carries no diacritic.
+- General: transliterated Russian/Soviet names (`Najdorf` is
+  Polish-Argentine and likewise plain) are out of scope by rule 2.
+
+## Mechanics
+
+- One manifest, `ocn.attribution_manifest.v1`, mode `naming_strings_only`,
+  generated from this map — never hand-edited. Fields touched:
+  `canonical_name`, `aliases`, `notes` (plus one `historical_notes` hit on
+  a López row). The engine's field-scope, exact-changed-rows and
+  zero-collateral guardrails apply.
+- Replacement is per ASCII variant, **word-boundary** (`\bLopez\b`), per
+  field. No naming column contains URLs (verified), so no link breakage is
+  possible.
+- The manifest generator emits, for review, each changed row's slug, family
+  and old/new strings — the per-row referent check (every `Grunfeld` in
+  `B.Sca` etc. must plausibly refer to the mapped person) happens at that
+  review, before GO apply.
+- **No alias additions.** Preserving ASCII search forms as aliases is a
+  separate decision (it belongs with audit P2 item 17, the
+  American-spelling alias lot).
+- No `ocn1`, `parent_ocn1`, `moves_uci`, `eco_legacy`, `depth`, `flags`,
+  `transposes_to`, `same_as` changes. Slugs are diacritic-free by
+  construction (spec §3) and do not move.
+
+## Regression guard
+
+`tools/validate.py` gains a banned-ASCII-forms check (validator wave): the
+Tier 1 ASCII variants above, word-boundary, **error** in `canonical_name`
+and `aliases`, **warning** in `notes` (notes may legitimately quote titles).
+The list ships **empty** in the validator-wave commit (the catalogue still
+carries the ASCII forms) and is populated in the same commit that applies
+the lot, so guard and data activate atomically. The check mechanism itself
+is tested with an injected list from day one.
+
+## Release impact
+
+621 `canonical_name` changes force the next release to be a **minor
+(1.2.0)** and force `chess-parquet` regeneration, per the audit's release
+policy. Bundle with the ECO lot (P1 item 8); hold the tag until both land.
+
+## Expectations (BDD)
+
+1. Given the Tier 1 lot applied, when `validate.py --strict-chess` runs,
+   then it reports 5,899 entries, 0 errors, and 0 banned ASCII forms in
+   `canonical_name`/`aliases`.
+2. Given the manifest dry-run, then the changed-row set is exactly the
+   Tier 1 survey set (663 rows; 621 canonical_name) and no field outside
+   `{canonical_name, aliases, notes, historical_notes}` differs anywhere.
+3. Given the applied CSV, then `ocn1`, `parent_ocn1`, `moves_uci`,
+   `eco_legacy`, `depth`, `flags`, `transposes_to`, `same_as` are
+   byte-identical to pre-apply for all 5,899 rows.
+4. Given a future edit reintroducing `Lopez` in any `canonical_name`, then
+   the validator fails.
+
+## Non-goals
+
+No slug changes; no alias additions; no Tier 2 surnames (separate GO); no
+ECO or attribution edits (separate lots); no spec text changes.
