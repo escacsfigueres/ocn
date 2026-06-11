@@ -133,6 +133,20 @@ popularised vs event-anchored)?
     attribution/CI/tooling drift. Ranked P0/P1/P2 proposals + a 3-sprint plan
     (hygiene wave → diacritic+ECO wave via a new `eco_legacy_only` engine
     mode → release 1.2.0 with parquet regen). Audit + proposals only.
+    **P0 hygiene wave EXECUTED 2026-06-11** (4 commits): LICENSE/LICENSE-SPEC
+    now license OCN with the right URL; README + spec truth pass (5,899,
+    spec v1.1 + history, real example slugs, all 14 columns documented,
+    CITATION.cff); tooling drift patched with TDD (suite 140 → 147:
+    `from_position.py` returns same_as co-canonicals together, dangerous-
+    surname seed synced to 11, `--format` alias, audit_chess guard, CI
+    byte-compiles all 14 tools); and two engine micro-lots applied —
+    [`naming-error-corrections`](naming-error-corrections-record.md)
+    (16 rows: Meadow Hay only on `A.War.e5.Ra3`, Greco only on
+    `C.LtO.Nxe5.Qe7` with the Qf6 subtree renamed to a Main Line stem,
+    Maróczy diacritic on `B.Sic.OKe.c4`, Zukertort alias on `A.Ret`;
+    duplicate names 6 → 3) and attribution polish (3 rows; all 26
+    attributed rows now carry a role parenthetical). Remaining from the
+    audit: P1 (diacritic + ECO waves, validator wave, docs system) and P2.
 
 ## Track 2 — 0.3 internationalised aliases
 
