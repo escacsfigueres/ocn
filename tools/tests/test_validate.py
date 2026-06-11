@@ -226,17 +226,21 @@ class ValidatorTests(unittest.TestCase):
                          f"on_disk={on_disk}, registered={registered}")
 
     def test_banned_ascii_forms_match_the_applied_tier_maps(self) -> None:
-        """Both diacritic lots are applied (Tier 1 on 2026-06-11, Tier 2
-        the same day), so validate.py's BANNED_ASCII_NAME_FORMS must
-        mirror the union of the generator's tier maps — data and guard
-        activate atomically and stay in sync."""
+        """All three diacritic lots are applied (Tiers 1+2 on 2026-06-11,
+        Tier 3 right after), so validate.py's BANNED_ASCII_NAME_FORMS
+        must mirror the union of the generator's tier maps — data and
+        guard activate atomically and stay in sync."""
         sys.path.insert(0, str(REPO_ROOT / "tools"))
-        from generate_diacritic_manifest import TIER1_FORMS, TIER2_FORMS
+        from generate_diacritic_manifest import (
+            TIER1_FORMS,
+            TIER2_FORMS,
+            TIER3_FORMS,
+        )
         from validate import BANNED_ASCII_NAME_FORMS
 
         expected = {
             variant: target
-            for forms in (TIER1_FORMS, TIER2_FORMS)
+            for forms in (TIER1_FORMS, TIER2_FORMS, TIER3_FORMS)
             for target, variants in forms.items()
             for variant in variants
         }

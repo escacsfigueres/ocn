@@ -149,6 +149,18 @@ BANNED_ASCII_NAME_FORMS: dict[str, str] = {
     "Krejcik": "Krejčík",
     "Opocensky": "Opočenský",
     "Pelikan": "Pelikán",
+    # Tier 3 (Lichess xref discoveries), applied 2026-06-11.
+    "Kadas": "Kádas",
+    "Bucker": "Bücker",
+    "Kostic": "Kostić",
+    "Szen": "Szén",
+    "Suchting": "Süchting",
+    "Hubsch": "Hübsch",
+    "Dory": "Döry",
+    "Lohn": "Löhn",
+    "Schonemann": "Schönemann",
+    "Dusseldorf": "Düsseldorf",
+    "Tubingen": "Tübingen",
 }
 
 # Canonical names temporarily allowed on more than one row, pending an

@@ -1,3 +1,5 @@
+**Status: APPLIED 2026-06-11** under the fase 2b GO (all 11 forms, Löhn and Schönemann included).
+
 # Attribution manifest — Diacritic normalization — Tier 3 (Lichess xref discoveries)
 
 - kind: `ocn.attribution_manifest.v1`
