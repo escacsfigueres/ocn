@@ -28,9 +28,9 @@ Checks performed:
     pairs live in `DUPLICATE_NAME_ALLOWLIST` with pinned slug sets.
 14. No banned characters in text columns: middle dot, invisible spacing
     characters, ASCII control characters.
-15. Whitespace hygiene in text columns: leading/trailing or doubled
-    spaces (warn).
-16. Aliases identical to the row's own canonical_name (warn).
+15. Whitespace hygiene in text columns: no leading/trailing or doubled
+    spaces.
+16. No alias identical to the row's own canonical_name.
 17. Diacritic regression guard: ASCII surname forms retired by the
     normalization lot (`BANNED_ASCII_NAME_FORMS`, extendable per run via
     `--ban-ascii-form ASCII=Normalized`) fail in canonical_name/aliases
@@ -341,9 +341,9 @@ def validate(
                          f"Allowed: {sorted(ALLOWED_FLAGS)}")
 
         # 14. Banned characters in text columns.
-        # 15. Whitespace hygiene (warn): leading/trailing whitespace or
-        #     doubled spaces. Warning for now — the known offenders are
-        #     queued for the naming lot; promote to fail() once fixed.
+        # 15. Whitespace hygiene: leading/trailing whitespace or doubled
+        #     spaces. Error since the naming-hygiene lot (2026-06-11)
+        #     cleared the two historical offenders.
         for col in TEXT_COLUMNS:
             value = row.get(col) or ""
             hit = BANNED_CHAR_RE.search(value)
@@ -355,8 +355,7 @@ def validate(
                 fail(f"row {i}: banned character ({label}) in {col} "
                      f"(slug '{slug}')")
             if value != value.strip() or "  " in value:
-                warn(f"row {i}: stray whitespace in {col} (slug '{slug}')")
-                warnings += 1
+                fail(f"row {i}: stray whitespace in {col} (slug '{slug}')")
 
         # 17. Diacritic regression guard: ASCII surname forms retired by
         #     the normalization lot must not reappear.
@@ -375,17 +374,18 @@ def validate(
                      f"'{banned_forms[hit.group(0)]}'")
                 warnings += 1
 
-        # 16. Identity alias (warn): an alias equal to the row's own
+        # 16. Identity alias: an alias equal to the row's own
         #     canonical_name carries no information — it pads search
-        #     indexes and suggests a copy-paste during authoring.
+        #     indexes and suggests a copy-paste during authoring. Error
+        #     since the naming-hygiene lot (2026-06-11) dropped the 24
+        #     historical ones.
         canonical_name = (row.get("canonical_name") or "").strip()
         aliases_raw = (row.get("aliases") or "").strip()
         if aliases_raw:
             for alias in aliases_raw.split("|"):
                 if alias.strip() == canonical_name:
-                    warn(f"row {i}: alias identical to canonical_name "
+                    fail(f"row {i}: alias identical to canonical_name "
                          f"({canonical_name!r}) on slug '{slug}'")
-                    warnings += 1
 
         # 10. Attribution columns (Layer 2 metadata) — optional, but
         #     the contract is: any non-empty `attributed_to` MUST come

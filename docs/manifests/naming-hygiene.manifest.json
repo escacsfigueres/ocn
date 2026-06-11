@@ -1,0 +1,297 @@
+{
+  "kind": "ocn.attribution_manifest.v1",
+  "title": "Naming hygiene: drop identity aliases, fix stray whitespace",
+  "description": "Cleanup of the 26 standing warnings surfaced by the validator naming wave: aliases identical to their row's canonical_name are removed (zero information loss), doubled spaces in notes collapsed. Enables promoting both checks from warn to error.",
+  "mode": "naming_strings_only",
+  "expected_catalog_rows": 5899,
+  "expected_changed_rows": [
+    "A.Egl",
+    "A.Eng.Org",
+    "A.Hol.Cls",
+    "A.Kan",
+    "A.Owe.Eng",
+    "A.Ret.d5.g3",
+    "B.Dur",
+    "B.Fre.Nrm.c5.d5",
+    "B.Sic.Naj.Sch",
+    "C.Dam",
+    "C.Ele",
+    "C.KPO.Kgt",
+    "C.KPO.Nap",
+    "C.KPO.Prt",
+    "C.LtO",
+    "C.PhD.d4.Bd7",
+    "C.PhD.d4.f5",
+    "D.Alb",
+    "D.Bgm",
+    "D.Chi",
+    "D.QPG.Ama",
+    "D.QPG.Lev",
+    "D.Sem",
+    "E.Ben.Czk",
+    "E.Ben.Old",
+    "E.Blf"
+  ],
+  "changes": [
+    {
+      "ocn1": "A.Hol.Cls",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "validate.py naming-wave findings 2026-06-11: identity aliases carry no information; doubled/stray whitespace is a typo. Mechanical hygiene, no naming truth involved."
+      ],
+      "fields": {
+        "notes": "...e6 and ...d6, classical setup."
+      }
+    },
+    {
+      "ocn1": "E.Ben.Czk",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "validate.py naming-wave findings 2026-06-11: identity aliases carry no information; doubled/stray whitespace is a typo. Mechanical hygiene, no naming truth involved."
+      ],
+      "fields": {
+        "aliases": ""
+      }
+    },
+    {
+      "ocn1": "B.Sic.Naj.Sch",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "validate.py naming-wave findings 2026-06-11: identity aliases carry no information; doubled/stray whitespace is a typo. Mechanical hygiene, no naming truth involved."
+      ],
+      "fields": {
+        "notes": "...e6 hybrid Scheveningen-Najdorf."
+      }
+    },
+    {
+      "ocn1": "C.LtO",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "validate.py naming-wave findings 2026-06-11: identity aliases carry no information; doubled/stray whitespace is a typo. Mechanical hygiene, no naming truth involved."
+      ],
+      "fields": {
+        "aliases": ""
+      }
+    },
+    {
+      "ocn1": "D.Sem",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "validate.py naming-wave findings 2026-06-11: identity aliases carry no information; doubled/stray whitespace is a typo. Mechanical hygiene, no naming truth involved."
+      ],
+      "fields": {
+        "aliases": ""
+      }
+    },
+    {
+      "ocn1": "D.Alb",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "validate.py naming-wave findings 2026-06-11: identity aliases carry no information; doubled/stray whitespace is a typo. Mechanical hygiene, no naming truth involved."
+      ],
+      "fields": {
+        "aliases": ""
+      }
+    },
+    {
+      "ocn1": "D.Bgm",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "validate.py naming-wave findings 2026-06-11: identity aliases carry no information; doubled/stray whitespace is a typo. Mechanical hygiene, no naming truth involved."
+      ],
+      "fields": {
+        "aliases": ""
+      }
+    },
+    {
+      "ocn1": "E.Ben.Old",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "validate.py naming-wave findings 2026-06-11: identity aliases carry no information; doubled/stray whitespace is a typo. Mechanical hygiene, no naming truth involved."
+      ],
+      "fields": {
+        "aliases": ""
+      }
+    },
+    {
+      "ocn1": "D.Chi",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "validate.py naming-wave findings 2026-06-11: identity aliases carry no information; doubled/stray whitespace is a typo. Mechanical hygiene, no naming truth involved."
+      ],
+      "fields": {
+        "aliases": ""
+      }
+    },
+    {
+      "ocn1": "A.Eng.Org",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "validate.py naming-wave findings 2026-06-11: identity aliases carry no information; doubled/stray whitespace is a typo. Mechanical hygiene, no naming truth involved."
+      ],
+      "fields": {
+        "aliases": ""
+      }
+    },
+    {
+      "ocn1": "A.Owe.Eng",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "validate.py naming-wave findings 2026-06-11: identity aliases carry no information; doubled/stray whitespace is a typo. Mechanical hygiene, no naming truth involved."
+      ],
+      "fields": {
+        "aliases": ""
+      }
+    },
+    {
+      "ocn1": "A.Kan",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "validate.py naming-wave findings 2026-06-11: identity aliases carry no information; doubled/stray whitespace is a typo. Mechanical hygiene, no naming truth involved."
+      ],
+      "fields": {
+        "aliases": ""
+      }
+    },
+    {
+      "ocn1": "A.Egl",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "validate.py naming-wave findings 2026-06-11: identity aliases carry no information; doubled/stray whitespace is a typo. Mechanical hygiene, no naming truth involved."
+      ],
+      "fields": {
+        "aliases": ""
+      }
+    },
+    {
+      "ocn1": "D.QPG.Ama",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "validate.py naming-wave findings 2026-06-11: identity aliases carry no information; doubled/stray whitespace is a typo. Mechanical hygiene, no naming truth involved."
+      ],
+      "fields": {
+        "aliases": ""
+      }
+    },
+    {
+      "ocn1": "D.QPG.Lev",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "validate.py naming-wave findings 2026-06-11: identity aliases carry no information; doubled/stray whitespace is a typo. Mechanical hygiene, no naming truth involved."
+      ],
+      "fields": {
+        "aliases": ""
+      }
+    },
+    {
+      "ocn1": "C.Ele",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "validate.py naming-wave findings 2026-06-11: identity aliases carry no information; doubled/stray whitespace is a typo. Mechanical hygiene, no naming truth involved."
+      ],
+      "fields": {
+        "aliases": ""
+      }
+    },
+    {
+      "ocn1": "C.Dam",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "validate.py naming-wave findings 2026-06-11: identity aliases carry no information; doubled/stray whitespace is a typo. Mechanical hygiene, no naming truth involved."
+      ],
+      "fields": {
+        "aliases": ""
+      }
+    },
+    {
+      "ocn1": "C.KPO.Nap",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "validate.py naming-wave findings 2026-06-11: identity aliases carry no information; doubled/stray whitespace is a typo. Mechanical hygiene, no naming truth involved."
+      ],
+      "fields": {
+        "aliases": ""
+      }
+    },
+    {
+      "ocn1": "C.KPO.Prt",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "validate.py naming-wave findings 2026-06-11: identity aliases carry no information; doubled/stray whitespace is a typo. Mechanical hygiene, no naming truth involved."
+      ],
+      "fields": {
+        "aliases": ""
+      }
+    },
+    {
+      "ocn1": "C.KPO.Kgt",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "validate.py naming-wave findings 2026-06-11: identity aliases carry no information; doubled/stray whitespace is a typo. Mechanical hygiene, no naming truth involved."
+      ],
+      "fields": {
+        "aliases": ""
+      }
+    },
+    {
+      "ocn1": "E.Blf",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "validate.py naming-wave findings 2026-06-11: identity aliases carry no information; doubled/stray whitespace is a typo. Mechanical hygiene, no naming truth involved."
+      ],
+      "fields": {
+        "aliases": ""
+      }
+    },
+    {
+      "ocn1": "B.Dur",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "validate.py naming-wave findings 2026-06-11: identity aliases carry no information; doubled/stray whitespace is a typo. Mechanical hygiene, no naming truth involved."
+      ],
+      "fields": {
+        "aliases": ""
+      }
+    },
+    {
+      "ocn1": "A.Ret.d5.g3",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "validate.py naming-wave findings 2026-06-11: identity aliases carry no information; doubled/stray whitespace is a typo. Mechanical hygiene, no naming truth involved."
+      ],
+      "fields": {
+        "aliases": ""
+      }
+    },
+    {
+      "ocn1": "B.Fre.Nrm.c5.d5",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "validate.py naming-wave findings 2026-06-11: identity aliases carry no information; doubled/stray whitespace is a typo. Mechanical hygiene, no naming truth involved."
+      ],
+      "fields": {
+        "aliases": ""
+      }
+    },
+    {
+      "ocn1": "C.PhD.d4.f5",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "validate.py naming-wave findings 2026-06-11: identity aliases carry no information; doubled/stray whitespace is a typo. Mechanical hygiene, no naming truth involved."
+      ],
+      "fields": {
+        "aliases": ""
+      }
+    },
+    {
+      "ocn1": "C.PhD.d4.Bd7",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "validate.py naming-wave findings 2026-06-11: identity aliases carry no information; doubled/stray whitespace is a typo. Mechanical hygiene, no naming truth involved."
+      ],
+      "fields": {
+        "aliases": ""
+      }
+    }
+  ]
+}

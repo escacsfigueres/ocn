@@ -56,6 +56,8 @@ EXPECTED_INVALID: dict[str, tuple[tuple[str, ...], str]] = {
     "invalid_banned_ascii_form.csv": (
         ("--ban-ascii-form", "Lopez=López"), "banned ASCII form"
     ),
+    "invalid_whitespace_in_text.csv": ((), "stray whitespace"),
+    "invalid_identity_alias.csv": ((), "identical to canonical_name"),
 }
 
 # Fixtures that MUST validate (exit 0) but emit a specific warning.
@@ -63,8 +65,6 @@ EXPECTED_INVALID: dict[str, tuple[tuple[str, ...], str]] = {
 # Same (extra_args, substring) shape as EXPECTED_INVALID.
 EXPECTED_WARN: dict[str, tuple[tuple[str, ...], str]] = {
     "warn_orphan_attribution_source.csv": ((), "orphan citation"),
-    "warn_whitespace_in_text.csv": ((), "whitespace"),
-    "warn_identity_alias.csv": ((), "identical to canonical_name"),
     "warn_banned_ascii_form_in_notes.csv": (
         ("--ban-ascii-form", "Lopez=López"), "banned ASCII form"
     ),
