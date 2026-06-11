@@ -1,0 +1,4 @@
+ocn1,canonical_name,eco_legacy,parent_ocn1,moves_uci,depth,aliases,flags,notes,attributed_to,attribution_source,historical_notes,transposes_to,same_as
+A,Flank Openings,,,,0,,,,,,,,
+A.Eng,English Opening Botvinnik System,A10,A,c2c4,1,,,,,,,,
+A.Eng.Sho,Short,A10,A.Eng,c2c4 e7e5,2,,,child name shorter than parent — warns only under --audit-naming,,,,,

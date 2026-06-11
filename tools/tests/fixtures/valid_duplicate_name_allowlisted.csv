@@ -1,0 +1,5 @@
+ocn1,canonical_name,eco_legacy,parent_ocn1,moves_uci,depth,aliases,flags,notes,attributed_to,attribution_source,historical_notes,transposes_to,same_as
+B,Semi-Open Games,,,,0,,,,,,,,
+C,Open Games,,,,0,,,,,,,,
+B.KPG,King's Pawn Game,,B,e2e4,1,,,allowlisted duplicate pair — must pass,,,,,
+C.KPO,King's Pawn Game,,C,e2e4,1,,,allowlisted duplicate pair — must pass,,,,,

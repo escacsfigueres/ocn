@@ -1,0 +1,3 @@
+ocn1,canonical_name,eco_legacy,parent_ocn1,moves_uci,depth,aliases,flags,notes,attributed_to,attribution_source,historical_notes,transposes_to,same_as
+B,Semi-Open Games,,,,0,,,,,,,,
+B.Sic,Sicilian · Najdorf,B90,B,e2e4 c7c5,1,,,middle dot separator in canonical_name — should fail,,,,,

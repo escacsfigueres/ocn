@@ -18,11 +18,32 @@ Checks performed:
 9. With `--strict-chess`, every `moves_uci` sequence must be legal chess
    from the initial position, and one-move child extensions with SAN-like
    trailing slugs must match the appended move's SAN.
+10. Any non-empty `attributed_to` must cite an `attribution_source`
+    (an orphan source without a party warns).
+11. `transposes_to` link contract: target exists, is not self or a class
+    root, and FEN keys match when both rows carry moves.
+12. `same_as` co-canonical contract: mutually exclusive with
+    `transposes_to`; targets exist; FEN keys match.
+13. Global `canonical_name` uniqueness; the three audit-pending duplicate
+    pairs live in `DUPLICATE_NAME_ALLOWLIST` with pinned slug sets.
+14. No banned characters in text columns: middle dot, invisible spacing
+    characters, ASCII control characters.
+15. Whitespace hygiene in text columns: leading/trailing or doubled
+    spaces (warn).
+16. Aliases identical to the row's own canonical_name (warn).
+17. Diacritic regression guard: ASCII surname forms retired by the
+    normalization lot (`BANNED_ASCII_NAME_FORMS`, extendable per run via
+    `--ban-ascii-form ASCII=Normalized`) fail in canonical_name/aliases
+    and warn in notes.
+18. With `--audit-naming`, children whose canonical_name is shorter than
+    their parent's warn — an audit-sweep heuristic (~1,400 legitimate
+    hits on the live catalogue), never part of the default gate.
 
 Exits with code 0 on success, 1 on the first error encountered.
 
 Usage:
-    python3 tools/validate.py [--strict-chess] [catalog/ocn-1.csv]
+    python3 tools/validate.py [--strict-chess] [--audit-naming]
+        [--ban-ascii-form ASCII=Normalized ...] [catalog/ocn-1.csv]
 """
 from __future__ import annotations
 
@@ -70,6 +91,49 @@ ALLOWED_FLAGS = {
     "gambit", "sharp", "closed", "endgame", "theoretical", "deprecated",
 }
 
+# Free-text columns, in schema order. Slug / moves / depth / link columns
+# have their own format checks; these six are where prose lives.
+TEXT_COLUMNS = [
+    "canonical_name", "aliases", "notes",
+    "attributed_to", "attribution_source", "historical_notes",
+]
+
+# Characters that never belong in catalogue text: the middle dot
+# (banned project-wide as a separator), invisible spacing characters,
+# and ASCII control characters (tabs and newlines included — a field
+# that needs one is a field that needs rewriting).
+BANNED_CHAR_RE = re.compile(r"[· ​‌‍﻿\x00-\x1f\x7f]")
+BANNED_CHAR_LABELS = {
+    "·": "middle dot",
+    " ": "no-break space",
+    "​": "zero-width space",
+    "‌": "zero-width non-joiner",
+    "‍": "zero-width joiner",
+    "﻿": "byte-order mark",
+}
+
+# Diacritic regression guard (see docs/diacritic-normalization-map.md).
+# Maps a banned ASCII surname form -> its normalized spelling. Word-boundary
+# match: error in canonical_name/aliases, warning in notes (notes may
+# legitimately quote titles). Ships EMPTY until the Tier 1 normalization lot
+# is applied — it is populated in the same commit as the lot, so data and
+# guard activate atomically. `--ban-ascii-form ASCII=Normalized` (repeatable)
+# extends it ad hoc, e.g. to pre-check a candidate CSV before the constant
+# is populated.
+BANNED_ASCII_NAME_FORMS: dict[str, str] = {}
+
+# Canonical names temporarily allowed on more than one row: the three
+# duplicate groups found by the 360 audit, pending a merge / rename /
+# spec-bless decision (audit P1 item 9). Each entry pins the exact slug
+# set, so a NEW duplication of the same name still fails.
+DUPLICATE_NAME_ALLOWLIST: dict[str, frozenset[str]] = {
+    "English Reversed Sicilian g3, d5": frozenset(
+        {"A.Eng.Rev.g3.Nf6.Bg2.d5", "A.Eng.Rev.Nc3.Nf6.g3.d5"}
+    ),
+    "King's Indian Attack": frozenset({"A.KIA", "A.Ret.d5.g3"}),
+    "King's Pawn Game": frozenset({"C.KPO", "B.KPG"}),
+}
+
 REQUIRED_COLUMNS = [
     "ocn1",
     "canonical_name",
@@ -101,9 +165,20 @@ def normalize_san(san: str) -> str:
     return san.rstrip("+#")
 
 
-def validate(path: Path, *, strict_chess: bool = False) -> None:
+def validate(
+    path: Path,
+    *,
+    strict_chess: bool = False,
+    extra_banned_forms: dict[str, str] | None = None,
+    audit_naming: bool = False,
+) -> None:
     if not path.exists():
         fail(f"catalogue not found: {path}")
+
+    banned_forms = {**BANNED_ASCII_NAME_FORMS, **(extra_banned_forms or {})}
+    banned_form_re = re.compile(
+        r"\b(" + "|".join(re.escape(f) for f in sorted(banned_forms)) + r")\b"
+    ) if banned_forms else None
 
     with path.open(newline="", encoding="utf-8") as f:
         reader = csv.DictReader(f)
@@ -238,6 +313,53 @@ def validate(path: Path, *, strict_chess: bool = False) -> None:
                     fail(f"row {i}: unknown flag '{flag}' (slug '{slug}'). "
                          f"Allowed: {sorted(ALLOWED_FLAGS)}")
 
+        # 14. Banned characters in text columns.
+        # 15. Whitespace hygiene (warn): leading/trailing whitespace or
+        #     doubled spaces. Warning for now — the known offenders are
+        #     queued for the naming lot; promote to fail() once fixed.
+        for col in TEXT_COLUMNS:
+            value = row.get(col) or ""
+            hit = BANNED_CHAR_RE.search(value)
+            if hit:
+                ch = hit.group(0)
+                label = BANNED_CHAR_LABELS.get(
+                    ch, f"control character U+{ord(ch):04X}"
+                )
+                fail(f"row {i}: banned character ({label}) in {col} "
+                     f"(slug '{slug}')")
+            if value != value.strip() or "  " in value:
+                warn(f"row {i}: stray whitespace in {col} (slug '{slug}')")
+                warnings += 1
+
+        # 17. Diacritic regression guard: ASCII surname forms retired by
+        #     the normalization lot must not reappear.
+        if banned_form_re:
+            for col in ("canonical_name", "aliases"):
+                hit = banned_form_re.search(row.get(col) or "")
+                if hit:
+                    fail(f"row {i}: banned ASCII form '{hit.group(0)}' in "
+                         f"{col} (slug '{slug}') — normalized spelling is "
+                         f"'{banned_forms[hit.group(0)]}' "
+                         f"(docs/diacritic-normalization-map.md)")
+            hit = banned_form_re.search(row.get("notes") or "")
+            if hit:
+                warn(f"row {i}: banned ASCII form '{hit.group(0)}' in notes "
+                     f"(slug '{slug}') — normalized spelling is "
+                     f"'{banned_forms[hit.group(0)]}'")
+                warnings += 1
+
+        # 16. Identity alias (warn): an alias equal to the row's own
+        #     canonical_name carries no information — it pads search
+        #     indexes and suggests a copy-paste during authoring.
+        canonical_name = (row.get("canonical_name") or "").strip()
+        aliases_raw = (row.get("aliases") or "").strip()
+        if aliases_raw:
+            for alias in aliases_raw.split("|"):
+                if alias.strip() == canonical_name:
+                    warn(f"row {i}: alias identical to canonical_name "
+                         f"({canonical_name!r}) on slug '{slug}'")
+                    warnings += 1
+
         # 10. Attribution columns (Layer 2 metadata) — optional, but
         #     the contract is: any non-empty `attributed_to` MUST come
         #     paired with a non-empty `attribution_source`. We refuse
@@ -255,6 +377,25 @@ def validate(path: Path, *, strict_chess: bool = False) -> None:
                  f"empty 'attributed_to' — orphan citation, prefer to "
                  f"name the attributed party.")
             warnings += 1
+
+    # 13. Global canonical_name uniqueness. Consumers join and search by
+    #     name; two rows with the same name are an ambiguity bug unless
+    #     the pair is explicitly allowlisted pending the audit decision.
+    names_to_slugs: dict[str, list[str]] = {}
+    for slug, row in seen_slugs.items():
+        name = (row.get("canonical_name") or "").strip()
+        names_to_slugs.setdefault(name, []).append(slug)
+    for name, name_slugs in names_to_slugs.items():
+        if len(name_slugs) < 2:
+            continue
+        if set(name_slugs) == DUPLICATE_NAME_ALLOWLIST.get(name):
+            continue
+        where = ", ".join(
+            f"'{s}' (row {seen_slugs[s]['_row']})" for s in sorted(name_slugs)
+        )
+        fail(f"duplicate canonical_name {name!r} on {where} — canonical "
+             f"names must be globally unique; known-pending pairs live in "
+             f"DUPLICATE_NAME_ALLOWLIST")
 
     # 3. Parent existence and depth-1 rule (second pass)
     for slug, row in seen_slugs.items():
@@ -277,6 +418,19 @@ def validate(path: Path, *, strict_chess: bool = False) -> None:
         # Parent prefix sanity: child's slug must start with parent + '.' (when depth >= 1).
         if not slug.startswith(parent + "."):
             fail(f"row {row['_row']}: slug '{slug}' does not start with parent '{parent}.'")
+
+        # 18. Child-shorter heuristic (opt-in via --audit-naming): a child
+        #     whose canonical_name is shorter than its parent's MAY signal
+        #     naming drift, but the catalogue legitimately shortens names
+        #     at depth (~1,400 such rows), so this is an audit-sweep tool,
+        #     never part of the default gate.
+        if audit_naming:
+            parent_name = (seen_slugs[parent].get("canonical_name") or "").strip()
+            child_name = (row.get("canonical_name") or "").strip()
+            if len(child_name) < len(parent_name):
+                warn(f"row {row['_row']}: canonical_name {child_name!r} is "
+                     f"shorter than parent's {parent_name!r} (slug '{slug}')")
+                warnings += 1
 
         if strict_chess:
             parent_moves = (seen_slugs[parent].get("moves_uci") or "").strip()
@@ -399,13 +553,37 @@ def validate(path: Path, *, strict_chess: bool = False) -> None:
 def main() -> int:
     args = sys.argv[1:]
     strict_chess = False
-    if "--strict-chess" in args:
-        strict_chess = True
-        args.remove("--strict-chess")
-    if len(args) > 1:
-        fail("usage: python3 tools/validate.py [--strict-chess] [catalog/ocn-1.csv]")
-    path = Path(args[0]) if args else DEFAULT_CATALOG
-    validate(path, strict_chess=strict_chess)
+    audit_naming = False
+    extra_banned: dict[str, str] = {}
+    positional: list[str] = []
+    i = 0
+    while i < len(args):
+        arg = args[i]
+        if arg == "--strict-chess":
+            strict_chess = True
+        elif arg == "--audit-naming":
+            audit_naming = True
+        elif arg == "--ban-ascii-form":
+            i += 1
+            if i >= len(args) or "=" not in args[i]:
+                fail("--ban-ascii-form expects ASCII=Normalized "
+                     "(e.g. --ban-ascii-form Lopez=López)")
+            ascii_form, _, normalized = args[i].partition("=")
+            extra_banned[ascii_form] = normalized
+        else:
+            positional.append(arg)
+        i += 1
+    if len(positional) > 1:
+        fail("usage: python3 tools/validate.py [--strict-chess] "
+             "[--audit-naming] [--ban-ascii-form ASCII=Normalized ...] "
+             "[catalog/ocn-1.csv]")
+    path = Path(positional[0]) if positional else DEFAULT_CATALOG
+    validate(
+        path,
+        strict_chess=strict_chess,
+        extra_banned_forms=extra_banned,
+        audit_naming=audit_naming,
+    )
     return 0
 
 

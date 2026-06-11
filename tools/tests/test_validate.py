@@ -28,34 +28,47 @@ REPO_ROOT = Path(__file__).resolve().parent.parent.parent
 VALIDATE = REPO_ROOT / "tools" / "validate.py"
 FIXTURES = Path(__file__).resolve().parent / "fixtures"
 
-# Each invalid fixture pairs with a substring expected on stderr.
-# The substring should be specific enough to confirm the right rule
-# fired, but not so brittle that small wording tweaks break CI.
-EXPECTED_INVALID: dict[str, str] = {
-    "invalid_duplicate_slug.csv": "duplicate slug",
-    "invalid_depth_mismatch.csv": "dots but depth",
-    "invalid_missing_parent.csv": "missing parent",
-    "invalid_uci.csv": "invalid UCI move",
-    "invalid_class_root.csv": "does not match format",
-    "invalid_check_in_slug.csv": "does not match format",
-    "invalid_attribution_no_source.csv": "without 'attribution_source'",
-    "invalid_san_at_class_root.csv": "immediately after the class",
-    "invalid_named_after_tail.csv": "follows a move tail",
-    "invalid_unknown_flag.csv": "unknown flag",
-    "invalid_missing_schema_column.csv": "missing required column",
-    "invalid_transposes_to_missing.csv": "transposes_to='A.Bar'",
-    "invalid_transposes_to_self.csv": "pointing to itself",
-    "invalid_transposes_to_fen_mismatch.csv": "FEN keys differ",
-    "invalid_same_as_missing.csv": "same_as='A.Bar'",
-    "invalid_same_as_self.csv": "same_as pointing to itself",
-    "invalid_same_as_fen_mismatch.csv": "this is not a co-canonical pair",
-    "invalid_same_as_with_transposes_to.csv": "both same_as",
+# Each invalid fixture pairs with the extra CLI args it needs (usually
+# none) and a substring expected on stderr. The substring should be
+# specific enough to confirm the right rule fired, but not so brittle
+# that small wording tweaks break CI.
+EXPECTED_INVALID: dict[str, tuple[tuple[str, ...], str]] = {
+    "invalid_duplicate_slug.csv": ((), "duplicate slug"),
+    "invalid_depth_mismatch.csv": ((), "dots but depth"),
+    "invalid_missing_parent.csv": ((), "missing parent"),
+    "invalid_uci.csv": ((), "invalid UCI move"),
+    "invalid_class_root.csv": ((), "does not match format"),
+    "invalid_check_in_slug.csv": ((), "does not match format"),
+    "invalid_attribution_no_source.csv": ((), "without 'attribution_source'"),
+    "invalid_san_at_class_root.csv": ((), "immediately after the class"),
+    "invalid_named_after_tail.csv": ((), "follows a move tail"),
+    "invalid_unknown_flag.csv": ((), "unknown flag"),
+    "invalid_missing_schema_column.csv": ((), "missing required column"),
+    "invalid_transposes_to_missing.csv": ((), "transposes_to='A.Bar'"),
+    "invalid_transposes_to_self.csv": ((), "pointing to itself"),
+    "invalid_transposes_to_fen_mismatch.csv": ((), "FEN keys differ"),
+    "invalid_same_as_missing.csv": ((), "same_as='A.Bar'"),
+    "invalid_same_as_self.csv": ((), "same_as pointing to itself"),
+    "invalid_same_as_fen_mismatch.csv": ((), "this is not a co-canonical pair"),
+    "invalid_same_as_with_transposes_to.csv": ((), "both same_as"),
+    "invalid_duplicate_canonical_name.csv": ((), "duplicate canonical_name"),
+    "invalid_banned_char_middle_dot.csv": ((), "banned character"),
+    "invalid_banned_ascii_form.csv": (
+        ("--ban-ascii-form", "Lopez=López"), "banned ASCII form"
+    ),
 }
 
 # Fixtures that MUST validate (exit 0) but emit a specific warning.
 # The validator prints warnings to stderr with the prefix "WARN:".
-EXPECTED_WARN: dict[str, str] = {
-    "warn_orphan_attribution_source.csv": "orphan citation",
+# Same (extra_args, substring) shape as EXPECTED_INVALID.
+EXPECTED_WARN: dict[str, tuple[tuple[str, ...], str]] = {
+    "warn_orphan_attribution_source.csv": ((), "orphan citation"),
+    "warn_whitespace_in_text.csv": ((), "whitespace"),
+    "warn_identity_alias.csv": ((), "identical to canonical_name"),
+    "warn_banned_ascii_form_in_notes.csv": (
+        ("--ban-ascii-form", "Lopez=López"), "banned ASCII form"
+    ),
+    "warn_child_shorter_name.csv": (("--audit-naming",), "shorter than parent"),
 }
 
 # Strict chess fixtures run with --strict-chess; the canonical catalogue
@@ -136,13 +149,13 @@ class ValidatorTests(unittest.TestCase):
                 self.assertIn("OK:", result.stdout)
 
     def test_invalid_fixtures_fail_with_expected_message(self) -> None:
-        for fixture_name, expected in EXPECTED_INVALID.items():
+        for fixture_name, (extra_args, expected) in EXPECTED_INVALID.items():
             fixture = FIXTURES / fixture_name
             with self.subTest(fixture=fixture_name):
                 self.assertTrue(
                     fixture.exists(), f"missing fixture {fixture_name}"
                 )
-                result = run_validator(fixture)
+                result = run_validator(fixture, *extra_args)
                 self.assertNotEqual(
                     result.returncode,
                     0,
@@ -177,13 +190,13 @@ class ValidatorTests(unittest.TestCase):
         """warn_*.csv files MUST validate (exit 0) AND emit the expected
         WARN substring on stderr. They guard against the warning being
         accidentally promoted to an error or silently dropped."""
-        for fixture_name, expected in EXPECTED_WARN.items():
+        for fixture_name, (extra_args, expected) in EXPECTED_WARN.items():
             fixture = FIXTURES / fixture_name
             with self.subTest(fixture=fixture_name):
                 self.assertTrue(
                     fixture.exists(), f"missing fixture {fixture_name}"
                 )
-                result = run_validator(fixture)
+                result = run_validator(fixture, *extra_args)
                 self.assertEqual(
                     result.returncode,
                     0,
@@ -209,6 +222,15 @@ class ValidatorTests(unittest.TestCase):
         self.assertEqual(on_disk, registered,
                          f"warn fixtures vs EXPECTED_WARN drift: "
                          f"on_disk={on_disk}, registered={registered}")
+
+    def test_child_shorter_check_is_opt_in(self) -> None:
+        """The child-shorter heuristic fires on ~1,400 legitimate rows of
+        the live catalogue (names shorten at depth by design), so it must
+        stay silent unless --audit-naming is passed."""
+        fixture = FIXTURES / "warn_child_shorter_name.csv"
+        result = run_validator(fixture)
+        self.assertEqual(result.returncode, 0)
+        self.assertNotIn("shorter than parent", result.stderr)
 
     def test_strict_chess_fixtures_fail_with_expected_message(self) -> None:
         for fixture_name, expected in EXPECTED_STRICT_INVALID.items():
