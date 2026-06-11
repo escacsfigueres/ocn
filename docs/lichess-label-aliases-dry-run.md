@@ -1,3 +1,5 @@
+**Status: APPLIED 2026-06-12** under the fase 2b GO.
+
 # Attribution manifest — Lichess label aliases — curated novel-vocabulary import
 
 - kind: `ocn.attribution_manifest.v1`
