@@ -95,6 +95,17 @@ for coherence with rule 1 — but it needs its own GO, separate from Tier 1.
 Note `Pelikán` also touches an applied `attributed_to` string ("Jorge
 Pelikan (early adopter)" on `B.Sic.Sve`).
 
+> **Decision 2026-06-11: GO normalize.** Lot prepared as
+> `docs/manifests/diacritic-tier2-normalization.manifest.json` (50 rows, 44
+> canonical_name; per-surname: Mikėnas 28, Krejčík 10, Opočenský 9,
+> Pelikán 3) with dry-run record `docs/diacritic-tier2-dry-run.md`
+> (Validation PASS, zero new collisions, structural columns byte-identical,
+> candidate green under strict-chess + the four Tier 2 banned forms).
+> Review flag: `B.Sic.Sve` updates the applied attribution strings
+> (aliases, attributed_to, attribution_source) to "Pelikán". **Apply waits
+> for its own GO.** On apply, add the four pairs to
+> `BANNED_ASCII_NAME_FORMS` in the same commit.
+
 **Per-row referent cases** — `Sorensen` (4 rows): Lichess itself splits the
 spelling by line (ö in "Danish Gambit Declined: Sörensen Defense" and the
 two KGA gambits, ø in "French Advance Milner-Barry, Sørensen Variation"),

@@ -18,6 +18,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 from generate_diacritic_manifest import (  # noqa: E402
     TIER1_FORMS,
+    TIER2_FORMS,
     build_manifest,
     normalize_text,
 )
@@ -119,6 +120,46 @@ class BuildManifestTests(unittest.TestCase):
             refs = " ".join(change["source_refs"])
             self.assertIn("diacritic-normalization-map", refs)
             self.assertIn("Wikipedia", refs)
+
+
+class Tier2Tests(unittest.TestCase):
+    def test_tier2_map_matches_the_spec_doc(self) -> None:
+        """The Czech/Lithuanian class GO-normalized on 2026-06-11 —
+        Sørensen and Würzburger stay parked and must NOT appear."""
+        self.assertEqual(
+            set(TIER2_FORMS),
+            {"Mikėnas", "Krejčík", "Opočenský", "Pelikán"},
+        )
+
+    def test_normalize_with_tier2_forms(self) -> None:
+        new, targets = normalize_text(
+            "English Opening, Mikenas-Carls", forms=TIER2_FORMS
+        )
+        self.assertEqual(new, "English Opening, Mikėnas-Carls")
+        self.assertEqual(targets, {"Mikėnas"})
+
+    def test_tier2_manifest_uses_tier2_map_only(self) -> None:
+        rows = [
+            _row("A", canonical_name="Flank Openings"),
+            _row(
+                "A.Mik",
+                canonical_name="Mikenas Defence",
+                depth="1",
+                parent_ocn1="A",
+            ),
+            _row(
+                "C.RyL",
+                canonical_name="Ruy Lopez Defence",
+                depth="1",
+                parent_ocn1="C",
+            ),
+        ]
+        m = build_manifest(rows, tier=2)
+        self.assertIn("Tier 2", m["title"])
+        self.assertEqual(m["expected_changed_rows"], ["A.Mik"])
+        self.assertEqual(
+            m["changes"][0]["fields"], {"canonical_name": "Mikėnas Defence"}
+        )
 
 
 class Tier1MapTests(unittest.TestCase):
