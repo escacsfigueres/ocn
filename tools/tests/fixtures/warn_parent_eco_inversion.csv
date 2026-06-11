@@ -1,0 +1,4 @@
+ocn1,canonical_name,eco_legacy,parent_ocn1,moves_uci,depth,aliases,flags,notes,attributed_to,attribution_source,historical_notes,transposes_to,same_as
+E,Indian Defences,,,,0,,,,,,,,
+E.QID,Queen's Indian Defence,E17,E,d2d4 g8f6 c2c4 e7e6 g1f3 b7b6,1,,,,,,,,
+E.QID.Sub,Queen's Indian Sub Line,E15,E.QID,d2d4 g8f6 c2c4 e7e6 g1f3 b7b6 g2g3,2,,,child ECO below parent — warns only under --audit-eco,,,,

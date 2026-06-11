@@ -38,12 +38,19 @@ Checks performed:
 18. With `--audit-naming`, children whose canonical_name is shorter than
     their parent's warn — an audit-sweep heuristic (~1,400 legitimate
     hits on the live catalogue), never part of the default gate.
+19. A child whose moves_uci is byte-identical to its parent's must carry
+    the parent's eco_legacy (`PHANTOM_PAIR_ECO_ALLOWLIST` pins the two
+    contradictions pending the phantom-pair decision).
+20. With `--audit-eco`, children with a single same-class ECO code
+    numerically below their parent's warn — audit-sweep heuristic (~55
+    legitimate hits), never part of the default gate.
 
 Exits with code 0 on success, 1 on the first error encountered.
 
 Usage:
     python3 tools/validate.py [--strict-chess] [--audit-naming]
-        [--ban-ascii-form ASCII=Normalized ...] [catalog/ocn-1.csv]
+        [--audit-eco] [--ban-ascii-form ASCII=Normalized ...]
+        [catalog/ocn-1.csv]
 """
 from __future__ import annotations
 
@@ -161,6 +168,12 @@ DUPLICATE_NAME_ALLOWLIST: dict[str, frozenset[str]] = {
     "Réti Opening": frozenset({"A.Ret", "A.Ret.d5.c4"}),
 }
 
+# Phantom parent-child pairs (child moves_uci identical to parent's) whose
+# eco_legacy also disagrees with the parent — the contradiction is real but
+# resolving it belongs to the phantom-pair decision (audit P1 item 9), not
+# to a unilateral validator fix. Pinned pending that decision.
+PHANTOM_PAIR_ECO_ALLOWLIST = frozenset({"E.Gru.Rus.Hng.e4", "E.QID.Euw.Bd3"})
+
 REQUIRED_COLUMNS = [
     "ocn1",
     "canonical_name",
@@ -198,6 +211,7 @@ def validate(
     strict_chess: bool = False,
     extra_banned_forms: dict[str, str] | None = None,
     audit_naming: bool = False,
+    audit_eco: bool = False,
 ) -> None:
     if not path.exists():
         fail(f"catalogue not found: {path}")
@@ -459,6 +473,38 @@ def validate(
                      f"shorter than parent's {parent_name!r} (slug '{slug}')")
                 warnings += 1
 
+        # 19. Same-moves ECO consistency: a child whose moves_uci is
+        #     byte-identical to its parent's names the same position, so a
+        #     different eco_legacy is a classification contradiction. The
+        #     two known offenders sit in PHANTOM_PAIR_ECO_ALLOWLIST pending
+        #     the phantom-pair decision.
+        same_moves = (row.get("moves_uci") or "").strip()
+        parent_same_moves = (seen_slugs[parent].get("moves_uci") or "").strip()
+        if (same_moves and same_moves == parent_same_moves
+                and slug not in PHANTOM_PAIR_ECO_ALLOWLIST):
+            child_eco = (row.get("eco_legacy") or "").strip()
+            parent_eco = (seen_slugs[parent].get("eco_legacy") or "").strip()
+            if child_eco != parent_eco:
+                fail(f"row {row['_row']}: slug '{slug}' has identical moves "
+                     f"to parent '{parent}' but a different eco_legacy "
+                     f"('{child_eco}' vs '{parent_eco}') — same position, "
+                     f"same classification")
+
+        # 20. Parent-ECO inversion (opt-in via --audit-eco): a child with a
+        #     single same-class ECO code numerically below its parent's MAY
+        #     signal a misclassified parent (the E.QID.Nim case), but ECO
+        #     numbering is legitimately non-monotonic with depth (~55 such
+        #     rows live in the catalogue) — audit-sweep tool only.
+        if audit_eco:
+            child_eco = (row.get("eco_legacy") or "").strip()
+            parent_eco = (seen_slugs[parent].get("eco_legacy") or "").strip()
+            if (ECO_RE.match(child_eco) and ECO_RE.match(parent_eco)
+                    and child_eco[0] == parent_eco[0]
+                    and int(child_eco[1:]) < int(parent_eco[1:])):
+                warn(f"row {row['_row']}: ECO inversion — '{slug}' carries "
+                     f"{child_eco}, below parent '{parent}' {parent_eco}")
+                warnings += 1
+
         if strict_chess:
             parent_moves = (seen_slugs[parent].get("moves_uci") or "").strip()
             child_moves = (row.get("moves_uci") or "").strip()
@@ -581,6 +627,7 @@ def main() -> int:
     args = sys.argv[1:]
     strict_chess = False
     audit_naming = False
+    audit_eco = False
     extra_banned: dict[str, str] = {}
     positional: list[str] = []
     i = 0
@@ -590,6 +637,8 @@ def main() -> int:
             strict_chess = True
         elif arg == "--audit-naming":
             audit_naming = True
+        elif arg == "--audit-eco":
+            audit_eco = True
         elif arg == "--ban-ascii-form":
             i += 1
             if i >= len(args) or "=" not in args[i]:
@@ -602,14 +651,15 @@ def main() -> int:
         i += 1
     if len(positional) > 1:
         fail("usage: python3 tools/validate.py [--strict-chess] "
-             "[--audit-naming] [--ban-ascii-form ASCII=Normalized ...] "
-             "[catalog/ocn-1.csv]")
+             "[--audit-naming] [--audit-eco] "
+             "[--ban-ascii-form ASCII=Normalized ...] [catalog/ocn-1.csv]")
     path = Path(positional[0]) if positional else DEFAULT_CATALOG
     validate(
         path,
         strict_chess=strict_chess,
         extra_banned_forms=extra_banned,
         audit_naming=audit_naming,
+        audit_eco=audit_eco,
     )
     return 0
 

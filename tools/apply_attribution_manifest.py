@@ -11,11 +11,12 @@ The whole point is to stop hand-editing a 5,899-row CSV. The guardrails:
 
 - **Dry-run by default.** Nothing is written unless `--apply` AND `--out` are
   both given. A dry-run never touches the catalogue or any other file.
-- **Two safety modes** restrict which columns a manifest may change:
+- **Three safety modes** restrict which columns a manifest may change:
     `attribution_fields_only` -> attributed_to, attribution_source, historical_notes
     `naming_strings_only`     -> canonical_name, aliases, notes, + the three above
+    `eco_legacy_only`         -> eco_legacy, alone (audit P1 item 8)
   Every other column (ocn1, moves_uci, parent_ocn1, depth, transposes_to,
-  same_as, eco_legacy, flags) is structural and cannot be touched here.
+  same_as, flags) is structural and cannot be touched here.
 - **Exact-change contract.** The set of rows that actually change must equal
   the manifest's `expected_changed_rows` — so a stale, already-applied, or
   no-op manifest is rejected, not silently no-opped.
@@ -73,6 +74,10 @@ MODE_ALLOWED_FIELDS = {
             "historical_notes",
         }
     ),
+    # ECO corrections travel alone: a wrong eco_legacy is a classification
+    # bug, and bundling it with naming/attribution edits would blur the
+    # blast radius of both lots.
+    "eco_legacy_only": frozenset({"eco_legacy"}),
 }
 
 REQUIRED_TOP_LEVEL = (

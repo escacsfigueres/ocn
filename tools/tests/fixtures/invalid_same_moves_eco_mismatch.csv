@@ -1,0 +1,4 @@
+ocn1,canonical_name,eco_legacy,parent_ocn1,moves_uci,depth,aliases,flags,notes,attributed_to,attribution_source,historical_notes,transposes_to,same_as
+A,Flank Openings,,,,0,,,,,,,,
+A.Tro,Trompowsky Attack,A45,A,d2d4 g8f6 c1g5,1,,,,,,,,
+A.Tro.Sub,Trompowsky Attack Sub,A46,A.Tro,d2d4 g8f6 c1g5,2,,,identical moves to parent but different ECO — should fail,,,,

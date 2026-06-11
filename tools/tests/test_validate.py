@@ -58,6 +58,7 @@ EXPECTED_INVALID: dict[str, tuple[tuple[str, ...], str]] = {
     ),
     "invalid_whitespace_in_text.csv": ((), "stray whitespace"),
     "invalid_identity_alias.csv": ((), "identical to canonical_name"),
+    "invalid_same_moves_eco_mismatch.csv": ((), "identical moves"),
 }
 
 # Fixtures that MUST validate (exit 0) but emit a specific warning.
@@ -69,6 +70,7 @@ EXPECTED_WARN: dict[str, tuple[tuple[str, ...], str]] = {
         ("--ban-ascii-form", "Lopez=López"), "banned ASCII form"
     ),
     "warn_child_shorter_name.csv": (("--audit-naming",), "shorter than parent"),
+    "warn_parent_eco_inversion.csv": (("--audit-eco",), "ECO inversion"),
 }
 
 # Strict chess fixtures run with --strict-chess; the canonical catalogue
@@ -248,6 +250,15 @@ class ValidatorTests(unittest.TestCase):
         result = run_validator(fixture)
         self.assertEqual(result.returncode, 0)
         self.assertNotIn("shorter than parent", result.stderr)
+
+    def test_eco_inversion_check_is_opt_in(self) -> None:
+        """ECO numbering is not monotonic with depth (~55 legitimate
+        child-below-parent codes live in the catalogue), so the
+        inversion heuristic must stay silent without --audit-eco."""
+        fixture = FIXTURES / "warn_parent_eco_inversion.csv"
+        result = run_validator(fixture)
+        self.assertEqual(result.returncode, 0)
+        self.assertNotIn("ECO inversion", result.stderr)
 
     def test_strict_chess_fixtures_fail_with_expected_message(self) -> None:
         for fixture_name, expected in EXPECTED_STRICT_INVALID.items():

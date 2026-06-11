@@ -320,5 +320,48 @@ class FormatAliasTests(unittest.TestCase):
             self.assertEqual(payload["mode"], "attribution_fields_only")
 
 
+class EcoModeTests(unittest.TestCase):
+    """eco_legacy_only — the third safety mode (audit P1 item 8). ECO
+    corrections travel alone: no naming or attribution field may ride
+    along, and the other two modes keep rejecting eco_legacy."""
+
+    def eco_manifest(self, **over) -> dict:
+        manifest = base_manifest(
+            mode="eco_legacy_only",
+            expected_changed_rows=["A.Tro"],
+            changes=[
+                {
+                    "ocn1": "A.Tro",
+                    "evidence_grade": "CLEAR",
+                    "source_refs": ["Test ECO source."],
+                    "fields": {"eco_legacy": "D00"},
+                }
+            ],
+        )
+        manifest.update(over)
+        return manifest
+
+    def test_eco_mode_allows_eco_legacy_change(self) -> None:
+        result = plan(self.eco_manifest())
+        self.assertEqual([c["ocn1"] for c in result.changed], ["A.Tro"])
+        self.assertEqual(
+            result.changed[0]["diffs"]["eco_legacy"], ["A45", "D00"]
+        )
+
+    def test_eco_mode_rejects_naming_fields(self) -> None:
+        manifest = self.eco_manifest()
+        manifest["changes"][0]["fields"]["canonical_name"] = "Trompowsky"
+        with self.assertRaises(abm.ApplyError) as ctx:
+            plan(manifest)
+        self.assertIn("not permitted", str(ctx.exception))
+
+    def test_attribution_mode_still_rejects_eco_legacy(self) -> None:
+        manifest = base_manifest()
+        manifest["changes"][0]["fields"] = {"eco_legacy": "C19"}
+        with self.assertRaises(abm.ApplyError) as ctx:
+            plan(manifest)
+        self.assertIn("not permitted", str(ctx.exception))
+
+
 if __name__ == "__main__":
     unittest.main()
