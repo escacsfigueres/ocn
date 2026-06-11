@@ -175,5 +175,28 @@ class CatalogIntegrationTests(unittest.TestCase):
         self.assertIn("person_eponym=", result.stderr)
 
 
+class DangerousSeedSyncTests(unittest.TestCase):
+    """The dangerous multi-head surname seed must match the factory map."""
+
+    def test_nimzowitsch_is_dangerous_multihead(self) -> None:
+        # ~126 rows across unrelated openings (B.Nim, E.Nim, A.Lar alias...):
+        # never blanket-attributable, must be individual_proposal.
+        r = classify(make_row("Nimzowitsch Defence", ocn1="B.Nim"))
+        self.assertEqual(r["risk_level"], ana.RISK_HIGH)
+        self.assertEqual(r["recommended_next_action"], ana.ACT_INDIVIDUAL)
+
+    def test_factory_map_dangerous_surnames_present(self) -> None:
+        # docs/whole-catalogue-attribution-factory-map.md verified counts.
+        expected = {
+            "tarrasch", "chigorin", "rubinstein", "steinitz", "marshall",
+            "bogoljubow", "nimzowitsch", "botvinnik", "keres", "lasker",
+            "paulsen",
+        }
+        self.assertTrue(expected <= ana.DANGEROUS_SURNAMES,
+                        expected - ana.DANGEROUS_SURNAMES)
+        self.assertFalse(expected & ana.MODERATE_SURNAMES,
+                         expected & ana.MODERATE_SURNAMES)
+
+
 if __name__ == "__main__":
     unittest.main()

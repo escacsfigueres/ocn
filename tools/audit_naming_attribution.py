@@ -77,13 +77,20 @@ DANGEROUS_SURNAMES = {
     "marshall",
     "chigorin",
     "bogoljubow",
+    # Added 2026-06-11 from the whole-catalogue factory map's verified
+    # row counts (docs/whole-catalogue-attribution-factory-map.md):
+    # each labels several unrelated openings — never blanket-attribute.
+    "nimzowitsch",
+    "botvinnik",
+    "keres",
+    "lasker",
+    "paulsen",
 }
 
 # Single-/few-head eponyms with a recognised primary head. These are the
 # homogeneous batch targets once a first-hand naming source is read.
 MODERATE_SURNAMES = {
     "alekhine",
-    "nimzowitsch",
     "grunfeld",
     "reti",
     "tartakower",
@@ -113,8 +120,6 @@ MODERATE_SURNAMES = {
     "schliemann",
     "breyer",
     "smyslov",
-    "keres",
-    "botvinnik",
     "panov",
     "richter",
     "sozin",

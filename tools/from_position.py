@@ -202,7 +202,8 @@ def main() -> int:
         )
 
     fen_key = normalize_fen_key(" ".join(args))
-    matches = catalog_matches(load_catalog(catalog), fen_key)
+    rows = load_catalog(catalog)
+    matches = catalog_matches(rows, fen_key)
     if not matches:
         fail("no OCN-1 match for FEN position")
 
@@ -210,9 +211,35 @@ def main() -> int:
         print_matches(matches, json_output=json_output)
         return 0
 
+    # same_as co-canonicals are all canonical and are returned together
+    # (README, "Three relations per slug") — they are not ambiguity.
+    # Build the bidirectional same_as map once.
+    same_map: dict[str, set[str]] = {}
+    for row in rows:
+        for target in (t.strip() for t in (row.get("same_as") or "").split("|")):
+            if not target:
+                continue
+            same_map.setdefault(row["ocn1"], set()).add(target)
+            same_map.setdefault(target, set()).add(row["ocn1"])
+
     top_depth = matches[0].depth
     top = [match for match in matches if match.depth == top_depth]
-    if len(top) > 1:
+
+    # Expand from the first deepest match across same_as links (transitive,
+    # any depth). Co-canonical partners join the result; only deepest rows
+    # NOT linked this way make the position genuinely ambiguous.
+    linked = {top[0].ocn1}
+    changed = True
+    while changed:
+        changed = False
+        for match in matches:
+            if match.ocn1 in linked:
+                continue
+            if same_map.get(match.ocn1, set()) & linked:
+                linked.add(match.ocn1)
+                changed = True
+
+    if any(match.ocn1 not in linked for match in top):
         candidates = ", ".join(match.ocn1 for match in top[:8])
         suffix = "" if len(top) <= 8 else f", ... ({len(top)} total)"
         fail(
@@ -220,7 +247,8 @@ def main() -> int:
             f"{candidates}{suffix}. Use --all to list matches."
         )
 
-    print_matches(top, json_output=json_output)
+    selected = [match for match in matches if match.ocn1 in linked]
+    print_matches(selected, json_output=json_output)
     return 0
 
 

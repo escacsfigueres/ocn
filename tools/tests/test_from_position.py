@@ -58,5 +58,36 @@ class FromPositionTests(unittest.TestCase):
         self.assertIn("expected FEN", result.stderr)
 
 
+class CoCanonicalTests(unittest.TestCase):
+    """same_as partners are all canonical and must be returned together."""
+
+    def fen_of(self, slug: str) -> str:
+        import csv
+        sys.path.insert(0, str(REPO_ROOT / "tools"))
+        from chess_uci import fen_key_after_uci  # noqa: E402
+        with (REPO_ROOT / "catalog" / "ocn-1.csv").open(
+            newline="", encoding="utf-8"
+        ) as f:
+            rows = {r["ocn1"]: r for r in csv.DictReader(f)}
+        return fen_key_after_uci(rows[slug]["moves_uci"])
+
+    def test_depth_mismatched_co_canonical_pair_returned_together(self) -> None:
+        # D.Rub (depth 1) and A.Col.Zuk (depth 2) are bilateral same_as
+        # co-canonicals; the shallower one must not be silently dropped.
+        result = run_from_position(self.fen_of("D.Rub"))
+        self.assertEqual(result.returncode, 0, result.stderr)
+        slugs = [line.split("\t")[0] for line in result.stdout.splitlines()]
+        self.assertIn("A.Col.Zuk", slugs)
+        self.assertIn("D.Rub", slugs)
+
+    def test_same_depth_co_canonical_pair_is_not_ambiguous(self) -> None:
+        # E.KID.Fch.Uhl and E.KID.Fch.Sim share depth and FEN via same_as;
+        # the co-canonical contract says return both, not "ambiguous".
+        result = run_from_position(self.fen_of("E.KID.Fch.Uhl"))
+        self.assertEqual(result.returncode, 0, result.stderr)
+        slugs = [line.split("\t")[0] for line in result.stdout.splitlines()]
+        self.assertEqual(sorted(slugs), ["E.KID.Fch.Sim", "E.KID.Fch.Uhl"])
+
+
 if __name__ == "__main__":
     unittest.main()

@@ -307,5 +307,18 @@ class ExampleManifestTests(unittest.TestCase):
         self.assertEqual(hashlib.sha256(CATALOG.read_bytes()).hexdigest(), before)
 
 
+class FormatAliasTests(unittest.TestCase):
+    """--format is an alias of --report (CLI harmonization with other tools)."""
+
+    def test_format_flag_works_as_report_alias(self) -> None:
+        with tempfile.TemporaryDirectory() as d:
+            mpath = write_json(Path(d), base_manifest())
+            result = run_tool("--manifest", str(mpath), "--catalog", str(BASE),
+                              "--format", "json")
+            self.assertEqual(result.returncode, 0, result.stderr)
+            payload = json.loads(result.stdout)
+            self.assertEqual(payload["mode"], "attribution_fields_only")
+
+
 if __name__ == "__main__":
     unittest.main()

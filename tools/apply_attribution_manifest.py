@@ -506,8 +506,10 @@ def build_parser() -> argparse.ArgumentParser:
                         help="Write the result to --out (required with --apply).")
     parser.add_argument("--out", type=Path, default=None,
                         help="Output CSV path; required with --apply.")
-    parser.add_argument("--report", choices=("markdown", "json"), default="markdown",
-                        help="Report format written to stdout.")
+    parser.add_argument("--report", "--format", choices=("markdown", "json"),
+                        default="markdown",
+                        help="Report format written to stdout "
+                             "(--format is an alias, matching the other tools).")
     parser.add_argument("--strict", action="store_true",
                         help="Only apply CLEAR, sourced changes.")
     parser.add_argument("--validate", action="store_true",

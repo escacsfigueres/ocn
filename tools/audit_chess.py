@@ -83,6 +83,9 @@ def main() -> int:
         print("usage: python3 tools/audit_chess.py [catalog/ocn-1.csv]", file=sys.stderr)
         return 2
     path = Path(sys.argv[1]) if len(sys.argv) == 2 else DEFAULT_CATALOG
+    if not path.exists():
+        print(f"ERROR: catalogue not found: {path}", file=sys.stderr)
+        return 1
     return audit(path)
 
 
