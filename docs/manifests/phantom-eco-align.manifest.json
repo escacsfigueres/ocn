@@ -1,0 +1,33 @@
+{
+  "kind": "ocn.attribution_manifest.v1",
+  "title": "ECO-align the two phantom path-markers",
+  "description": "Approved decision (docs/phantom-and-duplicate-name-decision.md): a path-marker child carries its parent's classification.",
+  "mode": "eco_legacy_only",
+  "expected_catalog_rows": 5899,
+  "expected_changed_rows": [
+    "E.Gru.Rus.Hng.e4",
+    "E.QID.Euw.Bd3"
+  ],
+  "changes": [
+    {
+      "ocn1": "E.Gru.Rus.Hng.e4",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "docs/phantom-and-duplicate-name-decision.md (GO 2026-06-11): align to parent E.Gru.Rus.Hng = D97."
+      ],
+      "fields": {
+        "eco_legacy": "D97"
+      }
+    },
+    {
+      "ocn1": "E.QID.Euw.Bd3",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "docs/phantom-and-duplicate-name-decision.md (GO 2026-06-11): align to parent E.QID.Euw = E17."
+      ],
+      "fields": {
+        "eco_legacy": "E17"
+      }
+    }
+  ]
+}

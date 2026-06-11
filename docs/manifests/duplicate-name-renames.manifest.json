@@ -1,0 +1,67 @@
+{
+  "kind": "ocn.attribution_manifest.v1",
+  "title": "Duplicate-name renames: four pairs made unique",
+  "description": "Approved decision (docs/phantom-and-duplicate-name-decision.md): all four duplicate canonical names were different positions sharing a string. After this lot DUPLICATE_NAME_ALLOWLIST empties.",
+  "mode": "naming_strings_only",
+  "expected_catalog_rows": 5899,
+  "expected_changed_rows": [
+    "A.Eng.Rev.Nc3.Nf6.g3.d5",
+    "A.Ret.d5.c4",
+    "A.Ret.d5.g3",
+    "B.KPG",
+    "C.KPO"
+  ],
+  "changes": [
+    {
+      "ocn1": "A.Eng.Rev.Nc3.Nf6.g3.d5",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "docs/phantom-and-duplicate-name-decision.md (GO 2026-06-11): different position (A22, via Nc3) than its A29 namesake; path-compositional rename."
+      ],
+      "fields": {
+        "canonical_name": "English Reversed Sicilian Nc3 g3, d5"
+      }
+    },
+    {
+      "ocn1": "A.Ret.d5.g3",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "docs/phantom-and-duplicate-name-decision.md (GO 2026-06-11): the family head A.KIA keeps the plain name; this is the 1.Nf3 d5 2.g3 path."
+      ],
+      "fields": {
+        "canonical_name": "Réti, King's Indian Attack Setup"
+      }
+    },
+    {
+      "ocn1": "B.KPG",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "docs/phantom-and-duplicate-name-decision.md (GO 2026-06-11): bare 1.e4 takes its own existing alias as canonical; identity alias drops."
+      ],
+      "fields": {
+        "canonical_name": "King's Pawn Opening",
+        "aliases": ""
+      }
+    },
+    {
+      "ocn1": "C.KPO",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "docs/phantom-and-duplicate-name-decision.md (GO 2026-06-11): drops the alias that is now B.KPG's canonical, removing search ambiguity."
+      ],
+      "fields": {
+        "aliases": ""
+      }
+    },
+    {
+      "ocn1": "A.Ret.d5.c4",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "docs/phantom-and-duplicate-name-decision.md (GO 2026-06-11): the Réti proper (A09); the family head A.Ret keeps the plain name."
+      ],
+      "fields": {
+        "canonical_name": "Réti Opening, 2.c4"
+      }
+    }
+  ]
+}
