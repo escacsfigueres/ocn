@@ -1,0 +1,199 @@
+{
+  "kind": "ocn.attribution_manifest.v1",
+  "title": "Naming-error corrections from the 360 audit (Ware, Latvian, Maróczy diacritic, Réti alias)",
+  "description": "Audit P0 micro-lot (docs/ocn-360-audit.md). Resolves the two verified wrong-name duplicates — 'Meadow Hay Trap' stays only on A.War.e5.Ra3 (1.a4 e5 2.Ra3 per Lichess) and 'Greco Variation' stays only on C.LtO.Nxe5.Qe7 (3.Nxe5 Qe7 per Lichess; Wikipedia confirms 3...Qf6 is the main line, so the Qf6 subtree is renamed to a Main Line stem, also killing the duplicated 'Latvian Greco Nc4, fxe4') — fixes the B.Sic.OKe.c4 'Maroczy' diacritic against its own attribution, and adds the missing 'Zukertort Opening' alias to A.Ret. canonical_name/aliases strings only; slugs frozen.",
+  "mode": "naming_strings_only",
+  "expected_catalog_rows": 5899,
+  "expected_changed_rows": [
+    "A.Ret",
+    "C.LtO.Gre",
+    "A.War.Mad",
+    "A.War.Mad.MLn",
+    "B.Sic.OKe.c4",
+    "C.LtO.Gre.d4",
+    "C.LtO.Gre.d4.d6",
+    "C.LtO.Gre.d4.d6.Nc4",
+    "C.LtO.Gre.d4.d6.Nc4.fxe4",
+    "C.LtO.Gre.Nc4",
+    "C.LtO.Gre.Nc4.fxe4",
+    "C.LtO.Gre.Nc4.fxe4.d3",
+    "C.LtO.Gre.Nc4.fxe4.Nc3",
+    "C.LtO.Gre.BrA",
+    "C.LtO.Gre.BrG",
+    "C.LtO.Gre.Nim"
+  ],
+  "changes": [
+    {
+      "ocn1": "A.Ret",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "Lot 3 evidence record (docs/lot-3-eco-a-eponyms-dry-run.md): the bare 1.Nf3 is catalogued separately as the Zukertort Opening; Wikipedia 'Réti Opening' notes Tartakower's 'Réti–Zukertort Opening'. The standard alternative name was missing from aliases."
+      ],
+      "fields": {
+        "aliases": "Zukertort Opening"
+      }
+    },
+    {
+      "ocn1": "C.LtO.Gre",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "external/lichess-openings TSV (CC0): 'Ware Opening: Meadow Hay Trap' = 1.a4 e5 2.Ra3; 'Ware Opening: Ware Gambit' = 1.a4 e5 2.a5 d5 3.e3 f5 4.a6; 'Latvian Gambit: Greco Variation' = 3.Nxe5 Qe7; the 3.Nxe5 Qf6 complex carries the Accepted sub-line names (Bilguer/Bronstein/Foltys/Leonhardt).",
+        "Wikipedia 'Latvian Gambit' (re-verified 2026-06-11): 3.Nxe5 Qf6 is 'considered the main line'; 'Greco Countergambit' is the historical name of the whole opening, and neither queen move is individually 'Greco' there."
+      ],
+      "fields": {
+        "canonical_name": "Latvian Gambit, Main Line"
+      }
+    },
+    {
+      "ocn1": "A.War.Mad",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "external/lichess-openings TSV (CC0): 'Ware Opening: Meadow Hay Trap' = 1.a4 e5 2.Ra3; 'Ware Opening: Ware Gambit' = 1.a4 e5 2.a5 d5 3.e3 f5 4.a6; 'Latvian Gambit: Greco Variation' = 3.Nxe5 Qe7; the 3.Nxe5 Qf6 complex carries the Accepted sub-line names (Bilguer/Bronstein/Foltys/Leonhardt)."
+      ],
+      "fields": {
+        "canonical_name": "Ware Opening, a5 d5 Line"
+      }
+    },
+    {
+      "ocn1": "A.War.Mad.MLn",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "external/lichess-openings TSV (CC0): 'Ware Opening: Meadow Hay Trap' = 1.a4 e5 2.Ra3; 'Ware Opening: Ware Gambit' = 1.a4 e5 2.a5 d5 3.e3 f5 4.a6; 'Latvian Gambit: Greco Variation' = 3.Nxe5 Qe7; the 3.Nxe5 Qf6 complex carries the Accepted sub-line names (Bilguer/Bronstein/Foltys/Leonhardt)."
+      ],
+      "fields": {
+        "canonical_name": "Ware a5 d5, Main Line"
+      }
+    },
+    {
+      "ocn1": "B.Sic.OKe.c4",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "external/lichess-openings TSV (CC0): 'Ware Opening: Meadow Hay Trap' = 1.a4 e5 2.Ra3; 'Ware Opening: Ware Gambit' = 1.a4 e5 2.a5 d5 3.e3 f5 4.a6; 'Latvian Gambit: Greco Variation' = 3.Nxe5 Qe7; the 3.Nxe5 Qf6 complex carries the Accepted sub-line names (Bilguer/Bronstein/Foltys/Leonhardt)."
+      ],
+      "fields": {
+        "canonical_name": "Sicilian O'Kelly, Maróczy Bind"
+      }
+    },
+    {
+      "ocn1": "C.LtO.Gre.d4",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "external/lichess-openings TSV (CC0): 'Ware Opening: Meadow Hay Trap' = 1.a4 e5 2.Ra3; 'Ware Opening: Ware Gambit' = 1.a4 e5 2.a5 d5 3.e3 f5 4.a6; 'Latvian Gambit: Greco Variation' = 3.Nxe5 Qe7; the 3.Nxe5 Qf6 complex carries the Accepted sub-line names (Bilguer/Bronstein/Foltys/Leonhardt).",
+        "Wikipedia 'Latvian Gambit' (re-verified 2026-06-11): 3.Nxe5 Qf6 is 'considered the main line'; 'Greco Countergambit' is the historical name of the whole opening, and neither queen move is individually 'Greco' there."
+      ],
+      "fields": {
+        "canonical_name": "Latvian Main Line, d4"
+      }
+    },
+    {
+      "ocn1": "C.LtO.Gre.d4.d6",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "external/lichess-openings TSV (CC0): 'Ware Opening: Meadow Hay Trap' = 1.a4 e5 2.Ra3; 'Ware Opening: Ware Gambit' = 1.a4 e5 2.a5 d5 3.e3 f5 4.a6; 'Latvian Gambit: Greco Variation' = 3.Nxe5 Qe7; the 3.Nxe5 Qf6 complex carries the Accepted sub-line names (Bilguer/Bronstein/Foltys/Leonhardt).",
+        "Wikipedia 'Latvian Gambit' (re-verified 2026-06-11): 3.Nxe5 Qf6 is 'considered the main line'; 'Greco Countergambit' is the historical name of the whole opening, and neither queen move is individually 'Greco' there."
+      ],
+      "fields": {
+        "canonical_name": "Latvian Main Line d4, d6"
+      }
+    },
+    {
+      "ocn1": "C.LtO.Gre.d4.d6.Nc4",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "external/lichess-openings TSV (CC0): 'Ware Opening: Meadow Hay Trap' = 1.a4 e5 2.Ra3; 'Ware Opening: Ware Gambit' = 1.a4 e5 2.a5 d5 3.e3 f5 4.a6; 'Latvian Gambit: Greco Variation' = 3.Nxe5 Qe7; the 3.Nxe5 Qf6 complex carries the Accepted sub-line names (Bilguer/Bronstein/Foltys/Leonhardt).",
+        "Wikipedia 'Latvian Gambit' (re-verified 2026-06-11): 3.Nxe5 Qf6 is 'considered the main line'; 'Greco Countergambit' is the historical name of the whole opening, and neither queen move is individually 'Greco' there."
+      ],
+      "fields": {
+        "canonical_name": "Latvian Main Line d6, Nc4"
+      }
+    },
+    {
+      "ocn1": "C.LtO.Gre.d4.d6.Nc4.fxe4",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "external/lichess-openings TSV (CC0): 'Ware Opening: Meadow Hay Trap' = 1.a4 e5 2.Ra3; 'Ware Opening: Ware Gambit' = 1.a4 e5 2.a5 d5 3.e3 f5 4.a6; 'Latvian Gambit: Greco Variation' = 3.Nxe5 Qe7; the 3.Nxe5 Qf6 complex carries the Accepted sub-line names (Bilguer/Bronstein/Foltys/Leonhardt).",
+        "Wikipedia 'Latvian Gambit' (re-verified 2026-06-11): 3.Nxe5 Qf6 is 'considered the main line'; 'Greco Countergambit' is the historical name of the whole opening, and neither queen move is individually 'Greco' there."
+      ],
+      "fields": {
+        "canonical_name": "Latvian Main Line d6 Nc4, fxe4"
+      }
+    },
+    {
+      "ocn1": "C.LtO.Gre.Nc4",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "external/lichess-openings TSV (CC0): 'Ware Opening: Meadow Hay Trap' = 1.a4 e5 2.Ra3; 'Ware Opening: Ware Gambit' = 1.a4 e5 2.a5 d5 3.e3 f5 4.a6; 'Latvian Gambit: Greco Variation' = 3.Nxe5 Qe7; the 3.Nxe5 Qf6 complex carries the Accepted sub-line names (Bilguer/Bronstein/Foltys/Leonhardt).",
+        "Wikipedia 'Latvian Gambit' (re-verified 2026-06-11): 3.Nxe5 Qf6 is 'considered the main line'; 'Greco Countergambit' is the historical name of the whole opening, and neither queen move is individually 'Greco' there."
+      ],
+      "fields": {
+        "canonical_name": "Latvian Main Line, Nc4"
+      }
+    },
+    {
+      "ocn1": "C.LtO.Gre.Nc4.fxe4",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "external/lichess-openings TSV (CC0): 'Ware Opening: Meadow Hay Trap' = 1.a4 e5 2.Ra3; 'Ware Opening: Ware Gambit' = 1.a4 e5 2.a5 d5 3.e3 f5 4.a6; 'Latvian Gambit: Greco Variation' = 3.Nxe5 Qe7; the 3.Nxe5 Qf6 complex carries the Accepted sub-line names (Bilguer/Bronstein/Foltys/Leonhardt).",
+        "Wikipedia 'Latvian Gambit' (re-verified 2026-06-11): 3.Nxe5 Qf6 is 'considered the main line'; 'Greco Countergambit' is the historical name of the whole opening, and neither queen move is individually 'Greco' there."
+      ],
+      "fields": {
+        "canonical_name": "Latvian Main Line Nc4, fxe4"
+      }
+    },
+    {
+      "ocn1": "C.LtO.Gre.Nc4.fxe4.d3",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "external/lichess-openings TSV (CC0): 'Ware Opening: Meadow Hay Trap' = 1.a4 e5 2.Ra3; 'Ware Opening: Ware Gambit' = 1.a4 e5 2.a5 d5 3.e3 f5 4.a6; 'Latvian Gambit: Greco Variation' = 3.Nxe5 Qe7; the 3.Nxe5 Qf6 complex carries the Accepted sub-line names (Bilguer/Bronstein/Foltys/Leonhardt).",
+        "Wikipedia 'Latvian Gambit' (re-verified 2026-06-11): 3.Nxe5 Qf6 is 'considered the main line'; 'Greco Countergambit' is the historical name of the whole opening, and neither queen move is individually 'Greco' there."
+      ],
+      "fields": {
+        "canonical_name": "Latvian Main Line fxe4, Foltys"
+      }
+    },
+    {
+      "ocn1": "C.LtO.Gre.Nc4.fxe4.Nc3",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "external/lichess-openings TSV (CC0): 'Ware Opening: Meadow Hay Trap' = 1.a4 e5 2.Ra3; 'Ware Opening: Ware Gambit' = 1.a4 e5 2.a5 d5 3.e3 f5 4.a6; 'Latvian Gambit: Greco Variation' = 3.Nxe5 Qe7; the 3.Nxe5 Qf6 complex carries the Accepted sub-line names (Bilguer/Bronstein/Foltys/Leonhardt).",
+        "Wikipedia 'Latvian Gambit' (re-verified 2026-06-11): 3.Nxe5 Qf6 is 'considered the main line'; 'Greco Countergambit' is the historical name of the whole opening, and neither queen move is individually 'Greco' there."
+      ],
+      "fields": {
+        "canonical_name": "Latvian Main Line fxe4, Leonhardt"
+      }
+    },
+    {
+      "ocn1": "C.LtO.Gre.BrA",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "external/lichess-openings TSV (CC0): 'Ware Opening: Meadow Hay Trap' = 1.a4 e5 2.Ra3; 'Ware Opening: Ware Gambit' = 1.a4 e5 2.a5 d5 3.e3 f5 4.a6; 'Latvian Gambit: Greco Variation' = 3.Nxe5 Qe7; the 3.Nxe5 Qf6 complex carries the Accepted sub-line names (Bilguer/Bronstein/Foltys/Leonhardt).",
+        "Wikipedia 'Latvian Gambit' (re-verified 2026-06-11): 3.Nxe5 Qf6 is 'considered the main line'; 'Greco Countergambit' is the historical name of the whole opening, and neither queen move is individually 'Greco' there."
+      ],
+      "fields": {
+        "canonical_name": "Latvian Main Line, Bronstein Attack"
+      }
+    },
+    {
+      "ocn1": "C.LtO.Gre.BrG",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "external/lichess-openings TSV (CC0): 'Ware Opening: Meadow Hay Trap' = 1.a4 e5 2.Ra3; 'Ware Opening: Ware Gambit' = 1.a4 e5 2.a5 d5 3.e3 f5 4.a6; 'Latvian Gambit: Greco Variation' = 3.Nxe5 Qe7; the 3.Nxe5 Qf6 complex carries the Accepted sub-line names (Bilguer/Bronstein/Foltys/Leonhardt).",
+        "Wikipedia 'Latvian Gambit' (re-verified 2026-06-11): 3.Nxe5 Qf6 is 'considered the main line'; 'Greco Countergambit' is the historical name of the whole opening, and neither queen move is individually 'Greco' there."
+      ],
+      "fields": {
+        "canonical_name": "Latvian Main Line, Bronstein Gambit"
+      }
+    },
+    {
+      "ocn1": "C.LtO.Gre.Nim",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "external/lichess-openings TSV (CC0): 'Ware Opening: Meadow Hay Trap' = 1.a4 e5 2.Ra3; 'Ware Opening: Ware Gambit' = 1.a4 e5 2.a5 d5 3.e3 f5 4.a6; 'Latvian Gambit: Greco Variation' = 3.Nxe5 Qe7; the 3.Nxe5 Qf6 complex carries the Accepted sub-line names (Bilguer/Bronstein/Foltys/Leonhardt).",
+        "Wikipedia 'Latvian Gambit' (re-verified 2026-06-11): 3.Nxe5 Qf6 is 'considered the main line'; 'Greco Countergambit' is the historical name of the whole opening, and neither queen move is individually 'Greco' there."
+      ],
+      "fields": {
+        "canonical_name": "Latvian Main Line, Nimzowitsch Attack"
+      }
+    }
+  ]
+}
