@@ -2,7 +2,7 @@
 
 **Purpose**: separate the **go / no-go decision** about OCN's first
 slug-rename from the technical mechanics (those live in
-[`qid-miles-petrosian-migration-preflight.md`](qid-miles-petrosian-migration-preflight.md)).
+[`qid-miles-petrosian-migration-preflight.md`](archive/qid-miles-petrosian-migration-preflight.md)).
 This record is about *whether and when* to apply, not *how*.
 
 **No catalogue change accompanies this document.**
@@ -10,7 +10,7 @@ This record is about *whether and when* to apply, not *how*.
 > **DECISION: Option C SELECTED** (2026-05-26) — apply the QID
 > slug-migration inside a release cycle whose end state is
 > `unresolved_groups=0`. The ordered runbook is in
-> [`qid-release-cycle-checklist.md`](qid-release-cycle-checklist.md).
+> [`qid-release-cycle-checklist.md`](archive/qid-release-cycle-checklist.md).
 >
 > **APPLY EXECUTED** (step 2, commit "Apply QID Miles Petrosian slug
 > migration"): the slug-migration is **done** — `unresolved_groups`
@@ -27,6 +27,7 @@ This record is about *whether and when* to apply, not *how*.
 
 ## What the migration would fix
 
+<!-- NON-CATALOGUE: pre-migration slug, intentional historical reference -->
 1. **Broken parent chain** — `E.QID.Mil.MLn`'s moves (`…a3 Bb7 Nc3`)
    do not extend its parent `E.QID.Mil` (4.Bf4). It is the only
    broken parent chain left in the catalogue.
@@ -46,6 +47,7 @@ This record is about *whether and when* to apply, not *how*.
   a rename. This changes row *identity*.
 - **10 slugs change `ocn1`** (`E.QID.Mil.MLn.* → E.QID.Pet.KPe.*`)
   → `canonical_ocn1` churn for downstream consumers.
+<!-- NON-CATALOGUE: pre-migration slug, intentional historical reference -->
 - **1 row deleted** (the duplicate `E.QID.Mil.MLn`) → 5,900 → 5,899.
 - **`canonical_name` relabel** on the 10 migrated rows
   ("QID Miles …" → "QID Kasparov-Petrosian …").
@@ -59,6 +61,7 @@ This record is about *whether and when* to apply, not *how*.
 - **No `moves_uci`/FEN change** on any row — every migrated row keeps
   its exact line; positions are identical.
 - **No new positions**; the only position-level change is the
+<!-- NON-CATALOGUE: pre-migration slug, intentional historical reference -->
   deletion of the duplicate `E.QID.Mil.MLn` node (which shares its
   FEN with the surviving `E.QID.Pet.KPe`).
 - **No tag move** — `ocn-1.0.2`/`ocn-1.0.3` stay immutable.
@@ -114,7 +117,7 @@ Before applying the slug-migration:
       renamed `canonical_ocn1` (or accept the regenerated parquet) —
       run its smoke test against the migrated catalogue.
 - [ ] Run the full preflight verification checklist
-      ([`qid-miles-petrosian-migration-preflight.md`](qid-miles-petrosian-migration-preflight.md))
+      ([`qid-miles-petrosian-migration-preflight.md`](archive/qid-miles-petrosian-migration-preflight.md))
       — no old `E.QID.Mil.MLn*` left, all new parents resolve,
       moves/FEN unchanged, no `canonical_name` still says "Miles".
 - [ ] Regenerate `openings.parquet` + `ocn-1.positions.tsv`; record
@@ -130,7 +133,7 @@ Before applying the slug-migration:
 
 ## Links
 
-- Technical mechanics: [`qid-miles-petrosian-migration-preflight.md`](qid-miles-petrosian-migration-preflight.md)
-- Structural diagnosis: [`qid-miles-petrosian-structural-proposal.md`](qid-miles-petrosian-structural-proposal.md)
+- Technical mechanics: [`qid-miles-petrosian-migration-preflight.md`](archive/qid-miles-petrosian-migration-preflight.md)
+- Structural diagnosis: [`qid-miles-petrosian-structural-proposal.md`](archive/qid-miles-petrosian-structural-proposal.md)
 - Phase closure: [`transposition-cleanup-closure.md`](transposition-cleanup-closure.md)
-- Running log: [`transpositions.md`](transpositions.md)
+- Running log: [`transpositions.md`](archive/transpositions.md)

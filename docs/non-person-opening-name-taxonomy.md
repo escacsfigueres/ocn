@@ -151,6 +151,6 @@ Everything else: **document-only, leave as-is.**
 ## See also
 
 - [`naming-attribution-audit-methodology.md`](naming-attribution-audit-methodology.md) — types A–I; rules 1–6 above are candidates to fold in.
-- [`event-venue-attribution-batch-proposal.md`](event-venue-attribution-batch-proposal.md) — the venue "no batch-safe" precedent (consistent with category 3).
-- [`player-eponym-attribution-batch-proposal.md`](player-eponym-attribution-batch-proposal.md) — where Maróczy Bind should route.
-- [`qgd-cambridge-springs-attribution-proposal.md`](qgd-cambridge-springs-attribution-proposal.md) — the person-less event-anchor template (category 2).
+- [`event-venue-attribution-batch-proposal.md`](archive/event-venue-attribution-batch-proposal.md) — the venue "no batch-safe" precedent (consistent with category 3).
+- [`player-eponym-attribution-batch-proposal.md`](archive/player-eponym-attribution-batch-proposal.md) — where Maróczy Bind should route.
+- [`qgd-cambridge-springs-attribution-proposal.md`](archive/qgd-cambridge-springs-attribution-proposal.md) — the person-less event-anchor template (category 2).

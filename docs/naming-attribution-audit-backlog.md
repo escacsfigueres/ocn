@@ -7,9 +7,9 @@ explicit GO, exactly as the
 [`naming-attribution-audit-methodology.md`](naming-attribution-audit-methodology.md)
 requires. **Dynamic workflow used: yes** (4 parallel read-only sweeps).
 
-> **Event/venue batch map (2026-05-30):** a follow-up dynamic-workflow sweep classified event/venue/game anchors — result: **no batch-safe candidates** (venue tokens are F/G structure/place labels, not type-E event anchors). See [`event-venue-attribution-batch-proposal.md`](event-venue-attribution-batch-proposal.md). At most one source-gated individual proposal (Carlsbad); Marshall routes to the player-eponym track.
+> **Event/venue batch map (2026-05-30):** a follow-up dynamic-workflow sweep classified event/venue/game anchors — result: **no batch-safe candidates** (venue tokens are F/G structure/place labels, not type-E event anchors). See [`event-venue-attribution-batch-proposal.md`](archive/event-venue-attribution-batch-proposal.md). At most one source-gated individual proposal (Carlsbad); Marshall routes to the player-eponym track.
 >
-> **Player-eponym batch map (2026-05-30):** a third dynamic-workflow sweep classified the Tier-1 player eponyms — result: **no batch-safe candidates** (right *kind* of eponym, but no first-hand naming source was opened; a Lichess label is type-G only). See [`player-eponym-attribution-batch-proposal.md`](player-eponym-attribution-batch-proposal.md). Next: a single source-gated proposal (A.Tro Trompowsky or B.Fre.Win Winawer), or an evidence sprint to convert Group B into a real batch. **UPDATE (evidence sprint + chronology + APPLY, 2026-05-30):** [`player-eponym-group-b-evidence-sprint.md`](player-eponym-group-b-evidence-sprint.md). A 5-row batch was **APPLIED** (`A.Tro`, `B.Ale`, `B.Sic.Ros`, `C.RyL.Mar`, `B.Sic.Naj.Pol` — all popularizer/introducer types, idea predates eponym per Lumbra chronology); **`B.Fre.Win` remains PARTIAL/held** pending one reference-grade naming citation.
+> **Player-eponym batch map (2026-05-30):** a third dynamic-workflow sweep classified the Tier-1 player eponyms — result: **no batch-safe candidates** (right *kind* of eponym, but no first-hand naming source was opened; a Lichess label is type-G only). See [`player-eponym-attribution-batch-proposal.md`](archive/player-eponym-attribution-batch-proposal.md). Next: a single source-gated proposal (A.Tro Trompowsky or B.Fre.Win Winawer), or an evidence sprint to convert Group B into a real batch. **UPDATE (evidence sprint + chronology + APPLY, 2026-05-30):** [`player-eponym-group-b-evidence-sprint.md`](player-eponym-group-b-evidence-sprint.md). A 5-row batch was **APPLIED** (`A.Tro`, `B.Ale`, `B.Sic.Ros`, `C.RyL.Mar`, `B.Sic.Naj.Pol` — all popularizer/introducer types, idea predates eponym per Lumbra chronology); **`B.Fre.Win` remains PARTIAL/held** pending one reference-grade naming citation.
 >
 > **Non-person name taxonomy (2026-05-30):** a sixth dynamic-workflow sweep mapped *why* non-person names exist (geography, structure, move/piece, metaphor, gambit/tactic, DB descriptor). See [`non-person-opening-name-taxonomy.md`](non-person-opening-name-taxonomy.md). Result: **no attribution batch** — the space is already correctly unattributed; ~46% of rows are permanent Type-H descriptors. Only follow-ups: Maróczy Bind (a person → eponym track), Carlsbad `historical_notes` (source-gated).
 >
@@ -84,7 +84,7 @@ the name and need no edit.
 
 | slug | current name | suspected issue | type | evidence | action | blast |
 |---|---|---|---|---|---|---|
-| `D.QGD.Cmb` | QGD, Cambridge Springs | ~~Textbook tournament anchor, empty attribution.~~ **✅ APPLIED 2026-05-30** (option A1, strings-only, head row only) — `attributed_to`/`attribution_source`/`historical_notes` set to the 1904-tournament event anchor; web-verified source (Panczyk & Ilczuk 2002), Oxford Companion not used (unseen). See [`qgd-cambridge-springs-attribution-proposal.md`](qgd-cambridge-springs-attribution-proposal.md). **First post-1.1 attribution applied.** | E (tournament anchor) | **high** | **DONE** | 1 row; 0 children touched |
+| `D.QGD.Cmb` | QGD, Cambridge Springs | ~~Textbook tournament anchor, empty attribution.~~ **✅ APPLIED 2026-05-30** (option A1, strings-only, head row only) — `attributed_to`/`attribution_source`/`historical_notes` set to the 1904-tournament event anchor; web-verified source (Panczyk & Ilczuk 2002), Oxford Companion not used (unseen). See [`qgd-cambridge-springs-attribution-proposal.md`](archive/qgd-cambridge-springs-attribution-proposal.md). **First post-1.1 attribution applied.** | E (tournament anchor) | **high** | **DONE** | 1 row; 0 children touched |
 | `B.Fre.Win` | French, Winawer | 3…Bb4 named for Winawer; empty `attributed_to`. **→ PROPOSAL WRITTEN 2026-05-30** ([`french-winawer-attribution-proposal.md`](french-winawer-attribution-proposal.md)): type-C early-practitioner, idea predates him (Paulsen 1861), recommend apply on the Marshall precedent; the last Group-B PARTIAL. | C (early practitioner) | medium | proposal | 1 row |
 | `B.Ale` | Alekhine Defence | Introducer **is** the namesake (Budapest 1921); the 1921 game is a type-A `historical_notes` anchor. | A + B | medium | proposal | 1 row |
 | `B.Sic.Tay` | Sicilian Taimanov | Taimanov's own system; dual alias Taimanov-Bastrikov signals a co-namer to reconcile. | C + B | medium | proposal | 1 row |
@@ -241,7 +241,7 @@ unconfirmed this run), not a fix.
 
 - [`naming-attribution-audit-methodology.md`](naming-attribution-audit-methodology.md)
   — the *how* (types A–I, evidence rules, decision criteria).
-- [`nimzo-rubinstein-kmoch-naming-proposal.md`](nimzo-rubinstein-kmoch-naming-proposal.md)
+- [`nimzo-rubinstein-kmoch-naming-proposal.md`](archive/nimzo-rubinstein-kmoch-naming-proposal.md)
   — the first applied naming audit (the model proposal shape).
 - [`agentic-development-playbook.md`](agentic-development-playbook.md)
   — why this ran as a dynamic workflow (wide discovery) and how each

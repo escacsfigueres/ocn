@@ -320,9 +320,9 @@ transposition semantics.
 
 ## See also
 
-- [`player-eponym-attribution-batch-proposal.md`](player-eponym-attribution-batch-proposal.md)
+- [`player-eponym-attribution-batch-proposal.md`](archive/player-eponym-attribution-batch-proposal.md)
   — the parent map (this sprint sources its Group B).
-- [`qgd-cambridge-springs-attribution-proposal.md`](qgd-cambridge-springs-attribution-proposal.md)
+- [`qgd-cambridge-springs-attribution-proposal.md`](archive/qgd-cambridge-springs-attribution-proposal.md)
   — the source-gated apply template these would follow.
 - [`naming-attribution-audit-methodology.md`](naming-attribution-audit-methodology.md)
   — types A–I and the evidence rules used to re-grade.

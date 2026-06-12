@@ -47,6 +47,7 @@ precedent.
 
 - **10 canonical OCN slugs changed**: `E.QID.Mil.MLn.* →
   E.QID.Pet.KPe.*` (the QID Kasparov-Petrosian subtree), and the
+<!-- NON-CATALOGUE: pre-migration slug, intentional historical reference -->
   duplicate `E.QID.Mil.MLn` was deleted.
 - **No FEN / moves_uci / zobrist / schema change** for those
   positions — only the slug identity (and `canonical_name`
@@ -110,5 +111,5 @@ catalogue and **smoke-tested**:
 - `E.Nim.Sml.Kmo.MLn` parent-chain quirk (cosmetic).
 
 Both are documented in
-[`nimzo-botvinnik-kmoch-apply-preflight.md`](nimzo-botvinnik-kmoch-apply-preflight.md);
+[`nimzo-botvinnik-kmoch-apply-preflight.md`](archive/nimzo-botvinnik-kmoch-apply-preflight.md);
 neither blocks the release.

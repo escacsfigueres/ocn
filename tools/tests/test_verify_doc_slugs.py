@@ -91,5 +91,30 @@ class VerifyDocSlugsTests(unittest.TestCase):
         self.assertEqual(self.run_tool(str(d)).returncode, 0)
 
 
+class LiveDocsGateTests(unittest.TestCase):
+    def test_live_docs_have_no_stale_slugs(self) -> None:
+        """Every backticked slug in live documentation (README, spec,
+        docs/*.md top level) must exist in the live catalogue.
+        Era-closed working documents live in docs/archive/, exempt by
+        location; intentional historical slugs in live records carry
+        the NON-CATALOGUE marker within two lines."""
+        paths = [
+            str(REPO_ROOT / "README.md"),
+            str(REPO_ROOT / "spec" / "OCN-1.md"),
+        ]
+        paths += sorted(str(p) for p in (REPO_ROOT / "docs").glob("*.md"))
+        result = subprocess.run(
+            [sys.executable, str(TOOL), *paths],
+            capture_output=True,
+            text=True,
+            check=False,
+        )
+        self.assertEqual(
+            result.returncode,
+            0,
+            "stale slugs in live docs:\n" + result.stdout + result.stderr,
+        )
+
+
 if __name__ == "__main__":
     unittest.main()

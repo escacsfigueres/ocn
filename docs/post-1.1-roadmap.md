@@ -39,7 +39,7 @@ popularised vs event-anchored)?
 - **Backlog items** (see the discovery backlog + methodology for detail):
   - `E.Nim.Rub.Kmo` Kmoch question — **APPLIED 2026-05-28** (option C,
     strings-only):
-    ([`nimzo-rubinstein-kmoch-naming-proposal.md`](nimzo-rubinstein-kmoch-naming-proposal.md))
+    ([`nimzo-rubinstein-kmoch-naming-proposal.md`](archive/nimzo-rubinstein-kmoch-naming-proposal.md))
     relabelled "Kmoch Variation" → "f3 Move Order" (borrowed label, not
     in Lichess / opening-book corpus). `same_as` left unchanged
     (option D deferred as a separate transposition-layer call).
@@ -57,7 +57,7 @@ popularised vs event-anchored)?
   - Maróczy Bind attribution — **APPLIED 2026-05-31** (`B.Sic.Acc.Mar`, `B.Sic.Kan.Mar`, `B.Sic.OKe.c4`): `attributed_to` "Géza Maróczy (popularizer)", strings-only, head rows only; first-hand source (Edward Winter, *Géza Maróczy*); `historical_notes` notes he never played the bind as White (named via Swiderski–Maróczy, Monte Carlo 1904). The other six parked items stay PARTIAL pending one first-hand reference each.
   - `D.QGD.Cmb` Cambridge Springs — **APPLIED 2026-05-30** (option A1,
     strings-only, head row only)
-    ([`qgd-cambridge-springs-attribution-proposal.md`](qgd-cambridge-springs-attribution-proposal.md)):
+    ([`qgd-cambridge-springs-attribution-proposal.md`](archive/qgd-cambridge-springs-attribution-proposal.md)):
     type-E tournament anchor; `attributed_to`/`attribution_source`/
     `historical_notes` set, web-verified source (Panczyk & Ilczuk 2002),
     Oxford Companion not used (unseen first-hand). 0 child rows touched;
@@ -65,8 +65,8 @@ popularised vs event-anchored)?
     post-1.1 attribution edit and first event-anchor attribution.**
   - source-specific/Lichess labels → aliases — Kmoch cluster triaged
     (corpus-confirmed, no demotions); next pass is a token-normalised
-  - event/venue anchor batch — **MAPPED 2026-05-30** (dynamic-workflow, 4 read-only sweeps): **no batch-safe type-E candidates** — venue tokens are F/G structure/place labels. ([`event-venue-attribution-batch-proposal.md`](event-venue-attribution-batch-proposal.md)). Next event candidate at most Carlsbad (source-gated); Marshall → eponym track.
-  - player-eponym anchor batch — **MAPPED 2026-05-30** (dynamic-workflow, 4 read-only sweeps): **no batch-safe candidates** — strong eponyms, but no first-hand naming source opened (Lichess = type-G label). ([`player-eponym-attribution-batch-proposal.md`](player-eponym-attribution-batch-proposal.md)). Next: single source-gated proposal (A.Tro / B.Fre.Win) or an evidence sprint. Includes a reusable per-surname risk map + house-style templates.
+  - event/venue anchor batch — **MAPPED 2026-05-30** (dynamic-workflow, 4 read-only sweeps): **no batch-safe type-E candidates** — venue tokens are F/G structure/place labels. ([`event-venue-attribution-batch-proposal.md`](archive/event-venue-attribution-batch-proposal.md)). Next event candidate at most Carlsbad (source-gated); Marshall → eponym track.
+  - player-eponym anchor batch — **MAPPED 2026-05-30** (dynamic-workflow, 4 read-only sweeps): **no batch-safe candidates** — strong eponyms, but no first-hand naming source opened (Lichess = type-G label). ([`player-eponym-attribution-batch-proposal.md`](archive/player-eponym-attribution-batch-proposal.md)). Next: single source-gated proposal (A.Tro / B.Fre.Win) or an evidence sprint. Includes a reusable per-surname risk map + house-style templates.
     misplacement detector (backlog Top-5 #5).
   - **triage automation** — **CREATED 2026-05-31** (`tools/audit_naming_attribution.py`,
     [`naming-attribution-automation.md`](naming-attribution-automation.md)):

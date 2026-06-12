@@ -232,7 +232,7 @@ OCN's first slug-rename (`E.QID.Mil.MLn.* → E.QID.Pet.KPe.*`, 1 row
 deleted) is the canonical *risky* case. It is documented across
 [`qid-migration-decision-record.md`](qid-migration-decision-record.md)
 (the go/no-go) and
-[`qid-miles-petrosian-migration-preflight.md`](qid-miles-petrosian-migration-preflight.md)
+[`qid-miles-petrosian-migration-preflight.md`](archive/qid-miles-petrosian-migration-preflight.md)
 (the mechanics). Reconstructed against this playbook's contract:
 
 **Intent.** *Collapse the last unresolved duplicate-FEN group so the
@@ -316,7 +316,7 @@ it does not invent a new process:
   — a methodology-only doc in the same house style.
 - [`qid-migration-decision-record.md`](qid-migration-decision-record.md)
   and
-  [`qid-miles-petrosian-migration-preflight.md`](qid-miles-petrosian-migration-preflight.md)
+  [`qid-miles-petrosian-migration-preflight.md`](archive/qid-miles-petrosian-migration-preflight.md)
   — the worked *risky migration* example.
 - [`post-1.1-roadmap.md`](post-1.1-roadmap.md) — where post-1.1 work
   sits.

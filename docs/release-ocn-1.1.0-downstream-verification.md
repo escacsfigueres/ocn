@@ -46,7 +46,7 @@ polyglot-v1.0`, `source ocn-1.1.0-candidate-e297d36`.
 | parquet rows | **5,899** ✅ |
 | `E.QID.Mil.MLn*` present | **0** ✅ |
 | `E.QID.Pet.KPe.*` present | **10** ✅ |
-| `E.Nim.Sml.Kmo.canonical_ocn1` | **`E.Nim.Sml.Bot`** ✅ |
+| `E.Nim.Sml.Kmo.canonical_ocn1` | **`E.Nim.Sml.Bot`** ✅ | <!-- NON-CATALOGUE: parquet column accessor on a catalogue slug -->
 | `same_as` non-empty rows | **34** (= 17 multi-canonical × 2) ✅ |
 | multi-row zobrist groups | **124** (= duplicate_groups) ✅ |
 | `canonical_ocn1` rule violations | **0** (rule: `transposes_to` if set else `ocn1`) ✅ |

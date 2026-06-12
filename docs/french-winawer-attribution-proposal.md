@@ -142,5 +142,5 @@ historical_notes   = 1.e4 e6 2.d4 d5 3.Nc3 Bb4. Named for the Polish master Szym
 ## See also
 
 - [`player-eponym-group-b-evidence-sprint.md`](player-eponym-group-b-evidence-sprint.md) — where `B.Fre.Win` was held PARTIAL.
-- [`player-eponym-attribution-batch-proposal.md`](player-eponym-attribution-batch-proposal.md) — the parent batch (5 applied).
-- [`qgd-cambridge-springs-attribution-proposal.md`](qgd-cambridge-springs-attribution-proposal.md) — the source-gated apply template.
+- [`player-eponym-attribution-batch-proposal.md`](archive/player-eponym-attribution-batch-proposal.md) — the parent batch (5 applied).
+- [`qgd-cambridge-springs-attribution-proposal.md`](archive/qgd-cambridge-springs-attribution-proposal.md) — the source-gated apply template.

@@ -273,7 +273,7 @@ backlog, not a change set.
 
 ## See also
 
-- [`docs/nimzo-botvinnik-kmoch-naming-review.md`](nimzo-botvinnik-kmoch-naming-review.md)
+- [`docs/nimzo-botvinnik-kmoch-naming-review.md`](archive/nimzo-botvinnik-kmoch-naming-review.md)
   — the worked naming review behind example 1.
 - [`docs/transposition-cleanup-closure.md`](transposition-cleanup-closure.md)
   — the resolved transposition layer this audit sits *on top of*.

@@ -21,7 +21,7 @@ state, it does not alter it.
 >   E.QID.Pet.KPe.*` + deleted the duplicate `E.QID.Mil.MLn` →
 >   **unresolved 1 → 0**, rows 5,900 → 5,899. Release-cycle artefact
 >   regen + tag still GO-gated
->   ([`qid-release-cycle-checklist.md`](qid-release-cycle-checklist.md)
+>   ([`qid-release-cycle-checklist.md`](archive/qid-release-cycle-checklist.md)
 >   steps 4-9).
 >
 > The metrics/holds tables below are kept as the `0200e8e` closure
@@ -73,7 +73,7 @@ above is the slice of that arc that landed in this session.
 | group | ECO | status | outcome |
 |---|---|---|---|
 | `E.Nim.Sml.Bot` ⇄ `E.Nim.Sml.Kmo` | E24/E25 ⇄ E26 | ✅ **RESOLVED** (`e036203`) | Naming review (Lichess E20 = Kmoch is 4.f3; E24 = the Sämisch f3-tabiya is Botvinnik) showed `E.Nim.Sml.Kmo`'s "Kmoch" was an artifact. Resolved via `E.Nim.Sml.Kmo.transposes_to = E.Nim.Sml.Bot` + relabel ("a3 Move Order"). Follow-ups (`E.Nim.Rub.Kmo` artifact, `Kmo.MLn` parent-chain) noted in the apply preflight. |
-| `E.QID.Mil.MLn` ⇄ `E.QID.Pet.KPe` | E12 ⇄ E12 | ✅ **RESOLVED via slug-migration** (OCN's first slug-rename) | The a3/Nc3 Kasparov-Petrosian subtree (broken parent chain, mislabelled "Miles") was re-slugged `E.QID.Mil.MLn.* → E.QID.Pet.KPe.*` (10 rows, parents fixed, relabelled) and the duplicate `E.QID.Mil.MLn` deleted. rows 5,900 → 5,899, **unresolved 1 → 0**. Release-cycle artefact regen + tag still GO-gated ([`qid-release-cycle-checklist.md`](qid-release-cycle-checklist.md) steps 4-9). |
+| `E.QID.Mil.MLn` ⇄ `E.QID.Pet.KPe` | E12 ⇄ E12 | ✅ **RESOLVED via slug-migration** (OCN's first slug-rename) | The a3/Nc3 Kasparov-Petrosian subtree (broken parent chain, mislabelled "Miles") was re-slugged `E.QID.Mil.MLn.* → E.QID.Pet.KPe.*` (10 rows, parents fixed, relabelled) and the duplicate `E.QID.Mil.MLn` deleted. rows 5,900 → 5,899, **unresolved 1 → 0**. Release-cycle artefact regen + tag still GO-gated ([`qid-release-cycle-checklist.md`](archive/qid-release-cycle-checklist.md) steps 4-9). | <!-- NON-CATALOGUE: pre-migration slug, intentional historical reference -->
 
 `audit_transpositions.py --ranked` now shows **no** unresolved
 groups. The catalogue is fully resolved.
@@ -111,8 +111,8 @@ and the catalogue is fully functional at `unresolved_groups=1`).
 
 ## Provenance
 
-Full per-group resolution log: [`transpositions.md`](transpositions.md).
-Roadmap of the cleanup: [`unresolved-map-20.md`](unresolved-map-20.md).
+Full per-group resolution log: [`transpositions.md`](archive/transpositions.md).
+Roadmap of the cleanup: [`unresolved-map-20.md`](archive/unresolved-map-20.md).
 Per-case proposals: `larsen-reti-nimzowitsch-proposal.md`,
 `london-classical-mason-proposal.md`,
 `van-geet-vant-kruijs-proposal.md`,
