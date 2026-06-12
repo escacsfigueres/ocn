@@ -1,0 +1,59 @@
+ocn1	name
+A	Aperturas de flanco
+B	Juegos semiabiertos
+C	Juegos abiertos
+D	Cerradas de peón de dama
+E	Defensas indias
+A.Eng	Apertura Inglesa
+A.Hol	Defensa Holandesa
+A.Tro	Ataque Trompowsky
+A.Lon	Sistema Londres
+A.Bir	Apertura Bird
+A.Lar	Ataque Larsen
+A.Ret	Apertura Réti
+A.Owe	Defensa Owen
+A.Pol	Apertura Polaca
+A.KIA	Ataque Indio de Rey
+A.Hng	Apertura Húngara
+A.Gro	Apertura Grob
+A.Van	Apertura Van Geet
+A.Tor	Ataque Torre
+A.Ver	Ataque Richter-Veresov
+A.Col	Sistema Colle
+B.Sic	Defensa Siciliana
+B.CaK	Defensa Caro-Kann
+B.Fre	Defensa Francesa
+B.Pir	Defensa Pirc
+B.Mod	Defensa Moderna
+B.Sca	Defensa Escandinava
+B.Ale	Defensa Alekhine
+B.Nim	Defensa Nimzowitsch
+C.RyL	Apertura Española
+C.Ita	Apertura Italiana
+C.KGm	Gambito de Rey
+C.Pet	Defensa Petrov
+C.Sco	Apertura Escocesa
+C.Vie	Apertura Vienesa
+C.PhD	Defensa Philidor
+C.LtO	Gambito Letón
+C.Fou	Apertura de los Cuatro Caballos
+C.Bsh	Apertura de Alfil
+C.Pon	Apertura Ponziani
+C.Cen	Apertura del Centro
+D.QGD	Gambito de Dama Rehusado
+D.QGA	Gambito de Dama Aceptado
+D.Sla	Defensa Eslava
+D.Sem	Defensa Semieslava
+D.Cat	Apertura Catalana
+D.Tar	Defensa Tarrasch
+D.STa	Defensa Semi-Tarrasch
+D.Alb	Contragambito Albin
+D.Bgm	Gambito Blackmar-Diemer
+D.Chi	Defensa Chigorin
+E.Ben	Defensa Benoni
+E.KID	Defensa India de Rey
+E.Nim	Defensa Nimzoindia
+E.QID	Defensa India de Dama
+E.Bog	Defensa Bogoindia
+E.OldI	Defensa India Antigua
+E.Gru	Defensa Grünfeld

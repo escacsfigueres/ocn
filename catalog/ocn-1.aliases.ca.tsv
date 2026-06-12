@@ -1,0 +1,59 @@
+ocn1	name
+A	Obertures de flanc
+B	Jocs semioberts
+C	Jocs oberts
+D	Tancades de peó de dama
+E	Defenses índies
+A.Eng	Obertura anglesa
+A.Hol	Defensa holandesa
+A.Tro	Atac Trompowsky
+A.Lon	Sistema Londres
+A.Bir	Obertura Bird
+A.Lar	Atac Larsen
+A.Ret	Obertura Réti
+A.Owe	Defensa Owen
+A.Pol	Obertura polonesa
+A.KIA	Atac indi de rei
+A.Hng	Obertura hongaresa
+A.Gro	Obertura Grob
+A.Van	Obertura Van Geet
+A.Tor	Atac Torre
+A.Ver	Atac Richter-Veresov
+A.Col	Sistema Colle
+B.Sic	Defensa siciliana
+B.CaK	Defensa Caro-Kann
+B.Fre	Defensa francesa
+B.Pir	Defensa Pirc
+B.Mod	Defensa moderna
+B.Sca	Defensa escandinava
+B.Ale	Defensa Alekhine
+B.Nim	Defensa Nimzowitsch
+C.RyL	Obertura espanyola
+C.Ita	Obertura italiana
+C.KGm	Gambit de rei
+C.Pet	Defensa Petrov
+C.Sco	Obertura escocesa
+C.Vie	Obertura vienesa
+C.PhD	Defensa Philidor
+C.LtO	Gambit letó
+C.Fou	Obertura dels quatre cavalls
+C.Bsh	Obertura d'alfil
+C.Pon	Obertura Ponziani
+C.Cen	Obertura del centre
+D.QGD	Gambit de dama refusat
+D.QGA	Gambit de dama acceptat
+D.Sla	Defensa eslava
+D.Sem	Defensa semieslava
+D.Cat	Obertura catalana
+D.Tar	Defensa Tarrasch
+D.STa	Defensa semi-Tarrasch
+D.Alb	Contragambit Albin
+D.Bgm	Gambit Blackmar-Diemer
+D.Chi	Defensa Txigorin
+E.Ben	Defensa Benoni
+E.KID	Defensa índia de rei
+E.Nim	Defensa nimzoíndia
+E.QID	Defensa índia de dama
+E.Bog	Defensa bogoíndia
+E.OldI	Defensa índia antiga
+E.Gru	Defensa Grünfeld

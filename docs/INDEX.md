@@ -19,6 +19,7 @@ start here and move to `archive/` when their era closes.
 | [`post-1.1-roadmap.md`](post-1.1-roadmap.md) | The living roadmap and work log since `ocn-1.1.0`. |
 | [`agentic-development-playbook.md`](agentic-development-playbook.md) | The human–agent contract: Intent/Expectations/Context/Workflow, GO gates, task sizing. |
 | [`ocn-360-audit.md`](ocn-360-audit.md) | The 13-agent 360° audit (2026-06-10) that drove the P0/P1/P2 plan. |
+| [`i18n-aliases-design.md`](i18n-aliases-design.md) | Locale alias sidecars (Track 2): format, conventions, ca+es pilot. |
 
 ## Releases (permanent records)
 
