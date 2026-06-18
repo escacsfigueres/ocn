@@ -1,0 +1,59 @@
+ocn1	name
+A	Ouvertures de flanc
+B	Débuts semi-ouverts
+C	Débuts ouverts
+D	Débuts fermés du pion dame
+E	Défenses indiennes
+A.Eng	Ouverture anglaise
+A.Hol	Défense hollandaise
+A.Tro	Attaque Trompowsky
+A.Lon	Système de Londres
+A.Bir	Ouverture Bird
+A.Lar	Ouverture Larsen
+A.Ret	Début Réti
+A.Owe	Défense Owen
+A.Pol	Défense polonaise
+A.KIA	Attaque est-indienne
+A.Hng	Ouverture hongroise
+A.Gro	Début Grob
+A.Van	Début Van Geet
+A.Tor	Attaque Torre
+A.Ver	Attaque Richter-Veressov
+A.Col	Système Colle
+B.Sic	Défense sicilienne
+B.CaK	Défense Caro-Kann
+B.Fre	Défense française
+B.Pir	Défense Pirc
+B.Mod	Défense moderne
+B.Sca	Défense scandinave
+B.Ale	Défense Alekhine
+B.Nim	Défense Nimzowitsch du pion roi
+C.RyL	Partie espagnole
+C.Ita	Partie italienne
+C.KGm	Gambit du roi
+C.Pet	Défense russe
+C.Sco	Partie écossaise
+C.Vie	Partie viennoise
+C.PhD	Défense Philidor
+C.LtO	Gambit letton
+C.Fou	Partie des quatre cavaliers
+C.Bsh	Début du fou
+C.Pon	Début Ponziani
+C.Cen	Partie du centre
+D.QGD	Gambit dame refusé
+D.QGA	Gambit dame accepté
+D.Sla	Défense slave
+D.Sem	Défense semi-slave
+D.Cat	Partie catalane
+D.Tar	Défense Tarrasch
+D.STa	Défense semi-Tarrasch
+D.Alb	Contre-gambit Albin
+D.Bgm	Gambit Blackmar-Diemer
+D.Chi	Défense Tchigorine
+E.Ben	Défense Benoni
+E.KID	Défense est-indienne
+E.Nim	Défense nimzo-indienne
+E.QID	Défense ouest-indienne
+E.Bog	Défense Bogo-indienne
+E.OldI	Défense vieille-indienne
+E.Gru	Défense Grünfeld

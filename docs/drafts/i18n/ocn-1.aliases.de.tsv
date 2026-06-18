@@ -1,0 +1,59 @@
+ocn1	name
+A	Flankeneröffnungen
+B	Halboffene Spiele
+C	Offene Spiele
+D	Geschlossene Spiele
+E	Indische Verteidigungen
+A.Eng	Englische Eröffnung
+A.Hol	Holländische Verteidigung
+A.Tro	Trompowsky-Angriff
+A.Lon	Londoner System
+A.Bir	Bird-Eröffnung
+A.Lar	Larsen-Eröffnung
+A.Ret	Réti-Eröffnung
+A.Owe	Owen-Verteidigung
+A.Pol	Polnische Eröffnung
+A.KIA	Königsindischer Angriff
+A.Hng	Ungarische Eröffnung
+A.Gro	Grob-Angriff
+A.Van	Van-Geet-Eröffnung
+A.Tor	Torre-Angriff
+A.Ver	Richter-Weressow-Angriff
+A.Col	Colle-System
+B.Sic	Sizilianische Verteidigung
+B.CaK	Caro-Kann-Verteidigung
+B.Fre	Französische Verteidigung
+B.Pir	Pirc-Verteidigung
+B.Mod	Moderne Verteidigung
+B.Sca	Skandinavische Verteidigung
+B.Ale	Aljechin-Verteidigung
+B.Nim	Nimzowitsch-Verteidigung
+C.RyL	Spanische Partie
+C.Ita	Italienische Partie
+C.KGm	Königsgambit
+C.Pet	Russische Verteidigung
+C.Sco	Schottische Partie
+C.Vie	Wiener Partie
+C.PhD	Philidor-Verteidigung
+C.LtO	Lettisches Gambit
+C.Fou	Vierspringerspiel
+C.Bsh	Läuferspiel
+C.Pon	Ponziani-Eröffnung
+C.Cen	Mittelgambit
+D.QGD	Abgelehntes Damengambit
+D.QGA	Angenommenes Damengambit
+D.Sla	Slawische Verteidigung
+D.Sem	Halbslawische Verteidigung
+D.Cat	Katalanische Eröffnung
+D.Tar	Tarrasch-Verteidigung
+D.STa	Halb-Tarrasch-Verteidigung
+D.Alb	Albins Gegengambit
+D.Bgm	Blackmar-Diemer-Gambit
+D.Chi	Tschigorin-Verteidigung
+E.Ben	Benoni-Verteidigung
+E.KID	Königsindische Verteidigung
+E.Nim	Nimzowitsch-Indische Verteidigung
+E.QID	Damenindische Verteidigung
+E.Bog	Bogoljubow-Indische Verteidigung
+E.OldI	Altindische Verteidigung
+E.Gru	Grünfeld-Indische Verteidigung
