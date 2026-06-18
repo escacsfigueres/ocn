@@ -1,0 +1,61 @@
+{
+  "kind": "ocn.attribution_manifest.v1",
+  "title": "DRAFT — web-sourced safe-if-sourced eponym heads (PARTIAL)",
+  "description": "UN-APPLIED DRAFT PROPOSAL. Four 'safe-if-sourced' head-only eponym attributions from the factory-map candidate pool (docs/whole-catalogue-attribution-factory-map.md Lots 1/5/9), each with an explicit Wikipedia 'named after / named for / eponym / name attached to' attestation fetched first-hand this run (URL + verbatim quote in each source_refs). Graded PARTIAL because the only sources reached are Wikipedia/web (NOT reference-grade): each NEEDS A REFERENCE-GRADE PIN (Oxford Companion entry / monograph) before apply. HEAD ROWS ONLY - no child rows; the King's Gambit Accepted and French families contain distinct sub-eponyms, so this stamps only the named head. Kieseritzky (C.KGm.Acc.Kie) was SKIPPED this run: Wikipedia gives only 'popularized by' / 'name became associated with', not a clean 'named after' attestation. NOT for the live manifests dir; inert draft.",
+  "mode": "attribution_fields_only",
+  "expected_catalog_rows": 5899,
+  "expected_changed_rows": ["B.Fre.Mac", "B.Fre.Bur", "C.KGm.Acc.All", "C.Sco.Gor"],
+  "changes": [
+    {
+      "ocn1": "B.Fre.Mac",
+      "evidence_grade": "PARTIAL",
+      "source_refs": [
+        "Wikipedia, 'French Defence' - https://en.wikipedia.org/wiki/French_Defence (fetched 2026-06-19): 'The McCutcheon Variation is named for John Lindsay McCutcheon of Philadelphia (1857-1905), who brought the variation to public attention when he used it to defeat World Champion Steinitz in a simultaneous exhibition in Manhattan in 1885.' WEB-ONLY; needs reference-grade pin before apply."
+      ],
+      "fields": {
+        "attributed_to": "John Lindsay McCutcheon (early practitioner / popularizer)",
+        "attribution_source": "Wikipedia, 'French Defence' (fetched 2026-06-19): 'The McCutcheon Variation is named for John Lindsay McCutcheon of Philadelphia (1857-1905), who brought the variation to public attention when he used it to defeat World Champion Steinitz in a simultaneous exhibition in Manhattan in 1885.' Web-only attestation; reference-grade pin (Oxford Companion 'McCutcheon' entry) pending.",
+        "historical_notes": "1.e4 e6 2.d4 d5 3.Nc3 Nf6 4.Bg5 Bb4. Named for John Lindsay McCutcheon of Philadelphia (1857-1905), the American amateur who brought the line to attention by defeating World Champion Steinitz in a simultaneous exhibition, New York/Manhattan 1885. Head row only; the MacCutcheon family carries distinct sub-eponyms (Janowski, Olland, Morozevich) that this attribution does not cover."
+      }
+    },
+    {
+      "ocn1": "B.Fre.Bur",
+      "evidence_grade": "PARTIAL",
+      "source_refs": [
+        "Wikipedia, 'Amos Burn' - https://en.wikipedia.org/wiki/Amos_Burn (fetched 2026-06-19): 'Burn is the eponym of the Burn Variation of the French Defence (1.e4 e6 2.d4 d5 3.Nc3 Nf6 4.Bg5 dxe4).' Amos Burn, 1848-1925. WEB-ONLY; needs reference-grade pin.",
+        "Wikipedia, 'French Defence' - https://en.wikipedia.org/wiki/French_Defence (fetched 2026-06-19): 'Named after Amos Burn, the Burn Variation is the most common reply at the top level.'"
+      ],
+      "fields": {
+        "attributed_to": "Amos Burn (eponym / practitioner)",
+        "attribution_source": "Wikipedia, 'Amos Burn' (fetched 2026-06-19): 'Burn is the eponym of the Burn Variation of the French Defence (1.e4 e6 2.d4 d5 3.Nc3 Nf6 4.Bg5 dxe4)'; corroborated by Wikipedia 'French Defence' ('Named after Amos Burn, the Burn Variation is the most common reply at the top level'). Web-only attestation; reference-grade pin pending.",
+        "historical_notes": "1.e4 e6 2.d4 d5 3.Nc3 Nf6 4.Bg5 dxe4. Named after the English master Amos Burn (1848-1925), of whom Wikipedia states 'Burn is the eponym of the Burn Variation of the French Defence'. Head row only."
+      }
+    },
+    {
+      "ocn1": "C.KGm.Acc.All",
+      "evidence_grade": "PARTIAL",
+      "source_refs": [
+        "Wikipedia, 'Johann Baptist Allgaier' - https://en.wikipedia.org/wiki/Johann_Baptist_Allgaier (fetched 2026-06-19): 'From this perspective, it is probably not a coincidence that the variant of the King's Gambit named after him (1.e4 e5 2.f4 exf4 3.Nf3 g5 4.h4 g4 5.Ng5, the so-called Allgaier's Gambit) is a particularly sharp opening.' Johann Baptist Allgaier, 1763-1823. WEB-ONLY; needs reference-grade pin.",
+        "Wikipedia, 'King's Gambit' - https://en.wikipedia.org/wiki/King%27s_Gambit (fetched 2026-06-19): '4.h4 g4 5.Ng5 is the Allgaier Gambit, intending 5...h6 6.Nxf7.'"
+      ],
+      "fields": {
+        "attributed_to": "Johann Baptist Allgaier (eponym)",
+        "attribution_source": "Wikipedia, 'Johann Baptist Allgaier' (fetched 2026-06-19): 'the variant of the King's Gambit named after him (1.e4 e5 2.f4 exf4 3.Nf3 g5 4.h4 g4 5.Ng5, the so-called Allgaier's Gambit)'. Web-only attestation; reference-grade pin (Oxford Companion 'Allgaier Gambit' entry) pending.",
+        "historical_notes": "1.e4 e5 2.f4 exf4 3.Nf3 g5 4.h4 g4 5.Ng5, intending 5...h6 6.Nxf7 - a sharp knight sacrifice. Named after the Austrian master and theorist Johann Baptist Allgaier (1763-1823). Head row only; the King's Gambit Accepted family contains the distinct Kieseritzky line (5.Ne5) not covered here."
+      }
+    },
+    {
+      "ocn1": "C.Sco.Gor",
+      "evidence_grade": "PARTIAL",
+      "source_refs": [
+        "Wikipedia, 'Carl Goring' - https://en.wikipedia.org/wiki/Carl_G%C3%B6ring (fetched 2026-06-19): 'His name is attached to the Goring Gambit in the Scotch Game (1. e4 e5 2. Nf3 Nc6 3. d4 exd4 4. c3)...' Carl Theodor Goring, 1841-1879. WEB-ONLY; needs reference-grade pin.",
+        "Wikipedia, 'Scotch Game' - https://en.wikipedia.org/wiki/Scotch_Game (fetched 2026-06-19): 'The gambit was first played at high levels by Howard Staunton in the 1840s'; 'Carl Theodor Goring introduced it into master play in 1872.'"
+      ],
+      "fields": {
+        "attributed_to": "Carl Theodor Göring (introduced into master play; eponym)",
+        "attribution_source": "Wikipedia, 'Carl Göring' (fetched 2026-06-19): 'His name is attached to the Göring Gambit in the Scotch Game (1.e4 e5 2.Nf3 Nc6 3.d4 exd4 4.c3)'; Wikipedia 'Scotch Game' notes he 'introduced it into master play in 1872' (first played at high level by Howard Staunton in the 1840s). Web-only attestation; reference-grade pin pending.",
+        "historical_notes": "1.e4 e5 2.Nf3 Nc6 3.d4 exd4 4.c3 - the Scotch Göring Gambit. Named for the German master Carl Theodor Göring (1841-1879), who introduced it into master play in 1872; it was first played at high level by Howard Staunton in the 1840s, so the eponym marks Göring's master-play introduction rather than the first use. Head row only."
+      }
+    }
+  ]
+}

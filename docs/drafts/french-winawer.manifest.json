@@ -1,0 +1,24 @@
+{
+  "kind": "ocn.attribution_manifest.v1",
+  "title": "DRAFT — French Winawer eponym (B.Fre.Win), CLEAR",
+  "description": "UN-APPLIED DRAFT PROPOSAL. Head row B.Fre.Win only. Drafted straight from docs/french-winawer-attribution-proposal.md (Option A) and the verified reference-grade source recorded in docs/parked-attribution-reference-source-log.md: The Center Game (NotebookLM Q25, src a433382e): '(3.Nc3 Bb4) named after him' (Szymon Winawer 1838-1919). Graded CLEAR because a reference-grade book passage already exists and was nlm-verified. Apply-ready PENDING ONLY: Albert's explicit GO and an exact author/year pin for 'The Center Game' (do not conflate with Mario Ziegler, who is cited for a different book in the same paragraph). NOT for the live manifests dir; inert draft.",
+  "mode": "attribution_fields_only",
+  "expected_catalog_rows": 5899,
+  "expected_changed_rows": ["B.Fre.Win"],
+  "changes": [
+    {
+      "ocn1": "B.Fre.Win",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "The Center Game (NotebookLM Q25, source id a433382e), verified in docs/parked-attribution-reference-source-log.md: the dangerous variation in the French Defence (3.Nc3 Bb4) 'named after him' (Szymon Winawer, 1838-1919). Reference-grade book passage. EXACT AUTHOR/YEAR TO BE PINNED BEFORE APPLY.",
+        "Wikipedia, 'French Defence' / 'Szymon Winawer' (corroborating secondary): the Winawer Variation is named after Szymon Winawer and pioneered by Aron Nimzowitsch and Mikhail Botvinnik.",
+        "Lumbra Gigabase (chronology, verified): 3...Bb4 in the corpus from Paulsen 1861; Winawer's earliest, Steinitz-Winawer, Paris 1867 (as Black); Nimzowitsch from 1921, Botvinnik from 1927."
+      ],
+      "fields": {
+        "attributed_to": "Szymon Winawer (early practitioner; popularised at top level by Aron Nimzowitsch and Mikhail Botvinnik)",
+        "attribution_source": "Named after Szymon Winawer (1838-1919) per The Center Game ('(3.Nc3 Bb4) named after him', NotebookLM-grounded, reference-grade) and standard references (Wikipedia 'French Defence' and 'Szymon Winawer'); the corpus confirms his early use, e.g. Steinitz-Winawer, Paris 1867 (3...Bb4).",
+        "historical_notes": "1.e4 e6 2.d4 d5 3.Nc3 Bb4. Named for the Polish master Szymon Winawer (1838-1919), an early adopter of the ...Bb4 pin against 3.Nc3. The idea predates him - the corpus has 3...Bb4 from Paulsen's games (1861) - and the line was developed into a main French weapon in the 20th century by Aron Nimzowitsch (from 1921) and especially Mikhail Botvinnik (from 1927). A namesake early-practitioner, not the inventor."
+      }
+    }
+  ]
+}
