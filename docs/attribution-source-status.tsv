@@ -1,0 +1,21 @@
+ocn1	grade	source_ref	evidence_note
+A.Bir	CLEAR	lot-3-eco-a-eponyms-dry-run.md	Lot 3 ECO-A eponym head (Bird); APPLIED 2026-06-08, head-only, Wikipedia sourced (orchestrator re-verified first-hand).
+A.Gro	CLEAR	lot-3-eco-a-eponyms-dry-run.md	Lot 3 ECO-A eponym head (Grob); APPLIED 2026-06-08, head-only, Wikipedia sourced (orchestrator re-verified first-hand).
+A.Lar	CLEAR	lot-3-eco-a-eponyms-dry-run.md	Lot 3 ECO-A eponym head (Larsen); APPLIED 2026-06-08, head-only, Wikipedia sourced (orchestrator re-verified first-hand), corroborated by ChessBase for Larsen per the dry-run.
+A.Ret	CLEAR	lot-3-eco-a-eponyms-dry-run.md	Lot 3 ECO-A eponym head (Réti); APPLIED 2026-06-08, head-only, Wikipedia sourced (orchestrator re-verified first-hand).
+B.Fre.Win	CLEAR	parked-attribution-reference-source-log.md	Winawer; The Center Game (nlm Q25, src a433382e): "(3.Nc3 Bb4) named after him". Apply-ready (head-only); held only pending an author/year pin.
+B.Sic.Acc.Mar	CLEAR	parked-naming-audit-source-sweep.md	Maróczy Bind (Accelerated Dragon head); APPLIED 2026-05-31. Source Edward Winter, 'Géza Maróczy' (chesshistory.com), verified first-hand.
+B.Sic.Kan.Mar	CLEAR	parked-naming-audit-source-sweep.md	Maróczy Bind (Kan head); APPLIED 2026-05-31. Source Edward Winter, 'Géza Maróczy' (chesshistory.com), verified first-hand.
+B.Sic.OKe.c4	CLEAR	parked-naming-audit-source-sweep.md	Maróczy Bind (O'Kelly head); APPLIED 2026-05-31. Source Edward Winter, 'Géza Maróczy' (chesshistory.com), verified first-hand.
+D.Chi	CLEAR	parked-attribution-reference-source-log.md	Chigorin (QGD head only); APPLIED 2026-06-08 (Lot A). Avrukh GM Repertoire 1.d4 (nlm Q25): "named after ... Mikhail Chigorin". Distinct from Ruy Lopez Chigorin C.RyL.Cha.
+D.QGD.Exc.Car	CLEAR	parked-attribution-reference-source-log.md	Carlsbad structure (non-person -> attributed_to stays EMPTY; historical_notes only). Karpov & Matsukevich, Estrategia en el Ajedrez p.61 (nlm Q9): Karlsbad 1923 origin. Parked Lot B.
+D.Tar	CLEAR	parked-attribution-reference-source-log.md	Tarrasch (QGD head only); APPLIED 2026-06-08 (Lot A). Avrukh GM Repertoire 1.d4 Vol.1 + The Power of Pawns (nlm Q25): "named after ... Siegbert Tarrasch".
+B.Sic.Alp	PARTIAL	parked-attribution-reference-source-log.md	Alapin; nlm returned an explicit negative: no source names the 1.e4 c5 2.c3 line after Semyon Alapin (one "grounded" hit was the Ruy Lopez Alapin, a different opening). OC confirms the label only. Held.
+B.Sic.Tay	PARTIAL	parked-attribution-reference-source-log.md	Taimanov; nlm negative: "None of the provided sources state that the Sicilian Taimanov is named after Mark Taimanov." Secondary (Wikipedia) only. Held.
+C.KGm.Dec.Fal	HOLD	whole-catalogue-attribution-factory-map.md	Lot 2 (KGD Falkbeer) graded HOLD: scope to head-only (was full-family) and drop the agent-invented sub-slug before drafting a manifest. Source to pin: OCC 'Falkbeer'.
+C.RyL.Brk	HOLD	whole-catalogue-attribution-factory-map.md	Lot 4 (Ruy Lopez Breyer) graded HOLD: full-family lot needs the C.RyL.Brk sub-row handling decided before drafting. Source to pin: MCO / OCC.
+C.RyL.Zai	HOLD	whole-catalogue-attribution-factory-map.md	Lot 4 (Ruy Lopez Zaitsev) graded HOLD: pairs with C.RyL.Brk; full-family scope unresolved. Source to pin: MCO / OCC.
+B.CaK.Kar	HOLD	whole-catalogue-attribution-factory-map.md	Lot 7 (Caro-Kann Karpov) graded HOLD: full-family lot; fix the invented note slug and list all family slugs before drafting. Source to pin: ECO B / MCO.
+E.Blf	HOLD	whole-catalogue-attribution-factory-map.md	Lot 10 (ECO-E defence head) graded HOLD for scope ambiguity: resolve whether E.Blf.Acc is in scope before any attribution. Source to pin: OCC entries.
+E.Gru	HOLD	whole-catalogue-attribution-factory-map.md	Lot 10 (ECO-E defence head) graded HOLD for scope ambiguity (also a permanent-unattributed family head). Source to pin: OCC entries.
+E.Nim	HOLD	whole-catalogue-attribution-factory-map.md	Lot 10 (ECO-E defence head) graded HOLD for scope ambiguity (also a permanent-unattributed family head). Source to pin: OCC entries.
