@@ -1,0 +1,141 @@
+{
+  "kind": "ocn.attribution_manifest.v1",
+  "title": "DRAFT — web-sourced eponym heads (PARTIAL, 10 heads)",
+  "description": "UN-APPLIED DRAFT PROPOSAL. Ten head-only eponym attributions, each with a first-hand web (Wikipedia / chess.com / chessable) 'named after / named for / eponym / name attached to' attestation. Graded PARTIAL because the reached sources are web/Wikipedia, NOT reference-grade: each NEEDS A REFERENCE-GRADE PIN (Oxford Companion entry / monograph) to lift to CLEAR before any --strict --apply. The engine's --strict mode REJECTS this manifest on the first PARTIAL grade (by design). HEAD ROWS ONLY - no child rows. Review notes carried per head: B.Fre.Mac spelling discrepancy (person 'McCutcheon' vs catalogue variation 'MacCutcheon'); C.KGm.Acc.Kie first described by Polerio (16th c.), named after Kieseritzky for his 5.Ne5 theory; B.Fre.Win was previously mis-graded CLEAR on a debunked 'The Center Game' source - now correctly PARTIAL on Wikipedia. NOT for the live manifests dir; inert draft.",
+  "mode": "attribution_fields_only",
+  "expected_catalog_rows": 5899,
+  "expected_changed_rows": [
+    "B.Fre.Win",
+    "B.Fre.Mac",
+    "B.Fre.Bur",
+    "C.Sco.Gor",
+    "C.KGm.Acc.Kie",
+    "D.QGD.Lsk",
+    "D.QGD.Rag",
+    "D.QGD.Har",
+    "E.KID.Sml",
+    "E.Nim.Sml"
+  ],
+  "changes": [
+    {
+      "ocn1": "B.Fre.Win",
+      "evidence_grade": "PARTIAL",
+      "source_refs": [
+        "Wikipedia, 'French Defence' - https://en.wikipedia.org/wiki/French_Defence : 'The Winawer Variation, named after Szymon Winawer and pioneered by Aron Nimzowitsch and Mikhail Botvinnik, is one of the main systems in the French.' WEB-ONLY; needs reference-grade pin. CORRECTION: the prior CLEAR rested on 'The Center Game' (Arne Moll's monograph on the Center Game, a DIFFERENT opening); that NotebookLM grounding was hallucinated and is debunked - do not cite it."
+      ],
+      "fields": {
+        "attributed_to": "Szymon Winawer (eponym; early practitioner)",
+        "attribution_source": "Wikipedia, 'French Defence' (https://en.wikipedia.org/wiki/French_Defence): 'The Winawer Variation, named after Szymon Winawer and pioneered by Aron Nimzowitsch and Mikhail Botvinnik, is one of the main systems in the French.' Web-only attestation; reference-grade pin pending. NB: the earlier 'The Center Game' citation was debunked (different opening; hallucinated grounding).",
+        "historical_notes": "1.e4 e6 2.d4 d5 3.Nc3 Bb4. The Winawer Variation, named after Szymon Winawer (1838-1919) and pioneered by Aron Nimzowitsch and Mikhail Botvinnik. The same eponym also names the Winawer Countergambit in the Slav (catalogue D.Sla.Win) - a distinct line. Head row only."
+      }
+    },
+    {
+      "ocn1": "B.Fre.Mac",
+      "evidence_grade": "PARTIAL",
+      "source_refs": [
+        "Wikipedia, 'French Defence' - https://en.wikipedia.org/wiki/French_Defence : 'The McCutcheon Variation is named for John Lindsay McCutcheon of Philadelphia (1857-1905), who brought the variation to public attention when he used it to defeat World Champion Steinitz in a simultaneous exhibition in Manhattan in 1885.' WEB-ONLY; needs reference-grade pin. SPELLING NOTE: the person is 'John Lindsay McCutcheon' (Mc); the catalogue variation is spelled 'MacCutcheon'."
+      ],
+      "fields": {
+        "attributed_to": "John Lindsay McCutcheon (eponym; early practitioner)",
+        "attribution_source": "Wikipedia, 'French Defence' (https://en.wikipedia.org/wiki/French_Defence): 'The McCutcheon Variation is named for John Lindsay McCutcheon of Philadelphia (1857-1905), who brought the variation to public attention when he used it to defeat World Champion Steinitz in a simultaneous exhibition in Manhattan in 1885.' Web-only attestation; reference-grade pin pending.",
+        "historical_notes": "1.e4 e6 2.d4 d5 3.Nc3 Nf6 4.Bg5 Bb4. Named for John Lindsay McCutcheon of Philadelphia (1857-1905), who brought the variation to public attention by defeating World Champion Steinitz in a simultaneous exhibition in Manhattan, 1885. SPELLING: the person is spelled 'McCutcheon' (Mc); the catalogue variation is spelled 'MacCutcheon' - a discrepancy to confirm at review. Head row only."
+      }
+    },
+    {
+      "ocn1": "B.Fre.Bur",
+      "evidence_grade": "PARTIAL",
+      "source_refs": [
+        "Wikipedia, 'Amos Burn' - https://en.wikipedia.org/wiki/Amos_Burn : 'Burn is the eponym of the Burn Variation of the French Defence (1.e4 e6 2.d4 d5 3.Nc3 Nf6 4.Bg5 dxe4).' (Amos Burn, 1848-1925.) WEB-ONLY; needs reference-grade pin."
+      ],
+      "fields": {
+        "attributed_to": "Amos Burn (eponym)",
+        "attribution_source": "Wikipedia, 'Amos Burn' (https://en.wikipedia.org/wiki/Amos_Burn): 'Burn is the eponym of the Burn Variation of the French Defence (1.e4 e6 2.d4 d5 3.Nc3 Nf6 4.Bg5 dxe4).' Web-only attestation; reference-grade pin pending.",
+        "historical_notes": "1.e4 e6 2.d4 d5 3.Nc3 Nf6 4.Bg5 dxe4. Named after the English master Amos Burn (1848-1925), of whom Wikipedia states 'Burn is the eponym of the Burn Variation of the French Defence'. Head row only."
+      }
+    },
+    {
+      "ocn1": "C.Sco.Gor",
+      "evidence_grade": "PARTIAL",
+      "source_refs": [
+        "Wikipedia, 'Carl Goring' - https://en.wikipedia.org/wiki/Carl_G%C3%B6ring : 'His name is attached to the Goring Gambit in the Scotch Game (1.e4 e5 2.Nf3 Nc6 3.d4 exd4 4.c3)... Carl Theodor Goring introduced it into master play in 1872.' (1841-1879.) WEB-ONLY; needs reference-grade pin."
+      ],
+      "fields": {
+        "attributed_to": "Carl Theodor Göring (eponym; introduced into master play, 1872)",
+        "attribution_source": "Wikipedia, 'Carl Göring' (https://en.wikipedia.org/wiki/Carl_G%C3%B6ring): 'His name is attached to the Göring Gambit in the Scotch Game (1.e4 e5 2.Nf3 Nc6 3.d4 exd4 4.c3)... Carl Theodor Göring introduced it into master play in 1872.' Web-only attestation; reference-grade pin pending.",
+        "historical_notes": "1.e4 e5 2.Nf3 Nc6 3.d4 exd4 4.c3 - the Scotch Göring Gambit. Named for the German master Carl Theodor Göring (1841-1879), whose name is attached to the gambit and who introduced it into master play in 1872. Head row only."
+      }
+    },
+    {
+      "ocn1": "C.KGm.Acc.Kie",
+      "evidence_grade": "PARTIAL",
+      "source_refs": [
+        "Wikipedia, 'Kieseritzky Gambit' - https://en.wikipedia.org/wiki/Kieseritzky_Gambit : 'Named after Lionel Kieseritzky (1805-1853)... first described by Polerio in the late 16th century... Kieseritzky had contributed significantly to the theory of 5.Ne5.' WEB-ONLY; needs reference-grade pin. CAVEAT: first described by Polerio (16th c.); named after Kieseritzky for his 5.Ne5 theory."
+      ],
+      "fields": {
+        "attributed_to": "Lionel Kieseritzky (eponym; theorist of 5.Ne5)",
+        "attribution_source": "Wikipedia, 'Kieseritzky Gambit' (https://en.wikipedia.org/wiki/Kieseritzky_Gambit): 'Named after Lionel Kieseritzky (1805-1853)... first described by Polerio in the late 16th century... Kieseritzky had contributed significantly to the theory of 5.Ne5.' Web-only attestation; reference-grade pin pending.",
+        "historical_notes": "1.e4 e5 2.f4 exf4 3.Nf3 g5 4.h4 g4 5.Ne5 - the Kieseritzky line of the King's Gambit Accepted. Named after Lionel Kieseritzky (1805-1853). CAVEAT: the line was first described by Polerio in the late 16th century; it carries Kieseritzky's name for his significant contribution to the theory of 5.Ne5. Head row only."
+      }
+    },
+    {
+      "ocn1": "D.QGD.Lsk",
+      "evidence_grade": "PARTIAL",
+      "source_refs": [
+        "chess.com, 'Lasker's Queen's Gambit Declined' - https://www.chess.com/article/view/lasker-s-queen-s-gambit-declined : '...His contribution was the idea of ...Ne4... Lasker is generally considered the author of the ...Ne4 concept.' WEB-ONLY; needs reference-grade pin. CAVEAT: Lasker is a multi-head surname; this is the QGD ...Ne4 defence specifically."
+      ],
+      "fields": {
+        "attributed_to": "Emanuel Lasker (author of the ...Ne4 concept)",
+        "attribution_source": "chess.com, 'Lasker's Queen's Gambit Declined' (https://www.chess.com/article/view/lasker-s-queen-s-gambit-declined): '...His contribution was the idea of ...Ne4... Lasker is generally considered the author of the ...Ne4 concept.' Web-only attestation; reference-grade pin pending.",
+        "historical_notes": "1.d4 d5 2.c4 e6 3.Nc3 Nf6 4.Bg5 Be7 5.e3 O-O 6.Nf3 h6 7.Bh4 Ne4 - the Lasker Defence to the QGD. Named for Emanuel Lasker, generally considered the author of the ...Ne4 concept. CAVEAT: 'Lasker' is a multi-head surname; this attribution is the QGD ...Ne4 defence specifically. Head row only."
+      }
+    },
+    {
+      "ocn1": "D.QGD.Rag",
+      "evidence_grade": "PARTIAL",
+      "source_refs": [
+        "chessable blog, 'Chess Opening Basics: The Ragozin Defence' - https://www.chessable.com/blog/chess-opening-basics-the-ragozin-defence/ : '...Viacheslav Ragozin (the man after whom the defence was named)...' WEB-ONLY; needs reference-grade pin."
+      ],
+      "fields": {
+        "attributed_to": "Viacheslav Ragozin (eponym)",
+        "attribution_source": "chessable blog, 'Chess Opening Basics: The Ragozin Defence' (https://www.chessable.com/blog/chess-opening-basics-the-ragozin-defence/): '...Viacheslav Ragozin (the man after whom the defence was named)...' Web-only attestation; reference-grade pin pending.",
+        "historical_notes": "1.d4 d5 2.c4 e6 3.Nc3 Nf6 4.Nf3 Bb4 - the Ragozin Defence to the QGD. Named after Viacheslav Ragozin, 'the man after whom the defence was named'. Head row only."
+      }
+    },
+    {
+      "ocn1": "D.QGD.Har",
+      "evidence_grade": "PARTIAL",
+      "source_refs": [
+        "Wikipedia, 'List of chess openings named after people' - https://en.wikipedia.org/wiki/List_of_chess_openings_named_after_people : 'Harrwitz Attack of the Queen's Gambit Declined - 1.d4 d5 2.c4 e6 3.Nc3 Nf6 4.Bf4 - named after Daniel Harrwitz.' WEB-ONLY; needs reference-grade pin."
+      ],
+      "fields": {
+        "attributed_to": "Daniel Harrwitz (eponym)",
+        "attribution_source": "Wikipedia, 'List of chess openings named after people' (https://en.wikipedia.org/wiki/List_of_chess_openings_named_after_people): 'Harrwitz Attack of the Queen's Gambit Declined - 1.d4 d5 2.c4 e6 3.Nc3 Nf6 4.Bf4 - named after Daniel Harrwitz.' Web-only attestation; reference-grade pin pending.",
+        "historical_notes": "1.d4 d5 2.c4 e6 3.Nf3 Nf6 4.Nc3 Be7 5.Bf4 - the Harrwitz Attack of the QGD (Wikipedia's move order 1.d4 d5 2.c4 e6 3.Nc3 Nf6 4.Bf4). Named after Daniel Harrwitz. Head row only."
+      }
+    },
+    {
+      "ocn1": "E.KID.Sml",
+      "evidence_grade": "PARTIAL",
+      "source_refs": [
+        "Wikipedia, 'King's Indian Defence, Sämisch Variation' - https://en.wikipedia.org/wiki/King%27s_Indian_Defence,_S%C3%A4misch_Variation : 'It is named after the German grandmaster Friedrich Sämisch.' WEB-ONLY; needs reference-grade pin."
+      ],
+      "fields": {
+        "attributed_to": "Friedrich Sämisch (eponym)",
+        "attribution_source": "Wikipedia, 'King's Indian Defence, Sämisch Variation' (https://en.wikipedia.org/wiki/King%27s_Indian_Defence,_S%C3%A4misch_Variation): 'It is named after the German grandmaster Friedrich Sämisch.' Web-only attestation; reference-grade pin pending.",
+        "historical_notes": "1.d4 Nf6 2.c4 g6 3.Nc3 Bg7 4.e4 d6 5.f3 - the Sämisch Variation of the King's Indian Defence. Named after the German grandmaster Friedrich Sämisch. Head row only; the same eponym names the Nimzo-Indian Sämisch (catalogue E.Nim.Sml), a distinct line."
+      }
+    },
+    {
+      "ocn1": "E.Nim.Sml",
+      "evidence_grade": "PARTIAL",
+      "source_refs": [
+        "Wikipedia, 'Nimzo-Indian Defence' - https://en.wikipedia.org/wiki/Nimzo-Indian_Defence : '4.a3 is known as the Sämisch Variation, after Fritz Sämisch.' WEB-ONLY; needs reference-grade pin."
+      ],
+      "fields": {
+        "attributed_to": "Friedrich Sämisch (eponym)",
+        "attribution_source": "Wikipedia, 'Nimzo-Indian Defence' (https://en.wikipedia.org/wiki/Nimzo-Indian_Defence): '4.a3 is known as the Sämisch Variation, after Fritz Sämisch.' Web-only attestation; reference-grade pin pending.",
+        "historical_notes": "1.d4 Nf6 2.c4 e6 3.Nc3 Bb4 4.a3 - the Sämisch Variation of the Nimzo-Indian Defence. Named after Fritz (Friedrich) Sämisch. Head row only; the same eponym names the King's Indian Sämisch (catalogue E.KID.Sml), a distinct line."
+      }
+    }
+  ]
+}
