@@ -199,6 +199,15 @@ H0.1-H0.7 ──> H0.8 flip public ──> H1.1 pip + H1.2 JSON ──> H1.3 aut
   [`archive/corpus-citation-hygiene-dry-run.md`](archive/corpus-citation-hygiene-dry-run.md).
   Maroczy trio deliberately kept: identical sources are legitimate for
   identical claims; per-row context lives in historical_notes.
+- 2026-07-29 — **H0.5 done.** EFCDB references removed from the spec
+  entirely (grep-clean): the Layer 1 pairing and the Lichess long-tail
+  layering are restated over in-repo artefacts (the xref sidecar), and
+  the new normative **Annex A — Position identity** defines `fen_key`
+  (with the legal-en-passant rule stated as the trap it is) and the
+  Polyglot Zobrist by reference to the public book format. Position
+  keys are now computable from OCN-1 alone. Two leftover "corpus"
+  mentions in the column table also removed (H0.4 alignment).
+  **Horizon 0 is complete except H0.8, the flip itself.**
 - 2026-07-29 — **H0.3 done.** Spec Format section now states the
   enforced grammar (`class . named+ . move*`, 7-segment cap);
   depth-cap saturation acknowledged as design; token ambiguity

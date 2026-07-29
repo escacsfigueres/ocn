@@ -205,31 +205,31 @@ The reference catalogue is `catalog/ocn-1.csv`. Each row has the columns:
 | `flags` | string null | Pipe-separated tags from the closed set `{gambit, sharp, closed, endgame, theoretical, deprecated}`. |
 | `notes` | string null | Free text explaining edge cases or borderline classification. |
 | `attributed_to` | string null | Player(s), school, or event the opening is associated with. Free text. |
-| `attribution_source` | string null | Citation supporting `attributed_to`. **Required** when `attributed_to` is non-empty — the validator rejects unsourced claims. Free text but should reference a book, an article, a tournament game, or a corpus signal. |
-| `historical_notes` | string null | Longer-form context (transmission history, popularisation, calibration against the corpus). |
+| `attribution_source` | string null | Citation supporting `attributed_to`. **Required** when `attributed_to` is non-empty — the validator rejects unsourced claims. Free text but must reference published, publicly checkable evidence: a book, an article, or a dated tournament game. Unverifiable sources (unpublished game collections, private databases) are rejected by the validator. |
+| `historical_notes` | string null | Longer-form context (transmission history, popularisation, dated antecedent games). |
 | `transposes_to` | string null | Slug of the FEN-canonical OCN-1 entry that owns this position. Set when this row is a move-order transposition of another. NULL when this row is itself canonical. See "Canonicalisation by position" below. |
 | `same_as` | string null | Pipe-separated list of OCN-1 slug(s) that share this row's FEN and are preserved alongside it as co-canonical entries. Set when two or more rows are both canonical literary identities of the same position. Mutually exclusive with `transposes_to` on a single row. NULL when this row has no declared co-canonical partner. See "Co-canonical preservation" below. |
 
 The three attribution columns form the catalogue's "Layer 2" — curated,
-human-asserted history. They sit alongside the corpus-derived `Layer 1`
-table `opening_provenance` (EFCDB-v1 Table 8), which stores
-machine-recomputable signals (first/last game, top players, total
-games). Joining the two by `ocn1` lets a reader see what the literature
-claims AND what the corpus shows, and notice when they disagree.
+human-asserted history. Downstream position-indexed datasets MAY
+maintain a machine-recomputable "Layer 1" beside it (first/last game,
+top players, total games) and join it by `ocn1`; that layering is
+informative and lives outside OCN-1.
 
-Producers MAY emit a derived `zobrist` (INT64) column alongside the
-catalogue when serialising to a position-indexed format. The reference
-toolchain (`escacsfigueres/chess-parquet`'s `efcdb-openings` crate)
-replays `moves_uci` from the standard initial position and writes the
-Polyglot Zobrist hash into `openings.parquet`. Consumers can then JOIN
-`openings.zobrist` against any position-indexed dataset directly.
+Position identity — how a row's `moves_uci` becomes a comparable
+position key and a 64-bit hash — is defined normatively in
+**Annex A** below. Producers MAY emit a derived `zobrist` (INT64)
+column when serialising to a position-indexed format; a positions
+sidecar carrying SAN movetext, EPD, corrected FEN and the Polyglot
+zobrist, generated in-repo, is planned (roadmap H2.8). (Informative:
+external toolchains have historically produced such an artefact;
+nothing in OCN-1 depends on any of them.)
 
 The OCN repository also provides a lightweight derived export:
 `tools/export_positions.py` emits one row per concrete catalogue entry
 with `fen_key` (board, turn, castling, legal en-passant), canonical
 counter-normalised `fen` (`fen_key 0 1`), and
-`transposition_group_size`. This export is for audit and text workflows;
-the Polyglot `zobrist` contract remains the EFCDB/openings artefact.
+`transposition_group_size`.
 
 ### Canonicalisation by position (`transposes_to`)
 
@@ -443,9 +443,10 @@ OCN-1" SHOULD apply the **deepest-match** rule:
    the ambiguity rather than silently picking one.
 
 When precise matching matters (preparation, novelty hunting,
-move-order-aware analysis) consumers SHOULD JOIN by `zobrist` against a
-position-indexed dataset rather than rely on ECO at all. ECO is a coarse
-filter; the canonical zobrist is the unambiguous identifier.
+move-order-aware analysis) consumers SHOULD JOIN by `zobrist` — as
+defined in Annex A — against a position-indexed dataset rather than
+rely on ECO at all. ECO is a coarse filter; the canonical zobrist is
+the unambiguous identifier.
 
 ## Versioning
 
@@ -545,15 +546,64 @@ Opening Book (`lichess-org/chess-openings`, CC0) on top of OCN-1:
    ancestor of that line — so even unnamed-by-OCN positions can be
    shown grouped under a familiar OCN-1 family.
 
-The reference EFCDB toolchain provides this layering as Table 6
-(`lichess_openings`); see the EFCDB-v1 spec for the schema and the
-join recipe. With both tables loaded, every position in a real game
-database can be resolved to a name: curated OCN-1 names first, and then
-Lichess's CC0 names with an OCN-1 family as breadcrumb.
+The OCN repository ships this layering directly:
+`catalog/ocn-1.lichess-xref.tsv` maps every OCN-1 row to its exact or
+nearest-ancestor Lichess label. With the catalogue and the upstream
+Lichess TSVs loaded, every position in a real game database can be
+resolved to a name: curated OCN-1 names first, and then Lichess's CC0
+names with an OCN-1 family as breadcrumb.
 
 The repository includes `tools/lichess_parent_map.py` as a lightweight
 CSV/TSV bridge: it converts Lichess SAN PGN lines to UCI and assigns the
 deepest OCN-1 parent by move-prefix match.
+
+## Annex A — Position identity (normative)
+
+How a catalogue row's `moves_uci` becomes a comparable position key.
+This annex makes OCN-1 self-contained: everything needed to compute
+position identity is defined here or in public, freely available
+standards.
+
+### The `fen_key`
+
+Replay `moves_uci` from the standard initial position. The `fen_key`
+is the first four FEN fields of the resulting position:
+
+1. **Board** — standard FEN piece placement.
+2. **Side to move** — `w` or `b`.
+3. **Castling rights** — the FEN castling field, `-` when none remain.
+4. **En passant** — the target square **only if at least one enemy
+   pawn can legally capture en passant** (a capture that would leave
+   the capturer's own king in check does not count); otherwise `-`.
+
+Rule 4 is the trap. Most FEN emitters (including python-chess's
+`Board.fen()`) print the en-passant square after every double pawn
+push, whether or not the capture is legal. Two `fen_key`s for the same
+position must compare equal, so OCN normalises to the *legal-capture*
+form — the same convention the Polyglot hash uses. Consumers comparing
+their own FENs against OCN MUST apply the same normalisation
+(`tools/ocn.py` ships it as `fen_key()`).
+
+The exported `fen` column is `fen_key` plus placeholder counters;
+halfmove and fullmove counters are not part of position identity.
+
+### The Polyglot Zobrist hash
+
+Where a 64-bit key is wanted (joins, opening books), OCN-1 uses the
+**Polyglot book hash**: the XOR of the standard public Polyglot random
+keys for piece placement, castling rights, the en-passant file (only
+when a legal capture exists — the same rule as `fen_key`), and the
+side to move, computed on the position reached by replaying
+`moves_uci`. The 781-key array and the hashing rules are the public
+Polyglot book format, documented and reproduced identically across
+open implementations (among them python-chess's `chess.polyglot`
+module and the chessprogramming wiki's "BookFormats" entry). An
+implementation that disagrees with those public keys is nonconforming.
+
+Class roots (`A` through `E`) carry no `moves_uci` and therefore no
+position identity: they are filters, not positions. Consumers MUST
+special-case them (they are the five null-key rows in any derived
+export).
 
 ## Acknowledgements
 
