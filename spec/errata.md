@@ -20,9 +20,12 @@ existing on paper.
 
 **Corrective policy:** this class of change now requires the
 deprecation lifecycle (mark `deprecated`, add the successor entry, keep
-a permanent redirect) rather than in-place migration. The lifecycle,
-including its first worked example, is spec 1.3 work (roadmap H2.4);
-until it lands, no further slug re-points are permitted at all.
+a permanent redirect) rather than in-place migration. **The lifecycle
+landed in v1.3**: it is a numbered normative procedure, the permanent
+redirect sidecar `catalog/ocn-1.redirects.tsv` exists (shipped empty),
+and `A.Hol` is designated its first scheduled case. In-place re-pointing
+of a published slug is now a major (2.x) change under the field-level
+table, so the QID migration could not recur inside a minor version.
 
 ## E-002 — 683 canonical names renamed under a minor version (1.2.0)
 
@@ -36,11 +39,15 @@ and name-string joins were the only breakage, which the release notes
 called out explicitly. Still, the rule as written did not authorise a
 mass rename.
 
-**Corrective policy:** versioning 2.0 (spec 1.3, roadmap H2.4) defines
+**Corrective policy:** versioning 2.0 **landed in v1.3**. It defines
 field-level change classes — slug removal/re-point major; entry
 addition, canonical-name change with changelog, new flag minor;
-notes/aliases/attribution patch — which legalises this class of release
-explicitly instead of by silence. 1.2.0 is its motivating precedent.
+notes/aliases/attribution/i18n patch — which legalises this class of
+release explicitly instead of by silence. 1.2.0 is its motivating
+precedent, and under the table it is a minor with a required changelog
+entry, which 1.2.0's release notes carried. The rule was written to
+match a practice that was already correct; nothing about 1.2.0 is
+re-litigated.
 
 ## E-003 — Published grammar narrower than the enforced grammar
 
@@ -54,9 +61,12 @@ catalogue contains 1,084 rows (18.4%) at seven segments and 1,393 rows
 the spec literally would have rejected a quarter of the reference
 catalogue.
 
-**Corrective policy:** the Format section now states the enforced
-grammar (triage patch, 2026-07-29). The normative ABNF, the
-maximal-SAN-suffix token rule, and the conformance corpus land in spec
-1.3 (roadmap H2.4). Doctrine going forward: the spec bends to the
-deployed catalogue; the catalogue is never churned to satisfy a
-document.
+**Corrective policy:** the Format section stated the enforced grammar in
+the triage patch (2026-07-29), and **v1.3 replaced it with a normative
+RFC 5234 ABNF**, the maximal-SAN-suffix token rule, and the normative
+conformance corpus in `conformance/`. The grammar/profile split exists
+so this cannot recur: the profile may only be tightened against a
+catalogue that already satisfies the tighter rule, and a validator that
+rejects a shipped row has found a spec bug (Conformance, V-5). Doctrine
+going forward: the spec bends to the deployed catalogue; the catalogue
+is never churned to satisfy a document.

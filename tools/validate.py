@@ -52,6 +52,11 @@ Checks performed:
     the rows whose OCN class letter is absent from their own ECO letters,
     recomputed here from the catalogue. Canonical catalogue only — the
     fixtures carry no sidecar (traction-roadmap H2.5).
+22. No NEW SAN-shaped named token (spec 1.3, profile rule CP-5). The
+    named region is computed with the spec's maximal-SAN-suffix parse
+    rule; any segment in it that also parses as SAN must appear in
+    `GRANDFATHERED_SAN_NAMED_TOKENS`, which mirrors the published table
+    in `spec/OCN-1.md` and is closed.
 
 Exits with code 0 on success, 1 on the first error encountered.
 
@@ -99,6 +104,8 @@ SAN_RE = re.compile(
 UCI_RE = re.compile(r"^[a-h][1-8][a-h][1-8][nbrq]?$")
 
 # Tokens that intentionally break the "3 characters" rule.
+# Published as the spec's named-token registry (CP-3 exemptions), which
+# tools/tests/test_conformance_corpus.py pins to this set.
 KNOWN_LONG_TOKENS = {
     # Established acronyms in chess literature.
     "KID", "QGD", "QGA", "QID", "NID", "OID", "RyL", "OldI", "AntM",
@@ -106,6 +113,25 @@ KNOWN_LONG_TOKENS = {
     # Generic openings that are themselves a class root + alias.
     # (single-letter top-level classes are matched separately)
 }
+
+# Named tokens that also parse as SAN, grandfathered by spec 1.3
+# (profile rule CP-5, table "Grandfathered SAN-shaped named tokens" in
+# spec/OCN-1.md — pinned to this constant by the conformance test).
+#
+# NOT curated: computed from the live catalogue by applying the spec's
+# maximal-SAN-suffix parse rule to every row and collecting the
+# named-region segments that match SAN_RE. 39 tokens, 570 named-region
+# occurrences. The set is CLOSED: check 22 rejects any SAN-shaped named
+# token outside it, so `Bg5`-shaped names survive where they are already
+# published keys and cannot be minted anywhere new.
+GRANDFATHERED_SAN_NAMED_TOKENS = frozenset({
+    "Ba4", "Bb3", "Bb4", "Bb5", "Bb7", "Bc4", "Bc5", "Bd2", "Bd3", "Bd6",
+    "Bd7", "Be2", "Be3", "Be6", "Be7", "Bf4", "Bf5", "Bg2", "Bg5", "Bg7",
+    "Na6", "Nc3", "Nc6", "Nd6", "Nd7", "Ne2", "Ne4", "Nf3", "Nf6", "Ng5",
+    "O-O",
+    "Qa4", "Qc2", "Qd1", "Qe2", "Qe7", "Qh5",
+    "Rc1", "Re8",
+})
 
 ALLOWED_FLAGS = {
     "gambit", "sharp", "closed", "endgame", "theoretical", "deprecated",
@@ -224,6 +250,27 @@ def warn(msg: str) -> None:
 
 def normalize_san(san: str) -> str:
     return san.rstrip("+#")
+
+
+def named_region(segments: list[str]) -> list[str]:
+    """The named-region segments of a slug, per spec 1.3's parse rule.
+
+    The move tail is the *maximal* trailing run of segments that parse
+    as SAN; everything between the class letter and that run is a named
+    token, whatever its shape. So `B.Sic.Sve.Nd5` yields ['Sic', 'Sve']
+    (Nd5 is the 11.Nd5 tabiya, a move) while `D.Sem.Bg5.Mos` yields
+    ['Sem', 'Bg5', 'Mos'] (Bg5 is the branch label, a name).
+
+    Deliberately not the same walk as check 8, which scans left to right
+    and treats any 3-character token as named. Check 8 decides
+    *acceptance*; this decides *classification*, which is what CP-5
+    needs.
+    """
+    rest = segments[1:]
+    cut = len(rest)
+    while cut and SAN_RE.match(rest[cut - 1]):
+        cut -= 1
+    return rest[:cut]
 
 
 def recompute_divergent_slugs(rows: list[dict]) -> set[str]:
@@ -401,6 +448,21 @@ def validate(
             warn(f"row {i}: non-standard segment length: '{seg}' "
                  f"(in slug '{slug}'). Add to KNOWN_LONG_TOKENS if intentional.")
             warnings += 1
+
+        # 22. No NEW SAN-shaped named token (spec 1.3, profile rule
+        #     CP-5). `Bg5` and friends are legitimate *names* where the
+        #     catalogue already published them, and the table of those is
+        #     closed — a newly minted named token that also parses as SAN
+        #     would reintroduce exactly the ambiguity the maximal-suffix
+        #     rule exists to settle, for a slug nobody depends on yet.
+        for token in named_region(segments):
+            if (SAN_RE.match(token)
+                    and token not in GRANDFATHERED_SAN_NAMED_TOKENS):
+                fail(f"row {i}: named token '{token}' in slug '{slug}' "
+                     f"parses as a SAN move and is not in the "
+                     f"grandfathered table (spec 1.3, CP-5). New named "
+                     f"tokens must not be SAN-shaped — pick a token that "
+                     f"cannot be read as a move.")
 
         # 7. ECO legacy format
         eco_legacy = (row.get("eco_legacy") or "").strip()

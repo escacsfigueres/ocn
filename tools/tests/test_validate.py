@@ -43,6 +43,7 @@ EXPECTED_INVALID: dict[str, tuple[tuple[str, ...], str]] = {
     "invalid_unverifiable_source.csv": ((), "unverifiable source"),
     "invalid_san_at_class_root.csv": ((), "immediately after the class"),
     "invalid_named_after_tail.csv": ((), "follows a move tail"),
+    "invalid_new_san_named_token.csv": ((), "grandfathered table"),
     "invalid_unknown_flag.csv": ((), "unknown flag"),
     "invalid_missing_schema_column.csv": ((), "missing required column"),
     "invalid_transposes_to_missing.csv": ((), "transposes_to='A.Bar'"),

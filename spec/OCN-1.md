@@ -1,8 +1,10 @@
 # OCN-1 — Open Chess Naming, version 1
 
-**Status**: v1.1 — living spec for the released `ocn-1.1.x` catalogue line
-(first issued as Draft v0.1 on 2026-04-28; see "Spec history" under
-Versioning)
+**Status**: v1.3 — the standards edition: normative ABNF, catalogue
+profile, conformance classes and corpus. **Unreleased**: it takes effect
+with the next catalogue tag; the released catalogue line is still
+`ocn-1.2.x`. (First issued as Draft v0.1 on 2026-04-28; see "Spec
+history" under Versioning.)
 **Author**: Club d'Escacs Figueres
 **License**: CC-BY-4.0 (this document and the catalogue)
 **Repository**: https://github.com/escacsfigueres/ocn
@@ -46,38 +48,243 @@ sub-code with a small, human-readable, hierarchical slug.
    change meaning. New openings extend the catalogue; existing entries are
    amended only via aliases or deprecation, never by re-pointing.
 
+## Requirements language
+
+The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT",
+"SHOULD", "SHOULD NOT", "RECOMMENDED", "NOT RECOMMENDED", "MAY", and
+"OPTIONAL" in this document are to be interpreted as described in
+BCP 14 [RFC 2119] [RFC 8174] when, and only when, they appear in all
+capitals, as shown here.
+
+Normative parts of OCN-1 are: this document except where a section is
+marked *informative*, the ABNF below, the catalogue profile, and the
+conformance corpus in [`conformance/`](../conformance/). Everything else
+in the repository — tools, guides, audits, release notes — is
+informative. Where a tool and this document disagree, the document is
+wrong until proven otherwise (`errata.md`, E-003): the spec bends to the
+deployed catalogue, and the catalogue is never churned to satisfy a
+document.
+
 ## Format
 
-```
-<class> ( "." <named> )+ ( "." <move> )*
+### The two layers
+
+OCN-1 separates what a slug *may* look like from what the reference
+catalogue actually contains.
+
+- **The grammar** — the ABNF below — is the stable layer, and it is
+  **major-versioned**. Changing it (a new character in a token, a
+  different separator, a different move notation) is a 2.x change and
+  nothing less.
+- **The catalogue profile** is the tightening layer, and it is
+  **minor-versioned**. It caps depth, constrains token shape, and closes
+  the set of ambiguous tokens. A profile constraint MAY be tightened in a
+  minor version **only when the catalogue shipped in that release already
+  satisfies it** — every profile rule below was computed from the live
+  catalogue before it was written down.
+
+A slug is **grammar-valid** when it matches the ABNF. It is
+**profile-valid** when it is grammar-valid and satisfies every rule of
+the profile in force. The reference catalogue contains profile-valid
+slugs only. Class roots (bare `A` through `E`) are grammar-valid and
+profile-valid.
+
+Earlier editions of this document published a narrower production (at
+most six segments, at most two move segments) that the catalogue
+outgrew; see [`errata.md`](errata.md), E-003.
+
+### Grammar (normative ABNF)
+
+The slug grammar in ABNF as defined by RFC 5234. Terminals are given as
+numeric values because ABNF quoted strings are case-insensitive and OCN-1
+slugs are case-significant.
+
+```abnf
+   ocn-slug    = class *( dot named ) *( dot san-move )
+
+   class       = %x41 / %x42 / %x43 / %x44 / %x45
+                                     ; "A" / "B" / "C" / "D" / "E"
+
+   dot         = %x2E                ; "."
+
+   named       = 1*token-char
+   token-char  = ALPHA / DIGIT / %x5F / %x3D / %x2D
+                                     ; letter / digit / "_" / "=" / "-"
+
+   san-move    = castling / piece-move
+   castling    = %x4F.2D.4F [ %x2D.4F ]
+                                     ; "O-O" / "O-O-O"
+   piece-move  = [ piece ] [ file ] [ rank ] [ %x78 ] square [ promotion ]
+                                     ; %x78 = "x", the capture marker
+   piece       = %x4E / %x42 / %x52 / %x51 / %x4B
+                                     ; "N" / "B" / "R" / "Q" / "K"
+   promotion   = %x3D promo-piece    ; "=" then the promoted piece
+   promo-piece = %x4E / %x42 / %x52 / %x51
+                                     ; "N" / "B" / "R" / "Q"
+   square      = file rank
+   file        = %x61-68             ; "a" - "h"
+   rank        = %x31-38             ; "1" - "8"
+
+   ; ALPHA and DIGIT are the RFC 5234 Appendix B.1 core rules:
+   ;   ALPHA = %x41-5A / %x61-7A
+   ;   DIGIT = %x30-39
 ```
 
-A slug is the class letter, then **one or more named segments**, then
-**zero or more trailing SAN move segments**, bounded at 7 segments in
-total (6 dots). This is the grammar the validator has always enforced
-(`tools/validate.py`); earlier editions of this document published a
-narrower production (at most six segments, at most two move segments)
-that the catalogue outgrew — see [`errata.md`](errata.md), E-003. A
-normative ABNF with a conformance corpus is planned for spec 1.3
-(roadmap H2.4).
+Four things follow directly from the grammar and are stated here so no
+implementer has to infer them:
 
-The named levels carry conventional role names by depth:
+1. **Class roots are grammar-valid.** Both repetitions may be empty, so
+   `A` is a complete slug. It names a filter, not a position (Annex A).
+2. **The grammar is ambiguous by construction.** Every `san-move` is
+   also a well-formed `named`, so `B.Sic.Sve.Nd5` has more than one
+   derivation. This is deliberate: token-shape policy belongs to the
+   profile, not to the stable layer. The parse rule below makes the
+   partition unique.
+3. **Check and mate are not slug characters.** `+` and `#` are outside
+   `token-char`: they describe a move event, not a variation. A SAN move
+   is written with them stripped.
+4. **Slugs are ASCII and case-significant.** `B.Sic` and the
+   NON-CATALOGUE `B.sic` are different strings, and only the first is a
+   slug (see String canonicalisation, and profile rule CP-4).
+
+### The catalogue profile (1.x)
+
+These constraints apply to the reference catalogue and to anything
+claiming to be an OCN-1 1.x catalogue. They are minor-versioned.
+
+| ID | Rule |
+|---|---|
+| **CP-1** | A slug MUST have at most **7 segments** (at most 6 dots). |
+| **CP-2** | Every slug other than a class root MUST have at least **one named segment**. A move tail can never begin immediately after the class letter. |
+| **CP-3** | Every named token MUST be exactly **3 characters**, unless it is listed in the named-token registry below. |
+| **CP-4** | A named token MUST NOT consist solely of lowercase ASCII letters. Named tokens are TitleCase, an established acronym, or a numeric label (`B.Pir.150`); an all-lowercase token is either a misplaced SAN pawn move or a casing error. |
+| **CP-5** | A named token that also parses as `san-move` MUST appear in the grandfathered-token table below. The table is **closed**: no new SAN-shaped named token may be minted (see Conformance, P-2). |
+
+CP-1 is a design boundary, not headroom — see "Maximum depth" below.
+There is no cap on the length of the move tail beyond CP-1: 1,393 rows
+(23.6%) carry three to five move segments.
+
+The named levels carry conventional role names by depth. This table is
+**descriptive of convention**; the normative constraints are the ABNF
+and CP-1 to CP-5 above.
 
 | Position | Length | Case | Examples |
 |---|---|---|---|
 | `class` | 1 char | uppercase A/B/C/D/E | `A`, `B`, `C`, `D`, `E` |
-| `family` (named, depth 1) | 3 chars | TitleCase or known ALLCAPS abbreviation | `Sic`, `Fre`, `RyL`, `KID`, `QGD` |
+| `family` (named, depth 1) | 3 chars | TitleCase or registered acronym | `Sic`, `Fre`, `RyL`, `KID`, `QGD` |
 | `variation` (named, depth 2) | 3 chars | TitleCase | `Naj`, `Sve`, `Mar`, `Tar`, `Sml` |
 | `subline` and deeper (named) | 3 chars | TitleCase | `Eng`, `End`, `Ope`, `Cls` |
-| `move` (tail) | 1-6 chars | SAN-style, check/mate stripped | `Be3`, `e5`, `Bxf6`, `O-O`, `O-O-O` |
+| `move` (tail) | as `san-move` | SAN-style, check/mate stripped | `Be3`, `e5`, `Bxf6`, `O-O`, `O-O-O` |
 
-One known ambiguity: a token like `Bg5` or `Nd5` is both a legal SAN
-move and a plausible 3-character named token. The catalogue resolves it
-positionally — SAN-shaped tokens inside the named region are named
-tokens (`D.Sem.Bg5.Mos`), and the move tail is the trailing run of
-SAN-parsing segments (`B.Sic.Sve.Nd5`). The precise normative rule
-(maximal SAN suffix, plus a ban on minting new SAN-shaped named tokens)
-lands in spec 1.3.
+### Token ambiguity: the maximal-SAN-suffix rule
+
+A token like `Bg5` or `Nd5` is both a legal SAN move and a plausible
+3-character named token. The following rule resolves every such case,
+normatively and from the slug string alone.
+
+**Parse rule.** Let a grammar-valid slug be `s0 . s1 . … . sn`, where
+`s0` is the class. Let *k* be the **smallest** index in `1 … n+1` such
+that every segment in `sk … sn` matches `san-move` (for a slug whose
+last segment is not SAN-shaped, *k* = *n*+1 and the run is empty). Then:
+
+- the **move tail** is `sk … sn` — the *maximal* trailing run of
+  segments that parse as `san-move`;
+- the **named region** is `s1 … s(k-1)`, and **every** segment in it is a
+  named token, whatever its shape.
+
+The rule is positional and purely lexical: it depends on the slug string
+only, never on the position, the parent chain or the catalogue. Two
+consequences the catalogue relies on:
+
+```
+B.Sic.Sve.Nd5    named = Sic, Sve        tail = Nd5
+D.Sem.Bg5.Mos    named = Sem, Bg5, Mos   tail = (empty)
+```
+
+`Nd5` is the 11.Nd5 Sveshnikov tabiya — a move. `Bg5` is the label of
+the Bg5 branch of the Semi-Slav — a name. The maximal-suffix rule gets
+both right without a lookup table.
+
+**Grandfathered SAN-shaped named tokens.** CP-5 closes this class. The
+table below is the complete list of tokens that occupy a named-region
+position somewhere in the reference catalogue *and* parse as `san-move`
+— **39 tokens across 570 named-region occurrences**, computed from the
+catalogue, not curated. New named tokens MUST NOT be SAN-shaped; these
+survive because they are already published keys and slugs are stable.
+
+| Token | Example slug |
+|---|---|
+| `Ba4` | `C.RyL.Mor.Ba4.Nf6.O-O.Cls` |
+| `Bb3` | `B.Sic.Dra.Yug.Chn.Bb3.Top` |
+| `Bb4` | `D.Cat.Ope.Bb4.Mod` |
+| `Bb5` | `C.Ita.Two.Ng5.Pol.Bb5.Two` |
+| `Bb7` | `D.QGD.Tar.MLn.Bd3.Bb7.Pil` |
+| `Bc4` | `B.Mod.Std.Bc4.Mky` |
+| `Bc5` | `C.Ita.Two.O-O.Bc5.Hol` |
+| `Bd2` | `E.Ind.Cat.Bb4.Bd2.Be7.D5N` |
+| `Bd3` | `D.Sem.Mer.Bd3.Bd6.Chi` |
+| `Bd6` | `D.Sem.Mer.Bd3.Bd6.Chi` |
+| `Bd7` | `B.Sic.Mor.Bd7.MLn` |
+| `Be2` | `B.Sic.Cls.Be2.Drg` |
+| `Be3` | `B.Sic.Dra.Be3.Bg7.Be2.Ams` |
+| `Be6` | `D.Tar.Cls.Bg5.Be6.Sto` |
+| `Be7` | `E.Ind.Cat.Bb4.Bd2.Be7.D5N` |
+| `Bf4` | `A.PQI.Bf4.MLn` |
+| `Bf5` | `B.CaK.Two.Bf5.MLn` |
+| `Bg2` | `C.Vie.Mie.Bc5.Bg2.Nc6.Pol` |
+| `Bg5` | `D.Sem.Bg5.Mos` |
+| `Bg7` | `B.Pir.Cls.Bg7.MLn` |
+| `Na6` | `E.KID.Avk.Cst.Bg5.Na6.Brg` |
+| `Nc3` | `C.Sco.Gor.Nc3.MLn` |
+| `Nc6` | `A.Lon.Job.Nc6.MLn` |
+| `Nd6` | `C.RyL.Ber.Rio.Qe2.Nd6.Cor` |
+| `Nd7` | `B.CaK.Cls.Spd.Nd7.Lob` |
+| `Ne2` | `E.Nim.Rub.O-O.Ne2.Sim` |
+| `Ne4` | `E.Nim.Spl.Rom.Nf3.Ne4.Crl` |
+| `Nf3` | `B.Sca.Nf6.Nf3.Gou` |
+| `Nf6` | `B.Sca.Nf6.Mar` |
+| `Ng5` | `C.Ita.Two.Ng5.Trx` |
+| `O-O` | `E.Nim.Rub.Res.MLn.O-O.Brn` |
+| `Qa4` | `D.Cat.Ope.Qa4.Ale` |
+| `Qc2` | `D.Cat.Cls.Qc2.Btr` |
+| `Qd1` | `D.Tar.HSc.MLn.Qd1.Von` |
+| `Qe2` | `C.RyL.Ber.Rio.Qe2.Nd6.Cor` |
+| `Qe7` | `C.KGm.Acc.Kie.Qe7.Coz` |
+| `Qh5` | `C.Vie.Fal.MLn.Qh5.Nd6.Ada` |
+| `Rc1` | `D.QGD.Ort.Rc1.Pil` |
+| `Re8` | `E.Ben.Mod.Cls.MLn.Re8.Tal` |
+
+A token in this table is grandfathered as a *token*, not as a
+subtree-local licence: it may keep appearing in the named region of the
+slugs that already carry it, and it may not be introduced anywhere new.
+The validator enforces the table as check 22
+(`GRANDFATHERED_SAN_NAMED_TOKENS` in `tools/validate.py`, pinned to this
+table by test).
+
+### Named-token registry (CP-3 exemptions)
+
+Tokens that may appear in the named region at a length other than three,
+plus the established acronyms recorded here for provenance. Adding a
+token to this registry is a minor version.
+
+| Token | Meaning |
+|---|---|
+| `KID` | King's Indian Defence |
+| `QGD` | Queen's Gambit Declined |
+| `QGA` | Queen's Gambit Accepted |
+| `QID` | Queen's Indian Defence |
+| `NID` | Nimzo-Indian Defence (registered, unused: the catalogue heads that family `E.Nim`) |
+| `OID` | Old Indian move order |
+| `RyL` | Ruy López (the `y` is preserved because the pronunciation collapses into "Roo-Ee-Lo-Pez") |
+| `OldI` | Old Indian Defence |
+| `AntM` | Anti-Marshall systems |
+| `Cmb` | Cambridge Springs |
+| `NoD5` | Line without an early `...d5` (registered, currently unused) |
+
+Only `OldI` and `AntM` are actually longer than three characters in the
+shipped catalogue; the rest satisfy CP-3 on length alone and are listed
+because the registry, not the length rule, is what makes an acronym
+legitimate.
 
 ### Class assignment
 
@@ -281,14 +488,17 @@ they describe the move, not the variation.
 
 The depth tail is appended only when the SAN move is **the canonical tabiya
 that opening literature attaches a name to**. Random middlegame moves do
-not become OCN-1 slugs. (Honesty note: the validator does not yet enforce
-this bar mechanically — much of the current deep tail derives from the
-Lichess long-tail import. Enforcement criteria are a spec 1.3 work item.)
+not become OCN-1 slugs. (Honesty note: this bar is editorial and the
+validator does not enforce it mechanically — much of the current deep
+tail derives from the Lichess long-tail import. It is a SHOULD on
+producers, P-8, not a profile rule, because no machine check for
+"literature attaches a name to it" exists.)
 
 ### Maximum depth
 
-The catalogue MUST NOT contain entries with more than 6 dots (i.e. 7
-segments). This cap is a design boundary, not headroom: 18.4% of current
+CP-1 restated with its reasoning: the catalogue MUST NOT contain entries
+with more than 6 dots (i.e. 7 segments). This cap is a design boundary,
+not headroom: 18.4% of current
 rows sit at the 7-segment maximum, and that is accepted — the cap marks
 where naming ends and position identity begins. Deeper theory attaches to
 existing slugs as data (a planned `mainline` continuation field in the
@@ -309,7 +519,7 @@ The reference catalogue is `catalog/ocn-1.csv`. Each row has the columns:
 | `moves_uci` | string null | Canonical UCI move sequence reaching the slug's reference position (space-separated, e.g. `e2e4 c7c5 g1f3 d7d6 d2d4 c5d4 f3d4 g8f6 b1c3 a7a6`). NULL for class roots, which are filters, not positions. |
 | `depth` | int | 0 for class roots, increments by 1 per dot. |
 | `aliases` | string null | Pipe-separated alternative names (Lasker–Pelikan, etc.). |
-| `flags` | string null | Pipe-separated tags from the closed set `{gambit, sharp, closed, endgame, theoretical, deprecated}`. |
+| `flags` | string null | Pipe-separated tags drawn from the flags registry (see Extension mechanism). Open registry: new values arrive in minor versions, and `x-` is reserved for private use. |
 | `notes` | string null | Free text explaining edge cases or borderline classification. |
 | `attributed_to` | string null | Player(s), school, or event the opening is associated with. Free text. |
 | `attribution_source` | string null | Citation supporting `attributed_to`. **Required** when `attributed_to` is non-empty — the validator rejects unsourced claims. Free text but must reference published, publicly checkable evidence: a book, an article, or a dated tournament game. Unverifiable sources (unpublished game collections, private databases) are rejected by the validator. |
@@ -556,33 +766,238 @@ defined in Annex A — against a position-indexed dataset rather than
 rely on ECO at all. ECO is a coarse filter; the canonical zobrist is
 the unambiguous identifier.
 
+## String canonicalisation
+
+OCN-1 carries two kinds of string, and they have opposite rules.
+
+### Slugs
+
+Slugs are **ASCII** (the `token-char` set of the ABNF) and
+**case-significant**. `B.Sic` and the NON-CATALOGUE `B.sic` are
+different strings; only the first is a slug, and CP-4 rejects the
+second. Implementations MUST
+compare slugs as byte strings and MUST NOT case-fold, ASCII-fold,
+Unicode-normalise, trim, or percent-decode them before comparison — a
+slug is already in its only form, and every normalisation is therefore a
+way to conflate two keys that OCN considers distinct.
+
+### Name fields
+
+`canonical_name`, `aliases`, `notes`, `attributed_to`,
+`attribution_source`, `historical_notes` and the locale sidecars carry
+Unicode text.
+
+1. They MUST be stored in **Unicode Normalization Form C** (NFC).
+2. They MUST spell eponyms with **true diacritics**, following the
+   person's own orthography — `Sämisch`, `López`, `Grünfeld`, `Maróczy`
+   — not an ASCII transliteration. The validator enforces the retired
+   ASCII forms as a regression guard (check 17).
+3. They MUST NOT contain the middle dot, invisible spacing characters,
+   or ASCII control characters (check 14), and MUST NOT carry leading,
+   trailing or doubled spaces (check 15).
+
+### ASCII folding is a search affordance, never a key
+
+Consumers SHOULD offer ASCII-folded matching for **search and lookup**,
+so that a user typing `Samisch` or `Lopez` finds the row. This is a
+presentation-layer equivalence only. Implementations MUST NOT store the
+folded form, MUST NOT join on it, and MUST NOT emit it in any published
+artefact — folding is lossy and two distinct names can fold together.
+The `ocn-chess` package implements the affordance as a folded index
+beside the true names (`Catalog.by_name`).
+
+The full policy, the surname-by-surname evidence and the three applied
+normalisation tiers are Annex B (informative).
+
+## Extension mechanism
+
+OCN-1 is extended by registration, not by ad-hoc convention. Three
+registries exist; each of them **is** the spec section that lists it.
+
+### Flags registry
+
+`flags` is a pipe-separated list drawn from this registry. It is an
+**open registry**: adding a value is a minor version, and this table is
+the authoritative list as of spec 1.3.
+
+| Flag | Meaning |
+|---|---|
+| `gambit` | The line's defining feature is a deliberate material offer. |
+| `sharp` | Concrete, forcing theory where a single move-order error is usually decisive. |
+| `closed` | Blocked or semi-blocked pawn structure; manoeuvring rather than contact play. |
+| `endgame` | The named tabiya is already an endgame (e.g. the Berlin Wall). |
+| `theoretical` | The line is defined by, and only navigable with, published analysis. |
+| `deprecated` | The slug has been superseded. It remains published and its successor is recorded in the redirects sidecar — see the deprecation lifecycle. |
+
+A consumer MUST NOT reject a row solely because it carries a flag the
+consumer does not recognise: an unknown value means the row was written
+against a later minor version, and the correct behaviour is to preserve
+and ignore it.
+
+### Private-use flags: the `x-` prefix
+
+Any flag beginning with `x-` is **reserved for private use** and will
+never be registered. A validator MUST ignore `x-` flags and MUST
+preserve them when rewriting a row; a consumer MUST NOT attach meaning
+to one it did not itself define. Private flags MUST NOT appear in the
+reference catalogue — they exist so a downstream fork can carry its own
+tags without forking the schema. (Honesty note: `tools/validate.py`
+does not implement the `x-` exemption yet; it validates the reference
+catalogue, which by rule contains none. The obligation above binds any
+validator that accepts third-party catalogues.)
+
+### Locale alias sidecars
+
+A localised name set is registered as one TSV per locale, named
+
+```
+catalog/ocn-1.aliases.<bcp47>.tsv
+```
+
+where `<bcp47>` is a BCP 47 language tag (`ca`, `es`, `pt-BR`). The file
+has a header row and exactly two columns, `ocn1` and `name`. Partial
+coverage is by design: a consumer renders the localised name when the
+slug is present and falls back to the English `canonical_name`, which is
+always correct and always definitive. Name fields in a sidecar follow
+the same canonicalisation rules as the catalogue's.
+
+Registered locales as of spec 1.3: `ca` (Catalan), `es` (Spanish).
+Adding a locale file, or rows to one, is a patch.
+
 ## Versioning
 
-OCN-1 follows semantic versioning at the catalogue level:
+OCN-1 versions the **catalogue** semantically, and the version class of
+a change is decided **field by field**. The earlier three-line rule
+("minor = new entries") could not classify most of the edits the
+catalogue actually receives, and version 1.2.0 shipped a change it did
+not authorise (`errata.md`, E-002). The table is the rule now.
 
-- **Patch** (1.0.x): clarifications, typo fixes, alias additions.
-- **Minor** (1.x): new entries that do not change the meaning of existing
-  slugs. New `flags` values. Breaking format changes in the spec are NOT
-  allowed in a minor version.
-- **Major** (2.x): changes to the slug format itself.
+### Field-level change classes
 
-Once a release is tagged, an entry's `ocn1` MUST NOT be re-pointed to a
-different position. If a slug is found to be wrong, mark it `deprecated`
-in `flags` and add the correct slug as a new entry.
+| Change | Class |
+|---|---|
+| A published `ocn1` is removed | **major** (2.x) |
+| A published `ocn1` is re-pointed to a different position | **major** |
+| The slug grammar changes (character set, separator, move notation) | **major** |
+| The profile segment cap is raised | **major** |
+| An existing row's class letter changes | **major** |
+| A new entry is added | minor |
+| `canonical_name` changes on an existing row | minor, **changelog entry required** |
+| `eco_legacy` is corrected on an existing row | minor, changelog entry required |
+| `transposes_to` or `same_as` is added or corrected | minor |
+| A flag is added to the registry | minor |
+| A row is marked `deprecated` and its successor added | minor |
+| A profile rule is tightened, the shipped catalogue already satisfying it | minor |
+| `aliases` added or removed | patch |
+| `notes` or `historical_notes` edited | patch |
+| `attributed_to` / `attribution_source` added, re-sourced or withdrawn | patch |
+| A locale sidecar is added, or rows added to one | patch |
+| Spec prose clarified without changing a rule | patch |
+
+Two standing rules survive unchanged from earlier editions and are
+restated here as MUST-level obligations:
+
+- Once a release is tagged, an entry's `ocn1` MUST NOT be re-pointed to
+  a different position.
+- Within the 1.x line a slug is **never removed and never reused**.
+  Corrections go through the deprecation lifecycle below.
+
+**Retroactive effect.** These classes legalise, explicitly and in
+advance of the next release, the class of change that release 1.2.0
+already made: 683 `canonical_name` values were normalised to true
+diacritics under a minor bump while no slug, move sequence or position
+moved. `errata.md` E-002 records it as the motivating precedent, and
+under the table above it is a minor with a required changelog entry —
+which 1.2.0's release notes in fact carried. Nothing about 1.2.0 is
+being re-litigated; the rule is being written to match the practice that
+was already correct.
 
 Known deviations from this policy, and clauses this document has had to
-correct about itself, are recorded openly in [`errata.md`](errata.md).
-A field-level rewrite of the change classes (versioning 2.0) is planned
-for spec 1.3.
+correct about itself, remain recorded openly in
+[`errata.md`](errata.md).
 
-### Conformance corpus (provisional)
+### Deprecation lifecycle (normative)
 
-The fixtures under `tools/tests/fixtures/` — valid and invalid slugs,
-warning cases, strict-chess negatives — are the **provisional**
-conformance corpus for this spec: an implementation that agrees with
-`tools/validate.py` on all of them can consider itself aligned with the
-catalogue's rules as enforced today. Spec 1.3 formalises this into a
-declared, versioned corpus of ~100 cases with reason codes.
+The mechanism that lets a wrong slug be corrected without breaking a
+published key. It replaces in-place migration entirely: the QID
+re-point that predates it is `errata.md` E-001.
+
+1. The superseded row **stays in the catalogue**, keeping its `ocn1`,
+   its position, its parent and its history. It MUST NOT be deleted.
+2. `deprecated` is added to the superseded row's `flags`.
+3. The successor row is added as a normal new entry with its own slug,
+   under the normal profile rules.
+4. The pair is recorded in the permanent redirects sidecar
+   `catalog/ocn-1.redirects.tsv` (format below). The sidecar is
+   append-only: a row, once written, is never edited or removed.
+5. Both rows and the redirect ship in the **same release**, and the
+   release notes name the pair.
+6. The whole operation is a **minor** version.
+7. The deprecated slug MUST NOT be reused for anything else, ever, and
+   MUST NOT be removed within the 1.x line. Removal is a 2.x change.
+8. Consumers resolving a slug they do not recognise SHOULD consult the
+   redirects sidecar and MAY follow a redirect once. Redirects are not
+   chained: a successor MUST NOT itself be deprecated in the same
+   release.
+
+**Redirects sidecar format.** Tab-separated, one header row, sorted by
+`deprecated_slug`:
+
+| Column | Description |
+|---|---|
+| `deprecated_slug` | The superseded `ocn1`. Still present in the catalogue, flagged `deprecated`. |
+| `successor_slug` | The `ocn1` that replaces it. MUST exist in the catalogue. |
+| `since_version` | The catalogue version that shipped the pair, without the tag prefix (e.g. `1.4.0`). |
+| `reason` | One of the closed set `spec-violation`, `misclassification`, `duplicate`, `rename`. |
+
+The file ships empty (header only) with spec 1.3: no deprecation has
+been executed under this lifecycle yet.
+
+**First scheduled case: `A.Hol`.** The Dutch Defence is filed under the
+token `Hol`, derived from "Holland" rather than from its own
+`canonical_name`, "Dutch Defence". That contradicts the family
+abbreviation rules above, which take the first three pronounceable
+characters *of the name* — which would give
+<!-- NON-CATALOGUE: scheduled successor slug, not yet minted -->
+`A.Dut`. It is the only token in the catalogue that violates the
+abbreviation rules outright, and it is therefore designated the
+lifecycle's first worked example.
+
+**This is scheduled, not done.** `A.Hol` and its 113 descendants are
+live, valid and unchanged; the successor slug does not exist yet; the
+redirects sidecar is empty. The migration is its own gated catalogue lot
+(114 rows, a manifest, a GO), not part of this spec change — spec 1.3
+supplies the procedure, and the lot executes it. Note that the `Dut`
+token is already in use subtree-locally (`A.Bir.Dut`, `A.Pol.Dut`) and
+that is not a collision: tokens are subtree-local labels, scoped by
+their parent, which is exactly why the mnemonic-unification proposals
+for `Chi`/`Cha`/`Sch`/`RyL` are **not** scheduled — those tokens do not
+violate any rule, and re-cutting them would shred slug stability for
+aesthetics.
+
+### Conformance corpus (normative)
+
+The corpus in [`conformance/`](../conformance/) is a normative part of
+this specification. It is two files — `valid.tsv` (slugs that MUST be
+accepted) and `invalid.tsv` (slug plus reason code, which MUST be
+rejected) — plus a README defining the closed reason-code set and the
+order in which rules are evaluated, so that every rejection has exactly
+one correct reason.
+
+An implementation conforms to the slug layer of OCN-1 when it accepts
+every case in `valid.tsv`, rejects every case in `invalid.tsv`, and
+accepts every `ocn1` in the reference catalogue. The corpus is versioned
+with this document: cases are added when a rule is added, and a case is
+never removed or weakened within the 1.x line.
+
+`tools/tests/test_conformance_corpus.py` runs the corpus against a
+parser written from this document's ABNF and profile — deliberately a
+second implementation, sharing no regex with `tools/validate.py` — and
+asserts that the two agree on all ~100 corpus cases and on all 5,899
+catalogue slugs. That agreement is the conformance claim.
+
+The older fixtures under `tools/tests/fixtures/` remain the validator's
+own regression suite. They are informative; the corpus is the spec.
 
 ### Spec history
 
@@ -607,6 +1022,129 @@ declared, versioned corpus of ~100 cases with reason codes.
   acknowledged as design, the token-ambiguity resolution documented
   descriptively, `errata.md` created, and the test fixtures declared the
   provisional conformance corpus. No catalogue change.
+- **v1.3 (2026-07-29, unreleased until the next catalogue tag)** — the
+  standards edition. The prose production is replaced by a normative
+  RFC 5234 ABNF and the grammar/profile split is stated explicitly: the
+  grammar is major-versioned, the profile (CP-1 to CP-5) minor-versioned
+  and tightenable only against a catalogue that already satisfies it.
+  Token ambiguity is settled normatively by the maximal-SAN-suffix parse
+  rule, with the 39 grandfathered SAN-shaped named tokens published in
+  full and closed to new entries (validator check 22). New sections:
+  Requirements language (BCP 14), Conformance (Producer / Consumer /
+  Validator obligations), String canonicalisation (ASCII case-significant
+  slugs, NFC name fields, ASCII folding as a search affordance only),
+  Extension mechanism (flags registry, `x-` private-use prefix,
+  `ocn-1.aliases.<bcp47>.tsv` locale sidecars), Versioning 2.0 with
+  field-level change classes (which legalise the 1.2.0 mass rename
+  explicitly, `errata.md` E-002), and the deprecation lifecycle with the
+  permanent redirects sidecar `catalog/ocn-1.redirects.tsv` — shipped
+  empty, with `A.Hol` designated its first scheduled case. The
+  conformance corpus becomes normative and moves to
+  [`conformance/`](../conformance/). No catalogue change.
+
+## Conformance
+
+This section is the checklist. Every obligation below is stated
+elsewhere in this document; nothing new is introduced here, and each
+item names the section it draws on so a disagreement can be traced.
+
+An implementation conforms as one or more of three classes. A tool that
+both mints rows and reads them MUST satisfy both lists.
+
+### Producer — mints slugs and catalogue rows
+
+- **P-1** MUST emit only profile-valid slugs: grammar-valid, and
+  satisfying CP-1 to CP-5 of the profile in force. (Format)
+- **P-2** MUST NOT mint a named token that parses as `san-move`. The
+  grandfathered table is closed. (CP-5)
+- **P-3** MUST NOT re-point or remove a published `ocn1`. A slug found
+  to be wrong goes through the deprecation lifecycle, and the pair MUST
+  be recorded in `catalog/ocn-1.redirects.tsv`. (Versioning;
+  Deprecation lifecycle)
+- **P-4** MUST classify every change by the field-level table before
+  choosing a version number, and MUST publish a changelog entry for a
+  `canonical_name` or `eco_legacy` change. (Field-level change classes)
+- **P-5** MUST pair a non-empty `attributed_to` with an
+  `attribution_source` citing published, publicly checkable evidence.
+  (Catalogue)
+- **P-6** MUST store name fields in NFC with true diacritics, and MUST
+  NOT emit an ASCII-folded form in a published artefact. (String
+  canonicalisation)
+- **P-7** MUST resolve every duplicate-FEN group: exactly one canonical
+  row, every other row carrying `transposes_to` into the group, or the
+  group declared co-canonical with `same_as`. `transposes_to` and
+  `same_as` MUST NOT both appear on one row. (Canonicalisation by
+  position; Co-canonical preservation)
+- **P-8** SHOULD append a move-tail segment only where opening
+  literature attaches a name to that tabiya. (`move` segments)
+- **P-9** MUST NOT emit a flag outside the registry, and MUST NOT ship
+  an `x-` private-use flag in a catalogue presented as the reference
+  catalogue. (Extension mechanism)
+
+### Consumer — parses slugs, joins on them, displays them
+
+- **C-1** MUST accept every slug up to the profile cap of the version it
+  claims to support — seven segments, five-segment move tails,
+  grandfathered SAN-shaped named tokens included. An implementation
+  written against a narrower reading of an earlier edition rejects about
+  a quarter of the reference catalogue. (`errata.md`, E-003)
+- **C-2** MUST partition a slug with the maximal-SAN-suffix parse rule
+  when it needs to tell a named token from a move. (Token ambiguity)
+- **C-3** MUST treat slugs as case-significant ASCII byte strings, and
+  MUST NOT normalise, fold or trim them before comparison. (String
+  canonicalisation)
+- **C-4** MUST normalise the en-passant field to the legal-capture form
+  before comparing any `fen_key`, in both directions. (Annex A)
+- **C-5** MUST NOT deduplicate rows on position identity. Rows sharing a
+  FEN are distinct published names by editorial decision; collapsing
+  them destroys the identities `same_as` exists to preserve.
+  (Co-canonical preservation)
+- **C-6** SHOULD follow `transposes_to` exactly once when resolving a
+  position to a name, and MUST NOT assume the target carries a further
+  pointer. (Canonicalisation by position)
+- **C-7** SHOULD apply the deepest-match rule for ECO to OCN-1, and
+  SHOULD report a tie rather than silently pick one of the tied rows.
+  (Looking up a slug from an ECO code)
+- **C-8** MUST NOT assume OCN's class letter equals ECO's, and MUST
+  consult `catalog/ocn-1.eco-divergence.tsv` before bucketing rows by
+  letter. (Borderline rules)
+- **C-9** MUST special-case the five class roots: they carry no
+  `moves_uci`, no `fen_key` and no zobrist, because they are filters,
+  not positions. (Annex A)
+- **C-10** MUST NOT reject a row solely for carrying an unrecognised
+  flag, and MUST preserve `x-` flags it does not understand. (Extension
+  mechanism)
+- **C-11** MAY use ASCII-folded matching for search, and MUST NOT use it
+  as a storage form or a join key. (String canonicalisation)
+- **C-12** SHOULD consult `catalog/ocn-1.redirects.tsv` when a slug is
+  not found, and MAY follow a redirect once. (Deprecation lifecycle)
+
+### Validator — decides whether a catalogue is conforming
+
+- **V-1** MUST implement both layers, and MUST distinguish them in its
+  diagnostics: a grammar violation and a profile violation are different
+  failures with different version consequences. (The two layers)
+- **V-2** MUST use the maximal-SAN-suffix parse rule to classify
+  segments, not a left-to-right heuristic. (Token ambiguity)
+- **V-3** MUST reject a SAN-shaped named token that is absent from the
+  grandfathered table. (CP-5; `tools/validate.py` check 22)
+- **V-4** MUST accept every case in `conformance/valid.tsv` and reject
+  every case in `conformance/invalid.tsv`, agreeing with the declared
+  reason code's layer. (Conformance corpus)
+- **V-5** MUST accept 100% of the reference catalogue of the release it
+  validates. A validator that rejects a shipped row has found a spec
+  bug, not a data bug, until the catalogue is proven wrong.
+  (Requirements language)
+- **V-6** MUST enforce the referential contracts: parent existence and
+  depth, prefix consistency, `transposes_to` and `same_as` targets and
+  their FEN equality. (Catalogue relations)
+- **V-7** MUST recompute a derived sidecar rather than trust it, and
+  MUST fail when the committed file disagrees. (`tools/validate.py`
+  check 21)
+- **V-8** MUST ignore `x-` flags rather than fail on them, and MUST
+  preserve them if it rewrites a row. (Extension mechanism; not yet
+  implemented in `tools/validate.py`, which validates the reference
+  catalogue only)
 
 ## Examples
 
@@ -719,6 +1257,20 @@ Class roots (`A` through `E`) carry no `moves_uci` and therefore no
 position identity: they are filters, not positions. Consumers MUST
 special-case them (they are the five null-key rows in any derived
 export).
+
+## Annex B — Diacritic normalisation (informative)
+
+The String canonicalisation section states the rule: name fields are
+stored NFC with the eponym's own orthography. The evidence behind it —
+the policy argument, the surname-by-surname survey of the pre-1.2.0
+catalogue, and the three applied normalisation tiers (755 rows) whose
+retired ASCII forms `tools/validate.py` now guards as check 17 — is
+[`docs/diacritic-normalization-map.md`](../docs/diacritic-normalization-map.md).
+
+That document is informative and is deliberately not inlined: it is a
+dated record of how a specific catalogue was normalised, not a rule an
+independent implementer has to satisfy. The rule is in the normative
+section; the map is the audit trail.
 
 ## Acknowledgements
 

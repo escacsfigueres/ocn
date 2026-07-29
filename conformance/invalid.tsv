@@ -1,0 +1,66 @@
+# OCN-1 conformance corpus - slugs that MUST be rejected.
+# Two tab-separated columns: slug, reason_code. Lines starting with '#'
+# are comments; blank lines are ignored.
+#
+# The slug column may carry \uXXXX escapes (four hex digits) so that
+# characters a TSV cannot hold literally - tab, space, the separator
+# glyph banned project-wide - are still testable. Decode the escapes
+# before parsing. See README.md for the reason codes and for the order
+# in which rules are evaluated.
+#
+# --- G-EMPTY-SEGMENT: a dot-delimited segment is empty ---
+A..Sic	G-EMPTY-SEGMENT
+B.Sic.	G-EMPTY-SEGMENT
+.Sic	G-EMPTY-SEGMENT
+B.Sic..Naj	G-EMPTY-SEGMENT
+#
+# --- G-CLASS: first segment is not exactly one of A B C D E ---
+F.Sic	G-CLASS
+a.Sic	G-CLASS
+AA.Sic	G-CLASS
+1.Sic	G-CLASS
+Sic.Naj	G-CLASS
+#
+# --- G-CHAR: a character outside the token-char set ---
+B.Sic.Naj.Nd5+	G-CHAR
+B.Sic.Naj.Nd5#	G-CHAR
+B.Sic\u00b7Naj	G-CHAR
+B.Sic\u0020Naj	G-CHAR
+B.Sic.Naj\u0009Eng	G-CHAR
+B.Sic\u00a0Naj	G-CHAR
+B.Sic/Naj	G-CHAR
+C.RyL.B\u00e9r	G-CHAR
+B.Sic.Naj!	G-CHAR
+B.Sic.Naj.e4?!	G-CHAR
+#
+# --- CP-1: more than seven segments ---
+B.Sic.Naj.Eng.MLn.f3.Nbd7.e6	CP-1
+C.Vie.Nc6.f4.exf4.Nf3.g5.h4	CP-1
+A.Eng.Sym.Fou.MLn.Nc3.Nf6.Bg2.O-O	CP-1
+#
+# --- CP-2: non-root slug with no named segment ---
+A.e4	CP-2
+B.e4.c5	CP-2
+C.O-O	CP-2
+D.d4.d5.c4	CP-2
+#
+# --- CP-3: named token neither 3 characters nor registered ---
+B.Sicilian.Naj	CP-3
+B.Si.Naj	CP-3
+A.Engl	CP-3
+B.Sic.Naj.Xyzw	CP-3
+B.Sic.Naj.Bxf6x	CP-3
+#
+# --- CP-4: named token is all lowercase ASCII letters ---
+B.sic	CP-4
+B.sic.Naj	CP-4
+A.eng.Sym	CP-4
+B.Sic.naj.Eng	CP-4
+C.ryl.Ber	CP-4
+#
+# --- CP-5: SAN-shaped named token outside the grandfathered table ---
+B.Sic.Qd8.Naj	CP-5
+C.RyL.Ka1.Ber	CP-5
+D.QGD.Rh8.Ort	CP-5
+E.KID.Nb1.Sml	CP-5
+D.Sem.bg5.Mos	CP-5

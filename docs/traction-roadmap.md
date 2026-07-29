@@ -412,3 +412,70 @@ H0.1-H0.7 ──> H0.8 flip public ──> H1.1 pip + H1.2 JSON ──> H1.3 aut
   available today (first child by slug order, deepest descendant) would
   publish an editorial claim dressed as data, which is exactly the failure
   mode the roadmap's positioning section forbids. It lands with H2.7.
+- 2026-07-29 — **H2.4 done** (this commit). Spec 1.3, the standards
+  release. The prose production is gone: `spec/OCN-1.md` now carries a
+  **normative RFC 5234 ABNF** (numeric terminals throughout, because
+  ABNF quoted strings are case-insensitive and slugs are not) whose
+  language is exactly `validate.py`'s `SLUG_RE`, and the **two-layer
+  model** is stated as a versioning rule — the grammar is
+  major-versioned, the **catalogue profile** (CP-1 seven segments, CP-2
+  at least one named segment, CP-3 3-char tokens outside the registry,
+  CP-4 no all-lowercase named token, CP-5 no new SAN-shaped named token)
+  is minor-versioned and may only be tightened against a catalogue that
+  already satisfies it. Every profile rule was computed from the live
+  catalogue before it was written down; class roots are grammar-valid.
+  **Token ambiguity is settled normatively**: the move tail is the
+  maximal trailing run of segments parsing as `san-move`, everything
+  before it is a named token. That rule reads `B.Sic.Sve.Nd5` as a move
+  and `D.Sem.Bg5.Mos` as a name — the left-to-right "any 3-char token is
+  named" heuristic in check 8 gets the first one wrong, which is exactly
+  why the spec now says which walk is correct. The **grandfather table**
+  is computed, not curated: the 39 SAN-shaped tokens that occupy a
+  named-region position in the catalogue, across 570 occurrences, listed
+  exhaustively in the spec and closed. New sections: Requirements
+  language (BCP 14), **Conformance** (Producer P-1..P-9, Consumer
+  C-1..C-12, Validator V-1..V-8, each obligation citing the section it
+  draws on), **String canonicalisation** (ASCII case-significant slugs
+  that MUST NOT be normalised before comparison; NFC name fields with
+  true diacritics; ASCII folding a search affordance and never a key),
+  **Extension mechanism** (the flags registry *is* the spec section,
+  `x-` reserved for private use, `ocn-1.aliases.<bcp47>.tsv` registered
+  with `ca`/`es` listed), **Versioning 2.0** (17-row field-level change
+  table; slug removal/re-point and any grammar change major, entry
+  addition and canonical_name/eco_legacy change minor with a changelog,
+  aliases/notes/attribution/i18n patch) and the **deprecation
+  lifecycle** (8 numbered steps, `catalog/ocn-1.redirects.tsv` shipped
+  empty with its four-column format specified). Versioning 2.0
+  retroactively legalises the 1.2.0 mass rename and `errata.md` E-002 now
+  says "landed in v1.3"; E-001 and E-003 likewise. `A.Hol` is
+  **designated, not migrated** — the one token violating the spec's own
+  abbreviation rules ("Dutch Defence" gives Dut, not Hol), scheduled as
+  its own gated 114-row lot, with the note that `Dut` already exists
+  subtree-locally without collision because tokens are subtree-local
+  labels (which is also why Chi/Cha/Sch/RyL stay put). **`conformance/`
+  is declared normative**: `valid.tsv` (60 cases — roots, depth 1-6,
+  tails 0-5, grandfathered tokens, registry tokens, castling, captures,
+  file and rank disambiguation, plus four flagged synthetic grammar
+  corners for `=Q`/`=N`/capture-promotion/`_`), `invalid.tsv` (41 cases,
+  `slug` TAB reason code) and a README defining the closed 8-code set
+  (`G-EMPTY-SEGMENT`, `G-CLASS`, `G-CHAR`, `CP-1`..`CP-5`) with a
+  normative evaluation order, so every rejection has exactly one correct
+  reason. Invalid slugs carry `\uXXXX` escapes — a TSV cannot hold a
+  literal tab, and the project does not put U+00B7 in its own files even
+  as a negative example. `tools/tests/test_conformance_corpus.py` is the
+  gate: it implements the ABNF **independently** (backtracking recursive
+  descent over the optional elements of `piece-move`, because `b8=Q`
+  parses only when [file] and [rank] are both skipped) and reads both
+  registries out of the spec markdown, then asserts the two
+  implementations agree on all 101 corpus cases and all **5,899**
+  catalogue slugs, that the grandfather table is exactly what the
+  catalogue contains, and that the spec tables pin `validate.py`'s
+  constants. Two of its tests go further and prove the *languages* are
+  identical rather than merely agreeing on the corpus: exhaustive
+  enumeration of every token of length 1-3 over SAN's alphabet against
+  `SAN_RE`, and every string of length 0-3 over a hostile alphabet
+  against `SLUG_RE`, zero mismatches (a wider one-off fuzz — 1.4M cases
+  including random tokens to length 12 — also found none). Validator
+  **check 22** enforces CP-5 with its own maximal-suffix walk plus a
+  fixture. Suites: tools/tests 447, tests/ 100; validator clean in both
+  modes (0 warnings); slug gate green.

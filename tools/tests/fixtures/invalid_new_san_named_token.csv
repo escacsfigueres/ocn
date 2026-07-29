@@ -1,0 +1,5 @@
+ocn1,canonical_name,eco_legacy,parent_ocn1,moves_uci,depth,aliases,flags,notes,attributed_to,attribution_source,historical_notes,transposes_to,same_as
+A,Flank,,,,0,,,,,,,,
+A.Tro,Trompowsky,,A,,1,,,,,,,,
+A.Tro.Qd8,Trompowsky with the 3.Qd8 tabiya,,A.Tro,,2,,,Qd8 is the move tail here — legal,,,,,
+A.Tro.Qd8.Sub,Trompowsky Qd8 subline,,A.Tro.Qd8,,3,,,Qd8 becomes a NAMED token once a non-SAN segment follows it — CP-5 rejects a newly minted SAN-shaped name,,,,,

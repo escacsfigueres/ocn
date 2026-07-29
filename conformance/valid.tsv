@@ -1,0 +1,82 @@
+# OCN-1 conformance corpus - slugs that MUST be accepted.
+# One slug per line. Lines starting with '#' are comments; blank lines
+# are ignored. See README.md. Corpus version: spec 1.3.
+#
+# --- Class roots (grammar-valid, profile-valid, no position) ---
+A
+B
+C
+D
+E
+#
+# --- Depth 1: family heads ---
+A.Eng
+A.Hol
+B.Sic
+C.RyL
+D.QGD
+E.KID
+#
+# --- Named-only slugs, depth 2 to 6 (empty move tail) ---
+A.Eng.Sym
+A.Hol.Lng
+B.Sic.Naj.Eng
+C.RyL.Ber.Wal.End
+B.Sic.Dra.Yug.Sol.MLn
+B.Mod.Std.Nc3.C5S.Sic.Qtz
+E.Ind.Cat.Bb4.Bd2.Be7.D5N
+#
+# --- Move tails of length 1 to 5 ---
+B.Sic.Sve.Nd5
+B.Sic.Sve.Bxf6
+D.Sem.Bg5
+B.Sic.Naj.Eng.e5
+B.Sic.Sve.Nd5.Be7
+B.Sic.Naj.Eng.e6.Qd2
+B.Sic.Sve.Nd5.Be7.Bxf6
+B.Sic.Sve.Nd5.Be7.Bxf6.g3
+C.Vie.Nc6.f4.exf4.Nf3.g5
+C.Pet.Nxe5.d6.Nf3.Nxe4.d4
+#
+# --- Grandfathered SAN-shaped named tokens (CP-5 table) ---
+D.Sem.Bg5.Mos
+B.Sca.Nf6.Mar
+C.Sco.Gor.Nc3.MLn
+A.Lon.Job.Nc6.MLn
+C.Ita.Two.Ng5.Trx
+E.Nim.Rub.Res.MLn.O-O.Brn
+D.Cat.Ope.Qa4.Ale
+D.QGD.Ort.Rc1.Pil
+E.Ben.Mod.Cls.MLn.Re8.Tal
+C.RyL.Ber.Rio.Qe2.Nd6.Cor
+#
+# --- Named-token registry: acronyms and long tokens (CP-3 exemptions) ---
+C.RyL.AntM
+C.RyL.AntM.a4
+E.OldI.Ukr
+D.QGD.Cmb.Yug
+A.OID.Wad
+D.QGA.Cls
+E.QID.Pet
+D.QGD.Ort
+#
+# --- Named tokens that are not TitleCase letters (CP-4 boundary) ---
+B.Pir.150
+E.Ben.Mod.Cls.MLn.Re8.f3L
+#
+# --- Castling, captures and SAN disambiguation in the move tail ---
+E.Bog.Ret.Fch.MLn.O-O
+B.Sic.Cls.Rch.Psn.O-O-O
+B.Pir.150.MLn.O-O-O
+B.Ale.Mod.KID.MLn.cxd6
+C.Fou.Sco.Bel.MLn.Nxd4
+B.Pir.150.Arg.MLn.Lng.Nbd7
+B.Fre.Tar.Cls.MLn.Ngf3
+B.CaK.Cls.Ng5.Bg6.N1f3
+#
+# --- Grammar corners the catalogue does not currently occupy.
+# --- SYNTHETIC: conforming strings, deliberately NOT catalogue rows.
+A.Eng.Sym.b8=Q
+C.KGm.Acc.Muz.Dbl.MLn.f8=N
+B.Sic.Naj.Eng.e5.cxb8=R
+A.Eng.Sy_
