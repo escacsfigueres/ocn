@@ -350,19 +350,35 @@ a.chip:hover { border-color: var(--ink-2); color: var(--ink); text-decoration: n
 /* ---------------------------------------------------------------- */
 
 .tree { list-style: none; margin: 0; padding: 0; }
-.tree ul { list-style: none; margin: 0; padding: 0 0 0 1.1rem; border-left: 1px solid var(--rule); }
 .tree li { margin: 0; }
+/* The spine of a subtree carries its class colour, so an expanded branch
+   stays visibly attached to the volume it belongs to. */
+.tree ul {
+  list-style: none; margin: 0; padding: 0 0 0 1.1rem;
+  border-left: 1px solid color-mix(in srgb, var(--cls) 30%, transparent);
+}
 
 /* Baseline, not centre: the mono class letter and the serif name have
    different cap heights, so centring their boxes leaves the letter
    floating. The toggle is a glyph in a box and stays optically centred. */
-.node { display: flex; align-items: baseline; gap: 0.5rem; padding: 0.28rem 0.3rem 0.28rem 0; }
-.node-toggle {
-  width: 1.15rem; height: 1.15rem; flex: 0 0 auto; align-self: center;
-  border: none; color: var(--ink-3);
-  font-family: var(--mono); font-size: 0.7rem; line-height: 1; display: grid; place-items: center;
+.node {
+  display: flex; align-items: baseline; gap: 0.5rem;
+  padding: 0.28rem 0.4rem 0.28rem 0; border-radius: 2px;
 }
-.node-toggle:hover { color: var(--ink); border: none; }
+.node:hover { background: var(--plate); }
+@media (prefers-color-scheme: dark) { .node:hover { background: #1b1d20; } }
+/* The one control in the tree, so it has to look like one: a real hit
+   area, ink rather than a whisper, and it turns the class colour on
+   hover. A tree nobody notices they can open is a list. */
+.node-toggle {
+  width: 1.4rem; height: 1.4rem; flex: 0 0 auto; align-self: center;
+  border: none; color: var(--ink-2);
+  font-family: var(--mono); font-size: 0.85rem; line-height: 1;
+  display: grid; place-items: center; border-radius: 2px;
+}
+.node-toggle:hover:not(:disabled) { color: var(--cls); background: var(--rule); border: none; }
+.node-toggle[aria-expanded="true"] { color: var(--cls); }
+.node-toggle:disabled { opacity: 0.25; }
 .node-slug { font-family: var(--mono); font-size: 0.875rem; font-weight: 500; color: var(--ink-2); }
 .node-slug.is-root { color: var(--cls); font-weight: 600; font-size: 1rem; }
 .node-name { font-family: var(--serif); font-size: 0.9375rem; color: var(--ink); min-width: 0; }
