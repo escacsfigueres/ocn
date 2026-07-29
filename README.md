@@ -5,7 +5,7 @@
 [![Code license: MIT](https://img.shields.io/badge/code-MIT-blue.svg)](LICENSE-CODE)
 [![Release](https://img.shields.io/badge/release-ocn--1.2.1-blue.svg)](https://github.com/escacsfigueres/ocn/releases/tag/ocn-1.2.1)
 [![PyPI](https://img.shields.io/pypi/v/ocn-chess.svg)](https://pypi.org/project/ocn-chess/)
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.21670207.svg)](https://doi.org/10.5281/zenodo.21670207)
+[![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.21670207-1f6feb.svg)](https://doi.org/10.5281/zenodo.21670207)
 
 **OCN** is a hierarchical, human-readable naming scheme for chess
 openings, designed as a companion to ECO (the *Encyclopaedia of Chess

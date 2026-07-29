@@ -83,6 +83,10 @@ DEFAULT_OUT = WEB_DIR / "dist"
 
 #: Copied verbatim into the output directory, in this order.
 STATIC_ASSETS = ("index.html", "app.js", "style.css")
+STATIC_DIRS = ("fonts",)
+PIECE_DIR = "pieces"
+PIECE_NAMES = ("wK", "wQ", "wR", "wB", "wN", "wP",
+               "bK", "bQ", "bR", "bB", "bN", "bP")
 
 SCHEMA = "ocn.web.v1"
 GENERATED_NOTE = (
@@ -182,6 +186,22 @@ def load_popularity(path: Path) -> dict[str, list[int]]:
     return popularity
 
 
+def piece_sprite() -> str:
+    """The twelve Cburnett pieces as one inline <symbol> sprite.
+
+    Twelve files would be twelve requests on every board; inlining them
+    once costs 48 KB in the document and none thereafter. The set is
+    CC BY-SA 3.0 by Colin M.L. Burnett -- see `web/pieces/README.md`.
+    """
+    symbols = []
+    for name in PIECE_NAMES:
+        text = (WEB_DIR / PIECE_DIR / f"{name}.svg").read_text(encoding="utf-8")
+        inner = text[text.index(">", text.index("<svg")) + 1: text.rindex("</svg>")]
+        symbols.append(f'<symbol id="p-{name}" viewBox="0 0 45 45">{inner}</symbol>')
+    return ('<svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">'
+            + "".join(symbols) + "</svg>")
+
+
 def build_row(
     row: dict[str, str],
     xref: dict[str, dict[str, str]],
@@ -202,6 +222,11 @@ def build_row(
     if moves_uci:
         out["san"] = moves_san(moves_uci)
         out["fen"] = row_fen(moves_uci)
+        #: The explorer walks the line ply by ply on the board, which
+        #  needs the moves themselves. UCI is the compact form (five
+        #  bytes a move) and compresses to almost nothing over the wire,
+        #  since the alphabet is 64 square names.
+        out["uci"] = moves_uci
     else:
         out["fen"] = START_FEN
 
@@ -296,11 +321,21 @@ def build_dist(
     check_no_middle_dot("data/ocn.json", payload)
 
     out_dir.mkdir(parents=True, exist_ok=True)
+    for folder in STATIC_DIRS:
+        source = WEB_DIR / folder
+        if source.is_dir():
+            shutil.copytree(source, out_dir / folder, dirs_exist_ok=True)
+
     for asset in STATIC_ASSETS:
         source = WEB_DIR / asset
         text = source.read_text(encoding="utf-8")
         check_no_middle_dot(asset, text)
-        shutil.copyfile(source, out_dir / asset)
+        if asset == "index.html":
+            (out_dir / asset).write_text(
+                source.read_text(encoding="utf-8").replace("<!--PIECE-SPRITE-->", piece_sprite()),
+                encoding="utf-8")
+        else:
+            shutil.copyfile(source, out_dir / asset)
 
     data_dir = out_dir / "data"
     data_dir.mkdir(parents=True, exist_ok=True)

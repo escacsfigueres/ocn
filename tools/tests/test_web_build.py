@@ -104,12 +104,37 @@ class PayloadTests(unittest.TestCase):
                 self.assertTrue((out / asset).is_file())
         self.assertTrue((out / "data" / "ocn.json").is_file())
 
-    def test_static_assets_are_copied_verbatim(self) -> None:
+    def test_code_assets_are_copied_verbatim(self) -> None:
+        """Everything but the document ships byte for byte."""
         out, _ = built_site()
         for asset in web_build.STATIC_ASSETS:
+            if asset == "index.html":
+                continue
             with self.subTest(asset=asset):
                 self.assertEqual(
                     (out / asset).read_bytes(), (WEB_DIR / asset).read_bytes())
+
+    def test_the_document_gains_the_piece_sprite(self) -> None:
+        """index.html is the one transformed asset: the twelve Cburnett
+        pieces are inlined once so a board costs no extra requests. The
+        placeholder must be gone and every piece must be present."""
+        out, _ = built_site()
+        source = (WEB_DIR / "index.html").read_text(encoding="utf-8")
+        built = (out / "index.html").read_text(encoding="utf-8")
+        self.assertIn("<!--PIECE-SPRITE-->", source)
+        self.assertNotIn("<!--PIECE-SPRITE-->", built)
+        for name in web_build.PIECE_NAMES:
+            with self.subTest(piece=name):
+                self.assertIn(f'id="p-{name}"', built)
+        self.assertEqual(
+            built.replace(web_build.piece_sprite(), "<!--PIECE-SPRITE-->"), source,
+            "the document differs from its source by more than the sprite")
+
+    def test_fonts_travel_with_the_site(self) -> None:
+        out, _ = built_site()
+        shipped = sorted(path.name for path in (out / "fonts").glob("*.woff2"))
+        self.assertEqual(shipped, sorted(path.name for path in (WEB_DIR / "fonts").glob("*.woff2")))
+        self.assertTrue(shipped, "no faces shipped")
 
     def test_envelope(self) -> None:
         _, data = built_site()

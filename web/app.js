@@ -211,80 +211,25 @@ function scan(q, query) {
 /* ------------------------------------------------------------------ */
 
 /*
- * A chessboard as 64 rects plus hand-drawn piece shapes.
+ * The board is a printed plate.
  *
- * The pieces are our own SVG paths, drawn in the spirit of the figurines
- * printed in opening books: solid silhouettes, flat fills, no gradients,
- * legible at 40px. They replace the Unicode glyphs (U+265A..), which
- * render at a different weight and baseline in every system font and
- * cannot be aligned reliably. Each piece is drawn in a 45x45 box that is
- * scaled onto the square.
+ * Squares are 64 rects; pieces are <use> references into a sprite of the
+ * Cburnett diagram set, inlined once into the page at build time. That
+ * set is what opening books and Wikipedia print, which is the point: the
+ * board should look like a figure in a reference work, not like a game
+ * client. Coordinates sit inside the border so the plate stays square.
  *
- * Shapes are MIT like the rest of the code: no third-party piece set, no
- * licence patchwork inside a CC-BY catalogue.
+ * The position is held as an 8x8 array and stepped through the line's
+ * UCI moves, so a reader can walk the opening rather than stare at its
+ * final position.
  */
-const BASE = "M11.6,39.6c0-4.1,3.3-6,6.4-6.6h9c3.1,0.6,6.4,2.5,6.4,6.6z";
-
-const PIECES = {
-  p: {
-    body: [
-      "M22.5,7.2a5.4,5.4 0 1 1 0,10.8a5.4,5.4 0 1 1 0,-10.8z",
-      "M17.3,17.8c3.4,1.8,7,1.8,10.4,0c0.5,6.5,2.7,10.7,4.6,13.4h-19.6c1.9,-2.7,4.1,-6.9,4.6,-13.4z",
-      "M15.8,31.2h13.4v2.2h-13.4z",
-      BASE,
-    ],
-  },
-  r: {
-    body: [
-      "M11.6,9.4h4.6v3.6h4.2v-3.6h4.2v3.6h4.2v-3.6h4.6v9.4h-22z",
-      "M14.6,18.8h15.8l-1.4,12.4h-13z",
-      "M13,31.2h19v2.2h-19z",
-      BASE,
-    ],
-    detail: ["M16.2,13h12.6"],
-  },
-  b: {
-    body: [
-      "M22.5,6a2.4,2.4 0 1 1 0,4.8a2.4,2.4 0 1 1 0,-4.8z",
-      "M22.5,10.4c5.4,2.4,8.8,7.6,8.8,12.8c0,3.2,-1.2,5.6,-2.4,7.2h-12.8c-1.2,-1.6,-2.4,-4,-2.4,-7.2c0,-5.2,3.4,-10.4,8.8,-12.8z",
-      "M13.6,30.4h17.8v2.8h-17.8z",
-      BASE,
-    ],
-    detail: ["M19.6,15.4l5.6,6.4"],
-  },
-  n: {
-    body: [
-      "M13.5,33.4C13.7,27.5,15.2,23.6,18.2,21.2C16,21.6,13.6,22.6,11.8,24.2C10.2,22.4,10.4,19.6,12.2,17.2C14.6,14,17.8,11.6,20.6,9.8C20.2,7.6,20.6,5.6,22,4.6C23.4,5.8,24,7.8,24.2,9.6C25,8.4,26.2,7.2,27.6,7C28.4,8.4,28.4,10.4,27.8,12.2C30.6,15,32,19.4,32,25C32,28.4,31.8,31,31.6,33.4Z",
-      BASE,
-    ],
-    detail: ["M12.9,20.2a0.95,0.95 0 1 1 0,1.9a0.95,0.95 0 1 1 0,-1.9z", "M19.6,13.2a1.25,1.25 0 1 1 0,2.5a1.25,1.25 0 1 1 0,-2.5z", "M26.4,13.6c2.2,2.6,3.2,6.2,3.2,10.8"],
-  },
-  q: {
-    body: [
-      "M10.6,9.2a2.3,2.3 0 1 1 0,4.6a2.3,2.3 0 1 1 0,-4.6z",
-      "M16.4,5.6a2.3,2.3 0 1 1 0,4.6a2.3,2.3 0 1 1 0,-4.6z",
-      "M22.5,4.4a2.4,2.4 0 1 1 0,4.8a2.4,2.4 0 1 1 0,-4.8z",
-      "M28.6,5.6a2.3,2.3 0 1 1 0,4.6a2.3,2.3 0 1 1 0,-4.6z",
-      "M34.4,9.2a2.3,2.3 0 1 1 0,4.6a2.3,2.3 0 1 1 0,-4.6z",
-      "M11.6,13.4l3.2,16.8h15.4l3.2,-16.8l-5.2,4.6l-3.1,-8.4l-3.1,8.8l-3.1,-8.8l-3.1,8.4z",
-      "M13.4,30.2h18.2v3h-18.2z",
-      BASE,
-    ],
-  },
-  k: {
-    body: [
-      "M21.4,4.4h2.2v3.2h3.2v2.2h-3.2v3.6h-2.2v-3.6h-3.2v-2.2h3.2z",
-      "M22.5,13.4c-5.8,0,-9.9,3.8,-9.9,8.4c0,2.2,1,4.1,2.2,5.6h15.4c1.2,-1.5,2.2,-3.4,2.2,-5.6c0,-4.6,-4.1,-8.4,-9.9,-8.4z",
-      "M14,26.6h17v3.6h-17z",
-      "M13.4,30.2h18.2v3h-18.2z",
-      BASE,
-    ],
-    detail: ["M22.5,17.4v6"],
-  },
+const PIECE_ID = {
+  P: "wP", N: "wN", B: "wB", R: "wR", Q: "wQ", K: "wK",
+  p: "bP", n: "bN", b: "bB", r: "bR", q: "bQ", k: "bK",
 };
 const FILES = "abcdefgh";
 const UNIT = 40;
-const MARGIN = 15;
+const START_PLACEMENT = "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR";
 
 function parsePlacement(fen) {
   const board = [];
@@ -302,60 +247,152 @@ function parsePlacement(fen) {
   return board;
 }
 
-function boardSvg(fen) {
-  const board = parsePlacement(fen);
-  const width = MARGIN + 8 * UNIT;
-  const height = 8 * UNIT + MARGIN;
+//: rank index 0 is the eighth rank, so a1 is [7][0].
+const squareIndex = (name) => [8 - Number(name[1]), FILES.indexOf(name[0])];
+
+/*
+ * Apply one UCI move to a board array. The moves come from the
+ * catalogue and are known legal, so this only has to reproduce the three
+ * cases where a move touches a square it does not name: castling moves a
+ * rook, en passant clears the captured pawn, and promotion changes the
+ * piece.
+ */
+function applyUci(board, uci) {
+  const [fr, ff] = squareIndex(uci.slice(0, 2));
+  const [tr, tf] = squareIndex(uci.slice(2, 4));
+  const promotion = uci.slice(4, 5);
+  const piece = board[fr][ff];
+  if (!piece) return;
+  const white = piece === piece.toUpperCase();
+  const kind = piece.toLowerCase();
+
+  board[fr][ff] = null;
+  if (kind === "p" && ff !== tf && !board[tr][tf]) board[fr][tf] = null;
+  if (kind === "k" && Math.abs(tf - ff) === 2) {
+    const rookFrom = tf > ff ? 7 : 0;
+    const rookTo = tf > ff ? tf - 1 : tf + 1;
+    board[tr][rookTo] = board[tr][rookFrom];
+    board[tr][rookFrom] = null;
+  }
+  board[tr][tf] = promotion
+    ? (white ? promotion.toUpperCase() : promotion.toLowerCase())
+    : piece;
+}
+
+function placementAfter(uciList, plies) {
+  const board = parsePlacement(START_PLACEMENT);
+  for (let i = 0; i < plies && i < uciList.length; i += 1) applyUci(board, uciList[i]);
+  return board;
+}
+
+function boardSvg(board) {
+  const size = 8 * UNIT;
   const squares = [];
   const pieces = [];
+  const coords = [];
 
   for (let rank = 0; rank < 8; rank += 1) {
     for (let file = 0; file < 8; file += 1) {
-      const x = MARGIN + file * UNIT;
+      const x = file * UNIT;
       const y = rank * UNIT;
+      const dark = (rank + file) % 2 === 1;
       squares.push(svg("rect", {
-        class: `sq ${(rank + file) % 2 === 0 ? "light" : "dark"}`,
-        x, y, width: UNIT, height: UNIT,
+        class: `sq ${dark ? "dark" : "light"}`, x, y, width: UNIT, height: UNIT,
       }));
+      if (file === 0) {
+        coords.push(svg("text", {
+          class: "coord", x: -6, y: y + UNIT / 2 + 3,
+          "text-anchor": "end", text: String(8 - rank),
+        }));
+      }
+      if (rank === 7) {
+        coords.push(svg("text", {
+          class: "coord", x: x + UNIT / 2, y: size + 12,
+          "text-anchor": "middle", text: FILES[file],
+        }));
+      }
       const piece = (board[rank] || [])[file];
       if (!piece) continue;
-      const shape = PIECES[piece.toLowerCase()];
-      if (!shape) continue;
-      const white = piece === piece.toUpperCase();
-      const scale = (UNIT / 45) * 1.08;
-      const parts = shape.body.map((d) => svg("path", { class: "piece-body", d }));
-      for (const d of shape.detail || []) {
-        parts.push(svg("path", { class: "piece-detail", d }));
-      }
-      pieces.push(svg("g", {
-        class: `piece ${white ? "white" : "black"}`,
-        transform: `translate(${x + UNIT / 2} ${y + UNIT / 2}) scale(${scale}) translate(-22.5 -22.5)`,
-      }, parts));
+      const id = PIECE_ID[piece];
+      if (!id) continue;
+      pieces.push(svg("use", {
+        class: "board-piece", href: `#p-${id}`,
+        x, y, width: UNIT, height: UNIT,
+      }));
     }
   }
 
-  const coords = [];
-  for (let i = 0; i < 8; i += 1) {
-    coords.push(svg("text", {
-      class: "coord", x: MARGIN - 5, y: i * UNIT + UNIT / 2,
-      "text-anchor": "end", "dominant-baseline": "central", text: String(8 - i),
-    }));
-    coords.push(svg("text", {
-      class: "coord", x: MARGIN + i * UNIT + UNIT / 2, y: 8 * UNIT + MARGIN - 4,
-      "text-anchor": "middle", text: FILES[i],
-    }));
-  }
-
   return svg("svg", {
-    class: "board",
-    viewBox: `0 0 ${width} ${height}`,
-    role: "img",
-    "aria-label": `Board position, FEN ${fen}`,
+    class: "board", viewBox: `-18 -4 ${size + 22} ${size + 22}`, role: "img",
+    "aria-label": "Board position",
   }, [
     svg("g", {}, squares),
+    svg("rect", { class: "board-frame", x: 0, y: 0, width: size, height: size }),
     svg("g", {}, coords),
     svg("g", {}, pieces),
   ]);
+}
+
+/*
+ * The move list and the board are one instrument: stepping the board
+ * moves the highlight, clicking a move steps the board. Move numbers are
+ * printed like a book (1. before White, no number before Black unless
+ * the line starts there).
+ */
+function lineViewer(row) {
+  const uciList = (row.uci || "").split(" ").filter(Boolean);
+  const sanList = (row.san || "").replace(/\d+\./g, " ").trim().split(/\s+/).filter(Boolean);
+  const total = uciList.length;
+  let ply = total;
+
+  const boardHost = h("div", {});
+  const moveNodes = [];
+  const plyLabel = h("span", { class: "ply" });
+  const back = h("button", { type: "button", "aria-label": "Previous move", text: "\u2039" });
+  const forward = h("button", { type: "button", "aria-label": "Next move", text: "\u203a" });
+  const start = h("button", { type: "button", "aria-label": "Starting position", text: "\u00ab" });
+  const end = h("button", { type: "button", "aria-label": "Final position", text: "\u00bb" });
+
+  function draw() {
+    boardHost.replaceChildren(boardSvg(placementAfter(uciList, ply)));
+    moveNodes.forEach((node, index) => {
+      node.classList.toggle("current", index === ply - 1);
+    });
+    plyLabel.textContent = total ? `${ply} / ${total}` : "";
+    back.disabled = ply === 0;
+    start.disabled = ply === 0;
+    forward.disabled = ply === total;
+    end.disabled = ply === total;
+  }
+
+  const goTo = (value) => { ply = Math.max(0, Math.min(total, value)); draw(); };
+  back.addEventListener("click", () => goTo(ply - 1));
+  forward.addEventListener("click", () => goTo(ply + 1));
+  start.addEventListener("click", () => goTo(0));
+  end.addEventListener("click", () => goTo(total));
+
+  const moves = [];
+  sanList.forEach((san, index) => {
+    if (index % 2 === 0) {
+      moves.push(h("span", { class: "move-no", text: `${index / 2 + 1}.` }));
+    }
+    const node = h("a", {
+      class: "move", href: "#", role: "button", text: san,
+      title: `Position after ${san}`,
+    });
+    node.addEventListener("click", (event) => { event.preventDefault(); goTo(index + 1); });
+    moveNodes.push(node);
+    moves.push(node);
+  });
+
+  draw();
+  return {
+    board: boardHost,
+    moves: total ? h("div", { class: "moves" }, moves) : null,
+    stepper: total
+      ? h("div", { class: "stepper" }, [start, back, forward, end, plyLabel])
+      : null,
+  };
 }
 
 const lichessUrl = (fen) => LICHESS_ANALYSIS + String(fen).replace(/ /g, "_");
@@ -368,55 +405,44 @@ const sideToMove = (fen) => (String(fen).split(" ")[1] === "b" ? "Black to move"
 const slugHref = (slug) => `#/${encodeURIComponent(slug)}`;
 const ecoHref = (code) => `#/eco/${encodeURIComponent(code)}`;
 
-function rowLink(row, extraClass) {
-  return h("a", {
-    class: `row-link${extraClass ? " " + extraClass : ""}`,
-    href: slugHref(row.slug),
-  }, [
-    h("span", { class: "row-link-name", text: row.name }),
-    h("code", { class: "row-link-slug", text: row.slug }),
+const classOf = (slug) => `cls-${String(slug)[0]}`;
+
+//: A result row shows at most this many ECO codes. `B.Sic` carries ten;
+//  rendering all of them starves the name column on every list.
+const ECO_CHIPS_IN_LIST = 2;
+
+function rowLink(row) {
+  const codes = row.eco || [];
+  const shown = codes.slice(0, ECO_CHIPS_IN_LIST);
+  const hidden = codes.length - shown.length;
+  return h("a", { class: `row-link ${classOf(row.slug)}`, href: slugHref(row.slug) }, [
+    h("span", { class: "row-name", text: row.name }),
+    h("span", { class: "row-meta" }, [
+      shown.length
+        ? h("span", { class: "row-eco", text: shown.join(" ") + (hidden > 0 ? ` +${hidden}` : "") ,
+                      title: codes.join(", ") })
+        : null,
+      h("span", { class: "row-slug", text: row.slug }),
+    ]),
   ]);
 }
 
 function slugChip(slug) {
   const row = DB.bySlug.get(slug);
-  return h("a", { class: "chip chip-slug", href: slugHref(slug), title: row ? row.name : slug },
-    [h("code", { text: slug })]);
+  return h("a", { class: "chip", href: slugHref(slug), title: row ? row.name : slug, text: slug });
 }
 
 function ecoChip(code) {
-  return h("a", { class: "chip chip-eco", href: ecoHref(code), text: code });
+  return h("a", { class: "chip eco", href: ecoHref(code), text: code });
 }
 
 function field(label, ...content) {
-  return [
-    h("dt", { text: label }),
-    h("dd", {}, content.filter(Boolean)),
-  ];
+  return [h("dt", { text: label }), h("dd", {}, content.filter(Boolean))];
 }
 
-//: A result row shows at most this many ECO codes. `B.Sic` carries ten;
-//  rendering all of them starves the name column on every list. The full
-//  set is one click away on the row page.
-const ECO_CHIPS_IN_LIST = 3;
-
 function resultList(rows, emptyMessage) {
-  if (!rows.length) return h("p", { class: "muted", text: emptyMessage });
-  return h("ul", { class: "results" }, rows.map((row) => {
-    const codes = row.eco || [];
-    const shown = codes.slice(0, ECO_CHIPS_IN_LIST);
-    const hidden = codes.length - shown.length;
-    return h("li", {}, [
-      rowLink(row),
-      h("span", { class: "result-meta" }, [
-        h("span", { class: "depth", text: `depth ${row.depth}` }),
-        ...shown.map((code) => h("span", { class: "chip chip-eco flat", text: code })),
-        hidden > 0
-          ? h("span", { class: "depth", text: `+${hidden}`, title: codes.join(", ") })
-          : null,
-      ]),
-    ]);
-  }));
+  if (!rows.length) return h("p", { class: "empty", text: emptyMessage });
+  return h("ul", { class: "rows" }, rows.map((row) => h("li", {}, [rowLink(row)])));
 }
 
 /* ------------------------------------------------------------------ */
@@ -446,15 +472,15 @@ function convert(query) {
 
 function converterAnswer(result) {
   if (result.kind === "empty") {
-    return h("p", { class: "muted", text: "An ECO code answers with its OCN rows, deepest first. A slug answers with its ECO codes." });
+    return h("p", { class: "hint", text: "An ECO code answers with its OCN rows, deepest first. A slug answers with its ECO codes." });
   }
   if (result.kind === "eco") {
     if (!result.rows.length) {
-      return h("p", { class: "muted", text: `No catalogue row carries ECO ${result.code}.` });
+      return h("p", { class: "empty", text: `No catalogue row carries ECO ${result.code}.` });
     }
     return h("div", {}, [
-      h("p", { class: "answer-head" }, [
-        h("strong", { text: result.code }),
+      h("p", { class: "hint" }, [
+        h("span", { class: "ident", text: result.code }),
         ` maps to ${result.rows.length} OCN ${result.rows.length === 1 ? "row" : "rows"}, deepest first.`,
       ]),
       resultList(result.rows, ""),
@@ -464,36 +490,28 @@ function converterAnswer(result) {
     const row = result.row;
     const codes = row.eco || [];
     return h("div", {}, [
-      h("p", { class: "answer-head" }, [
-        h("code", { text: row.slug }),
-        ` — ${row.name}`,
+      h("p", { class: "hint" }, [
+        h("a", { class: "ident", href: slugHref(row.slug), text: row.slug }),
+        h("span", { class: "name", text: ` \u2014 ${row.name}` }),
       ]),
       codes.length
-        ? h("p", { class: "chips" }, [
-            h("span", { class: "chips-label", text: codes.length === 1 ? "ECO code:" : "ECO codes:" }),
-            ...codes.map(ecoChip),
-          ])
-        : h("p", { class: "muted", text: "No ECO code: this line sits beyond ECO's 500-code resolution, or it is a class root." }),
-      h("p", {}, [h("a", { class: "more", href: slugHref(row.slug), text: "Open the row page" })]),
+        ? h("p", { class: "chip-row" }, codes.map(ecoChip))
+        : h("p", { class: "empty", text: "No ECO code: this line sits beyond ECO's 500-code resolution, or it is a class root." }),
     ]);
   }
-  return h("p", { class: "muted" }, [
-    `Neither an ECO code nor a slug: `,
-    h("code", { text: result.text }),
+  return h("p", { class: "empty" }, [
+    "Neither an ECO code nor a slug: ",
+    h("span", { class: "ident", text: result.text }),
     ". Try B90, or B.Sic.Naj.Eng.",
   ]);
 }
 
-function converterBox(initial) {
-  const answer = h("div", { class: "answer", id: "converter-answer" });
+function converterBox(initial, withHeading = true) {
+  const answer = h("div", { id: "converter-answer" });
   const input = h("input", {
-    type: "search",
-    id: "converter-input",
-    class: "box",
+    type: "search", id: "converter-input",
     placeholder: "B90, or B.Sic.Naj.Eng",
-    autocomplete: "off",
-    spellcheck: "false",
-    value: initial || "",
+    autocomplete: "off", spellcheck: "false", value: initial || "",
     "aria-describedby": "converter-answer",
   });
 
@@ -510,17 +528,18 @@ function converterBox(initial) {
   });
   run(false);
 
-  return h("section", { class: "panel converter" }, [
-    h("h2", { text: "ECO converter" }),
-    h("label", { class: "sr-only", for: "converter-input", text: "ECO code or OCN slug" }),
-    input,
+  return h("section", {}, [
+    withHeading
+      ? h("div", { class: "section-head" }, [
+          h("h2", { class: "label", text: "ECO converter" }),
+          h("span", { class: "count", text: "both directions" }),
+        ])
+      : null,
+    h("label", { class: "skip", for: "converter-input", text: "ECO code or OCN slug" }),
+    h("div", { class: "seek" }, [input]),
     answer,
   ]);
 }
-
-/* ------------------------------------------------------------------ */
-/* The tree                                                            */
-/* ------------------------------------------------------------------ */
 
 /*
  * Children are built on first expand. The A class alone has 1,367
@@ -530,38 +549,35 @@ function converterBox(initial) {
 function treeNode(row) {
   const kids = childrenOf(row.slug);
   const total = descendantsOf(row.slug);
-  const list = h("ul", { class: "tree-children", hidden: true });
+  const list = h("ul", { hidden: true });
   let built = false;
 
-  const twisty = h("button", {
-    class: "twisty",
-    type: "button",
-    "aria-expanded": "false",
+  const toggle = h("button", {
+    class: "node-toggle", type: "button", "aria-expanded": "false",
     "aria-label": `Expand ${row.name}`,
-    text: kids.length ? "+" : "",
+    text: kids.length ? "\u25b8" : "",
     disabled: kids.length === 0,
   });
 
-  twisty.addEventListener("click", () => {
-    const open = twisty.getAttribute("aria-expanded") === "true";
+  toggle.addEventListener("click", () => {
+    const open = toggle.getAttribute("aria-expanded") === "true";
     if (!open && !built) {
       list.replaceChildren(...kids.map(treeNode));
       built = true;
     }
-    twisty.setAttribute("aria-expanded", String(!open));
-    twisty.setAttribute("aria-label", `${open ? "Expand" : "Collapse"} ${row.name}`);
-    twisty.textContent = open ? "+" : "−";
+    toggle.setAttribute("aria-expanded", String(!open));
+    toggle.setAttribute("aria-label", `${open ? "Expand" : "Collapse"} ${row.name}`);
+    toggle.textContent = open ? "\u25b8" : "\u25be";
     list.hidden = open;
   });
 
-  return h("li", { class: "tree-node" }, [
-    h("div", { class: "tree-row" }, [
-      twisty,
-      h("a", { class: "tree-link", href: slugHref(row.slug) }, [
-        h("code", { class: "tree-token", text: row.slug.split(".").pop() }),
-        h("span", { class: "tree-name", text: row.name }),
-      ]),
-      total ? h("span", { class: "tree-count", text: String(total), title: `${total} lines below` }) : null,
+  return h("li", { class: classOf(row.slug) }, [
+    h("div", { class: "node" }, [
+      toggle,
+      h("a", { class: `node-slug${row.depth === 0 ? " is-root" : ""}`, href: slugHref(row.slug),
+               text: row.slug.split(".").pop() }),
+      h("a", { class: "node-name", href: slugHref(row.slug), text: row.name }),
+      total ? h("span", { class: "node-count", text: String(total), title: `${total} lines below` }) : null,
     ]),
     list,
   ]);
@@ -569,10 +585,12 @@ function treeNode(row) {
 
 function treePanel() {
   const roots = DB.rows.filter((row) => row.depth === 0);
-  return h("section", { class: "panel tree-panel" }, [
-    h("h2", { text: "The tree" }),
-    h("p", { class: "muted", text: "Five structural classes, expanded on demand. The number is how many lines sit below a node." }),
-    h("ul", { class: "tree tree-root" }, roots.map(treeNode)),
+  return h("section", {}, [
+    h("div", { class: "section-head" }, [
+      h("h2", { class: "label", text: "The tree" }),
+      h("span", { class: "count", text: "5 classes" }),
+    ]),
+    h("ul", { class: "tree" }, roots.map(treeNode)),
   ]);
 }
 
@@ -581,15 +599,12 @@ function treePanel() {
 /* ------------------------------------------------------------------ */
 
 function searchPanel() {
-  const results = h("div", { class: "search-results", id: "search-results", "aria-live": "polite" });
-  const meta = h("p", { class: "search-meta" });
+  const results = h("div", { id: "search-results", "aria-live": "polite" });
+  const meta = h("p", { class: "hint" });
   const input = h("input", {
-    type: "search",
-    id: "search-input",
-    class: "box",
-    placeholder: "Najdorf, Berlin Wall, B.Sic, B90, Lasker-Pelikán",
-    autocomplete: "off",
-    spellcheck: "false",
+    type: "search", id: "search-input",
+    placeholder: "Najdorf, Berlin Wall, B.Sic, B90",
+    autocomplete: "off", spellcheck: "false",
     "aria-describedby": "search-results",
   });
 
@@ -605,14 +620,17 @@ function searchPanel() {
     const elapsed = performance.now() - started;
     results.replaceChildren(resultList(rows, "Nothing matches that name, alias, slug or code."));
     meta.textContent = rows.length
-      ? `${rows.length === MAX_RESULTS ? "top " : ""}${rows.length} of 5,899 rows in ${elapsed.toFixed(1)} ms`
-      : `0 matches in ${elapsed.toFixed(1)} ms`;
+      ? `${rows.length === MAX_RESULTS ? "top " : ""}${rows.length} of 5,899 rows, ${elapsed.toFixed(1)} ms`
+      : `no matches, ${elapsed.toFixed(1)} ms`;
   });
 
-  return h("section", { class: "panel search-panel" }, [
-    h("h2", { text: "Search" }),
-    h("label", { class: "sr-only", for: "search-input", text: "Search names, aliases, slugs and ECO codes" }),
-    input,
+  return h("section", {}, [
+    h("div", { class: "section-head" }, [
+      h("h2", { class: "label", text: "Search" }),
+      h("span", { class: "count", text: "names, aliases, slugs, ECO" }),
+    ]),
+    h("label", { class: "skip", for: "search-input", text: "Search the catalogue" }),
+    h("div", { class: "seek" }, [input]),
     meta,
     results,
   ]);
@@ -620,49 +638,66 @@ function searchPanel() {
 
 function renderHome() {
   const view = document.getElementById("view");
-  mount(view, 
-    h("section", { class: "hero" }, [
-      h("h1", { text: "The hierarchy layer over ECO and the Lichess names" }),
-      h("p", { class: "lede" }, [
-        "ECO gives you ", h("code", { text: "B90" }), ". Lichess gives you a ",
-        "sixty-character string. Neither gives you the tree. OCN is ",
-        h("code", { text: "B.Sic.Naj.Eng" }),
-        " — machine-readable parents, transposition canonicalisation, keyed to both.",
-      ]),
-      h("p", { class: "hero-example" }, [
-        h("a", { href: slugHref("B.Sic.Naj.Eng"), text: "B.Sic.Naj.Eng" }),
-        h("a", { href: slugHref("C.RyL.Ber.Wal.End"), text: "C.RyL.Ber.Wal.End" }),
-        h("a", { href: slugHref("E.KID.Cls.Mar"), text: "E.KID.Cls.Mar" }),
-        h("a", { href: ecoHref("B90"), text: "B90" }),
-      ]),
+  mount(view,
+    h("p", { class: "home-lead" }, [
+      "ECO gives you ", h("span", { class: "ident", text: "B90" }),
+      ". Lichess gives you a sixty-character string. Neither gives you the tree. ",
+      h("strong", { text: "OCN is " }), h("span", { class: "ident", text: "B.Sic.Naj.Eng" }),
+      h("strong", { text: "" }),
+      " — machine-readable parents, transposition canonicalisation, keyed to both.",
     ]),
-    h("div", { class: "columns" }, [searchPanel(), converterBox("")]),
+    h("div", { class: "panels" }, [searchPanel(), converterBox("")]),
     treePanel(),
   );
   const input = document.getElementById("search-input");
   if (input && window.matchMedia("(min-width: 700px)").matches) input.focus();
 }
 
-function breadcrumb(slug) {
+/*
+ * The path is the slug.
+ *
+ * A breadcrumb of names cannot be laid out: the names are one to five
+ * words long, they wrap to different heights, and seven of them will not
+ * sit on a line. The identifier will -- it is at most 29 characters, it
+ * is monospaced, and every segment of it is already a real row. So the
+ * navigation is the slug itself, dot separators and all, with the class
+ * letter in its volume colour. The name of whichever segment you point
+ * at appears in a fixed slot underneath, so nothing moves.
+ */
+function slugPath(slug) {
   const parts = slug.split(".");
-  const crumbs = [];
+  const nameSlot = h("div", { class: "path-name" });
+  const line = [];
   let prefix = "";
+
+  const currentName = (DB.bySlug.get(slug) || {}).name || "";
+  const showName = (text) => { nameSlot.textContent = text || currentName; };
+
   parts.forEach((token, index) => {
     prefix = index === 0 ? token : `${prefix}.${token}`;
     const row = DB.bySlug.get(prefix);
     const last = index === parts.length - 1;
-    if (index > 0) crumbs.push(h("span", { class: "crumb-sep", "aria-hidden": "true", text: ">" }));
-    crumbs.push(h("a", {
-      class: `crumb${last ? " current" : ""}`,
+    if (index > 0) line.push(h("span", { class: "path-dot", "aria-hidden": "true", text: "." }));
+    const seg = h("a", {
+      class: `path-seg${last ? " here" : ""}${index === 0 ? " root" : ""}`,
       href: slugHref(prefix),
       title: row ? row.name : prefix,
       "aria-current": last ? "page" : null,
-    }, [
-      h("code", { class: "crumb-token", text: token }),
-      h("span", { class: "crumb-name", text: row ? row.name : "" }),
-    ]));
+      text: token,
+    });
+    const name = row ? row.name : "";
+    seg.addEventListener("mouseenter", () => showName(name));
+    seg.addEventListener("focus", () => showName(name));
+    seg.addEventListener("mouseleave", () => showName(""));
+    seg.addEventListener("blur", () => showName(""));
+    line.push(seg);
   });
-  return h("nav", { class: "breadcrumb", "aria-label": "Slug hierarchy" }, crumbs);
+
+  showName("");
+  return h("nav", { class: `path cls-${parts[0]}`, "aria-label": "Slug hierarchy" }, [
+    h("div", { class: "path-line" }, line),
+    nameSlot,
+  ]);
 }
 
 function lichessBlock(lichess) {
@@ -672,11 +707,8 @@ function lichessBlock(lichess) {
       ? "prefix match, the nearest named Lichess line"
       : lichess.kind;
   return h("div", {}, [
-    h("span", { class: "lichess-name", text: lichess.name }),
-    h("span", { class: "note" }, [
-      kind,
-      lichess.eco ? ` (${lichess.eco})` : "",
-    ]),
+    h("span", { class: "name", text: lichess.name }),
+    h("span", { class: "sub" }, [kind, lichess.eco ? ` (${lichess.eco})` : ""]),
   ]);
 }
 
@@ -701,47 +733,42 @@ function popularityLine(row) {
   if (lichess) parts.push(`${masters ? NUM(lichess) : NUM(lichess) + " games"} on Lichess`);
   return h("div", {}, [
     h("span", { text: parts.join(", ") }),
-    h("span", {
-      class: "note",
-      text: "Lichess pool: rated blitz, rapid and classical from 1800 up",
-    }),
+    h("span", { class: "sub", text: "Lichess pool: rated blitz, rapid and classical from 1800 up" }),
   ]);
 }
 
-function attributionBlock(row) {
-  return h("section", { class: "panel attribution" }, [
-    h("h2", { text: "Attribution" }),
-    h("dl", { class: "fields" }, [
-      ...field("Named after", h("span", { text: row.attributed_to })),
+function relationFields(row) {
+  const items = [];
+  if (row.transposes_to) {
+    items.push(...field("Transposes to", slugChip(row.transposes_to),
+      h("span", { class: "sub", text: "the same position, canonicalised there" })));
+  }
+  if (row.same_as && row.same_as.length) {
+    items.push(...field("Same position", h("span", { class: "chip-row" }, row.same_as.map(slugChip)),
+      h("span", { class: "sub", text: "co-canonical: both names are real" })));
+  }
+  return items;
+}
+
+function attributionSection(row) {
+  return h("section", {}, [
+    h("div", { class: "section-head" }, [h("h2", { class: "label", text: "Attribution" })]),
+    h("dl", { class: "facts" }, [
+      ...field("Named after", h("span", { class: "name", text: row.attributed_to })),
       ...(row.attribution_source ? field("Source", h("span", { text: row.attribution_source })) : []),
       ...(row.historical_notes ? field("History", h("span", { text: row.historical_notes })) : []),
     ]),
   ]);
 }
 
-function relationsBlock(row) {
-  const items = [];
-  if (row.transposes_to) {
-    items.push(...field("Transposes to", slugChip(row.transposes_to),
-      h("span", { class: "note", text: "the same position, canonicalised there" })));
-  }
-  if (row.same_as && row.same_as.length) {
-    items.push(...field("Same position as",
-      h("span", { class: "chips" }, row.same_as.map(slugChip)),
-      h("span", { class: "note", text: "co-canonical: both names are real" })));
-  }
-  if (!items.length) return null;
-  return h("section", { class: "panel" }, [
-    h("h2", { text: "Relations" }),
-    h("dl", { class: "fields" }, items),
-  ]);
-}
-
-function childrenBlock(row) {
+function childrenSection(row) {
   const kids = childrenOf(row.slug);
   if (!kids.length) return null;
-  return h("section", { class: "panel" }, [
-    h("h2", { text: `Sub-lines (${kids.length})` }),
+  return h("section", {}, [
+    h("div", { class: "section-head" }, [
+      h("h2", { class: "label", text: "Sub-lines" }),
+      h("span", { class: "count", text: String(kids.length) }),
+    ]),
     resultList(kids, ""),
   ]);
 }
@@ -750,63 +777,62 @@ function renderRow(slug) {
   const view = document.getElementById("view");
   const row = DB.bySlug.get(slug);
   if (!row) {
-    mount(view, h("section", { class: "panel" }, [
-      h("h1", { text: "No such slug" }),
-      h("p", {}, [h("code", { text: slug }), " is not in the catalogue."]),
-      h("p", {}, [h("a", { class: "more", href: "#/", text: "Back to search" })]),
+    mount(view, h("section", { class: "notice" }, [
+      h("h1", { class: "display", text: "No such slug" }),
+      h("p", {}, [h("span", { class: "ident", text: slug }), " is not in the catalogue."]),
+      h("p", {}, [h("a", { href: "#/", text: "Back to search" })]),
     ]));
     return;
   }
 
+  const line = lineViewer(row);
   const played = popularityLine(row);
   const facts = [
-    ...(row.san ? field("Moves", h("span", { class: "movetext", text: row.san })) : []),
-    ...(row.eco ? field("ECO", h("span", { class: "chips" }, row.eco.map(ecoChip))) : []),
+    ...(row.eco ? field("ECO", h("span", { class: "chip-row" }, row.eco.map(ecoChip))) : []),
     ...(row.lichess ? field("Lichess", lichessBlock(row.lichess)) : []),
     ...(played ? field("Played", played) : []),
-    ...(row.aliases ? field("Also known as", h("span", { text: row.aliases.join(", ") })) : []),
-    ...(row.flags ? field("Flags", h("span", { class: "chips" },
-      row.flags.map((flag) => h("span", { class: "chip flat", text: flag })))) : []),
+    ...(row.aliases ? field("Also known as", h("span", { class: "name", text: row.aliases.join(", ") })) : []),
+    ...(row.flags ? field("Flags", h("span", { class: "chip-row" },
+      row.flags.map((flag) => h("span", { class: "chip flag", text: flag })))) : []),
+    ...relationFields(row),
     ...field("Parent", row.parent
       ? slugChip(row.parent)
-      : h("span", { class: "note", text: "class root, the top of its family" })),
+      : h("span", { class: "sub", text: "class root, the top of its family" })),
   ];
 
-  mount(view, 
-    breadcrumb(row.slug),
-    h("header", { class: "row-head" }, [
-      h("h1", { text: row.name }),
-      h("code", { class: "row-slug", text: row.slug }),
+  mount(view,
+    h("header", { class: `entry-head ${classOf(row.slug)}` }, [
+      slugPath(row.slug),
+      h("h1", { class: "display", text: row.name }),
     ]),
-    h("div", { class: "row-body" }, [
-      h("section", { class: "panel board-panel" }, [
-        boardSvg(row.fen),
-        h("p", { class: "board-caption", text: sideToMove(row.fen) }),
-        h("p", {}, [h("a", {
-          class: "more",
-          href: lichessUrl(row.fen),
-          rel: "noopener",
-          target: "_blank",
-          text: "Analyse this position on Lichess",
-        })]),
-        h("p", { class: "fen" }, [h("code", { text: row.fen })]),
+    h("div", { class: "entry-body" }, [
+      h("div", { class: "plate-col" }, [
+        line.board,
+        h("div", { class: "plate-caption" }, [
+          h("span", { text: sideToMove(row.fen) }),
+          h("a", { href: lichessUrl(row.fen), rel: "noopener", target: "_blank",
+                   text: "Analyse on Lichess \u2197" }),
+        ]),
+        line.stepper,
+        h("p", { class: "fen", text: row.fen }),
       ]),
-      h("section", { class: "panel facts" }, [h("dl", { class: "fields" }, facts)]),
+      h("div", {}, [
+        line.moves,
+        h("dl", { class: "facts" }, facts),
+        row.attributed_to ? attributionSection(row) : null,
+        childrenSection(row),
+      ].filter(Boolean)),
     ]),
-    row.attributed_to ? attributionBlock(row) : null,
-    relationsBlock(row),
-    childrenBlock(row),
   );
 }
 
 function renderEco(query) {
   const view = document.getElementById("view");
-  mount(view, 
-    h("header", { class: "row-head" }, [
-      h("h1", { text: "ECO converter" }),
-      h("code", { class: "row-slug", text: query }),
+  mount(view,
+    h("header", { class: "entry-head" }, [
+      h("h1", { class: "display", text: "ECO converter" }),
     ]),
-    converterBox(query),
+    h("div", { style: "margin-top:1.75rem" }, [converterBox(query, false)]),
   );
 }
 
