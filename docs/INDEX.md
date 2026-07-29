@@ -39,6 +39,7 @@ start here and move to `archive/` when their era closes.
 | [`transposition-cleanup-closure.md`](transposition-cleanup-closure.md) | Closure of the duplicate-FEN resolution layer (`unresolved_groups=0`). |
 | [`phantom-and-duplicate-name-decision.md`](phantom-and-duplicate-name-decision.md) | Path-marker spec-bless + duplicate-name renames (executed 2026-06-11). |
 | [`diacritic-normalization-map.md`](diacritic-normalization-map.md) | The diacritic policy and all three applied tier maps (755 rows). |
+| [`ambiguous-alias-decisions.md`](ambiguous-alias-decisions.md) | **Pending**: the 29 aliases equal to another row's canonical name, one recommendation each (H2.6). |
 
 ## Attribution system (live)
 

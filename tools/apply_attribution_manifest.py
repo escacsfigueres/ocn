@@ -11,10 +11,11 @@ The whole point is to stop hand-editing a 5,899-row CSV. The guardrails:
 
 - **Dry-run by default.** Nothing is written unless `--apply` AND `--out` are
   both given. A dry-run never touches the catalogue or any other file.
-- **Three safety modes** restrict which columns a manifest may change:
+- **Four safety modes** restrict which columns a manifest may change:
     `attribution_fields_only` -> attributed_to, attribution_source, historical_notes
     `naming_strings_only`     -> canonical_name, aliases, notes, + the three above
     `eco_legacy_only`         -> eco_legacy, alone (audit P1 item 8)
+    `aliases_only`            -> aliases, alone (roadmap H2.6 editorial pass)
   Every other column (ocn1, moves_uci, parent_ocn1, depth, transposes_to,
   same_as, flags) is structural and cannot be touched here.
 - **Exact-change contract.** The set of rows that actually change must equal
@@ -78,6 +79,14 @@ MODE_ALLOWED_FIELDS = {
     # bug, and bundling it with naming/attribution edits would blur the
     # blast radius of both lots.
     "eco_legacy_only": frozenset({"eco_legacy"}),
+    # Alias-only editing (roadmap H2.6). The editorial passes over the
+    # alias column — deleting synthetic strings, adding spelling variants,
+    # resolving name collisions — touch thousands of rows at once. Running
+    # them under `naming_strings_only` would leave canonical_name and notes
+    # inside the blast radius of a lot that has no business changing a
+    # name; this mode makes "aliases and nothing else" a checkable
+    # property of the manifest rather than a promise in its description.
+    "aliases_only": frozenset({"aliases"}),
 }
 
 REQUIRED_TOP_LEVEL = (

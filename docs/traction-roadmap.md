@@ -412,7 +412,7 @@ H0.1-H0.7 ──> H0.8 flip public ──> H1.1 pip + H1.2 JSON ──> H1.3 aut
   available today (first child by slug order, deepest descendant) would
   publish an editorial claim dressed as data, which is exactly the failure
   mode the roadmap's positioning section forbids. It lands with H2.7.
-- 2026-07-29 — **H2.4 done** (this commit). Spec 1.3, the standards
+- 2026-07-29 — **H2.4 done** (`48b6f11`). Spec 1.3, the standards
   release. The prose production is gone: `spec/OCN-1.md` now carries a
   **normative RFC 5234 ABNF** (numeric terminals throughout, because
   ABNF quoted strings are case-insensitive and slugs are not) whose
@@ -479,3 +479,61 @@ H0.1-H0.7 ──> H0.8 flip public ──> H1.1 pip + H1.2 JSON ──> H1.3 aut
   **check 22** enforces CP-5 with its own maximal-suffix walk plus a
   fixture. Suites: tools/tests 447, tests/ 100; validator clean in both
   modes (0 warnings); slug gate green.
+- 2026-07-29 — **H2.6 prepared (pending apply).** Engine mode +
+  manifests prepared, dry-runs clean, applies pending review. Nothing
+  has been written to the catalogue.
+  **The engine gains a fourth safety mode, `aliases_only`** — `aliases`
+  and nothing else. The editorial passes touch thousands of rows at
+  once, and running them under `naming_strings_only` would leave
+  `canonical_name` and `notes` inside the blast radius of a lot that has
+  no business changing a name; the mode makes "aliases only" a property
+  the engine checks instead of a promise in the description. Same
+  guardrails, none of them re-implemented: exact `expected_changed_rows`,
+  zero collateral diff, dry-run default. 15 new tests (31 to 46 in
+  `tools/tests/test_apply_attribution_manifest.py`) covering the happy
+  path, an empty cell as a legitimate new value, every field-scope
+  refusal (canonical_name / notes / attribution / structural columns /
+  eco_legacy both ways), both directions of the exact-change contract,
+  the stale row count, and the CLI dry-run default.
+  **The synthetic-alias deletion lot is generated, not curated**
+  (`manifests/synthetic-alias-deletion.manifest.json`): its predicate is
+  `web/build.py`'s `is_synthetic_alias`, imported rather than restated,
+  so the H2.3 display filter and the catalogue converge on one
+  definition. **2,128 alias occurrences across 2,128 rows** (each row
+  carries exactly one), 398 lone `Main Line` plus 1,730 `<SAN> Line`;
+  the column goes **7,456 to 5,328**, reproducing the explorer build's
+  number, and 1,648 rows are left with an empty cell. The audit's 1,726
+  becomes 1,730 for one accounted reason: 4 occurrences carry a check
+  suffix (`Qa4+ Line`, `Bb4+ Line`) that the audit's plainer SAN pattern
+  missed. Dry-run clean with `--validate` (validator PASS, 0 warnings);
+  record in
+  [`archive/synthetic-alias-deletion-dry-run.md`](archive/synthetic-alias-deletion-dry-run.md),
+  sha256 `091b9b62...` to `7269fbc0...`.
+  **The 29 name collisions get a decision table, not a manifest**
+  ([`ambiguous-alias-decisions.md`](ambiguous-alias-decisions.md)): each
+  alias that is exactly another row's `canonical_name`, judged by the
+  catalogue's own structure rather than by the literature. 3 KEEP (the
+  rows whose `transposes_to` points at the name's owner with identical
+  `moves_uci` — a transposition group, not an ambiguity), 26 DELETE
+  (comma-segments of the row's own name, Lichess sub-label fragments,
+  ancestor duplication, unqualified system names owned elsewhere). Note
+  recorded there: check 16 bans only *self*-identity aliases, so
+  cross-row collisions are unpoliced today, and the follow-up validator
+  check cannot be written before the decisions exist — it needs to know
+  which collisions are legal.
+  **The American-spelling lot is measured and deferred (scope guard).**
+  The canonical-name side is complete, contrary to the audit's "missed
+  ~10": all 709 rows whose `canonical_name` carries Defence/Centre
+  already hold the folded form as an alias, so that gap is **0**. The
+  remaining asymmetry is one layer down, in the *aliases*: **178 rows**
+  hold a British-spelled alias with no American twin (174 Defence, 4
+  Centre, no overlap), of which **52** carry no American-spelled alias
+  at all. Every row that carries a British-spelled alias is in that gap,
+  with zero exceptions — the 691-row lot folded canonical names and
+  never looked at the alias column, which is the honest description of
+  what "the lot missed some" means. Both numbers are far above the
+  ~30-row bar this pass allows, and the lot is
+  not mechanical the way the canonical-name one was (most cases are a
+  short British alias whose American form exists only inside a longer
+  Lichess label), so it is left for its own gated batch rather than
+  smuggled into an editorial pass.

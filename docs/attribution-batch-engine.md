@@ -85,9 +85,21 @@ rejected.
 |---|---|
 | `attribution_fields_only` | `attributed_to`, `attribution_source`, `historical_notes` |
 | `naming_strings_only` | `canonical_name`, `aliases`, `notes` + the three attribution fields |
+| `eco_legacy_only` | `eco_legacy`, alone |
+| `aliases_only` | `aliases`, alone |
+
+The two single-column modes exist because their lots have a different
+blast radius from a naming edit. An ECO correction is a classification
+bug, and bundling it with naming or attribution changes would blur what
+each lot is answerable for. The alias-editing passes (roadmap H2.6:
+deleting synthetic strings, adding spelling variants, resolving name
+collisions) touch thousands of rows at once; under `naming_strings_only`
+a single mistyped field name could rewrite a canonical name in that
+sweep, so `aliases_only` makes "aliases and nothing else" a property the
+engine checks rather than a promise in the manifest's description.
 
 **Always forbidden** (structural / positional identity): `ocn1`,
-`moves_uci`, `parent_ocn1`, `depth`, `eco_legacy`, `flags`, `transposes_to`,
+`moves_uci`, `parent_ocn1`, `depth`, `flags`, `transposes_to`,
 `same_as`. These ride a release-boundary migration, never an inline naming
 edit (the QID Miles/Petrosian precedent).
 
