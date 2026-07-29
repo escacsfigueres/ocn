@@ -58,21 +58,27 @@
 :root {
   color-scheme: light dark;
 
+  /* Ink and paper. Every value below 4.5:1 was measured and moved:
+     --ink-3 carries labels, counts and captions, all small text, so it
+     has to clear AA rather than merely look quiet. --edge is the
+     boundary of an interactive control, which WCAG 1.4.11 wants at 3:1;
+     --rule stays a hairline, which is decorative and exempt. */
   --paper: #f6f6f3;
   --plate: #ffffff;
-  --ink: #15171a;
-  --ink-2: #4b5157;
-  --ink-3: #838a90;
-  --rule: #e3e4e0;
+  --ink: #15171a;        /* 16.6:1 */
+  --ink-2: #4b5157;      /*  7.4:1 */
+  --ink-3: #6b7178;      /*  4.6:1 */
+  --edge: #8a8d86;       /*  3.1:1, control boundaries */
+  --rule: #e3e4e0;       /*  hairline, non-text */
   --rule-2: #cbcdc7;
   --focus: #1d6fb8;
 
-  /* The five volumes. One value family, so they read as a system. */
-  --cls-a: #3c6b8b;
-  --cls-b: #a13e2d;
-  --cls-c: #a4791b;
-  --cls-d: #3b6b4b;
-  --cls-e: #6a4a7d;
+  /* The five volumes. One value family, all at AA on paper. */
+  --cls-a: #3c6b8b;      /*  5.3:1 */
+  --cls-b: #a13e2d;      /*  6.0:1 */
+  --cls-c: #8a6512;      /*  4.9:1 */
+  --cls-d: #3b6b4b;      /*  5.7:1 */
+  --cls-e: #6a4a7d;      /*  6.7:1 */
   --cls: var(--ink-3);
 
   /* The plate keeps its own scale: a diagram is printed, never themed. */
@@ -84,6 +90,34 @@
   --mono: "Plex Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
   --ui: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
 
+  /* Type scale, seven steps and no strays. Anything that wanted an
+     eighth size wanted a different job. */
+  --t-micro: 0.6875rem;  /* 11px, uppercase labels only */
+  --t-caption: 0.75rem;  /* 12px */
+  --t-small: 0.8125rem;  /* 13px */
+  --t-body: 0.9375rem;   /* 15px */
+  --t-name: 1.0625rem;   /* 17px, an opening name in a list */
+  --t-lead: 1.1875rem;   /* 19px */
+  --t-display: clamp(1.85rem, 1.2rem + 2vw, 2.6rem);
+
+  /* Spacing, on a four-pixel grid. */
+  --s0: 0.125rem;
+  --s1: 0.25rem;
+  --s2: 0.5rem;
+  --s3: 0.75rem;
+  --s4: 1rem;
+  --s5: 1.5rem;
+  --s6: 2rem;
+  --s7: 3rem;
+  --s8: 4rem;
+
+  /* Motion. One duration for a control, one for a panel, one curve --
+     a decelerating cubic rather than `ease`, which starts too fast to
+     read as deliberate. */
+  --dur-1: 130ms;
+  --dur-2: 220ms;
+  --ease: cubic-bezier(0.22, 0.61, 0.36, 1);
+
   --measure: 68ch;
   --shell: 1120px;
 }
@@ -93,7 +127,8 @@
     --paper: #131416;
     --ink: #e7e8e5;
     --ink-2: #a9aeb3;
-    --ink-3: #777c81;
+    --ink-3: #82878c;    /* 5.1:1 */
+    --edge: #63676b;     /* 3.2:1 */
     --rule: #282a2d;
     --rule-2: #3b3e42;
     --focus: #6bb2ee;
@@ -131,14 +166,14 @@ a:hover { text-decoration: underline; text-underline-offset: 0.18em; }
 
 button {
   font: inherit; color: inherit; background: none;
-  border: 1px solid var(--rule-2); border-radius: 2px; cursor: pointer;
+  border: 1px solid var(--edge); border-radius: 2px; cursor: pointer;
 }
 button:hover:not(:disabled) { border-color: var(--ink-2); }
 button:disabled { opacity: 0.35; cursor: default; }
 
 input {
   font: inherit; color: inherit;
-  background: var(--plate); border: 1px solid var(--rule-2); border-radius: 2px;
+  background: var(--plate); border: 1px solid var(--edge); border-radius: 2px;
 }
 @media (prefers-color-scheme: dark) { input { background: #1b1d20; } }
 
@@ -150,27 +185,27 @@ input {
 /* ---------------------------------------------------------------- */
 
 .site-head {
-  display: flex; align-items: center; gap: 1rem;
-  padding: 1rem 1.5rem;
+  display: flex; align-items: center; gap: var(--s4);
+  padding: var(--s4) var(--s5);
   border-bottom: 1px solid var(--rule);
 }
-.wordmark { display: flex; align-items: center; gap: 0.55rem; }
+.wordmark { display: flex; align-items: center; gap: var(--s2); }
 .wordmark:hover { text-decoration: none; }
 .wordmark-mark { width: 0.95rem; height: 0.95rem; flex: 0 0 auto; display: block; }
 .wordmark-mark rect { fill: var(--ink); }
 .wordmark-mark .frame { fill: none; stroke: var(--ink); stroke-width: 3.5; }
 .wordmark-text { font-family: var(--mono); font-weight: 600; font-size: 0.9375rem; letter-spacing: 0.11em; }
-.wordmark-sub { font-size: 0.8125rem; color: var(--ink-3); }
+.wordmark-sub { font-size: var(--t-small); color: var(--ink-3); }
 @media (max-width: 560px) { .wordmark-sub { display: none; } }
 .head-meta { margin-left: auto; }
-.tag { font-family: var(--mono); font-size: 0.75rem; color: var(--ink-3); }
+.tag { font-family: var(--mono); font-size: var(--t-caption); color: var(--ink-3); }
 
 .shell { max-width: var(--shell); margin: 0 auto; padding: 2.25rem 1.5rem 5rem; }
 
 .site-foot {
   border-top: 1px solid var(--rule);
-  padding: 1.75rem 1.5rem 3rem;
-  color: var(--ink-3); font-size: 0.8125rem;
+  padding: 1.75rem var(--s5) var(--s7);
+  color: var(--ink-3); font-size: var(--t-small);
 }
 .site-foot p { margin: 0 auto 0.4rem; max-width: var(--shell); }
 .site-foot strong { color: var(--ink-2); font-weight: 600; }
@@ -180,23 +215,23 @@ input {
 /* Type primitives                                                   */
 /* ---------------------------------------------------------------- */
 
-.label { font-size: 0.6875rem; font-weight: 600; letter-spacing: 0.11em; text-transform: uppercase; color: var(--ink-3); }
+.label { font-size: var(--t-micro); font-weight: 600; letter-spacing: 0.11em; text-transform: uppercase; color: var(--ink-3); }
 .name { font-family: var(--serif); }
 .ident { font-family: var(--mono); font-variant-ligatures: none; }
 
 .display {
   font-family: var(--serif); font-weight: 600;
-  font-size: clamp(1.85rem, 1.2rem + 2vw, 2.6rem);
+  font-size: var(--t-display);
   line-height: 1.08; letter-spacing: -0.015em;
-  margin: 0.4rem 0 0; text-wrap: balance;
+  margin: var(--s2) 0 0; text-wrap: balance;
 }
 
 .section-head {
-  display: flex; align-items: baseline; gap: 0.6rem;
-  margin: 2.75rem 0 0.75rem;
-  padding-bottom: 0.4rem; border-bottom: 1px solid var(--rule);
+  display: flex; align-items: baseline; gap: var(--s2);
+  margin: 2.75rem 0 var(--s3);
+  padding-bottom: var(--s2); border-bottom: 1px solid var(--rule);
 }
-.section-head .count { font-family: var(--mono); font-size: 0.75rem; color: var(--ink-3); }
+.section-head .count { font-family: var(--mono); font-size: var(--t-caption); color: var(--ink-3); }
 
 /* ---------------------------------------------------------------- */
 /* Class colours                                                     */
@@ -218,7 +253,7 @@ input {
 /* so the hierarchy teaches itself without shifting the layout.       */
 /* ---------------------------------------------------------------- */
 
-.path { display: flex; flex-direction: column; gap: 0.1rem; }
+.path { display: flex; flex-direction: column; gap: var(--s0); }
 .path-line {
   font-family: var(--mono);
   font-size: clamp(0.95rem, 0.8rem + 0.55vw, 1.2rem);
@@ -266,15 +301,15 @@ input {
 
 .plate-caption {
   display: flex; align-items: baseline; justify-content: space-between;
-  gap: 1rem; margin-top: 0.6rem; font-size: 0.8125rem; color: var(--ink-3);
+  gap: var(--s4); margin-top: var(--s2); font-size: var(--t-small); color: var(--ink-3);
 }
 
 .stepper { display: flex; align-items: center; gap: 0.3rem; margin-top: 0.85rem; }
 .stepper button { width: 2.1rem; height: 1.9rem; display: grid; place-items: center; font-family: var(--mono); font-size: 0.8rem; line-height: 1; }
-.stepper .ply { font-family: var(--mono); font-size: 0.75rem; color: var(--ink-3); margin-left: 0.5rem; }
+.stepper .ply { font-family: var(--mono); font-size: var(--t-caption); color: var(--ink-3); margin-left: 0.5rem; }
 
 .fen {
-  margin-top: 0.9rem; font-family: var(--mono); font-size: 0.6875rem;
+  margin-top: var(--s3); font-family: var(--mono); font-size: var(--t-caption);
   line-height: 1.55; color: var(--ink-3); word-break: break-all; user-select: all;
 }
 
@@ -283,14 +318,14 @@ input {
 /* ---------------------------------------------------------------- */
 
 .moves {
-  font-family: var(--mono); font-size: 0.9375rem; line-height: 1.9;
+  font-family: var(--mono); font-size: var(--t-body); line-height: 1.9;
   padding-bottom: 1.25rem; border-bottom: 1px solid var(--rule);
-  display: flex; flex-wrap: wrap; align-items: baseline; gap: 0 0.08rem;
-  margin: 0 0 1.9rem;
+  display: flex; flex-wrap: wrap; align-items: baseline; gap: 0 var(--s0);
+  margin: 0 0 var(--s6);
 }
 .move-no { color: var(--ink-3); margin-left: 0.45rem; }
 .move-no:first-child { margin-left: 0; }
-.move { padding: 0.05rem 0.3rem; border-radius: 2px; color: var(--ink); cursor: pointer; }
+.move { padding: var(--s0) var(--s1); border-radius: 2px; color: var(--ink); cursor: pointer; }
 .move:hover { background: var(--rule); text-decoration: none; }
 .move.current { background: var(--ink); color: var(--paper); }
 .move.current:hover { background: var(--ink); text-decoration: none; }
@@ -302,14 +337,14 @@ input {
 .facts { display: grid; grid-template-columns: max-content minmax(0, 1fr); margin: 0; }
 .facts > dt {
   grid-column: 1; padding: 0.75rem 1.5rem 0.75rem 0; border-top: 1px solid var(--rule);
-  font-size: 0.6875rem; font-weight: 600; letter-spacing: 0.11em; text-transform: uppercase;
+  font-size: var(--t-micro); font-weight: 600; letter-spacing: 0.11em; text-transform: uppercase;
   color: var(--ink-3); white-space: nowrap; line-height: 1.9;
 }
 .facts > dd { grid-column: 2; margin: 0; padding: 0.75rem 0; border-top: 1px solid var(--rule); min-width: 0; }
 .facts > dt:first-of-type, .facts > dd:first-of-type { border-top: none; padding-top: 0; }
-.facts .name { font-size: 1.0625rem; line-height: 1.45; }
-.facts .sub { display: block; color: var(--ink-3); font-size: 0.8125rem; margin-top: 0.2rem; }
-.facts p { margin: 0 0 0.5rem; }
+.facts .name { font-size: var(--t-name); line-height: 1.45; }
+.facts .sub { display: block; color: var(--ink-3); font-size: var(--t-small); margin-top: 0.2rem; }
+.facts p { margin: 0 0 var(--s2); }
 .facts p:last-child { margin-bottom: 0; }
 
 /* ---------------------------------------------------------------- */
@@ -317,13 +352,13 @@ input {
 /* ---------------------------------------------------------------- */
 
 .chip {
-  display: inline-block; font-family: var(--mono); font-size: 0.8125rem;
-  padding: 0.1rem 0.4rem; border: 1px solid var(--rule-2); border-radius: 2px; color: var(--ink-2);
+  display: inline-block; font-family: var(--mono); font-size: var(--t-small);
+  padding: var(--s0) var(--s1); border: 1px solid var(--edge); border-radius: 2px; color: var(--ink-2);
 }
 a.chip:hover { border-color: var(--ink-2); color: var(--ink); text-decoration: none; }
 .chip.eco { letter-spacing: 0.03em; }
 .chip.flag { color: var(--ink-3); }
-.chip-row { display: flex; flex-wrap: wrap; gap: 0.35rem; }
+.chip-row { display: flex; flex-wrap: wrap; gap: var(--s1); }
 
 /* ---------------------------------------------------------------- */
 /* Lists of rows                                                     */
@@ -335,15 +370,15 @@ a.chip:hover { border-color: var(--ink-2); color: var(--ink); text-decoration: n
 
 .row-link {
   display: grid; grid-template-columns: minmax(0, 1fr) auto;
-  gap: 0.3rem 1.25rem; align-items: baseline;
+  gap: var(--s1) 1.25rem; align-items: baseline;
   padding: 0.7rem 0.5rem 0.7rem 0.7rem; border-left: 2px solid transparent;
 }
 .row-link:hover { background: var(--plate); border-left-color: var(--cls); text-decoration: none; }
 @media (prefers-color-scheme: dark) { .row-link:hover { background: #1b1d20; } }
-.row-name { font-family: var(--serif); font-size: 1.0625rem; line-height: 1.35; }
-.row-meta { display: flex; gap: 0.5rem; align-items: baseline; flex-wrap: wrap; justify-content: flex-end; }
-.row-slug { font-family: var(--mono); font-size: 0.8125rem; color: var(--ink-3); }
-.row-eco { font-family: var(--mono); font-size: 0.75rem; color: var(--cls); letter-spacing: 0.03em; }
+.row-name { font-family: var(--serif); font-size: var(--t-name); line-height: 1.35; }
+.row-meta { display: flex; gap: var(--s2); align-items: baseline; flex-wrap: wrap; justify-content: flex-end; }
+.row-slug { font-family: var(--mono); font-size: var(--t-small); color: var(--ink-3); }
+.row-eco { font-family: var(--mono); font-size: var(--t-caption); color: var(--cls); letter-spacing: 0.03em; }
 
 /* ---------------------------------------------------------------- */
 /* Tree                                                              */
@@ -354,7 +389,7 @@ a.chip:hover { border-color: var(--ink-2); color: var(--ink); text-decoration: n
 /* The spine of a subtree carries its class colour, so an expanded branch
    stays visibly attached to the volume it belongs to. */
 .tree ul {
-  list-style: none; margin: 0; padding: 0 0 0 1.1rem;
+  list-style: none; margin: 0; padding: 0 0 0 var(--s4);
   border-left: 1px solid color-mix(in srgb, var(--cls) 30%, transparent);
 }
 
@@ -362,55 +397,74 @@ a.chip:hover { border-color: var(--ink-2); color: var(--ink); text-decoration: n
    different cap heights, so centring their boxes leaves the letter
    floating. The toggle is a glyph in a box and stays optically centred. */
 .node {
-  display: flex; align-items: baseline; gap: 0.5rem;
-  padding: 0.28rem 0.4rem 0.28rem 0; border-radius: 2px;
+  display: flex; align-items: baseline; gap: var(--s2);
+  padding: var(--s1) var(--s2) var(--s1) 0; border-radius: 2px;
 }
 .node:hover { background: var(--plate); }
 @media (prefers-color-scheme: dark) { .node:hover { background: #1b1d20; } }
 /* The one control in the tree, so it has to look like one: a real hit
-   area, ink rather than a whisper, and it turns the class colour when
-   open. The arrow is an SVG path rather than a character, because a
-   glyph brings font metrics that will not line up with the text beside
-   it -- baseline alignment plus a small nudge puts the triangle's
-   centre on the x-height of the name it opens. */
+   area and geometry rather than a glyph, because a character triangle
+   carries font metrics that never line up with the text beside it.
+   Quiet by default -- it should not compete with the name it labels --
+   and it takes the class colour when hovered or open. */
 .node-toggle {
   width: 1.5rem; height: 1.5rem; flex: 0 0 auto;
   align-self: baseline; position: relative; top: 2px;
   display: inline-flex; align-items: center; justify-content: center;
-  border: none; border-radius: 2px; color: var(--ink-2);
+  border: none; border-radius: 2px; color: var(--ink-3);
 }
 .node-toggle svg { width: 0.8rem; height: 0.8rem; display: block; }
-.node-toggle svg path { fill: currentColor; transition: transform 130ms ease; transform-origin: 6px 6px; }
+.node-toggle svg path {
+  fill: currentColor;
+  transition: transform var(--dur-2) var(--ease);
+  transform-origin: 6px 6px;
+}
 .node-toggle[aria-expanded="true"] { color: var(--cls); }
 .node-toggle[aria-expanded="true"] svg path { transform: rotate(90deg); }
 .node-toggle:hover:not(:disabled) { color: var(--cls); background: var(--rule); border: none; }
-.node-toggle:disabled { opacity: 0.22; }
-@media (prefers-reduced-motion: reduce) { .node-toggle svg path { transition: none; } }
+.node-toggle:disabled { opacity: 0.25; }
 
-.node-slug { font-family: var(--mono); font-size: 0.875rem; font-weight: 500; color: var(--ink-2); }
+/* A branch opens rather than appears: the arrow turns and the rows grow
+   out of the same gesture, on the same curve and duration. A drawer
+   that snaps while its handle animates is what makes a disclosure feel
+   broken. */
+.drawer {
+  display: grid; grid-template-rows: 0fr;
+  transition: grid-template-rows var(--dur-2) var(--ease);
+}
+.drawer > ul { overflow: hidden; min-height: 0; }
+.drawer.is-open { grid-template-rows: 1fr; }
+@media (prefers-reduced-motion: reduce) {
+  .node-toggle svg path, .drawer { transition: none; }
+}
+
+.node-slug { font-family: var(--mono); font-size: var(--t-small); font-weight: 500; color: var(--ink-2); }
 .node-slug.is-root { color: var(--cls); font-weight: 600; font-size: 1rem; }
-.node-name { font-family: var(--serif); font-size: 0.9375rem; color: var(--ink); min-width: 0; }
-.node-count { font-family: var(--mono); font-size: 0.6875rem; color: var(--ink-3); margin-left: auto; flex: 0 0 auto; }
+.node-name { font-family: var(--serif); font-size: var(--t-body); color: var(--ink); min-width: 0; }
+.node-count {
+  font-family: var(--mono); font-size: var(--t-small); color: var(--ink-3);
+  margin-left: auto; flex: 0 0 auto; font-variant-numeric: tabular-nums;
+}
 
 /* ---------------------------------------------------------------- */
 /* Search, converter, home                                           */
 /* ---------------------------------------------------------------- */
 
-.seek { display: flex; gap: 0.5rem; align-items: stretch; }
+.seek { display: flex; gap: var(--s2); align-items: stretch; }
 .seek input { flex: 1; padding: 0.6rem 0.75rem; font-size: 1rem; }
 
-.hint { color: var(--ink-3); font-size: 0.8125rem; margin: 0.55rem 0 0; }
-.empty { color: var(--ink-3); font-style: italic; font-family: var(--serif); padding: 0.9rem 0; }
+.hint { color: var(--ink-3); font-size: var(--t-small); margin: 0.55rem 0 0; }
+.empty { color: var(--ink-3); font-style: italic; font-family: var(--serif); padding: var(--s4) 0; }
 
 .home-lead {
-  font-family: var(--serif); font-size: 1.1875rem; line-height: 1.6;
+  font-family: var(--serif); font-size: var(--t-lead); line-height: 1.6;
   color: var(--ink-2); max-width: 58ch; margin: 0 0 2rem;
 }
 .home-lead strong { color: var(--ink); font-weight: 600; }
-.home-lead .ident { font-size: 1.0625rem; color: var(--ink); }
+.home-lead .ident { font-size: var(--t-name); color: var(--ink); }
 
-.panels { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 3rem; }
+.panels { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: var(--s7); }
 @media (max-width: 900px) { .panels { grid-template-columns: 1fr; gap: 2.25rem; } }
 
-.notice { padding: 2rem 0; }
+.notice { padding: var(--s6) 0; }
 .notice p { color: var(--ink-2); max-width: var(--measure); }

@@ -159,3 +159,36 @@ Builds the site into a temporary directory and checks the payload
 rows, real aliases kept, every parent and relation target resolving,
 size under the roadmap's cap) and the no-external-request guarantee
 across `index.html`, `app.js` and `style.css`.
+
+## Design tokens, and the audit behind them
+
+Everything visual comes from the token block at the top of `style.css`.
+The values are not taste; three of them were measured and moved.
+
+**Colour.** Contrast was computed against the page background rather
+than eyeballed. Three tokens failed and were corrected:
+
+| token | was | now | on paper |
+|---|---|---|---|
+| `--ink-3` (labels, counts, captions) | `#838a90` | `#6b7178` | 3.2:1 to 4.6:1, clears AA for small text |
+| `--cls-c` (the amber volume) | `#a4791b` | `#8a6512` | 3.6:1 to 4.9:1 |
+| control boundaries | `--rule-2` at 1.5:1 | `--edge` at 3.1:1 | WCAG 1.4.11 wants 3:1 for the edge of a control |
+
+`--rule` stays a hairline at 1.2:1 on purpose: a decorative separator is
+exempt, and darkening it would turn a quiet page into a grid.
+
+**Type.** Seven steps, `--t-micro` through `--t-display`, and no strays.
+The ten ad-hoc sizes that preceded them included four within a pixel of
+each other, which is noise rather than hierarchy.
+
+**Space.** A four-pixel grid, `--s0` through `--s8`. Twenty-eight
+lengths were snapped onto it; optical values (a chip's inner padding, an
+underline offset) stay off-grid deliberately, because they answer to the
+glyph rather than to the layout.
+
+**Motion.** Two durations and one curve: `--dur-1` for a control,
+`--dur-2` for a panel, and a decelerating cubic rather than `ease`,
+which starts too fast to read as deliberate. Anything that moves
+together uses the same pair — the tree's arrow and its drawer open on
+one gesture, because an arrow that animates beside content that snaps is
+what makes a disclosure feel broken.
