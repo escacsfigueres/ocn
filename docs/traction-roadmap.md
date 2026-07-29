@@ -171,3 +171,25 @@ H0.1-H0.7 ──> H0.8 flip public ──> H1.1 pip + H1.2 JSON ──> H1.3 aut
 
 - 2026-07-29 — Roadmap adopted. Audit snapshot:
   [`ocn-audit-2026-07.md`](ocn-audit-2026-07.md).
+- 2026-07-29 — **H0.1 done.** Ship-ready half of PR #1 merged (`c88517d`:
+  CI glob + guard, README 1.2.0 truth, four tested tools; suite 194 to
+  285). Allgaier CLEAR applied under GO (`389929e`,
+  [`allgaier-clear-dry-run.md`](allgaier-clear-dry-run.md)) — first live
+  attribution with a reference-grade source. Inert drafts tracked as
+  issues #2 (PARTIAL heads) and #3 (fr/de seeds); PR #1 closed, branch
+  kept for the draft files. 0 open PRs.
+- 2026-07-29 — **H0.2 done** (`352206a`). False ECO-fidelity claim
+  replaced with the measured 13.8% divergence statement; French and
+  London/Colle documented under Borderline classifications; 5 archived
+  links fixed; private-repo references neutralised; tools section split
+  consumer/maintainer; README 316 to 281 lines.
+- 2026-07-29 — **H0.6 done** (`3a03694`). CONTRIBUTING.md, GOVERNANCE.md
+  (registrar model), naming-dispute and data-error issue templates with
+  labels created on the repo, CITATION.cff bumped to 1.2.0.
+- 2026-07-29 — **H0.3 done.** Spec Format section now states the
+  enforced grammar (`class . named+ . move*`, 7-segment cap);
+  depth-cap saturation acknowledged as design; token ambiguity
+  documented descriptively; `spec/errata.md` created (E-001 QID
+  re-point, E-002 1.2.0 mass rename, E-003 grammar gap); fixtures
+  declared the provisional conformance corpus; spec history extended
+  through 1.2 plus the triage patch.

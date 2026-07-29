@@ -45,20 +45,35 @@ sub-code with a small, human-readable, hierarchical slug.
 ## Format
 
 ```
-<class> "." <family> [ "." <variation> [ "." <subline> [ "." <move> [ "." <move> ] ] ] ]
+<class> ( "." <named> )+ ( "." <move> )*
 ```
+
+A slug is the class letter, then **one or more named segments**, then
+**zero or more trailing SAN move segments**, bounded at 7 segments in
+total (6 dots). This is the grammar the validator has always enforced
+(`tools/validate.py`); earlier editions of this document published a
+narrower production (at most six segments, at most two move segments)
+that the catalogue outgrew — see [`errata.md`](errata.md), E-003. A
+normative ABNF with a conformance corpus is planned for spec 1.3
+(roadmap H2.4).
+
+The named levels carry conventional role names by depth:
 
 | Position | Length | Case | Examples |
 |---|---|---|---|
 | `class` | 1 char | uppercase A/B/C/D/E | `A`, `B`, `C`, `D`, `E` |
-| `family` | 3 chars | TitleCase or known ALLCAPS abbreviation | `Sic`, `Fre`, `RyL`, `KID`, `QGD` |
-| `variation` | 3 chars | TitleCase | `Naj`, `Sve`, `Mar`, `Tar`, `Sml` |
-| `subline` | 3 chars | TitleCase | `Eng`, `End`, `Ope`, `Cls` |
-| `move` | 1-6 chars | SAN-style, check/mate stripped | `Be3`, `e5`, `Bxf6`, `O-O`, `O-O-O` |
+| `family` (named, depth 1) | 3 chars | TitleCase or known ALLCAPS abbreviation | `Sic`, `Fre`, `RyL`, `KID`, `QGD` |
+| `variation` (named, depth 2) | 3 chars | TitleCase | `Naj`, `Sve`, `Mar`, `Tar`, `Sml` |
+| `subline` and deeper (named) | 3 chars | TitleCase | `Eng`, `End`, `Ope`, `Cls` |
+| `move` (tail) | 1-6 chars | SAN-style, check/mate stripped | `Be3`, `e5`, `Bxf6`, `O-O`, `O-O-O` |
 
-Total depth is bounded at 6 dots / 7 segments. Named segments are normally
-3-character tokens; up to two trailing SAN move segments may extend the
-slug when a named tabiya needs move-level precision.
+One known ambiguity: a token like `Bg5` or `Nd5` is both a legal SAN
+move and a plausible 3-character named token. The catalogue resolves it
+positionally — SAN-shaped tokens inside the named region are named
+tokens (`D.Sem.Bg5.Mos`), and the move tail is the trailing run of
+SAN-parsing segments (`B.Sic.Sve.Nd5`). The precise normative rule
+(maximal SAN suffix, plus a ban on minting new SAN-shaped named tokens)
+lands in spec 1.3.
 
 ### Class assignment
 
@@ -136,7 +151,9 @@ Variation`. The 3-letter slug is purely for compact reference.
 For lines that are routinely identified by a specific tabiya beyond the
 named variation, append literal SAN moves separated by dots. Check (`+`)
 and mate (`#`) are stripped. File/rank disambiguation is allowed when SAN
-requires it. The grammar permits up to two trailing move segments:
+requires it. The tail may run to several moves within the 7-segment cap
+(about a quarter of catalogue rows carry three to five — e.g.
+`C.Vie.Nc6.f4.exf4.Nf3.g5`); short tails read best:
 
 ```
 B.Sic.Sve.Nd5            11.Nd5 main Sveshnikov tabiya            (one move)
@@ -157,14 +174,20 @@ they describe the move, not the variation.
 
 The depth tail is appended only when the SAN move is **the canonical tabiya
 that opening literature attaches a name to**. Random middlegame moves do
-not become OCN-1 slugs.
+not become OCN-1 slugs. (Honesty note: the validator does not yet enforce
+this bar mechanically — much of the current deep tail derives from the
+Lichess long-tail import. Enforcement criteria are a spec 1.3 work item.)
 
 ### Maximum depth
 
 The catalogue MUST NOT contain entries with more than 6 dots (i.e. 7
-segments). The recommended cap is 5 segments for everyday lines, and 7
-only for legendary tabiyas. Beyond that, identify the position by Zobrist
-hash, not by slug.
+segments). This cap is a design boundary, not headroom: 18.4% of current
+rows sit at the 7-segment maximum, and that is accepted — the cap marks
+where naming ends and position identity begins. Deeper theory attaches to
+existing slugs as data (a planned `mainline` continuation field in the
+positions sidecar, roadmap H2.8) or is identified by position key, never
+by a longer slug. Raising the cap would be a format change and therefore
+a major (2.x) version.
 
 ## Catalogue
 
@@ -438,6 +461,20 @@ Once a release is tagged, an entry's `ocn1` MUST NOT be re-pointed to a
 different position. If a slug is found to be wrong, mark it `deprecated`
 in `flags` and add the correct slug as a new entry.
 
+Known deviations from this policy, and clauses this document has had to
+correct about itself, are recorded openly in [`errata.md`](errata.md).
+A field-level rewrite of the change classes (versioning 2.0) is planned
+for spec 1.3.
+
+### Conformance corpus (provisional)
+
+The fixtures under `tools/tests/fixtures/` — valid and invalid slugs,
+warning cases, strict-chess negatives — are the **provisional**
+conformance corpus for this spec: an implementation that agrees with
+`tools/validate.py` on all of them can consider itself aligned with the
+catalogue's rules as enforced today. Spec 1.3 formalises this into a
+declared, versioned corpus of ~100 cases with reason codes.
+
 ### Spec history
 
 - **Draft v0.1 (2026-04-28)** — initial public draft.
@@ -449,6 +486,18 @@ in `flags` and add the correct slug as a new entry.
   `attribution_source`, `historical_notes`) actively populated under the
   sourced-attribution contract (a non-empty `attributed_to` MUST carry an
   `attribution_source`).
+- **v1.2 (2026-06-11, `ocn-1.2.0`)** — diacritic-true canonical names
+  (683 renames — see `errata.md` E-002 on how that sat with the minor
+  version rule as then written), audited ECO legacy codes, the validator
+  gate made unconditional (checks 13-20, zero allowlists), the Lichess
+  cross-reference sidecar, and the American-spelling alias lot. Zero
+  `ocn1` changes.
+- **v1.2 triage patch (2026-07-29, unreleased)** — this document
+  corrected to state the grammar the validator actually enforces
+  (`class . named+ . move*`, 7-segment cap), the depth-cap saturation
+  acknowledged as design, the token-ambiguity resolution documented
+  descriptively, `errata.md` created, and the test fixtures declared the
+  provisional conformance corpus. No catalogue change.
 
 ## Examples
 
