@@ -88,9 +88,9 @@ canonical_ocn1 = transposes_to if transposes_to is not empty
                                   else ocn1
 ```
 
-`openings.parquet` already materialises this in the `canonical_ocn1`
-column (non-null for every row). For TSV consumers, derive it on
-read.
+No artefact ships `canonical_ocn1` as a column: derive it on read.
+The `ocn-chess` package does it for you (`Catalog.resolve`), and
+section 7 has the one-line SQL view.
 
 `same_as` does **not** replace `canonical_ocn1`. A row with
 `same_as` set is itself canonical (its own `canonical_ocn1` equals
@@ -112,14 +112,51 @@ Pick the right artefact for your input:
 | have | use | join key |
 |---|---|---|
 | FEN string or board object | the `ocn-chess` package (`Catalog.by_fen`), `ocn-1.positions.tsv`, or `tools/ocn.py` | `fen_key` (board + side + castling + ep, ignoring counters) |
-| Polyglot zobrist hash (INT64) | derive the `fen_key` instead for now; the positions sidecar gains a `zobrist` column in roadmap H2.8 | `fen_key` today, `zobrist` then |
+| Polyglot zobrist hash (INT64) | `ocn-1.positions.tsv`, the `zobrist` column | `zobrist` |
+| EPD record | `ocn-1.positions.tsv`, the `epd` column | `epd` |
 | OCN slug | the package, or `catalog/ocn-1.csv` directly | `ocn1` |
 | Lichess opening name / line | `catalog/ocn-1.lichess-xref.tsv` | exact SAN sequence → `ocn1` (every Lichess line on a position OCN covers resolves to a slug) |
 
-**Polyglot remains the recommended canonical 64-bit hash** — spec
-Annex A defines it normatively, and the positions sidecar grows a
-`zobrist` column in roadmap H2.8. Until then, `fen_key` joins via the
-package or `ocn-1.positions.tsv` are the reference path.
+### What the positions sidecar carries
+
+One row per concrete slug (the five class roots have no position and are
+not in the file), fourteen columns:
+
+| column | what it is |
+|---|---|
+| `ocn1`, `canonical_name`, `eco_legacy`, `parent_ocn1`, `depth`, `moves_uci` | copied from the catalogue, so the sidecar answers on its own |
+| `fen_key` | the position identity of spec Annex A. **The join key.** |
+| `fen` | the same position as a complete FEN, with the true halfmove clock and fullmove number of the line. Hand it to a board library; never join on it |
+| `transposition_group_size` | how many catalogue rows share this `fen_key` |
+| `transposes_to`, `same_as` | the two catalogue relations, sections 5 and 6 |
+| `san` | the line as numbered movetext, `1.e4 c5 2.Nf3` |
+| `epd` | the position as a bare EPD record (four fields, no operations) |
+| `zobrist` | the Polyglot book hash, unsigned decimal |
+
+Sample row (`B.Sic.Naj.Eng`, trimmed to the derived columns):
+
+```
+san      1.e4 c5 2.Nf3 d6 3.d4 cxd4 4.Nxd4 Nf6 5.Nc3 a6 6.Be3
+epd      rnbqkb1r/1p2pppp/p2p1n2/8/3NP3/2N1B3/PPP2PPP/R2QKB1R b KQkq -
+fen      rnbqkb1r/1p2pppp/p2p1n2/8/3NP3/2N1B3/PPP2PPP/R2QKB1R b KQkq - 1 6
+zobrist  8839051919898350604
+```
+
+**Polyglot remains the recommended canonical 64-bit hash**, and as of
+roadmap H2.8 the sidecar carries it: `zobrist` is the hash spec Annex A
+defines, computed in this repository by
+[`tools/polyglot_zobrist.py`](../tools/polyglot_zobrist.py) in stdlib
+Python, with no runtime dependency and no private repo in the chain. It
+is emitted as **unsigned decimal**; if your column is a signed INT64
+(DuckDB, Postgres `bigint`, Parquet), reinterpret rather than clamp —
+subtract 2^64 from anything above 2^63-1. The values are pinned in CI
+against the public test vectors published with the Polyglot book format,
+so a join against any conforming book or database matches exactly.
+
+`epd` is the four EPD fields with no operations. Because OCN already
+normalises en passant the way EPD wants it (see the trap below), that
+string is the same string as `fen_key`; the column exists so EPD-driven
+tooling finds the field under the name it expects. Join on `fen_key`.
 
 `fen_key` in `ocn-1.positions.tsv` is the same FEN with halfmove
 and fullmove counters stripped — match on that, not on the full
@@ -291,19 +328,30 @@ tree = list(cat.walk("B.Sic"))             # whole subtree, breadcrumbs
 
 ### Canonical OCN per row (SQL)
 
+The sidecar is a plain TSV, so every engine reads it directly. In DuckDB:
+
 ```sql
+CREATE VIEW ocn AS
 SELECT
-  zobrist,
+  CAST(zobrist AS UBIGINT) AS zobrist,
+  fen_key,
   ocn1,
   canonical_name,
   COALESCE(NULLIF(transposes_to, ''), ocn1) AS canonical_ocn1,
   same_as
-FROM read_parquet('openings.parquet');
+FROM read_csv('ocn-1.positions.tsv', delim='\t', header=true,
+              types={'zobrist': 'UBIGINT'});
 ```
 
-`openings.parquet` already exposes `canonical_ocn1` as a
-materialised column, so the COALESCE is only needed for TSV /
-CSV consumers.
+`canonical_ocn1` is not a column in the file: it is `transposes_to`
+when set, otherwise the row's own slug, which is the COALESCE above.
+Materialise it once in a view and the rest of the queries stay short.
+
+**Cast `zobrist` deliberately.** The column is unsigned decimal, so
+about half the catalogue exceeds `2^63-1` and a bare `BIGINT` either
+overflows or silently truncates. Read it as `UBIGINT` (DuckDB), or as
+`numeric` / `text` in Postgres, and reinterpret if your own positions
+table stores the hash signed.
 
 ### Joining a positions table to OCN (DuckDB style)
 
@@ -316,7 +364,7 @@ SELECT
   o.canonical_name,
   o.same_as
 FROM positions p
-LEFT JOIN read_parquet('openings.parquet') o
+LEFT JOIN ocn o
   ON p.zobrist = o.zobrist;
 ```
 
@@ -330,7 +378,7 @@ WITH joined AS (
     p.game_id, p.ply, p.zobrist,
     o.canonical_ocn1, o.canonical_name, o.same_as
   FROM positions p
-  LEFT JOIN read_parquet('openings.parquet') o
+  LEFT JOIN ocn o
     ON p.zobrist = o.zobrist
 )
 SELECT
@@ -340,6 +388,9 @@ SELECT
 FROM joined
 GROUP BY game_id, ply, zobrist;
 ```
+
+If you have FENs rather than hashes, the same join works on `fen_key`
+— normalise your en-passant field first (see the trap in section 4).
 
 ### Worked example
 
@@ -654,7 +705,7 @@ which reruns the full CI gate, rebuilds the derived files from
 |---|---|
 | `ocn-1.csv` | the canonical catalogue, 14 columns |
 | `ocn-1.json` | the whole catalogue as one JSON document (schema `ocn.catalog.v1`), section 11 |
-| `ocn-1.positions.tsv` | one row per concrete slug: `fen_key`, full FEN, transposition-group size |
+| `ocn-1.positions.tsv` | one row per concrete slug: `fen_key`, full FEN, transposition-group size, SAN movetext, EPD and the Polyglot `zobrist`, section 4 |
 | `ocn-1.lichess-xref.tsv` | Lichess opening lines mapped to OCN slugs |
 | `ocn-1.eco.tsv` | scalar join table, one row per (slug, ECO code), section 9 |
 | `ocn-1.eco-divergence.tsv` | rows whose OCN class letter is absent from their ECO codes, section 10 |
@@ -672,8 +723,12 @@ inside the wheel: the workflow builds it with the same options
 **No parquet.** Releases up to 1.2.0 carried `openings.parquet` and
 `_efcdb_manifest.json`, generated from the private `chess-parquet`
 repo. They are gone by decision (roadmap decision 8): everything OCN
-publishes is now buildable from `catalog/` alone, and the Polyglot
-zobrist moves into the positions sidecar.
+publishes is now buildable from `catalog/` alone. The one thing that
+made those files load-bearing — the Polyglot zobrist — moved into the
+positions sidecar in roadmap H2.8 and is computed here in stdlib Python.
+The hashes are unchanged by the move: the same positions produce the
+same 64-bit keys the parquet carried, so a join written against 1.2.0
+keeps working.
 
 ## 14. Naming games: `ocn annotate`
 

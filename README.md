@@ -234,10 +234,14 @@ Every subcommand takes `--json`. Details and join patterns:
   reproducible script behind any published "OCN names X% of real games"
   figure; it streams, so a compressed dump can be piped straight into it.
 - [`tools/export_positions.py`](tools/export_positions.py) — writes the derived
-  position-indexed TSV/JSON view (`fen_key`, a complete `fen` with true
-  halfmove/fullmove counters, transposition group size); this is the index the
-  package bundles. A fuller positions sidecar — SAN movetext, EPD and Polyglot
-  zobrist, all computed here in Python — is planned (roadmap H2.8).
+  position-indexed TSV/JSON view: `fen_key`, a complete `fen` with true
+  halfmove/fullmove counters, transposition group size, SAN movetext, EPD and
+  the Polyglot `zobrist`, all computed here in Python (roadmap H2.8). This is
+  the index the package bundles.
+- [`tools/polyglot_zobrist.py`](tools/polyglot_zobrist.py) — the Polyglot book
+  hash of spec Annex A in stdlib Python: the public 781-key table vendored with
+  its provenance, pinned in CI against the book format's published test
+  vectors. No runtime dependency, no private repo in the chain.
 
 ### Maintainer tools
 

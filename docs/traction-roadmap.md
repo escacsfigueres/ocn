@@ -81,7 +81,7 @@ standards-grade looks like; silent contradiction is what gets punished.
 | H2.5 | **Classification honesty.** Derived sidecar `catalog/ocn-1.eco-divergence.tsv` (CI-regenerated, validator-checked); normative exception list in the spec with written rationales for the French (the stress test: if it cannot be written convincingly it is the *only* reversion candidate, and only ever in a 2.0), London/Colle, and the misc rows; a "consuming OCN from ECO-keyed systems" migration section. Position: revert nothing. | M | All 770 divergent rows listed with resolving rationale refs; README paragraph links here. |
 | H2.6 | **Minimum editorial pass before the announcement.** Delete the 1,726 "(SAN) Line" aliases and 398 bare "Main Line" aliases (patch-level under the new versioning; a skeptic smells padded data in two minutes); resolve all 29 canonical-name/alias collisions; finish the American-spelling lot. Notes are *not* mass-rewritten: they get a generated/curated provenance label (D-3) and improve gradually with D-1. | M | Name search returns no synthetic noise; name-to-slug lookup unique or flagged; validator prevents recurrence. |
 | H2.7 | **Popularity sidecar** `catalog/ocn-1.popularity.tsv` (games, W/D/L from the Lichess explorer API; masters + lichess pools), independently refreshable. Turns the taxonomy into a map — explorer sorts by it. Soft gate: ships as explorer v1.1 if it slips; does not delay H3. | M | Tree default-sorted by games played. |
-| H2.8 | **Positions sidecar completed** (`export_positions.py` grows): SAN movetext, EPD, corrected FEN, **Polyglot zobrist computed in Python in-repo** (completes the chess-parquet decoupling), and a `mainline` SAN continuation for leaf rows — the answer to "ECO main lines run 20-24 plies" as data, not as deeper slugs. | M | One regenerable artefact carries every derived per-row field; local tools consume it instead of recomputing. |
+| H2.8 | **Positions sidecar completed** (`export_positions.py` grows): SAN movetext, EPD, corrected FEN, **Polyglot zobrist computed in Python in-repo** (completes the chess-parquet decoupling), and a `mainline` SAN continuation for leaf rows — the answer to "ECO main lines run 20-24 plies" as data, not as deeper slugs. **Landed except `mainline`, which needs H2.7's popularity ranking to be a fact rather than an opinion and ships with it.** | M | One regenerable artefact carries every derived per-row field; local tools consume it instead of recomputing. |
 
 ## Horizon 3 — Announce (~1-2 weeks, deliberate order)
 
@@ -365,3 +365,50 @@ H0.1-H0.7 ──> H0.8 flip public ──> H1.1 pip + H1.2 JSON ──> H1.3 aut
   `git archive` checkout before landing: 5,894 position rows, 5,899 JSON
   rows, 3.3 MB JSON, 619 KB wheel, `SHA256SUMS` verified with
   `sha256sum -c`.
+- 2026-07-29 — **H2.8 done, minus the deferred `mainline` column.** The
+  Polyglot zobrist is computed in this repository:
+  `tools/polyglot_zobrist.py` carries the public 781-key Polyglot random
+  array as vendored data with a provenance header (the array is part of
+  the book format, not an OCN choice; it was dumped programmatically from
+  python-chess inside a throwaway virtualenv that was then deleted, so the
+  values are transcription-free) and implements Annex A's XOR scheme —
+  piece-square keys, castling rights, the en-passant file **only when a
+  capture is legal**, side to move. Stdlib only; python-chess is never a
+  dependency. The gate is the book format's **published test vectors, all
+  seven matched exactly**, including the two pathological cases (`1.e4 d5
+  2.e5 f5` → `0x22a48b5a8e47ff78`, the en-passant file key; `1.a4 b5 2.h4
+  b4 3.c4 bxc3 4.Ra3` → `0x5c3f9b829b279560`, en passant plus a lost
+  castling right). Two independent confirmations beyond the vectors: a
+  one-off cross-check against `chess.polyglot` over all 5,894 concrete
+  rows agreed 5,894/5,894, and the tabiya the consumer guide has
+  documented since 1.1.0 (`D.Rub` / `A.Col.Zuk`,
+  `7092856595585369542` — a number the private `chess-parquet` Rust
+  implementation produced) reproduces exactly, so the decoupling changes
+  no published hash and a 1.2.0-era join keeps working.
+  `export_positions.py` now derives everything in one pass over the board
+  and appends three columns after the existing eleven — `san` (numbered
+  movetext, byte-identical to `build_json_export`'s `moves_san` on all
+  5,894 rows), `epd` (four fields, no operations) and `zobrist` (unsigned
+  decimal) — appended rather than interleaved so index-reading consumers
+  survive; class roots stay excluded and blank under `--include-roots`.
+  The 5,765 distinct `zobrist` values map one-to-one onto the 5,765
+  distinct `fen_key` values, no collisions. Sidecar 1.48 to 2.12 MB;
+  bundled copy regenerated, `cmp` against a fresh release build passes.
+  `epd` is by construction the same string as `fen_key` (Annex A already
+  normalises en passant the way EPD wants) — kept as a named column for
+  EPD-driven tooling, and it is the obvious thing to drop if the ~350 KB
+  it costs the wheel ever matters. Consumer guide: section 4 gained the
+  full column table, a worked `B.Sic.Naj.Eng` sample and the
+  unsigned-vs-signed INT64 warning, and section 7's SQL stopped telling
+  people to `read_parquet('openings.parquet')` — a file no release has
+  shipped since H1.3 — in favour of `read_csv` over the sidecar.
+  27 new tests: 15 in `tools/tests/test_polyglot_zobrist.py`, and
+  `test_export_positions.py` goes 5 to 17 (the column order is now pinned
+  as a contract, so a future insertion breaks the suite rather than a
+  consumer's `awk`).
+  **Deferred: the `mainline` SAN continuation.** It is only meaningful if
+  the continuation is the *popular* one, and that ranking is the Lichess
+  explorer data H2.7 brings in. Shipping a `mainline` picked by any rule
+  available today (first child by slug order, deepest descendant) would
+  publish an editorial claim dressed as data, which is exactly the failure
+  mode the roadmap's positioning section forbids. It lands with H2.7.
