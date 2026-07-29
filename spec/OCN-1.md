@@ -34,8 +34,12 @@ sub-code with a small, human-readable, hierarchical slug.
    and never need to look it up.
 2. **Hierarchical**. Parent-child relationships are explicit. All Sicilian
    lines start with `B.Sic`.
-3. **Compatible**. Every OCN-1 slug carries a back-reference to its ECO
-   code(s). ECO is preserved in the catalogue as `eco_legacy`.
+3. **Compatible**. Every OCN-1 slug within ECO's coverage carries a
+   back-reference to its ECO code(s), preserved in the catalogue as
+   `eco_legacy` and joinable scalar-wise as `catalog/ocn-1.eco.tsv`.
+   299 rows (5.1%) carry none: the five class roots, which are filters
+   rather than lines, and 294 Lichess long-tail lines that lie beyond
+   ECO's 500-code resolution. That is coverage extension, not a defect.
 4. **Open**. The specification and the catalogue are CC-BY-4.0. Anyone may
    adopt OCN-1 in their own database, book or product.
 5. **Stable**. Once a slug is published in a tagged release, it MUST NOT

@@ -14,7 +14,7 @@ Read the [Quick start](#0-quick-start) and the
 
 For background and full normative definitions, see
 [`spec/OCN-1.md`](../spec/OCN-1.md). For the project roadmap, see
-[`archive/post-1.1-roadmap.md`](archive/post-1.1-roadmap.md). For the release with
+[`traction-roadmap.md`](traction-roadmap.md). For the release with
 shipped artefacts, see
 [ocn-1.2.0](https://github.com/escacsfigueres/ocn/releases/tag/ocn-1.2.0).
 
@@ -346,7 +346,9 @@ def display_name_for_zobrist(z, openings_table):
    covers many distinct Najdorf lines) and frozen since 1971.
    OCN exposes ECO as `eco_legacy` for reference, but the
    primary key for joining is `ocn1` (for slug-keyed access) or
-   `zobrist` (for position-keyed access).
+   `zobrist` (for position-keyed access). When you do need to
+   filter by ECO, join the scalar table rather than pattern-match
+   the packed cell — see [Joining by ECO](#9-joining-by-eco).
 
 4. **Replacing `same_as` with `transposes_to`.** They mean
    different things. `transposes_to` says "this row is not
@@ -366,14 +368,143 @@ def display_name_for_zobrist(z, openings_table):
    are family-level filters, not positions. Do not write a join
    that fails noisily on them.
 
-## 9. Links
+## 9. Joining by ECO
+
+`eco_legacy` is a *pipe-packed* cell: a slug covering several ECO
+codes stores them as `A87|A88|A89`. That is honest storage and
+hostile SQL — `LIKE '%B90%'` is not a join key, and it happily
+matches nothing useful in one direction and too much in the other.
+The sidecar
+[`catalog/ocn-1.eco.tsv`](../catalog/ocn-1.eco.tsv) is the scalar
+view of exactly the same data, one row per (slug, atomic code):
+
+```
+ocn1	eco	seq
+A.Eng	A10	0
+A.Eng	A11	1
+A.Eng	A12	2
+...
+B.Sic.Naj.Eng	B90	0
+```
+
+`seq` is the code's 0-based position inside that slug's original
+pipe list, so ordering by it reconstructs the `eco_legacy` cell
+exactly. Every OCN slug carrying `B90`, stdlib only:
+
+```python
+import csv
+
+with open("catalog/ocn-1.eco.tsv", newline="", encoding="utf-8") as f:
+    b90 = [r["ocn1"] for r in csv.DictReader(f, delimiter="\t")
+           if r["eco"] == "B90"]
+```
+
+The SQL shape is the obvious one — no `LIKE`, no string splitting:
+
+```sql
+SELECT c.*
+FROM ocn_eco e
+JOIN ocn_catalog c USING (ocn1)
+WHERE e.eco = 'B90';
+```
+
+A code usually returns several rows (`B90` covers the Najdorf
+family root and its deeper lines). To collapse to one, apply the
+spec's **deepest-match** rule: keep the highest `depth` consistent
+with your context, and report ties rather than picking silently.
+
+Scale: **7,234 (slug, code) pairs** over **500 distinct ECO codes**
+and **5,600 slugs** — more pairs than catalogue rows, because 526
+slugs carry a composite cell.
+
+Two things not to misread:
+
+- **`eco_legacy` stays.** The table is additive, not a migration;
+  consumers already splitting pipes keep working unchanged.
+- **Absence is a statement, not a gap.** 299 rows (5.1%) carry no
+  ECO code at all: the five class roots, which are filters rather
+  than lines, and 294 Lichess long-tail lines that lie beyond
+  ECO's 500-code resolution. They are simply not in the table. Do
+  not left-join them onto a placeholder code.
+
+Regenerate with `python3 tools/build_eco_table.py --report`; a
+drift test fails CI if the committed file and the catalogue
+disagree.
+
+## 10. The whole-catalogue JSON export
+
+`ocn-1.json` is a release artefact: the entire catalogue in one
+file, with no CSV parser, no pipe splitting and no chess engine
+required at the consumer end. It is built by
+[`tools/build_json_export.py`](../tools/build_json_export.py) and
+attached to releases. It is deliberately **not** committed — the
+canonical source is `catalog/ocn-1.csv`, and a checked-in
+derivative would drift from it. The shape, with one row shown and
+its emptier catalogue columns elided so the sample stays readable:
+
+```json
+{
+  "schema": "ocn.catalog.v1",
+  "catalog_version": "ocn-1.2.0",
+  "generated_note": "derived artefact, canonical source is catalog/ocn-1.csv",
+  "rows": [
+    {
+      "ocn1": "B.Sic.Naj.Eng",
+      "canonical_name": "Sicilian Najdorf, English Attack",
+      "eco_legacy": "B90",
+      "parent_ocn1": "B.Sic.Naj",
+      "moves_uci": "e2e4 c7c5 g1f3 d7d6 d2d4 c5d4 f3d4 g8f6 b1c3 a7a6 c1e3",
+      "depth": "3",
+      "moves_san": "1.e4 c5 2.Nf3 d6 3.d4 cxd4 4.Nxd4 Nf6 5.Nc3 a6 6.Be3",
+      "eco": ["B90"],
+      "aliases_list": [],
+      "same_as_list": [],
+      "flags_list": ["sharp", "theoretical"]
+    }
+  ]
+}
+```
+
+Each row object carries **every catalogue column verbatim, in
+header order** (values are strings, exactly as in the CSV), then
+five derived fields:
+
+| field | type | derivation |
+|---|---|---|
+| `moves_san` | string | `moves_uci` replayed offline to numbered SAN (`1.e4 c5 2.Nf3`). `""` for the five class roots, which have no position. |
+| `eco` | array | `eco_legacy` split on `\|`; `[]` when empty, never `[""]`. |
+| `aliases_list` | array | `aliases` split on `\|`. |
+| `same_as_list` | array | `same_as` split on `\|`. |
+| `flags_list` | array | `flags` split on `\|`. |
+
+Guarantees worth relying on:
+
+- **Rows follow catalogue order** and every row object uses the
+  same fixed key order, so two builds of the same catalogue are
+  byte-identical and a diff is a real change.
+- **Nothing is invented.** The derived fields are conveniences
+  computed from columns already present; the JSON adds no fact the
+  CSV does not carry.
+- `catalog_version` is the release tag the export was built from,
+  so a downstream cache can be invalidated on it.
+
+Build it yourself with
+`python3 tools/build_json_export.py --out ocn-1.json --pretty`
+(drop `--pretty` for the compact form: about 3.3 MB against 4.5 MB
+indented).
+
+## 11. Links
 
 - Spec: [`spec/OCN-1.md`](../spec/OCN-1.md)
-- Roadmap: [`archive/post-1.1-roadmap.md`](archive/post-1.1-roadmap.md)
+- Roadmap: [`traction-roadmap.md`](traction-roadmap.md)
 - Release: [ocn-1.2.0](https://github.com/escacsfigueres/ocn/releases/tag/ocn-1.2.0)
 - Lichess cross-reference (in-repo sidecar):
   [`catalog/ocn-1.lichess-xref.tsv`](../catalog/ocn-1.lichess-xref.tsv)
+- Scalar ECO join table (in-repo sidecar):
+  [`catalog/ocn-1.eco.tsv`](../catalog/ocn-1.eco.tsv)
 - Python reader: [`tools/ocn.py`](../tools/ocn.py)
+- JSON export builder:
+  [`tools/build_json_export.py`](../tools/build_json_export.py)
 
 The release page hosts three downloadable artefacts:
 `ocn-1.positions.tsv`, `openings.parquet`, and

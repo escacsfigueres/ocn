@@ -232,3 +232,32 @@ H0.1-H0.7 ──> H0.8 flip public ──> H1.1 pip + H1.2 JSON ──> H1.3 aut
   files (13,573 lines of process logs moved out of the top level);
   `attribution-source-status.tsv`, `examples/` and `manifests/` stay.
   Slug gate and the 285-test suite green.
+- 2026-07-29 — **H1.2 done.** `tools/build_json_export.py` builds the
+  whole-catalogue export `ocn-1.json` (`schema: ocn.catalog.v1`,
+  `catalog_version` from the git tag or `--version`, `generated_note`
+  naming the CSV as canonical): all 5,899 rows, every CSV column
+  verbatim in header order plus five derived fields — `moves_san` (the
+  UCI line replayed through `tools/chess_uci.py` to numbered SAN, `""`
+  for the five class roots) and the arrays `eco`, `aliases_list`,
+  `same_as_list`, `flags_list`. Stdlib only, deterministic (catalogue
+  row order, fixed key order, two builds byte-identical), 3.3 MB
+  compact / 4.5 MB `--pretty`. Not committed: it is a release artefact,
+  so `/ocn-1.json` is gitignored. Schema documented in
+  [`consuming-ocn.md`](consuming-ocn.md) section 10; 22 tests in
+  `tools/tests/test_build_json_export.py`.
+- 2026-07-29 — **H1.5 done.** `tools/build_eco_table.py` emits the
+  committed sidecar `catalog/ocn-1.eco.tsv`
+  (`ocn1`/`eco`/`seq`, one row per slug and atomic ECO code, `seq` the
+  0-based position in the original pipe list): **7,234 rows, 500
+  distinct ECO codes, 5,600 slugs**, longer than the catalogue because
+  526 slugs carry a composite cell. `eco_legacy` is untouched — the
+  table is additive, not a migration. Drift-guarded like the
+  attribution sidecar (committed file must equal a fresh rebuild); 17
+  tests in `tools/tests/test_build_eco_table.py`, including a
+  round-trip that rebuilds every `eco_legacy` cell from the table.
+  Consumer guide gained section 9 (join by ECO without `LIKE`), and
+  spec Goal 3 now states the truth instead of a universal claim: rows
+  within ECO's coverage carry their code(s), and the 299 rows (5.1%)
+  that carry none are the five class roots plus 294 Lichess long-tail
+  lines beyond ECO's 500-code resolution — coverage extension, not a
+  defect.

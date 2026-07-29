@@ -16,6 +16,10 @@ venv/
 /out
 *.parquet
 
+# Derived release artefact — built by tools/build_json_export.py, attached
+# to releases, never committed (canonical source is catalog/ocn-1.csv)
+/ocn-1.json
+
 # Upstream data — fetched by tools/fetch_lichess.sh, not vendored
 /external/
 
