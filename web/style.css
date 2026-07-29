@@ -21,8 +21,8 @@
   --accent-fg: #ffffff;
   --focus: #1f6feb;
 
-  --sq-light: #e9dfcd;
-  --sq-dark: #a8917a;
+  --sq-light: #ece5d2;
+  --sq-dark: #7d9a80;
   --piece-white: #fdfcf9;
   --piece-black: #23211d;
   --piece-edge: #23211d;
@@ -49,8 +49,8 @@
     --accent-fg: #1a1a13;
     --focus: #79b8ff;
 
-    --sq-light: #b7ab93;
-    --sq-dark: #6f6350;
+    --sq-light: #cbc3ac;
+    --sq-dark: #55705c;
     --piece-white: #f6f2e8;
     --piece-black: #191811;
     --piece-edge: #100f0a;
@@ -118,7 +118,9 @@ p:last-child { margin-bottom: 0; }
   display: flex; align-items: baseline; gap: 0.5rem;
   color: inherit; text-decoration: none;
 }
-.wordmark-glyph { font-family: var(--chess); font-size: 1.3rem; line-height: 1; }
+.wordmark-mark { display: block; width: 1.15rem; height: 1.15rem; flex: 0 0 auto; }
+.wordmark-mark rect { fill: var(--accent); }
+.wordmark-mark .frame { fill: none; stroke: var(--accent); stroke-width: 3; }
 .wordmark-text { font-weight: 700; letter-spacing: 0.06em; }
 .wordmark-sub { color: var(--fg-muted); font-size: 0.85rem; }
 .wordmark:hover .wordmark-text { color: var(--accent); }
@@ -327,13 +329,17 @@ p:last-child { margin-bottom: 0; }
 .board { display: block; width: 100%; max-width: 360px; height: auto; margin: 0 auto 0.6rem; }
 .sq.light { fill: var(--sq-light); }
 .sq.dark { fill: var(--sq-dark); }
-.piece {
+.piece-legacy-unused {
   font-family: var(--chess);
   stroke-width: 1.1;
   stroke-linejoin: round;
 }
-.piece.white { fill: var(--piece-white); stroke: var(--piece-edge); }
-.piece.black { fill: var(--piece-black); stroke: var(--piece-white); stroke-width: 0.7; }
+.piece .piece-body { stroke-linejoin: round; }
+.piece .piece-detail { fill: none; stroke-width: 1.4; stroke-linecap: round; }
+.piece.white .piece-body { fill: var(--piece-white); stroke: var(--piece-edge); stroke-width: 1.5; }
+.piece.white .piece-detail { stroke: var(--piece-edge); }
+.piece.black .piece-body { fill: var(--piece-black); stroke: var(--piece-black); stroke-width: 1.5; }
+.piece.black .piece-detail { stroke: var(--piece-white); }
 .coord { fill: var(--fg-muted); font-family: var(--mono); font-size: 9px; }
 
 .board-caption { font-size: 0.85rem; color: var(--fg-muted); text-align: center; }

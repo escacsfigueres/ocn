@@ -211,16 +211,76 @@ function scan(q, query) {
 /* ------------------------------------------------------------------ */
 
 /*
- * A chessboard as 64 rects plus one <text> per piece, using the solid
- * Unicode glyphs for both colours: white pieces are the same glyph
- * filled light and stroked dark. The outline glyphs (U+2654..) render at
- * a different weight in most system fonts and vanish on light squares;
- * one glyph set with two paints is the only way to get an even board
- * without shipping an image or a font.
+ * A chessboard as 64 rects plus hand-drawn piece shapes.
+ *
+ * The pieces are our own SVG paths, drawn in the spirit of the figurines
+ * printed in opening books: solid silhouettes, flat fills, no gradients,
+ * legible at 40px. They replace the Unicode glyphs (U+265A..), which
+ * render at a different weight and baseline in every system font and
+ * cannot be aligned reliably. Each piece is drawn in a 45x45 box that is
+ * scaled onto the square.
+ *
+ * Shapes are MIT like the rest of the code: no third-party piece set, no
+ * licence patchwork inside a CC-BY catalogue.
  */
-const GLYPHS = {
-  k: "♚", q: "♛", r: "♜",
-  b: "♝", n: "♞", p: "♟",
+const BASE = "M11.6,39.6c0-4.1,3.3-6,6.4-6.6h9c3.1,0.6,6.4,2.5,6.4,6.6z";
+
+const PIECES = {
+  p: {
+    body: [
+      "M22.5,7.2a5.4,5.4 0 1 1 0,10.8a5.4,5.4 0 1 1 0,-10.8z",
+      "M17.3,17.8c3.4,1.8,7,1.8,10.4,0c0.5,6.5,2.7,10.7,4.6,13.4h-19.6c1.9,-2.7,4.1,-6.9,4.6,-13.4z",
+      "M15.8,31.2h13.4v2.2h-13.4z",
+      BASE,
+    ],
+  },
+  r: {
+    body: [
+      "M11.6,9.4h4.6v3.6h4.2v-3.6h4.2v3.6h4.2v-3.6h4.6v9.4h-22z",
+      "M14.6,18.8h15.8l-1.4,12.4h-13z",
+      "M13,31.2h19v2.2h-19z",
+      BASE,
+    ],
+    detail: ["M16.2,13h12.6"],
+  },
+  b: {
+    body: [
+      "M22.5,6a2.4,2.4 0 1 1 0,4.8a2.4,2.4 0 1 1 0,-4.8z",
+      "M22.5,10.4c5.4,2.4,8.8,7.6,8.8,12.8c0,3.2,-1.2,5.6,-2.4,7.2h-12.8c-1.2,-1.6,-2.4,-4,-2.4,-7.2c0,-5.2,3.4,-10.4,8.8,-12.8z",
+      "M13.6,30.4h17.8v2.8h-17.8z",
+      BASE,
+    ],
+    detail: ["M19.6,15.4l5.6,6.4"],
+  },
+  n: {
+    body: [
+      "M13.5,33.4C13.7,27.5,15.2,23.6,18.2,21.2C16,21.6,13.6,22.6,11.8,24.2C10.2,22.4,10.4,19.6,12.2,17.2C14.6,14,17.8,11.6,20.6,9.8C20.2,7.6,20.6,5.6,22,4.6C23.4,5.8,24,7.8,24.2,9.6C25,8.4,26.2,7.2,27.6,7C28.4,8.4,28.4,10.4,27.8,12.2C30.6,15,32,19.4,32,25C32,28.4,31.8,31,31.6,33.4Z",
+      BASE,
+    ],
+    detail: ["M12.9,20.2a0.95,0.95 0 1 1 0,1.9a0.95,0.95 0 1 1 0,-1.9z", "M19.6,13.2a1.25,1.25 0 1 1 0,2.5a1.25,1.25 0 1 1 0,-2.5z", "M26.4,13.6c2.2,2.6,3.2,6.2,3.2,10.8"],
+  },
+  q: {
+    body: [
+      "M10.6,9.2a2.3,2.3 0 1 1 0,4.6a2.3,2.3 0 1 1 0,-4.6z",
+      "M16.4,5.6a2.3,2.3 0 1 1 0,4.6a2.3,2.3 0 1 1 0,-4.6z",
+      "M22.5,4.4a2.4,2.4 0 1 1 0,4.8a2.4,2.4 0 1 1 0,-4.8z",
+      "M28.6,5.6a2.3,2.3 0 1 1 0,4.6a2.3,2.3 0 1 1 0,-4.6z",
+      "M34.4,9.2a2.3,2.3 0 1 1 0,4.6a2.3,2.3 0 1 1 0,-4.6z",
+      "M11.6,13.4l3.2,16.8h15.4l3.2,-16.8l-5.2,4.6l-3.1,-8.4l-3.1,8.8l-3.1,-8.8l-3.1,8.4z",
+      "M13.4,30.2h18.2v3h-18.2z",
+      BASE,
+    ],
+  },
+  k: {
+    body: [
+      "M21.4,4.4h2.2v3.2h3.2v2.2h-3.2v3.6h-2.2v-3.6h-3.2v-2.2h3.2z",
+      "M22.5,13.4c-5.8,0,-9.9,3.8,-9.9,8.4c0,2.2,1,4.1,2.2,5.6h15.4c1.2,-1.5,2.2,-3.4,2.2,-5.6c0,-4.6,-4.1,-8.4,-9.9,-8.4z",
+      "M14,26.6h17v3.6h-17z",
+      "M13.4,30.2h18.2v3h-18.2z",
+      BASE,
+    ],
+    detail: ["M22.5,17.4v6"],
+  },
 };
 const FILES = "abcdefgh";
 const UNIT = 40;
@@ -259,16 +319,18 @@ function boardSvg(fen) {
       }));
       const piece = (board[rank] || [])[file];
       if (!piece) continue;
-      pieces.push(svg("text", {
-        class: `piece ${piece === piece.toUpperCase() ? "white" : "black"}`,
-        x: x + UNIT / 2,
-        y: y + UNIT / 2,
-        "font-size": UNIT * 0.8,
-        "text-anchor": "middle",
-        "dominant-baseline": "central",
-        "paint-order": "stroke fill",
-        text: GLYPHS[piece.toLowerCase()] || "",
-      }));
+      const shape = PIECES[piece.toLowerCase()];
+      if (!shape) continue;
+      const white = piece === piece.toUpperCase();
+      const scale = (UNIT / 45) * 1.08;
+      const parts = shape.body.map((d) => svg("path", { class: "piece-body", d }));
+      for (const d of shape.detail || []) {
+        parts.push(svg("path", { class: "piece-detail", d }));
+      }
+      pieces.push(svg("g", {
+        class: `piece ${white ? "white" : "black"}`,
+        transform: `translate(${x + UNIT / 2} ${y + UNIT / 2}) scale(${scale}) translate(-22.5 -22.5)`,
+      }, parts));
     }
   }
 
