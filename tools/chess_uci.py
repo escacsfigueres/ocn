@@ -490,12 +490,45 @@ def pgn_tokens(pgn: str) -> list[str]:
     return tokens
 
 
+#: A piece move naming its origin file, its origin rank, or neither.
+#: `san()` emits the shortest form that is unambiguous, so comparing
+#: generated SAN by string equality rejects a token that says more than
+#: it strictly must -- and "Nge2" where only one knight can reach e2 is
+#: both legal and common in published PGN.
+OVER_DISAMBIGUATED_RE = re.compile(
+    r"^(?P<piece>[KQRBN])(?P<file>[a-h])?(?P<rank>[1-8])?x?(?P<dest>[a-h][1-8])$"
+)
+
+
+def _match_over_disambiguated(board: Board, wanted: str) -> list[Move]:
+    """Legal moves fitting a token that names more of its origin than needed."""
+    parsed = OVER_DISAMBIGUATED_RE.match(wanted)
+    if parsed is None:
+        return []
+    dest = parse_square(parsed.group("dest"))
+    piece, file, rank = (parsed.group("piece"), parsed.group("file"),
+                         parsed.group("rank"))
+    found = []
+    for move in board.legal_moves():
+        origin = board.piece_at(move.src)
+        if move.dst != dest or not origin or origin.upper() != piece:
+            continue
+        if file is not None and FILES[move.src % 8] != file:
+            continue
+        if rank is not None and str(move.src // 8 + 1) != rank:
+            continue
+        found.append(move)
+    return found
+
+
 def parse_san_move(board: Board, token: str) -> Move:
     wanted = normalize_san_token(token)
     matches = [
         move for move in board.legal_moves()
         if normalize_san_token(board.san(move)) == wanted
     ]
+    if not matches:
+        matches = _match_over_disambiguated(board, wanted)
     if len(matches) != 1:
         detail = "no legal match" if not matches else "ambiguous SAN"
         raise ValueError(f"{detail} for SAN move '{token}'")

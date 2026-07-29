@@ -25,6 +25,41 @@ class ChessUciTests(unittest.TestCase):
             "e2e4 e7e5 g1f3 b8c6 f1b5 a7a6 e1g1",
         )
 
+    def test_redundant_origin_file_is_accepted(self) -> None:
+        """Published PGN disambiguates more than it must. Here only the
+        g1 knight can reach e2, so `san()` emits "Ne2" -- but "Nge2" is
+        legal notation and rejecting it drops a real game."""
+        self.assertEqual(
+            uci_sequence_from_pgn("1. e4 e6 2. d4 d5 3. Nc3 Nf6 4. Bg5 Bb4 5. Nge2"),
+            "e2e4 e7e6 d2d4 d7d5 b1c3 g8f6 c1g5 f8b4 g1e2",
+        )
+
+    def test_redundant_origin_rank_is_accepted(self) -> None:
+        self.assertEqual(
+            uci_sequence_from_pgn("1. e4 e6 2. d4 d5 3. Nc3 Nf6 4. Bg5 Bb4 5. N1e2"),
+            "e2e4 e7e6 d2d4 d7d5 b1c3 g8f6 c1g5 f8b4 g1e2",
+        )
+
+    def test_a_redundant_origin_on_a_capture_is_accepted(self) -> None:
+        """Only the f3 knight can take on e5, so "Nxe5" is what `san()`
+        emits, but "Nfxe5" is what plenty of sources print."""
+        self.assertEqual(
+            uci_sequence_from_pgn("1. Nf3 e5 2. Nfxe5"),
+            "g1f3 e7e5 f3e5",
+        )
+
+    def test_a_wrong_origin_file_is_still_rejected(self) -> None:
+        """The fallback must not turn into a shrug: "Nbe2" names a
+        knight that cannot get there, and that is an error in the source,
+        not a notation style."""
+        with self.assertRaises(ValueError):
+            uci_sequence_from_pgn("1. e4 e6 2. d4 d5 3. Nc3 Nf6 4. Bg5 Bb4 5. Nbe2")
+
+    def test_a_genuinely_ambiguous_token_is_still_rejected(self) -> None:
+        """Both knights reach d2 here, so a bare "Nd2" names neither."""
+        with self.assertRaises(ValueError):
+            uci_sequence_from_pgn("1. Nf3 e5 2. Nc3 e4 3. Nd2")
+
     def test_fen_key_normalizes_non_capturable_ep(self) -> None:
         self.assertEqual(
             fen_key_after_uci("c2c4 c7c5"),
