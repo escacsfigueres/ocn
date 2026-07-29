@@ -64,16 +64,31 @@ hidden is a lie.
 
 ## Source doctrine (this is the part that matters)
 
-The H0.4 rule stands and extends: **a published claim cites a source a
-stranger can check.** Commercial databases are compilations; their
-contents are licensed and unverifiable to a reader. So:
+Two different questions get confused here, so keep them apart.
 
-- **Never publishable**: "N games in Opening Master", "first appearance
-  per Mega", "the corpus shows". The validator already fails these.
-- **Always publishable**: a dated game with players and event, because
-  chess games are historical facts, printed in tournament books,
-  magazines and public databases for two centuries. Facts are not
-  compilations.
+**The legal question is settled, and it is permissive.** Chess moves are
+facts, not protected works. When the organiser of the 2016 Carlsen
+against Karjakin match tried to stop others from transmitting the moves,
+a New York court refused: the moves are in the public domain. Nobody
+owns a game. A game found in any database may therefore be cited by its
+identifying facts — players, event, place, year — with no obligation to
+name where the finder happened to see it, because the game is not from
+there. It is from history.
+
+**The verifiability question is ours, and it is stricter.** H0.4 says a
+published claim cites something a stranger can check. That rules out
+aggregates over a private corpus — "N games in Opening Master", "first
+appearance per Mega" — not because they are protected but because no
+reader can test them. (The practical footnote: EU database law does
+protect substantial extraction from a compilation even when the items
+are facts, so bulk harvesting stays out of bounds regardless. Citing
+individual games does not.)
+
+- **Never publishable**: counts and rankings derived from a commercial
+  compilation. The validator already fails these.
+- **Always publishable**: a dated game with players and event, however
+  it was found. Chess games have been printed in tournament books and
+  magazines for two centuries; they belong to everyone.
 
 Which yields the working method:
 
