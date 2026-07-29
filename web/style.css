@@ -368,17 +368,25 @@ a.chip:hover { border-color: var(--ink-2); color: var(--ink); text-decoration: n
 .node:hover { background: var(--plate); }
 @media (prefers-color-scheme: dark) { .node:hover { background: #1b1d20; } }
 /* The one control in the tree, so it has to look like one: a real hit
-   area, ink rather than a whisper, and it turns the class colour on
-   hover. A tree nobody notices they can open is a list. */
+   area, ink rather than a whisper, and it turns the class colour when
+   open. The arrow is an SVG path rather than a character, because a
+   glyph brings font metrics that will not line up with the text beside
+   it -- baseline alignment plus a small nudge puts the triangle's
+   centre on the x-height of the name it opens. */
 .node-toggle {
-  width: 1.4rem; height: 1.4rem; flex: 0 0 auto; align-self: center;
-  border: none; color: var(--ink-2);
-  font-family: var(--mono); font-size: 0.85rem; line-height: 1;
-  display: grid; place-items: center; border-radius: 2px;
+  width: 1.5rem; height: 1.5rem; flex: 0 0 auto;
+  align-self: baseline; position: relative; top: 2px;
+  display: inline-flex; align-items: center; justify-content: center;
+  border: none; border-radius: 2px; color: var(--ink-2);
 }
-.node-toggle:hover:not(:disabled) { color: var(--cls); background: var(--rule); border: none; }
+.node-toggle svg { width: 0.8rem; height: 0.8rem; display: block; }
+.node-toggle svg path { fill: currentColor; transition: transform 130ms ease; transform-origin: 6px 6px; }
 .node-toggle[aria-expanded="true"] { color: var(--cls); }
-.node-toggle:disabled { opacity: 0.25; }
+.node-toggle[aria-expanded="true"] svg path { transform: rotate(90deg); }
+.node-toggle:hover:not(:disabled) { color: var(--cls); background: var(--rule); border: none; }
+.node-toggle:disabled { opacity: 0.22; }
+@media (prefers-reduced-motion: reduce) { .node-toggle svg path { transition: none; } }
+
 .node-slug { font-family: var(--mono); font-size: 0.875rem; font-weight: 500; color: var(--ink-2); }
 .node-slug.is-root { color: var(--cls); font-weight: 600; font-size: 1rem; }
 .node-name { font-family: var(--serif); font-size: 0.9375rem; color: var(--ink); min-width: 0; }

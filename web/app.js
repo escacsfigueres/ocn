@@ -552,12 +552,18 @@ function treeNode(row) {
   const list = h("ul", { hidden: true });
   let built = false;
 
+  //: The disclosure arrow is drawn, not typed. A glyph carries its own
+  //  font metrics -- ascent, baseline, side bearings -- none of which
+  //  line up with the text beside it, which is why a character triangle
+  //  never sits straight. An SVG path has the geometry we give it.
+  const arrow = svg("svg", { viewBox: "0 0 12 12", "aria-hidden": "true" }, [
+    svg("path", { d: "M4 1.6 L9.4 6 L4 10.4 Z" }),
+  ]);
   const toggle = h("button", {
     class: "node-toggle", type: "button", "aria-expanded": "false",
     "aria-label": `Expand ${row.name}`,
-    text: kids.length ? "\u25b8" : "",
     disabled: kids.length === 0,
-  });
+  }, kids.length ? [arrow] : []);
 
   toggle.addEventListener("click", () => {
     const open = toggle.getAttribute("aria-expanded") === "true";
@@ -567,7 +573,6 @@ function treeNode(row) {
     }
     toggle.setAttribute("aria-expanded", String(!open));
     toggle.setAttribute("aria-label", `${open ? "Expand" : "Collapse"} ${row.name}`);
-    toggle.textContent = open ? "\u25b8" : "\u25be";
     list.hidden = open;
   });
 
