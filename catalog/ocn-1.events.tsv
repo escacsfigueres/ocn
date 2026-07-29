@@ -1,0 +1,72 @@
+event_id	display_name	kind	format	year	participants	games	source
+wch-1886-steinitz-zukertort	Steinitz - Zukertort World Championship Match	wch_match	match	1886	steinitz|zukertort	17	LumbrasGigaBase (freely downloadable), via tools/build_wch_map.py; each game identified by players, event and year
+wch-1890-gunsberg-steinitz	World Championship 3rd	wch_match	match	1890	gunsberg|steinitz	5	LumbrasGigaBase (freely downloadable), via tools/build_wch_map.py; each game identified by players, event and year
+wch-1891-gunsberg-steinitz	World Championship 3rd	wch_match	match	1891	gunsberg|steinitz	8	LumbrasGigaBase (freely downloadable), via tools/build_wch_map.py; each game identified by players, event and year
+wch-1894-lasker-steinitz	World Championship 5th	wch_match	match	1894	lasker|steinitz	13	LumbrasGigaBase (freely downloadable), via tools/build_wch_map.py; each game identified by players, event and year
+wch-1896-lasker-steinitz	World Championship 6th	wch_match	match	1896	lasker|steinitz	14	LumbrasGigaBase (freely downloadable), via tools/build_wch_map.py; each game identified by players, event and year
+wch-1907-lasker-marshall-viele	World Championship 7th	wch_match	match	1907	lasker|marshall-viele	15	LumbrasGigaBase (freely downloadable), via tools/build_wch_map.py; each game identified by players, event and year
+wch-1908-lasker-tarrasch	World Championship 8th	wch_match	match	1908	lasker|tarrasch	14	LumbrasGigaBase (freely downloadable), via tools/build_wch_map.py; each game identified by players, event and year
+wch-1909-forgacs-lasker	World Championship 9th	wch_match	match	1909	forgacs|lasker	10	LumbrasGigaBase (freely downloadable), via tools/build_wch_map.py; each game identified by players, event and year
+wch-1910-forgacs-lasker	World Championship 11th	wch_match	match	1910	forgacs|lasker	11	LumbrasGigaBase (freely downloadable), via tools/build_wch_map.py; each game identified by players, event and year
+wch-1910-lasker-morrison	World Championship 10th	wch_match	match	1910	lasker|morrison	10	LumbrasGigaBase (freely downloadable), via tools/build_wch_map.py; each game identified by players, event and year
+wch-1921-capablanca-lasker	World Championship 12th	wch_match	match	1921	capablanca|lasker	13	LumbrasGigaBase (freely downloadable), via tools/build_wch_map.py; each game identified by players, event and year
+wch-1927-alekhine-capablanca	World Championship 13th	wch_match	match	1927	alekhine|capablanca	27	LumbrasGigaBase (freely downloadable), via tools/build_wch_map.py; each game identified by players, event and year
+wch-1929-alekhine-bogoljubow	World Championship 14th	wch_match	match	1929	alekhine|bogoljubow	6	LumbrasGigaBase (freely downloadable), via tools/build_wch_map.py; each game identified by players, event and year
+wch-1929-aljechin-bogoljubow	World Championship 14th	wch_match	match	1929	aljechin|bogoljubow	21	LumbrasGigaBase (freely downloadable), via tools/build_wch_map.py; each game identified by players, event and year
+wch-1935-alekhine-euwe	World Championship 16th	wch_match	match	1935	alekhine|euwe	28	LumbrasGigaBase (freely downloadable), via tools/build_wch_map.py; each game identified by players, event and year
+wch-1937-alekhine-euwe	World Championship 17th	wch_match	match	1937	alekhine|euwe	21	LumbrasGigaBase (freely downloadable), via tools/build_wch_map.py; each game identified by players, event and year
+wch-1951-botvinnik-bronstein	World Championship 19th	wch_match	match	1951	botvinnik|bronstein	20	LumbrasGigaBase (freely downloadable), via tools/build_wch_map.py; each game identified by players, event and year
+wch-1954-botvinnik-smyslov	World Championship 20th	wch_match	match	1954	botvinnik|smyslov	24	LumbrasGigaBase (freely downloadable), via tools/build_wch_map.py; each game identified by players, event and year
+wch-1957-botvinnik-smyslov	World Championship 21th	wch_match	match	1957	botvinnik|smyslov	22	LumbrasGigaBase (freely downloadable), via tools/build_wch_map.py; each game identified by players, event and year
+wch-1958-botvinnik-smyslov	World Championship 22th	wch_match	match	1958	botvinnik|smyslov	23	LumbrasGigaBase (freely downloadable), via tools/build_wch_map.py; each game identified by players, event and year
+wch-1958-bykova-rubtsova	Wch women	wch_match_women	match	1958	bykova|rubtsova	12	LumbrasGigaBase (freely downloadable), via tools/build_wch_map.py; each game identified by players, event and year
+wch-1959-bikova-zvorykina	Wch women	wch_match_women	match	1959	bikova|zvorykina	10	LumbrasGigaBase (freely downloadable), via tools/build_wch_map.py; each game identified by players, event and year
+wch-1960-botvinnik-tal	World Championship 23th	wch_match	match	1960	botvinnik|tal	20	LumbrasGigaBase (freely downloadable), via tools/build_wch_map.py; each game identified by players, event and year
+wch-1961-botvinnik-tal	World Championship 24th	wch_match	match	1961	botvinnik|tal	17	LumbrasGigaBase (freely downloadable), via tools/build_wch_map.py; each game identified by players, event and year
+wch-1962-bykova-gaprindashvili	Wch women	wch_match_women	match	1962	bykova|gaprindashvili	11	LumbrasGigaBase (freely downloadable), via tools/build_wch_map.py; each game identified by players, event and year
+wch-1963-botvinnik-petrosian	World Championship 25th	wch_match	match	1963	botvinnik|petrosian	22	LumbrasGigaBase (freely downloadable), via tools/build_wch_map.py; each game identified by players, event and year
+wch-1965-gaprindashvili-kushnir-aleksandr	Wch women Riga LAT	wch_match_women	match	1965	gaprindashvili|kushnir-aleksandr	10	LumbrasGigaBase (freely downloadable), via tools/build_wch_map.py; each game identified by players, event and year
+wch-1966-petrosian-spassky	World Championship 26th	wch_match	match	1966	petrosian|spassky	22	LumbrasGigaBase (freely downloadable), via tools/build_wch_map.py; each game identified by players, event and year
+wch-1969-gaprindashvili-kushnir-aleksandr	Wch women	wch_match_women	match	1969	gaprindashvili|kushnir-aleksandr	12	LumbrasGigaBase (freely downloadable), via tools/build_wch_map.py; each game identified by players, event and year
+wch-1969-petrosian-spassky	World Championship 27th	wch_match	match	1969	petrosian|spassky	23	LumbrasGigaBase (freely downloadable), via tools/build_wch_map.py; each game identified by players, event and year
+wch-1972-fischer-spassky	World Championship 28th	wch_match	match	1972	fischer|spassky	19	LumbrasGigaBase (freely downloadable), via tools/build_wch_map.py; each game identified by players, event and year
+wch-1972-gaprindashvili-kushnir-aleksandr	Wch women Riga LAT	wch_match_women	match	1972	gaprindashvili|kushnir-aleksandr	4	LumbrasGigaBase (freely downloadable), via tools/build_wch_map.py; each game identified by players, event and year
+wch-1978-karpov-korchnoi	World Championship 29th	wch_match	match	1978	karpov|korchnoi	31	LumbrasGigaBase (freely downloadable), via tools/build_wch_map.py; each game identified by players, event and year
+wch-1981-karpov-korchnoi	World Championship 30th	wch_match	match	1981	karpov|korchnoi	19	LumbrasGigaBase (freely downloadable), via tools/build_wch_map.py; each game identified by players, event and year
+wch-1984-karpov-kasparov	World Championship 31th-KK1	wch_match	match	1984	karpov|kasparov	27	LumbrasGigaBase (freely downloadable), via tools/build_wch_map.py; each game identified by players, event and year
+wch-1985-karpov-kasparov	World Championship 32th-KK2	wch_match	match	1985	karpov|kasparov	17	LumbrasGigaBase (freely downloadable), via tools/build_wch_map.py; each game identified by players, event and year
+wch-1986-karpov-kasparov	World Championship 33th-KK3	wch_match	match	1986	karpov|kasparov	13	LumbrasGigaBase (freely downloadable), via tools/build_wch_map.py; each game identified by players, event and year
+wch-1987-karpov-kasparov	World Championship 34th-KK4	wch_match	match	1987	karpov|kasparov	27	LumbrasGigaBase (freely downloadable), via tools/build_wch_map.py; each game identified by players, event and year
+wch-1990-karpov-kasparov	World Championship 35th-KK5	wch_match	match	1990	karpov|kasparov	19	LumbrasGigaBase (freely downloadable), via tools/build_wch_map.py; each game identified by players, event and year
+wch-1993-ioseliani-xie	Wch women	wch_match_women	match	1993	ioseliani|xie	10	LumbrasGigaBase (freely downloadable), via tools/build_wch_map.py; each game identified by players, event and year
+wch-1993-karpov-timman	FIDE-Wch	wch_match	match	1993	karpov|timman	18	LumbrasGigaBase (freely downloadable), via tools/build_wch_map.py; each game identified by players, event and year
+wch-1993-kasparov-short	PCA-World Championship	wch_match	match	1993	kasparov|short	19	LumbrasGigaBase (freely downloadable), via tools/build_wch_map.py; each game identified by players, event and year
+wch-1994-adams-tiviakov	PCA-Wch Candidats m1	wch_match	match	1994	adams|tiviakov	14	LumbrasGigaBase (freely downloadable), via tools/build_wch_map.py; each game identified by players, event and year
+wch-1994-anand-romanishin	PCA-Wch Candidats m2	wch_match	match	1994	anand|romanishin	7	LumbrasGigaBase (freely downloadable), via tools/build_wch_map.py; each game identified by players, event and year
+wch-1994-gulko-short	PCA-Wch Candidats m3 playoff	wch_match	match	1994	gulko|short	11	LumbrasGigaBase (freely downloadable), via tools/build_wch_map.py; each game identified by players, event and year
+wch-1994-kamsky-kramnik	PCA-Wch Candidats m4	wch_match	match	1994	kamsky|kramnik	6	LumbrasGigaBase (freely downloadable), via tools/build_wch_map.py; each game identified by players, event and year
+wch-1994-kamsky-short	PCA-Wch Candidats sf1	wch_match	match	1994	kamsky|short	4	LumbrasGigaBase (freely downloadable), via tools/build_wch_map.py; each game identified by players, event and year
+wch-1995-anand-kamsky	PCA-Wch Candidats final	wch_match	match	1995	anand|kamsky	8	LumbrasGigaBase (freely downloadable), via tools/build_wch_map.py; each game identified by players, event and year
+wch-1995-anand-kasparov	PCA-World Championship	wch_match	match	1995	anand|kasparov	18	LumbrasGigaBase (freely downloadable), via tools/build_wch_map.py; each game identified by players, event and year
+wch-1996-kamsky-karpov	FIDE-Wch	wch_match	match	1996	kamsky|karpov	12	LumbrasGigaBase (freely downloadable), via tools/build_wch_map.py; each game identified by players, event and year
+wch-1996-polgar-xie	Wch women	wch_match_women	match	1996	polgar|xie	10	LumbrasGigaBase (freely downloadable), via tools/build_wch_map.py; each game identified by players, event and year
+wch-1999-galliamova-xie	FIDE WCh women	wch_match_women	match	1999	galliamova|xie	15	LumbrasGigaBase (freely downloadable), via tools/build_wch_map.py; each game identified by players, event and year
+wch-2000-kasparov-kramnik	BGN World Championship	wch_match	match	2000	kasparov|kramnik	6	LumbrasGigaBase (freely downloadable), via tools/build_wch_map.py; each game identified by players, event and year
+wch-2002-anand-ponomariov	Dual of the World Championship	wch_match	match	2002	anand|ponomariov	4	LumbrasGigaBase (freely downloadable), via tools/build_wch_map.py; each game identified by players, event and year
+wch-2002-ivanchuk-ponomariov	FIDE WCh KO Final	wch_match	knockout	2002	ivanchuk|ponomariov	7	LumbrasGigaBase (freely downloadable), via tools/build_wch_map.py; each game identified by players, event and year
+wch-2004-kramnik-leko	World Championship	wch_match	match	2004	kramnik|leko	4	LumbrasGigaBase (freely downloadable), via tools/build_wch_map.py; each game identified by players, event and year
+wch-2008-anand-kramnik	World Championship	wch_match	match	2008	anand|kramnik	7	LumbrasGigaBase (freely downloadable), via tools/build_wch_map.py; each game identified by players, event and year
+wch-2010-anand-topalov	World Championship	wch_match	match	2010	anand|topalov	7	LumbrasGigaBase (freely downloadable), via tools/build_wch_map.py; each game identified by players, event and year
+wch-2010-hou-ruan	WCh Women playoff	wch_match_women	match	2010	hou|ruan	4	LumbrasGigaBase (freely downloadable), via tools/build_wch_map.py; each game identified by players, event and year
+wch-2011-hou-koneru	WCh women	wch_match_women	match	2011	hou|koneru	6	LumbrasGigaBase (freely downloadable), via tools/build_wch_map.py; each game identified by players, event and year
+wch-2012-anand-gelfand	WCh 2012	wch_match	match	2012	anand|gelfand	10	LumbrasGigaBase (freely downloadable), via tools/build_wch_map.py; each game identified by players, event and year
+wch-2014-anand-carlsen	WCh 2014	wch_match	match	2014	anand|carlsen	10	LumbrasGigaBase (freely downloadable), via tools/build_wch_map.py; each game identified by players, event and year
+wch-2016-carlsen-karjakin	WCh 2016	wch_match	match	2016	carlsen|karjakin	12	LumbrasGigaBase (freely downloadable), via tools/build_wch_map.py; each game identified by players, event and year
+wch-2016-hou-muzychuk	WCh Women 2016	wch_match_women	match	2016	hou|muzychuk	9	LumbrasGigaBase (freely downloadable), via tools/build_wch_map.py; each game identified by players, event and year
+wch-2018-carlsen-caruana	WCh 2018	wch_match	match	2018	carlsen|caruana	12	LumbrasGigaBase (freely downloadable), via tools/build_wch_map.py; each game identified by players, event and year
+wch-2020-goryachkina-ju	WCh Women 2020	wch_match_women	match	2020	goryachkina|ju	16	LumbrasGigaBase (freely downloadable), via tools/build_wch_map.py; each game identified by players, event and year
+wch-2021-carlsen-nepomniachtchi	WCh 2021	wch_match	match	2021	carlsen|nepomniachtchi	11	LumbrasGigaBase (freely downloadable), via tools/build_wch_map.py; each game identified by players, event and year
+wch-2023-ding-nepomniachtchi	WCh 2023	wch_match	match	2023	ding|nepomniachtchi	14	LumbrasGigaBase (freely downloadable), via tools/build_wch_map.py; each game identified by players, event and year
+wch-2023-ju-lei	WCh Women 2023	wch_match_women	match	2023	ju|lei	12	LumbrasGigaBase (freely downloadable), via tools/build_wch_map.py; each game identified by players, event and year
+wch-2024-ding-gukesh-d	WCh 2024	wch_match	match	2024	ding|gukesh-d	14	LumbrasGigaBase (freely downloadable), via tools/build_wch_map.py; each game identified by players, event and year
+wch-2025-ju-tan	WCh Women 2025	wch_match_women	match	2025	ju|tan	9	LumbrasGigaBase (freely downloadable), via tools/build_wch_map.py; each game identified by players, event and year
