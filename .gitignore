@@ -37,3 +37,8 @@ web/dist/
 # Local agent context — never tracked
 .wolf/
 .claude/
+
+# Local credentials for the maintenance tools (Lichess explorer API,
+# crates.io publishing). Never committed: this repo is public.
+.env
+.env.local
