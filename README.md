@@ -55,8 +55,8 @@ B.Sic.Naj      ← variation (Najdorf)
 B.Sic.Naj.Eng  ← sub-line (English Attack, 6.Be3)
 ```
 
-For specific named tabiyas the slug may carry one or two trailing SAN
-moves (`B.Sic.Sve.Nd5` for the 11.Nd5 main line). See the spec for the
+For specific named tabiyas the slug may carry trailing SAN moves
+(`B.Sic.Sve.Nd5` for the 11.Nd5 main line). See the spec for the
 full grammar; for everyday use the four levels above are enough.
 
 You can read the slug at any depth and immediately know:
@@ -70,18 +70,18 @@ You can read the slug at any depth and immediately know:
 ## Format
 
 ```
-<class> "." <family> [ "." <variation> [ "." <subline> [ "." <move> [ "." <move> ] ] ] ]
+<class> ( "." <named> )+ ( "." <move> )*
 ```
 
 - **`class`**: 1 char from `A B C D E` (ECO's five families; see
   "Borderline classifications" for where OCN's letter differs from ECO's).
-- **`family`**: 3 chars, TitleCase (`Sic`, `RyL`, `KID`).
-- **`variation`** / **`subline`**: 3 chars each, TitleCase (`Naj`, `End`).
-- **`move`**: SAN-style, capitalised pieces (`Be3`, `e5`, `Bxf6`, `O-O`).
-  Up to two trailing move segments are allowed.
+- **`named`**: one or more 3-char TitleCase tokens — family (`Sic`,
+  `RyL`, `KID`), variation (`Naj`), subline (`Eng`) and deeper levels.
+- **`move`**: zero or more trailing SAN-style segments, capitalised
+  pieces, check/mate stripped (`Be3`, `e5`, `Bxf6`, `O-O`).
 - **Separator**: dot `.`.
-- **Maximum depth**: 6 dots / 7 segments. Recommended cap is 5 segments
-  for everyday use; deeper slugs are reserved for legendary tabiyas.
+- **Maximum depth**: 7 segments total (6 dots) — a hard cap; deeper
+  theory is identified by position, not by longer slugs.
 
 The full specification is in [`spec/OCN-1.md`](spec/OCN-1.md).
 
