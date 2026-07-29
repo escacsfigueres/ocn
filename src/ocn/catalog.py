@@ -10,6 +10,7 @@ catalogue bundled so nothing has to be downloaded or checked out::
     cat.by_slug("B.Sic.Naj.Eng")                # KeyError if absent
     cat.get("B.Sic.Naj.Eng")                    # None if absent
     cat.by_fen(fen)                             # O(1), ep trap handled
+    cat.by_fen_key(key)                         # the same, key already normalised
     cat.by_eco("B90")                           # deepest first
     cat.by_name("najdorf")                      # fold-insensitive exact
     cat.search("najdorf", limit=5)              # substring, broadest first
@@ -198,7 +199,18 @@ class Catalog:
         and not an error: co-canonical names and documented
         transpositions share positions by design.
         """
-        return list(self._position_index().get(fen_key(fen), ()))
+        return self.by_fen_key(fen_key(fen))
+
+    def by_fen_key(self, key: str) -> list[Row]:
+        """Every row at an already-normalised position key.
+
+        The same lookup as :meth:`by_fen` with the normalisation step
+        skipped, for callers that hold a key rather than a FEN — a move
+        replay asking the catalogue after every ply (``ocn annotate``)
+        would otherwise re-parse and re-validate a FEN it has just built.
+        A key that is not in ``fen_key`` form simply misses.
+        """
+        return list(self._position_index().get(key, ()))
 
     def by_eco(self, code: str) -> list[Row]:
         """Every row carrying this ECO code in ``eco_legacy``, deepest first.

@@ -199,6 +199,19 @@ H0.1-H0.7 ──> H0.8 flip public ──> H1.1 pip + H1.2 JSON ──> H1.3 aut
   [`archive/corpus-citation-hygiene-dry-run.md`](archive/corpus-citation-hygiene-dry-run.md).
   Maroczy trio deliberately kept: identical sources are legitimate for
   identical claims; per-row context lives in historical_notes.
+- 2026-07-29 — **H2.1 + H2.2 done.** `ocn annotate` names games by
+  position at every ply (a Najdorf reached through 1.Nf3 is named a
+  Najdorf), resolves `transposes_to` once, rewrites only its own
+  headers, and annotates 1,000 games in 0.33s; `tools/coverage_stat.py`
+  is the reproducible headline script. Honesty correction to the H2.1
+  wording: every first move is a catalogue row, so "X% classified" is
+  ~100% by construction — the meaningful stat is the depth table (share
+  still named at 8/12/16/20 plies), and the script prints exactly that.
+  The README quickstart is now executed verbatim by
+  `tests/test_quickstart.py` (each `# ->` comment asserted against
+  reality); consumer-guide sections 0 and 4 rewritten package-first
+  (the stale parquet-join advice is gone). Suites: tests/ 100,
+  tools/tests 375.
 - 2026-07-29 — **H1.1 done.** The `ocn-chess` package: src layout, zero
   runtime deps, data bundled in the wheel (CSV + xref + positions index
   + VERSION with sync-script drift guard), typed `Row`, `Catalog` with
@@ -319,3 +332,36 @@ H0.1-H0.7 ──> H0.8 flip public ──> H1.1 pip + H1.2 JSON ──> H1.3 aut
   recipe for consumers stuck with a letter-keyed schema. 42 tests in
   `tools/tests/test_build_eco_divergence.py`. Position held: nothing
   reverted.
+- 2026-07-29 — **H1.3 done** (`59ed17e`). `.github/workflows/release.yml`
+  replaces the five-step manual runbook of the 1.2.0 notes. An `ocn-*` tag
+  push (or a `workflow_dispatch` with a `tag` input, for re-runs) reruns the
+  whole ci.yml gate — byte-compile, `validate.py`, `--strict-chess`, the
+  tools suite, the Lichess fixture check, the package suite — then adds a
+  release-only guard the branch gate does not need: `sync_package_data.py`
+  in its default dry-run mode, so a wheel can never ship a catalogue that
+  has drifted from `catalog/`. It then builds **eight assets** into
+  `dist-release/`: four committed sidecars copied verbatim (`ocn-1.csv`,
+  `ocn-1.lichess-xref.tsv`, `ocn-1.eco.tsv`, `ocn-1.eco-divergence.tsv`),
+  `ocn-1.positions.tsv` rebuilt with the same options the package sync uses
+  and `cmp`-ed against the bundled copy, `ocn-1.json` built with
+  `--version "$TAG"` so `catalog_version` is the release tag rather than
+  whatever `git describe` finds, the sdist + wheel from a pinned
+  `build==1.2.2.post1`, and `SHA256SUMS` over the lot. The wheel is
+  smoke-tested in a clean venv (`ocn version`, `ocn lookup B90` — the H1.1
+  criterion, now automated against the exact file being published) before
+  anything is uploaded. Publication is plain `gh` with `GITHUB_TOKEN`:
+  `gh release create --verify-tag` for a new tag, `upload --clobber` plus
+  `edit` for a re-run, **never** `--generate-notes` — the title and body are
+  taken from `docs/release-<tag>-notes.md` (its H1 becomes the release
+  title), and a missing notes file yields a body that says so instead of
+  GitHub's commit-list filler. `permissions: contents: write`, one
+  concurrency group per tag, `cancel-in-progress: false` so a half-uploaded
+  release cannot be interrupted. **Parquet is dropped** (decision 8), stated
+  as such in a workflow comment: `openings.parquet` and
+  `_efcdb_manifest.json` came from the private `chess-parquet` repo, so a
+  public workflow cannot regenerate them and every asset OCN now publishes
+  is buildable from `catalog/` alone. Consumer guide gained section 13 with
+  the exact eight-asset list. Every build command was run locally against a
+  `git archive` checkout before landing: 5,894 position rows, 5,899 JSON
+  rows, 3.3 MB JSON, 619 KB wheel, `SHA256SUMS` verified with
+  `sha256sum -c`.

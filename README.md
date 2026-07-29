@@ -24,6 +24,49 @@ parent-aware slugs.
 
 Read once, remember forever. No lookup table needed.
 
+## Five-minute quickstart
+
+```bash
+pip install .           # from a checkout today
+pip install ocn-chess   # from PyPI, with the next tagged release
+```
+
+The catalogue travels inside the package: no download, no database, no
+third-party dependency, and the lookups work on a plane.
+
+```python
+from ocn import Catalog
+
+cat = Catalog.load()                                 # the bundled catalogue, offline
+cat.by_slug("B.Sic.Naj.Eng").canonical_name          # -> 'Sicilian Najdorf, English Attack'
+[row.ocn1 for row in cat.parents("B.Sic.Naj.Eng")]   # -> ['B', 'B.Sic', 'B.Sic.Naj']
+len(cat.by_eco("B90"))                               # -> 20
+fen = "rnbqkbnr/pp1ppppp/8/2p5/4P3/8/PPPP1PPP/RNBQKBNR w KQkq c6 0 2"   # 1.e4 c5
+cat.by_fen(fen)[0].ocn1                              # -> 'B.Sic'
+```
+
+Twenty OCN rows share the single ECO code `B90`, and the breadcrumb
+reads the hierarchy back out — that is the whole pitch, in four lines.
+The FEN above ends in an en-passant square no pawn can legally capture
+on, which is what most board libraries print and what silently returns
+zero rows everywhere else; `by_fen` normalises it (see
+[`ocn/fen.py`](src/ocn/fen.py)).
+
+Then name your own games:
+
+```bash
+ocn annotate games.pgn --stats > named.pgn
+```
+
+Every game gains `[OCN "..."]` and `[OCNName "..."]` headers, matched by
+position at every ply — so a Najdorf reached through 1.Nf3 is named a
+Najdorf — and `--stats` prints the coverage summary to stderr. Nothing
+else in the file is touched.
+
+The Python block above is executed and checked against its own `# ->`
+comments by [`tests/test_quickstart.py`](tests/test_quickstart.py) on
+every push: copy-paste works verbatim, or CI goes red.
+
 ## Why
 
 ECO has aged remarkably well in one respect: A/B/C/D/E captures the
@@ -158,7 +201,16 @@ ocn lookup B90
 ocn lookup B.Sic.Naj
 ocn fen "rnbqkbnr/pp1ppppp/8/2p5/4P3/8/PPPP1PPP/RNBQKBNR w KQkq c6 0 2"
 ocn uci "e2e4 c7c5 g1f3 d7d6"
+ocn annotate games.pgn --stats > named.pgn
 ```
+
+`annotate` reads a multi-game PGN (`-` for stdin), tags every game with
+`[OCN]` and `[OCNName]`, and leaves the rest of the file byte for byte
+as it found it. The match is by **position at every ply, deepest hit
+wins**, so transpositions land on the same name as the move order they
+transpose into, and `transposes_to` is resolved to the canonical slug.
+`--stats` prints games, match rate, median depth in plies and the top
+openings to stderr; a thousand games annotate in well under a second.
 
 Every subcommand takes `--json`. Details and join patterns:
 [`docs/consuming-ocn.md`](docs/consuming-ocn.md).
@@ -176,6 +228,11 @@ Every subcommand takes `--json`. Details and join patterns:
 - [`tools/from_position.py`](tools/from_position.py) — a FEN in, matching rows
   out; board, side to move, castling and en passant are matched, the move
   counters ignored.
+- [`tools/coverage_stat.py`](tools/coverage_stat.py) — runs the `ocn annotate`
+  matcher over a PGN corpus and reports only the numbers: match rate, median
+  depth, the depth table and the top openings, as text or JSON. The
+  reproducible script behind any published "OCN names X% of real games"
+  figure; it streams, so a compressed dump can be piped straight into it.
 - [`tools/export_positions.py`](tools/export_positions.py) — writes the derived
   position-indexed TSV/JSON view (`fen_key`, a complete `fen` with true
   halfmove/fullmove counters, transposition group size); this is the index the

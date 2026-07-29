@@ -16,8 +16,8 @@ import unittest
 from pathlib import Path
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
-sys.path.insert(0, str(REPO_ROOT / "src"))
 sys.path.insert(0, str(REPO_ROOT / "tools"))
+sys.path.insert(0, str(REPO_ROOT / "src"))  # src last so `ocn` wins over tools/ocn.py
 
 from ocn import Catalog  # noqa: E402
 from sync_package_data import (  # noqa: E402

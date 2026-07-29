@@ -22,11 +22,14 @@ shipped artefacts, see
 
 If you have a chess position and want OCN names:
 
-1. Compute the Polyglot zobrist hash of the position.
-2. JOIN against `openings.parquet` on `zobrist`.
-3. **Keep all rows returned** — do not deduplicate on zobrist.
-4. For each row, derive `canonical_ocn1 = COALESCE(NULLIF(transposes_to, ''), ocn1)`.
-5. Group / display per your UI: see
+1. Install the package (`pip install .` from a checkout; `ocn-chess` on
+   PyPI with the next tagged release) and call `Catalog.by_fen(fen)` —
+   the en-passant normalisation and the O(1) positions index are built
+   in. Without Python, match your position's `fen_key` against the
+   release artefact `ocn-1.positions.tsv` (spec Annex A defines the key).
+2. **Keep all rows returned** — do not deduplicate on position.
+3. For each row, derive `canonical_ocn1 = COALESCE(NULLIF(transposes_to, ''), ocn1)`.
+4. Group / display per your UI: see
    [Handling transpositions](#5-handling-transpositions) for
    non-canonical → canonical, and
    [Handling co-canonicals](#6-handling-co-canonicals) for the
@@ -108,15 +111,15 @@ Pick the right artefact for your input:
 
 | have | use | join key |
 |---|---|---|
-| Polyglot zobrist hash (INT64) | `openings.parquet` | `zobrist` |
-| Position object that can produce a Polyglot zobrist | `openings.parquet` | derive zobrist, then `zobrist` |
-| FEN string | the `ocn-chess` package, `ocn-1.positions.tsv`, or `tools/ocn.py` | `fen_key` (board + side + castling + ep, ignoring counters) |
-| OCN slug | either, or `catalog/ocn-1.csv` directly | `ocn1` |
+| FEN string or board object | the `ocn-chess` package (`Catalog.by_fen`), `ocn-1.positions.tsv`, or `tools/ocn.py` | `fen_key` (board + side + castling + ep, ignoring counters) |
+| Polyglot zobrist hash (INT64) | derive the `fen_key` instead for now; the positions sidecar gains a `zobrist` column in roadmap H2.8 | `fen_key` today, `zobrist` then |
+| OCN slug | the package, or `catalog/ocn-1.csv` directly | `ocn1` |
 | Lichess opening name / line | `catalog/ocn-1.lichess-xref.tsv` | exact SAN sequence → `ocn1` (every Lichess line on a position OCN covers resolves to a slug) |
 
-**Polyglot is the recommended canonical hash.** OCN's
-`openings.parquet` is generated with `polyglot-v1.0` (see
-`_efcdb_manifest.json` → `zobrist_variant`).
+**Polyglot remains the recommended canonical 64-bit hash** — spec
+Annex A defines it normatively, and the positions sidecar grows a
+`zobrist` column in roadmap H2.8. Until then, `fen_key` joins via the
+package or `ocn-1.positions.tsv` are the reference path.
 
 `fen_key` in `ocn-1.positions.tsv` is the same FEN with halfmove
 and fullmove counters stripped — match on that, not on the full
@@ -640,8 +643,94 @@ indented).
 - JSON export builder:
   [`tools/build_json_export.py`](../tools/build_json_export.py)
 
-The release page hosts three downloadable artefacts:
-`ocn-1.positions.tsv`, `openings.parquet`, and
-`_efcdb_manifest.json`. Pin them by sha256 if you need
-reproducibility (`escacsfigueres/ocn` is private — download via an
-authenticated `gh release download`, not raw URLs).
+## 13. Release artefacts
+
+Every `ocn-*` tag is built and published by
+[`.github/workflows/release.yml`](../.github/workflows/release.yml),
+which reruns the full CI gate, rebuilds the derived files from
+`catalog/ocn-1.csv` and attaches exactly these eight assets:
+
+| asset | what it is |
+|---|---|
+| `ocn-1.csv` | the canonical catalogue, 14 columns |
+| `ocn-1.json` | the whole catalogue as one JSON document (schema `ocn.catalog.v1`), section 11 |
+| `ocn-1.positions.tsv` | one row per concrete slug: `fen_key`, full FEN, transposition-group size |
+| `ocn-1.lichess-xref.tsv` | Lichess opening lines mapped to OCN slugs |
+| `ocn-1.eco.tsv` | scalar join table, one row per (slug, ECO code), section 9 |
+| `ocn-1.eco-divergence.tsv` | rows whose OCN class letter is absent from their ECO codes, section 10 |
+| `ocn_chess-*.whl`, `ocn_chess-*.tar.gz` | the `ocn-chess` Python package, catalogue bundled |
+| `SHA256SUMS` | sha256 of every asset above |
+
+Pin by sha256 from `SHA256SUMS` if you need reproducibility
+(`escacsfigueres/ocn` is private — download via an authenticated
+`gh release download`, not raw URLs).
+
+The published `ocn-1.positions.tsv` is byte-identical to the copy
+inside the wheel: the workflow builds it with the same options
+`tools/sync_package_data.py` uses and fails if the two differ.
+
+**No parquet.** Releases up to 1.2.0 carried `openings.parquet` and
+`_efcdb_manifest.json`, generated from the private `chess-parquet`
+repo. They are gone by decision (roadmap decision 8): everything OCN
+publishes is now buildable from `catalog/` alone, and the Polyglot
+zobrist moves into the positions sidecar.
+
+## 14. Naming games: `ocn annotate`
+
+If what you have is games rather than positions, the whole join is one
+command. It reads a multi-game PGN (or `-` for stdin) and writes the
+same PGN back with two tags added per game:
+
+```
+ocn annotate games.pgn --stats > named.pgn
+```
+
+```
+[ECO "B90"]
+[OCN "B.Sic.Naj.Eng"]
+[OCNName "Sicilian Najdorf, English Attack"]
+```
+
+The tags go after `ECO` if the game has one, else after `Round`.
+Everything else survives untouched: movetext is never reflowed,
+comments, NAGs, variations, unknown tags and line endings all come
+through as written. Re-annotating a file rewrites its OCN tags in place
+rather than stacking duplicates, so the command is idempotent.
+
+**The matching rule.** Every position the mainline passes through is
+looked up in the catalogue's `fen_key` index and the *last* hit wins —
+then `transposes_to` is followed once. Two consequences worth knowing
+before you compare notes with an ECO-keyed tool:
+
+- Move order does not matter. A game that reaches the Najdorf English
+  Attack via 1.Nf3 gets `B.Sic.Naj.Eng`, the same as one that plays
+  1.e4. Prefix matching over `moves_uci` cannot do this; position
+  matching gets it for free.
+- Variations are ignored. The annotation describes the game that was
+  played, not the analysis attached to it.
+
+Games are replayed to a ply cap (`--max-plies`, default 40, the deepest
+catalogue line plus slack); the rest of the movetext is never parsed,
+which is what keeps a million-game file to minutes rather than hours.
+
+The same matcher is available as a library, one catalogue load for a
+whole corpus:
+
+```python
+from ocn.annotate import Annotator, annotate_text, iter_matches
+
+text, stats = annotate_text(open("games.pgn").read())
+print(stats.match_rate, stats.median_ply, stats.top(10))
+
+annotator = Annotator()                       # loads the bundled catalogue
+for game, match in iter_matches(open("huge.pgn"), annotator):
+    ...                                       # match.slug, match.name, match.ply
+```
+
+**Reading the numbers.** `--stats`, and the fuller report from
+[`tools/coverage_stat.py`](../tools/coverage_stat.py), print a match
+rate — but every legal first move is a catalogue row, so any game with
+one move played counts as matched and the rate sits at ~100% on real
+corpora. The informative figures are the median match depth and the
+share of games still named at 8, 12 and 16 plies, which is why
+`coverage_stat.py` prints that table. Quote those.

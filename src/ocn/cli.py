@@ -9,6 +9,7 @@ one-off scripts the repository grew during catalogue development
     ocn lookup "najdorf"
     ocn fen "rnbqkbnr/pp1ppppp/8/2p5/4P3/8/PPPP1PPP/RNBQKBNR w KQkq c6 0 2"
     ocn uci "e2e4 c7c5 g1f3 d7d6"
+    ocn annotate games.pgn --stats   # [OCN]/[OCNName] tags, coverage summary
     ocn version
 
 Every subcommand takes ``--json`` for machine-readable output. Exit
@@ -22,8 +23,10 @@ import os
 import re
 import sys
 from collections.abc import Sequence
+from typing import TextIO
 
 from . import __version__
+from .annotate import DEFAULT_MAX_PLIES, Annotator, annotate_stream
 from .catalog import Catalog, Row
 
 __all__ = ["main"]
@@ -158,6 +161,77 @@ def _cmd_uci(args: argparse.Namespace) -> int:
     return EXIT_OK
 
 
+def _cmd_annotate(args: argparse.Namespace) -> int:
+    """Tag every game in a PGN with the opening it reaches.
+
+    The catalogue is loaded once for the whole file and the input is
+    streamed, so the memory cost of a million-game corpus is one game.
+    """
+    catalog = Catalog.load(args.catalog)
+    annotator = Annotator(catalog, max_plies=args.max_plies)
+
+    try:
+        source, close_source = _open_input(args.pgn)
+    except OSError as exc:
+        return _fail(str(exc))
+    try:
+        target, close_target = _open_output(args.out)
+    except OSError as exc:
+        if close_source:
+            source.close()
+        return _fail(str(exc))
+
+    try:
+        stats = annotate_stream(source, annotator, target)
+    finally:
+        if close_source:
+            source.close()
+        if close_target:
+            target.close()
+
+    if not stats.games:
+        return _fail(f"no PGN games found in {args.pgn!r}")
+    if args.stats:
+        if args.json:
+            print(json.dumps(stats.as_dict(), ensure_ascii=False, indent=2), file=sys.stderr)
+        else:
+            print(stats.format_text(), file=sys.stderr)
+    return EXIT_OK if stats.matched else EXIT_NO_MATCH
+
+
+def _open_input(path: str) -> tuple[TextIO, bool]:
+    """The PGN line source, and whether the caller must close it.
+
+    A file, or stdin for ``-``.
+
+    ``surrogateescape`` makes the pass-through byte-exact even when a
+    PGN carries the Latin-1 the old standard allowed: the undecodable
+    bytes survive the round trip untouched.
+    """
+    if path == "-":
+        _reconfigure(sys.stdin)
+        return sys.stdin, False
+    return open(path, encoding="utf-8", errors="surrogateescape", newline=""), True
+
+
+def _open_output(path: str | None) -> tuple[TextIO, bool]:
+    if not path:
+        _reconfigure(sys.stdout)
+        return sys.stdout, False
+    return open(path, "w", encoding="utf-8", errors="surrogateescape", newline=""), True
+
+
+def _reconfigure(stream) -> None:
+    """Stop the standard streams rewriting line endings or dropping bytes."""
+    reconfigure = getattr(stream, "reconfigure", None)
+    if reconfigure is None:  # pragma: no cover - a replaced stdio object
+        return
+    try:
+        reconfigure(newline="", errors="surrogateescape")
+    except (ValueError, OSError):  # pragma: no cover - non-file streams
+        pass
+
+
 def _cmd_version(args: argparse.Namespace) -> int:
     """Report the reader version and the catalogue release it carries."""
     catalog_version = Catalog.load(args.catalog).version()
@@ -224,6 +298,36 @@ def build_parser() -> argparse.ArgumentParser:
     )
     uci.add_argument("moves", nargs="+", help="UCI moves, e.g. \"e2e4 c7c5 g1f3\"")
     uci.set_defaults(func=_cmd_uci)
+
+    annotate = add(
+        "annotate",
+        "Add [OCN] and [OCNName] tags to every game in a PGN file. The match "
+        "is by position at every ply, deepest hit wins, so transpositions "
+        "are named like the move order they transpose into.",
+    )
+    annotate.add_argument("pgn", help="PGN file to annotate, or - for stdin")
+    annotate.add_argument(
+        "--out",
+        metavar="FILE",
+        default=None,
+        help="write the annotated PGN here instead of stdout",
+    )
+    annotate.add_argument(
+        "--stats",
+        action="store_true",
+        help="print a classification summary to stderr (--json makes it JSON)",
+    )
+    annotate.add_argument(
+        "--max-plies",
+        type=int,
+        default=DEFAULT_MAX_PLIES,
+        metavar="N",
+        help=(
+            f"replay at most N plies per game, 0 for no cap "
+            f"(default: {DEFAULT_MAX_PLIES}, the deepest catalogue line plus slack)"
+        ),
+    )
+    annotate.set_defaults(func=_cmd_annotate)
 
     version = add("version", "Print the reader version and the catalogue release.")
     version.set_defaults(func=_cmd_version)
