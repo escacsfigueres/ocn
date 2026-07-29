@@ -142,10 +142,11 @@ class QuickstartTests(unittest.TestCase):
             self.assertIn(command, known)
 
     def test_the_install_line_is_honest(self) -> None:
-        """PyPI is promised for the next tag, not claimed for today."""
+        """The package is live on PyPI (1.2.1, 2026-07-30), so the
+        quickstart claims the real install and nothing more."""
         bash = "\n".join(line for block in fenced_blocks(self.section, "bash") for line in block)
-        self.assertIn("pip install .", bash)
-        self.assertRegex(bash, r"pip install ocn-chess\s+#.*next tagged release")
+        self.assertIn("pip install ocn-chess", bash)
+        self.assertNotIn("next tagged release", bash)
 
 
 if __name__ == "__main__":
