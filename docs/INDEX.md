@@ -20,6 +20,7 @@ start here and move to `archive/` when their era closes.
 | [`ocn-audit-2026-07.md`](ocn-audit-2026-07.md) | The traction-readiness audit (2026-07-29) the roadmap derives from. |
 | [`agentic-development-playbook.md`](agentic-development-playbook.md) | The human–agent contract: Intent/Expectations/Context/Workflow, GO gates, task sizing. |
 | [`ocn-360-audit.md`](ocn-360-audit.md) | The 13-agent 360° audit (2026-06-10) that drove the P0/P1/P2 plan. |
+| [`treatise-school-worksheet.md`](treatise-school-worksheet.md) | Candidate attributions for the founding treatises: fifteen heads, sources named, nothing applied. |
 | [`chronicle-layer-design.md`](chronicle-layer-design.md) | The cultural layer design: people, places, events, claims — and the source doctrine that keeps it citable. |
 | [`i18n-aliases-design.md`](i18n-aliases-design.md) | Locale alias sidecars (Track 2): format, conventions, ca+es pilot. |
 
