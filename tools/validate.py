@@ -47,6 +47,11 @@ Checks performed:
 20. With `--audit-eco`, children with a single same-class ECO code
     numerically below their parent's warn — audit-sweep heuristic (~55
     legitimate hits), never part of the default gate.
+21. The committed ECO class-divergence sidecar
+    (`catalog/ocn-1.eco-divergence.tsv`) must exist and must list exactly
+    the rows whose OCN class letter is absent from their own ECO letters,
+    recomputed here from the catalogue. Canonical catalogue only — the
+    fixtures carry no sidecar (traction-roadmap H2.5).
 
 Exits with code 0 on success, 1 on the first error encountered.
 
@@ -72,6 +77,11 @@ except ImportError:  # pragma: no cover - only for unusual direct imports.
     )
 
 DEFAULT_CATALOG = Path(__file__).resolve().parent.parent / "catalog" / "ocn-1.csv"
+DIVERGENCE_SIDECAR = (
+    Path(__file__).resolve().parent.parent / "catalog" / "ocn-1.eco-divergence.tsv"
+)
+# How many example slugs a divergence mismatch prints before eliding.
+DIVERGENCE_EXAMPLE_CAP = 10
 
 # Slug character set: alphanumerics + `=` for promotion + `-` for O-O / O-O-O.
 # `+` (check) and `#` (mate) are NOT part of OCN slugs — they describe a
@@ -214,6 +224,69 @@ def warn(msg: str) -> None:
 
 def normalize_san(san: str) -> str:
     return san.rstrip("+#")
+
+
+def recompute_divergent_slugs(rows: list[dict]) -> set[str]:
+    """Slugs whose OCN class letter is absent from their own ECO letters.
+
+    A deliberate second implementation of the rule in
+    `tools/build_eco_divergence.py`: the validator does not import the
+    builder, so a bug in the builder cannot certify itself. Rows with no
+    ECO code are not divergent — outside ECO's coverage there is no
+    assignment to disagree with.
+    """
+    divergent: set[str] = set()
+    for row in rows:
+        slug = (row.get("ocn1") or "").strip()
+        codes = [c.strip() for c in (row.get("eco_legacy") or "").split("|")
+                 if c.strip()]
+        if slug and codes and slug[:1] not in {code[:1] for code in codes}:
+            divergent.add(slug)
+    return divergent
+
+
+def divergence_sidecar_problem(
+    rows: list[dict],
+    sidecar: Path = DIVERGENCE_SIDECAR,
+) -> str | None:
+    """Compare the committed divergence sidecar with the live catalogue.
+
+    Returns an error message, or `None` when they agree exactly. Both
+    directions matter: an *unlisted* slug means the published divergence
+    count understates reality (the failure this sidecar exists to prevent),
+    a *stale* slug means it overstates it.
+    """
+    if not sidecar.exists():
+        return (f"ECO divergence sidecar not found: {sidecar} — build it with "
+                f"python3 tools/build_eco_divergence.py")
+    with sidecar.open(newline="", encoding="utf-8") as f:
+        reader = csv.DictReader(f, delimiter="\t")
+        if "ocn1" not in (reader.fieldnames or []):
+            return (f"ECO divergence sidecar {sidecar.name} has no 'ocn1' "
+                    f"column (found: {reader.fieldnames})")
+        listed = {(r.get("ocn1") or "").strip() for r in reader}
+    listed.discard("")
+
+    computed = recompute_divergent_slugs(rows)
+    unlisted = sorted(computed - listed)
+    stale = sorted(listed - computed)
+    if not unlisted and not stale:
+        return None
+
+    def sample(slugs: list[str]) -> str:
+        shown = ", ".join(slugs[:DIVERGENCE_EXAMPLE_CAP])
+        return shown + (", ..." if len(slugs) > DIVERGENCE_EXAMPLE_CAP else "")
+
+    parts = []
+    if unlisted:
+        parts.append(f"{len(unlisted)} unlisted (divergent in the catalogue, "
+                     f"absent from the sidecar): {sample(unlisted)}")
+    if stale:
+        parts.append(f"{len(stale)} stale (listed in the sidecar, no longer "
+                     f"divergent): {sample(stale)}")
+    return (f"{sidecar.name} disagrees with the catalogue — "
+            + "; ".join(parts)
+            + ". Regenerate with python3 tools/build_eco_divergence.py")
 
 
 def validate(
@@ -646,6 +719,24 @@ def validate(
                     fail(f"row {row['_row']}: slug '{slug}' has "
                          f"same_as='{target}' but their FEN keys differ "
                          f"(this is not a co-canonical pair by position)")
+
+    # 21. ECO class-divergence sidecar consistency (roadmap H2.5).
+    #
+    # OCN keeps ECO's five families but not every one of ECO's letter
+    # assignments; `catalog/ocn-1.eco-divergence.tsv` is the complete,
+    # committed list of the rows where they differ, and the spec attaches a
+    # written rationale to each. That honesty only holds while the list is
+    # current, so the validator recomputes the divergent set from the rows it
+    # just read and demands an exact match — reclassify a row or edit an
+    # `eco_legacy` cell without regenerating and this fires.
+    #
+    # Scoped to the canonical catalogue: the sidecar is a property of
+    # `catalog/ocn-1.csv`, and the small fixtures used by the test suite
+    # (and any catalogue slice a maintainer validates ad hoc) have none.
+    if path.resolve() == DEFAULT_CATALOG.resolve():
+        problem = divergence_sidecar_problem(rows)
+        if problem:
+            fail(problem)
 
     print(f"OK: {len(seen_slugs)} entries validated, {warnings} warning(s)")
 
