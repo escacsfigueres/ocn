@@ -110,7 +110,7 @@ Method stats: 13 agents, ~1.07M tokens, 815 tool uses. Severity totals:
   label gaps, not missing positions; 561 British "Defence" rows lack an
   American "Defense" alias; Döry Defense absent; 294 depth≥2 rows carry no ECO
   anchor at all; exact-label coverage of Lichess subvariants is 20.1%.
-- **consumer:** `consuming-ocn-0.2.md` wrong on 5 counts (130 vs 124 groups, 6
+- **consumer:** `consuming-ocn.md` wrong on 5 counts (130 vs 124 groups, 6
   vs 17 co-canonical pairs, release link at 1.0.3, aliases/flags columns and
   the lookup tools undocumented); no SAN/PGN→OCN recipe anywhere.
 - **chess-structural:** 15 `transposes_to` point at ancestors; 3 in-family
@@ -169,7 +169,7 @@ Method stats: 13 agents, ~1.07M tokens, 815 tool uses. Severity totals:
 10. **Docs system:** `docs/INDEX.md` + `docs/archive/` convention; expand
     `verify_doc_slugs` standard invocation to README+spec; stale-ref cleanup
     sprint (90 refs in docs/ + the public-doc ones); refresh
-    `consuming-ocn-0.2.md` (5 numbers + recipes section).
+    `consuming-ocn.md` (5 numbers + recipes section).
 11. **Release 1.1.x runbook + notes** (the release agent drafted the
     skeleton: 4 categories, 17-row table, parquet regen step, checksum block,
     downstream join-key gate). Decide semver policy: attribution-only = patch
@@ -240,6 +240,6 @@ include `spec/OCN-1.md` (header) and `README.md`.
 
 ## See also
 
-- [`whole-catalogue-attribution-factory-map.md`](whole-catalogue-attribution-factory-map.md) — the attribution-specific map this audit generalises.
+- [`archive/whole-catalogue-attribution-factory-map.md`](archive/whole-catalogue-attribution-factory-map.md) — the attribution-specific map this audit generalises.
 - [`attribution-batch-engine.md`](attribution-batch-engine.md) + [`attribution-factory-tooling.md`](attribution-factory-tooling.md) — the apply pipeline all fix-lots ride.
-- [`post-1.1-roadmap.md`](post-1.1-roadmap.md) — tracks; this audit feeds Tracks 1-3.
+- [`archive/post-1.1-roadmap.md`](archive/post-1.1-roadmap.md) — tracks; this audit feeds Tracks 1-3.

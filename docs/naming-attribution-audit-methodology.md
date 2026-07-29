@@ -277,5 +277,5 @@ backlog, not a change set.
   — the worked naming review behind example 1.
 - [`docs/transposition-cleanup-closure.md`](transposition-cleanup-closure.md)
   — the resolved transposition layer this audit sits *on top of*.
-- [`docs/post-1.1-roadmap.md`](post-1.1-roadmap.md) — where this work
+- [`docs/archive/post-1.1-roadmap.md`](archive/post-1.1-roadmap.md) — where this work
   sits in the post-1.1 plan.

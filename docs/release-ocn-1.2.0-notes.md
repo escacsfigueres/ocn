@@ -26,7 +26,7 @@ Everything the 360 audit rated P0/P1 on the catalogue itself is closed:
   longest-SAN-prefix derivation against `lichess-org/chess-openings`):
   London family A48→D02 (10), Dragon Yugoslav B76→B78, QID Nimzowitsch
   E17→E15. Four audit claims were **refuted** by the derivation and left
-  unchanged (record in `docs/eco-corrections-dry-run.md`).
+  unchanged (record in `docs/archive/eco-corrections-dry-run.md`).
 - **Naming hygiene** — 24 identity aliases dropped, 2 whitespace typos
   fixed; the two checks promoted to errors.
 - **Phantom + duplicate-name decisions executed**
@@ -60,7 +60,8 @@ Everything the 360 audit rated P0/P1 on the catalogue itself is closed:
 | validator | 5,899 entries, 0 warnings, `--strict-chess` green |
 | tool tests | 165 |
 
-Applied lots, in order (manifest → dry-run record, all in `docs/`):
+Applied lots, in order (manifests in `docs/manifests/`, dry-run records
+in `docs/archive/`):
 
 | lot | mode | rows |
 |---|---|---|
@@ -97,4 +98,4 @@ Applied lots, in order (manifest → dry-run record, all in `docs/`):
    downstream gate above, record checksums in a
    `release-ocn-1.2.0-downstream-verification.md`.
 5. **Record** — mark this document released (replace the draft header),
-   update `post-1.1-roadmap.md`.
+   update `archive/post-1.1-roadmap.md`.

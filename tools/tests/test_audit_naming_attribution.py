@@ -186,7 +186,7 @@ class DangerousSeedSyncTests(unittest.TestCase):
         self.assertEqual(r["recommended_next_action"], ana.ACT_INDIVIDUAL)
 
     def test_factory_map_dangerous_surnames_present(self) -> None:
-        # docs/whole-catalogue-attribution-factory-map.md verified counts.
+        # docs/archive/whole-catalogue-attribution-factory-map.md verified counts.
         expected = {
             "tarrasch", "chigorin", "rubinstein", "steinitz", "marshall",
             "bogoljubow", "nimzowitsch", "botvinnik", "keres", "lasker",

@@ -1,7 +1,8 @@
 # Consuming OCN
 
-*(Current as of `ocn-1.2.0`, 5,899 rows. The filename keeps its
-historical `-0.2` suffix so existing links survive.)*
+*(Current as of `ocn-1.2.0`, 5,899 rows. Renamed 2026-07-29 — the
+filename previously carried a `-0.2` release suffix; the guide tracks
+the catalogue, not one release.)*
 
 A short, practical guide for someone joining FEN / zobrist / game
 positions to OCN openings. If you have already implemented an
@@ -13,7 +14,7 @@ Read the [Quick start](#0-quick-start) and the
 
 For background and full normative definitions, see
 [`spec/OCN-1.md`](../spec/OCN-1.md). For the project roadmap, see
-[`post-1.1-roadmap.md`](post-1.1-roadmap.md). For the release with
+[`archive/post-1.1-roadmap.md`](archive/post-1.1-roadmap.md). For the release with
 shipped artefacts, see
 [ocn-1.2.0](https://github.com/escacsfigueres/ocn/releases/tag/ocn-1.2.0).
 
@@ -368,7 +369,7 @@ def display_name_for_zobrist(z, openings_table):
 ## 9. Links
 
 - Spec: [`spec/OCN-1.md`](../spec/OCN-1.md)
-- Roadmap: [`post-1.1-roadmap.md`](post-1.1-roadmap.md)
+- Roadmap: [`archive/post-1.1-roadmap.md`](archive/post-1.1-roadmap.md)
 - Release: [ocn-1.2.0](https://github.com/escacsfigueres/ocn/releases/tag/ocn-1.2.0)
 - Lichess cross-reference (in-repo sidecar):
   [`catalog/ocn-1.lichess-xref.tsv`](../catalog/ocn-1.lichess-xref.tsv)

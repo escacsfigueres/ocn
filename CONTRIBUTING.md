@@ -108,7 +108,7 @@ Winter as saying the Winawer was named after a game at "Paris 1878", a
 first-hand read of Winter's actual page showed the sentence is not
 there, the claim was never encoded in the catalogue, and the finding is
 written up in
-[`docs/parked-naming-audit-source-sweep.md`](docs/parked-naming-audit-source-sweep.md).
+[`docs/archive/parked-naming-audit-source-sweep.md`](docs/archive/parked-naming-audit-source-sweep.md).
 If you find a row whose `attribution_source` does not say what the row
 claims it says, that is a first-class bug report. File it as a naming
 dispute; the row will be downgraded or withdrawn, in public, with a

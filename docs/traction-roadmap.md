@@ -2,7 +2,7 @@
 
 **Status: live.** Adopted 2026-07-29 from the findings in
 [`ocn-audit-2026-07.md`](ocn-audit-2026-07.md). Supersedes the traction-facing
-ambitions of [`post-1.1-roadmap.md`](post-1.1-roadmap.md) (whose Track 1
+ambitions of [`archive/post-1.1-roadmap.md`](archive/post-1.1-roadmap.md) (whose Track 1
 attribution work continues here as D-1, and whose Track 2 i18n work is
 rescoped as G-1). Every mutating step below runs under the usual GO gates
 ([`agentic-development-playbook.md`](agentic-development-playbook.md));
@@ -53,7 +53,7 @@ has a landmine.
 | H0.4 | **Attribution hygiene.** Re-source or withdraw every "the corpus" citation (unverifiable is worse than absent); fix the 3 byte-identical source strings; add a validator check banning unverifiable source patterns. | S | Zero rows cite unpublished sources; validator enforces it. |
 | H0.5 | **EFCDB decoupling (spec side).** Demote the EFCDB reference to informative; add a normative "Position identity" annex to `spec/OCN-1.md` inlining the zobrist scheme parameters OCN needs. | M | No normative dependency on unpublished documents; position keys computable from OCN-1 alone. |
 | H0.6 | **Minimum governance surface.** `CONTRIBUTING.md` + one-page `GOVERNANCE.md` in English (registrar = maintainer; manifest engine described as the change-control asset it is; decisions logged); two issue templates (naming dispute, data error); `CITATION.cff` bumped. | M | An outsider can answer "who decides names and how do I dispute one" in one click. |
-| H0.7 | **Docs triage.** `git mv` the ~34 process files (11k lines of dry-run logs, manifests records) under `docs/archive/` or a new `docs/process/`; rename `consuming-ocn-0.2.md` to `consuming-ocn.md`; INDEX updated. | S | `docs/` top level has ~6 entries and the first thing a newcomer opens is the consumer guide. |
+| H0.7 | **Docs triage.** `git mv` the ~34 process files (11k lines of dry-run logs, applied-lot records) under `docs/archive/`; drop the release suffix from the consumer guide's filename (now `consuming-ocn.md`); INDEX updated. | S | `docs/` top level is short enough to scan and the first thing a newcomer opens is the consumer guide. |
 | H0.8 | **Flip public** (major GO) + tag `ocn-1.2.1` with all of the above; enable the Zenodo webhook *before* tagging; set topics, About, social preview. | S | Repo public; release visible; webhook armed. |
 
 Explicitly *not* blocking the flip: the full ABNF, attribution scale-up,
@@ -174,7 +174,7 @@ H0.1-H0.7 ──> H0.8 flip public ──> H1.1 pip + H1.2 JSON ──> H1.3 aut
 - 2026-07-29 — **H0.1 done.** Ship-ready half of PR #1 merged (`c88517d`:
   CI glob + guard, README 1.2.0 truth, four tested tools; suite 194 to
   285). Allgaier CLEAR applied under GO (`389929e`,
-  [`allgaier-clear-dry-run.md`](allgaier-clear-dry-run.md)) — first live
+  [`archive/allgaier-clear-dry-run.md`](archive/allgaier-clear-dry-run.md)) — first live
   attribution with a reference-grade source. Inert drafts tracked as
   issues #2 (PARTIAL heads) and #3 (fr/de seeds); PR #1 closed, branch
   kept for the draft files. 0 open PRs.
@@ -193,3 +193,20 @@ H0.1-H0.7 ──> H0.8 flip public ──> H1.1 pip + H1.2 JSON ──> H1.3 aut
   re-point, E-002 1.2.0 mass rename, E-003 grammar gap); fixtures
   declared the provisional conformance corpus; spec history extended
   through 1.2 plus the triage patch.
+- 2026-07-29 — **H0.7 done.** Docs triage: 20 era-closed working
+  documents `git mv`-ed into [`archive/`](archive/) — the 12
+  `*-dry-run.md` reports plus `naming-error-corrections-record.md` (the
+  13 applied-lot records the INDEX used to list one by one), the six
+  process-not-reference attribution documents (audit backlog, both
+  parked source logs, the Group B evidence sprint, the parked French
+  Winawer proposal, the factory map) and the superseded
+  `post-1.1-roadmap.md`, whose live role this roadmap took over. The
+  consumer guide lost its release suffix and is now
+  [`consuming-ocn.md`](consuming-ocn.md); every reference in a live file
+  (README, CONTRIBUTING, GOVERNANCE, live docs, two tool comments) was
+  repointed, while links inside archived documents stay frozen as
+  written. INDEX rewritten: consumer guide first, applied-lot records
+  collapsed to a single archive line. `docs/*.md` goes 40 to 20 live
+  files (13,573 lines of process logs moved out of the top level);
+  `attribution-source-status.tsv`, `examples/` and `manifests/` stay.
+  Slug gate and the 285-test suite green.

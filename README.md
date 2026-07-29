@@ -133,7 +133,7 @@ Everything is Python 3 standard library — no third-party dependency, no
 build step (chess legality is checked by the in-repo move generator,
 [`tools/chess_uci.py`](tools/chess_uci.py)). Recipes
 and join patterns for consumers are in
-[`docs/consuming-ocn-0.2.md`](docs/consuming-ocn-0.2.md).
+[`docs/consuming-ocn.md`](docs/consuming-ocn.md).
 
 ### Consumer tools
 

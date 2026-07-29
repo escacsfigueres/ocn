@@ -1,7 +1,7 @@
 # Attribution factory tooling
 
 **Status: TOOLING + DOCS.** The first automation layer from
-[`whole-catalogue-attribution-factory-map.md`](whole-catalogue-attribution-factory-map.md).
+[`archive/whole-catalogue-attribution-factory-map.md`](archive/whole-catalogue-attribution-factory-map.md).
 Three small stdlib-only tools that make attribution lots faster and safer to
 build. **None of them edits `catalog/ocn-1.csv` or applies anything** — they
 prepare and verify the inputs that the
@@ -121,5 +121,5 @@ clean.
 
 ## See also
 
-- [`whole-catalogue-attribution-factory-map.md`](whole-catalogue-attribution-factory-map.md) — the lots and tooling backlog these tools begin.
+- [`archive/whole-catalogue-attribution-factory-map.md`](archive/whole-catalogue-attribution-factory-map.md) — the lots and tooling backlog these tools begin.
 - [`attribution-batch-engine.md`](attribution-batch-engine.md) — the engine these tools feed.

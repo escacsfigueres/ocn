@@ -78,7 +78,7 @@ DANGEROUS_SURNAMES = {
     "chigorin",
     "bogoljubow",
     # Added 2026-06-11 from the whole-catalogue factory map's verified
-    # row counts (docs/whole-catalogue-attribution-factory-map.md):
+    # row counts (docs/archive/whole-catalogue-attribution-factory-map.md):
     # each labels several unrelated openings — never blanket-attribute.
     "nimzowitsch",
     "botvinnik",

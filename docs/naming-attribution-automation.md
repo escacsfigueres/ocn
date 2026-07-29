@@ -139,8 +139,8 @@ homogeneous group.
 ## See also
 
 - [`naming-attribution-audit-methodology.md`](naming-attribution-audit-methodology.md) — types A–I; the *how* of a single attribution.
-- [`naming-attribution-audit-backlog.md`](naming-attribution-audit-backlog.md) — the discovery backlog this tool generalises.
+- [`archive/naming-attribution-audit-backlog.md`](archive/naming-attribution-audit-backlog.md) — the discovery backlog this tool generalises.
 - [`player-eponym-attribution-batch-proposal.md`](archive/player-eponym-attribution-batch-proposal.md) — the surname risk map the DANGEROUS seed list comes from.
 - [`non-person-opening-name-taxonomy.md`](non-person-opening-name-taxonomy.md) — the descriptor/metaphor/gambit token taxonomy.
-- [`parked-attribution-reference-source-log.md`](parked-attribution-reference-source-log.md) — the 4 CLEAR / 2 PARTIAL source-access result the next sprint builds on.
+- [`archive/parked-attribution-reference-source-log.md`](archive/parked-attribution-reference-source-log.md) — the 4 CLEAR / 2 PARTIAL source-access result the next sprint builds on.
 - [`agentic-development-playbook.md`](agentic-development-playbook.md) — the GO-gate / verification contract every apply runs under.

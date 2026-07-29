@@ -37,9 +37,9 @@ decision leaves one of two artefacts in `docs/`, indexed by
 - **Dry-run records**, for every applied batch of catalogue edits: the
   engine report reviewed before the write, kept afterwards and marked
   APPLIED. Examples:
-  [`docs/lot-a-player-eponyms-dry-run.md`](docs/lot-a-player-eponyms-dry-run.md)
+  [`docs/archive/lot-a-player-eponyms-dry-run.md`](docs/archive/lot-a-player-eponyms-dry-run.md)
   and
-  [`docs/naming-error-corrections-record.md`](docs/naming-error-corrections-record.md).
+  [`docs/archive/naming-error-corrections-record.md`](docs/archive/naming-error-corrections-record.md).
 
 The mechanism that produces those records, and the guarantees it
 enforces, are described in [`CONTRIBUTING.md`](CONTRIBUTING.md) and

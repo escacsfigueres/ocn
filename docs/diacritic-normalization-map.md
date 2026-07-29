@@ -102,7 +102,7 @@ Pelikan (early adopter)" on `B.Sic.Sve`).
 > **Decision 2026-06-11: GO normalize.** Lot prepared as
 > `docs/manifests/diacritic-tier2-normalization.manifest.json` (50 rows, 44
 > canonical_name; per-surname: Mikėnas 28, Krejčík 10, Opočenský 9,
-> Pelikán 3) with dry-run record `docs/diacritic-tier2-dry-run.md`
+> Pelikán 3) with dry-run record `docs/archive/diacritic-tier2-dry-run.md`
 > (Validation PASS, zero new collisions, structural columns byte-identical,
 > candidate green under strict-chess + the four Tier 2 banned forms).
 > Review flag: `B.Sic.Sve` updates the applied attribution strings

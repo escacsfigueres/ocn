@@ -318,5 +318,5 @@ it does not invent a new process:
   and
   [`qid-miles-petrosian-migration-preflight.md`](archive/qid-miles-petrosian-migration-preflight.md)
   — the worked *risky migration* example.
-- [`post-1.1-roadmap.md`](post-1.1-roadmap.md) — where post-1.1 work
+- [`archive/post-1.1-roadmap.md`](archive/post-1.1-roadmap.md) — where post-1.1 work
   sits.
