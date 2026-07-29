@@ -1,0 +1,39 @@
+[package]
+name = "ocn"
+version = "1.2.1"
+edition = "2021"
+rust-version = "1.70"
+description = "OCN, Open Chess Naming: the hierarchy layer over ECO and the Lichess opening names. Embedded 5,899-opening catalogue with position lookup."
+authors = ["Club d'Escacs Figueres"]
+# MIT covers the code. The catalogue embedded from data/ is CC-BY-4.0 —
+# see LICENSE-SPEC in the repository; attribute "OCN, Club d'Escacs
+# Figueres" when you redistribute the data.
+license = "MIT"
+readme = "README.md"
+repository = "https://github.com/escacsfigueres/ocn"
+homepage = "https://github.com/escacsfigueres/ocn"
+documentation = "https://docs.rs/ocn"
+keywords = ["chess", "eco", "openings", "catalog"]
+categories = ["games", "data-structures", "parser-implementations"]
+# The published crate carries its own tests, including the 5,894-row
+# cross-validation: `cargo test` on the downloaded source proves the
+# embedded catalogue against the reference implementation's own columns.
+include = ["src/**/*.rs", "tests/**/*.rs", "data/*", "README.md"]
+
+# Zero runtime dependencies, on purpose: the catalogue is embedded in the
+# binary and the crate needs no move generator, so nothing is downloaded,
+# linked or vendored beyond the standard library.
+[dependencies]
+
+[features]
+# The `ocn` command line. Off by default so a library consumer never
+# compiles argument parsing it will not call.
+cli = []
+
+[[bin]]
+name = "ocn"
+path = "src/bin/ocn.rs"
+required-features = ["cli"]
+
+[package.metadata.docs.rs]
+all-features = true

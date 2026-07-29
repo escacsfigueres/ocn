@@ -58,3 +58,31 @@ jobs:
           ocn version
           ocn lookup B90
           python3 -c "import ocn; print(len(ocn.Catalog.load()))"
+
+  rust:
+    name: rust crate
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v4
+
+      - name: set up the stable toolchain
+        run: |
+          rustup toolchain install stable --profile minimal --component clippy,rustfmt
+          rustup default stable
+          cargo --version
+
+      - name: cargo test
+        # Includes the 5,894-row cross-validation of `fen_key` and the
+        # Polyglot hash against the Python-derived positions sidecar: the
+        # two implementations agree on the whole catalogue or CI goes red.
+        run: cargo test --manifest-path rust/Cargo.toml --all-features
+
+      - name: cargo clippy
+        run: cargo clippy --manifest-path rust/Cargo.toml --all-features --all-targets -- -D warnings
+
+      - name: cargo fmt
+        run: cargo fmt --manifest-path rust/Cargo.toml --check
+
+      - name: check the crate packages cleanly
+        run: cargo package --manifest-path rust/Cargo.toml --allow-dirty

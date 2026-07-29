@@ -217,6 +217,28 @@ openings to stderr; a thousand games annotate in well under a second.
 Every subcommand takes `--json`. Details and join patterns:
 [`docs/consuming-ocn.md`](docs/consuming-ocn.md).
 
+### The `ocn` Rust crate
+
+The same catalogue, the same API shape, embedded in the binary with zero
+runtime dependencies. Built here under [`rust/`](rust/); on crates.io as
+[`ocn`](https://crates.io/crates/ocn).
+
+```bash
+cargo add ocn
+```
+
+```rust
+let cat = ocn::Catalog::load();                        // embedded, parsed once
+cat.by_slug("B.Sic.Naj.Eng").unwrap().canonical_name;  // "Sicilian Najdorf, English Attack"
+cat.by_fen(fen).unwrap();                              // en-passant trap handled
+```
+
+The crate carries no move generator: position lookup reads the embedded
+index, and `fen_key` needs only Annex A's legal-capture test. Its suite
+recomputes `fen_key` and the Polyglot hash for all 5,894 concrete rows
+and demands the Python-derived columns back, so the two readers cannot
+drift apart. Details: [`rust/README.md`](rust/README.md).
+
 ### Consumer tools
 
 - [`tools/ocn.py`](tools/ocn.py) — the in-repo reader: load the catalogue, look

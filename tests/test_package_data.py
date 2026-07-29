@@ -1,12 +1,17 @@
-"""Drift guard for the catalogue bundled inside the `ocn` package.
+"""Drift guard for the catalogue bundled inside the published packages.
 
-`src/ocn/data/` holds committed copies of catalogue artefacts so the
-wheel answers lookups with no checkout and no network. Copies drift: a
-catalogue edit that is not followed by `tools/sync_package_data.py
---apply` would ship stale openings under a fresh version number. This
-test fails the moment the committed bytes stop matching a fresh sync —
-the same pattern as `tools/tests/test_attribution_metadata.py`'s
-`SidecarDriftTests` guards `catalog/ocn-1.attribution.tsv`.
+`src/ocn/data/` and `rust/data/` hold committed copies of catalogue
+artefacts so the wheel and the crate answer lookups with no checkout and
+no network. Copies drift: a catalogue edit that is not followed by
+`tools/sync_package_data.py --apply` would ship stale openings under a
+fresh version number. These tests fail the moment the committed bytes
+stop matching a fresh sync — the same pattern as
+`tools/tests/test_attribution_metadata.py`'s `SidecarDriftTests` guards
+`catalog/ocn-1.attribution.tsv`.
+
+Both targets are guarded, and one extra test pins them to *each other*:
+two packages shipping different catalogues under the same version number
+is the failure mode the whole arrangement exists to prevent.
 """
 from __future__ import annotations
 
@@ -23,8 +28,11 @@ from ocn import Catalog  # noqa: E402
 from sync_package_data import (  # noqa: E402
     CATALOG_VERSION,
     DATA_DIR,
+    RUST_DATA_DIR,
+    RUST_FILES,
     build_payload,
     drifted,
+    rust_payload,
 )
 
 
@@ -52,6 +60,54 @@ class BundledDataDriftTests(unittest.TestCase):
             CATALOG_VERSION,
         )
         self.assertEqual(Catalog.load().version(), CATALOG_VERSION)
+
+
+class RustBundledDataDriftTests(unittest.TestCase):
+    """The same guard for `rust/data/`, which the crate embeds at compile
+    time via `include_str!`. A stale copy here ships a wrong catalogue
+    inside every binary built from the crate."""
+
+    @classmethod
+    def setUpClass(cls) -> None:
+        cls.payload = rust_payload()
+
+    def test_every_embedded_file_is_committed(self) -> None:
+        for name in self.payload:
+            with self.subTest(name=name):
+                self.assertTrue(
+                    (RUST_DATA_DIR / name).exists(), f"rust/data/{name} not committed"
+                )
+
+    def test_embedded_data_is_byte_identical_to_a_fresh_sync(self) -> None:
+        self.assertEqual(
+            drifted(self.payload, RUST_DATA_DIR),
+            [],
+            "rust/data/ is stale — regenerate with "
+            "python3 tools/sync_package_data.py --apply",
+        )
+
+    def test_the_crate_embeds_exactly_what_it_has_a_reader_for(self) -> None:
+        # The Lichess cross-reference is deliberately absent: the crate
+        # has no reader for it, and embedding it would grow every binary
+        # built from the crate by 436 KB for nothing.
+        self.assertEqual(set(self.payload), set(RUST_FILES))
+        self.assertNotIn("ocn-1.lichess-xref.tsv", self.payload)
+
+    def test_both_packages_bundle_the_same_catalogue_bytes(self) -> None:
+        """The point of one payload, two targets."""
+        for name in RUST_FILES:
+            with self.subTest(name=name):
+                self.assertEqual(
+                    (RUST_DATA_DIR / name).read_bytes(),
+                    (DATA_DIR / name).read_bytes(),
+                    f"{name} differs between the wheel and the crate",
+                )
+
+    def test_the_crate_manifest_declares_the_bundled_release(self) -> None:
+        """`rust/Cargo.toml` moves with the catalogue it embeds."""
+        manifest = (RUST_DATA_DIR.parent / "Cargo.toml").read_text(encoding="utf-8")
+        self.assertIn(f'version = "{CATALOG_VERSION}"', manifest)
+        self.assertIn('name = "ocn"', manifest)
 
 
 class PositionsIndexTests(unittest.TestCase):

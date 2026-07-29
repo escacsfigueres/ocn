@@ -15,6 +15,9 @@ venv/
 *.egg-info/
 /dist/
 
+# Rust (rust/data/ IS tracked — the crate embeds it with include_str!)
+/rust/target/
+
 
 # Local data caches (we may keep them out of the repo)
 /build

@@ -120,7 +120,7 @@ and the Lichess names.*
 
 | Cut | Why |
 |---|---|
-| npm/TS package | The explorer eats static JSON; ship npm only when a real JS consumer asks. |
+| npm/TS package | The explorer eats static JSON; ship npm only when a real JS consumer asks. **Still cut** — the Rust crate (2026-07-30) does not reopen this; it was pulled forward as a launch asset because it costs one embedded catalogue and no move generator, which is not true of a JS port that would want its own board library. |
 | Web API / backend | The static JSON on releases and Vercel *is* the API. |
 | Parquet in OCN releases | chess-parquet is private; the positions sidecar (H2.8) carries the zobrist instead. |
 | Deep-theory slug expansion | The `mainline` field answers depth as data; the 7-segment profile cap stands. |
@@ -138,6 +138,9 @@ and the Lichess names.*
 7. i18n is rescoped to a declared core tier, off the critical path.
 8. Zobrist moves in-repo (Python); parquet leaves the releases.
 9. Distribution is pip-first (`ocn-chess`, data in the wheel); npm and any backend wait for demand.
+   **Amended 2026-07-30 (registrar):** Rust joins pip as a launch asset — `ocn` on
+   crates.io, catalogue embedded, zero runtime dependencies. Pip stays first; npm and
+   any backend stay cut. See the execution log entry of the same date.
 10. Announcements run technical-first, Lichess-as-tribute, HN last; permission-free integrations before upstream PRs.
 
 ## Dependency spine
@@ -556,3 +559,48 @@ H0.1-H0.7 ──> H0.8 flip public ──> H1.1 pip + H1.2 JSON ──> H1.3 aut
   short British alias whose American form exists only inside a longer
   Lichess label), so it is left for its own gated batch rather than
   smuggled into an editorial pass.
+- 2026-07-30 — **Rust crate built as a launch asset** (`rust/`), pulled
+  forward from H4 on the registrar's decision; **design decision 9 is
+  amended** accordingly, and the npm/TS cut stands unchanged. `ocn` on
+  crates.io: catalogue embedded, **zero runtime dependencies**, MIT code
+  over the CC-BY-4.0 data, `cli` an optional feature. Publish is pending
+  the crates.io token — nothing has been pushed or published.
+  **The architectural finding that made it cheap: the crate needs no
+  move generator.** Position lookup reads the embedded positions index,
+  and Annex A's `fen_key` needs only FEN parsing plus one question about
+  a *static* board — can an enemy pawn capture en passant without
+  exposing its own king — which is ray attack detection, not move
+  generation. The Polyglot hash falls out of the same parsed position.
+  So the port is `src/ocn/fen.py` plus `tools/polyglot_zobrist.py`, and
+  `src/ocn/_chess.py`'s move generator stays home.
+  **Trust comes from cross-validation, not from new fixtures.** The
+  suite recomputes `fen_key` and the Polyglot hash for **all 5,894**
+  concrete rows of the embedded sidecar and demands the Python-derived
+  columns back, then re-feeds every position in the always-emit form a
+  board library hands you — which makes rule 4 decide **1,084** more
+  times (**1,063** en-passant squares dropped, **21** kept). On top: the
+  9 public Polyglot vectors pinned exactly (7 from
+  `test_polyglot_zobrist.py` plus the two the format publishes that the
+  Python suite does not carry), the pin and discovered-check cases of
+  rule 4 in both directions, and the public API round-trips. 36 tests,
+  all green; clippy clean under `-D warnings`.
+  **The bundled-data contract now has two targets, one payload.**
+  `tools/sync_package_data.py` writes `rust/data/` from the same
+  `build_payload()` as `src/ocn/data/` (minus the Lichess xref, which
+  the crate has no reader for and which would cost 436 KB in every
+  binary), and `tests/test_package_data.py` gains five tests, including
+  one that pins the two targets to each other: the wheel and the crate
+  cannot ship different catalogues under the same version number.
+  Sizes: 3.4 MiB packaged (685 KiB compressed), 3.9 MB release binary
+  with the CLI feature on. A `rust` job joins CI (test, clippy, fmt,
+  `cargo package`); the existing jobs are untouched.
+  **The one deliberate divergence from the Python reference**, recorded
+  here so it is not rediscovered as a bug: the Rust `legal_ep_square`
+  tests only pawn *captures*, as Annex A words rule 4, while
+  `_chess.Board.legal_ep_square` tests any legal pawn move to the
+  en-passant square and so would also accept a straight push onto it.
+  The two can only disagree on a position where the en-passant square
+  has no double-pushed pawn in front of it and a friendly pawn directly
+  behind it, which no position reachable by legal play can be — and the
+  5,894-row cross-validation is the evidence that they agree everywhere
+  the catalogue goes.
