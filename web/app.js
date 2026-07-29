@@ -570,19 +570,23 @@ function treeNode(row) {
     disabled: kids.length === 0,
   }, kids.length ? [arrow] : []);
 
-  toggle.addEventListener("click", () => {
-    const open = toggle.getAttribute("aria-expanded") === "true";
-    if (!open && !built) {
-      list.replaceChildren(...kids.map(treeNode));
-      built = true;
-    }
-    toggle.setAttribute("aria-expanded", String(!open));
-    toggle.setAttribute("aria-label", `${open ? "Expand" : "Collapse"} ${row.name}`);
-    drawer.classList.toggle("is-open", !open);
-    drawer.inert = open;
-  });
+  /*
+   * Build on approach, not on click. Pointing at a row is the earliest
+   * honest signal that it is about to be opened, and building then puts
+   * the layout cost in a frame nobody is watching. By the time the
+   * click lands the rows exist and the drawer has nothing to do but
+   * move. Keyboard users get the same through focus.
+   */
+  const prepare = () => {
+    if (built || !kids.length) return;
+    list.replaceChildren(...kids.map(treeNode));
+    built = true;
+    void list.scrollHeight;
+  };
+  toggle.addEventListener("pointerenter", prepare);
+  toggle.addEventListener("focus", prepare);
 
-  return h("li", { class: classOf(row.slug) }, [
+  const item = h("li", { class: classOf(row.slug) }, [
     h("div", { class: "node" }, [
       toggle,
       h("a", { class: `node-slug${row.depth === 0 ? " is-root" : ""}`, href: slugHref(row.slug),
@@ -592,6 +596,41 @@ function treeNode(row) {
     ]),
     drawer,
   ]);
+
+  toggle.addEventListener("click", () => {
+    const show = toggle.getAttribute("aria-expanded") !== "true";
+    /*
+     * Build before animating, never during. The first open of a large
+     * branch inserts twenty-odd rows, and laying them out costs about
+     * seventy milliseconds -- long enough to swallow the opening frames,
+     * so the drawer appeared already two thirds open and then crawled
+     * the rest. Building while it is still closed, then waiting for a
+     * painted frame before flipping the class, gives the transition a
+     * clean start.
+     */
+    if (show) prepare();
+    toggle.setAttribute("aria-expanded", String(show));
+    toggle.setAttribute("aria-label", `${show ? "Collapse" : "Expand"} ${row.name}`);
+    drawer.inert = !show;
+
+    if (show) {
+      /*
+       * Duration follows distance. The Sicilian's branch is seven
+       * hundred pixels tall and a four-line branch is sixty; moving
+       * both in the same time makes one feel violent and the other
+       * sluggish. A third of a millisecond per pixel, bounded at both
+       * ends, holds the perceived speed steady.
+       */
+      const span = list.scrollHeight || 0;
+      const ms = Math.round(Math.min(420, Math.max(170, span * 0.34)));
+      item.style.setProperty("--drawer-dur", `${ms}ms`);
+      requestAnimationFrame(() => requestAnimationFrame(() => drawer.classList.add("is-open")));
+    } else {
+      drawer.classList.remove("is-open");
+    }
+  });
+
+  return item;
 }
 
 function treePanel() {

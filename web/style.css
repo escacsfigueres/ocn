@@ -116,7 +116,10 @@
      read as deliberate. */
   --dur-1: 130ms;
   --dur-2: 220ms;
-  --ease: cubic-bezier(0.22, 0.61, 0.36, 1);
+  /* Gentle in, gentle out. The previous curve spent two thirds of the
+     distance in the first quarter of the time, which reads as a jump
+     followed by a crawl once the distance is a few hundred pixels. */
+  --ease: cubic-bezier(0.4, 0, 0.2, 1);
 
   --measure: 68ch;
   --shell: 1120px;
@@ -416,7 +419,7 @@ a.chip:hover { border-color: var(--ink-2); color: var(--ink); text-decoration: n
 .node-toggle svg { width: 0.8rem; height: 0.8rem; display: block; }
 .node-toggle svg path {
   fill: currentColor;
-  transition: transform var(--dur-2) var(--ease);
+  transition: transform var(--drawer-dur, var(--dur-2)) var(--ease);
   transform-origin: 6px 6px;
 }
 .node-toggle[aria-expanded="true"] { color: var(--cls); }
@@ -430,7 +433,7 @@ a.chip:hover { border-color: var(--ink-2); color: var(--ink); text-decoration: n
    broken. */
 .drawer {
   display: grid; grid-template-rows: 0fr;
-  transition: grid-template-rows var(--dur-2) var(--ease);
+  transition: grid-template-rows var(--drawer-dur, var(--dur-2)) var(--ease);
 }
 .drawer > ul { overflow: hidden; min-height: 0; }
 .drawer.is-open { grid-template-rows: 1fr; }
