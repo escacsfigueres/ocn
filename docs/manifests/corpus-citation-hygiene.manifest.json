@@ -1,0 +1,126 @@
+{
+  "kind": "ocn.attribution_manifest.v1",
+  "title": "Corpus-citation hygiene: verifiable sources only (H0.4)",
+  "description": "Attribution hygiene per traction-roadmap H0.4: every reference to 'the corpus' (an unpublished, unverifiable game collection) is removed from attribution_source and historical_notes. Nine rows are reworded to cite only public, dated games and published works (the claims are unchanged; dated master games are verifiable in any public database). One row, the Novosibirsk 10...Bg7 line, relied on the corpus as its load-bearing source and is WITHDRAWN entirely (all three fields cleared) pending re-sourcing under the H4.4 graded-evidence policy; its own notes conceded the corpus did not support first-play. The three Maroczy Bind rows keep their byte-identical source string deliberately: the same reference genuinely supports all three claims, and the per-row context lives in historical_notes.",
+  "mode": "attribution_fields_only",
+  "expected_catalog_rows": 5899,
+  "expected_changed_rows": [
+    "A.Tro",
+    "B.Ale",
+    "B.Sic.Naj.Pol",
+    "B.Sic.Ros",
+    "B.Sic.Sve",
+    "B.Sic.Sve.Bxf6.Nd5.Bg7",
+    "C.RyL.Ber.Wal.End",
+    "C.RyL.Mar",
+    "D.Cat",
+    "D.Sem.Mer"
+  ],
+  "changes": [
+    {
+      "ocn1": "A.Tro",
+      "evidence_grade": "HYGIENE-REWORD",
+      "source_refs": [
+        "traction-roadmap H0.4; docs/ocn-audit-2026-07.md section 7 (unverifiable citations)"
+      ],
+      "fields": {
+        "historical_notes": "Named for the Brazilian champion Octávio Trompowsky (1897–1984), who took up 2.Bg5 in the 1930s–40s; he popularised rather than invented it – 2.Bg5 appears in earlier master play (e.g. Levitzky–Burn, 1912), well before his own earliest example (Trompowsky–Endzelins, Munich Olympiad 1936). The line also carries the alternate eponyms Opočenský and Ruth; resurrected at GM level from the 1980s by Julian Hodgson."
+      }
+    },
+    {
+      "ocn1": "B.Ale",
+      "evidence_grade": "HYGIENE-REWORD",
+      "source_refs": [
+        "traction-roadmap H0.4; docs/ocn-audit-2026-07.md section 7 (unverifiable citations)"
+      ],
+      "fields": {
+        "attribution_source": "Named for Alekhine, who introduced the defence at Budapest 1921 (Sämisch–Alekhine and Steiner–Alekhine, both 1 Sep 1921); naming per Wikipedia 'Alekhine's Defence' citing Hooper & Whyld and the 1922 Fahrni monograph 'Die Aljechin-Verteidigung'.",
+        "historical_notes": "1.e4 Nf6. Named for Alexander Alekhine, who introduced it at master level at Budapest 1921; the move itself predates him (with antecedents from the late 1880s, e.g. Blackburne, 1889), so the eponym marks the introducer, not the inventor."
+      }
+    },
+    {
+      "ocn1": "B.Sic.Naj.Pol",
+      "evidence_grade": "HYGIENE-REWORD",
+      "source_refs": [
+        "traction-roadmap H0.4; docs/ocn-audit-2026-07.md section 7 (unverifiable citations)"
+      ],
+      "fields": {
+        "historical_notes": "6.Bg5 e6 7.f4 b5. A self-eponym via own practice and published analysis: 7...b5 appears as early as Reicher–Krogius, Ploesti 1957, and Polugaevsky's own games run from 1959 (e.g. Zagorovsky–Polugaevsky); his sustained play and analysis gave the line his name. Attribution on this child node only; the parent Najdorf head is named for Miguel Najdorf."
+      }
+    },
+    {
+      "ocn1": "B.Sic.Ros",
+      "evidence_grade": "HYGIENE-REWORD",
+      "source_refs": [
+        "traction-roadmap H0.4; docs/ocn-audit-2026-07.md section 7 (unverifiable citations)"
+      ],
+      "fields": {
+        "historical_notes": "1.e4 c5 2.Nf3 Nc6 3.Bb5. The move long predates its namesake – it appears as early as Von der Lasa's Berlin games of 1836–37 – but Nicolas Rossolimo made it a respected weapon through frequent use from 1948 (Bad Gastein), and the line took his name (Benko, 1975). A popularizer, not the inventor."
+      }
+    },
+    {
+      "ocn1": "B.Sic.Sve",
+      "evidence_grade": "HYGIENE-REWORD",
+      "source_refs": [
+        "traction-roadmap H0.4; docs/ocn-audit-2026-07.md section 7 (unverifiable citations)"
+      ],
+      "fields": {
+        "attribution_source": "Sveshnikov, 'The Complete Sveshnikov Sicilian' (Gambit, 2003); the position occurs as early as Tarrasch–Mieses 1888, antedating Pelikán's 1972 Buenos Aires game by 84 years.",
+        "historical_notes": "The position itself was reached as early as 1888 (Tarrasch–Mieses); Pelikán adopted it as Black in the 1950s–70s in Argentina; Sveshnikov's analysis from the 1970s onwards turned it into mainline theory and the line carries his name today. Hence the alias 'Lasker-Pelikán'."
+      }
+    },
+    {
+      "ocn1": "B.Sic.Sve.Bxf6.Nd5.Bg7",
+      "evidence_grade": "WITHDRAWN",
+      "source_refs": [
+        "traction-roadmap H0.4; docs/ocn-audit-2026-07.md section 7 (unverifiable citations)"
+      ],
+      "fields": {
+        "attributed_to": "",
+        "attribution_source": "",
+        "historical_notes": ""
+      }
+    },
+    {
+      "ocn1": "C.RyL.Ber.Wal.End",
+      "evidence_grade": "HYGIENE-REWORD",
+      "source_refs": [
+        "traction-roadmap H0.4; docs/ocn-audit-2026-07.md section 7 (unverifiable citations)"
+      ],
+      "fields": {
+        "historical_notes": "The position dates back to Wemmers–Riemann, 1880, but the Berlin Wall as a modern weapon at world-championship level is owed to Kramnik's 2000 match. Almost every elite tournament since features it."
+      }
+    },
+    {
+      "ocn1": "C.RyL.Mar",
+      "evidence_grade": "HYGIENE-REWORD",
+      "source_refs": [
+        "traction-roadmap H0.4; docs/ocn-audit-2026-07.md section 7 (unverifiable citations)"
+      ],
+      "fields": {
+        "attribution_source": "Named for Frank Marshall, who unveiled 8...d5 against Capablanca (Capablanca–Marshall, New York 1918); pre-history per Edward Winter, 'The Marshall Gambit' (chesshistory.com).",
+        "historical_notes": "8...d5 gambit in the Ruy López. Named for Frank Marshall after he sprang it on Capablanca at New York 1918 (Capablanca defended and won). The idea predates that game — the 8.c3 d5 position appears as early as Walbrodt, Havana 1893 — so the 1918 game is the famous reveal that fixed the name to Marshall, not the line's first occurrence."
+      }
+    },
+    {
+      "ocn1": "D.Cat",
+      "evidence_grade": "HYGIENE-REWORD",
+      "source_refs": [
+        "traction-roadmap H0.4; docs/ocn-audit-2026-07.md section 7 (unverifiable citations)"
+      ],
+      "fields": {
+        "historical_notes": "Named by Tartakower at the 1929 Barcelona tournament, where the local organisers asked the masters to invent something with a 'Catalan' flavour. Today closely associated with Vladimir Kramnik and Boris Gelfand at elite level."
+      }
+    },
+    {
+      "ocn1": "D.Sem.Mer",
+      "evidence_grade": "HYGIENE-REWORD",
+      "source_refs": [
+        "traction-roadmap H0.4; docs/ocn-audit-2026-07.md section 7 (unverifiable citations)"
+      ],
+      "fields": {
+        "historical_notes": "Rubinstein's handling of the line at the 1924 South Tyrol tournament gave it the place-name we still use a century later."
+      }
+    }
+  ]
+}

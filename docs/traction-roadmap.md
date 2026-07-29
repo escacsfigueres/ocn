@@ -186,6 +186,19 @@ H0.1-H0.7 ──> H0.8 flip public ──> H1.1 pip + H1.2 JSON ──> H1.3 aut
 - 2026-07-29 — **H0.6 done** (`3a03694`). CONTRIBUTING.md, GOVERNANCE.md
   (registrar model), naming-dispute and data-error issue templates with
   labels created on the repo, CITATION.cff bumped to 1.2.0.
+- 2026-07-29 — **H0.7 done** (`32e6002`). Twenty era-closed docs
+  (13,573 lines) archived as pure renames; consumer guide renamed to
+  [`consuming-ocn.md`](consuming-ocn.md); INDEX rewritten (20 live docs,
+  was 40); live links repointed, archived links frozen.
+- 2026-07-29 — **H0.4 done.** Corpus-citation hygiene lot applied
+  (manifest `corpus-citation-hygiene.manifest.json`, 10 rows: 9 rewords
+  to public dated games, 1 withdrawal — the Novosibirsk line returns to
+  the backlog; attributed rows 27 to 26). Validator now fails on
+  unverifiable-source patterns (corpus, Gigabase, private database);
+  fixture + test added (suite at 286). Record:
+  [`archive/corpus-citation-hygiene-dry-run.md`](archive/corpus-citation-hygiene-dry-run.md).
+  Maroczy trio deliberately kept: identical sources are legitimate for
+  identical claims; per-row context lives in historical_notes.
 - 2026-07-29 — **H0.3 done.** Spec Format section now states the
   enforced grammar (`class . named+ . move*`, 7-segment cap);
   depth-cap saturation acknowledged as design; token ambiguity

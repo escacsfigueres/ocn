@@ -19,7 +19,10 @@ Checks performed:
    from the initial position, and one-move child extensions with SAN-like
    trailing slugs must match the appended move's SAN.
 10. Any non-empty `attributed_to` must cite an `attribution_source`
-    (an orphan source without a party warns).
+    (an orphan source without a party warns). Attribution fields must
+    not cite unverifiable sources ("the corpus", "Gigabase", private
+    databases) — published, publicly checkable evidence only
+    (traction-roadmap H0.4).
 11. `transposes_to` link contract: target exists, is not self or a class
     root, and FEN keys match when both rows carry moves.
 12. `same_as` co-canonical contract: mutually exclusive with
@@ -104,6 +107,12 @@ TEXT_COLUMNS = [
     "canonical_name", "aliases", "notes",
     "attributed_to", "attribution_source", "historical_notes",
 ]
+
+# Unverifiable-source patterns banned from attribution fields (roadmap
+# H0.4): evidence must be published and publicly checkable. An unpublished
+# game collection ("the corpus", "Gigabase") is not a citable source.
+UNVERIFIABLE_SOURCE_RE = re.compile(
+    r"\bcorpus\b|\bgigabase\b|\bprivate database\b", re.IGNORECASE)
 
 # Characters that never belong in catalogue text: the middle dot
 # (banned project-wide as a separator), invisible spacing characters,
@@ -420,6 +429,22 @@ def validate(
                  f"empty 'attributed_to' — orphan citation, prefer to "
                  f"name the attributed party.")
             warnings += 1
+
+        #     Unverifiable-source ban (traction-roadmap H0.4): attribution
+        #     evidence must be published and publicly checkable. Citing an
+        #     unpublished game collection converts missing data into
+        #     apparent fabrication, so it fails outright.
+        historical_notes_val = (row.get("historical_notes") or "").strip()
+        for attr_field, attr_value in (
+                ("attributed_to", attributed_to),
+                ("attribution_source", attribution_source),
+                ("historical_notes", historical_notes_val)):
+            hit = UNVERIFIABLE_SOURCE_RE.search(attr_value)
+            if hit:
+                fail(f"row {i}: slug '{slug}' cites an unverifiable source "
+                     f"({hit.group(0)!r} in '{attr_field}'). Attribution "
+                     f"evidence must be published and publicly checkable "
+                     f"(roadmap H0.4).")
 
     # 13. Global canonical_name uniqueness. Consumers join and search by
     #     name; two rows with the same name are an ambiguity bug unless
