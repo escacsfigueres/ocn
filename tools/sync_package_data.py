@@ -39,7 +39,7 @@ DATA_DIR = REPO_ROOT / "src" / "ocn" / "data"
 # The catalogue release the bundled data represents. Bump on release;
 # the package's own `__version__` (src/ocn/__init__.py) tracks the reader
 # and moves independently.
-CATALOG_VERSION = "1.2.0+dev"
+CATALOG_VERSION = "1.2.1"
 
 COPIED = ("ocn-1.csv", "ocn-1.lichess-xref.tsv")
 POSITIONS = "ocn-1.positions.tsv"
