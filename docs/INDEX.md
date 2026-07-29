@@ -56,7 +56,8 @@ dry-run report here, marked APPLIED:
 [`phantom-eco-align-dry-run.md`](phantom-eco-align-dry-run.md),
 [`duplicate-name-renames-dry-run.md`](duplicate-name-renames-dry-run.md),
 [`american-spelling-aliases-dry-run.md`](american-spelling-aliases-dry-run.md),
-[`lichess-label-aliases-dry-run.md`](lichess-label-aliases-dry-run.md).
+[`lichess-label-aliases-dry-run.md`](lichess-label-aliases-dry-run.md),
+[`allgaier-clear-dry-run.md`](allgaier-clear-dry-run.md).
 
 ## Attribution system (live)
 
