@@ -3,7 +3,9 @@
 [![CI](https://github.com/escacsfigueres/ocn/actions/workflows/ci.yml/badge.svg)](https://github.com/escacsfigueres/ocn/actions/workflows/ci.yml)
 [![Spec license: CC BY 4.0](https://img.shields.io/badge/spec-CC%20BY%204.0-lightgrey.svg)](LICENSE-SPEC)
 [![Code license: MIT](https://img.shields.io/badge/code-MIT-blue.svg)](LICENSE-CODE)
-[![Release](https://img.shields.io/badge/release-ocn--1.2.0-blue.svg)](#status)
+[![Release](https://img.shields.io/badge/release-ocn--1.2.1-blue.svg)](https://github.com/escacsfigueres/ocn/releases/tag/ocn-1.2.1)
+[![PyPI](https://img.shields.io/pypi/v/ocn-chess.svg)](https://pypi.org/project/ocn-chess/)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.21670207.svg)](https://doi.org/10.5281/zenodo.21670207)
 
 **OCN** is a hierarchical, human-readable naming scheme for chess
 openings, designed as a companion to ECO (the *Encyclopaedia of Chess
@@ -129,7 +131,8 @@ The full specification is in [`spec/OCN-1.md`](spec/OCN-1.md).
 
 ## Status
 
-**Released — `ocn-1.2.0` (2026-06-11).** The format is stable; the reference
+**Released — `ocn-1.2.1` (2026-07-30).** Citable as [doi:10.5281/zenodo.21670207](https://doi.org/10.5281/zenodo.21670207).
+Previous release: `ocn-1.2.0` (2026-06-11). The format is stable; the reference
 catalogue has 5,899 entries, every duplicate-FEN group is resolved
 (`unresolved_groups=0`), canonical names carry their true diacritics, the
 ECO legacy codes are audited, and CI runs strict legal-move/SAN validation
