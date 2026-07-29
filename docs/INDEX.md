@@ -23,6 +23,7 @@ start here and move to `archive/` when their era closes.
 | [`treatise-school-worksheet.md`](treatise-school-worksheet.md) | Candidate attributions for the founding treatises: fifteen heads, sources named, nothing applied. |
 | [`treatise-school-findings.md`](treatise-school-findings.md) | What the source libraries could and could not answer: bibliography yes, attribution no, two heads withdrawn. |
 | [`treatise-school-questions.md`](treatise-school-questions.md) | The four questions each treatise head must answer before it becomes a claim. |
+| [`eponym-list-findings.md`](eponym-list-findings.md) | The systematic eponym survey: 211 candidate attributions joined by position, graded by footnote, nothing applied. |
 | [`chronicle-layer-design.md`](chronicle-layer-design.md) | The cultural layer design: people, places, events, claims — and the source doctrine that keeps it citable. |
 | [`i18n-aliases-design.md`](i18n-aliases-design.md) | Locale alias sidecars (Track 2): format, conventions, ca+es pilot. |
 
