@@ -8,9 +8,9 @@
 **OCN** is a hierarchical, human-readable naming scheme for chess
 openings, designed as a companion to ECO (the *Encyclopaedia of Chess
 Openings* code system that has been the de facto standard since 1971).
-OCN keeps what is good about ECO — the A/B/C/D/E top-level classification
-— and replaces the arbitrary 100-codes-per-letter sub-numbering with
-short, parent-aware slugs.
+OCN keeps the best idea in ECO — the five structural families A/B/C/D/E —
+and replaces the arbitrary 100-codes-per-letter sub-numbering with short,
+parent-aware slugs.
 
 ## At a glance
 
@@ -29,8 +29,14 @@ Read once, remember forever. No lookup table needed.
 ECO has aged remarkably well in one respect: A/B/C/D/E captures the
 fundamental structural divide of chess openings (semi-open vs open vs
 closed vs Indian vs flank) and any new opening fits cleanly into one of
-those five families. **That part of ECO is genuinely good and OCN keeps
-it unchanged.**
+those five families. **OCN keeps that idea. It does not keep every one of
+ECO's letter assignments.** 770 rows — 13.8% of the rows that carry an ECO
+code — sit in an OCN class that is not among their own ECO letters, always
+for a structural reason: the French is `B`, the London and Colle systems
+are `A`, the Grünfeld and Benoni are `E`. The full breakdown is in
+[`docs/ocn-audit-2026-07.md`](docs/ocn-audit-2026-07.md#5-classification-honesty)
+(section 5) until the derived divergence sidecar ships (roadmap H2.5); the
+main cases are argued under "Borderline classifications" below.
 
 ECO has aged poorly in another respect: the 00-99 sub-codes within each
 letter were assigned in 1971 according to what was fashionable at the
@@ -43,7 +49,7 @@ study an opening, nor the database designer running queries.
 OCN replaces that 50-year-old sub-numbering with hierarchical slugs:
 
 ```
-B              ← top level (ECO class preserved)
+B              ← top level (structural family)
 B.Sic          ← family (Sicilian)
 B.Sic.Naj      ← variation (Najdorf)
 B.Sic.Naj.Eng  ← sub-line (English Attack, 6.Be3)
@@ -67,7 +73,8 @@ You can read the slug at any depth and immediately know:
 <class> "." <family> [ "." <variation> [ "." <subline> [ "." <move> [ "." <move> ] ] ] ]
 ```
 
-- **`class`**: 1 char from `A B C D E` (preserves ECO classification).
+- **`class`**: 1 char from `A B C D E` (ECO's five families; see
+  "Borderline classifications" for where OCN's letter differs from ECO's).
 - **`family`**: 3 chars, TitleCase (`Sic`, `RyL`, `KID`).
 - **`variation`** / **`subline`**: 3 chars each, TitleCase (`Naj`, `End`).
 - **`move`**: SAN-style, capitalised pieces (`Be3`, `e5`, `Bxf6`, `O-O`).
@@ -84,9 +91,10 @@ The full specification is in [`spec/OCN-1.md`](spec/OCN-1.md).
 catalogue has 5,899 entries, every duplicate-FEN group is resolved
 (`unresolved_groups=0`), canonical names carry their true diacritics, the
 ECO legacy codes are audited, and CI runs strict legal-move/SAN validation
-plus the full tool test suite under an unconditional gate. Post-1.2 work adds
-internationalised alias sidecars and consumer tooling (see
-[`docs/post-1.1-roadmap.md`](docs/post-1.1-roadmap.md)). Comments,
+plus the full tool test suite under an unconditional gate. Release notes:
+[`docs/release-ocn-1.2.0-notes.md`](docs/release-ocn-1.2.0-notes.md). Post-1.2
+work adds internationalised alias sidecars and consumer tooling, planned in
+[`docs/traction-roadmap.md`](docs/traction-roadmap.md). Comments,
 corrections and additions welcome via issues.
 
 > Naming history: previously drafted as **OCS — Open Chess Slug** during
@@ -121,78 +129,54 @@ d'Escacs Figueres" and link to this repository.
 
 ## Tools
 
-- [`tools/validate.py`](tools/validate.py) — checks the catalogue for
-  format errors, slug collisions, broken parent references, profile
-  depth limits. CI also runs its `--strict-chess` mode, which checks
-  legal UCI move sequences and one-move SAN tail consistency.
-- [`tools/audit_chess.py`](tools/audit_chess.py) — runs the strict chess
-  legality/SAN checks across the full catalogue and reports every issue
-  instead of stopping at the first one. Use it as a batch cleanup report
-  if strict validation ever fails.
-- [`tools/from_uci.py`](tools/from_uci.py) — given a legal UCI move
-  sequence, returns the deepest OCN-1 catalogue row whose moves are a
-  prefix of that sequence. Supports TSV output by default and JSON with
-  `--json`.
-- [`tools/from_eco.py`](tools/from_eco.py) — given an ECO code, PGN file,
-  or inline PGN text with an `[ECO "..."]` tag, returns the unique deepest
-  OCN-1 match. Ambiguous codes report candidates with `--all`.
-- [`tools/from_position.py`](tools/from_position.py) — given a FEN
-  position, returns matching OCN-1 catalogue rows. It matches on board,
-  side to move, castling rights, and en-passant square, ignoring halfmove
-  and fullmove counters.
-- [`tools/export_positions.py`](tools/export_positions.py) — exports a
-  derived position-indexed TSV/JSON view with `fen_key`, canonical
-  counter-normalised `fen`, and transposition group size for each concrete
-  catalogue row. Polyglot Zobrist materialisation is handled by the
-  `efcdb openings` producer in `escacsfigueres/chess-parquet`.
-- [`tools/audit_transpositions.py`](tools/audit_transpositions.py) — groups
-  catalogue rows by FEN position key and reports every group with two or
-  more entries (TSV by default, structured JSON with `--json`). Useful for
-  preparing canonical/alias decisions across move orders. Supports
-  `--summary`, `--min-size N`, `--class A/B/C/D/E`, and a scoring mode
-  `--ranked [--limit N]` that surfaces the groups most likely to require
-  a structural decision (class mixing, depth span, ECO/name/parent
-  divergence, A/D, A/E and D/E family bonuses). Groups already resolved
-  by the catalogue's `transposes_to` link (see below) are **hidden by
-  default**; pass `--include-resolved` to see them. See
-  [`docs/transpositions.md`](docs/transpositions.md) for the resolution
-  workflow and the current top families to decide. Typical usage:
+Everything is Python 3 standard library — no third-party dependency, no
+build step (chess legality is checked by the in-repo move generator,
+[`tools/chess_uci.py`](tools/chess_uci.py)). Recipes
+and join patterns for consumers are in
+[`docs/consuming-ocn-0.2.md`](docs/consuming-ocn-0.2.md).
 
-  ```
-  python3 tools/audit_transpositions.py --ranked --limit 20
-  python3 tools/audit_transpositions.py --ranked --include-resolved --limit 20
-  ```
+### Consumer tools
 
-  The audit is informational: transpositions are expected, not errors.
-- [`tools/lichess_parent_map.py`](tools/lichess_parent_map.py) — reads
-  Lichess Opening Book TSV rows, converts their SAN PGN lines to UCI, and
-  emits the deepest matching OCN-1 parent for each row. Use `--check` to
-  fail if any row cannot be parsed or assigned to an OCN-1 parent, and
-  `--quality` to inspect depth distribution and the most common parents.
-- [`tools/audit_naming_attribution.py`](tools/audit_naming_attribution.py) —
-  deterministic naming/attribution triage of all rows (category, risk,
-  next action, eponym head-groups). Automates triage, not truth; never
-  edits the catalogue.
-- [`tools/apply_attribution_manifest.py`](tools/apply_attribution_manifest.py) —
-  the attribution batch engine: applies an evidence-backed JSON manifest
-  (`ocn.attribution_manifest.v1`) with strict guardrails and zero collateral
-  diff. Dry-run by default; see
-  [`docs/attribution-batch-engine.md`](docs/attribution-batch-engine.md).
-- [`tools/candidate_slice_export.py`](tools/candidate_slice_export.py) and
-  [`tools/scaffold_attribution_manifest.py`](tools/scaffold_attribution_manifest.py)
-  — factory helpers: export a review slice of rows, and scaffold a manifest
-  skeleton from reviewed slugs. See
-  [`docs/attribution-factory-tooling.md`](docs/attribution-factory-tooling.md).
-- [`tools/verify_doc_slugs.py`](tools/verify_doc_slugs.py) — verifies that
-  backtick-quoted OCN slugs in docs exist in the live catalogue (stale-ref
-  detector).
-- [`tools/tests/`](tools/tests/) — tool test suite covering validation,
-  strict chess checks, lookup behaviour, and positive/negative fixtures
-  (`tools/tests/fixtures/`). CI runs it
-  on every push and pull request via [`.github/workflows/ci.yml`](.github/workflows/ci.yml).
-- [`tools/fetch_lichess.sh`](tools/fetch_lichess.sh) — pulls the
-  upstream Lichess Opening Book TSVs (CC0) into `external/`, used by
-  `escacsfigueres/chess-parquet`'s Lichess companion-table builder.
+- [`tools/ocn.py`](tools/ocn.py) — the reader: load the catalogue, look up a
+  slug or a FEN, walk parents and children, resolve `transposes_to` and
+  `same_as`. Start here if you are writing code against OCN.
+- [`tools/from_uci.py`](tools/from_uci.py) — a legal UCI move sequence in, the
+  deepest OCN-1 row whose moves are a prefix of it out (TSV, or `--json`).
+- [`tools/from_eco.py`](tools/from_eco.py) — an ECO code, a PGN file, or inline
+  PGN with an `[ECO "..."]` tag in, the unique deepest match out; `--all` lists
+  candidates for ambiguous codes.
+- [`tools/from_position.py`](tools/from_position.py) — a FEN in, matching rows
+  out; board, side to move, castling and en passant are matched, the move
+  counters ignored.
+- [`tools/export_positions.py`](tools/export_positions.py) — writes the derived
+  position-indexed TSV/JSON view (`fen_key`, counter-normalised `fen`,
+  transposition group size). A fuller positions sidecar — SAN movetext, EPD and
+  Polyglot zobrist, all computed here in Python — is planned (roadmap H2.8).
+
+### Maintainer tools
+
+[`tools/validate.py`](tools/validate.py) is the gate CI runs: format, slug
+collisions, parent references, depth limits, plus a `--strict-chess` mode for
+legal UCI sequences and SAN tail consistency.
+[`tools/audit_chess.py`](tools/audit_chess.py) and
+[`tools/audit_transpositions.py`](tools/audit_transpositions.py) are its batch
+counterparts, reporting every issue — or every duplicate-FEN group, ranked by
+how likely it is to need a structural decision — instead of stopping at the
+first; the resolution workflow is in
+[`docs/archive/transpositions.md`](docs/archive/transpositions.md). The
+attribution factory ([`audit_naming_attribution.py`](tools/audit_naming_attribution.py),
+[`candidate_slice_export.py`](tools/candidate_slice_export.py),
+[`scaffold_attribution_manifest.py`](tools/scaffold_attribution_manifest.py),
+[`apply_attribution_manifest.py`](tools/apply_attribution_manifest.py)) triages
+rows, exports review slices and applies evidence-backed JSON manifests under
+strict guardrails — the catalogue is never hand-edited (see
+[`docs/attribution-batch-engine.md`](docs/attribution-batch-engine.md)).
+[`tools/fetch_lichess.sh`](tools/fetch_lichess.sh) pulls the upstream Lichess
+Opening Book TSVs (CC0) into `external/`. The remaining scripts — the Lichess
+parent map, the doc slug gate, and the test suite CI runs on every push
+([`tools/tests/`](tools/tests/),
+[`.github/workflows/ci.yml`](.github/workflows/ci.yml)) — are listed with the
+documents that use them in [`docs/INDEX.md`](docs/INDEX.md).
 
 ## Three relations per slug
 
@@ -236,8 +220,17 @@ hierarchical layer on top.
 ## Borderline classifications
 
 Some openings sit awkwardly between ECO classes. OCN-1 makes explicit
-choices, documented in the spec:
+choices, and these are where its class letter differs from ECO's:
 
+- **French** (`B.Fre` and its subtree) is `B`, the semi-open class, although
+  ECO codes it C00-C19. Rationale: OCN reads `C` as the symmetric king-pawn
+  openings (1.e4 e5); the French answers 1.e4 asymmetrically, like the
+  Sicilian and the Caro-Kann. At 252 rows this is the largest single
+  divergence, and the one most worth arguing about.
+- **London / Colle family** (`A.Lon`, `A.Col` and neighbours) is `A`
+  although ECO codes them in the D range (D02-D05). Rationale: they are
+  queen's-pawn *systems*, played largely regardless of Black's reply,
+  rather than Queen's Gambit theory (82 rows).
 - **Catalan** is `D` when Black plays ...d5 within the first five moves.
   Without ...d5, the position is `E` (Indian setup against the Catalan
   bishop).
@@ -254,46 +247,16 @@ See [`spec/OCN-1.md`](spec/OCN-1.md) for the full reasoning.
 
 ## Roadmap
 
-- **0.1** — Core spec, ~6,100-entry catalogue, strict validator,
-  lookup tools, and a derived FEN position export.
-- **0.2** *(tagged: `ocn-1.0.2` baseline at `415f1df`,
-  `ocn-1.0.3` post-cleanup release at `dd2abd3` with downloadable
-  artefacts)* — Position canonicalisation and downstream
-  artefacts. 14-column catalogue with `transposes_to`
-  (asymmetric) and `same_as` (symmetric) relations;
-  `audit_transpositions.py` classifies duplicate FEN groups as
-  `single_canonical` or `multiple_canonical`. Downstream
-  `chess-parquet` already consumes the 0.2 schema. Post-tag main
-  has reduced unresolved duplicate groups from 116 → **0** (fully
-  resolved; the final QID Miles/Petrosian hold was fixed by a
-  slug-migration — see
-  [`docs/transposition-cleanup-closure.md`](docs/transposition-cleanup-closure.md)).
-  **Consumer guide:**
-  [`docs/consuming-ocn-0.2.md`](docs/consuming-ocn-0.2.md).
-  Other docs: [`docs/roadmap-0.2.md`](docs/roadmap-0.2.md) for the
-  original phased plan,
-  [`docs/release-0.2-checklist.md`](docs/release-0.2-checklist.md)
-  for the `ocn-1.0.3` release decision record,
-  [`docs/release-0.2-post-transposition-cleanup-checklist.md`](docs/release-0.2-post-transposition-cleanup-checklist.md)
-  for the post-cleanup release candidate, and
-  [`docs/post-0.2-next-steps.md`](docs/post-0.2-next-steps.md)
-  for what's next. The catalogue is **fully resolved
-  (0 unresolved)** and **`ocn-1.2.0` is released** — notes:
-  [`docs/release-ocn-1.2.0-notes.md`](docs/release-ocn-1.2.0-notes.md),
-  downstream-verified end-to-end by a real consumer:
-  [`docs/release-ocn-1.2.0-downstream-verification.md`](docs/release-ocn-1.2.0-downstream-verification.md)
-  (the `ocn-1.1.0` notes remain in `docs/` for history).
-- **post-1.1 — data quality** — naming / attribution audit (are the
-  eponyms *true*, and is the *kind* of attribution explicit:
-  invented vs published vs popularised vs event/game anchor?).
-  Methodology:
-  [`docs/naming-attribution-audit-methodology.md`](docs/naming-attribution-audit-methodology.md);
-  plan: [`docs/post-1.1-roadmap.md`](docs/post-1.1-roadmap.md).
-- **0.3** — Internationalised aliases: Catalan, Spanish, French,
-  German display names. The English `canonical_name` stays
-  definitive.
-- **1.0** — Frozen format and stable catalogue. Public release with
-  an open call for feedback from the wider chess data community.
+The living plan is [`docs/traction-roadmap.md`](docs/traction-roadmap.md):
+five horizons — a public-ready gate, exist and install, prove it, announce,
+grow — taking OCN from a released catalogue to a standard people can find,
+install and cite. Two long-running tracks continue under it: naming
+attribution (are the eponyms *true*, and is the *kind* of attribution
+explicit — invented, published, popularised, event anchor? Methodology:
+[`docs/naming-attribution-audit-methodology.md`](docs/naming-attribution-audit-methodology.md))
+and the internationalised alias sidecars, where the English `canonical_name`
+stays definitive. Release records, decision logs and the rest of the
+documentation are indexed in [`docs/INDEX.md`](docs/INDEX.md).
 
 ## Acknowledgements
 
