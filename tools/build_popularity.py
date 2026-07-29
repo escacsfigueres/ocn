@@ -140,6 +140,14 @@ MAX_RETRIES = 6
 BACKOFF_BASE_SECONDS = 5.0
 BACKOFF_CAP_SECONDS = 300.0
 
+#: How long to keep trying one request through a transport failure
+#: before giving up on the whole run. A full pass takes hours at the
+#: published rate limit, and a laptop that sleeps, changes network or
+#: loses wifi for ten minutes should cost those ten minutes rather than
+#: the run: the cache means a resumed run repeats no work, but only if
+#: something resumes it. An hour is long enough to outlast a commute.
+PATIENCE_SECONDS = 3600.0
+
 
 class ExplorerAuthError(RuntimeError):
     """The explorer rejected the request for want of a valid token."""
@@ -386,6 +394,7 @@ class ExplorerClient:
         token: str,
         rate_per_minute: int = DEFAULT_RATE_PER_MINUTE,
         timeout: float = 60.0,
+        patience: float = PATIENCE_SECONDS,
         sleep=time.sleep,
         clock=time.monotonic,
         opener=urllib.request.urlopen,
@@ -393,6 +402,7 @@ class ExplorerClient:
         self.token = token
         self.min_interval = 60.0 / max(rate_per_minute, 1)
         self.timeout = timeout
+        self.patience = patience
         self._sleep = sleep
         self._clock = clock
         self._opener = opener
@@ -414,7 +424,9 @@ class ExplorerClient:
             "User-Agent": "ocn-build-popularity/1.0 (+https://github.com/escacsfigueres/ocn)",
         })
         last_error: Exception | None = None
-        for attempt in range(MAX_RETRIES):
+        started = self._clock()
+        attempt = 0
+        while True:
             self._throttle()
             try:
                 with self._opener(request, timeout=self.timeout) as response:
@@ -435,22 +447,42 @@ class ExplorerClient:
                     delay = retry_after_seconds(getattr(exc, "headers", None), attempt)
                     print(
                         f"  HTTP {exc.code}, backing off {delay:.0f}s "
-                        f"(attempt {attempt + 1}/{MAX_RETRIES})",
+                        f"(attempt {attempt + 1})",
                         file=sys.stderr, flush=True,
                     )
+                    attempt += 1
                     self._sleep(delay)
+                    self._check_patience(started, last_error)
                     continue
                 raise
             except (urllib.error.URLError, TimeoutError, json.JSONDecodeError) as exc:
                 last_error = exc
                 delay = retry_after_seconds(None, attempt)
+                waited = self._clock() - started
                 print(
                     f"  {type(exc).__name__}, retrying in {delay:.0f}s "
-                    f"(attempt {attempt + 1}/{MAX_RETRIES})",
+                    f"(attempt {attempt + 1}, {waited / 60:.0f} min into "
+                    f"{self.patience / 60:.0f})",
                     file=sys.stderr, flush=True,
                 )
+                attempt += 1
                 self._sleep(delay)
-        raise RuntimeError(f"giving up after {MAX_RETRIES} attempts: {last_error}")
+                self._check_patience(started, last_error)
+
+    def _check_patience(self, started: float, last_error: Exception | None) -> None:
+        """Give up on a request only after the patience budget is spent.
+
+        The old bound was six attempts, about five minutes, which a
+        sleeping laptop or a changed network outruns easily -- and the
+        run died with 48% collected and nothing to show for the hours
+        already spent. Time is the honest budget here, not attempts.
+        """
+        if self._clock() - started > self.patience:
+            raise RuntimeError(
+                f"giving up after {self.patience / 60:.0f} minutes of "
+                f"retries: {last_error}. The cache is intact -- rerunning "
+                f"resumes where this stopped."
+            )
 
 
 # ---------------------------------------------------------------------

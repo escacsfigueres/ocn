@@ -395,12 +395,32 @@ class ClientTests(unittest.TestCase):
         self.assertEqual(len(calls), 1)
         self.assertIn("oauth/token", str(caught.exception).lower())
 
-    def test_gives_up_after_the_retry_budget(self) -> None:
-        errors = [self.http_error(503, "nope") for _ in range(bp.MAX_RETRIES)]
-        client, calls = self.make_client(errors)
-        with self.assertRaises(RuntimeError):
+    def test_it_outlasts_an_outage_longer_than_the_old_attempt_budget(self) -> None:
+        """The behaviour the run needed and did not have.
+
+        Six attempts was about five minutes, which a sleeping laptop or
+        a changed network outruns easily -- and a collection that dies at
+        48% has spent hours for nothing. Time is the honest budget: the
+        client keeps trying while the patience lasts, and a request that
+        comes back after twenty failures still counts.
+        """
+        #: Ten failures spend about twenty-five minutes of backoff, well
+        #: inside the hour, and comfortably past the old six-attempt bound.
+        errors = [urllib.error.URLError("network is down") for _ in range(10)]
+        client, calls = self.make_client([*errors, {"white": 1, "draws": 0, "black": 0}],
+                                         patience=3600.0)
+        result = client.get("https://x/masters")
+        self.assertEqual(result["white"], 1)
+        self.assertGreater(len(calls), bp.MAX_RETRIES,
+                           "gave up within the old attempt bound")
+
+    def test_gives_up_once_the_patience_is_spent(self) -> None:
+        errors = [urllib.error.URLError("still down") for _ in range(200)]
+        client, calls = self.make_client(errors, patience=120.0)
+        with self.assertRaises(RuntimeError) as caught:
             client.get("https://x/masters")
-        self.assertEqual(len(calls), bp.MAX_RETRIES)
+        self.assertIn("resumes where this stopped", str(caught.exception))
+        self.assertLess(len(calls), 200, "kept trying past the budget")
 
 
 class BuildRowsTests(unittest.TestCase):
