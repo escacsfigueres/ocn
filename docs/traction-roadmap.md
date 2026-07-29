@@ -199,6 +199,30 @@ H0.1-H0.7 ──> H0.8 flip public ──> H1.1 pip + H1.2 JSON ──> H1.3 aut
   [`archive/corpus-citation-hygiene-dry-run.md`](archive/corpus-citation-hygiene-dry-run.md).
   Maroczy trio deliberately kept: identical sources are legitimate for
   identical claims; per-row context lives in historical_notes.
+- 2026-07-29 — **H1.1 done.** The `ocn-chess` package: src layout, zero
+  runtime deps, data bundled in the wheel (CSV + xref + positions index
+  + VERSION with sync-script drift guard), typed `Row`, `Catalog` with
+  by_slug/by_eco/by_name (diacritic-folded)/by_fen (O(1) via the
+  index)/search/parents/children/resolve/co_canonicals/version, the
+  python-chess en-passant adapter, and an `ocn` CLI (lookup/fen/uci/
+  version, all with --help and --json). export_positions.py counters
+  fixed (true halfmove/fullmove, cross-validated against python-chess).
+  Verified: wheel installs in a clean venv on Python 3.10 and answers
+  `ocn lookup B90` outside the repo. 59 package tests; tools suite 368.
+  PyPI registration deferred to the GO (H1.1 note); README says
+  `pip install .` until then. Annex A's python-chess claim tightened
+  (modern python-chess defaults to the legal-ep form; the trap survives
+  via en_passant="fen", PGN headers, engines, older versions).
+- 2026-07-29 — **H2.5 done.** `catalog/ocn-1.eco-divergence.tsv`: 770
+  rows (13.8% of ECO-bearing rows, the audit number reproduced exactly)
+  across 7 rationale keys (french-b 252, indians-e 195, gruenfeld-e
+  117, london-colle-a 82, catalan-d 49, misc 44, budapest-e 31), each
+  resolving to prose in the spec's Borderline rules — the French
+  rationale states plainly that OCN redefines ECO's letter C and what
+  that does and does not claim. Validator check 21 recomputes the set
+  independently of the builder (a builder bug cannot certify itself).
+  Consumer guide gains "Consuming OCN from an ECO-keyed system" with
+  the C00 worked example (43 slugs, all class B). 42 new tests.
 - 2026-07-29 — **H0.5 done.** EFCDB references removed from the spec
   entirely (grep-clean): the Layer 1 pairing and the Lichess long-tail
   layering are restated over in-repo artefacts (the xref sidecar), and
@@ -243,7 +267,7 @@ H0.1-H0.7 ──> H0.8 flip public ──> H1.1 pip + H1.2 JSON ──> H1.3 aut
   row order, fixed key order, two builds byte-identical), 3.3 MB
   compact / 4.5 MB `--pretty`. Not committed: it is a release artefact,
   so `/ocn-1.json` is gitignored. Schema documented in
-  [`consuming-ocn.md`](consuming-ocn.md) section 10; 22 tests in
+  [`consuming-ocn.md`](consuming-ocn.md) section 11; 22 tests in
   `tools/tests/test_build_json_export.py`.
 - 2026-07-29 — **H1.5 done.** `tools/build_eco_table.py` emits the
   committed sidecar `catalog/ocn-1.eco.tsv`
@@ -261,3 +285,37 @@ H0.1-H0.7 ──> H0.8 flip public ──> H1.1 pip + H1.2 JSON ──> H1.3 aut
   that carry none are the five class roots plus 294 Lichess long-tail
   lines beyond ECO's 500-code resolution — coverage extension, not a
   defect.
+- 2026-07-29 — **H2.5 done.** Classification honesty shipped as data plus
+  argument. `tools/build_eco_divergence.py` emits the committed sidecar
+  `catalog/ocn-1.eco-divergence.tsv`
+  (`ocn1`/`ocn_class`/`eco_codes`/`family_head`/`rationale_ref`): every row
+  whose OCN class letter is absent from its own ECO letters — **770 rows,
+  13.8% of the 5,600 ECO-bearing rows**, matching the audit's measurement
+  exactly. `rationale_ref` is a closed 7-key set assigned by `family_head`,
+  so no row can carry an unexplained divergence: french-b 252, indians-e
+  195, gruenfeld-e 117, london-colle-a 82, catalan-d 49, misc 44,
+  budapest-e 31. The buckets reconcile with the audit table row for row (its
+  E-from-A 217 and E-from-D 126 split here into indians-e / budapest-e /
+  gruenfeld-e). Enforced twice: a drift test (committed file equals a fresh
+  rebuild) and validator check 21, which recomputes the divergent set inline
+  — deliberately a second implementation, `tools/validate.py` does not
+  import the builder — and fails listing unlisted/stale slugs, capped at 10
+  examples, scoped to the canonical catalogue so the fixtures stay clean.
+  Spec "Borderline rules" gained the two undocumented cases with real
+  reasoning: **French to B** (the stress test — OCN's `C` is the symmetric
+  king-pawn openings, so `C` loses its one exception; stated plainly as a
+  redefinition of ECO's letter `C`, with the normative "MUST NOT assume
+  letter equality" consequence and the note that reversal would rewrite 252
+  primary keys and could only ship in a 2.x) and **London/Colle to A**
+  (queen's-pawn systems are repertoire objects, not Queen's Gambit theory;
+  ECO keys on the d4/d5 pawn pair, OCN on the system character). Existing
+  bullets gained their rationale keys so every key resolves to prose, plus a
+  closing paragraph with the totals and the standing position: the letter is
+  a property of OCN's taxonomy, ECO codes stay untouched on every row within
+  ECO's coverage. Consumer guide gained section 10, "Consuming OCN from an
+  ECO-keyed system" — the two safe join paths (by code, by position), the
+  `C00` worked example (43 slugs, all class `B`: bucket by OCN's letter with
+  ECO's meaning and the whole French is misfiled), and the exception-table
+  recipe for consumers stuck with a letter-keyed schema. 42 tests in
+  `tools/tests/test_build_eco_divergence.py`. Position held: nothing
+  reverted.

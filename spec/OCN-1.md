@@ -109,27 +109,130 @@ the same canonical position therefore share the same OCN-1 slug.
 
 #### Borderline rules
 
-- **Catalan**: classified `D` only when Black plays ...d5 within the first
-  five moves. Without ...d5 (e.g. King's Indian setup against the Catalan
-  bishop) the position is classified `E`. Spec rationale: Catalan is
-  defined by the structural fight for d5; without that fight, the position
-  belongs in the Indian family.
-- **Grünfeld**: classified `E` even though some legacy ECO codes place it
-  in the D range. Spec rationale: Grünfeld is structurally an Indian
-  defence (1.d4 Nf6 first), and grouping it with the Indian family makes
-  the parent-child hierarchy clean.
-- **Budapest / Fajarowicz**: `E.Bud`. The legacy ECO codes are `A51` and
-  `A52`, but `1.d4 Nf6 2.c4 e5` is an Indian countergambit against the
-  d4/c4 complex, so it belongs with the Indian defences rather than with
-  flank openings.
+Some openings sit awkwardly between classes, and in those cases OCN's letter
+differs from ECO's. Each case is argued here and carries a stable key — the
+`rationale_ref` column of the divergence sidecar described at the end of this
+section — so a consumer holding a divergent row can look up the argument
+instead of guessing at it.
+
+- **French** (`french-b`). `B.Fre` and its entire subtree are class `B`,
+  although ECO codes the French `C00`-`C19`. This redefines what ECO's
+  letter `C` means, and OCN states it as such rather than presenting the
+  result as fidelity. ECO's `C` bundles two different answers to 1.e4 — the
+  Open Games (1.e4 e5) and the French (1.e4 e6) — while ECO's `B` holds
+  every *other* reply to 1.e4. OCN takes the rule that already generates
+  the rest of that class, "1.e4 and Black does not answer 1...e5", and
+  applies it without an exception: `C` becomes exactly the symmetric
+  king-pawn openings, and the French joins the Sicilian, Caro-Kann, Pirc,
+  Modern, Alekhine and Scandinavian in `B`.
+
+  The argument is structural, not stylistic. In the Open Games both sides
+  stake a pawn on the fourth rank, and the resulting fight is over d4 and
+  f7, with fast piece play and near-symmetrical development. The French
+  declines that symmetry: Black leaves e5 alone, strikes the centre with
+  ...d5, and accepts less space and a fixed pawn chain in return for the
+  ...c5 lever and a long-term target on d4 — the same bargain the Caro-Kann
+  makes by a different move-order (1...c6 and 2...d5). The questions a
+  French player actually studies (the light-squared bishop, the d4/e5
+  chain, when to break with ...c5 or ...f6) are semi-open questions, and
+  they are not questions any Open Game asks.
+
+  It is worth being explicit about what this rationale does **not** claim.
+  It does not claim the French plays like a Sicilian; the two share a
+  boundary rule, not a character. It does not claim ECO was careless: ECO's
+  letters were printed-volume boundaries as much as structural claims, and
+  keeping twenty codes of self-contained French theory next to the rest of
+  1.e4 was a reasonable 1971 decision. The claim is narrower — that for a
+  hierarchy meant to be read off a slug, a class defined by a rule with one
+  exception is worse than the same class with the exception removed — and
+  OCN pays for the change in exactly one place: the letter. Every French row
+  keeps its ECO code unchanged — all twenty of `C00`-`C19` are present in
+  the catalogue, and the one French row ECO files elsewhere (`A43`, the
+  French Benoni by transposition) keeps that code too.
+
+  Two normative consequences follow:
+
+  - A consumer mapping between ECO and OCN **MUST NOT** assume letter
+    equality. On this case the relation is exactly stated: OCN's `B` is
+    ECO's B *plus* the French, and OCN's `C` is ECO's C *minus* the French.
+  - A consumer bucketing rows by OCN class letter and labelling the buckets
+    with ECO's letter meanings **MUST** consult the divergence sidecar
+    first, or it will misfile every French row. Join by code
+    (`catalog/ocn-1.eco.tsv`) or by position (Annex A) — never by letter.
+
+  At 252 rows this is the largest single divergence in the catalogue and the
+  one OCN most expects to be argued with. It is also the most expensive to
+  undo: the class letter is the first character of a slug, so reversing it
+  would rewrite 252 primary keys and could only ever ship in a major (2.x)
+  version, never in a minor or a patch.
+
+- **London / Colle and the queen's-pawn systems** (`london-colle-a`).
+  `A.Lon`, `A.Col` and their neighbours are class `A`, although ECO codes
+  the London and Colle in the `D02`-`D05` range. ECO's placement keys on the
+  pawns: d4 against d5 is a closed queen-pawn game, so the letter is `D`.
+  OCN keys on the character of the opening instead. These are *systems* —
+  White plays Nf3, d4, Bf4 or e3/Bd3/c3 and castles in much the same way
+  whatever Black does, and the line is chosen as a repertoire object rather
+  than entered as a branch of Queen's Gambit theory. Grouping them with the
+  Réti, English and Trompowsky in `A` puts them beside the other openings
+  whose defining feature is a scheme rather than a central pawn duel; filing
+  them in `D` would place a London player's whole repertoire inside a family
+  whose theory that player never studies.
+
+  The same principle extends to queen's-pawn move-order objects whose
+  deeper lines run into `D` theory by transposition: `A.Hor` (Horwitz, 29
+  rows — the largest head in this group), `A.Ver` (Richter-Veresov, 8),
+  `A.QPO` (Queen's Pawn Opening, 8) and `A.EID` (East Indian, 3), alongside
+  `A.Lon` (16) and `A.Col` (18). Eighty-two rows in total: the class letter
+  follows the family the line belongs to, not the ECO code its tabiya
+  happens to transpose into.
+
+- **Catalan** (`catalan-d`): classified `D` only when Black plays ...d5
+  within the first five moves. Without ...d5 (e.g. King's Indian setup
+  against the Catalan bishop) the position is classified `E`. Spec
+  rationale: Catalan is defined by the structural fight for d5; without that
+  fight, the position belongs in the Indian family.
+- **Grünfeld** (`gruenfeld-e`): classified `E` even though some legacy ECO
+  codes place it in the D range. Spec rationale: Grünfeld is structurally an
+  Indian defence (1.d4 Nf6 first), and grouping it with the Indian family
+  makes the parent-child hierarchy clean.
+- **Budapest / Fajarowicz** (`budapest-e`): `E.Bud`. The legacy ECO codes
+  are `A51` and `A52`, but `1.d4 Nf6 2.c4 e5` is an Indian countergambit
+  against the d4/c4 complex, so it belongs with the Indian defences rather
+  than with flank openings.
 - **Queen's Gambit Accepted**: `D.QGA`. Black plays ...d5 then ...dxc4.
-  Stays in D.
-- **Benoni / Benko**: `E.Ben`. Even though the legacy ECO range is `A43`
-  and `A56`-`A79`, the main Benoni and Benko families arise from
-  `1.d4 Nf6 2.c4 c5` Indian move-orders and should live beside King's
-  Indian and Grünfeld structures. Immediate Old Benoni move-orders
-  without ...Nf6 stay in the same family to avoid splitting a single
-  named opening across classes.
+  Stays in D. (No divergence: ECO agrees.)
+- **Benoni / Benko** (`indians-e`): `E.Ben`. Even though the legacy ECO
+  range is `A43` and `A56`-`A79`, the main Benoni and Benko families arise
+  from `1.d4 Nf6 2.c4 c5` Indian move-orders and should live beside King's
+  Indian and Grünfeld structures. Immediate Old Benoni move-orders without
+  ...Nf6 stay in the same family to avoid splitting a single named opening
+  across classes. The same key covers the other Indian defences ECO files
+  outside its E range: `E.Ind`, `E.OldI`, `E.KID` and `E.Blf`.
+- **Everything else** (`misc`): 44 rows, almost all of them deep
+  transposition tails where an `A`- or `B`-class family's move-order runs
+  into another class's theory several moves in — `A.Kan` into the
+  Nimzo-Indian, `A.Ret` into the Semi-Slav, `B.Mod` into the `A41`/`A42`
+  Modern-against-d4 lines. These are accidents of tabiya depth, not
+  family-level class decisions, and OCN documents them as a bucket rather
+  than inventing a rationale per row.
+
+The complete, machine-readable list of divergent rows is the derived sidecar
+[`catalog/ocn-1.eco-divergence.tsv`](../catalog/ocn-1.eco-divergence.tsv):
+one row per divergent slug with its OCN class, its ECO codes, its family head
+and its `rationale_ref` from the closed set above. It is regenerated by
+`python3 tools/build_eco_divergence.py`, pinned by a drift test, and
+independently recomputed by `tools/validate.py`, which refuses a catalogue
+whose committed sidecar disagrees with it — so the number cannot quietly
+grow. As of this profile it lists **770 rows, 13.8% of the 5,600 ECO-bearing
+rows** (252 French, 195 other Indian defences, 117 Grünfeld, 82
+London/Colle-family, 49 Catalan, 44 misc, 31 Budapest).
+
+The class letter is a property of **OCN's** taxonomy, not a restatement of
+ECO's. Nothing is renumbered to match it: within ECO's coverage every row
+keeps its `eco_legacy` codes exactly as ECO assigned them, and the scalar
+join table `catalog/ocn-1.eco.tsv` remains the correct way to move between
+the two systems.
 
 ### Family abbreviation rules
 
@@ -231,8 +334,9 @@ nothing in OCN-1 depends on any of them.)
 
 The OCN repository also provides a lightweight derived export:
 `tools/export_positions.py` emits one row per concrete catalogue entry
-with `fen_key` (board, turn, castling, legal en-passant), canonical
-counter-normalised `fen` (`fen_key 0 1`), and
+with `fen_key` (board, turn, castling, legal en-passant), a complete
+`fen` (the same position with the halfmove clock and fullmove number
+computed during the replay), and
 `transposition_group_size`.
 
 ### Canonicalisation by position (`transposes_to`)
@@ -580,16 +684,23 @@ is the first four FEN fields of the resulting position:
    pawn can legally capture en passant** (a capture that would leave
    the capturer's own king in check does not count); otherwise `-`.
 
-Rule 4 is the trap. Most FEN emitters (including python-chess's
-`Board.fen()`) print the en-passant square after every double pawn
-push, whether or not the capture is legal. Two `fen_key`s for the same
-position must compare equal, so OCN normalises to the *legal-capture*
-form — the same convention the Polyglot hash uses. Consumers comparing
-their own FENs against OCN MUST apply the same normalisation
-(`tools/ocn.py` ships it as `fen_key()`).
+Rule 4 is the trap. Many FEN emitters print the en-passant square after
+every double pawn push, whether or not the capture is legal — among
+them python-chess when asked for that form (`Board.fen(en_passant=
+"fen")`), and the FEN strings that arrive from PGN headers and UCI
+engines. Two `fen_key`s for the same position must compare equal, so
+OCN normalises to the *legal-capture* form — the same convention the
+Polyglot hash uses. Consumers comparing their own FENs against OCN MUST
+apply the same normalisation. The `ocn-chess` package ships it as
+`ocn.fen_key()`, with `ocn.fen.from_board()` for anybody holding a
+board object; `tools/ocn.py` carries the in-repo copy.
 
-The exported `fen` column is `fen_key` plus placeholder counters;
-halfmove and fullmove counters are not part of position identity.
+The exported `fen` column is `fen_key` plus the true halfmove clock and
+fullmove number of the replayed line, so it can be handed to a board
+library unchanged. Those counters are **not** part of position
+identity: compare on `fen_key`, never on `fen`. (Before the `ocn-chess`
+package they were emitted as a placeholder `0 1`, which made the column
+misleading rather than merely incomplete.)
 
 ### The Polyglot Zobrist hash
 

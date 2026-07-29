@@ -33,10 +33,10 @@ those five families. **OCN keeps that idea. It does not keep every one of
 ECO's letter assignments.** 770 rows — 13.8% of the rows that carry an ECO
 code — sit in an OCN class that is not among their own ECO letters, always
 for a structural reason: the French is `B`, the London and Colle systems
-are `A`, the Grünfeld and Benoni are `E`. The full breakdown is in
-[`docs/ocn-audit-2026-07.md`](docs/ocn-audit-2026-07.md#5-classification-honesty)
-(section 5) until the derived divergence sidecar ships (roadmap H2.5); the
-main cases are argued under "Borderline classifications" below.
+are `A`, the Grünfeld and Benoni are `E`. The complete machine-readable
+list is [`catalog/ocn-1.eco-divergence.tsv`](catalog/ocn-1.eco-divergence.tsv)
+(derived, validator-enforced); the main cases are argued under
+"Borderline classifications" below and in the spec's Borderline rules.
 
 ECO has aged poorly in another respect: the 00-99 sub-codes within each
 letter were assigned in 1971 according to what was fashionable at the
@@ -135,11 +135,39 @@ build step (chess legality is checked by the in-repo move generator,
 and join patterns for consumers are in
 [`docs/consuming-ocn.md`](docs/consuming-ocn.md).
 
+### The `ocn-chess` package
+
+The installable form of everything below, with the catalogue bundled
+inside the wheel — no checkout, no network, no dependency. Built here
+under [`src/ocn/`](src/ocn/); `pip install .` from a checkout today,
+PyPI with the next tagged release.
+
+```python
+from ocn import Catalog
+
+cat = Catalog.load()
+cat.by_slug("B.Sic.Naj.Eng").canonical_name   # 'Sicilian Najdorf, English Attack'
+cat.by_eco("B90")                             # deepest first
+cat.by_name("Grunfeld")                       # case- and diacritic-folded
+cat.parents("B.Sic.Naj.Eng")                  # breadcrumb, root to parent
+cat.by_fen(fen)                               # O(1); en-passant trap handled
+```
+
+```
+ocn lookup B90
+ocn lookup B.Sic.Naj
+ocn fen "rnbqkbnr/pp1ppppp/8/2p5/4P3/8/PPPP1PPP/RNBQKBNR w KQkq c6 0 2"
+ocn uci "e2e4 c7c5 g1f3 d7d6"
+```
+
+Every subcommand takes `--json`. Details and join patterns:
+[`docs/consuming-ocn.md`](docs/consuming-ocn.md).
+
 ### Consumer tools
 
-- [`tools/ocn.py`](tools/ocn.py) — the reader: load the catalogue, look up a
-  slug or a FEN, walk parents and children, resolve `transposes_to` and
-  `same_as`. Start here if you are writing code against OCN.
+- [`tools/ocn.py`](tools/ocn.py) — the in-repo reader: load the catalogue, look
+  up a slug or a FEN, walk parents and children, resolve `transposes_to` and
+  `same_as`. Use the package above unless you want a checkout-only script.
 - [`tools/from_uci.py`](tools/from_uci.py) — a legal UCI move sequence in, the
   deepest OCN-1 row whose moves are a prefix of it out (TSV, or `--json`).
 - [`tools/from_eco.py`](tools/from_eco.py) — an ECO code, a PGN file, or inline
@@ -149,9 +177,10 @@ and join patterns for consumers are in
   out; board, side to move, castling and en passant are matched, the move
   counters ignored.
 - [`tools/export_positions.py`](tools/export_positions.py) — writes the derived
-  position-indexed TSV/JSON view (`fen_key`, counter-normalised `fen`,
-  transposition group size). A fuller positions sidecar — SAN movetext, EPD and
-  Polyglot zobrist, all computed here in Python — is planned (roadmap H2.8).
+  position-indexed TSV/JSON view (`fen_key`, a complete `fen` with true
+  halfmove/fullmove counters, transposition group size); this is the index the
+  package bundles. A fuller positions sidecar — SAN movetext, EPD and Polyglot
+  zobrist, all computed here in Python — is planned (roadmap H2.8).
 
 ### Maintainer tools
 

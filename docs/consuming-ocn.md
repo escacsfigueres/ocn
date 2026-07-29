@@ -110,7 +110,7 @@ Pick the right artefact for your input:
 |---|---|---|
 | Polyglot zobrist hash (INT64) | `openings.parquet` | `zobrist` |
 | Position object that can produce a Polyglot zobrist | `openings.parquet` | derive zobrist, then `zobrist` |
-| FEN string | `ocn-1.positions.tsv`, or `tools/ocn.py` | `fen_key` (board + side + castling + ep, ignoring counters) |
+| FEN string | the `ocn-chess` package, `ocn-1.positions.tsv`, or `tools/ocn.py` | `fen_key` (board + side + castling + ep, ignoring counters) |
 | OCN slug | either, or `catalog/ocn-1.csv` directly | `ocn1` |
 | Lichess opening name / line | `catalog/ocn-1.lichess-xref.tsv` | exact SAN sequence → `ocn1` (every Lichess line on a position OCN covers resolves to a slug) |
 
@@ -222,10 +222,55 @@ be added in future releases without schema changes.
 
 ## 7. Recommended SQL / pseudocode
 
-### Python, zero dependencies (`tools/ocn.py`)
+### Python, zero dependencies (the `ocn-chess` package)
 
-If you are in Python and have the repo, the reader is the loop
-library — no parquet stack needed:
+The package carries the catalogue and the position index inside the
+wheel, so it works offline and needs nothing else installed. It is
+built in this repository under [`src/ocn/`](../src/ocn/) — install it
+with `pip install .` from a checkout; the PyPI release lands with the
+next tagged release.
+
+```python
+from ocn import Catalog
+
+cat = Catalog.load()                          # bundled ocn-1.csv
+row = cat.by_slug("B.Sic.Naj.Eng")            # typed Row, KeyError if absent
+row.eco                                       # ('B90',) — pipes already split
+cat.by_eco("B90")                             # deepest first
+cat.by_name("Grunfeld")                       # diacritic- and case-folded
+cat.search("najdorf", limit=5)                # substring, broadest first
+cat.parents("B.Sic.Naj.Eng")                  # breadcrumb, root to parent
+for hit in cat.by_fen(fen):                   # O(1); handles the ep trap
+    canonical = cat.by_slug(cat.resolve(hit.ocn1))
+    others = cat.co_canonicals(canonical.ocn1)
+```
+
+Holding a board object rather than a FEN string:
+
+```python
+from ocn.fen import from_board
+
+rows = cat.by_fen(from_board(board))   # python-chess is never imported
+```
+
+The same lookups from a shell, with `--json` on every subcommand:
+
+```
+ocn lookup B90
+ocn lookup B.Sic.Naj.Eng
+ocn lookup "najdorf"
+ocn fen "rnbqkbnr/pp1ppppp/8/2p5/4P3/8/PPPP1PPP/RNBQKBNR w KQkq c6 0 2"
+ocn uci "e2e4 c7c5 g1f3 d7d6"
+ocn version
+```
+
+`ocn.__version__` is the reader; `Catalog.load().version()` is the
+catalogue release the bundled data came from. They move independently.
+
+### Python from a checkout (`tools/ocn.py`)
+
+If you have the repo and would rather not install anything, the
+in-repo reader covers the same four loops over plain dicts:
 
 ```python
 import sys; sys.path.insert(0, "tools")
@@ -431,7 +476,89 @@ Regenerate with `python3 tools/build_eco_table.py --report`; a
 drift test fails CI if the committed file and the catalogue
 disagree.
 
-## 10. The whole-catalogue JSON export
+## 10. Consuming OCN from an ECO-keyed system
+
+If your data is already keyed by ECO — a games table with an `eco`
+column, a book keyed by code, a UI that groups by A/B/C/D/E — there
+are exactly two safe ways to attach OCN, and one tempting shortcut
+that is wrong.
+
+**Path 1: join by code.** Use
+[`catalog/ocn-1.eco.tsv`](../catalog/ocn-1.eco.tsv) (section 9). One
+row per (slug, atomic code), so the join is an equality join, and a
+code returning several slugs is normal — apply the deepest-match rule
+to collapse. This is the right path when your rows carry a code and
+nothing else.
+
+**Path 2: join by position.** Replay the moves and compare `fen_key`
+or the Polyglot `zobrist`, both defined normatively in
+[Annex A](../spec/OCN-1.md#annex-a--position-identity-normative) and
+covered in section 4 above. Slower to set up, strictly better
+answers: it finds the OCN row for a position your ECO code only
+approximates, and it survives transpositions that a code-keyed join
+cannot see. Use it when you have real games or real boards.
+
+**The shortcut that is wrong: joining by letter.** OCN's class letter
+is *not* ECO's letter. It keeps ECO's five structural families as an
+idea, and reassigns some of the members.
+
+Worked example. Take `C00` — in ECO, "French Defence, general". A
+consumer that reads ECO's letter as OCN's letter reasons:
+
+```
+row.eco = "C00"  ->  ECO letter C  ->  bucket "Open Games (1.e4 e5)"
+```
+
+and then produces a rendering that shows the French next to the Ruy
+López and the Italian. What OCN actually says:
+
+```python
+import csv
+
+with open("catalog/ocn-1.eco.tsv", newline="", encoding="utf-8") as f:
+    slugs = [r["ocn1"] for r in csv.DictReader(f, delimiter="\t")
+             if r["eco"] == "C00"]
+
+slugs[:3]            # ['B.Fre', 'B.Fre.RPa', 'B.Fre.Kor']
+slugs[0][0]          # 'B'  — not 'C'
+len(slugs)           # 43
+```
+
+Every one of those 43 rows is class `B`. OCN reads `C` as the
+symmetric king-pawn openings (1.e4 e5) and the French as a semi-open
+answer to 1.e4, beside the Sicilian and Caro-Kann; the full argument
+is in the spec's [Borderline
+rules](../spec/OCN-1.md#borderline-rules). Bucket by OCN's letter and
+label the bucket with ECO's meaning and you misfile the entire French
+— 252 rows, one of the five most-played defences in chess.
+
+The relation on this case is exactly stateable: OCN's `B` is ECO's B
+*plus* the French, OCN's `C` is ECO's C *minus* the French. Every
+other letter difference is enumerated in the divergence sidecar
+[`catalog/ocn-1.eco-divergence.tsv`](../catalog/ocn-1.eco-divergence.tsv):
+
+```
+ocn1	ocn_class	eco_codes	family_head	rationale_ref
+B.Fre	B	C00|C01|C02|...	B.Fre	french-b
+A.Lon	A	D02	A.Lon	london-colle-a
+E.Gru	E	D70|D71|...	E.Gru	gruenfeld-e
+```
+
+770 rows, 13.8% of the 5,600 rows that carry an ECO code.
+`rationale_ref` is a closed set — `french-b`, `indians-e`,
+`gruenfeld-e`, `catalan-d`, `london-colle-a`, `budapest-e`, `misc` —
+and each key resolves to a written rationale in the spec's Borderline
+rules. If you must map by letter (a legacy UI, a fixed schema), load
+this file first and treat the listed slugs as the exception table;
+absence from it means the letters agree.
+
+Regenerate with `python3 tools/build_eco_divergence.py --report`. The
+committed file is pinned twice: a drift test rebuilds it, and
+`tools/validate.py` independently recomputes the divergent set and
+fails on any disagreement — the count cannot grow without the list
+growing with it.
+
+## 11. The whole-catalogue JSON export
 
 `ocn-1.json` is a release artefact: the entire catalogue in one
 file, with no CSV parser, no pipe splitting and no chess engine
@@ -493,7 +620,7 @@ Build it yourself with
 (drop `--pretty` for the compact form: about 3.3 MB against 4.5 MB
 indented).
 
-## 11. Links
+## 12. Links
 
 - Spec: [`spec/OCN-1.md`](../spec/OCN-1.md)
 - Roadmap: [`traction-roadmap.md`](traction-roadmap.md)
@@ -502,7 +629,14 @@ indented).
   [`catalog/ocn-1.lichess-xref.tsv`](../catalog/ocn-1.lichess-xref.tsv)
 - Scalar ECO join table (in-repo sidecar):
   [`catalog/ocn-1.eco.tsv`](../catalog/ocn-1.eco.tsv)
-- Python reader: [`tools/ocn.py`](../tools/ocn.py)
+- ECO class-divergence list (in-repo sidecar):
+  [`catalog/ocn-1.eco-divergence.tsv`](../catalog/ocn-1.eco-divergence.tsv),
+  built by
+  [`tools/build_eco_divergence.py`](../tools/build_eco_divergence.py)
+- Python package (catalogue bundled): `pip install ocn-chess` —
+  source at [`src/ocn/`](../src/ocn/), data refreshed by
+  [`tools/sync_package_data.py`](../tools/sync_package_data.py)
+- In-repo Python reader: [`tools/ocn.py`](../tools/ocn.py)
 - JSON export builder:
   [`tools/build_json_export.py`](../tools/build_json_export.py)
 
