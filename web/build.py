@@ -29,6 +29,12 @@ asks for:
   moves in the browser. The five class roots are filters rather than
   positions and get the standard initial position, which is the honest
   rendering of "no moves played yet".
+- **Rows with games gain `pop`** (roadmap H2.7): `[masters_games,
+  lichess_games]` from `catalog/ocn-1.popularity.tsv`, which is what
+  lets the tree and the result lists lead with the lines people actually
+  play. Two integers per row, omitted entirely when both are zero. The
+  sidecar is optional -- without it the payload and every view are
+  exactly what they were before.
 
 Fields that no view uses are left out (`moves_uci` -- the SAN movetext
 and the FEN cover every display and link need; `eco_legacy` -- the `eco`
@@ -69,6 +75,10 @@ from export_positions import replay  # noqa: E402
 
 DEFAULT_CATALOG = REPO_ROOT / "catalog" / "ocn-1.csv"
 DEFAULT_XREF = REPO_ROOT / "catalog" / "ocn-1.lichess-xref.tsv"
+#: Optional (roadmap H2.7). When absent the explorer builds exactly as
+#: before, so the sidecar is a refreshable enhancement and never a build
+#: dependency.
+DEFAULT_POPULARITY = REPO_ROOT / "catalog" / "ocn-1.popularity.tsv"
 DEFAULT_OUT = WEB_DIR / "dist"
 
 #: Copied verbatim into the output directory, in this order.
@@ -144,7 +154,39 @@ def load_xref(path: Path) -> dict[str, dict[str, str]]:
         }
 
 
-def build_row(row: dict[str, str], xref: dict[str, dict[str, str]]) -> dict[str, object]:
+def load_popularity(path: Path) -> dict[str, list[int]]:
+    """Games per slug from the H2.7 sidecar: `{slug: [masters, lichess]}`.
+
+    Only the two totals are read. The sidecar's other columns (W/D/B, the
+    sampled top player and years) are real data but they are per-row
+    prose the explorer does not show, and the payload is shipped to every
+    visitor -- two integers per row is the whole budget.
+
+    A missing file is not an error: the explorer predates the sidecar and
+    must keep building without it.
+    """
+    if not path or not path.exists():
+        return {}
+    popularity: dict[str, list[int]] = {}
+    with path.open(newline="", encoding="utf-8") as f:
+        for row in csv.DictReader(f, delimiter="\t"):
+            slug = (row.get("ocn1") or "").strip()
+            if not slug:
+                continue
+            try:
+                masters = int(row.get("masters_games") or 0)
+                lichess = int(row.get("lichess_games") or 0)
+            except ValueError:
+                continue
+            popularity[slug] = [masters, lichess]
+    return popularity
+
+
+def build_row(
+    row: dict[str, str],
+    xref: dict[str, dict[str, str]],
+    popularity: dict[str, list[int]] | None = None,
+) -> dict[str, object]:
     """One catalogue row as the explorer sees it. Empty fields are omitted."""
     slug = (row.get("ocn1") or "").strip()
     moves_uci = (row.get("moves_uci") or "").strip()
@@ -189,6 +231,13 @@ def build_row(row: dict[str, str], xref: dict[str, dict[str, str]]) -> dict[str,
             if value:
                 out[key] = value
 
+    # `[masters, lichess]`, omitted when the position has no games in
+    # either pool -- which is most of the long tail, so omitting keeps the
+    # payload growth to the rows that actually say something.
+    games = (popularity or {}).get(slug)
+    if games and any(games):
+        out["pop"] = games
+
     entry = xref.get(slug) or {}
     lichess_name = (entry.get("lichess_name") or "").strip()
     if lichess_name:
@@ -204,9 +253,11 @@ def build_document(
     catalog: Path = DEFAULT_CATALOG,
     xref_path: Path = DEFAULT_XREF,
     version: str | None = None,
+    popularity_path: Path | None = DEFAULT_POPULARITY,
 ) -> dict[str, object]:
     xref = load_xref(xref_path)
-    rows = [build_row(row, xref) for row in load_catalog(catalog)]
+    popularity = load_popularity(popularity_path) if popularity_path else {}
+    rows = [build_row(row, xref, popularity) for row in load_catalog(catalog)]
     return {
         "schema": SCHEMA,
         "catalog_version": version or detect_version(),
@@ -237,9 +288,10 @@ def build_dist(
     xref_path: Path = DEFAULT_XREF,
     version: str | None = None,
     pretty: bool = False,
+    popularity_path: Path | None = DEFAULT_POPULARITY,
 ) -> dict[str, object]:
     """Write the whole site into `out_dir`. Returns the built document."""
-    document = build_document(catalog, xref_path, version)
+    document = build_document(catalog, xref_path, version, popularity_path)
     payload = render_json(document, pretty)
     check_no_middle_dot("data/ocn.json", payload)
 
@@ -262,6 +314,9 @@ def build_parser() -> argparse.ArgumentParser:
     )
     parser.add_argument("--catalog", type=Path, default=DEFAULT_CATALOG)
     parser.add_argument("--xref", type=Path, default=DEFAULT_XREF)
+    parser.add_argument("--popularity", type=Path, default=DEFAULT_POPULARITY,
+                        help="Popularity sidecar (roadmap H2.7). Optional: "
+                             "the site builds without it.")
     parser.add_argument("--out", type=Path, default=DEFAULT_OUT,
                         help="Output directory (default: web/dist).")
     parser.add_argument("--pretty", action="store_true",
@@ -281,7 +336,8 @@ def main(argv: list[str] | None = None) -> int:
 
     try:
         document = build_dist(
-            args.out, args.catalog, args.xref, args.version, args.pretty
+            args.out, args.catalog, args.xref, args.version, args.pretty,
+            args.popularity,
         )
     except ValueError as exc:
         print(f"ERROR: {exc}", file=sys.stderr)
@@ -293,11 +349,19 @@ def main(argv: list[str] | None = None) -> int:
     total = sum(
         (args.out / asset).stat().st_size for asset in STATIC_ASSETS
     ) + payload.stat().st_size
+    with_pop = sum(1 for row in rows if isinstance(row, dict) and "pop" in row)
     print(
         f"wrote {args.out} ({len(rows)} rows, "
         f"catalog_version {document['catalog_version']}, "
         f"payload {payload.stat().st_size / 1024:.0f} KB, "
         f"site {total / 1024:.0f} KB)"
+    )
+    print(
+        f"popularity: {with_pop} rows carry game counts"
+        if with_pop else
+        f"popularity: no sidecar at {args.popularity}, rows carry no game "
+        f"counts (build tools/build_popularity.py output to enable)",
+        file=sys.stderr,
     )
     return 0
 

@@ -232,6 +232,98 @@ class PayloadTests(unittest.TestCase):
             web_build.check_no_middle_dot("fake.js", "a · b")
 
 
+class PopularityJoinTests(unittest.TestCase):
+    """The H2.7 join: two integers per row, and only where they exist.
+
+    The sidecar is a refreshable snapshot of an external database, so it
+    may legitimately be absent from a checkout. These tests therefore
+    build against a fixture written here rather than against the
+    committed file -- the join is exercised either way -- and the one
+    test that reads the real sidecar skips when it is missing.
+    """
+
+    FIXTURE = "\n".join([
+        "ocn1\tmasters_games\tmasters_white\tmasters_draws\tmasters_black\t"
+        "lichess_games\ttop_player\ttop_player_elo\ttop_game_year_earliest\t"
+        "top_game_year_latest\tretrieved",
+        # B.Sic.Naj deliberately outranks its own parent's other children.
+        "B.Sic.Naj\t50000\t18000\t17000\t15000\t900000\tCarlsen, M.\t2882\t"
+        "2011\t2024\t2026-07-29",
+        "B.Sic\t120000\t44000\t40000\t36000\t2500000\tCarlsen, M.\t2882\t"
+        "2010\t2025\t2026-07-29",
+        # A row with no game in either pool: must not reach the payload.
+        "A.Eng.Rev\t0\t0\t0\t0\t0\t\t\t\t\t2026-07-29",
+        "",
+    ])
+
+    def build_with_fixture(self) -> dict:
+        with tempfile.TemporaryDirectory() as tmp:
+            sidecar = Path(tmp) / "ocn-1.popularity.tsv"
+            sidecar.write_text(self.FIXTURE, encoding="utf-8")
+            return web_build.build_document(
+                version=TEST_VERSION, popularity_path=sidecar)
+
+    def test_counts_land_on_the_rows_that_have_them(self) -> None:
+        data = self.build_with_fixture()
+        rows = {row["slug"]: row for row in data["rows"]}
+        self.assertEqual(rows["B.Sic.Naj"]["pop"], [50000, 900000])
+        self.assertEqual(rows["B.Sic"]["pop"], [120000, 2500000])
+
+    def test_rows_with_no_games_carry_no_field(self) -> None:
+        data = self.build_with_fixture()
+        rows = {row["slug"]: row for row in data["rows"]}
+        self.assertNotIn("pop", rows["A.Eng.Rev"])
+        # And every row the sidecar says nothing about at all.
+        self.assertNotIn("pop", rows["E.KID.Cls.Mar"])
+
+    def test_the_join_costs_two_integers_and_nothing_else(self) -> None:
+        data = self.build_with_fixture()
+        for row in data["rows"]:
+            if "pop" not in row:
+                continue
+            with self.subTest(slug=row["slug"]):
+                self.assertEqual(len(row["pop"]), 2)
+                for value in row["pop"]:
+                    self.assertIsInstance(value, int)
+        # The per-row prose columns stay in the sidecar.
+        keys = {key for row in data["rows"] for key in row}
+        for leaked in ("top_player", "top_player_elo", "retrieved",
+                       "masters_white", "masters_games"):
+            self.assertNotIn(leaked, keys)
+
+    def test_absent_sidecar_builds_the_pre_h27_payload(self) -> None:
+        without = web_build.build_document(
+            version=TEST_VERSION, popularity_path=Path("/nonexistent/pop.tsv"))
+        self.assertEqual(len(without["rows"]), EXPECTED_ROWS)
+        self.assertNotIn("pop", {key for row in without["rows"] for key in row})
+
+    def test_a_missing_file_loads_as_no_popularity(self) -> None:
+        self.assertEqual(web_build.load_popularity(Path("/nope/none.tsv")), {})
+        self.assertEqual(web_build.load_popularity(None), {})
+
+    def test_unparseable_counts_are_skipped_not_guessed(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            sidecar = Path(tmp) / "pop.tsv"
+            sidecar.write_text(
+                "ocn1\tmasters_games\tlichess_games\n"
+                "B.Sic\tnot-a-number\t5\n"
+                "B.Sic.Naj\t7\t9\n", encoding="utf-8")
+            loaded = web_build.load_popularity(sidecar)
+        self.assertEqual(loaded, {"B.Sic.Naj": [7, 9]})
+
+    @unittest.skipUnless(
+        web_build.DEFAULT_POPULARITY.exists(),
+        "catalog/ocn-1.popularity.tsv not built yet (needs a Lichess OAuth "
+        "token; see tools/build_popularity.py)")
+    def test_the_committed_sidecar_joins_onto_real_slugs(self) -> None:
+        data = self.build_with_fixture()
+        slugs = {row["slug"] for row in data["rows"]}
+        loaded = web_build.load_popularity(web_build.DEFAULT_POPULARITY)
+        self.assertTrue(loaded)
+        unknown = [slug for slug in loaded if slug not in slugs]
+        self.assertEqual(unknown, [])
+
+
 class NoExternalRequestTests(unittest.TestCase):
     """The site must be servable from a static directory with no network."""
 

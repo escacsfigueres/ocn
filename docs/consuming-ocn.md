@@ -115,6 +115,7 @@ Pick the right artefact for your input:
 | EPD record | `ocn-1.positions.tsv`, the `epd` column | `epd` |
 | OCN slug | the package, or `catalog/ocn-1.csv` directly | `ocn1` |
 | Lichess opening name / line | `catalog/ocn-1.lichess-xref.tsv` | exact SAN sequence → `ocn1` (every Lichess line on a position OCN covers resolves to a slug) |
+| how often a line is played | `catalog/ocn-1.popularity.tsv`, [section 15](#15-the-popularity-sidecar) | `ocn1` |
 
 ### What the positions sidecar carries
 
@@ -686,6 +687,10 @@ indented).
   [`catalog/ocn-1.eco-divergence.tsv`](../catalog/ocn-1.eco-divergence.tsv),
   built by
   [`tools/build_eco_divergence.py`](../tools/build_eco_divergence.py)
+- Popularity snapshot (in-repo sidecar, section 15):
+  `catalog/ocn-1.popularity.tsv`, built by
+  [`tools/build_popularity.py`](../tools/build_popularity.py) from the
+  public Lichess opening explorer API
 - Python package (catalogue bundled): `pip install ocn-chess` —
   source at [`src/ocn/`](../src/ocn/), data refreshed by
   [`tools/sync_package_data.py`](../tools/sync_package_data.py)
@@ -788,3 +793,83 @@ one move played counts as matched and the rate sits at ~100% on real
 corpora. The informative figures are the median match depth and the
 share of games still named at 8, 12 and 16 plies, which is why
 `coverage_stat.py` prints that table. Quote those.
+
+## 15. The popularity sidecar
+
+`catalog/ocn-1.popularity.tsv` (roadmap H2.7) answers the one question
+the catalogue never could: how often is this line actually played. One
+row per concrete slug, eleven columns, built by
+[`tools/build_popularity.py`](../tools/build_popularity.py) from the
+public **Lichess opening explorer API** and nothing else.
+
+| column | what it is |
+|---|---|
+| `ocn1` | the slug, the join key |
+| `masters_games` | games in the **Lichess masters database** that reached this position (`masters_white + masters_draws + masters_black`) |
+| `masters_white`, `masters_draws`, `masters_black` | the outcome split of that same total |
+| `lichess_games` | games in the **Lichess games database** that reached it, restricted to rated blitz, rapid and classical in the 1800/2000/2200/2500 rating bands |
+| `top_player`, `top_player_elo` | the highest-rated player, either colour, **among the sampled top games** the API returns for the position |
+| `top_game_year_earliest`, `top_game_year_latest` | the year range **of that same small sample** |
+| `retrieved` | ISO date of the snapshot, identical for every row of a run |
+
+### Scoped claims, or the numbers become lies
+
+Every figure belongs to the database it came from, and the column names
+are short for readability, not for quotation. When you display or
+publish these numbers:
+
+- `masters_games` is **"games in the Lichess masters database"** — an
+  OTB master collection of roughly three million games. It is never
+  "games ever played" and never "how popular this opening is".
+- `lichess_games` is **"games in the Lichess games database"** in the
+  speeds and rating bands above. It is not "games on Lichess" (bullet
+  and sub-1800 play are excluded by the query) and certainly not a
+  world total.
+- The two are **not addable**. They count different populations of
+  players. The web explorer sums them internally to rank rows and never
+  shows the sum, which is the right pattern to copy.
+- `top_game_year_earliest` is **the earliest year among the sampled top
+  games**, not the first time anyone played the line. The sample is the
+  handful of highest-rated games the API returns, so a line played
+  continuously since 1858 can easily report a 21st-century range.
+  Labelling it as a first-played date would be false.
+- `top_player` is **the strongest player in that sample**, not the
+  opening's leading practitioner.
+
+Rows the databases have never seen carry `0` in the five count columns —
+a measured zero, not a gap — and empty `top_player`, `top_player_elo`
+and year cells, because a sample of nothing supports no claim.
+
+### Refreshing it
+
+This is the one sidecar that is **not derived from the catalogue**, so
+it has no drift test and regenerating it is not expected to be a no-op:
+it is a dated snapshot of a database that grows every day. Regenerate it
+whenever you like; the `retrieved` column is what dates the figures, and
+a consumer comparing two releases should read it before comparing
+counts.
+
+Two operational facts before you run it:
+
+- **The explorer API requires a Lichess OAuth token.** Anonymous
+  requests have returned HTTP 401 since 3 March 2026, when Lichess
+  disallowed them to stop a DDoS
+  ([announcement](https://lichess.org/@/thibault/blog/the-opening-explorer-now-requires-authentication/FSWh9Zg3)).
+  Mint a personal token at <https://lichess.org/account/oauth/token> —
+  no particular scope is needed — and export it as `LICHESS_TOKEN`.
+- **The published budget is 25 requests per minute.** The tool throttles
+  to exactly that by default, which puts a full cold run at roughly
+  eight hours for the ~11,500 requests the catalogue needs. Every
+  response is cached on disk, so the run is resumable and a re-run is
+  free; interrupt it whenever and start it again.
+
+```
+export LICHESS_TOKEN=lip_...
+python3 tools/build_popularity.py                 # full run, resumable
+python3 tools/build_popularity.py --limit 50      # a quick smoke test
+python3 tools/build_popularity.py --offline       # rebuild from the cache
+```
+
+Requests are deduplicated by position, so the transpositions in the
+catalogue cost nothing extra: 5,894 rows collapse to 5,765 distinct
+positions.

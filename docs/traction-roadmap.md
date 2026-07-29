@@ -80,7 +80,7 @@ standards-grade looks like; silent contradiction is what gets punished.
 | H2.4 | **Spec 1.3 — the standards release.** Normative ABNF (RFC 5234), *spec bends to data*, two-layer model: stable grammar (major-versioned) vs catalogue profile (minor-versioned; 1.x profile cap stays 7 segments). Token-ambiguity rule: the move tail is the maximal SAN-parsing suffix; newly minted named tokens must not be SAN-shaped (grandfather table for existing ones). Conformance section + RFC 2119 (Producer / Consumer / Validator classes). String canonicalisation section (NFC, diacritics, ASCII-fold search) promoting the diacritic map to an annex. Open flags registry + `x-` private prefix + locale sidecar registration. Versioning 2.0 with field-level change classes (retroactively legalising the 1.2.0 mass rename, cited as precedent). Deprecation lifecycle with a real worked example: `A.Hol` migrates to <!-- NON-CATALOGUE: proposed successor slug --> `A.Dut` (the one token violating the spec's own rule); Chi/Cha/Sch/RyL do **not** migrate — tokens are redefined as subtree-local labels, person identity lives in attribution data. Conformance corpus grows to ~100 normative cases. | L | ABNF validates 100% of rows (new CI test); a from-spec reimplementation agrees with `validate.py` on every fixture. |
 | H2.5 | **Classification honesty.** Derived sidecar `catalog/ocn-1.eco-divergence.tsv` (CI-regenerated, validator-checked); normative exception list in the spec with written rationales for the French (the stress test: if it cannot be written convincingly it is the *only* reversion candidate, and only ever in a 2.0), London/Colle, and the misc rows; a "consuming OCN from ECO-keyed systems" migration section. Position: revert nothing. | M | All 770 divergent rows listed with resolving rationale refs; README paragraph links here. |
 | H2.6 | **Minimum editorial pass before the announcement.** Delete the 1,726 "(SAN) Line" aliases and 398 bare "Main Line" aliases (patch-level under the new versioning; a skeptic smells padded data in two minutes); resolve all 29 canonical-name/alias collisions; finish the American-spelling lot. Notes are *not* mass-rewritten: they get a generated/curated provenance label (D-3) and improve gradually with D-1. | M | Name search returns no synthetic noise; name-to-slug lookup unique or flagged; validator prevents recurrence. |
-| H2.7 | **Popularity sidecar** `catalog/ocn-1.popularity.tsv` (games, W/D/L from the Lichess explorer API; masters + lichess pools), independently refreshable. Turns the taxonomy into a map — explorer sorts by it. Soft gate: ships as explorer v1.1 if it slips; does not delay H3. | M | Tree default-sorted by games played. |
+| H2.7 | **Popularity sidecar** `catalog/ocn-1.popularity.tsv` (games, W/D/L from the Lichess explorer API; masters + lichess pools), independently refreshable. Turns the taxonomy into a map — explorer sorts by it. Soft gate: ships as explorer v1.1 if it slips; does not delay H3. **Tooling, tests and explorer integration landed 2026-07-29; the data has not, because the explorer API now requires an OAuth token (see the execution log). The sidecar is one overnight run behind a credential.** | M | Tree default-sorted by games played. |
 | H2.8 | **Positions sidecar completed** (`export_positions.py` grows): SAN movetext, EPD, corrected FEN, **Polyglot zobrist computed in Python in-repo** (completes the chess-parquet decoupling), and a `mainline` SAN continuation for leaf rows — the answer to "ECO main lines run 20-24 plies" as data, not as deeper slugs. **Landed except `mainline`, which needs H2.7's popularity ranking to be a fact rather than an opinion and ships with it.** | M | One regenerable artefact carries every derived per-row field; local tools consume it instead of recomputing. |
 
 ## Horizon 3 — Announce (~1-2 weeks, deliberate order)
@@ -604,3 +604,66 @@ H0.1-H0.7 ──> H0.8 flip public ──> H1.1 pip + H1.2 JSON ──> H1.3 aut
   behind it, which no position reachable by legal play can be — and the
   5,894-row cross-validation is the evidence that they agree everywhere
   the catalogue goes.
+- 2026-07-29 — **H2.7 built, blocked on a credential, no data yet.** The
+  popularity sidecar's tool, tests, explorer integration and consumer
+  documentation all landed; `catalog/ocn-1.popularity.tsv` did **not**,
+  because the source it is scoped to no longer answers anonymous
+  requests. **The Lichess opening explorer API has required an OAuth
+  token since 3 March 2026**, when Lichess disallowed anonymous requests
+  to stop a sustained DDoS
+  ([announcement](https://lichess.org/@/thibault/blog/the-opening-explorer-now-requires-authentication/FSWh9Zg3):
+  "If you use the explorer through the API, you now need to add an oauth
+  token to each explorer request"). Every path on
+  `explorer.lichess.ovh` — and on `explorer.lichess.org`, which the
+  OpenAPI spec now documents as the host — returns **HTTP 401 at nginx**,
+  verified from two independent networks; the upstream spec carries
+  `security: - OAuth2: []` on both endpoints. This is a policy change,
+  not an outage and not a bug in the tool: pointed at the live API with a
+  syntactically valid but fake token, `build_popularity.py` reaches
+  Lichess and is refused, which is the whole request path working.
+  **No numbers are reported for H2.7 and none were invented.** The
+  headline the item promises — rows with masters games, rows with
+  lichess games, the top openings by masters count — cannot be produced
+  without the token, and the honesty doctrine that governs this sidecar
+  (H0.4) forbids sourcing them anywhere else. OCN still has no
+  popularity facts.
+  **What is ready.** `tools/build_popularity.py` (stdlib only) reads the
+  positions sidecar, queries `/masters` and `/lichess` per position, and
+  writes the eleven documented columns. It sends `Authorization: Bearer`
+  from `--token` or `$LICHESS_TOKEN`, **fails fast on 401** instead of
+  retrying an auth error 5,765 times, honours `Retry-After` on 429 and
+  backs off exponentially otherwise, and caches every response on disk
+  keyed by `fen_key` so the run is resumable and a re-run is free.
+  Requests are deduplicated by position — the explorer indexes
+  positions, so the 5,894 concrete rows collapse to **5,765 distinct
+  positions, 11,530 requests**, and the catalogue's transpositions cost
+  nothing. 52 tests, none touching the network, over payloads shaped
+  after the official `lichess-org/api` examples.
+  **Two corrections to the item's own assumptions**, both taken from the
+  same announcement. The throttle is **25 requests per minute**, not the
+  ~3/second the plan assumed, so a cold full run is **roughly eight
+  hours**, not 35-70 minutes — which is why resumability became a
+  requirement rather than a nicety. And the sampled-year columns are
+  labelled as such everywhere they appear: `top_game_year_earliest` is
+  the earliest year *among the few highest-rated games the API returns*,
+  never the first time the line was played.
+  **The explorer is wired and dormant.** `web/build.py` joins
+  `masters_games` and `lichess_games` as one `pop: [m, l]` pair per row,
+  omitted where both are zero; `web/app.js` sorts tree children by games
+  played (stable, so rows without counts keep catalogue order) and ranks
+  search results by popularity *within* a relevance band, so an exact
+  slug match still outranks a popular substring hit; row pages show a
+  scoped line, "N games in the Lichess masters database, M on Lichess",
+  and the two pools are never summed in front of a reader. With no
+  sidecar present the payload and every view are byte-for-byte what they
+  were before, and the join is tested against a fixture so it is not
+  waiting on the data either.
+  **What Albert needs to decide.** A token from
+  <https://lichess.org/account/oauth/token> (no scope required) unblocks
+  the run; obtaining one is a credential decision, so nothing was minted
+  here. Then `LICHESS_TOKEN=... python3 tools/build_popularity.py` for
+  an unattended overnight run.
+  **H2.8's `mainline` stays deferred.** It was parked because it needs
+  H2.7's ranking to be a fact rather than an opinion, and that ranking
+  still does not exist. The deferral can be revisited the day the
+  sidecar has rows in it, not before.

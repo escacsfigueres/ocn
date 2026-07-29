@@ -112,6 +112,11 @@ async function loadData() {
     row._slug = fold(row.slug);
     row._aliases = row.aliases ? fold(row.aliases.join(" | ")) : "";
     row._eco = new Set(row.eco || []);
+    // `pop` is [masters_games, lichess_games] and is absent on every row
+    // whose position no game in either pool has reached. Summing the two
+    // pools is a ranking signal, never a displayed total: they count
+    // different populations and are only ever shown separately.
+    row._pop = row.pop ? (row.pop[0] || 0) + (row.pop[1] || 0) : 0;
     if (row.parent) {
       if (!DB.children.has(row.parent)) DB.children.set(row.parent, []);
       DB.children.get(row.parent).push(row);
@@ -120,6 +125,14 @@ async function loadData() {
       if (!DB.byEco.has(code)) DB.byEco.set(code, []);
       DB.byEco.get(code).push(row);
     }
+  }
+
+  // Most-played first, wherever the popularity sidecar has something to
+  // say. `sort` is stable, so rows without game counts keep the
+  // catalogue order they arrived in and a payload built without the
+  // sidecar comes out exactly as before.
+  if (DB.rows.some((row) => row._pop > 0)) {
+    for (const kids of DB.children.values()) kids.sort((a, b) => b._pop - a._pop);
   }
 
   // Descendant counts, deepest rows first so every child is already
@@ -180,8 +193,13 @@ function scan(q, query) {
     if (score) scored.push([score, row]);
   }
 
+  // Relevance first, then games played. Popularity ranks *within* a
+  // score band rather than across all of them: an exact slug match must
+  // outrank a wildly popular substring hit, but among rows that match
+  // equally well, the one people actually play should come first.
   scored.sort((a, b) =>
     b[0] - a[0] ||
+    b[1]._pop - a[1]._pop ||
     a[1].depth - b[1].depth ||
     a[1].name.length - b[1].name.length ||
     a[1].slug.localeCompare(b[1].slug));
@@ -600,6 +618,34 @@ function lichessBlock(lichess) {
   ]);
 }
 
+/*
+ * The popularity line (roadmap H2.7).
+ *
+ * Every figure is scoped to the database it came from, because that is
+ * the only honest thing either number can claim: the masters count is
+ * games in the Lichess masters database (~3M OTB master games), not
+ * games ever played, and the Lichess count is games in the rated
+ * blitz/rapid/classical pool from 1800 up, not "games on Lichess". The
+ * two are never added together in front of a reader -- they count
+ * different populations, and a sum would be a number with no referent.
+ */
+const NUM = (value) => Number(value).toLocaleString("en");
+
+function popularityLine(row) {
+  const [masters, lichess] = row.pop || [0, 0];
+  if (!masters && !lichess) return null;
+  const parts = [];
+  if (masters) parts.push(`${NUM(masters)} games in the Lichess masters database`);
+  if (lichess) parts.push(`${masters ? NUM(lichess) : NUM(lichess) + " games"} on Lichess`);
+  return h("div", {}, [
+    h("span", { text: parts.join(", ") }),
+    h("span", {
+      class: "note",
+      text: "Lichess pool: rated blitz, rapid and classical from 1800 up",
+    }),
+  ]);
+}
+
 function attributionBlock(row) {
   return h("section", { class: "panel attribution" }, [
     h("h2", { text: "Attribution" }),
@@ -650,10 +696,12 @@ function renderRow(slug) {
     return;
   }
 
+  const played = popularityLine(row);
   const facts = [
     ...(row.san ? field("Moves", h("span", { class: "movetext", text: row.san })) : []),
     ...(row.eco ? field("ECO", h("span", { class: "chips" }, row.eco.map(ecoChip))) : []),
     ...(row.lichess ? field("Lichess", lichessBlock(row.lichess)) : []),
+    ...(played ? field("Played", played) : []),
     ...(row.aliases ? field("Also known as", h("span", { text: row.aliases.join(", ") })) : []),
     ...(row.flags ? field("Flags", h("span", { class: "chips" },
       row.flags.map((flag) => h("span", { class: "chip flat", text: flag })))) : []),
