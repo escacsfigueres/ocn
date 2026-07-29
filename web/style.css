@@ -387,7 +387,10 @@ a.chip:hover { border-color: var(--ink-2); color: var(--ink); text-decoration: n
 /* Tree                                                              */
 /* ---------------------------------------------------------------- */
 
-.tree { list-style: none; margin: 0; padding: 0; }
+/* An index of short labels does not want the full page width, and a
+   count belongs next to the thing it counts rather than at the far
+   edge of the screen. */
+.tree { list-style: none; margin: 0; padding: 0; max-width: 40rem; }
 .tree li { margin: 0; }
 /* The spine of a subtree carries its class colour, so an expanded branch
    stays visibly attached to the volume it belongs to. */
@@ -419,7 +422,7 @@ a.chip:hover { border-color: var(--ink-2); color: var(--ink); text-decoration: n
 .node-toggle svg { width: 0.8rem; height: 0.8rem; display: block; }
 .node-toggle svg path {
   fill: currentColor;
-  transition: transform var(--drawer-dur, var(--dur-2)) var(--ease);
+  transition: transform var(--dur-1) var(--ease);
   transform-origin: 6px 6px;
 }
 .node-toggle[aria-expanded="true"] { color: var(--cls); }
@@ -427,18 +430,24 @@ a.chip:hover { border-color: var(--ink-2); color: var(--ink); text-decoration: n
 .node-toggle:hover:not(:disabled) { color: var(--cls); background: var(--rule); border: none; }
 .node-toggle:disabled { opacity: 0.25; }
 
-/* A branch opens rather than appears: the arrow turns and the rows grow
-   out of the same gesture, on the same curve and duration. A drawer
-   that snaps while its handle animates is what makes a disclosure feel
-   broken. */
-.drawer {
-  display: grid; grid-template-rows: 0fr;
-  transition: grid-template-rows var(--drawer-dur, var(--dur-2)) var(--ease);
+/* A branch opens in one layout pass; only its rows animate, and only
+   through opacity and transform. Height animation was the wrong tool:
+   it re-lays-out the whole branch every frame, which measures clean on
+   an idle machine and stutters on a real one.
+
+   The stagger is short and capped, so a twenty-row branch reads as one
+   movement rather than a queue. */
+@keyframes row-in {
+  from { opacity: 0; transform: translateY(-3px); }
+  to   { opacity: 1; transform: none; }
 }
-.drawer > ul { overflow: hidden; min-height: 0; }
-.drawer.is-open { grid-template-rows: 1fr; }
+.drawer.is-entering > ul > li {
+  animation: row-in var(--dur-1) var(--ease) backwards;
+  animation-delay: calc(var(--i, 0) * 16ms);
+}
 @media (prefers-reduced-motion: reduce) {
-  .node-toggle svg path, .drawer { transition: none; }
+  .node-toggle svg path { transition: none; }
+  .drawer.is-entering > ul > li { animation: none; }
 }
 
 .node-slug { font-family: var(--mono); font-size: var(--t-small); font-weight: 500; color: var(--ink-2); }
@@ -446,7 +455,7 @@ a.chip:hover { border-color: var(--ink-2); color: var(--ink); text-decoration: n
 .node-name { font-family: var(--serif); font-size: var(--t-body); color: var(--ink); min-width: 0; }
 .node-count {
   font-family: var(--mono); font-size: var(--t-small); color: var(--ink-3);
-  margin-left: auto; flex: 0 0 auto; font-variant-numeric: tabular-nums;
+  margin-left: var(--s2); flex: 0 0 auto; font-variant-numeric: tabular-nums;
 }
 
 /* ---------------------------------------------------------------- */

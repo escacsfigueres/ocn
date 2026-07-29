@@ -554,7 +554,7 @@ function treeNode(row) {
   //  keeps a closed branch out of the tab order and out of a screen
   //  reader's way, which `hidden` used to do for free.
   const list = h("ul", {});
-  const drawer = h("div", { class: "drawer", inert: true }, [list]);
+  const drawer = h("div", { class: "drawer", hidden: true }, [list]);
   let built = false;
 
   //: The disclosure arrow is drawn, not typed. A glyph carries its own
@@ -579,9 +579,13 @@ function treeNode(row) {
    */
   const prepare = () => {
     if (built || !kids.length) return;
-    list.replaceChildren(...kids.map(treeNode));
+    const rows = kids.map(treeNode);
+    //: Each row carries its position so the entrance can stagger. The
+    //  stagger is capped: past ten rows it stops reading as a cascade
+    //  and starts reading as a wait.
+    rows.forEach((node, index) => node.style.setProperty("--i", String(Math.min(index, 10))));
+    list.replaceChildren(...rows);
     built = true;
-    void list.scrollHeight;
   };
   toggle.addEventListener("pointerenter", prepare);
   toggle.addEventListener("focus", prepare);
@@ -599,34 +603,26 @@ function treeNode(row) {
 
   toggle.addEventListener("click", () => {
     const show = toggle.getAttribute("aria-expanded") !== "true";
-    /*
-     * Build before animating, never during. The first open of a large
-     * branch inserts twenty-odd rows, and laying them out costs about
-     * seventy milliseconds -- long enough to swallow the opening frames,
-     * so the drawer appeared already two thirds open and then crawled
-     * the rest. Building while it is still closed, then waiting for a
-     * painted frame before flipping the class, gives the transition a
-     * clean start.
-     */
     if (show) prepare();
     toggle.setAttribute("aria-expanded", String(show));
     toggle.setAttribute("aria-label", `${show ? "Collapse" : "Expand"} ${row.name}`);
-    drawer.inert = !show;
 
+    /*
+     * The layout change happens once, in a single frame; only the rows
+     * animate, and only through opacity and transform, which the
+     * compositor handles without touching layout.
+     *
+     * The previous version animated the drawer's height, which asks the
+     * browser to re-lay-out the whole branch on every frame -- twenty
+     * rows, each with its own nested grid. It measured clean on an idle
+     * machine and stuttered on a real one, which is the signature of
+     * animating the wrong property rather than of the wrong curve.
+     */
+    drawer.hidden = !show;
     if (show) {
-      /*
-       * Duration follows distance. The Sicilian's branch is seven
-       * hundred pixels tall and a four-line branch is sixty; moving
-       * both in the same time makes one feel violent and the other
-       * sluggish. A third of a millisecond per pixel, bounded at both
-       * ends, holds the perceived speed steady.
-       */
-      const span = list.scrollHeight || 0;
-      const ms = Math.round(Math.min(420, Math.max(170, span * 0.34)));
-      item.style.setProperty("--drawer-dur", `${ms}ms`);
-      requestAnimationFrame(() => requestAnimationFrame(() => drawer.classList.add("is-open")));
-    } else {
-      drawer.classList.remove("is-open");
+      drawer.classList.remove("is-entering");
+      void drawer.offsetWidth;
+      drawer.classList.add("is-entering");
     }
   });
 
