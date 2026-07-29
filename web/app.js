@@ -307,7 +307,7 @@ function boardSvg(board) {
       }
       if (rank === 7) {
         coords.push(svg("text", {
-          class: "coord", x: x + UNIT / 2, y: size + 12,
+          class: "coord", x: x + UNIT / 2, y: size + 11,
           "text-anchor": "middle", text: FILES[file],
         }));
       }
@@ -322,9 +322,16 @@ function boardSvg(board) {
     }
   }
 
+  /*
+   * One margin on all four sides. The coordinates only need room to the
+   * left and below, but giving them room there alone leaves the board
+   * sitting up in the corner of its own plate; a figure in a book is
+   * centred in its bleed.
+   */
+  const pad = 16;
   return svg("svg", {
-    class: "board", viewBox: `-18 -4 ${size + 22} ${size + 22}`, role: "img",
-    "aria-label": "Board position",
+    class: "board", viewBox: `${-pad} ${-pad} ${size + pad * 2} ${size + pad * 2}`,
+    role: "img", "aria-label": "Board position",
   }, [
     svg("g", {}, squares),
     svg("rect", { class: "board-frame", x: 0, y: 0, width: size, height: size }),
@@ -418,8 +425,11 @@ function rowLink(row) {
   return h("a", { class: `row-link ${classOf(row.slug)}`, href: slugHref(row.slug) }, [
     h("span", { class: "row-name", text: row.name }),
     h("span", { class: "row-meta" }, [
+      //: The codes take their own letter's colour, like the chips do, so
+      //  a row whose ECO letter differs from its OCN class shows it.
       shown.length
-        ? h("span", { class: "row-eco", text: shown.join(" ") + (hidden > 0 ? ` +${hidden}` : "") ,
+        ? h("span", { class: `row-eco ${classOf(shown[0])}`,
+                      text: shown.join(" ") + (hidden > 0 ? ` +${hidden}` : ""),
                       title: codes.join(", ") })
         : null,
       h("span", { class: "row-slug", text: row.slug }),
@@ -432,8 +442,14 @@ function slugChip(slug) {
   return h("a", { class: "chip", href: slugHref(slug), title: row ? row.name : slug, text: slug });
 }
 
+/*
+ * An ECO chip carries its own letter's colour, not its row's. On the
+ * 770 rows where OCN's class differs from ECO's -- the French sitting
+ * in B while ECO files it under C -- the divergence shows itself
+ * without a sentence explaining it.
+ */
 function ecoChip(code) {
-  return h("a", { class: "chip eco", href: ecoHref(code), text: code });
+  return h("a", { class: `chip eco ${classOf(code)}`, href: ecoHref(code), text: code });
 }
 
 function field(label, ...content) {
@@ -819,6 +835,53 @@ function childrenSection(row) {
   ]);
 }
 
+/*
+ * The FEN with a copy control.
+ *
+ * A FEN is a string people move to another program, so the useful verb
+ * is copy rather than select. The icon is drawn rather than typed, like
+ * every other control here, and it reports what happened: the sheets
+ * become a tick and the label says Copied, because a button that
+ * changes nothing when pressed is indistinguishable from a broken one.
+ */
+const COPY_ICON = ["M5.5 1.5 h7 a2 2 0 0 1 2 2 v7", "M1.5 5.5 h7 a2 2 0 0 1 2 2 v5 a2 2 0 0 1 -2 2 h-5 a2 2 0 0 1 -2 -2 z"];
+const DONE_ICON = ["M2.5 8.5 L6 12 L13.5 3.5"];
+
+function iconSvg(paths) {
+  return svg("svg", { viewBox: "0 0 16 16", "aria-hidden": "true" },
+    paths.map((d) => svg("path", { d })));
+}
+
+function fenBlock(fen) {
+  const label = h("span", { class: "sr", text: "Copy FEN" });
+  const button = h("button", {
+    class: "copy", type: "button", title: "Copy FEN", "aria-label": "Copy FEN",
+  }, [iconSvg(COPY_ICON), label]);
+
+  let resetAt = 0;
+  button.addEventListener("click", async () => {
+    try {
+      await navigator.clipboard.writeText(fen);
+    } catch {
+      return;   //: a denied clipboard is the browser's answer, not ours to fake
+    }
+    button.replaceChildren(iconSvg(DONE_ICON), h("span", { class: "sr", text: "Copied" }));
+    button.classList.add("is-done");
+    button.setAttribute("aria-label", "Copied");
+    button.title = "Copied";
+    const mine = ++resetAt;
+    setTimeout(() => {
+      if (mine !== resetAt) return;
+      button.replaceChildren(iconSvg(COPY_ICON), h("span", { class: "sr", text: "Copy FEN" }));
+      button.classList.remove("is-done");
+      button.setAttribute("aria-label", "Copy FEN");
+      button.title = "Copy FEN";
+    }, 1500);
+  });
+
+  return h("div", { class: "fen" }, [h("code", { text: fen }), button]);
+}
+
 function renderRow(slug) {
   const view = document.getElementById("view");
   const row = DB.bySlug.get(slug);
@@ -860,7 +923,7 @@ function renderRow(slug) {
                    text: "Analyse on Lichess \u2197" }),
         ]),
         line.stepper,
-        h("p", { class: "fen", text: row.fen }),
+        fenBlock(row.fen),
       ]),
       h("div", {}, [
         line.moves,

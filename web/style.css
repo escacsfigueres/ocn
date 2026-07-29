@@ -277,7 +277,9 @@ input {
 /* Entry (row page)                                                  */
 /* ---------------------------------------------------------------- */
 
-.entry-head { padding-bottom: 1.35rem; border-bottom: 2px solid var(--ink); }
+/* The one structural line on an entry takes its volume's colour, so a
+   page says which of the five it belongs to before you read a word. */
+.entry-head { padding-bottom: var(--s5); border-bottom: 2px solid var(--cls); }
 .entry-head .display { max-width: 26ch; }
 .entry-ident { display: flex; align-items: baseline; gap: 0.75rem; flex-wrap: wrap; margin-top: 0.75rem; }
 
@@ -312,8 +314,26 @@ input {
 .stepper .ply { font-family: var(--mono); font-size: var(--t-caption); color: var(--ink-3); margin-left: 0.5rem; }
 
 .fen {
-  margin-top: var(--s3); font-family: var(--mono); font-size: var(--t-caption);
-  line-height: 1.55; color: var(--ink-3); word-break: break-all; user-select: all;
+  display: flex; align-items: flex-start; gap: var(--s2); margin-top: var(--s3);
+}
+.fen code {
+  font-family: var(--mono); font-size: var(--t-caption); line-height: 1.55;
+  color: var(--ink-3); word-break: break-all; user-select: all; flex: 1;
+}
+.copy {
+  flex: 0 0 auto; width: 1.75rem; height: 1.75rem; display: grid; place-items: center;
+  color: var(--ink-3); border-color: transparent;
+}
+.copy:hover:not(:disabled) { color: var(--ink); border-color: var(--edge); }
+.copy svg { width: 0.9rem; height: 0.9rem; display: block; }
+.copy svg path {
+  fill: none; stroke: currentColor; stroke-width: 1.5;
+  stroke-linecap: round; stroke-linejoin: round;
+}
+.copy.is-done { color: var(--cls-d); border-color: transparent; }
+.sr {
+  position: absolute; width: 1px; height: 1px; overflow: hidden;
+  clip-path: inset(50%); white-space: nowrap;
 }
 
 /* ---------------------------------------------------------------- */
@@ -359,7 +379,8 @@ input {
   padding: var(--s0) var(--s1); border: 1px solid var(--edge); border-radius: 2px; color: var(--ink-2);
 }
 a.chip:hover { border-color: var(--ink-2); color: var(--ink); text-decoration: none; }
-.chip.eco { letter-spacing: 0.03em; }
+.chip.eco { letter-spacing: 0.03em; color: var(--cls); border-color: color-mix(in srgb, var(--cls) 45%, var(--edge)); }
+a.chip.eco:hover { color: var(--cls); border-color: var(--cls); }
 .chip.flag { color: var(--ink-3); }
 .chip-row { display: flex; flex-wrap: wrap; gap: var(--s1); }
 
