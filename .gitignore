@@ -25,6 +25,10 @@ venv/
 # to releases, never committed (canonical source is catalog/ocn-1.csv)
 /ocn-1.json
 
+# Web explorer output — rebuilt by `python3 web/build.py` from the
+# catalogue; the sources (index.html, app.js, style.css) ARE tracked
+web/dist/
+
 # Upstream data — fetched by tools/fetch_lichess.sh, not vendored
 /external/
 
