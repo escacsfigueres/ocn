@@ -1,0 +1,193 @@
+name: release
+
+# Roadmap H1.3: a tag produces a complete release with zero manual steps.
+# Pushing an `ocn-*` tag runs the same gate as ci.yml, rebuilds every
+# derived artefact from `catalog/`, builds the `ocn-chess` sdist + wheel,
+# checksums the lot and attaches it to the GitHub release for that tag.
+#
+# The only hand-written part stays hand-written: release notes live in
+# `docs/release-<tag>-notes.md`, committed before the tag is cut. The
+# release body links to that file (or says it is missing); GitHub's
+# auto-generated notes are deliberately never used.
+
+on:
+  push:
+    tags: ["ocn-*"]
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: "Existing ocn-* tag to (re)build the release for"
+        required: true
+        type: string
+
+permissions:
+  contents: write
+
+concurrency:
+  # One release job per tag, and never cancel one: a cancelled run can
+  # leave a release half-uploaded. A re-run supersedes it via --clobber.
+  group: release-${{ github.event.inputs.tag || github.ref_name }}
+  cancel-in-progress: false
+
+jobs:
+  release:
+    name: build and publish ${{ github.event.inputs.tag || github.ref_name }}
+    runs-on: ubuntu-latest
+    env:
+      TAG: ${{ github.event.inputs.tag || github.ref_name }}
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    steps:
+      - name: checkout the tag
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.inputs.tag || github.ref }}
+
+      - name: set up Python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: check the tag shape
+        # The push trigger already filters; workflow_dispatch takes free
+        # text, so a re-run cannot be pointed at an arbitrary ref.
+        run: |
+          case "$TAG" in
+            ocn-*) echo "releasing $TAG" ;;
+            *) echo "ERROR: '$TAG' does not match ocn-*" >&2; exit 1 ;;
+          esac
+
+      # ---- the gate, identical to ci.yml -------------------------------
+      # Kept step-for-step in sync with .github/workflows/ci.yml so a tag
+      # can never publish something main would have rejected.
+
+      - name: byte-compile tools
+        run: python3 -m py_compile tools/*.py
+
+      - name: validate canonical catalogue
+        run: python3 tools/validate.py
+
+      - name: validate canonical catalogue with strict chess checks
+        run: python3 tools/validate.py --strict-chess
+
+      - name: run tool test suite
+        run: python3 -m unittest discover -s tools/tests
+
+      - name: check Lichess parent mapping fixture
+        run: python3 tools/lichess_parent_map.py --check tools/tests/fixtures/lichess_sample.tsv
+
+      - name: run package test suite
+        run: python3 -m unittest discover -s tests
+
+      - name: verify bundled package data is in sync
+        # Dry run is the default: prints DRIFT lines and exits 1 when
+        # src/ocn/data/ no longer matches a fresh build from catalog/.
+        # A release must never ship a wheel with a stale catalogue inside.
+        run: python3 tools/sync_package_data.py
+
+      # ---- artefacts ---------------------------------------------------
+
+      - name: build the data artefacts
+        # Four sidecars are copied verbatim (they are committed and
+        # drift-guarded by the suite above), two are rebuilt here.
+        #
+        # `ocn-1.positions.tsv` is generated with the same options
+        # tools/sync_package_data.py uses (no --include-roots), so the
+        # released file is byte-identical to the copy inside the wheel.
+        #
+        # No parquet, on purpose. `openings.parquet` and
+        # `_efcdb_manifest.json` shipped with 1.1.0 and 1.2.0; they came
+        # from `chess-parquet`, which is a private repo, so a public
+        # workflow cannot regenerate them. Roadmap decision 8 drops the
+        # parquet from OCN releases and moves the Polyglot zobrist in-repo
+        # (H2.8, positions sidecar). Everything attached here is buildable
+        # from catalog/ alone.
+        run: |
+          mkdir -p dist-release
+          cp catalog/ocn-1.csv                dist-release/
+          cp catalog/ocn-1.lichess-xref.tsv   dist-release/
+          cp catalog/ocn-1.eco.tsv            dist-release/
+          cp catalog/ocn-1.eco-divergence.tsv dist-release/
+          python3 tools/export_positions.py --out dist-release/ocn-1.positions.tsv --stats
+          python3 tools/build_json_export.py --out dist-release/ocn-1.json --version "$TAG"
+          cmp dist-release/ocn-1.positions.tsv src/ocn/data/ocn-1.positions.tsv
+
+      - name: build the sdist and wheel
+        # Pinned so a release is not at the mercy of a build-backend
+        # frontend release. The package version comes from pyproject.toml
+        # and moves independently of the catalogue tag by design, so the
+        # filenames here are ocn_chess-<pkg version>-*, not <tag>-*.
+        run: |
+          python3 -m pip install --disable-pip-version-check "build==1.2.2.post1"
+          python3 -m build --outdir dist-release
+
+      - name: smoke-test the built wheel in a clean venv
+        # The H1.1 acceptance criterion, run against the exact file that
+        # is about to be published rather than an editable install.
+        run: |
+          python3 -m venv "$RUNNER_TEMP/smoke"
+          "$RUNNER_TEMP/smoke/bin/pip" install --disable-pip-version-check dist-release/*.whl
+          "$RUNNER_TEMP/smoke/bin/ocn" version
+          "$RUNNER_TEMP/smoke/bin/ocn" lookup B90
+
+      - name: checksum every artefact
+        # Written outside dist-release first so the glob cannot pick up
+        # the file being written, then moved in and published with it.
+        run: |
+          ( cd dist-release && sha256sum -- * > "$RUNNER_TEMP/SHA256SUMS" )
+          mv "$RUNNER_TEMP/SHA256SUMS" dist-release/SHA256SUMS
+          cat dist-release/SHA256SUMS
+          ls -l dist-release
+
+      # ---- publish -----------------------------------------------------
+
+      - name: create or update the GitHub release
+        run: |
+          NOTES="docs/release-${TAG}-notes.md"
+          BODY="$RUNNER_TEMP/release-body.md"
+          TITLE="$TAG"
+          if [ -f "$NOTES" ]; then
+            HEADING=$(head -n 1 "$NOTES")
+            case "$HEADING" in "# "*) TITLE="${HEADING#\# }" ;; esac
+            {
+              echo "Release notes: [\`$NOTES\`](https://github.com/$GITHUB_REPOSITORY/blob/$TAG/$NOTES)"
+              echo
+            } > "$BODY"
+          else
+            {
+              echo "**Release notes are missing.** OCN release notes are hand-written:"
+              echo "add \`$NOTES\`, then re-run this workflow from the Actions tab"
+              echo "(\`workflow_dispatch\`, tag \`$TAG\`) to refresh this body."
+              echo
+            } > "$BODY"
+          fi
+          cat >> "$BODY" <<'ARTEFACTS'
+          ### Artefacts
+
+          | file | what it is |
+          |---|---|
+          | `ocn-1.csv` | the canonical catalogue, 14 columns |
+          | `ocn-1.json` | the whole catalogue as one JSON document (schema `ocn.catalog.v1`), with SAN movetext and the pipe-packed columns pre-split |
+          | `ocn-1.positions.tsv` | one row per concrete slug: `fen_key`, full FEN, transposition-group size |
+          | `ocn-1.lichess-xref.tsv` | Lichess opening lines mapped to OCN slugs |
+          | `ocn-1.eco.tsv` | scalar join table, one row per (slug, ECO code) |
+          | `ocn-1.eco-divergence.tsv` | rows whose OCN class letter is absent from their ECO codes, with rationale keys into the spec |
+          | `ocn_chess-*.whl`, `ocn_chess-*.tar.gz` | the `ocn-chess` Python package, catalogue bundled, zero runtime dependencies |
+          | `SHA256SUMS` | sha256 of every file above |
+
+          Built from the tag by `.github/workflows/release.yml`. The
+          canonical source is `catalog/ocn-1.csv`; everything else is
+          derived and regenerable.
+          ARTEFACTS
+          if gh release view "$TAG" >/dev/null 2>&1; then
+            gh release upload "$TAG" dist-release/* --clobber
+            gh release edit "$TAG" --title "$TITLE" --notes-file "$BODY"
+          else
+            # --verify-tag: refuse to create a release for a tag that is
+            # not already on the remote. No --generate-notes: the body is
+            # ours, per the runbook tradition.
+            gh release create "$TAG" \
+              --verify-tag \
+              --title "$TITLE" \
+              --notes-file "$BODY" \
+              dist-release/*
+          fi
