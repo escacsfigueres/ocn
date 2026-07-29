@@ -1,9 +1,9 @@
 # What the library could and could not answer
 
-**Status: findings, nothing applied.** The first nine of the fifteen
-treatise heads have been put to five source libraries (Edward Winter's
-*Chess Notes* in three parts, two Spanish chess history collections),
-45 queries in all, through `tools/ask_treatise_sources.py`. The raw
+**Status: findings, nothing applied.** All fourteen open treatise heads
+have been put to five source libraries (Edward Winter's *Chess Notes* in
+three parts, two Spanish chess history collections), 70 queries in all,
+through `tools/ask_treatise_sources.py`. The raw
 answers with their citations are in
 [`evidence/treatise/`](evidence/treatise/).
 
@@ -24,6 +24,9 @@ in his book" becomes a queryable relation rather than prose.
 | Lucena | his treatise | 1497 "or a little earlier"; died c. 1530 | Winter, *Chess Notes* |
 | Ponziani | first edition | 1769, title not stated in these sources | Winter, *Chess Notes* |
 | Jaenisch | a St Petersburg publication | 1837, title not stated in these sources | Winter, *Chess Notes* |
+| Philipp Stamma | *Essai sur le Jeu des Echecs* | 1737, confirmed through a 1739 advertisement in the *Daily Post and General Advertiser* | Winter, *Chess Notes* |
+| Gioachino Greco | the 1623 Greco manuscript; his games date c. 1622-1634 | four of them printed by J. H. Sarratt in 1813 | Winter, *Chess Notes* |
+| Giulio Cesare Polerio | his 16th-century manuscripts | presented by Antonius van der Linde, *Das Schachspiel des XVI. Jahrhunderts*, 1874 | Winter, *Chess Notes* |
 
 ## What it does not confirm: the attributions themselves
 
@@ -59,6 +62,21 @@ Lolli line in the Scotch, and no source attaching his name to one. Also
 **open**, and more doubtful than the Lucena: at least Lucena has a
 documented connection to the Ruy López era.
 
+## A naming history, recovered whole
+
+**`C.LtO`, the Latvian Gambit.** The best single find of the exercise,
+and not one of the questions asked. The sources record that
+1.e4 e5 2.Nf3 f5 was known as the **Greco Counter-Gambit** until Latvian
+analysts, Karl Behting among them, re-examined it in the twentieth
+century; FIDE's 1934 booklet listed it as *Gambit letton*, and MCO-7
+(1946) adopted "Latvian Gambit", which is the name it still carries.
+
+That is a complete renaming with dates and authorities on both sides of
+it -- exactly the shape of fact the chronicle layer exists to hold, and
+the first candidate for a `renamed` relation. It also answers the
+Bilguer question sideways: whatever the *Handbuch* contains, the line's
+name came from Riga in the twentieth century, not from Berlin in 1843.
+
 ## One dispute worth keeping
 
 **`C.RyL`.** Von der Lasa argued in the *Deutsche Schachzeitung* of 1873
@@ -80,5 +98,10 @@ chronicle exists to carry, and no other open chess dataset has it.
 - Two heads leave the worksheet's candidate list and join the open
   questions, which is a better outcome than fifteen thin attributions.
 
-Six heads remain to query. The pattern is unlikely to change, but the
-negatives are cheap and the occasional von der Lasa is worth the wait.
+All fourteen are queried; the raw answers are in `evidence/treatise/`.
+The pattern held: bibliography yes, attribution no. What the last five
+added was two more citable publications, the modern edition that makes
+Polerio citable at all (van der Linde, 1874), and the Latvian Gambit's
+whole naming history -- none of which were the questions asked, and all
+of which are worth more than a fifteenth thin attribution would have
+been.
