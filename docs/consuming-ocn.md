@@ -22,8 +22,7 @@ shipped artefacts, see
 
 If you have a chess position and want OCN names:
 
-1. Install the package (`pip install .` from a checkout; `ocn-chess` on
-   PyPI with the next tagged release) and call `Catalog.by_fen(fen)` —
+1. Install the package (`pip install ocn-chess`) and call `Catalog.by_fen(fen)` —
    the en-passant normalisation and the O(1) positions index are built
    in. Without Python, match your position's `fen_key` against the
    release artefact `ocn-1.positions.tsv` (spec Annex A defines the key).

@@ -27,8 +27,7 @@ Read once, remember forever. No lookup table needed.
 ## Five-minute quickstart
 
 ```bash
-pip install .           # from a checkout today
-pip install ocn-chess   # from PyPI, with the next tagged release
+pip install ocn-chess
 ```
 
 The catalogue travels inside the package: no download, no database, no
@@ -182,8 +181,8 @@ and join patterns for consumers are in
 
 The installable form of everything below, with the catalogue bundled
 inside the wheel — no checkout, no network, no dependency. Built here
-under [`src/ocn/`](src/ocn/); `pip install .` from a checkout today,
-PyPI with the next tagged release.
+under [`src/ocn/`](src/ocn/); on PyPI as
+[`ocn-chess`](https://pypi.org/project/ocn-chess/).
 
 ```python
 from ocn import Catalog

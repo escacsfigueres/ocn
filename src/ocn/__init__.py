@@ -22,6 +22,10 @@ from __future__ import annotations
 from .catalog import Catalog, Row
 from .fen import fen_key
 
-__version__ = "1.2.1.dev0"
+try:  # single source of truth: pyproject via the installed metadata
+    from importlib.metadata import version as _dist_version
+    __version__ = _dist_version("ocn-chess")
+except Exception:  # running from a bare checkout without installation
+    __version__ = "1.2.1"
 
 __all__ = ["Catalog", "Row", "fen_key", "__version__"]
