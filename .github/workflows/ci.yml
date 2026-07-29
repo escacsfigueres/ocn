@@ -27,7 +27,10 @@ jobs:
           python-version: ${{ matrix.python }}
 
       - name: byte-compile tools
-        run: python3 -m py_compile tools/apply_attribution_manifest.py tools/audit_chess.py tools/audit_naming_attribution.py tools/audit_transpositions.py tools/candidate_slice_export.py tools/chess_uci.py tools/export_positions.py tools/from_eco.py tools/from_position.py tools/from_uci.py tools/lichess_parent_map.py tools/scaffold_attribution_manifest.py tools/validate.py tools/verify_doc_slugs.py
+        # Compile every tool, not a hand-maintained subset — the list used to
+        # drift (build_lichess_xref.py, generate_diacritic_manifest.py, ocn.py
+        # were all missing). test_tools_compile.py guards this locally too.
+        run: python3 -m py_compile tools/*.py
 
       - name: validate canonical catalogue
         run: python3 tools/validate.py

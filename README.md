@@ -3,7 +3,7 @@
 [![CI](https://github.com/escacsfigueres/ocn/actions/workflows/ci.yml/badge.svg)](https://github.com/escacsfigueres/ocn/actions/workflows/ci.yml)
 [![Spec license: CC BY 4.0](https://img.shields.io/badge/spec-CC%20BY%204.0-lightgrey.svg)](LICENSE-SPEC)
 [![Code license: MIT](https://img.shields.io/badge/code-MIT-blue.svg)](LICENSE-CODE)
-[![Release](https://img.shields.io/badge/release-ocn--1.1.0-blue.svg)](#status)
+[![Release](https://img.shields.io/badge/release-ocn--1.2.0-blue.svg)](#status)
 
 **OCN** is a hierarchical, human-readable naming scheme for chess
 openings, designed as a companion to ECO (the *Encyclopaedia of Chess
@@ -80,11 +80,13 @@ The full specification is in [`spec/OCN-1.md`](spec/OCN-1.md).
 
 ## Status
 
-**Released — `ocn-1.1.0` (2026-05-26).** The format is stable; the reference
+**Released — `ocn-1.2.0` (2026-06-11).** The format is stable; the reference
 catalogue has 5,899 entries, every duplicate-FEN group is resolved
-(`unresolved_groups=0`), and CI runs strict legal-move/SAN validation plus
-the full tool test suite. Post-1.1 work adds sourced naming attributions
-(see [`docs/post-1.1-roadmap.md`](docs/post-1.1-roadmap.md)). Comments,
+(`unresolved_groups=0`), canonical names carry their true diacritics, the
+ECO legacy codes are audited, and CI runs strict legal-move/SAN validation
+plus the full tool test suite under an unconditional gate. Post-1.2 work adds
+internationalised alias sidecars and consumer tooling (see
+[`docs/post-1.1-roadmap.md`](docs/post-1.1-roadmap.md)). Comments,
 corrections and additions welcome via issues.
 
 > Naming history: previously drafted as **OCS — Open Chess Slug** during
@@ -276,10 +278,11 @@ See [`spec/OCN-1.md`](spec/OCN-1.md) for the full reasoning.
   for the post-cleanup release candidate, and
   [`docs/post-0.2-next-steps.md`](docs/post-0.2-next-steps.md)
   for what's next. The catalogue is **fully resolved
-  (0 unresolved)** and **`ocn-1.1.0` is released** — notes:
-  [`docs/release-ocn-1.1.0-notes.md`](docs/release-ocn-1.1.0-notes.md),
+  (0 unresolved)** and **`ocn-1.2.0` is released** — notes:
+  [`docs/release-ocn-1.2.0-notes.md`](docs/release-ocn-1.2.0-notes.md),
   downstream-verified end-to-end by a real consumer:
-  [`docs/release-ocn-1.1.0-downstream-verification.md`](docs/release-ocn-1.1.0-downstream-verification.md).
+  [`docs/release-ocn-1.2.0-downstream-verification.md`](docs/release-ocn-1.2.0-downstream-verification.md)
+  (the `ocn-1.1.0` notes remain in `docs/` for history).
 - **post-1.1 — data quality** — naming / attribution audit (are the
   eponyms *true*, and is the *kind* of attribution explicit:
   invented vs published vs popularised vs event/game anchor?).
