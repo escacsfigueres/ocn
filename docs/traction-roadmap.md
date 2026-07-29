@@ -479,6 +479,25 @@ H0.1-H0.7 ──> H0.8 flip public ──> H1.1 pip + H1.2 JSON ──> H1.3 aut
   **check 22** enforces CP-5 with its own maximal-suffix walk plus a
   fixture. Suites: tools/tests 447, tests/ 100; validator clean in both
   modes (0 warnings); slug gate green.
+- 2026-07-30 — **LAUNCH DAY: H0.8 + Zenodo + PyPI executed.** Repo
+  flipped public (anonymous 200 on repo, README and raw catalogue).
+  Tag `ocn-1.2.1` published the first fully automated release (9
+  assets, wheel smoke test green) — after fixing a six-week-old
+  landmine: CI had been red since the xref sidecar landed in June,
+  because its drift test rebuilds from the external/ snapshot that was
+  gitignored and never reached the runner; the CC0 snapshot is now
+  vendored and CI is hermetic and green. Zenodo minted
+  doi:10.5281/zenodo.21670207 (concept), wired into CITATION.cff and
+  README. `ocn-chess` 1.2.1 is live on PyPI, verified by a clean-venv
+  install answering `ocn lookup B90`; the quickstart honesty gate now
+  asserts the real install claim. The explorer is live at
+  ocn.vercel.app. Remaining from H1.4: the HuggingFace dataset card.
+  H3, the announcement wave, awaits Albert.
+- 2026-07-30 — **H2.6 closed.** The 29 ambiguous-alias decisions
+  executed: 24 deletions, 3 structural KEEPs, London and Lion KEEP
+  with notes cross-references (the registrar's amendment). Validator
+  check 23 pins the five approved collisions. Apply sha256 matched the
+  dry-run prediction.
 - 2026-07-29 — **H2.6 prepared (pending apply).** Engine mode +
   manifests prepared, dry-runs clean, applies pending review. Nothing
   has been written to the catalogue.
