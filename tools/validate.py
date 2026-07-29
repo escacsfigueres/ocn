@@ -57,6 +57,11 @@ Checks performed:
     rule; any segment in it that also parses as SAN must appear in
     `GRANDFATHERED_SAN_NAMED_TOKENS`, which mirrors the published table
     in `spec/OCN-1.md` and is closed.
+23. No cross-row alias collision without registrar approval: an alias
+    equal to ANOTHER row's canonical_name must be listed in
+    `APPROVED_CROSS_ROW_ALIASES` (the five decided 2026-07-30, see
+    docs/ambiguous-alias-decisions.md); anything else fails as a
+    naming artefact. Complements check 16's self-identity ban.
 
 Exits with code 0 on success, 1 on the first error encountered.
 
@@ -149,6 +154,20 @@ TEXT_COLUMNS = [
 # game collection ("the corpus", "Gigabase") is not a citable source.
 UNVERIFIABLE_SOURCE_RE = re.compile(
     r"\bcorpus\b|\bgigabase\b|\bprivate database\b", re.IGNORECASE)
+
+# Cross-row alias collisions approved by the registrar (2026-07-30,
+# docs/ambiguous-alias-decisions.md): an alias that equals ANOTHER row's
+# canonical_name is genuine shared naming only for these (slug, alias)
+# pairs — three declared transposition groups plus the London and Lion
+# shared-system names, each cross-referenced in its row's notes. Any
+# other cross-row collision is a naming artefact and fails check 23.
+APPROVED_CROSS_ROW_ALIASES = {
+    ("D.QPG.Ver.Ric", "Richter-Veresov Attack"),
+    ("D.QPG.Zuk.Nf6.Bf4", "London System"),
+    ("D.QPG.Zuk.Col.Bd3", "Colle System"),
+    ("A.QPO.Nf6.Nf3.e6.Bf4", "London System"),
+    ("B.Pir.Pre.d4.Nf6.Nc3.Nbd7", "Lion Defence"),
+}
 
 # Characters that never belong in catalogue text: the middle dot
 # (banned project-wide as a separator), invisible spacing characters,
@@ -599,6 +618,27 @@ def validate(
         fail(f"duplicate canonical_name {name!r} on {where} — canonical "
              f"names must be globally unique; known-pending pairs live in "
              f"DUPLICATE_NAME_ALLOWLIST")
+
+    # 23. Cross-row alias collisions. An alias equal to ANOTHER row's
+    #     canonical_name makes name-to-slug lookup ambiguous, so every
+    #     such collision needs the registrar's explicit approval
+    #     (APPROVED_CROSS_ROW_ALIASES, decided 2026-07-30). Check 16
+    #     already bans self-identity; this closes the cross-row gap.
+    for slug, row in seen_slugs.items():
+        aliases_cell = (row.get("aliases") or "").strip()
+        if not aliases_cell:
+            continue
+        for alias in aliases_cell.split("|"):
+            owners = names_to_slugs.get(alias)
+            if not owners or owners == [slug]:
+                continue
+            if (slug, alias) in APPROVED_CROSS_ROW_ALIASES:
+                continue
+            fail(f"row {row['_row']}: slug '{slug}' carries alias {alias!r}, "
+                 f"which is the canonical_name of {', '.join(repr(s) for s in owners)}. "
+                 f"Cross-row alias collisions need registrar approval "
+                 f"(APPROVED_CROSS_ROW_ALIASES; see "
+                 f"docs/ambiguous-alias-decisions.md).")
 
     # 3. Parent existence and depth-1 rule (second pass)
     for slug, row in seen_slugs.items():

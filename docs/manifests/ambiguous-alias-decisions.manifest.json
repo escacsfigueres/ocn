@@ -1,0 +1,297 @@
+{
+  "kind": "ocn.attribution_manifest.v1",
+  "title": "Ambiguous-alias decisions: 24 deletions, 2 shared-name cross-refs (H2.6)",
+  "description": "Executes the registrar's decisions on the 29 cross-row alias collisions (docs/ambiguous-alias-decisions.md): 24 aliases deleted (each restated another row's canonical name with the unqualified form owned elsewhere); 3 structural KEEPs untouched (declared transposition groups); the London System and Lion Defence rows keep their aliases and gain a notes cross-reference stating the deliberate name sharing. After this lot exactly 5 approved collisions remain, enforced by validator check 23.",
+  "mode": "naming_strings_only",
+  "expected_catalog_rows": 5899,
+  "expected_changed_rows": [
+    "A.EID.Fch.NGr.dxc4",
+    "A.Eng.AIn.Nf3.g6.b4",
+    "A.Hng.f5",
+    "A.QPO.Nf6.Nf3.e6.Bf4",
+    "A.QPO.g6",
+    "A.Ret.Nf6.g3",
+    "B.Fre.d3",
+    "B.Pir.Pre",
+    "B.Pir.Pre.d4.Nf6.Nc3.Nbd7",
+    "B.Pir.Pre.f4",
+    "B.Sic.Ama",
+    "C.Cen.Dsh.Acc.MLn.Qe7",
+    "C.KGm.Acc.Nf3.KKn.Bc4.Phi",
+    "C.Vie.Nc6.d4.f5",
+    "D.QGD.Vie.Sxx",
+    "D.QPG.Ver.Nbd7.Nf3.g6",
+    "D.Sem.AMe.Chi",
+    "D.Sem.AMe.Sto.b6",
+    "D.Sem.Bg5.Nbd7.e3",
+    "D.Sem.Mer.Bd3.Bd6",
+    "D.Sem.e3.Nbd7.Bd3.Bd6",
+    "E.Ind.Cat",
+    "E.Ind.Cat.d5",
+    "E.Ind.Cat.d5.Bg2",
+    "E.KID.Avk.Cst.Bg5.Na6",
+    "E.KID.Fou.Na6"
+  ],
+  "changes": [
+    {
+      "ocn1": "A.EID.Fch.NGr.dxc4",
+      "evidence_grade": "EDITORIAL",
+      "source_refs": [
+        "docs/ambiguous-alias-decisions.md (registrar decisions 2026-07-30); traction-roadmap H2.6"
+      ],
+      "fields": {
+        "aliases": "East Indian Neo-Grünfeld, Modern Defense|Neo-Grünfeld Defense: Classical Variation, Modern Defense"
+      }
+    },
+    {
+      "ocn1": "A.Eng.AIn.Nf3.g6.b4",
+      "evidence_grade": "EDITORIAL",
+      "source_refs": [
+        "docs/ambiguous-alias-decisions.md (registrar decisions 2026-07-30); traction-roadmap H2.6"
+      ],
+      "fields": {
+        "aliases": ""
+      }
+    },
+    {
+      "ocn1": "A.Hng.f5",
+      "evidence_grade": "EDITORIAL",
+      "source_refs": [
+        "docs/ambiguous-alias-decisions.md (registrar decisions 2026-07-30); traction-roadmap H2.6"
+      ],
+      "fields": {
+        "aliases": "Hungarian Opening, Dutch Defense"
+      }
+    },
+    {
+      "ocn1": "A.QPO.Nf6.Nf3.e6.Bf4",
+      "evidence_grade": "EDITORIAL",
+      "source_refs": [
+        "docs/ambiguous-alias-decisions.md (registrar decisions 2026-07-30); traction-roadmap H2.6"
+      ],
+      "fields": {
+        "notes": "Bf4 after ...e6 in the d4/Nf3 Indian Knights. The 'London System' alias is shared with A.Lon deliberately: White's setup is the London, but with ...e6 instead of ...d5 the position is distinct and no transposition links the rows. See docs/ambiguous-alias-decisions.md."
+      }
+    },
+    {
+      "ocn1": "A.QPO.g6",
+      "evidence_grade": "EDITORIAL",
+      "source_refs": [
+        "docs/ambiguous-alias-decisions.md (registrar decisions 2026-07-30); traction-roadmap H2.6"
+      ],
+      "fields": {
+        "aliases": "Queen's Pawn Opening, Modern Defense"
+      }
+    },
+    {
+      "ocn1": "A.Ret.Nf6.g3",
+      "evidence_grade": "EDITORIAL",
+      "source_refs": [
+        "docs/ambiguous-alias-decisions.md (registrar decisions 2026-07-30); traction-roadmap H2.6"
+      ],
+      "fields": {
+        "aliases": ""
+      }
+    },
+    {
+      "ocn1": "B.Fre.d3",
+      "evidence_grade": "EDITORIAL",
+      "source_refs": [
+        "docs/ambiguous-alias-decisions.md (registrar decisions 2026-07-30); traction-roadmap H2.6"
+      ],
+      "fields": {
+        "aliases": "French Defense, King's Indian Attack"
+      }
+    },
+    {
+      "ocn1": "B.Pir.Pre",
+      "evidence_grade": "EDITORIAL",
+      "source_refs": [
+        "docs/ambiguous-alias-decisions.md (registrar decisions 2026-07-30); traction-roadmap H2.6"
+      ],
+      "fields": {
+        "aliases": "Pirc Defense, Precursor"
+      }
+    },
+    {
+      "ocn1": "B.Pir.Pre.d4.Nf6.Nc3.Nbd7",
+      "evidence_grade": "EDITORIAL",
+      "source_refs": [
+        "docs/ambiguous-alias-decisions.md (registrar decisions 2026-07-30); traction-roadmap H2.6"
+      ],
+      "fields": {
+        "notes": "...Nbd7 Lion setup from the Pirc/Philidor move order. The 'Lion Defence' alias is shared with B.Lio deliberately: this row is Black's ...d6/...Nf6/...Nbd7 Lion setup proper, while B.Lio encodes White's f3 treatment against it. See docs/ambiguous-alias-decisions.md."
+      }
+    },
+    {
+      "ocn1": "B.Pir.Pre.f4",
+      "evidence_grade": "EDITORIAL",
+      "source_refs": [
+        "docs/ambiguous-alias-decisions.md (registrar decisions 2026-07-30); traction-roadmap H2.6"
+      ],
+      "fields": {
+        "aliases": "Harmonist"
+      }
+    },
+    {
+      "ocn1": "B.Sic.Ama",
+      "evidence_grade": "EDITORIAL",
+      "source_refs": [
+        "docs/ambiguous-alias-decisions.md (registrar decisions 2026-07-30); traction-roadmap H2.6"
+      ],
+      "fields": {
+        "aliases": ""
+      }
+    },
+    {
+      "ocn1": "C.Cen.Dsh.Acc.MLn.Qe7",
+      "evidence_grade": "EDITORIAL",
+      "source_refs": [
+        "docs/ambiguous-alias-decisions.md (registrar decisions 2026-07-30); traction-roadmap H2.6"
+      ],
+      "fields": {
+        "aliases": "Danish Gambit Accepted Main Line, Chigorin Defense"
+      }
+    },
+    {
+      "ocn1": "C.KGm.Acc.Nf3.KKn.Bc4.Phi",
+      "evidence_grade": "EDITORIAL",
+      "source_refs": [
+        "docs/ambiguous-alias-decisions.md (registrar decisions 2026-07-30); traction-roadmap H2.6"
+      ],
+      "fields": {
+        "aliases": "King's Gambit Accepted: Philidor Gambit"
+      }
+    },
+    {
+      "ocn1": "C.Vie.Nc6.d4.f5",
+      "evidence_grade": "EDITORIAL",
+      "source_refs": [
+        "docs/ambiguous-alias-decisions.md (registrar decisions 2026-07-30); traction-roadmap H2.6"
+      ],
+      "fields": {
+        "aliases": ""
+      }
+    },
+    {
+      "ocn1": "D.QGD.Vie.Sxx",
+      "evidence_grade": "EDITORIAL",
+      "source_refs": [
+        "docs/ambiguous-alias-decisions.md (registrar decisions 2026-07-30); traction-roadmap H2.6"
+      ],
+      "fields": {
+        "aliases": ""
+      }
+    },
+    {
+      "ocn1": "D.QPG.Ver.Nbd7.Nf3.g6",
+      "evidence_grade": "EDITORIAL",
+      "source_refs": [
+        "docs/ambiguous-alias-decisions.md (registrar decisions 2026-07-30); traction-roadmap H2.6"
+      ],
+      "fields": {
+        "aliases": "Veresov Two Knights, Grünfeld Defense"
+      }
+    },
+    {
+      "ocn1": "D.Sem.AMe.Chi",
+      "evidence_grade": "EDITORIAL",
+      "source_refs": [
+        "docs/ambiguous-alias-decisions.md (registrar decisions 2026-07-30); traction-roadmap H2.6"
+      ],
+      "fields": {
+        "aliases": "Semi-Slav Anti-Meran, Chigorin Defense"
+      }
+    },
+    {
+      "ocn1": "D.Sem.AMe.Sto.b6",
+      "evidence_grade": "EDITORIAL",
+      "source_refs": [
+        "docs/ambiguous-alias-decisions.md (registrar decisions 2026-07-30); traction-roadmap H2.6"
+      ],
+      "fields": {
+        "aliases": ""
+      }
+    },
+    {
+      "ocn1": "D.Sem.Bg5.Nbd7.e3",
+      "evidence_grade": "EDITORIAL",
+      "source_refs": [
+        "docs/ambiguous-alias-decisions.md (registrar decisions 2026-07-30); traction-roadmap H2.6"
+      ],
+      "fields": {
+        "aliases": "D52 Prefix"
+      }
+    },
+    {
+      "ocn1": "D.Sem.Mer.Bd3.Bd6",
+      "evidence_grade": "EDITORIAL",
+      "source_refs": [
+        "docs/ambiguous-alias-decisions.md (registrar decisions 2026-07-30); traction-roadmap H2.6"
+      ],
+      "fields": {
+        "aliases": "Semi-Slav Meran Bd3, Chigorin Defense"
+      }
+    },
+    {
+      "ocn1": "D.Sem.e3.Nbd7.Bd3.Bd6",
+      "evidence_grade": "EDITORIAL",
+      "source_refs": [
+        "docs/ambiguous-alias-decisions.md (registrar decisions 2026-07-30); traction-roadmap H2.6"
+      ],
+      "fields": {
+        "aliases": ""
+      }
+    },
+    {
+      "ocn1": "E.Ind.Cat",
+      "evidence_grade": "EDITORIAL",
+      "source_refs": [
+        "docs/ambiguous-alias-decisions.md (registrar decisions 2026-07-30); traction-roadmap H2.6"
+      ],
+      "fields": {
+        "aliases": ""
+      }
+    },
+    {
+      "ocn1": "E.Ind.Cat.d5",
+      "evidence_grade": "EDITORIAL",
+      "source_refs": [
+        "docs/ambiguous-alias-decisions.md (registrar decisions 2026-07-30); traction-roadmap H2.6"
+      ],
+      "fields": {
+        "aliases": ""
+      }
+    },
+    {
+      "ocn1": "E.Ind.Cat.d5.Bg2",
+      "evidence_grade": "EDITORIAL",
+      "source_refs": [
+        "docs/ambiguous-alias-decisions.md (registrar decisions 2026-07-30); traction-roadmap H2.6"
+      ],
+      "fields": {
+        "aliases": "Catalan Opening: Closed"
+      }
+    },
+    {
+      "ocn1": "E.KID.Avk.Cst.Bg5.Na6",
+      "evidence_grade": "EDITORIAL",
+      "source_refs": [
+        "docs/ambiguous-alias-decisions.md (registrar decisions 2026-07-30); traction-roadmap H2.6"
+      ],
+      "fields": {
+        "aliases": "King's Indian Defense: Averbakh Variation, Modern Defense"
+      }
+    },
+    {
+      "ocn1": "E.KID.Fou.Na6",
+      "evidence_grade": "EDITORIAL",
+      "source_refs": [
+        "docs/ambiguous-alias-decisions.md (registrar decisions 2026-07-30); traction-roadmap H2.6"
+      ],
+      "fields": {
+        "aliases": "KID Four Pawns, Modern Defense|King's Indian Defense: Four Pawns Attack, Modern Defense"
+      }
+    }
+  ]
+}

@@ -1,6 +1,6 @@
 # Ambiguous aliases: the 29 name collisions
 
-**Status: PENDING DECISIONS — no change applied.** This is a decision
+**Status: DECIDED 2026-07-30, applied.** The registrar accepted the recommendation with one amendment: the two flagged tight calls (the London System row and the Lion Defence row) are KEEP with a notes cross-reference instead of DELETE — the alternative each entry itself proposed. Outcome: 24 deletions applied via `manifests/ambiguous-alias-decisions.manifest.json`, 5 approved collisions remain, and validator check 23 now fails any other cross-row collision (`APPROVED_CROSS_ROW_ALIASES`). This is a decision
 table, not a manifest. Nothing here has been written to
 `catalog/ocn-1.csv`, and no manifest exists for it: each row wants a
 human yes/no, and only after that does a lot get built.
