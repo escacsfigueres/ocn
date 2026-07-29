@@ -1,5 +1,12 @@
 #!/usr/bin/env python3
-"""Export derived position rows from the OCN-1 catalogue."""
+"""Export derived position rows from the OCN-1 catalogue.
+
+One row per concrete catalogue entry with the `fen_key` of spec Annex A
+(board, turn, castling, legal en-passant), the same position as a
+complete `fen` with true halfmove/fullmove counters, and the size of its
+transposition group. This is the artefact the `ocn-chess` package bundles
+as its O(1) position index.
+"""
 from __future__ import annotations
 
 import argparse
@@ -11,9 +18,9 @@ from pathlib import Path
 from typing import Iterable
 
 try:
-    from chess_uci import fen_key_after_uci
+    from chess_uci import Board, parse_uci
 except ImportError:  # pragma: no cover - only for unusual direct imports.
-    from tools.chess_uci import fen_key_after_uci
+    from tools.chess_uci import Board, parse_uci
 
 
 DEFAULT_CATALOG = Path(__file__).resolve().parent.parent / "catalog" / "ocn-1.csv"
@@ -44,16 +51,46 @@ def load_catalog(path: Path) -> list[dict[str, str]]:
         return list(csv.DictReader(f))
 
 
+def replay(moves_uci: str) -> tuple[str, str]:
+    """Replay a UCI line and return its `(fen_key, fen)` pair.
+
+    `fen_key` is the position identity of spec Annex A (board, turn,
+    castling, legal en-passant). `fen` is that key plus the *true*
+    counters observed during the replay: the halfmove clock counts plies
+    since the last capture or pawn move, the fullmove number is
+    `plies // 2 + 1`. Earlier versions emitted a placeholder `0 1`, which
+    made the column unusable for anything that parses a real FEN.
+    """
+    board = Board()
+    halfmove = 0
+    plies = 0
+    for token in moves_uci.split():
+        try:
+            move = parse_uci(token)
+            piece = board.piece_at(move.src)
+            capture = bool(board.piece_at(move.dst))
+            board.push_uci(token)
+        except (ValueError, IndexError) as exc:
+            raise ValueError(f"illegal UCI move '{token}': {exc}") from exc
+        # Pawn moves cover en-passant captures and promotions, so the two
+        # tests below are the whole halfmove-clock rule.
+        halfmove = 0 if piece.lower() == "p" or capture else halfmove + 1
+        plies += 1
+    key = board.fen_key()
+    return key, f"{key} {halfmove} {plies // 2 + 1}"
+
+
 def derive_rows(rows: Iterable[dict[str, str]], *, include_roots: bool) -> list[dict[str, str]]:
     rows = list(rows)
     fen_by_slug: dict[str, str] = {}
+    full_fen_by_slug: dict[str, str] = {}
     for row in rows:
         slug = (row.get("ocn1") or "").strip()
         moves_uci = (row.get("moves_uci") or "").strip()
         if not moves_uci:
             continue
         try:
-            fen_by_slug[slug] = fen_key_after_uci(moves_uci)
+            fen_by_slug[slug], full_fen_by_slug[slug] = replay(moves_uci)
         except ValueError as exc:
             fail(f"catalogue row {slug}: {exc}")
 
@@ -74,7 +111,7 @@ def derive_rows(rows: Iterable[dict[str, str]], *, include_roots: bool) -> list[
                 "depth": row.get("depth") or "",
                 "moves_uci": moves_uci,
                 "fen_key": fen_key,
-                "fen": f"{fen_key} 0 1" if fen_key else "",
+                "fen": full_fen_by_slug.get(slug, ""),
                 "transposition_group_size": str(group_sizes[fen_key]) if fen_key else "",
                 "transposes_to": (row.get("transposes_to") or "").strip(),
                 "same_as": (row.get("same_as") or "").strip(),

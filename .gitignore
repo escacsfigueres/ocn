@@ -5,11 +5,16 @@
 .idea/
 .vscode/
 
-# Python (tools/)
+# Python (tools/, src/)
 __pycache__/
 *.py[cod]
 .venv/
 venv/
+
+# Packaging artefacts (src/ocn/data/ IS tracked — it ships in the wheel)
+*.egg-info/
+/dist/
+
 
 # Local data caches (we may keep them out of the repo)
 /build

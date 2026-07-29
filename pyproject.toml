@@ -1,0 +1,48 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ocn-chess"
+version = "1.2.1.dev0"
+description = "Open Chess Naming (OCN-1): hierarchical chess opening slugs, names and position lookup, catalogue included."
+readme = "README.md"
+requires-python = ">=3.10"
+# MIT covers the code in this package. The catalogue bundled under
+# ocn/data/ (ocn-1.csv and its derived sidecars) is CC-BY-4.0 — see
+# LICENSE-SPEC; attribute "OCN, Club d'Escacs Figueres" when you
+# redistribute the data.
+license = "MIT"
+license-files = ["LICENSE", "LICENSE-CODE", "LICENSE-SPEC"]
+authors = [{ name = "Club d'Escacs Figueres" }]
+keywords = ["chess", "openings", "eco", "fen", "taxonomy", "ocn"]
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Intended Audience :: Developers",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3 :: Only",
+  "Topic :: Games/Entertainment :: Board Games",
+  "Topic :: Scientific/Engineering :: Information Analysis",
+  "Typing :: Typed",
+]
+# Zero runtime dependencies, on purpose: the catalogue ships inside the
+# wheel and the move generator is vendored, so nothing is downloaded or
+# imported beyond the standard library.
+dependencies = []
+
+[project.urls]
+Homepage = "https://github.com/escacsfigueres/ocn"
+Source = "https://github.com/escacsfigueres/ocn"
+Issues = "https://github.com/escacsfigueres/ocn/issues"
+
+[project.scripts]
+ocn = "ocn.cli:main"
+
+[tool.setuptools]
+package-dir = { "" = "src" }
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+ocn = ["data/*"]

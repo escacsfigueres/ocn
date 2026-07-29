@@ -43,3 +43,18 @@ jobs:
 
       - name: check Lichess parent mapping fixture
         run: python3 tools/lichess_parent_map.py --check tools/tests/fixtures/lichess_sample.tsv
+
+      - name: run package test suite
+        # Runs against src/ directly, before any install: the suite must
+        # not need a build step or network access.
+        run: python3 -m unittest discover -s tests
+
+      - name: install the package
+        run: python3 -m pip install -e .
+
+      - name: check the installed console script
+        # The roadmap's H1.1 acceptance criterion, checked every push.
+        run: |
+          ocn version
+          ocn lookup B90
+          python3 -c "import ocn; print(len(ocn.Catalog.load()))"
