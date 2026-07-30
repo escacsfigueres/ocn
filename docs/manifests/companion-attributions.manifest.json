@@ -1,0 +1,512 @@
+{
+ "kind": "ocn.attribution_manifest.v1",
+ "title": "Oxford Companion attributions, with the role the book gives",
+ "description": "DRY-RUN PROPOSAL, un-applied. Attributions for rows where Hooper & Whyld's Oxford Companion (2nd ed., 1992) has an entry for the exact line, the entry's own words name the person, and the book states a role. Each row was tied to its catalogue slug by MOVE SEQUENCE, not by name, via Wikipedia's list of openings named after people; the Companion was then asked about that exact line and its answer is quoted verbatim in attribution_source, so any row can be checked against the book. Rows the Companion does not cover, does not name the person in, or gives no role for are excluded rather than attributed blandly. The role is carried in attributed_to in parentheses, per the convention already in the catalogue. Where the Companion names a rival claimant that goes to historical_notes: a contested name recorded with its rival is scholarship, the same name recorded bare is a claim the book would not make. Passages were retrieved by notebook query over the book and are reproduced verbatim; a sample was checked against the PDF directly and matched word for word. Apply only under an explicit GO.",
+ "mode": "attribution_fields_only",
+ "expected_catalog_rows": 5899,
+ "expected_changed_rows": [
+  "A.Egl",
+  "A.Eng.Mik",
+  "A.Eng.Rev.Nc3.Nf6.Nf3.b5",
+  "A.Pol",
+  "A.Ret.Nf6.b4",
+  "A.Van",
+  "B.CaK.Pmv",
+  "B.Fre.Nrm.d5.Bd3",
+  "B.Mod.Std",
+  "B.Nim",
+  "B.Rat.Bal",
+  "B.Sic.Cls.Bol",
+  "B.Sic.SmM.Acc.Nxc3",
+  "C.Bsh.Bc5.c3",
+  "C.Dam",
+  "C.Ita.Evn",
+  "C.Ita.Giu.Bxf7",
+  "C.KGm.Acc.Kie.Nc6",
+  "C.KGm.Acc.Nf3.Cun",
+  "C.KGm.Acc.Nf3.Fis",
+  "C.KGm.Acc.Nf3.KKn.Bc4.McD",
+  "C.KGm.Acc.Nf3.Scl",
+  "C.KGm.Acc.Sta",
+  "C.KGm.Acc.Vil",
+  "C.KPO.Kgt.MLn.g3",
+  "C.KPO.Ne2",
+  "C.Pet.Coc",
+  "C.RyL.Bre",
+  "C.RyL.Mor",
+  "C.RyL.Pol",
+  "C.RyL.Stn",
+  "C.Sco.Gor",
+  "C.Vie.Nc6.f4",
+  "D.Bgm.Cap.Nc3",
+  "D.QGD.QKn.Nrm.Har",
+  "D.QPG.Zuk.Nf6.e3",
+  "E.Ben.d5.d6",
+  "E.Gru",
+  "E.Ind.e6.Nf3.Ne4",
+  "E.QID.Mil"
+ ],
+ "changes": [
+  {
+   "ocn1": "A.Egl",
+   "evidence_grade": "CLEAR",
+   "source_refs": [
+    "Hooper & Whyld, 'The Oxford Companion to Chess' (2nd ed., OUP 1992), entry 'Englund Gambit'"
+   ],
+   "fields": {
+    "attributed_to": "Fritz Englund (populariser)",
+    "attribution_source": "Hooper & Whyld, 'The Oxford Companion to Chess' (2nd ed., OUP 1992), entry 'Englund Gambit': \"Englund Gambit, 242, a version of the CHARLICK GAMBIT, 24 1 , played by a Swede. Fritz Carl Anton Englund ( 1 87 1- 1 933). In 1932 this gambit was tested, but not proven sound, in a small tournament held in Stockholm and won by STOLTZ.\"",
+    "historical_notes": "The Oxford Companion names a rival claimant: Charlick. Recorded as disputed rather than resolved."
+   }
+  },
+  {
+   "ocn1": "A.Eng.Mik",
+   "evidence_grade": "CLEAR",
+   "source_refs": [
+    "Hooper & Whyld, 'The Oxford Companion to Chess' (2nd ed., OUP 1992), entry 'Flohr–Mikenas–Carls Variation'"
+   ],
+   "fields": {
+    "attributed_to": "Salo Flohr (populariser); Vladas Mikėnas (populariser)",
+    "attribution_source": "Hooper & Whyld, 'The Oxford Companion to Chess' (2nd ed., OUP 1992), entry 'Flohr–Mikenas–Carls Variation': \"Flohr-Mikenas Variation, 40 (sometimes called the Carls Variation) in the ENGLISH OPENING, played in the game Flohr -Thomas, Hastings 1 93 1 -2, but known earlier (e.g. Bogoljubow-Nimzowitsch. London 1 927).\"",
+    "historical_notes": "The Oxford Companion names a rival claimant: Carls. Recorded as disputed rather than resolved."
+   }
+  },
+  {
+   "ocn1": "A.Eng.Rev.Nc3.Nf6.Nf3.b5",
+   "evidence_grade": "CLEAR",
+   "source_refs": [
+    "Hooper & Whyld, 'The Oxford Companion to Chess' (2nd ed., OUP 1992), entry 'Bellon Gambit'"
+   ],
+   "fields": {
+    "attributed_to": "Juan Manuel Bellón López (populariser)",
+    "attribution_source": "Hooper & Whyld, 'The Oxford Companion to Chess' (2nd ed., OUP 1992), entry 'Bellon Gambit': \"Bellon Gambit, 28, in the ENGLISH OPENING, played in the early 1 970s by the Spanish Grandmaster Juan Manuel Bellon ( 1 950 - ) .\""
+   }
+  },
+  {
+   "ocn1": "A.Pol",
+   "evidence_grade": "CLEAR",
+   "source_refs": [
+    "Hooper & Whyld, 'The Oxford Companion to Chess' (2nd ed., OUP 1992), entry 'Sokolsky Opening'"
+   ],
+   "fields": {
+    "attributed_to": "Alexey Sokolsky (populariser)",
+    "attribution_source": "Hooper & Whyld, 'The Oxford Companion to Chess' (2nd ed., OUP 1992), entry 'Sokolsky Opening': \"Sokolsky Opening, 6, the ORANG UTAN OPENING. The Soviet player Alexei Pavlovich Sokolsky ( 1 908-69) made it the subject of a monograph, Debyut 1 b2-b4 ( 1 963). He wrote a general openings manual, Slwkhmatny debyut ( 1 960), where he advocated many novelties.\""
+   }
+  },
+  {
+   "ocn1": "A.Ret.Nf6.b4",
+   "evidence_grade": "CLEAR",
+   "source_refs": [
+    "Hooper & Whyld, 'The Oxford Companion to Chess' (2nd ed., OUP 1992), entry 'Santasiere's Folly'"
+   ],
+   "fields": {
+    "attributed_to": "Anthony Santasiere (populariser)",
+    "attribution_source": "Hooper & Whyld, 'The Oxford Companion to Chess' (2nd ed., OUP 1992), entry 'Santasiere's Folly': \"Santasiere's Folly, 1 285, a relative of the ORANG UTAN OPENING (6). At Portsmouth 1 923, already assured of first prize, ALEKHINE played this opening against Drewitt. Later i t was taken up by Anthony Edward Santasiere ( 1 904--77), a colourful American player, who tried it against KASHDAN in the US championship, 1 938, and subsequently published analysis in the Chess Correspondent.\"",
+    "historical_notes": "The Oxford Companion names a rival claimant: Alekhine. Recorded as disputed rather than resolved."
+   }
+  },
+  {
+   "ocn1": "A.Van",
+   "evidence_grade": "CLEAR",
+   "source_refs": [
+    "Hooper & Whyld, 'The Oxford Companion to Chess' (2nd ed., OUP 1992), entry 'Dunst Opening'"
+   ],
+   "fields": {
+    "attributed_to": "Ted A. Dunst (populariser)",
+    "attribution_source": "Hooper & Whyld, 'The Oxford Companion to Chess' (2nd ed., OUP 1992), entry 'Dunst Opening': \"Dunst Opening, 8, the HEINRICHSEN OPENING. At one time its cause was advanced by Theodore Alexander Dunst ( 1 907- 85) of New York.\""
+   }
+  },
+  {
+   "ocn1": "B.CaK.Pmv",
+   "evidence_grade": "CLEAR",
+   "source_refs": [
+    "Hooper & Whyld, 'The Oxford Companion to Chess' (2nd ed., OUP 1992), entry 'Panov Attack'"
+   ],
+   "fields": {
+    "attributed_to": "Vasily Panov (populariser)",
+    "attribution_source": "Hooper & Whyld, 'The Oxford Companion to Chess' (2nd ed., OUP 1992), entry 'Panov Attack': \"Panov-Botvinnik Attack. 583. Analysed in Deutsches Wochenschach in 1 9 1 1 by KRAUSE, recommended by SCHLECHTER, and re-examined by PANOV in 1 930, this variation of the CARO-KANN DEFENCE became popular after BOTVINNIK played it in his first and ninth match games against FLOHR, 1 933. The name Krause-Panov System is sometimes given. (See DAKE; EUWE.)\"",
+    "historical_notes": "The Oxford Companion names a rival claimant: Krause, Schlechter. Recorded as disputed rather than resolved."
+   }
+  },
+  {
+   "ocn1": "B.Fre.Nrm.d5.Bd3",
+   "evidence_grade": "CLEAR",
+   "source_refs": [
+    "Hooper & Whyld, 'The Oxford Companion to Chess' (2nd ed., OUP 1992), entry 'Schlechter Variation'"
+   ],
+   "fields": {
+    "attributed_to": "Carl Schlechter (populariser)",
+    "attribution_source": "Hooper & Whyld, 'The Oxford Companion to Chess' (2nd ed., OUP 1992), entry 'Schlechter Variation': \"Schlechter Variation. 1 00, 1 08, 37 1 , or 375, combination of KING'S INDIAN and SLAV DEFENCES, played by ALAPIN against TARRASCH at Nuremberg 1 896, by SCHLECHTER in his match with LASKER, 1 9 1 0, and now a standard line (see LEVENFISH; NAJDORF; PROTECTED PASSED PAWN); 1 22 in the QUEEN'S GAMBIT Declined, sometimes called the Lodi: Variation, or Rubinstein Attack, i ntroduced in the game Schlechter-Duz-Khotimirsky, Prague 1 908, and usually regarded as the best way for White to attack the TARRASCH DEFENCE. The variation was tested in a FIXED OPENINGS tournament, Budapest 1 9 1 2.\"",
+    "historical_notes": "The Oxford Companion names a rival claimant: Alapin. Recorded as disputed rather than resolved."
+   }
+  },
+  {
+   "ocn1": "B.Mod.Std",
+   "evidence_grade": "CLEAR",
+   "source_refs": [
+    "Hooper & Whyld, 'The Oxford Companion to Chess' (2nd ed., OUP 1992), entry 'Robatsch Defence'"
+   ],
+   "fields": {
+    "attributed_to": "Karl Robatsch (populariser)",
+    "attribution_source": "Hooper & Whyld, 'The Oxford Companion to Chess' (2nd ed., OUP 1992), entry 'Robatsch Defence': \"Robatsch Defence. 1 276, also known as the King's Fianchetto Dcf ence, the Modern Defence, or the Ujtelky Defence. Known since the 1 6th century this defence was rarely played until the middle of the 20th century, when i t was used by the Austrian grandmaster (and orchidologist) Karl Robatsch ( 1 928 - ). Play usually leads to the PIRC- ROBA TSCH SYSTEM although other options are open to Black, as, for example, the GURGENIDZE VARIATION, 1 277.\""
+   }
+  },
+  {
+   "ocn1": "B.Nim",
+   "evidence_grade": "CLEAR",
+   "source_refs": [
+    "Hooper & Whyld, 'The Oxford Companion to Chess' (2nd ed., OUP 1992), entry 'Nimzowitsch Defence'"
+   ],
+   "fields": {
+    "attributed_to": "Aron Nimzowitsch (populariser)",
+    "attribution_source": "Hooper & Whyld, 'The Oxford Companion to Chess' (2nd ed., OUP 1992), entry 'Nimzowitsch Defence': \"Nimzowitsch Defence, 593. Known since the I 6th century, used regularly by the German player Eduard Fischer ( 1 83 1-97), this opening was reintroduced by NIMZOWITSCH. After 2 d4 he favoured the continuation 2 . . . d5 as played by him against DURAS at Ostend 1 907.\"",
+    "historical_notes": "The Oxford Companion names a rival claimant: Fischer. Recorded as disputed rather than resolved."
+   }
+  },
+  {
+   "ocn1": "B.Rat.Bal",
+   "evidence_grade": "CLEAR",
+   "source_refs": [
+    "Hooper & Whyld, 'The Oxford Companion to Chess' (2nd ed., OUP 1992), entry 'Balogh Defense'"
+   ],
+   "fields": {
+    "attributed_to": "János Balogh (populariser)",
+    "attribution_source": "Hooper & Whyld, 'The Oxford Companion to Chess' (2nd ed., OUP 1992), entry 'Balogh Defense': \"Balogh Defence. 236 or 259, an old opening line given by coz10 (I e4 d6 2 d4 f5), played in the 5th match game Kieseritzky-Horwitz, 1 846, much analysed by Balogh in Wiener Schach=eitung, 1 930.\"",
+    "historical_notes": "The Oxford Companion names a rival claimant: Cozio. Recorded as disputed rather than resolved."
+   }
+  },
+  {
+   "ocn1": "B.Sic.Cls.Bol",
+   "evidence_grade": "CLEAR",
+   "source_refs": [
+    "Hooper & Whyld, 'The Oxford Companion to Chess' (2nd ed., OUP 1992), entry 'Boleslavsky Variation'"
+   ],
+   "fields": {
+    "attributed_to": "Isaac Boleslavsky (populariser)",
+    "attribution_source": "Hooper & Whyld, 'The Oxford Companion to Chess' (2nd ed., OUP 1992), entry 'Boleslavsky Variation': \"Boleslavsky Variation, 473, in the SICILIAN DEFENCE. Black makes a HOLE at d5 and a BACKWARD PAWN at d6, but he establishes a wedge in the centre and free play for his pieces; if he is able to move his d-pawn safely from d6 to d5 he will probably obtain an advantage in the centre. The move had been played by PAULSEN in the 1880s (against GUNSBERG at Frankfurt 1887, and TARRASCH at Breslau 1889), and a similar line had been played by LASKER, always sceptical of dogma, in 1910. By the 1930s most masters would have regarded 6 . . . e5 as anti-positional but in the early 1940s, when BOLESLAVSKY re\"",
+    "historical_notes": "The Oxford Companion names a rival claimant: Paulsen. Recorded as disputed rather than resolved."
+   }
+  },
+  {
+   "ocn1": "B.Sic.SmM.Acc.Nxc3",
+   "evidence_grade": "CLEAR",
+   "source_refs": [
+    "Hooper & Whyld, 'The Oxford Companion to Chess' (2nd ed., OUP 1992), entry 'Smith–Morra Gambit'"
+   ],
+   "fields": {
+    "attributed_to": "Ken Smith (populariser)",
+    "attribution_source": "Hooper & Whyld, 'The Oxford Companion to Chess' (2nd ed., OUP 1992), entry 'Smith–Morra Gambit': \"Smith-Morra Gambit, 457, the MORRA GAMBIT, practised by the American player Kenneth Ray Smith ( 1 930 - ).\"",
+    "historical_notes": "The Oxford Companion names a rival claimant: Morra. Recorded as disputed rather than resolved."
+   }
+  },
+  {
+   "ocn1": "C.Bsh.Bc5.c3",
+   "evidence_grade": "CLEAR",
+   "source_refs": [
+    "Hooper & Whyld, 'The Oxford Companion to Chess' (2nd ed., OUP 1992), entry 'Philidor Variation'"
+   ],
+   "fields": {
+    "attributed_to": "François-André Danican Philidor (advocate)",
+    "attribution_source": "Hooper & Whyld, 'The Oxford Companion to Chess' (2nd ed., OUP 1992), entry 'Philidor Variation': \"Philidor Variation, 643, sometimes called the Classical Attack, in the BISHOP'S OPENING, given by Ruy LÓPEZ, and advocated by PHILIDOR as the proper way to build a PAWN CENTRE. The variation had an extraordinarily long run during which STAMMA's continuation, 3 . . . Nf6 4 d4 cxd4 5 c5 d5, was thought to favour White. Eventually improvements for Black were found: 6 exf6 dxc4 7 Qh5 {}- {) (PRATT, 1 825); 6 Bb3 Ne4 7 cxd4 Qh4 (CALVI, 1 842). Also 455 and 565, Philidor's replies to the SICILIAN DEFENCE.\"",
+    "historical_notes": "The Oxford Companion names a rival claimant: Ruy López. Recorded as disputed rather than resolved."
+   }
+  },
+  {
+   "ocn1": "C.Dam",
+   "evidence_grade": "CLEAR",
+   "source_refs": [
+    "Hooper & Whyld, 'The Oxford Companion to Chess' (2nd ed., OUP 1992), entry 'Damiano Defence'"
+   ],
+   "fields": {
+    "attributed_to": "Pedro Damiano (critic)",
+    "attribution_source": "Hooper & Whyld, 'The Oxford Companion to Chess' (2nd ed., OUP 1992), entry 'Damiano Defence': \"Damiano Defence, 1 05 1 , a variation given by LUCENA and rightly condemned by DAMIANO as leading to a lost game.\"",
+    "historical_notes": "The Oxford Companion names a rival claimant: Lucena. Recorded as disputed rather than resolved."
+   }
+  },
+  {
+   "ocn1": "C.Ita.Evn",
+   "evidence_grade": "CLEAR",
+   "source_refs": [
+    "Hooper & Whyld, 'The Oxford Companion to Chess' (2nd ed., OUP 1992), entry 'Evans Gambit'"
+   ],
+   "fields": {
+    "attributed_to": "William Davies Evans (originator)",
+    "attribution_source": "Hooper & Whyld, 'The Oxford Companion to Chess' (2nd ed., OUP 1992), entry 'Evans Gambit': \"Evans Gambit, 867 in the ITALIAN OPENING, named after w. D. EVANS who invented it in the 1 820s. White gives up a pawn to gain rapid mobilization. The gambit was offered and accepted 22 times in the matches between ROURDONNAIS and McDONNELL, 1 834, after which enthusiasm for the Evans was instant, widespread, and enduring. In his matches against CHIGORIN ( 1 889, 1 892) and GUNSBERG ( 1 890- 1 ), STEINITZ accepted the gambit 20 times. Soon after this the opening went out of fashion, although it is still used occasionally by some of the strongest grandmasters such as NUNN and TIMMAN. Countless\""
+   }
+  },
+  {
+   "ocn1": "C.Ita.Giu.Bxf7",
+   "evidence_grade": "CLEAR",
+   "source_refs": [
+    "Hooper & Whyld, 'The Oxford Companion to Chess' (2nd ed., OUP 1992), entry 'Jerome Gambit'"
+   ],
+   "fields": {
+    "attributed_to": "Alonzo Wheeler Jerome (advocate)",
+    "attribution_source": "Hooper & Whyld, 'The Oxford Companion to Chess' (2nd ed., OUP 1992), entry 'Jerome Gambit': \"Jerome Gambit, 930, an unsound gambit suitable only for social chess. It appeared first in American Chess Journal, 1 876. recommended by Alonzo Wheeler Jerome (l 834 - 1 902) or Pax ton, I llinois.\""
+   }
+  },
+  {
+   "ocn1": "C.KGm.Acc.Kie.Nc6",
+   "evidence_grade": "CLEAR",
+   "source_refs": [
+    "Hooper & Whyld, 'The Oxford Companion to Chess' (2nd ed., OUP 1992), entry 'Neumann Defense'"
+   ],
+   "fields": {
+    "attributed_to": "Gustav Neumann (originator)",
+    "attribution_source": "Hooper & Whyld, 'The Oxford Companion to Chess' (2nd ed., OUP 1992), entry 'Neumann Defense': \"Neumann Defence, 1 1 52, a line in the KING'S GAMBIT Accepted introduced by NEUMANN around 1 870, leading to a game with about level chances.\""
+   }
+  },
+  {
+   "ocn1": "C.KGm.Acc.Nf3.Cun",
+   "evidence_grade": "CLEAR",
+   "source_refs": [
+    "Hooper & Whyld, 'The Oxford Companion to Chess' (2nd ed., OUP 1992), entry 'Cunningham Defense'"
+   ],
+   "fields": {
+    "attributed_to": "Alexander Cunningham (originator)",
+    "attribution_source": "Hooper & Whyld, 'The Oxford Companion to Chess' (2nd ed., OUP 1992), entry 'Cunningham Defense': \"Cunningham Gambit, 1 1 21, a line in the KING'S GAMBIT Accepted that was evolved c. 1 706 by the Scottish historian Alexander CUNNINGHAM. After 4 Bc4 he advocated 4 . . . Bh4 + , probably a sound continuation, but superseded by 4 . . . Nf6 as recommended by SCHLECHTER in the eighth edition of the HANDBUCH, 1 912- 16.\""
+   }
+  },
+  {
+   "ocn1": "C.KGm.Acc.Nf3.Fis",
+   "evidence_grade": "CLEAR",
+   "source_refs": [
+    "Hooper & Whyld, 'The Oxford Companion to Chess' (2nd ed., OUP 1992), entry 'Fischer Defense'"
+   ],
+   "fields": {
+    "attributed_to": "Bobby Fischer (advocate)",
+    "attribution_source": "Hooper & Whyld, 'The Oxford Companion to Chess' (2nd ed., OUP 1992), entry 'Fischer Defense': \"Fischer Defence, 1 1 20, a variation of the KING'S GAMBIT Accepted advocated by STAMMA in 1 745 and by FISCHER ('a high-class waiting move') in the American Chess Quarterly in the early 1 960s. Black reserves the option of dcf ending his gambit pawn while avoiding the hazards of the KIESERITZKY and ALLGAIER GAMBITS. Compare HECKER DEFENCE, 1 1 74, which is, perhaps, a less commendable way to achieve the same object.\"",
+    "historical_notes": "The Oxford Companion names a rival claimant: Stamma. Recorded as disputed rather than resolved."
+   }
+  },
+  {
+   "ocn1": "C.KGm.Acc.Nf3.KKn.Bc4.McD",
+   "evidence_grade": "CLEAR",
+   "source_refs": [
+    "Hooper & Whyld, 'The Oxford Companion to Chess' (2nd ed., OUP 1992), entry 'McDonnell Gambit'"
+   ],
+   "fields": {
+    "attributed_to": "Alexander McDonnell (originator)",
+    "attribution_source": "Hooper & Whyld, 'The Oxford Companion to Chess' (2nd ed., OUP 1992), entry 'McDonnell Gambit': \"McDonnell Gambit, 1 1 29 in the KING'S GAMBIT Accepted, successfully introduced by McDONNELL in the first game of his third match against HOURDONNAIS. This alternative to the MUZIO GAMBIT, 1 1 38, is regarded as a less effective choice, but it has not been tested thoroughly.\""
+   }
+  },
+  {
+   "ocn1": "C.KGm.Acc.Nf3.Scl",
+   "evidence_grade": "CLEAR",
+   "source_refs": [
+    "Hooper & Whyld, 'The Oxford Companion to Chess' (2nd ed., OUP 1992), entry 'Schallopp Defense'"
+   ],
+   "fields": {
+    "attributed_to": "Emil Schallopp (populariser)",
+    "attribution_source": "Hooper & Whyld, 'The Oxford Companion to Chess' (2nd ed., OUP 1992), entry 'Schallopp Defense': \"Schallopp Defence, 1 1 26 in the KING'S GAMBIT Accepted, played Thorold- Schallopp, Hereford 1 885, but popular with the Russian player llya Stepanovich Shumov ( 1 8 1 9-8 1 ) much earlier. For example, a game Jaenisch Shumov, in this line, was in the Illustrated London News, 20 April 1 857.\"",
+    "historical_notes": "The Oxford Companion names a rival claimant: Shumov. Recorded as disputed rather than resolved."
+   }
+  },
+  {
+   "ocn1": "C.KGm.Acc.Sta",
+   "evidence_grade": "CLEAR",
+   "source_refs": [
+    "Hooper & Whyld, 'The Oxford Companion to Chess' (2nd ed., OUP 1992), entry 'Stamma Gambit'"
+   ],
+   "fields": {
+    "attributed_to": "Philipp Stamma (advocate)",
+    "attribution_source": "Hooper & Whyld, 'The Oxford Companion to Chess' (2nd ed., OUP 1992), entry 'Stamma Gambit': \"Stamma Gambit. 1 1 76. a method of playing the KING'S GAMBIT Accepted, recommended by STAMMA in 1 745 but supported by no master. It is sometimes called the Calvi Variation, or Rook's Pawn Gambit.\"",
+    "historical_notes": "The Oxford Companion names a rival claimant: Calvi. Recorded as disputed rather than resolved."
+   }
+  },
+  {
+   "ocn1": "C.KGm.Acc.Vil",
+   "evidence_grade": "CLEAR",
+   "source_refs": [
+    "Hooper & Whyld, 'The Oxford Companion to Chess' (2nd ed., OUP 1992), entry 'Villemson Gambit'"
+   ],
+   "fields": {
+    "attributed_to": "Martin Villemson (populariser)",
+    "attribution_source": "Hooper & Whyld, 'The Oxford Companion to Chess' (2nd ed., OUP 1992), entry 'Villemson Gambit': \"Villemson Gambit, 1 1 1 3 in the KING'S GAMBIT Accepted, sometimes called the Steinitz Gambit (perhaps because of its resemblance to 6 1 4, but STEINITZ did play it in a consultation game in 1 880), or the Krause, Polerio, or Rosentreter Gambit. Martin Villemson ( 1 897- 1 933) of Parnu, Estonia, editor of the chess magazine Eesti Maleilm, played it in the first International Correspondence Tournament of the Deutsche Schachzeitung. He was a strong correspondence player and may well have inspired KERES to try that activity, in which they overlapped.\"",
+    "historical_notes": "The Oxford Companion names a rival claimant: Steinitz, Krause, Polerio, Rosentreter. Recorded as disputed rather than resolved."
+   }
+  },
+  {
+   "ocn1": "C.KPO.Kgt.MLn.g3",
+   "evidence_grade": "CLEAR",
+   "source_refs": [
+    "Hooper & Whyld, 'The Oxford Companion to Chess' (2nd ed., OUP 1992), entry 'Konstantinopolsky Opening'"
+   ],
+   "fields": {
+    "attributed_to": "Alexander Konstantinopolsky (originator)",
+    "attribution_source": "Hooper & Whyld, 'The Oxford Companion to Chess' (2nd ed., OUP 1992), entry 'Konstantinopolsky Opening': \"Konstantinopolsky Opening, 1 0 1 3, introduced to master play in the game Konstantinopolsky-Ragozin, team championship, Moscow 1 956.\""
+   }
+  },
+  {
+   "ocn1": "C.KPO.Ne2",
+   "evidence_grade": "CLEAR",
+   "source_refs": [
+    "Hooper & Whyld, 'The Oxford Companion to Chess' (2nd ed., OUP 1992), entry 'Alapin's Opening'"
+   ],
+   "fields": {
+    "attributed_to": "Semyon Alapin (populariser)",
+    "attribution_source": "Hooper & Whyld, 'The Oxford Companion to Chess' (2nd ed., OUP 1992), entry 'Alapin's Opening': \"Alapin Opening, 67 1 , played with the intention of continuing 3 r4. Analysed by Carl Mayerhofer ( 1 828- 1 9 1 3) in Schachzeitung, 1 849, this uncommon opening was played by Ljubojevic at Groningen 1 970 and (with transposition, i.e. 2 f4 exf4 3 Ne2) by Alapin at Manchester 1 890. At one time it was jokingly called the HIPPOPOTAMUS GAME.\"",
+    "historical_notes": "The Oxford Companion names a rival claimant: Mayerhofer. Recorded as disputed rather than resolved."
+   }
+  },
+  {
+   "ocn1": "C.Pet.Coc",
+   "evidence_grade": "CLEAR",
+   "source_refs": [
+    "Hooper & Whyld, 'The Oxford Companion to Chess' (2nd ed., OUP 1992), entry 'Cochrane Gambit'"
+   ],
+   "fields": {
+    "attributed_to": "John Cochrane (originator)",
+    "attribution_source": "Hooper & Whyld, 'The Oxford Companion to Chess' (2nd ed., OUP 1992), entry 'Cochrane Gambit': \"Cochrane Gambit, 1 068 in the PETROFF DEFENCE, originated by COCHRANE in the 1 840s. White sacrifices a knight for two pawns and a strong centre. White should not seek attack, according to STAUNTON, who played the gambit successfully, but should play a positional game advancing the PHALANX of pawns in the manner advocated by PHILIDOR. Should White establish two pawns on the fifth rank they would probably give sufficient compensation for the piece. In BRONSTEIN's opinion this gambit is worth further investigation.\""
+   }
+  },
+  {
+   "ocn1": "C.RyL.Bre",
+   "evidence_grade": "CLEAR",
+   "source_refs": [
+    "Hooper & Whyld, 'The Oxford Companion to Chess' (2nd ed., OUP 1992), entry 'Brentano Defense'"
+   ],
+   "fields": {
+    "attributed_to": "Franz Brentano (first to publish)",
+    "attribution_source": "Hooper & Whyld, 'The Oxford Companion to Chess' (2nd ed., OUP 1992), entry 'Brentano Defense': \"Brentano Defence, 8 1 1 , a dubious reply to the SPANISH OPENING dating from 1 900, when Brentano published his analysis in the Wiener Schachzeitung; 1 1 39, in the KING'S GAMBIT Accepted from the second edition of the HANDBUCH. Franz Clemens Honoratus Hermann Josef Brentano ( 1 838- 1 9 1 7) . a well-known German philosopher who lived in Vienna, frequently published analyses of the openings.\""
+   }
+  },
+  {
+   "ocn1": "C.RyL.Mor",
+   "evidence_grade": "CLEAR",
+   "source_refs": [
+    "Hooper & Whyld, 'The Oxford Companion to Chess' (2nd ed., OUP 1992), entry 'Morphy Defense to the Ruy Lopez'"
+   ],
+   "fields": {
+    "attributed_to": "Paul Morphy (populariser)",
+    "attribution_source": "Hooper & Whyld, 'The Oxford Companion to Chess' (2nd ed., OUP 1992), entry 'Morphy Defense to the Ruy Lopez': \"Morphy Defence. 674 in the SPANISH OPENING. This move, 3 . . . a6, first given by DEL RIO, played by STANLEY in his match against ROUSSEAU in 1 845 and by LOWENTHAL against MORPHY in 1 858, became popular after its adoption by Morphy. I n 1 889 STEINITZ wrote, 'on principle this [move] ought to be disadvantageous as it drives the bishop where it wants to go. ' His view has not prevailed. More than a dozen other replies have been tried on Black's third move, but 3 . . . a6 is played more often than all of them put together.\"",
+    "historical_notes": "The Oxford Companion names a rival claimant: del Rio. Recorded as disputed rather than resolved."
+   }
+  },
+  {
+   "ocn1": "C.RyL.Pol",
+   "evidence_grade": "CLEAR",
+   "source_refs": [
+    "Hooper & Whyld, 'The Oxford Companion to Chess' (2nd ed., OUP 1992), entry 'Pollock's Defense to the Ruy Lopez'"
+   ],
+   "fields": {
+    "attributed_to": "William Pollock (populariser)",
+    "attribution_source": "Hooper & Whyld, 'The Oxford Companion to Chess' (2nd ed., OUP 1992), entry 'Pollock's Defense to the Ruy Lopez': \"Pollock Defence, 765, an uncommon line in the SPANISH OPENING, used by the English master William Henry Krause Pollock ( 1 859-96) against LASKER and BURN. Writing in the Baltimore News about the ALAPIN DEFENCE (766), Pollock said, ' It is even worse than my move, if only because less ridiculous.'\""
+   }
+  },
+  {
+   "ocn1": "C.RyL.Stn",
+   "evidence_grade": "CLEAR",
+   "source_refs": [
+    "Hooper & Whyld, 'The Oxford Companion to Chess' (2nd ed., OUP 1992), entry 'Steinitz Defense'"
+   ],
+   "fields": {
+    "attributed_to": "Wilhelm Steinitz (populariser)",
+    "attribution_source": "Hooper & Whyld, 'The Oxford Companion to Chess' (2nd ed., OUP 1992), entry 'Steinitz Defense': \"Steinitz Defence. 776 in the SPANISH OPENING, practised by STEINITZ in the 1 890s. His idea was to disturb Black's pawn formation as little as possible and, perhaps, to maintain the pawn at e5. The latter object is seldom achieved: for example, to avoid the TARRASCH TRAP, 780, Black must play 7 . . . exd4, still, however, with a playable game. Masters usually arrive at the Steinitz Defence by transposition, e.g. 3 . . . Nf6 4 0-0 d6, thus avoiding the continuation 3 . . . d6 4 d4 Bd7 5 Nc3 Nf6 6 Bxc6 Bxc6 7 Qd3 when White threatens to gain advantage by castling on the queen's-side. This defenc\"",
+    "historical_notes": "The Oxford Companion names a rival claimant: Ruy López. Recorded as disputed rather than resolved."
+   }
+  },
+  {
+   "ocn1": "C.Sco.Gor",
+   "evidence_grade": "CLEAR",
+   "source_refs": [
+    "Hooper & Whyld, 'The Oxford Companion to Chess' (2nd ed., OUP 1992), entry 'Göring Gambit'"
+   ],
+   "fields": {
+    "attributed_to": "Carl Göring (populariser)",
+    "attribution_source": "Hooper & Whyld, 'The Oxford Companion to Chess' (2nd ed., OUP 1992), entry 'Göring Gambit': \"Goring Gambit, 972, a SCOTCH GAMBIT variation played by STAUNTON in the 1 840s, first analysed in the Chicago Sunday Leader by PAULSEN against whose brother, Wilfried, Goring played the variation at Leipzig 1 877. (See SEA-CADET MATE; SUETIN.)\"",
+    "historical_notes": "The Oxford Companion names a rival claimant: Staunton, Paulsen. Recorded as disputed rather than resolved."
+   }
+  },
+  {
+   "ocn1": "C.Vie.Nc6.f4",
+   "evidence_grade": "CLEAR",
+   "source_refs": [
+    "Hooper & Whyld, 'The Oxford Companion to Chess' (2nd ed., OUP 1992), entry 'Steinitz Gambit'"
+   ],
+   "fields": {
+    "attributed_to": "Wilhelm Steinitz (originator)",
+    "attribution_source": "Hooper & Whyld, 'The Oxford Companion to Chess' (2nd ed., OUP 1992), entry 'Steinitz Gambit': \"Steinitz Gambit, 6 1 4 in the VIENNA GAME, introduced successfully in the game Steinitz-Neumann, Dundee 1 867; 1 1 1 3, the VILLEMSON GAMBIT.\""
+   }
+  },
+  {
+   "ocn1": "D.Bgm.Cap.Nc3",
+   "evidence_grade": "CLEAR",
+   "source_refs": [
+    "Hooper & Whyld, 'The Oxford Companion to Chess' (2nd ed., OUP 1992), entry 'Blackmar–Diemer Gambit'"
+   ],
+   "fields": {
+    "attributed_to": "Armand Blackmar (advocate); Emil Josef Diemer (advocate)",
+    "attribution_source": "Hooper & Whyld, 'The Oxford Companion to Chess' (2nd ed., OUP 1992), entry 'Blackmar–Diemer Gambit': \"Blackmar-Diemer Gambit, 55 or 22 1 , a variation of the BLACKMAR GAMBIT. lgnacy Popiel ( 1 863 -1 94 1 ) noted in Deutsches Wochenschach, 1 893, that the Blackmar Gambit (I d4 d5 2 c4 dxe4 3 f3) could be answered effectively by 3 . . . c5; instead of 3 f3 he recommended 3 Nc3, which he called the Polish Gambit in honour of his native land . In 1 932 the German player Emil Josef Diemer ( 1 908 90), following Popicl's analysis, 3 Nc3 Nf6, advocated the continuation 4 f3. The gambit thus modified (which may occur by transposition when the game begins I d4 Nf6) has been played occasionally by gran\"",
+    "historical_notes": "The Oxford Companion names a rival claimant: Popiel. Recorded as disputed rather than resolved."
+   }
+  },
+  {
+   "ocn1": "D.QGD.QKn.Nrm.Har",
+   "evidence_grade": "CLEAR",
+   "source_refs": [
+    "Hooper & Whyld, 'The Oxford Companion to Chess' (2nd ed., OUP 1992), entry 'Harrwitz Attack'"
+   ],
+   "fields": {
+    "attributed_to": "Daniel Harrwitz (populariser)",
+    "attribution_source": "Hooper & Whyld, 'The Oxford Companion to Chess' (2nd ed., OUP 1992), entry 'Harrwitz Attack': \"Harrwitz Attack. 1 70, a QUEEN'S GAMBIT Declined variation favoured by HARRWITZ and also by RUBINSTEIN, after whom it is sometimes named. Harrwitz played it successfully in matches, notably in 1 853 against LOWENTHAL and in 1 858 against MORPHY, who considered the l ine so strong that he then avoided the Queen's Gambit, preferring the DUTCH DEFENCE, 247. In his world championship matches of 1 978 and 1 98 1 KORCHNOI employed the Harrwitz Attack in its current form, after 4 Nf3 Be7. See games under HARRWITZ, MACKENZIE, and PHILIDOR SACRIFICE.\"",
+    "historical_notes": "The Oxford Companion names a rival claimant: Rubinstein. Recorded as disputed rather than resolved."
+   }
+  },
+  {
+   "ocn1": "D.QPG.Zuk.Nf6.e3",
+   "evidence_grade": "CLEAR",
+   "source_refs": [
+    "Hooper & Whyld, 'The Oxford Companion to Chess' (2nd ed., OUP 1992), entry 'Colle System'"
+   ],
+   "fields": {
+    "attributed_to": "Edgard Colle (populariser)",
+    "attribution_source": "Hooper & Whyld, 'The Oxford Companion to Chess' (2nd ed., OUP 1992), entry 'Colle System': \"Colle System, 1 309, the opening moves, for White, Pd4, Nf3, Pc3, Nbd2, Pc3, and Bd3; White prepares an advance of the c-pawn thus opening the diagonal for the DARK BISHOP. Play frequently begins 1 d4 d5 2 Nf3 Nf6 3 e3 c5 (225), but Black has other ways of defending: for example, the game Ahues-Alekhine, San Remo 1 930, opened 1 d4 Nf6 2 Nf3 b6 3 e3 Bb7 4 Nbd2 c6 5 Bd3 c5 6 c3. The system made its first appearance in the 1 890s when it was used by Black in the CHIGORIN VARIATION (148). Masters began to use the system for White around 1 900, and in this form COLLE made it his speciality in the\""
+   }
+  },
+  {
+   "ocn1": "E.Ben.d5.d6",
+   "evidence_grade": "CLEAR",
+   "source_refs": [
+    "Hooper & Whyld, 'The Oxford Companion to Chess' (2nd ed., OUP 1992), entry 'Hromádka System'"
+   ],
+   "fields": {
+    "attributed_to": "Karel Hromádka (originator)",
+    "attribution_source": "Hooper & Whyld, 'The Oxford Companion to Chess' (2nd ed., OUP 1992), entry 'Hromádka System': \"Hromadka Defence, 278, sometimes called the Loose Gambit, or Benoni Deferred. It was introduced by the Czech master Karel Hromadka ( 1 887-1 956) in the Piest'any tournament, 1 922. The play that follows often leads to the MODERN BENONI.\""
+   }
+  },
+  {
+   "ocn1": "E.Gru",
+   "evidence_grade": "CLEAR",
+   "source_refs": [
+    "Hooper & Whyld, 'The Oxford Companion to Chess' (2nd ed., OUP 1992), entry 'Grünfeld Defence'"
+   ],
+   "fields": {
+    "attributed_to": "Ernst Grünfeld (originator)",
+    "attribution_source": "Hooper & Whyld, 'The Oxford Companion to Chess' (2nd ed., OUP 1992), entry 'Grünfeld Defence': \"Grunfeld Defence. 363, a popular variation of the KING'S INUIAN DEFENCE named after the grandmaster who introduced it in the fourth game of his match against BECKER, Vienna 1922. In the key variation, 4 cxd5 Nxd5 5 e4 Nxc3 6 bxc3, Black hopes to gain sufficient counterplay by attacking White's CLASSICAL CENTRE (see BLOCKADE; FINE) . Ernst GRUNFELo's idea has been used in other contexts; e.g. the KEMERI, 4 1 6, and COUNTERTHRUST, 4 1 5, VARIATIONS.\""
+   }
+  },
+  {
+   "ocn1": "E.Ind.e6.Nf3.Ne4",
+   "evidence_grade": "CLEAR",
+   "source_refs": [
+    "Hooper & Whyld, 'The Oxford Companion to Chess' (2nd ed., OUP 1992), entry 'Döry Defence'"
+   ],
+   "fields": {
+    "attributed_to": "Ladislaus Döry (originator)",
+    "attribution_source": "Hooper & Whyld, 'The Oxford Companion to Chess' (2nd ed., OUP 1992), entry 'Döry Defence': \"Dory Defence, 356 and 429, pioneered by Ladislaus Dory, an Austrian Baron, in 1 923, and played with some international success by KERES who won a small tournament at Vienna 1 937 in which all games had to begin with this opening. In 1943 Dory was sentenced to death by the Nazis for sedition, but was released from prison by Allied troops in 1945.\""
+   }
+  },
+  {
+   "ocn1": "E.QID.Mil",
+   "evidence_grade": "CLEAR",
+   "source_refs": [
+    "Hooper & Whyld, 'The Oxford Companion to Chess' (2nd ed., OUP 1992), entry 'Miles Variation'"
+   ],
+   "fields": {
+    "attributed_to": "Tony Miles (populariser)",
+    "attribution_source": "Hooper & Whyld, 'The Oxford Companion to Chess' (2nd ed., OUP 1992), entry 'Miles Variation': \"Miles Variation, 343 in the QUEEN'S INDIAN DEFENCE played regularly by MILES in the late 1 970s.\""
+   }
+  }
+ ]
+}
