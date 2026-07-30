@@ -65,6 +65,14 @@ CITATION = ("Hooper & Whyld, 'The Oxford Companion to Chess' (2nd ed., OUP 1992)
 #: "Pd7-d6" alone would make a single-line entry look like three.
 OPENING_REF = re.compile(r"in the\s+[A-Z][A-Z'\-\. >:\"]{2,}")
 
+#: A sibling line is as often introduced without "in the": the Ponziani
+#: entry lists "Also 54, the CHIGORIN VARIATION, given by PONZIANI", and
+#: missing it let Ponziani take a verb belonging to a different opening.
+#: One of these always means an additional line beyond the head one,
+#: whether or not the head announced itself with "in the".
+SIBLING_REF = re.compile(
+    r"\b(?:[Aa]lso|and)\s+\d[\d ]{0,4},?\s+(?:the\s+)?[A-Z][A-Z'\-\. >:\"]{2,}")
+
 #: The Companion's characterisation, as a noun the catalogue can carry.
 #: `unclear` is absent on purpose -- it is the reason a row is excluded.
 ROLE_NOUN = {
@@ -137,15 +145,14 @@ def role_from_quote(quote: str, people: str = "") -> str:
     #: and reading it as Cozio's is exactly the error to refuse.
     if people and not window:
         return ""
-    for text in (window, quote):
-        matched = [role for role, pattern in ROLE_EVIDENCE.items()
-                   if re.search(pattern, text, re.I)]
-        if len(matched) == 1:
-            return matched[0]
-        if matched and text is window:
-            #: Several verbs even beside the person: genuinely ambiguous.
-            return ""
-    return ""
+    #: Once the person is located, only their own clause may speak. The
+    #: Petroff entry says "JAENISCH published an extensive analysis" and
+    #: the Chatard-Alekhine says "originated by ALBIN"; falling back to
+    #: the whole entry hands Jaenisch's verb to Petrov and Albin's to
+    #: Alekhine. A clause with no verb of its own settles nothing.
+    matched = [role for role, pattern in ROLE_EVIDENCE.items()
+               if re.search(pattern, window, re.I)]
+    return matched[0] if len(matched) == 1 else ""
 
 
 def _window_around(quote: str, people: str) -> str:
@@ -235,7 +242,11 @@ def openings_in_quote(quote: str) -> int:
     Zero is not a gap: a top-level entry ("Clemenz Opening, 1323, named
     after the Estonian player...") names no parent because it has none.
     """
-    return len(OPENING_REF.findall(quote))
+    #: The head line plus each sibling. A sibling phrase is decisive on
+    #: its own; "in the" phrases are only conclusive past the first,
+    #: because the head line normally carries one.
+    return max(len(OPENING_REF.findall(quote)),
+               1 + len(SIBLING_REF.findall(quote)))
 
 
 def usable(row: dict[str, str]) -> bool:
