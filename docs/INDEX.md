@@ -24,6 +24,7 @@ start here and move to `archive/` when their era closes.
 | [`treatise-school-findings.md`](treatise-school-findings.md) | What the source libraries could and could not answer: bibliography yes, attribution no, two heads withdrawn. |
 | [`treatise-school-questions.md`](treatise-school-questions.md) | The four questions each treatise head must answer before it becomes a claim. |
 | [`companion-attributions-dry-run.md`](companion-attributions-dry-run.md) | Dry run of the 40-row Oxford Companion attribution lot: the five guardrails, and the two written after finding rows they had to reject. |
+| [`lichess-provenance-findings.md`](lichess-provenance-findings.md) | Where modern names came from: 263 renaming events mined from Lichess's public git history, each with author, date and commit. |
 | [`oxford-companion-findings.md`](oxford-companion-findings.md) | Eleven attributions read from Hooper & Whyld with page citations — the first `verified`-grade lot, plus why bulk-joining a reference work cannot earn that grade. |
 | [`eponym-list-findings.md`](eponym-list-findings.md) | The systematic eponym survey: 211 candidate attributions joined by position, graded by footnote, nothing applied. |
 | [`people-identity-findings.md`](people-identity-findings.md) | Wikidata identities for the chronicle's people: 55 of 61 resolved by playing dates, plus the duplicate and merged-human rows it exposed. |
