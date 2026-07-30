@@ -6,6 +6,7 @@
 [![Release](https://img.shields.io/badge/release-ocn--1.2.1-blue.svg)](https://github.com/escacsfigueres/ocn/releases/tag/ocn-1.2.1)
 [![PyPI](https://img.shields.io/pypi/v/ocn-chess.svg)](https://pypi.org/project/ocn-chess/)
 [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.21670207-1f6feb.svg)](https://doi.org/10.5281/zenodo.21670207)
+[![Explorer](https://img.shields.io/badge/explorer-ocn.vercel.app-brightgreen.svg)](https://ocn.vercel.app)
 
 **OCN** is a hierarchical, human-readable naming scheme for chess
 openings, designed as a companion to ECO (the *Encyclopaedia of Chess
@@ -25,6 +26,10 @@ parent-aware slugs.
 | `E97` | `E.KID.Cls.Mar` | KID Classical, Mar del Plata |
 
 Read once, remember forever. No lookup table needed.
+
+**Browse the whole catalogue at [ocn.vercel.app](https://ocn.vercel.app)** —
+every slug, its moves, its ECO codes, its aliases, how often it is played,
+and who it is named after.
 
 ## Five-minute quickstart
 
@@ -171,6 +176,44 @@ The reference catalogue lives in [`catalog/ocn-1.csv`](catalog/ocn-1.csv)
 The catalogue is licensed under **CC-BY-4.0**: you may use, share and
 adapt it for any purpose, including commercial, provided you cite "Club
 d'Escacs Figueres" and link to this repository.
+
+### Sidecars: what else ships beside the names
+
+Additive tables keyed on `ocn1`. `catalog/ocn-1.csv` never changes shape
+to accommodate them, so a consumer takes only what it needs.
+
+| file | rows | what it holds |
+|---|---:|---|
+| `ocn-1.popularity.tsv` | 5,894 | master and Lichess game counts per opening, plus the strongest game's year range |
+| `ocn-1.claims.tsv` | 852 | the chronicle: typed, sourced, graded assertions about openings |
+| `ocn-1.people.tsv` / `ocn-1.events.tsv` | 61 / 71 | the entities those claims point at |
+| `ocn-1.wch.tsv` | 1,040 | every world championship game mapped to a slug |
+| `ocn-1.eco.tsv`, `ocn-1.eco-divergence.tsv` | — | ECO mapping, and where we knowingly differ |
+| `ocn-1.lichess-xref.tsv` | 5,899 | position-keyed cross-reference to Lichess's names |
+| `ocn-1.aliases.{ca,es}.tsv` | — | locale aliases (Catalan, Spanish) |
+
+### The chronicle layer
+
+Most opening datasets answer "what is this line called". The chronicle
+answers the questions people actually ask: *who is it named after, and
+did they invent it?*
+
+Usually not. Of the attributions carrying a role, the majority say the
+person **popularised** a line rather than originating it — and the
+catalogue records which. Damiano is filed as the **critic** of the
+defence that bears his name, on the Oxford Companion's words: "a
+variation given by Lucena and rightly condemned by Damiano". Where a
+source names a rival claimant, that goes in `historical_notes` rather
+than being quietly resolved.
+
+`ocn-1.claims.tsv` is one table with many entrances — the same rows
+answer "which openings decided world championships" and "which openings
+are named after places", because a claim carries its subject's type.
+Every claim states its source and its evidence grade, and no grade is
+better than the evidence for it.
+
+The design, the sources it admits, and the reasoning behind each lot are
+in [`docs/`](docs/INDEX.md).
 
 ## Tools
 
