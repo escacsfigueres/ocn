@@ -1,0 +1,110 @@
+{
+ "kind": "ocn.attribution_manifest.v1",
+ "title": "Unify the role vocabulary on British spelling",
+ "description": "Role parentheticals were written both ways: populariser 28 times and popularizer 8, systematiser and systematizer likewise. The catalogue is British throughout -- Defence, analysed, colour -- so the -ise forms win, and a consumer grouping by role stops seeing two roles where there is one. Spelling only: no attribution changes hands, no source is touched, and the free-text roles ('resurrector at GM level', 'named at the 1929 Barcelona tournament') are left alone because normalising those is an editorial decision, not a mechanical one.",
+ "mode": "attribution_fields_only",
+ "expected_catalog_rows": 5899,
+ "expected_changed_rows": [
+  "A.Bir",
+  "A.Gro",
+  "A.Lar",
+  "A.Ret",
+  "A.Tro",
+  "B.Sic.Acc.Mar",
+  "B.Sic.Kan.Mar",
+  "B.Sic.OKe.c4",
+  "B.Sic.Ros"
+ ],
+ "changes": [
+  {
+   "ocn1": "A.Bir",
+   "evidence_grade": "CLEAR",
+   "source_refs": [
+    "Spelling unification only; the catalogue uses British forms throughout ('Defence', 'analysed'), and the role vocabulary should not be the one place it does not."
+   ],
+   "fields": {
+    "attributed_to": "Henry Edward Bird (populariser)"
+   }
+  },
+  {
+   "ocn1": "A.Gro",
+   "evidence_grade": "CLEAR",
+   "source_refs": [
+    "Spelling unification only; the catalogue uses British forms throughout ('Defence', 'analysed'), and the role vocabulary should not be the one place it does not."
+   ],
+   "fields": {
+    "attributed_to": "Henri Grob (analyst and populariser)"
+   }
+  },
+  {
+   "ocn1": "A.Lar",
+   "evidence_grade": "CLEAR",
+   "source_refs": [
+    "Spelling unification only; the catalogue uses British forms throughout ('Defence', 'analysed'), and the role vocabulary should not be the one place it does not."
+   ],
+   "fields": {
+    "attributed_to": "Bent Larsen (populariser)"
+   }
+  },
+  {
+   "ocn1": "A.Ret",
+   "evidence_grade": "CLEAR",
+   "source_refs": [
+    "Spelling unification only; the catalogue uses British forms throughout ('Defence', 'analysed'), and the role vocabulary should not be the one place it does not."
+   ],
+   "fields": {
+    "attributed_to": "Richard Réti (populariser)"
+   }
+  },
+  {
+   "ocn1": "A.Tro",
+   "evidence_grade": "CLEAR",
+   "source_refs": [
+    "Spelling unification only; the catalogue uses British forms throughout ('Defence', 'analysed'), and the role vocabulary should not be the one place it does not."
+   ],
+   "fields": {
+    "attributed_to": "Octávio Trompowsky (populariser)"
+   }
+  },
+  {
+   "ocn1": "B.Sic.Acc.Mar",
+   "evidence_grade": "CLEAR",
+   "source_refs": [
+    "Spelling unification only; the catalogue uses British forms throughout ('Defence', 'analysed'), and the role vocabulary should not be the one place it does not."
+   ],
+   "fields": {
+    "attributed_to": "Géza Maróczy (populariser)"
+   }
+  },
+  {
+   "ocn1": "B.Sic.Kan.Mar",
+   "evidence_grade": "CLEAR",
+   "source_refs": [
+    "Spelling unification only; the catalogue uses British forms throughout ('Defence', 'analysed'), and the role vocabulary should not be the one place it does not."
+   ],
+   "fields": {
+    "attributed_to": "Géza Maróczy (populariser)"
+   }
+  },
+  {
+   "ocn1": "B.Sic.OKe.c4",
+   "evidence_grade": "CLEAR",
+   "source_refs": [
+    "Spelling unification only; the catalogue uses British forms throughout ('Defence', 'analysed'), and the role vocabulary should not be the one place it does not."
+   ],
+   "fields": {
+    "attributed_to": "Géza Maróczy (populariser)"
+   }
+  },
+  {
+   "ocn1": "B.Sic.Ros",
+   "evidence_grade": "CLEAR",
+   "source_refs": [
+    "Spelling unification only; the catalogue uses British forms throughout ('Defence', 'analysed'), and the role vocabulary should not be the one place it does not."
+   ],
+   "fields": {
+    "attributed_to": "Nicolas Rossolimo (populariser)"
+   }
+  }
+ ]
+}
