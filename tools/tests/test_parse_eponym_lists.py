@@ -132,6 +132,14 @@ class EntryTests(unittest.TestCase):
     def test_a_heading_is_not_an_entry(self) -> None:
         self.assertIsNone(pe.parse_entry("==A=="))
 
+    def test_an_en_dash_inside_a_name_does_not_split_it(self) -> None:
+        """Wikipedia's separator is a spaced en dash; Blackmar-Diemer
+        carries an unspaced one inside the name itself."""
+        entry = pe.parse_entry("*[[Blackmar–Diemer Gambit]] – 1.d4 d5 2.e4 dxe4 3.Nc3 "
+                               "– named after [[Armand Blackmar]] and [[Emil Diemer]]")
+        self.assertEqual(entry.wiki_name, "Blackmar–Diemer Gambit")
+        self.assertEqual(entry.people, ["Armand Blackmar", "Emil Diemer"])
+
     def test_a_maintenance_tag_glued_to_a_move_is_not_a_move(self) -> None:
         """Wikipedia hangs `{{Citation needed}}` off the last move, which
         leaves a stray brace where a move should be."""

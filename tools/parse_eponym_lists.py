@@ -59,8 +59,11 @@ from chess_uci import uci_sequence_from_pgn  # noqa: E402
 
 DEFAULT_CATALOGUE = REPO_ROOT / "catalog" / "ocn-1.csv"
 
-#: Wikipedia separates the parts of an entry with an en dash, not a hyphen.
-DASH = "–"
+#: Wikipedia separates the parts of an entry with a *spaced* en dash. The
+#: spacing is load-bearing: plenty of openings carry an unspaced en dash
+#: inside their own name -- Blackmar-Diemer, Caro-Kann, Alekhine-Chatard
+#: -- and splitting on the bare character truncates them mid-name.
+DASH = " – "
 
 MOVES_RE = re.compile(r"^1\.\s*[A-Za-z]")
 LINK_RE = re.compile(r"\[\[([^\]|]+)(?:\|([^\]]+))?\]\]")
