@@ -71,6 +71,52 @@ quotes, and the answer prose is never the citation.
 | `C.KGm.Acc.All` | Allgaier Gambit, 1166 | 12 | "played around 1780 by the Englishman **Cotter**, after whom it is sometimes named... **Allgaier was the first to publish a detailed analysis**, which appeared in the fourth edition of his book, **1819**" |
 | `D.Alb` | Albin Counter-gambit, 110 | 6 | "**introduced by Cavallotti** (after whom it is sometimes named) in a game against Salvioli at **Milan 1881**, and re-introduced in the game **Lasker-Albin, New York 1893**" |
 
+### The third instrument: the book read as a graph
+
+There is a way to use the whole book at once that neither reading nor
+retrieval provides, and it comes from the typography rather than the
+words.
+
+Hooper and Whyld set every cross-reference in small capitals and every
+headword in a second face. Those are conventions, and a convention is
+structure: a headword opens a node and each small-cap run inside it is
+an edge. Crucially the *typography survives the OCR intact* — the text
+layer renders one reference as `s1c1L1AN L>EFENCE`, but the span is
+still smaller than its page's body text, which is all the detector needs.
+Three page-relative rules do it (font ids are per-page subsets, so
+nothing can be hard-coded): body size is the commonest span size; body
+font is the commonest font at that size, and the *other* font at that
+size is the headword face; a span below body size that is mostly
+capitals is a reference. Mangled targets then resolve against the closed
+vocabulary of headwords, which turns free-text cleanup into bounded
+nearest-match.
+
+That yields **2,503 headwords, 2,444 nodes and 8,747 edges**, with 91
+per cent of references resolved and every edge attached to the entry it
+came from. Queries that cost a retrieval round-trip each become
+instant: everything the book credits to Lucena, every alias it declares,
+every attribution it disputes.
+
+**Note what converting to Markdown would have cost.** It would have
+discarded the small-capital and headword distinctions — precisely the
+signal that made this work. The text was never the missing piece; the
+structure was, and it lives in the font metrics.
+
+Two cautions, both learned by getting it wrong first. Splitting a
+reference run matters: "BOGOLJUBOW, STOLTZ" is two edges, and read as
+one it resolves to neither. And the relation verb must be taken from the
+clause *immediately* before the reference, not from the sentence: a
+170-character window turned "later called the Latvian... said by
+POLERIO to have been the idea of LEONARDO... given in GRECO's book" into
+three renamings, when it is a renaming, an attribution and a
+publication. Narrowing the window cut typed relations from 1,265 to
+**507** — and 507 that can be believed are worth more than 1,265 that
+cannot.
+
+The graph is a discovery instrument, not a source of truth: it says
+where to look, and the page still has to be read. It is not in the
+repository, because it is derived from a copyrighted book.
+
 ## The six remaining treatise heads, now answered
 
 All six were outstanding in
