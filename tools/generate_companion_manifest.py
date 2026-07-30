@@ -84,9 +84,14 @@ def fold(text: str) -> str:
 #: Verbs the Companion uses, mapped to the role each supports. The
 #: quote has to agree with the role before the role is written down.
 ROLE_EVIDENCE = {
-    "originated": r"\bintroduc|\boriginat|\bdevis|\bevolved\b|\binvent|\bpioneer|\bthe idea of\b",
+    #: "re-introduced" is not origination -- the Companion says
+    #: Cavallotti introduced the Albin and Albin re-introduced it, which
+    #: makes Albin the populariser of his own eponym.
+    "originated": (r"(?<!re)(?<!re-)\bintroduc|\boriginat|\bdevis|\bevolved\b"
+                   r"|\binvent|\bpioneer|\bthe idea of\b"),
     "first-published": r"\bgiven by\b|\bpublished\b|\bgiven in\b|\bfirst to publish\b|\bmonograph\b",
-    "popularised": r"\bplayed\b|\bpractis|\bused by\b|\bspeciality\b|\bmade it\b|\bfavour|\badvanced by\b",
+    "popularised": (r"\bplayed\b|\bpractis|\bused by\b|\bspeciality\b|\bmade it\b"
+                    r"|\bfavour|\badvanced by\b|\bre-?introduc"),
     "recommended": r"\brecommend|\badvocat|\bpreferred\b",
     "condemned": r"\bcondemn|\brejected\b",
 }
@@ -103,10 +108,83 @@ def body_of(quote: str) -> str:
     return re.sub(r"^[^,.]{0,60}[,.]", "", quote.strip(), count=1)
 
 
-def role_supported(quote: str, role: str) -> bool:
-    """Do the entry's own words carry the verb the role claims?"""
-    pattern = ROLE_EVIDENCE.get(role)
-    return bool(pattern and re.search(pattern, quote, re.I))
+def role_from_quote(quote: str, people: str = "") -> str:
+    """The role the entry's own words support, when they support one.
+
+    Read from the evidence rather than checked against it. The retrieval
+    returns a role label alongside the passage, and the two disagree on
+    13 of the entries found: the Durkin Opening came back "originated"
+    against a quote reading "played in over-the-board and correspondence
+    games by Robert Durkin", which is a populariser. The passage is the
+    evidence and the label is a summary of it, so the passage wins.
+
+    Several matching verbs means the entry describes several people
+    doing several things -- "introduced by X ... played by Y" -- and
+    which one our person did cannot be settled from the verb alone. Those
+    are held rather than guessed.
+    """
+    #: When the person is locatable, read the verb governing *them*.
+    #: "a variation given by LUCENA and rightly condemned by DAMIANO"
+    #: carries two verbs for two people, and the one that matters is the
+    #: one next to ours -- Damiano condemned the defence that bears his
+    #: name, which is the most interesting fact in the whole set and is
+    #: lost by any rule that simply counts verbs.
+    window = _window_around(quote, people)
+    for text in (window, quote):
+        matched = [role for role, pattern in ROLE_EVIDENCE.items()
+                   if re.search(pattern, text, re.I)]
+        if len(matched) == 1:
+            return matched[0]
+        if matched and text is window:
+            #: Several verbs even beside the person: genuinely ambiguous.
+            return ""
+    return ""
+
+
+def _window_around(quote: str, people: str) -> str:
+    """The clause containing the person's name, if it can be found.
+
+    Falls back to the whole quote when the name is not locatable, which
+    is the conservative direction: the caller then requires a single
+    unambiguous verb across the entire entry.
+    """
+    if not people:
+        return quote
+    #: Search the body, never the headword. Every entry about a person
+    #: opens with their name, so locating the first occurrence finds the
+    #: title and reads the verb governing somebody else entirely: for
+    #: the Damiano Defence that is "given by LUCENA", which is Lucena's
+    #: role and not Damiano's.
+    quote = body_of(quote)
+    folded = fold(quote)
+    for person in people.split(";"):
+        for part in sorted(person.split(), key=len, reverse=True):
+            key = fold(part)
+            if len(key) < 5:
+                continue
+            at = folded.find(key[:5])
+            if at < 0:
+                continue
+            #: Map the folded offset back by counting letters, then take
+            #: the sentence-ish span around it.
+            letters = 0
+            start = 0
+            for index, char in enumerate(quote):
+                if char.isalpha():
+                    if letters == at:
+                        start = index
+                        break
+                    letters += 1
+            #: Cut back to the clause boundary, not a fixed number of
+            #: characters: "given by LUCENA and rightly condemned by
+            #: DAMIANO" is two clauses and two people, and a window wide
+            #: enough to hold both settles nothing.
+            head = quote[max(0, start - 90):start]
+            boundary = max(head.rfind(sep) for sep in (" and ", ",", ";", ".", " but "))
+            if boundary >= 0:
+                head = head[boundary:]
+            return head + quote[start:start + 40]
+    return quote
 
 
 def quote_names(quote: str, people: str) -> bool:
@@ -142,14 +220,14 @@ def openings_in_quote(quote: str) -> int:
 
 def usable(row: dict[str, str]) -> bool:
     return (row["verdict"] == "entry"
-            and row["role"] in ROLE_NOUN
             and bool(row["quote"].strip())
             and quote_names(row["quote"], row["person"])
-            and role_supported(row["quote"], row["role"]))
+            and openings_in_quote(row["quote"]) <= 1
+            and role_from_quote(row["quote"], row["person"]) in ROLE_NOUN)
 
 
 def attribution_for(row: dict[str, str]) -> str:
-    noun = ROLE_NOUN[row["role"]]
+    noun = ROLE_NOUN[role_from_quote(row["quote"], row["person"])]
     people = [p.strip() for p in row["person"].split(";") if p.strip()]
     return "; ".join(f"{p} ({noun})" for p in people)
 
@@ -240,12 +318,10 @@ def main(argv: list[str] | None = None) -> int:
             dropped[row["ocn1"]] = "no quote returned"
         elif not quote_names(row["quote"], row["person"]):
             dropped[row["ocn1"]] = "the entry's body never names the person"
-        elif row["role"] not in ROLE_NOUN:
-            dropped[row["ocn1"]] = f"role not determined ({row['role'] or 'blank'})"
         elif openings_in_quote(row["quote"]) > 1:
             dropped[row["ocn1"]] = "entry covers several openings; role may be a sibling's"
-        elif not role_supported(row["quote"], row["role"]):
-            dropped[row["ocn1"]] = f"the quote carries no verb supporting '{row['role']}'"
+        elif not role_from_quote(row["quote"], row["person"]):
+            dropped[row["ocn1"]] = "the quote supports no single role"
         else:
             kept.append(row)
 
@@ -260,7 +336,8 @@ def main(argv: list[str] | None = None) -> int:
 
     roles: dict[str, int] = {}
     for row in kept:
-        roles[row["role"]] = roles.get(row["role"], 0) + 1
+        derived = role_from_quote(row["quote"], row["person"])
+        roles[derived] = roles.get(derived, 0) + 1
     print("\nroles carried:", ", ".join(f"{v} {k}" for k, v in
                                         sorted(roles.items(), key=lambda kv: -kv[1])))
     print("rival claimants recorded:", sum(1 for r in kept if rival_note(r)))
