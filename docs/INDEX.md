@@ -28,6 +28,7 @@ start here and move to `archive/` when their era closes.
 | [`oxford-companion-findings.md`](oxford-companion-findings.md) | Eleven attributions read from Hooper & Whyld with page citations — the first `verified`-grade lot, plus why bulk-joining a reference work cannot earn that grade. |
 | [`eponym-list-findings.md`](eponym-list-findings.md) | The systematic eponym survey: 211 candidate attributions joined by position, graded by footnote, nothing applied. |
 | [`people-identity-findings.md`](people-identity-findings.md) | Wikidata identities for the chronicle's people: 55 of 61 resolved by playing dates, plus the duplicate and merged-human rows it exposed. |
+| [`practitioner-chronology-design.md`](practitioner-chronology-design.md) | Who made a line theirs: first adopter, populariser and author as three relations — and why the top-player column is the rating list, not affinity. |
 | [`chronicle-layer-design.md`](chronicle-layer-design.md) | The cultural layer design: people, places, events, claims — and the source doctrine that keeps it citable. |
 | [`i18n-aliases-design.md`](i18n-aliases-design.md) | Locale alias sidecars (Track 2): format, conventions, ca+es pilot. |
 
