@@ -8,7 +8,10 @@ Python validator (MIT). Companion to `escacsfigueres/chess-parquet`.
 L'Albert manté **3 comptes Vercel** i **3 comptes GitHub** simultàniament. Aquest repo es desplega i es versiona amb comptes específics. Abans d'executar `vercel`, `gh`, o `git push`:
 
 **Comptes correctes per a aquest projecte (`ocn` · OCN-1 catalogue):**
-- **GitHub:** `escacsfigueres` ha de ser Active. Verificar amb `gh auth status`. Si no: `gh auth switch -u escacsfigueres` **+ tot seguit** `gh auth setup-git` (sense aquest segon pas, `git push` HTTPS falla amb *"repository not found"* tot i tenir el user correcte; `gh auth switch` no actualitza les credencials del keychain de macOS que `git` consulta).
+- **GitHub:** el remot d'aquest repositori apunta a `git@gh-escacsfigueres:escacsfigueres/ocn.git`, un **àlies SSH** definit a `~/.ssh/config` amb la seva pròpia clau (`~/.ssh/id_gh_escacsfigueres`). Això fa que la credencial sigui **propietat del repositori** i no estat global: `git push` fa servir el compte correcte **independentment de quin `gh` tingui actiu**, i ja no cal `gh auth switch` ni `gh auth setup-git` per a empènyer.
+  - Per què va caldre: amb remots HTTPS, `git` demana la credencial al helper de `gh`, que respon segons el compte actiu **global**. El repositori no hi pintava res, i per això qualsevol sessió podia acabar empenyent amb el compte equivocat.
+  - `gh` **segueix sent global**. Per a comandes `gh` (releases, PRs, API) cal el compte correcte actiu: `gh auth switch -u escacsfigueres`. Només el `push` ha deixat de dependre'n.
+  - Els àlies definits: `gh-escacsfigueres`, `gh-dedaluz`, `gh-norasproject`.
 - **Vercel:** team `escacsfigueres`. **Sempre** fer servir l'alias `vercel-escacs` (definit a `~/.zshrc`, usa `$VERCEL_TOKEN_ESCACS`) en lloc de `vercel` directe. Així el deploy va sempre al compte correcte independentment del CLI login global.
   - Deploy preview: `vercel-escacs`
   - Deploy producció: `vercel-escacs --prod`
