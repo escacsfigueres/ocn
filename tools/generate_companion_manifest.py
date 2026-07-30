@@ -46,6 +46,7 @@ from pathlib import Path
 REPO_ROOT = Path(__file__).resolve().parent.parent
 DEFAULT_VERDICTS = REPO_ROOT / "docs" / "evidence" / "eponyms" / "companion-verdicts.tsv"
 DEFAULT_CATALOGUE = REPO_ROOT / "catalog" / "ocn-1.csv"
+DEFAULT_SUBLINES = REPO_ROOT / "docs" / "evidence" / "eponyms" / "companion-sublines.tsv"
 
 #: No opening number in the citation. The Companion's index numbers are
 #: reliable in the book and unreliable coming back from retrieval: more
@@ -130,6 +131,12 @@ def role_from_quote(quote: str, people: str = "") -> str:
     #: name, which is the most interesting fact in the whole set and is
     #: lost by any rule that simply counts verbs.
     window = _window_around(quote, people)
+    #: Not locatable as an actor -- their name appears only inside an
+    #: opening's name, or not at all -- so no verb in this passage is
+    #: theirs. "a variation first given by CARRERA" is Carrera's role,
+    #: and reading it as Cozio's is exactly the error to refuse.
+    if people and not window:
+        return ""
     for text in (window, quote):
         matched = [role for role, pattern in ROLE_EVIDENCE.items()
                    if re.search(pattern, text, re.I)]
@@ -162,7 +169,20 @@ def _window_around(quote: str, people: str) -> str:
             key = fold(part)
             if len(key) < 5:
                 continue
-            at = folded.find(key[:5])
+            #: Skip occurrences where the name is part of an opening's
+            #: name rather than a person acting: the Sicilian Alapin
+            #: clause reads "(sometimes called the Alapin-Sveshnikov
+            #: Variation) ... CARRERA'S interesting invention", and
+            #: anchoring on that Alapin credits him with Carrera's
+            #: invention.
+            at = -1
+            for hit in re.finditer(re.escape(key[:5]), folded):
+                tail = folded[hit.end():hit.end() + 24]
+                if re.match(r"^[a-z]{0,12}(variation|defence|defense|gambit"
+                            r"|attack|opening|system|counterg)", tail):
+                    continue
+                at = hit.start()
+                break
             if at < 0:
                 continue
             #: Map the folded offset back by counting letters, then take
@@ -184,7 +204,7 @@ def _window_around(quote: str, people: str) -> str:
             if boundary >= 0:
                 head = head[boundary:]
             return head + quote[start:start + 40]
-    return quote
+    return ""
 
 
 def quote_names(quote: str, people: str) -> bool:
@@ -289,11 +309,35 @@ def build(rows: list[dict[str, str]], catalogue_rows: int) -> dict:
     }
 
 
+def merge_sublines(verdicts: list[dict[str, str]],
+                   sublines: list[dict[str, str]]) -> list[dict[str, str]]:
+    """Replace a multi-opening entry with the clause about our own line.
+
+    `tools/resolve_multi_entries.py` asks the Companion again, naming the
+    exact line, and gets back only the clause describing it. Swapping
+    that in makes an entry the generator had to hold usable, and does so
+    without loosening a single guardrail: the narrower text still has to
+    name the person and still has to carry one unambiguous verb.
+    """
+    narrowed = {r["ocn1"]: r for r in sublines if r["verdict"] == "clause" and r["clause"].strip()}
+    merged = []
+    for row in verdicts:
+        found = narrowed.get(row["ocn1"])
+        if found:
+            row = {**row, "quote": found["clause"],
+                   "role": found["role"] or row["role"],
+                   "rival": found["rival"] or row["rival"]}
+        merged.append(row)
+    return merged
+
+
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description=__doc__,
                                      formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.add_argument("--verdicts", type=Path, default=DEFAULT_VERDICTS)
     parser.add_argument("--catalogue", type=Path, default=DEFAULT_CATALOGUE)
+    parser.add_argument("--sublines", type=Path, default=DEFAULT_SUBLINES,
+                        help="clauses resolved for entries covering several openings")
     parser.add_argument("--out", type=Path)
     parser.add_argument("--summary", action="store_true",
                         help="report what would be included and excluded")
@@ -301,6 +345,14 @@ def main(argv: list[str] | None = None) -> int:
 
     with args.verdicts.open(newline="", encoding="utf-8") as handle:
         verdicts = list(csv.DictReader(handle, delimiter="\t"))
+    if args.sublines.is_file():
+        with args.sublines.open(newline="", encoding="utf-8") as handle:
+            sublines = list(csv.DictReader(handle, delimiter="\t"))
+        before = len(verdicts)
+        verdicts = merge_sublines(verdicts, sublines)
+        narrowed = sum(1 for r in sublines if r["verdict"] == "clause")
+        print(f"narrowed {narrowed} multi-opening entries to their own clause "
+              f"(of {before} verdicts)")
     with args.catalogue.open(newline="", encoding="utf-8") as handle:
         catalogue = list(csv.DictReader(handle))
     known = {r["ocn1"] for r in catalogue}
