@@ -151,7 +151,12 @@ class SidecarTests(unittest.TestCase):
         """The guard the previous test was silently doing: a subject type
         nobody handles would slip past every check that scopes by it."""
         kinds = {c["subject_type"] for c in self.read("ocn-1.claims.tsv")}
-        self.assertLessEqual(kinds, {"event", "place", "person", "publication"})
+        self.assertLessEqual(kinds, {"event", "place", "person", "publication",
+                                     #: A rename's subject is the name the
+                                     #: line carried before, not a thing in
+                                     #: the world -- so `name` is its own
+                                     #: subject type rather than a stand-in.
+                                     "name"})
 
     def test_a_place_claim_names_a_place(self) -> None:
         places = [c for c in self.read("ocn-1.claims.tsv")

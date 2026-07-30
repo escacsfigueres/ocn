@@ -49,6 +49,7 @@ import argparse
 import csv
 import difflib
 import re
+import unicodedata
 import subprocess
 import sys
 from pathlib import Path
@@ -121,11 +122,22 @@ def events(diff: str) -> tuple[dict[str, dict], list[dict]]:
 
 
 def substantive(before: str, after: str) -> bool:
-    """Is this a naming decision, or a diacritic and a comma?"""
-    plain = lambda text: re.sub(r"[^a-z0-9]", "", text.lower())  # noqa: E731
+    """Is this a naming decision, or a diacritic and a comma?
+
+    Diacritics must be *folded* to their base letter, not stripped. An
+    earlier version deleted them, so "Kadas" compared as "kadasopening"
+    against "Kdasopening" and read as a change; the similarity check
+    caught the short names and let the long ones through, and
+    "Kadas Opening: Kadas Gambit" -> "Kádas Opening: Kádas Gambit"
+    was published as a renaming when it is an accent restored.
+    """
+    def plain(text: str) -> str:
+        folded = "".join(c for c in unicodedata.normalize("NFKD", text)
+                         if not unicodedata.combining(c))
+        return re.sub(r"[^a-z0-9]", "", folded.lower())
     if plain(before) == plain(after):
         return False
-    return difflib.SequenceMatcher(None, before, after).ratio() < SUBSTANTIVE_BELOW
+    return difflib.SequenceMatcher(None, plain(before), plain(after)).ratio() < SUBSTANTIVE_BELOW
 
 
 def catalogue_by_position(path: Path) -> dict[str, dict[str, str]]:
@@ -182,6 +194,10 @@ def main(argv: list[str] | None = None) -> int:
             #: A commit is a primary record of the decision it made, but
             #: it records the decision and not the scholarship behind it.
             "evidence_grade": "attested",
+            #: Filled by a separate pass over the GitHub API, which
+            #: resolves each commit to the pull request that carried it.
+            #: Empty for a direct push, where there is no thread to cite.
+            "pr_number": "", "pr_title": "", "pr_author": "", "pr_url": "",
         })
 
     rows.sort(key=lambda r: (r["date"], r["ocn1"]))
