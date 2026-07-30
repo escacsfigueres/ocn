@@ -46,7 +46,14 @@ REPO_ROOT = Path(__file__).resolve().parent.parent
 #: `ocn` package if tools/ is on the path, which fails obscurely.
 sys.path.insert(0, str(REPO_ROOT / "src"))
 
-COLUMNS = ("ocn1", "year", "white", "black", "result", "event", "shard")
+COLUMNS = ("ocn1", "year", "white", "white_elo", "black", "black_elo",
+           "result", "event", "shard", "corpus")
+
+#: Ratings are the difference between "somebody played this" and "a
+#: strong player played this", which is the whole question when asking
+#: who took a line up. The first pass over Lumbras omitted them and had
+#: to be redone; they are not optional.
+ELO_HEADERS = ("WhiteElo", "BlackElo")
 
 #: Below this the game is a fragment or a scoresheet stub, not evidence
 #: that anyone played the opening deliberately.
@@ -85,6 +92,11 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--limit-per-shard", type=int, default=0,
                         help="stop after this many games per shard (for a trial)")
     parser.add_argument("--progress-every", type=int, default=50000)
+    parser.add_argument("--corpus", default="",
+                        help="name recorded on every row, so passes over "
+                             "different bases stay distinguishable when merged")
+    parser.add_argument("--min-elo", type=int, default=0,
+                        help="keep a game only if either player is at least this")
     args = parser.parse_args(sys.argv[1:] if argv is None else argv)
 
     if not args.pgn_dir.is_dir():
@@ -136,13 +148,24 @@ def main(argv: list[str] | None = None) -> int:
                     slug = getattr(match, "slug", None)
                     if not slug or getattr(match, "plies", 0) < MIN_PLIES:
                         continue
+                    def elo(header: str) -> str:
+                        raw = (game.header(header) or "").strip()
+                        return raw if raw.isdigit() else ""
+                    white_elo, black_elo = elo("WhiteElo"), elo("BlackElo")
+                    if args.min_elo:
+                        best = max((int(e) for e in (white_elo, black_elo) if e),
+                                   default=0)
+                        if best < args.min_elo:
+                            continue
                     handle.write("\t".join([
                         slug, year,
                         (game.header("White") or "?").replace("\t", " "),
+                        white_elo,
                         (game.header("Black") or "?").replace("\t", " "),
+                        black_elo,
                         (game.header("Result") or "").replace("\t", " "),
                         (game.header("Event") or "").replace("\t", " ")[:80],
-                        shard.name,
+                        shard.name, args.corpus,
                     ]) + "\n")
                     kept += 1
             handle.flush()
