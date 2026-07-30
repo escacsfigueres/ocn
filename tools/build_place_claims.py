@@ -46,6 +46,16 @@ CLAIM_COLUMNS = ("ocn1", "relation", "subject_type", "subject_id", "date",
 RELATION = "named-after-place"
 SUBJECT_TYPE = "place"
 
+#: Names Wikipedia files under places that are not places. There is no
+#: mechanical test for this -- "Amazon" is a river and also a fairy
+#: piece -- so the exclusions are listed with their reason and reviewed
+#: as a list rather than inferred one row at a time.
+NOT_A_PLACE = {
+    "amazon": "the amazon is a fairy piece (queen + knight); D.QPG.Ama is "
+              "1.d4 d5 2.Qd3, an early queen sortie, not a claim about Brazil",
+    "kahiko-hula": "kahiko and hula are Hawaiian dances, not places",
+}
+
 SOURCE = ("Wikipedia, 'List of chess openings named after places'; the opening "
           "was tied to this catalogue row by move sequence, and the catalogue's "
           "own name carries the place")
@@ -79,6 +89,9 @@ def build(rows: list[dict[str, str]]) -> tuple[list[dict[str, str]], Counter]:
             skipped["no place could be read from the name"] += 1
             continue
         subject = slugify(place)
+        if subject in NOT_A_PLACE:
+            skipped[f"not a place: {NOT_A_PLACE[subject]}"] += 1
+            continue
         key = (row["ocn1"], subject)
         if key in seen:
             skipped["duplicate opening/place pair"] += 1
