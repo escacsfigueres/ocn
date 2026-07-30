@@ -209,9 +209,21 @@ class PayloadTests(unittest.TestCase):
         self.assertEqual(prefix["lichess"]["kind"], "prefix")
 
     def test_attribution_only_where_attributed(self) -> None:
+        """Counted against the catalogue, not against a literal.
+
+        This asserted 26 and broke the moment a lot was applied, which
+        told us nothing except that the number had moved. What it means
+        to check is that the site carries an attribution exactly where
+        the catalogue has one."""
+        import csv as _csv
+        from pathlib import Path as _Path
+        catalogue = _Path(__file__).resolve().parent.parent.parent / "catalog" / "ocn-1.csv"
+        with catalogue.open(newline="", encoding="utf-8") as handle:
+            expected = {r["ocn1"] for r in _csv.DictReader(handle)
+                        if r["attributed_to"].strip()}
         _, data = built_site()
         attributed = [row for row in data["rows"] if row.get("attributed_to")]
-        self.assertEqual(len(attributed), 26)
+        self.assertEqual({row["slug"] for row in attributed}, expected)
         for row in data["rows"]:
             if not row.get("attributed_to"):
                 with self.subTest(slug=row["slug"]):

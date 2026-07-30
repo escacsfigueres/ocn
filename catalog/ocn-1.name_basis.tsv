@@ -21,7 +21,7 @@ A.Bir	Bird's Opening	person	attributed_to
 A.Lar	Larsen Attack	person	attributed_to
 A.Ret	Réti Opening	person	attributed_to
 A.Owe	Owen's Defence	review	review
-A.Pol	Polish Opening	review	review
+A.Pol	Polish Opening	person	attributed_to
 B.Sic	Sicilian Defence	review	review
 B.Sic.Naj	Sicilian, Najdorf	person	attributed_to
 B.Sic.Naj.Eng	Sicilian Najdorf, English Attack	review	review
@@ -41,7 +41,7 @@ B.Sic.Sve.Bxf6.Nd5.f5	Sveshnikov 10...f5 (counterpunch)	review	review
 B.Sic.Dra	Sicilian Dragon	review	review
 B.Sic.Dra.Yug	Sicilian Dragon, Yugoslav Attack	review	review
 B.Sic.Sch	Sicilian Scheveningen	review	review
-B.Sic.Sch.Krs	Sicilian Scheveningen, Keres Attack	review	review
+B.Sic.Sch.Krs	Sicilian Scheveningen, Keres Attack	person	attributed_to
 B.Sic.Tay	Sicilian Taimanov	review	review
 B.Sic.Kan	Sicilian Kan	review	review
 B.Sic.Cls	Sicilian Classical	review	review
@@ -79,7 +79,7 @@ C.RyL.Cha	Ruy López, Chigorin	review	review
 C.RyL.Exc	Ruy López, Exchange	review	review
 C.Ita	Italian Game	review	review
 C.Ita.Two	Italian, Two Knights	review	review
-C.Ita.Evn	Italian, Evans Gambit	review	review
+C.Ita.Evn	Italian, Evans Gambit	person	attributed_to
 C.Ita.Pia	Italian, Giuoco Pianissimo	review	review
 C.KGm	King's Gambit	review	review
 C.KGm.Acc	King's Gambit Accepted	review	review
@@ -113,16 +113,16 @@ D.Tar	Tarrasch Defence	person	attributed_to
 D.STa	Semi-Tarrasch	review	review
 D.QGD.Vie	QGD, Vienna Variation	review	review
 D.QGD.Rag	QGD, Ragozin	review	review
-D.Alb	Albin Counter-Gambit	review	review
+D.Alb	Albin Counter-Gambit	person	attributed_to
 D.Bgm	Blackmar-Diemer Gambit	review	review
 E.KID	King's Indian Defence	review	review
 E.KID.Sml	KID, Sämisch	review	review
 E.KID.Cls	KID, Classical	review	review
 E.KID.Cls.Mar	KID, Mar del Plata	person	attributed_to
 E.KID.Fch	KID, Fianchetto	review	review
-E.KID.Avk	KID, Averbakh	review	review
+E.KID.Avk	KID, Averbakh	person	attributed_to
 E.KID.Fou	KID, Four Pawns Attack	review	review
-E.Nim	Nimzo-Indian Defence	review	review
+E.Nim	Nimzo-Indian Defence	person	attributed_to
 E.Nim.Rub	Nimzo, Rubinstein	review	review
 E.Nim.Cls	Nimzo, Classical	review	review
 E.Nim.Sml	Nimzo, Sämisch	review	review
@@ -144,13 +144,13 @@ A.Ret.Fch	Réti Opening, Double Fianchetto	review	review
 A.Eng.Rev.Fou	English, Four Knights	review	review
 A.Hng	Hungarian Opening	review	review
 A.Gro	Grob Opening	person	attributed_to
-A.Van	Van Geet Opening	review	review
+A.Van	Van Geet Opening	person	attributed_to
 A.Bir.Fro	Bird's Opening, From's Gambit	review	review
 A.Tor	Torre Attack	review	review
 A.Ver	Richter-Veresov Attack	review	review
 A.Col	Colle System	review	review
 A.Lon.Job	London System, Jobava-Prié	review	review
-B.Nim	Nimzowitsch Defence	review	review
+B.Nim	Nimzowitsch Defence	person	attributed_to
 B.Nim.Ken	Nimzowitsch Defence, Kennedy	review	review
 B.Sca.Mod	Scandinavian, Modern	review	review
 B.Sca.Por	Scandinavian, Portuguese	review	review
@@ -163,7 +163,7 @@ B.Pir.Fch	Pirc, Fianchetto	review	review
 B.Mod.Avk	Modern Defence, Averbakh	review	review
 B.Fre.Rub	French, Rubinstein	review	review
 B.Fre.Bur	French, Burn	review	review
-B.Fre.Mac	French, MacCutcheon	review	review
+B.Fre.Mac	French, MacCutcheon	person	attributed_to
 B.CaK.Exc	Caro-Kann, Exchange	review	review
 B.CaK.Kar	Caro-Kann, Karpov	review	review
 C.Fou	Four Knights Game	review	review
@@ -173,7 +173,7 @@ C.Fou.Spa	Four Knights, Spanish Variation	review	review
 C.Fou.Spa.Rub	Four Knights Spanish, Rubinstein	review	review
 C.Fou.Hal	Four Knights, Halloween Gambit	review	review
 C.Bsh	Bishop's Opening	review	review
-C.Bsh.Urs	Bishop's Opening, Urusov Gambit	review	review
+C.Bsh.Urs	Bishop's Opening, Urusov Gambit	person	attributed_to
 C.Pon	Ponziani Opening	review	review
 C.Pon.Jae	Ponziani, Jaenisch Counterattack	review	review
 C.Pon.CGm	Ponziani, Countergambit	review	review
@@ -183,7 +183,7 @@ C.Cen.Pau	Center Game, Paulsen Attack	review	review
 C.Ita.Giu	Italian, Giuoco Piano	review	review
 C.Ita.Two.Ng5	Italian Two Knights, Knight Attack	review	review
 C.Ita.Two.Ng5.Trx	Two Knights, Traxler Counterattack	review	review
-C.Pet.Coc	Petrov, Cochrane Gambit	review	review
+C.Pet.Coc	Petrov, Cochrane Gambit	person	attributed_to
 C.Pet.Mod	Petrov, Modern Attack	review	review
 C.Sco.Gbt	Scotch, Scotch Gambit	review	review
 C.Vie.Gbt	Vienna, Vienna Gambit	review	review
@@ -193,7 +193,7 @@ D.Sla.Che	Slav, Chebanenko	review	review
 D.Sem.AMe	Semi-Slav, Anti-Meran	review	review
 D.QGD.Har	QGD, Harrwitz Attack	review	review
 D.Cat.Fch	Catalan, Fianchetto Main Line	review	review
-E.KID.Cls.Pet	KID Classical, Petrosian	review	review
+E.KID.Cls.Pet	KID Classical, Petrosian	person	attributed_to
 E.KID.Cls.Byn	KID Classical, Bayonet Attack	review	review
 E.KID.Mak	KID, Makogonov	review	review
 E.Nim.Rub.Hub	Nimzo Rubinstein, Hübner	review	review
@@ -258,11 +258,11 @@ E.Gru.Exc.Cla	Grünfeld Exchange, Classical	review	review
 E.Gru.Exc.Sev	Grünfeld Exchange, Seville	review	review
 A.Eng.Sym.Hdg	English Symmetrical, Hedgehog	review	review
 A.Eng.Rev.Bot	English Reversed Sicilian, Botvinnik System	review	review
-A.Eng.Mik	English Opening, Mikėnas-Carls	review	review
+A.Eng.Mik	English Opening, Mikėnas-Carls	person	attributed_to
 A.Ret.Ang	Réti Opening, Anglo-Slav	review	review
 A.Ret.QGI	Réti Opening, Queen's Gambit Invitation	review	review
 A.Hol.Fch	Dutch Defence, Fianchetto Attack	review	review
-A.Hol.Sta	Dutch Defence, Staunton Gambit	review	review
+A.Hol.Sta	Dutch Defence, Staunton Gambit	person	attributed_to
 A.Hol.Sto.Bot	Dutch Stonewall, Botvinnik Variation	review	review
 A.Hol.Cls.IZh	Dutch Classical, Ilyin-Zhenevsky	review	review
 E.Ben.Old	Old Benoni	review	review
@@ -297,9 +297,9 @@ E.KID.Sml.Byr	KID Sämisch, Byrne Defence	review	review
 E.KID.Sml.Ort	KID Sämisch, Orthodox	review	review
 E.KID.Fou.Dyn	KID Four Pawns, Dynamic Attack	review	review
 E.KID.Avk.Ben	KID Averbakh, Benoni Defence	review	review
-A.Ret.Lis	Réti Opening, Lisitsyn Gambit	review	review
+A.Ret.Lis	Réti Opening, Lisitsyn Gambit	person	attributed_to
 A.Hol.Hop	Dutch Defence, Hopton Attack	review	review
-E.QID.Mil	QID, Miles Variation	review	review
+E.QID.Mil	QID, Miles Variation	person	attributed_to
 B.Sic.Acc	Sicilian, Accelerated Dragon	review	review
 B.Sic.Acc.Mar	Accelerated Dragon, Maróczy Bind	person	attributed_to
 B.Sic.HAc	Sicilian, Hyper-Accelerated Dragon	review	review
@@ -357,7 +357,7 @@ A.Kad	Kádas Opening	review	review
 A.War	Ware Opening	review	review
 A.VtK	Van't Kruijs Opening	review	review
 A.Mie	Mieses Opening	review	review
-A.And	Anderssen's Opening	review	review
+A.And	Anderssen's Opening	person	attributed_to
 A.Clm	Clemenz Opening	review	review
 A.Ama	Amar Opening	review	review
 A.Sod	Sodium Attack	review	review
@@ -378,7 +378,7 @@ D.Chi.Jan	Chigorin Defence, Janowski	review	review
 C.Thr	Three Knights Opening	review	review
 C.Thr.Stn	Three Knights, Steinitz	review	review
 C.Ele	Elephant Gambit	review	review
-C.Dam	Damiano Defence	review	review
+C.Dam	Damiano Defence	person	attributed_to
 C.Cen.Dsh.Acc	Danish Gambit, Accepted	descriptor	editorial_leaf_token
 C.LtO.Acc	Latvian Gambit, Accepted	descriptor	editorial_leaf_token
 C.KPO	King's Pawn Game	review	review
@@ -589,7 +589,7 @@ D.QGA.Cen.Mod	QGA Central, Modern Defence	review	review
 D.QGA.Cls.Rub	QGA Classical, Rubinstein Variation	review	review
 D.QGA.Cls.Ale	QGA Classical, Alekhine System	review	review
 D.Sem.Mar	Semi-Slav, Marshall Gambit	review	review
-D.Sem.Mar.MLn	Semi-Slav Marshall, Main Line	descriptor	editorial_leaf_token
+D.Sem.Mar.MLn	Semi-Slav Marshall, Main Line	person	attributed_to
 D.Sem.Bg5.Bot.MLn	Semi-Slav Botvinnik, Main Line	descriptor	editorial_leaf_token
 D.STa.End	Semi-Tarrasch, Endgame Variation	review	review
 D.QGD.Rag.Bg5	QGD Ragozin, Bg5 Line	review	review
@@ -978,7 +978,7 @@ C.Fou.Spa.Rub.MLn	Four Knights Spanish Rubinstein, Main Line	descriptor	editoria
 C.Sco.Gor.Nc3.MLn	Scotch Göring Nc3, Main Line	descriptor	editorial_leaf_token
 C.Sco.Gbt.Max.MLn	Scotch Gambit Max Lange, Main Line	descriptor	editorial_leaf_token
 C.KGm.Dec.Cls.MLn	King's Gambit Declined Classical, Main Line	descriptor	editorial_leaf_token
-C.KGm.Acc.Muz.Dbl.MLn	Double Muzio Gambit, Main Line	descriptor	editorial_leaf_token
+C.KGm.Acc.Muz.Dbl.MLn	Double Muzio Gambit, Main Line	person	attributed_to
 D.Chi.MLn.e3	Chigorin Main Line, e3	review	review
 D.Chi.Exc.MLn	Chigorin Exchange, Main Line	descriptor	editorial_leaf_token
 D.Tar.Cls.MLn	Tarrasch Classical, Main Line	descriptor	editorial_leaf_token
@@ -2061,7 +2061,7 @@ C.KGm.Acc.Ors	King's Gambit Accepted, Orsini Gambit	review	review
 C.KGm.Acc.Par	King's Gambit Accepted, Paris Gambit	review	review
 C.KGm.Acc.SBb	King's Gambit Accepted, Schurig Gambit with Bb5	review	review
 C.KGm.Acc.SBd	King's Gambit Accepted, Schurig Gambit with Bd3	review	review
-C.KGm.Acc.Sta	King's Gambit Accepted, Stamma Gambit	review	review
+C.KGm.Acc.Sta	King's Gambit Accepted, Stamma Gambit	person	attributed_to
 C.KGm.Acc.Tar	King's Gambit Accepted, Tartakower Gambit	review	review
 C.KGm.Acc.Tar.Wei	King's Gambit Accepted Tartakower, Weiss Defence	review	review
 C.KGm.Acc.Tum	King's Gambit Accepted, Tumbleweed	review	review
@@ -2074,10 +2074,10 @@ C.KGm.Acc.Nf3.Fis.Spa	King's Gambit Accepted Fischer, Spanish Variation	review	r
 C.KGm.Acc.Nf3.Gia	King's Gambit Accepted, Gianutio Countergambit	review	review
 C.KGm.Acc.Nf3.KKn	King's Gambit Accepted, King's Knight's Gambit g5	review	review
 C.KGm.Acc.Nf3.Mac	King's Gambit Accepted, MacLeod Defence	review	review
-C.KGm.Acc.Nf3.Scl	King's Gambit Accepted, Schallopp Defence	review	review
+C.KGm.Acc.Nf3.Scl	King's Gambit Accepted, Schallopp Defence	person	attributed_to
 C.KGm.Acc.Nf3.Scl.Tas	King's Gambit Accepted Schallopp, Tashkent Attack	review	review
 C.KGm.Acc.Nf3.Wag	King's Gambit Accepted, Wagenbach Defence	review	review
-C.KGm.Acc.Nf3.Cun	King's Gambit Accepted, Cunningham Defence	review	review
+C.KGm.Acc.Nf3.Cun	King's Gambit Accepted, Cunningham Defence	person	attributed_to
 C.KGm.Acc.Nf3.Cun.Ber	King's Gambit Accepted Cunningham, Bertin Gambit	review	review
 C.KGm.Acc.Nf3.Cun.McC	King's Gambit Accepted Cunningham, McCormick Defence	review	review
 C.KGm.Acc.Nf3.Mod	King's Gambit Accepted, Modern Defence	review	review
@@ -2097,7 +2097,7 @@ E.Ind.c6	Indian Defence, Slav Indian	review	review
 E.Ind.e6	Indian Defence, e6 Precursor	review	review
 E.Ind.e6.Nf3	Indian Defence, Anti-Nimzo-Indian	review	review
 E.Ind.e6.Nf3.a6	Indian Defence, Dzindzi-Indian Defence	review	review
-E.Ind.e6.Nf3.Ne4	Indian Defence, Doery Indian	review	review
+E.Ind.e6.Nf3.Ne4	Indian Defence, Doery Indian	person	attributed_to
 E.Ind.Cat	Indian Catalan Setup	review	review
 E.Ind.Cat.d5	Indian Catalan Setup, d5	review	review
 E.Ind.Cat.e5	Indian Catalan Setup, Hungarian Gambit	review	review
@@ -2270,7 +2270,7 @@ B.Fre.c4.d5	French Defence, Orthoschnapp Gambit	review	review
 B.Fre.Nc3	French Defence, Queen's Knight	review	review
 B.Fre.Nc3.d5	French Defence, Pelikán Variation	review	review
 B.Fre.g3	French Defence, Réti-Spielmann Attack	review	review
-B.Fre.e5	French Defence, Steinitz Attack	review	review
+B.Fre.e5	French Defence, Steinitz Attack	person	attributed_to
 B.Fre.Nrm.d5.Nc3	French Defence, Paulsen Variation	review	review
 B.Fre.Nrm.d5.Nc3.Nc6	French Defence, Hecht-Reefschlaeger	review	review
 B.Fre.Nrm.d5.Nc3.c5	French Defence, Marshall Gambit	review	review
@@ -2359,7 +2359,7 @@ B.Fre.Win.Adv.Pos.Qa5	French Winawer Positional, Qa5	review	review
 B.Fre.Win.Adv.Pos.Qa5.Bd2	French Winawer Positional Qa5, Bd2	review	review
 B.Fre.Win.Adv.Pos.Qa5.Qd2	French Winawer Positional Qa5, Qd2	review	review
 B.Mod.Dpn	Modern Defence, 2.d4	review	review
-B.Mod.Std	Modern Defence, Standard Setup	review	review
+B.Mod.Std	Modern Defence, Standard Setup	person	attributed_to
 B.Mod.Std.Nc3	Modern Defence Standard, Nc3	review	review
 B.Mod.Std.Bc4	Modern Defence, Bishop Attack	review	review
 B.Mod.Std.Bc4.b5	Bishop Attack, Buecker Gambit	review	review
@@ -2511,7 +2511,7 @@ B.Sic.Tay.Nc3.Qc7	Sicilian Taimanov, Bastrikov Variation	review	review
 B.Sic.Tay.Nc3.Qc7.Ndb5	Taimanov Bastrikov, Ponomariov Gambit	review	review
 B.Sic.Tay.Nc3.Qc7.Be3	Taimanov Bastrikov, English Attack	review	review
 B.Sic.Tay.Nc3.Qc7.Be2	Taimanov Bastrikov, Paulsen Classical	review	review
-B.Sic.SmM.Acc.Nxc3	Smith-Morra Accepted, Nxc3	review	review
+B.Sic.SmM.Acc.Nxc3	Smith-Morra Accepted, Nxc3	person	attributed_to
 B.Sic.SmM.Acc.Nf3	Smith-Morra Accepted, Danish Variation	review	review
 B.Sic.SmM.Acc.Nxc3.Nc6	Smith-Morra Accepted, Nc6 Formation	review	review
 B.Sic.SmM.Acc.Nxc3.e6	Smith-Morra Accepted, e6 Formation	review	review
@@ -2590,7 +2590,7 @@ B.Sic.Cls.Rch.e6.Qd2.Be7	Richter-Rauzer, Classical Variation	review	review
 B.Sic.Cls.Rch.e6.Qd2.a6	Richter-Rauzer, Neo-Modern Variation	review	review
 C.RyL.Alp	Ruy López, Alapin Defence	review	review
 C.RyL.Alp.Gmb	Ruy López Alapin, Alapin Gambit	review	review
-C.RyL.Bre	Ruy López, Brentano Gambit	review	review
+C.RyL.Bre	Ruy López, Brentano Gambit	person	attributed_to
 C.RyL.Bul	Ruy López, Bulgarian Variation	review	review
 C.RyL.Fia	Ruy López, Fianchetto Defence	review	review
 C.RyL.Fia.c3	Ruy López Fianchetto, c3	review	review
@@ -2598,7 +2598,7 @@ C.RyL.Fia.c3.f5	Ruy López Fianchetto, Kevitz Gambit	review	review
 C.RyL.Fia.d4	Ruy López Fianchetto, Tartakower Gambit	review	review
 C.RyL.Luc	Ruy López, Lucena Variation	review	review
 C.RyL.Nbg	Ruy López, Nuernberg Variation	review	review
-C.RyL.Pol	Ruy López, Pollock Defence	review	review
+C.RyL.Pol	Ruy López, Pollock Defence	person	attributed_to
 C.RyL.Ret	Ruy López, Retreat Variation	review	review
 C.RyL.Rot	Ruy López, Rotary-Albany Gambit	review	review
 C.RyL.SCG	Ruy López, Spanish Countergambit	review	review
@@ -2606,7 +2606,7 @@ C.RyL.SCG.Nxe5	Spanish Countergambit, Harding Gambit	review	review
 C.RyL.Vin	Ruy López, Vinogradov Variation	review	review
 C.RyL.Bir	Ruy López, Bird Variation	review	review
 C.RyL.Bir.Nxd4	Ruy López Bird, Paulsen Variation	review	review
-C.RyL.Stn	Ruy López, Steinitz Defence	review	review
+C.RyL.Stn	Ruy López, Steinitz Defence	person	attributed_to
 C.RyL.Stn.d4	Ruy López Steinitz, d4	review	review
 C.RyL.Stn.d4.exd4	Ruy López Steinitz, Center Gambit	review	review
 C.RyL.Stn.d4.Bd7	Ruy López Steinitz, Bd7	review	review
@@ -2620,7 +2620,7 @@ C.RyL.ClD.c3.f5	Ruy López Classical, Cordel Gambit	review	review
 C.RyL.ClD.c3.d5	Ruy López Classical, Konikowski Gambit	review	review
 C.RyL.ClD.b4	Ruy López Classical, Spanish Wing Gambit	review	review
 C.Vie.Nc6	Vienna Game, Max Lange Defence	review	review
-C.Vie.Nc6.f4	Vienna Gambit, Max Lange Defence	review	review
+C.Vie.Nc6.f4	Vienna Gambit, Max Lange Defence	person	attributed_to
 C.Vie.Nc6.f4.exf4	Vienna Gambit Max Lange, Accepted	descriptor	editorial_leaf_token
 C.Vie.Nc6.f4.exf4.Nf3	Vienna Gambit Max Lange, Knight Variation	review	review
 C.Vie.Nc6.f4.exf4.Nf3.g5	Vienna Gambit Max Lange, g5 Line	review	review
@@ -2650,7 +2650,7 @@ C.PhD.d4.exd4.Nxd4	Philidor Exchange, Nxd4	review	review
 C.PhD.d4.exd4.c3	Philidor Defence, Bird Gambit	review	review
 C.PhD.d4.exd4.Qxd4	Philidor Defence, Boden Variation	review	review
 C.PhD.d4.exd4.Bc4	Philidor Defence, Morphy Gambit	review	review
-C.PhD.d4.Nd7	Philidor Defence, Hanham Move Order	review	review
+C.PhD.d4.Nd7	Philidor Defence, Hanham Move Order	person	attributed_to
 C.PhD.d4.Nd7.Bc4	Philidor Hanham, Bc4	review	review
 C.PhD.d4.Nd7.Bc4.c6	Philidor Hanham, c6 Line	review	review
 C.PhD.d4.Nd7.Bc4.Nb6	Philidor Hanham, Sharp Variation	review	review
@@ -2709,7 +2709,7 @@ C.Bsh.Bc5.b4	Bishop's Opening, McDonnell Gambit	review	review
 C.Bsh.Bc5.b4.Bxb4	Bishop's Opening McDonnell, Accepted	descriptor	editorial_leaf_token
 C.Bsh.Bc5.b4.Bxb4.c3	McDonnell Gambit, La Bourdonnais-Denker	review	review
 C.Bsh.Bc5.b4.Bxb4.f4	McDonnell Gambit, Double Gambit	review	review
-C.Bsh.Bc5.c3	Bishop's Opening, Philidor Variation	review	review
+C.Bsh.Bc5.c3	Bishop's Opening, Philidor Variation	person	attributed_to
 C.Bsh.Bc5.c3.Nf6	Bishop's Opening, Pratt Variation	review	review
 C.Bsh.Bc5.c3.Qg5	Bishop's Opening, del Rio Variation	review	review
 C.Bsh.Bc5.f4	Bishop's Opening, Stein Gambit	review	review
@@ -2818,7 +2818,7 @@ D.QPG.c4.b5	Queen's Gambit, Zilbermints Gambit	review	review
 D.QPG.e3	Queen's Pawn Game, e3	review	review
 D.QPG.e3.Nf6	Queen's Pawn Game, e3 Nf6	review	review
 D.QPG.Zuk.Nf6	Zukertort Queen's Pawn, Nf6	review	review
-D.QPG.Zuk.Nf6.e3	Zukertort Queen's Pawn, e3	review	review
+D.QPG.Zuk.Nf6.e3	Zukertort Queen's Pawn, e3	person	attributed_to
 D.QPG.Zuk.Nf6.g3	Zukertort Queen's Pawn, Pseudo-Catalan	review	review
 D.QPG.Zuk.Nf6.c4	Zukertort Queen's Pawn, c4	review	review
 D.QPG.Zuk.c5	Zukertort Queen's Pawn, Krause Variation	review	review
@@ -2884,7 +2884,7 @@ E.Gru.Exc.SeV.Bc4.c5.Ne2	Grünfeld Exchange Seville Bc4 c5, Ne2	review	review
 E.Gru.Rus.Hng.e4	Grünfeld Russian Hungarian, e4	review	review
 E.Gru.Rus.Hng.e4.a6	Grünfeld Russian Hungarian, a6	review	review
 E.Gru.Rus.Hng.e4.b6	Grünfeld Russian Hungarian, b6	review	review
-E.Gru.Rus.Hng.e4.Bg4	Grünfeld Russian Hungarian, Bg4	review	review
+E.Gru.Rus.Hng.e4.Bg4	Grünfeld Russian Hungarian, Bg4	person	attributed_to
 E.KID.e4	King's Indian Defence, e4	review	review
 E.KID.Nf3	King's Indian Defence, Nf3	review	review
 E.KID.Nf3.d6	King's Indian Defence Nf3, d6	review	review
@@ -2935,7 +2935,7 @@ E.Ind.e6.Nf3.c5	Indian Anti-Nimzo, c5	review	review
 E.Ind.e6.Nf3.c5.d5	Indian Anti-Nimzo c5, d5	review	review
 E.Ind.e6.Nf3.c5.d5.exd5	Indian Anti-Nimzo c5, exd5	review	review
 E.Ben.d5	Benoni Defence, d5	review	review
-E.Ben.d5.d6	Benoni Defence d5, d6	review	review
+E.Ben.d5.d6	Benoni Defence d5, d6	person	attributed_to
 E.Ben.d5.e6	Benoni Defence d5, e6	review	review
 E.Ben.d5.e6.Nc3	Benoni Defence d5 e6, Nc3	review	review
 E.Ben.d5.e6.Nc3.exd5	Benoni Defence d5 e6 Nc3, exd5	review	review
@@ -3150,7 +3150,7 @@ C.Ita.Giu.c3.Qe7	Italian Giuoco Piano c3, Qe7	review	review
 C.Ita.Giu.c3.Qe7.d4	Italian Giuoco Piano c3 Qe7, d4	review	review
 C.Ita.Giu.c3.d6	Italian Giuoco Piano c3, d6	review	review
 C.Ita.Giu.c3.d6.d4	Italian Giuoco Piano c3 d6, d4	review	review
-C.Ita.Giu.Bxf7	Italian Giuoco Piano, Jerome Attack	review	review
+C.Ita.Giu.Bxf7	Italian Giuoco Piano, Jerome Attack	person	attributed_to
 C.Ita.Evn.Acc.c3	Evans Accepted, c3	review	review
 C.Ita.Evn.Acc.c3.Bc5	Evans Accepted c3, Bc5	review	review
 C.Ita.Evn.Acc.c3.Bc5.d4	Evans Accepted c3 Bc5, d4	review	review
@@ -3205,7 +3205,7 @@ C.KGm.Acc.Kie.d5	Kieseritzky Gambit, d5	review	review
 C.KGm.Acc.Kie.d5.d4	Kieseritzky Gambit d5, d4	review	review
 C.KGm.Acc.Kie.d5.d4.Nf6	Kieseritzky Gambit d5 d4, Nf6	review	review
 C.KGm.Acc.Kie.h5	Kieseritzky Gambit, h5	review	review
-C.KGm.Acc.Kie.Nc6	Kieseritzky Gambit, Nc6	review	review
+C.KGm.Acc.Kie.Nc6	Kieseritzky Gambit, Nc6	person	attributed_to
 C.KGm.Acc.Kie.Bg7	Kieseritzky Gambit, Bg7	review	review
 C.KGm.Acc.Kie.Qe7	Kieseritzky Gambit, Qe7	review	review
 C.KGm.Acc.Kie.Be7	Kieseritzky Gambit, Be7	review	review
@@ -3218,7 +3218,7 @@ C.Pet.Cls.Bd3.Bd6.O-O	Petrov Classical Bd3 Bd6, Castled	review	review
 C.Pet.Cls.Bd3.Bd6.O-O.O-O	Petrov Classical Bd3 Bd6 O-O, Castled	review	review
 C.KPO.Kgt.MLn.Nxe5	King's Knight Opening Main Line, Nxe5	review	review
 C.KPO.Kgt.MLn.Nxe5.Nxe5	King's Knight Opening Nxe5, Nxe5	review	review
-C.KPO.Kgt.MLn.g3	King's Knight Opening Main Line, g3	review	review
+C.KPO.Kgt.MLn.g3	King's Knight Opening Main Line, g3	person	attributed_to
 C.KPO.Kgt.MLn.c4	King's Knight Opening Main Line, c4	review	review
 C.KPO.Kgt.MLn.c4.Nf6	King's Knight Opening c4, Nf6	review	review
 C.KPO.Kgt.MLn.b4	King's Knight Opening Main Line, b4	review	review
@@ -3814,7 +3814,7 @@ B.CaK.Pmv.Nf6.Nc3.e6	Caro-Kann Panov Nc3, e6	review	review
 B.CaK.Pmv.Nf6.Nc3.e6.Nf3	Caro-Kann Panov Main Line, Nf3	review	review
 B.CaK.Cls.Ng3	Caro-Kann Classical, Ng3	review	review
 B.CaK.Cls.Ng3.Bg6	Caro-Kann Classical Ng3, Bg6	review	review
-B.CaK.Cls.Ng3.Bg6.Nh3	Caro-Kann Classical, Flohr Variation	review	review
+B.CaK.Cls.Ng3.Bg6.Nh3	Caro-Kann Classical, Flohr Variation	person	attributed_to
 B.CaK.Cls.Ng3.Bg6.h4	Caro-Kann Classical Main Line, h4	review	review
 B.CaK.Cls.Ng3.Bg6.f4	Caro-Kann Classical, Maróczy Attack	review	review
 B.CaK.Cls.Ng5	Caro-Kann Classical, Ng5	review	review
@@ -4328,7 +4328,7 @@ C.Ita.Two.Ng5.Ulv.Bf1	Two Knights Ulvestad, Bf1	review	review
 C.Ita.Two.Ng5.Ulv.Bf1.h6	Two Knights Ulvestad, Kurkin Prefix	review	review
 C.Ita.Two.Ng5.Trx.Nxf7	Traxler Counterattack, Knight Sacrifice Line	review	review
 C.Ita.Two.Ng5.Trx.Nxf7.Bxf2	Traxler Knight Sacrifice, Bxf2	review	review
-C.RyL.Mor.Opn.Nc3	Ruy López Open, Knorre Variation	review	review
+C.RyL.Mor.Opn.Nc3	Ruy López Open, Knorre Variation	person	attributed_to
 C.RyL.Mor.Opn.Re1	Ruy López Open, Re1	review	review
 C.RyL.Mor.Opn.Re1.d5	Ruy López Open, Skipworth Gambit	review	review
 C.RyL.Mor.Opn.d4.b5.Nxe5	Ruy López Open, Friess Attack	review	review
@@ -5019,7 +5019,7 @@ C.KGm.Acc.Nf3.KKn.Bc4.GKG	King's Gambit Accepted, Ghulam-Kassim Gambit	review	re
 C.KGm.Acc.Nf3.KKn.Bc4.Ktv	King's Gambit Accepted, Kotov Gambit	review	review
 C.KGm.Acc.Nf3.KKn.Bc4.Lol	King's Gambit Accepted, Lolli Gambit	review	review
 C.KGm.Acc.Nf3.KKn.Bc4.Yng	King's Gambit Accepted, Lolli Gambit, Young Variation	review	review
-C.KGm.Acc.Nf3.KKn.Bc4.McD	King's Gambit Accepted, McDonnell Gambit	review	review
+C.KGm.Acc.Nf3.KKn.Bc4.McD	King's Gambit Accepted, McDonnell Gambit	person	attributed_to
 C.KGm.Acc.Nf3.KKn.Bc4.Slv	King's Gambit Accepted, Salvio Gambit	review	review
 C.KGm.Acc.Nf3.KKn.Bc4.And	King's Gambit Accepted, Salvio Gambit, Anderssen Counterattack	review	review
 C.KGm.Acc.Nf3.KKn.Bc4.Coc	King's Gambit Accepted, Salvio Gambit, Cochrane Gambit	review	review
@@ -5362,7 +5362,7 @@ C.Pet.Cls.Bd3.Bd6.O-O.Chi	Petrov Classical Bd3, Chinese Gambit	review	review
 C.Pet.Cls.Bd3.Bd6.O-O.Sta	Petrov Classical Bd3, Staunton Variation	review	review
 C.Pet.Cls.Bd3.Bd6.O-O.Tar	Petrov Classical Bd3, Tarrasch Variation	review	review
 C.Ita.Evn.Acc.Stn.O-O.AlS	Evans Accepted Steinitz, Alapin-Steinitz Variation	review	review
-C.Ita.Evn.Acc.Stn.O-O.Las	Evans Accepted Steinitz, Lasker Defence	review	review
+C.Ita.Evn.Acc.Stn.O-O.Las	Evans Accepted Steinitz, Lasker Defence	person	attributed_to
 C.Ita.Evn.Acc.Stn.O-O.SaA	Evans Accepted Steinitz, Sanders-Alapin Variation	review	review
 C.Ita.Evn.Acc.Stn.Lev	Evans Accepted Steinitz, Levenfish Variation	review	review
 C.Ita.Evn.Acc.Stn.Sok	Evans Accepted Steinitz, Sokolsky Variation	review	review
@@ -5478,7 +5478,7 @@ A.Eng.Agi.Nf3.Nf6.Nc3.Bd3	Agincourt Queen's Indian, Bd3 Line	review	review
 A.Eng.AIn.Nc3.e6.Nf3.g4	Anglo-Indian Nimzo-English, Zvjaginsev-Krasenkow Attack	review	review
 A.Eng.Rev.Nc3.d6.Nf3.Bg4	English Reversed Sicilian, Smyslov Defence	review	review
 A.Eng.Rev.Nc3.Nf6.Nf3.c6	English King's English, Adhiban Gambit	review	review
-A.Eng.Rev.Nc3.Nf6.Nf3.b5	English King's English, Bellon Gambit	review	review
+A.Eng.Rev.Nc3.Nf6.Nf3.b5	English King's English, Bellon Gambit	person	attributed_to
 A.Eng.Rev.Nc3.Nf6.Nf3.Ng4	English King's English, Erbenheimer Gambit	review	review
 A.Eng.Rev.Nc3.Nf6.f4	English Reversed Sicilian, Mazedonisch	review	review
 A.Eng.Rev.g3.Nf6.Bg2.Nc6	English Reversed Sicilian g3, Four Knights Fianchetto	review	review
@@ -5877,7 +5877,7 @@ B.Sic.SmM.Acc.Cls.O-O	Smith-Morra Accepted Classical, O-O	review	review
 B.Sic.SmM.Acc.Cls.O-O.Nf6	Smith-Morra Accepted Classical, Nf6	review	review
 B.Sic.Cls.Soz.e6.Bb3.Be7	Sicilian Sozin Fischer, Be7	review	review
 D.QGD.QKn.Acc	QGD Queen's Knight, Semi-Slav Accelerated	review	review
-D.QGD.QKn.Nrm.Har	QGD Queen's Knight Normal, Harrwitz Prefix	review	review
+D.QGD.QKn.Nrm.Har	QGD Queen's Knight Normal, Harrwitz Prefix	person	attributed_to
 D.QGD.Ort.Rc1.a6	QGD Orthodox Rc1, Henneberger a6 Line	review	review
 C.Pet.Thr.Fou.Gun	Four Knights Spanish, Gunsberg Counterattack	review	review
 B.Sca.Nf6.Mar.Gip	Scandinavian Marshall, Gipslis Variation	review	review

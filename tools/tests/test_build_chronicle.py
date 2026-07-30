@@ -137,11 +137,31 @@ class SidecarTests(unittest.TestCase):
                           if c["ocn1"] not in slugs})
         self.assertEqual(missing[:5], [])
 
-    def test_every_claim_points_at_a_real_event(self) -> None:
+    def test_every_event_claim_points_at_a_real_event(self) -> None:
+        """Scoped to `subject_type == "event"`. The claims table is one
+        table with many entrances, so a place claim's subject is a place
+        and looking for it among the events would fail by design."""
         events = {e["event_id"] for e in self.read("ocn-1.events.tsv")}
         missing = sorted({c["subject_id"] for c in self.read("ocn-1.claims.tsv")
-                          if c["subject_id"] not in events})
+                          if c["subject_type"] == "event"
+                          and c["subject_id"] not in events})
         self.assertEqual(missing[:5], [])
+
+    def test_every_claim_declares_a_subject_type_we_know(self) -> None:
+        """The guard the previous test was silently doing: a subject type
+        nobody handles would slip past every check that scopes by it."""
+        kinds = {c["subject_type"] for c in self.read("ocn-1.claims.tsv")}
+        self.assertLessEqual(kinds, {"event", "place", "person", "publication"})
+
+    def test_a_place_claim_names_a_place(self) -> None:
+        places = [c for c in self.read("ocn-1.claims.tsv")
+                  if c["subject_type"] == "place"]
+        if not places:
+            self.skipTest("no place claims applied")
+        for claim in places:
+            with self.subTest(ocn1=claim["ocn1"]):
+                self.assertTrue(claim["subject_id"].strip())
+                self.assertEqual(claim["relation"], "named-after-place")
 
     def test_every_event_names_people_the_table_knows(self) -> None:
         people = {p["person_id"] for p in self.read("ocn-1.people.tsv")}
