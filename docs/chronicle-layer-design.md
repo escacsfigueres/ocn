@@ -55,6 +55,15 @@ analysed this in his manuscripts" becomes a row rather than prose.
 | `key-game` | the game that fixed the name |
 | `played-by` | it is in this player's repertoire |
 | `wch-game` | played in a world championship match |
+| `renamed` | the line carried a different name before this |
+
+`renamed` was added after the fact, on two findings that had nowhere to
+go. The Latvian Gambit was the Greco Counter-Gambit until Riga analysts
+re-examined it and MCO-7 adopted the new name in 1946; and Lichess's
+public history records 263 renamings of catalogue rows since 2019, each
+with an author and a date. A name that changed is one of the few
+naming facts that can be dated exactly, which makes it worth more than
+most, and prose in a notes field cannot carry it.
 
 `evidence_grade` is the H4.4 enum: `verified` (reference-grade book or
 encyclopaedia), `attested` (credible published source), `traditional`
