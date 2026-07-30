@@ -37,6 +37,7 @@ start here and move to `archive/` when their era closes.
 
 | doc | what it is |
 |---|---|
+| [`release-ocn-1.3.0-notes.md`](release-ocn-1.3.0-notes.md) | 1.3.0 notes: the chronicle layer, three claim relations, popularity. |
 | [`release-ocn-1.2.0-notes.md`](release-ocn-1.2.0-notes.md) | 1.2.0 notes and gated runbook (released 2026-06-11). |
 | [`release-ocn-1.2.0-downstream-verification.md`](release-ocn-1.2.0-downstream-verification.md) | Published-asset verification for 1.2.0. |
 | [`release-ocn-1.1.0-notes.md`](release-ocn-1.1.0-notes.md) | 1.1.0 notes (fully resolved transposition catalogue). |

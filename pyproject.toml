@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "ocn-chess"
-version = "1.2.1"
+version = "1.3.0"
 description = "Open Chess Naming (OCN-1): hierarchical chess opening slugs, names and position lookup, catalogue included."
 readme = "README.md"
 requires-python = ">=3.10"
