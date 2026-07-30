@@ -105,3 +105,25 @@ Polerio citable at all (van der Linde, 1874), and the Latvian Gambit's
 whole naming history -- none of which were the questions asked, and all
 of which are worth more than a fifteenth thin attribution would have
 been.
+
+## Postscript: what an openings manual is worth for naming (measured)
+
+Batsford's *Modern Chess Openings* (de Firmian, 2015) was added to the
+sources and searched exhaustively. A 1.2 MB text covering the whole
+opening repertoire contains **ten** sentences that explain a name — nine
+"named after", one "takes its name".
+
+That is the same finding as the first pass over the books libraries,
+now with a number attached instead of an impression: a theory manual
+*uses* names and does not explain them, so its yield per unit of effort
+is roughly a hundredth of a reference dictionary's.
+
+The ten are worth having as corroboration rather than discovery, and one
+earns its place. MCO says the Albin Counter-gambit "is named after the
+Austrian master Adolf Albin, **who practised the opening successfully**
+in the later nineteenth century" — which independently confirms the
+correction made against the Oxford Companion, where Cavallotti
+introduced the line and Albin re-introduced it. Two reference works
+agreeing that the eponym is the populariser and not the originator is
+worth more than either alone.
+
