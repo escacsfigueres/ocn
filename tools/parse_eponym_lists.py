@@ -48,6 +48,7 @@ import argparse
 import csv
 import re
 import sys
+import unicodedata
 from collections import Counter
 from pathlib import Path
 from typing import NamedTuple
@@ -69,6 +70,17 @@ MOVES_RE = re.compile(r"^1\.\s*[A-Za-z]")
 LINK_RE = re.compile(r"\[\[([^\]|]+)(?:\|([^\]]+))?\]\]")
 REF_RE = re.compile(r"<ref[^>]*/>|<ref.*?</ref>|\{\{sfn[^}]*\}\}", re.S | re.I)
 TEMPLATE_RE = re.compile(r"\{\{[^{}]*\}\}")
+
+PLACE_COLUMNS = (
+    "ocn1", "canonical_name", "wikipedia_name", "place", "relation",
+    "moves_san", "moves_uci", "source_tier", "evidence_grade",
+    "already_attributed", "citation",
+)
+
+#: Words that name the kind of opening rather than the place itself.
+GENERIC = {"gambit", "defense", "defence", "variation", "attack", "opening",
+           "system", "countergambit", "counter-gambit", "game", "line",
+           "trap", "in", "the", "of"}
 
 OUTPUT_COLUMNS = (
     "ocn1", "canonical_name", "wikipedia_name", "person", "people_raw",
@@ -259,6 +271,29 @@ def join(entries: list[Entry],
     return matched, unmatched
 
 
+def place_in(name: str) -> str:
+    """The place a Wikipedia opening name is built on, without the kind word."""
+    head = name.split(" of ")[0].split(",")[0].split("(")[0]
+    words = [w for w in head.split() if w.lower().strip(".") not in GENERIC]
+    return " ".join(words).strip()
+
+
+def names_the_place(place: str, canonical: str) -> bool:
+    """Does OUR name carry the place, or do we call the line something else?
+
+    This is the whole distinction for a place lot. `named-after-place`
+    is a fact about a *name*, not about a position: Wikipedia calls
+    1.d4 d5 2.c4 the Aleppo Gambit, and if the catalogue calls it
+    "Queen's Gambit, c4" then our row is not named after Aleppo. That is
+    an alias we may be missing, not an attribution we can make.
+    """
+    def key(text: str) -> str:
+        stripped = "".join(c for c in unicodedata.normalize("NFKD", text)
+                           if not unicodedata.combining(c))
+        return re.sub(r"[^a-z]", "", stripped.lower())
+    return bool(key(place)) and key(place) in key(canonical)
+
+
 def citation_for(entry: Entry) -> str:
     """How the row should read if it ever becomes an attribution.
 
@@ -282,6 +317,8 @@ def main(argv: list[str] | None = None) -> int:
                         help="write the joined evidence here")
     parser.add_argument("--unmatched", action="store_true",
                         help="list the entries that found no catalogue row")
+    parser.add_argument("--places", action="store_true",
+                        help="read the list as place names rather than people")
     args = parser.parse_args(sys.argv[1:] if argv is None else argv)
 
     for path in (args.wiki, args.catalogue):
@@ -322,6 +359,28 @@ def main(argv: list[str] | None = None) -> int:
             if entry.problem:
                 continue
             print(f"  {entry.wiki_name[:48]:<48} {entry.moves_san[:44]}")
+
+    if args.out and args.places:
+        args.out.parent.mkdir(parents=True, exist_ok=True)
+        kept = 0
+        with args.out.open("w", encoding="utf-8", newline="") as handle:
+            handle.write("\t".join(PLACE_COLUMNS) + "\n")
+            for match in matched:
+                entry = match.entry
+                place = place_in(entry.wiki_name)
+                ours = names_the_place(place, match.canonical_name)
+                kept += ours
+                handle.write("\t".join([
+                    match.ocn1, match.canonical_name, entry.wiki_name, place,
+                    "named-after-place" if ours else "alias-candidate",
+                    entry.moves_san, entry.moves_uci, entry.tier, entry.grade,
+                    "yes" if match.already_attributed else "", citation_for(entry),
+                ]) + "\n")
+        print(f"\nwrote {args.out}")
+        print(f"  named-after-place (our own name carries it): {kept}")
+        print(f"  alias-candidate (we call it otherwise)     : {len(matched) - kept}")
+        print("\nevidence only: no catalogue row and no manifest was written")
+        return 0
 
     if args.out:
         args.out.parent.mkdir(parents=True, exist_ok=True)
