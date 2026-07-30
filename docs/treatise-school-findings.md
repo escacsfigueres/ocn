@@ -118,7 +118,29 @@ now with a number attached instead of an impression: a theory manual
 *uses* names and does not explain them, so its yield per unit of effort
 is roughly a hundredth of a reference dictionary's.
 
-The ten are worth having as corroboration rather than discovery, and one
+MCO-15 (2008) was then OCR'd for completeness -- the scan carries no
+text layer, so 766 pages went through `ocrmypdf` -- and yields **eleven**
+such sentences. The overlap with 2015 is heavy, as expected of a
+predecessor edition by the same author, and the exercise is still worth
+its cost because two of the eleven are absent from the later edition and
+both concern major openings:
+
+> "The Vienna is named after the Austrian capital that for centuries
+> headed the Holy Roman Empire."
+>
+> "The French Defense was named for the Parisian players who adopted the
+> move 1...e6."
+
+The French is the more interesting: the name honours no individual but a
+*group of players in a place*, which is a shape neither
+`named-after-person` nor a plain `named-after-place` quite holds.
+
+Across both editions there are roughly thirteen distinct naming facts.
+That is the true measured yield of a complete openings manual, and it
+sets the exchange rate against a reference dictionary at about a
+hundred to one.
+
+The rest are worth having as corroboration rather than discovery, and one
 earns its place. MCO says the Albin Counter-gambit "is named after the
 Austrian master Adolf Albin, **who practised the opening successfully**
 in the later nineteenth century" — which independently confirms the
