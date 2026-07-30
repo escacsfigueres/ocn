@@ -62,7 +62,14 @@ DEFAULT_CATALOGUE = REPO_ROOT / "catalog" / "ocn-1.csv"
 
 COLUMNS = ("ocn1", "canonical_name", "relation", "renamed_from", "renamed_to",
            "date", "author", "commit", "commit_subject", "source_ref",
-           "evidence_grade")
+           "evidence_grade", "pr_number", "pr_title", "pr_author", "pr_url")
+
+#: A commit records that a name changed. The pull request behind it
+#: frequently records *why*, in a thread anyone can read -- "[PROPOSAL]:
+#: rename Sicilian Najdorf...", "Rename Budapest Defense to Budapest
+#: Gambit". That argument is the citable part, and it is one API call
+#: away: /repos/{owner}/{repo}/commits/{sha}/pulls.
+PULL_URL = "https://github.com/lichess-org/chess-openings/pull/{number}"
 
 ROW = re.compile(r"^([A-E]\d\d)\t([^\t]+)\t(.+)$")
 COMMIT_URL = "https://github.com/lichess-org/chess-openings/commit/{sha}"
