@@ -17,11 +17,27 @@ PGN download, the opening explorer, and position lookup — all barred.
 The file also lists `/spidertrap.html`, which is an active defence
 rather than a passive preference.
 
-This is not a grey area and it is not about copyright: it is the site
-stating, in the standard machine-readable place, that automated access
-to exactly this data is not wanted. **OCN does not scrape it.** Reading
-a page as a human to check a fact remains ordinary research; harvesting
-does not.
+The same file blocks AI agents from the **whole** site, by name:
+
+    User-agent: ChatGPT-User      User-agent: GPTBot
+    Disallow: /                   Disallow: /
+
+That settles the question a scraping service might otherwise seem to
+reopen. Fetching through Firecrawl, Tavily or parse.bot does not change
+what is happening — those are automated fetchers acting on an agent's
+behalf, and using an intermediary to obtain what a site has said it does
+not want given to AI agents is circumvention rather than compliance.
+
+Nor does "we only want the reference, not the PGN" rescue it: every path
+that yields a game reference (`/perl/chess.pl`, `/perl/explorer`,
+`/fen/`, `lookupfen`) is disallowed for the generic crawler too.
+
+The user commentary is out twice over. `/perl/kibitzing` is disallowed,
+and unlike the moves, what people write about a game is their own
+writing rather than a public-domain fact.
+
+**OCN does not scrape it.** Reading a page as a human to check a fact
+remains ordinary research; harvesting does not.
 
 ## Three routes that are open
 
