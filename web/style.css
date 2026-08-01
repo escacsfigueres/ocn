@@ -63,28 +63,33 @@
      has to clear AA rather than merely look quiet. --edge is the
      boundary of an interactive control, which WCAG 1.4.11 wants at 3:1;
      --rule stays a hairline, which is decorative and exempt. */
-  --paper: #f6f6f3;
-  --plate: #ffffff;
-  --ink: #15171a;        /* 16.6:1 */
-  --ink-2: #4b5157;      /*  7.4:1 */
-  --ink-3: #6b7178;      /*  4.6:1 */
-  --edge: #8a8d86;       /*  3.1:1, control boundaries */
-  --rule: #e3e4e0;       /*  hairline, non-text */
-  --rule-2: #cbcdc7;
-  --focus: #1d6fb8;
+  --paper: oklch(0.972 0.004 106.5);
+  --plate: oklch(1 0 0);
+  --ink: oklch(0.204 0.007 258.4);     /* 16.6:1 */
+  --ink-2: oklch(0.432 0.013 248.1);   /*  7.4:1 */
+  --ink-3: oklch(0.546 0.013 252.2);   /*  4.6:1 */
+  --edge: oklch(0.639 0.011 125.8);    /*  3.1:1, control boundaries */
+  --rule: oklch(0.917 0.005 117.9);    /*  hairline, non-text */
+  --rule-2: oklch(0.845 0.008 121.7);
+  --focus: oklch(0.532 0.137 250.4);
 
-  /* The five volumes. One value family, all at AA on paper. */
-  --cls-a: #3c6b8b;      /*  5.3:1 */
-  --cls-b: #a13e2d;      /*  6.0:1 */
-  --cls-c: #8a6512;      /*  4.9:1 */
-  --cls-d: #3b6b4b;      /*  5.7:1 */
-  --cls-e: #6a4a7d;      /*  6.7:1 */
+  /* The five volumes. One value family, all at AA on paper -- and in oklch
+     the L channel states that evenness outright: 0.465 to 0.531.
+     C is deliberately not levelled here, and the five do not read as
+     equally vivid because each hue has its own chroma ceiling: C sits at
+     94% of its own, E at 38% of its. Levelling that is an open decision,
+     not an oversight -- it visibly calms the ochre and lifts the plum. */
+  --cls-a: oklch(0.508 0.073 240);     /*  5.3:1 */
+  --cls-b: oklch(0.497 0.135 31.9);    /*  6.0:1 */
+  --cls-c: oklch(0.5312 0.1034 81.61); /*  4.9:1 */
+  --cls-d: oklch(0.484 0.074 153.6);   /*  5.7:1 */
+  --cls-e: oklch(0.465 0.088 312.1);   /*  6.7:1 */
   --cls: var(--ink-3);
 
   /* The plate keeps its own scale: a diagram is printed, never themed. */
-  --sq-light: #ffffff;
-  --sq-dark: #cdccc5;
-  --plate-rule: #15171a;
+  --sq-light: oklch(1 0 0);
+  --sq-dark: oklch(0.844 0.01 100);
+  --plate-rule: oklch(0.204 0.007 258.4);
 
   --serif: "Spectral", Georgia, "Times New Roman", serif;
   --mono: "Plex Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
@@ -127,19 +132,21 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --paper: #131416;
-    --ink: #e7e8e5;
-    --ink-2: #a9aeb3;
-    --ink-3: #82878c;    /* 5.1:1 */
-    --edge: #63676b;     /* 3.2:1 */
-    --rule: #282a2d;
-    --rule-2: #3b3e42;
-    --focus: #6bb2ee;
-    --cls-a: #78a8c8;
-    --cls-b: #d9877a;
-    --cls-c: #d6ab5c;
-    --cls-d: #7aab8a;
-    --cls-e: #a98cbb;
+    --paper: oklch(0.191 0.004 264.5);
+    --ink: oklch(0.929 0.004 121.6);
+    --ink-2: oklch(0.748 0.009 247.9);
+    --ink-3: oklch(0.621 0.01 248);     /* 5.1:1 */
+    --edge: oklch(0.512 0.008 248);     /* 3.2:1 */
+    --rule: oklch(0.284 0.006 258.4);
+    --rule-2: oklch(0.362 0.008 255.5);
+    --focus: oklch(0.741 0.113 245.6);
+    /* Each family keeps its light-mode hue to within 2.3 deg, so the dark
+       set reads as the same five colours lifted, not as five new ones. */
+    --cls-a: oklch(0.709 0.069 238.2);
+    --cls-b: oklch(0.706 0.103 29.6);
+    --cls-c: oklch(0.764 0.11 81.1);
+    --cls-d: oklch(0.697 0.071 154.7);
+    --cls-e: oklch(0.683 0.075 312.3);
   }
 }
 
@@ -178,7 +185,7 @@ input {
   font: inherit; color: inherit;
   background: var(--plate); border: 1px solid var(--edge); border-radius: 2px;
 }
-@media (prefers-color-scheme: dark) { input { background: #1b1d20; } }
+@media (prefers-color-scheme: dark) { input { background: oklch(0.23 0.007 258.4); } }
 
 .skip { position: absolute; left: -9999px; background: var(--ink); color: var(--paper); padding: 0.6rem 1rem; }
 .skip:focus { left: 1rem; top: 1rem; z-index: 10; }
@@ -300,7 +307,7 @@ input {
 .board-frame { fill: none; stroke: var(--plate-rule); stroke-width: 1.25; }
 .sq.light { fill: var(--sq-light); }
 .sq.dark { fill: var(--sq-dark); }
-.coord { font-family: var(--mono); font-size: 9px; font-weight: 500; fill: #9a9e98; }
+.coord { font-family: var(--mono); font-size: 9px; font-weight: 500; fill: oklch(0.694 0.01 134.9); }
 .board-piece { transition: opacity 90ms linear; }
 @media (prefers-reduced-motion: reduce) { .board-piece { transition: none; } }
 
@@ -398,7 +405,7 @@ a.chip.eco:hover { color: var(--cls); border-color: var(--cls); }
   padding: 0.7rem 0.5rem 0.7rem 0.7rem; border-left: 2px solid transparent;
 }
 .row-link:hover { background: var(--plate); border-left-color: var(--cls); text-decoration: none; }
-@media (prefers-color-scheme: dark) { .row-link:hover { background: #1b1d20; } }
+@media (prefers-color-scheme: dark) { .row-link:hover { background: oklch(0.23 0.007 258.4); } }
 .row-name { font-family: var(--serif); font-size: var(--t-name); line-height: 1.35; }
 .row-meta { display: flex; gap: var(--s2); align-items: baseline; flex-wrap: wrap; justify-content: flex-end; }
 .row-slug { font-family: var(--mono); font-size: var(--t-small); color: var(--ink-3); }
@@ -428,7 +435,7 @@ a.chip.eco:hover { color: var(--cls); border-color: var(--cls); }
   padding: var(--s1) var(--s2) var(--s1) 0; border-radius: 2px;
 }
 .node:hover { background: var(--plate); }
-@media (prefers-color-scheme: dark) { .node:hover { background: #1b1d20; } }
+@media (prefers-color-scheme: dark) { .node:hover { background: oklch(0.23 0.007 258.4); } }
 /* The one control in the tree, so it has to look like one: a real hit
    area and geometry rather than a glyph, because a character triangle
    carries font metrics that never line up with the text beside it.
