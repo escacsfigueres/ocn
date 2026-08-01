@@ -1,4 +1,4 @@
-cff-version: 1.2.1
+cff-version: 1.2.0
 message: >-
   If you use the OCN-1 catalogue or specification, please cite it as below
   (CC-BY-4.0 requires attribution; this is the canonical form).
@@ -12,8 +12,8 @@ repository-code: "https://github.com/escacsfigueres/ocn"
 url: "https://github.com/escacsfigueres/ocn"
 license: CC-BY-4.0
 doi: 10.5281/zenodo.21670207
-version: 1.2.1
-date-released: 2026-07-30
+version: 1.3.0
+date-released: 2026-07-31
 keywords:
   - chess
   - chess openings
