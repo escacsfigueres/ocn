@@ -3,7 +3,7 @@
 [![CI](https://github.com/escacsfigueres/ocn/actions/workflows/ci.yml/badge.svg)](https://github.com/escacsfigueres/ocn/actions/workflows/ci.yml)
 [![Spec license: CC BY 4.0](https://img.shields.io/badge/spec-CC%20BY%204.0-lightgrey.svg)](LICENSE-SPEC)
 [![Code license: MIT](https://img.shields.io/badge/code-MIT-blue.svg)](LICENSE-CODE)
-[![Release](https://img.shields.io/badge/release-ocn--1.2.1-blue.svg)](https://github.com/escacsfigueres/ocn/releases/tag/ocn-1.2.1)
+[![Release](https://img.shields.io/badge/release-ocn--1.3.0-blue.svg)](https://github.com/escacsfigueres/ocn/releases/tag/ocn-1.3.0)
 [![PyPI](https://img.shields.io/pypi/v/ocn-chess.svg)](https://pypi.org/project/ocn-chess/)
 [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.21670207-1f6feb.svg)](https://doi.org/10.5281/zenodo.21670207)
 [![Explorer](https://img.shields.io/badge/explorer-ocn.vercel.app-brightgreen.svg)](https://ocn.vercel.app)
@@ -136,13 +136,17 @@ The full specification is in [`spec/OCN-1.md`](spec/OCN-1.md).
 
 ## Status
 
-**Released — `ocn-1.2.1` (2026-07-30).** Citable as [doi:10.5281/zenodo.21670207](https://doi.org/10.5281/zenodo.21670207).
-Previous release: `ocn-1.2.0` (2026-06-11). The format is stable; the reference
-catalogue has 5,899 entries, every duplicate-FEN group is resolved
+**Released — `ocn-1.3.0` (2026-07-31).** Citable as [doi:10.5281/zenodo.21670207](https://doi.org/10.5281/zenodo.21670207)
+(concept DOI — always resolves to the latest version).
+Previous release: `ocn-1.2.1` (2026-07-30). The format is stable; the reference
+catalogue has 5,899 entries with **zero slug changes since 1.2.1**, every
+duplicate-FEN group is resolved
 (`unresolved_groups=0`), canonical names carry their true diacritics, the
 ECO legacy codes are audited, and CI runs strict legal-move/SAN validation
-plus the full tool test suite under an unconditional gate. Release notes:
-[`docs/release-ocn-1.2.0-notes.md`](docs/release-ocn-1.2.0-notes.md). Post-1.2
+plus the full tool test suite under an unconditional gate. 1.3.0 adds the
+chronicle layer: 1,111 sourced claims over 854 slugs, and a popularity
+sidecar. Release notes:
+[`docs/release-ocn-1.3.0-notes.md`](docs/release-ocn-1.3.0-notes.md). Post-1.2
 work adds internationalised alias sidecars and consumer tooling, planned in
 [`docs/traction-roadmap.md`](docs/traction-roadmap.md). Comments,
 corrections and additions welcome via issues.
@@ -173,6 +177,16 @@ The reference catalogue lives in [`catalog/ocn-1.csv`](catalog/ocn-1.csv)
 - `transposes_to`, `same_as` — position-identity relations (see
   "Three relations per slug" below)
 
+The corpus underneath — the set of lines judged worth naming at all —
+comes from [lichess-org/chess-openings](https://github.com/lichess-org/chess-openings),
+released into the public domain under CC0 and vendored in `external/` as
+a pinned build input. What OCN adds on top is the naming and the
+hierarchy: only 0.7% of canonical names coincide with the upstream
+Lichess name, and 43.3% of slugs resolve deeper than the upstream list
+goes. Every row carries a position-keyed cross-reference back to its
+Lichess line in [`catalog/ocn-1.lichess-xref.tsv`](catalog/ocn-1.lichess-xref.tsv),
+except the five class roots `A`–`E`, which are OCN's own.
+
 The catalogue is licensed under **CC-BY-4.0**: you may use, share and
 adapt it for any purpose, including commercial, provided you cite "Club
 d'Escacs Figueres" and link to this repository.
@@ -185,7 +199,7 @@ to accommodate them, so a consumer takes only what it needs.
 | file | rows | what it holds |
 |---|---:|---|
 | `ocn-1.popularity.tsv` | 5,894 | master and Lichess game counts per opening, plus the strongest game's year range |
-| `ocn-1.claims.tsv` | 852 | the chronicle: typed, sourced, graded assertions about openings |
+| `ocn-1.claims.tsv` | 1,111 | the chronicle: typed, sourced, graded assertions about openings (over 854 slugs) |
 | `ocn-1.people.tsv` / `ocn-1.events.tsv` | 61 / 71 | the entities those claims point at |
 | `ocn-1.wch.tsv` | 1,040 | every world championship game mapped to a slug |
 | `ocn-1.eco.tsv`, `ocn-1.eco-divergence.tsv` | — | ECO mapping, and where we knowingly differ |
@@ -421,7 +435,13 @@ OCN-1 builds on:
 
 - **Šahovski Informator** (1971) for the A/B/C/D/E classification.
 - **[lichess-org/chess-openings](https://github.com/lichess-org/chess-openings)**
-  (CC0) for canonical English names of the long tail.
+  (CC0) for the corpus this whole catalogue stands on. Its five TSVs are
+  vendored in `external/` as a pinned build input; every OCN-1 slug but the
+  five class roots cross-references a Lichess line, 56.6% by exact position
+  and 43.3% by prefix. Lichess game counts drive `ocn-1.popularity.tsv`.
+  The names here are OCN's own work, but the prior question — which lines
+  are worth naming — Lichess answered first, thoroughly, and gave away.
+  CC0 required none of this acknowledgement. The debt is real regardless.
 - **Hooper & Whyld**, *Oxford Companion to Chess* (1984), for naming
   conventions.
 
@@ -434,3 +454,8 @@ Dual-licensed:
 - **Code** (in `tools/`): [MIT](LICENSE-CODE).
 
 Copyright © 2026 Club d'Escacs Figueres.
+
+The copyright above covers OCN's own work only. **Vendored upstream data**
+(in `external/`) is CC0 public domain, belongs to its original authors, and
+no rights over it are claimed here — see
+[`external/README.md`](external/README.md).
