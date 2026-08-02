@@ -1,0 +1,86 @@
+{
+  "kind": "ocn.attribution_manifest.v1",
+  "title": "DRAFT — Winter Chess Notes, batch 3: Evans, Bogo-Indian, Budapest, and three closures",
+  "description": "UN-APPLIED DRAFT. Third batch from the Edward Winter vein, drawn from the repaired harvest of 2026-08-02 (the earlier extraction had truncated 829 items at a duplicate anchor). Three heads take their first historical_notes (C.Ita.Evn, E.Bog, E.Bud); three already-recorded heads take closures the repaired items made possible — the Norman v Michell game that batch 2 had to leave open, the earliest located advocacy of the term 'Nimzoindisch', and the earliest located use of Nimzowitsch's own name for 1 e4 Nc6. No attribution is added: every item here documents naming history or an open dispute, not an attribution act. See docs/evidence/provenance/winter-batch-03-findings.md.",
+  "mode": "attribution_fields_only",
+  "expected_catalog_rows": 5899,
+  "expected_changed_rows": ["C.Ita.Evn", "E.Bog", "E.Bud", "E.Nim", "B.Nim", "E.Nim.Sml"],
+  "changes": [
+    {
+      "ocn1": "C.Ita.Evn",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "C.J.S. Purdy, Chess World, 1 April 1950, pp. 90-91",
+        "Chess Amateur, September 1915, p. 348, quoting the Yorkshire Observer Budget",
+        "BCM, July 1965, p. 197 (Leonard Reitstein, in D.J. Morgan's Quotes and Queries); Modern Chess Openings, 9th ed. (London, 1957), p. 6",
+        "Edward Winter, Chess Notes C.N. 6941, 9113, 9332 and 11255 (chesshistory.com), verified first-hand 2026-08-02"
+      ],
+      "fields": {
+        "historical_notes": "C.J.S. Purdy on the gambit's standing, Chess World, 1 April 1950, pp. 90-91: \"The Evans Gambit never wore swaddling clothes. Like Minerva it was born in panoply. The very first known game in which it was played was between its inventor and a great master of those days, Alexander McDonnell, and the inventor won.\" The fullest historical account of Evans and the gambit is Tim Harding, 'Eminent Victorian Chess Players' (Jefferson, 2012), pp. 9-34. A wartime attempt to rename the opening is on record: the Chess Amateur, September 1915, p. 348, ran the heading \"The Evans should be called the German Game\", reporting that a correspondent in a leading German chess magazine had proposed exactly that, and quoting the Yorkshire Observer Budget's reply: \"If the Germans choose to proclaim the whole of the chess openings a sort of military area and forbid anyone else to operate therein, there is no reason why they should not do so. It might please them, and would not make the least atom of difference to the rest of the world.\" The much-quoted description of the gambit as \"a gift of the gods to a languishing chess world\" has no established author: the question was raised by Leonard Reitstein in BCM, July 1965, p. 197, and the only source offered was Modern Chess Openings, 9th edition (London, 1957), p. 6. Edward Winter, Chess Notes C.N. 6941, 9113, 9332 and 11255."
+      }
+    },
+    {
+      "ocn1": "E.Bog",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "Harry Golombek (ed.), 'The Encyclopedia of Chess' (London, 1977), p. 34, and the 1981 paperback edition",
+        "W.H. Cozens, BCM, September 1978, p. 401",
+        "Harry Golombek, The Times, 5 February 1977",
+        "Edward Winter, Chess Notes C.N. 7677 (chesshistory.com), verified first-hand 2026-08-02"
+      ],
+      "fields": {
+        "historical_notes": "The compound name was contested by editors rather than by rival claimants. Harry Golombek, calling 1 d4 Nf6 2 c4 e6 3 Nf3 Bb4+ the Bogoljubow Defence in 'The Encyclopedia of Chess' (London, 1977), p. 34, added that it was \"otherwise known under the hideous name of Bogo-Indian Defence\". W.H. Cozens observed in BCM, September 1978, p. 401, that Golombek \"describes the word Bogo-Indian as hideous, while allowing the exactly analogous Nimzo-Indian to pass without stricture\"; the 1981 paperback edition dropped the criticism. Golombek had already conceded the parallel case in The Times of 5 February 1977: \"Though I have fought for some time against the ugly hybrid form of Nimzoindian Defence, I now have to admit defeat since it does seem the most economical way to describe the opening.\" Edward Winter, Chess Notes C.N. 7677."
+      }
+    },
+    {
+      "ocn1": "E.Bud",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "Gyuricza and Bottlik, 'The disputed origin of the Budapest Defense', pp. 37-48, in László Jakobetz, 'A budapesti sakkozás rövid története / A Short History of Chess in Budapest' (Budapest, 2010)",
+        "St. Schwartz, 'De Budapester Verdediging' (Antwerp: J.L. Verbert, undated, c. 1927)",
+        "Edward Winter, Chess Notes C.N. 5988 and 6571 (chesshistory.com), verified first-hand 2026-08-02"
+      ],
+      "fields": {
+        "historical_notes": "The origin is disputed, and is recorded here as disputed rather than resolved. The standard treatment is the chapter 'The disputed origin of the Budapest Defense' (pp. 37-48) by Gyuricza and Bottlik in László Jakobetz, 'A budapesti sakkozás rövid története / A Short History of Chess in Budapest' (Budapest, 2010); the two figures it sets against each other are Gyula Breyer and István Abonyi. An early monograph, 'De Budapester Verdediging' by St. Schwartz (Antwerp: J.L. Verbert, undated, c. 1927 per the catalogue of the chess library in The Hague), is on record, but its author has not been identified. The chapter itself has not been read for this entry, so no origin is asserted. Edward Winter, Chess Notes C.N. 5988 and 6571."
+      }
+    },
+    {
+      "ocn1": "E.Nim.Sml",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "BCM, July 1965, p. 207 (Bruce Hayden); BCM, February 1924, p. 43 and pp. 77-78",
+        "Friedrich Sämisch, chess column, Berliner illustrierte Nachtausgabe, 23 February 1934",
+        "Edward Winter, Chess Notes C.N. 4974, 4981 and 5682 (chesshistory.com), verified first-hand 2026-08-02"
+      ],
+      "fields": {
+        "historical_notes": "The variation carries Sämisch's name against his own published objection. The priority game he named is Adolf Kramer v Gottlieb Machate, Silesian championship, Bad Altheide 1926 (Sämisch won that tournament as an unofficial competitor), published in Breslauer Neueste Nachrichten, 28 October 1926 and in A. Babel, 'Der Schachkongreß in Bad Altheide' (Breslau, 1927), pp. 11-12, but in neither Deutsche Schachzeitung nor Deutsche Schachblätter. Earlier occurrences are on record: by transposition, Voellmy v Procházka, correspondence 1918-19, Schweizerische Schachzeitung, September-October 1919, pp. 120-122, and Ferrari v Stalda, Trieste 1923, in ChessBase MegaBase 2007. Sämisch, writing in 1934, was evidently unaware of G.M. Norman v R.P. Michell, Hastings — usually dated 1923, but played on 3 January 1924 (BCM, February 1924, p. 43; Michell won and annotated it on pp. 77-78). How the name transferred was described by Bruce Hayden in BCM, July 1965, p. 207: \"The idea caught the eye of the German master Fritz Sämisch and he adopted it thereon. And thereon, as is the way of chess fashion, his name was bestowed on the variation which was to play such a great part in master practice in the years to come.\" Edward Winter, Chess Notes C.N. 4974, 4981 and 5682."
+      }
+    },
+    {
+      "ocn1": "E.Nim",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "Wiener Schachzeitung, January 1925, pp. 3-5 and 17-18; May 1931, p. 132 (Hans Kmoch)",
+        "L'Echiquier, January 1930, pp. 579-581 (Tartakower)",
+        "Edward Lasker, 'The Game of Chess' (New York, 1972), p. 447",
+        "Edward Winter, Chess Notes C.N. 11441 and 3712 (chesshistory.com), verified first-hand 2026-08-02"
+      ],
+      "fields": {
+        "historical_notes": "The Oxford Companion names a rival claimant: Englisch. Recorded as disputed rather than resolved. On the compound name itself, Edward Lasker footnoted 'Nimzo-Indian' as \"a horrible abbreviation of Nimzovich-Indian. The mutilation of the name of the greatest chess theorist, the father of what the jocular master Tartakower called 'hypermodern chess', is as unnecessary as it is undignified\" (The Game of Chess, New York, 1972, p. 447); the footnote was dropped from the 1997 algebraic edition by John Nunn and Graham Burgess. On when the compound appeared: Nimzowitsch himself identified the opening simply as 'Indisch' when annotating in the Wiener Schachzeitung of January 1925 (pp. 3-5 and 17-18); Tartakower called it 'La \"Variante de Nimzowitch\"' in L'Echiquier, January 1930, pp. 579-581; and the earliest located advocacy of the compound is Hans Kmoch's footnote to the heading 'Nimzoindisch' in the Wiener Schachzeitung, May 1931, p. 132: \"Diese Bezeichnung scheint mir für die folgende Variante sehr empfehlenswert.\" Edward Winter, Chess Notes C.N. 11441 and 3712."
+      }
+    },
+    {
+      "ocn1": "B.Nim",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "Ostend 1907 tournament book, p. 153 and p. 334",
+        "Tidskrift för Schack, November-December 1920, pp. 181-183",
+        "Hugh Myers, 'The Nimzovich Defense to 1. e4' (Yorklyn, 1995), p. i",
+        "Edward Winter, Chess Notes C.N. 9484, 12175 and 3713 (chesshistory.com), verified first-hand 2026-08-02"
+      ],
+      "fields": {
+        "historical_notes": "The Oxford Companion names a rival claimant: Fischer. Recorded as disputed rather than resolved. That claimant is Eduard Fischer (1831-97), after whom the opening is known in Germany as the Fischer or Fischer-Nimzowitsch Defence; the name was already in British use by 1903 (\"the Fischer defence\", Alderley & Wilmslow Advertiser, 11 September 1903, p. 3, in a column probably by Carslake Winter-Wood), and entered Modern Chess Openings in the 11th edition (1972, ed. Walter Korn), p. 192. Hugh Myers, who wrote repeatedly on 1 e4 Nc6, recorded that he had \"never seen the score of a single game in which he played it\" (The Nimzovich Defense to 1. e4, Yorklyn, 1995, p. i), while judging Nimzowitsch \"by no means its originator or inventor\" but \"the first to play it with frequent success in major international competition\" — the basis of the populariser role recorded here. On when Nimzowitsch's name attached: the Ostend 1907 tournament book headed his game against Duras 'Königsläufer Eröffnung' (p. 153) but indexed it as 'Verteidigung Niemzowitsch' (p. 334), and he was annotating his own 1 e4 Nc6 game under the heading 'Niemzowitsch's spelöppning' in Tidskrift för Schack, November-December 1920, pp. 181-183. Edward Winter, Chess Notes C.N. 9484, 12175 and 3713."
+      }
+    }
+  ]
+}
