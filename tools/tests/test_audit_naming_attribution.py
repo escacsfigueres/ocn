@@ -128,7 +128,7 @@ class CatalogIntegrationTests(unittest.TestCase):
         cls.groups = payload["eponym_head_groups"]
 
     def test_known_applied_rows_are_already_attributed(self) -> None:
-        for slug in ("B.Sic.Naj", "D.QGD.Cmb", "A.Tro", "B.Sic.Acc.Mar"):
+        for slug in ("B.Sic.Naj", "D.QGD.Cmb", "A.Tro", "B.Sic.Acc.Mar", "B.Fre.Win", "B.CaK"):
             with self.subTest(slug=slug):
                 self.assertIn(slug, self.by_slug)
                 self.assertEqual(self.by_slug[slug]["category"], ana.CAT_ALREADY)
@@ -136,8 +136,10 @@ class CatalogIntegrationTests(unittest.TestCase):
                     self.by_slug[slug]["recommended_next_action"], ana.ACT_ALREADY
                 )
 
-    def test_winawer_is_source_sprint_or_batch(self) -> None:
-        row = self.by_slug["B.Fre.Win"]
+    def test_richter_is_source_sprint_or_batch(self) -> None:
+        # B.Fre.Win graduated to already_attributed with the Companion
+        # round-2 lot; Richter is the pending person-eponym fixture now.
+        row = self.by_slug["B.Sic.Cls.Rch"]
         self.assertEqual(row["category"], ana.CAT_PERSON)
         self.assertEqual(row["risk_level"], ana.RISK_MEDIUM)
         self.assertIn(

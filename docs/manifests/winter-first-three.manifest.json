@@ -1,0 +1,48 @@
+{
+  "kind": "ocn.attribution_manifest.v1",
+  "title": "DRAFT — Winter Chess Notes, first three: Caro-Kann, Benoni, Philidor",
+  "description": "UN-APPLIED DRAFT. First batch from the Edward Winter Chess Notes vein opened 2026-08-02 (docs/evidence/provenance/winter-first-three-findings.md). Three depth-1 heads whose naming evidence Winter documents with primary citations; every C.N. item re-verified first-hand against chesshistory.com before drafting. Caro-Kann takes attribution (Chess Monthly 1888 names both eponyms with roles); Benoni and Philidor take historical_notes only — the Benoni is not named after any person, and for the Philidor the primary record documents an open question, not an attribution act. Leads harvested by the Kimi pipeline (lead-only grade); the sources cited here are the published primaries and Winter's items, not the harvest.",
+  "mode": "attribution_fields_only",
+  "expected_catalog_rows": 5899,
+  "expected_changed_rows": ["B.CaK", "E.Ben", "C.PhD"],
+  "changes": [
+    {
+      "ocn1": "B.CaK",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "Chess Monthly, September 1888, pp. 25-26 (annotation to Bird & Blackburne v von Bardeleben & Weiss, Bradford)",
+        "BCM, October 1888, pp. 411-412 (W.H.K. Pollock, citing The Field)",
+        "Wiener Schachzeitung, 1 September 1887 pp. 49-52 and 1 October 1887 pp. 73-75 (A. Csánk)",
+        "Edward Winter, Chess Notes C.N. 7249, 8423, 7017, 9431 (chesshistory.com), each verified first-hand 2026-08-02"
+      ],
+      "fields": {
+        "attributed_to": "Marcus Kann (originator); Horatio Caro (leading practitioner)",
+        "attribution_source": "Chess Monthly, September 1888, pp. 25-26: \"This move was introduced by the late Herr Kann, of Pest, and adopted in practice by Herr Caro, of Berlin.\" Corroborated by BCM, October 1888, pp. 411-412 (W.H.K. Pollock: \"The Field observes that it was introduced by Herr Kann, of Pesth, and practised by Herr Caro, of Berlin\") and by A. Csánk, Wiener Schachzeitung, 1 September and 1 October 1887 (Kann \"the first to apply the defence\"). Via Edward Winter, Chess Notes C.N. 7249 and 8423.",
+        "historical_notes": "Earliest 1...c6 found in print: unnamed players, Chess Player's Chronicle, 1845, pp. 336-337 (C.N. 7017). Earliest known Kann game: A. Csánk v M. Kann, Vienna, 13 February 1884, published in Allgemeine Sport-Zeitung, 7 August 1884 (C.N. 9431). Csánk, Jacques Schwarz and Max Weiss analysed the defence before Weiss played it four times at Nuremberg, 1883 (C.N. 8423). Kann was Viennese (1820-1886, Wikidata Q86090); the Chess Monthly's 'of Pest' is a discrepancy of that primary. 'Caro-Kann' as a joint title first appeared in Curt von Bardeleben's article, Deutsche Schachzeitung, July 1890, pp. 193-195; Brüderschaft 1886 had headed Caro's games 'Caro's Eröffnung' (C.N. 7249)."
+      }
+    },
+    {
+      "ocn1": "E.Ben",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "Aaron Reinganum, 'Benoni, oder die Vertheidigungen gegen die Gambitzüge im Schache' (Frankfurt, 1825), cited via Staunton, 'The Chess-Player's Companion', p. 318",
+        "Edward Winter, Chess Notes C.N. 2250 and 4435 (chesshistory.com), verified first-hand 2026-08-02"
+      ],
+      "fields": {
+        "historical_notes": "Named after the title of Aaron Reinganum's book 'Ben-Oni oder die Vertheidigungen gegen die Gambitzüge im Schache' (Frankfurt am Main: Hermann, 1825; title hyphenated per the contemporary 1825 review, Staunton rendered it 'Benoni, oder'): Hebrew ben-oni, 'son of (my) sorrow' (an alternative reading by stress, 'son of my strength', is documented by Avital Pilpel). Not a person's name, despite a long trail of published confusion: Staunton's Chess-Player's Companion p. 318 implied Benoni was somebody, Rey Ardid (Cien nuevas partidas de ajedrez, 1940, p. 22) claimed 'the English player Benoni', and O'Kelly claimed two 1830s brothers of that name. Edward Winter, Chess Notes C.N. 2250 and 4435."
+      }
+    },
+    {
+      "ocn1": "C.PhD",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "Irving Chernev, 'Curious Chess Facts' (New York, 1937), p. 14",
+        "BCM, May 1954, p. 157 (D.J. Morgan) and August 1954, p. 257 (W.S. Mackie)",
+        "Edward Winter, Chess Notes C.N. 9220 (chesshistory.com), verified first-hand 2026-08-02"
+      ],
+      "fields": {
+        "historical_notes": "'Philidor never played Philidor's Defence!' (Chernev, Curious Chess Facts, 1937, p. 14; echoed with caution by D.J. Morgan, BCM, May 1954, p. 157). When the name first attached to 1 e4 e5 2 Nf3 d6 remains an open question, posed by W.S. Mackie, BCM, August 1954, p. 257. Edward Winter, Chess Notes C.N. 9220."
+      }
+    }
+  ]
+}

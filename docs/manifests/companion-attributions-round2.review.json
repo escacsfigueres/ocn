@@ -1,0 +1,32 @@
+{
+ "kind": "ocn.attribution_candidates.excluded",
+ "reason": "quote does not support the triaged role",
+ "candidates": [
+  {
+   "ocn1": "A.Bir.Fro",
+   "evidence_grade": "CLEAR",
+   "source_refs": [
+    "Hooper & Whyld, 'The Oxford Companion to Chess' (2nd ed., OUP 1992), entry 'From's Gambit'"
+   ],
+   "fields": {
+    "attributed_to": "Martin Severin From (originator)",
+    "attribution_source": "Hooper & Whyld, 'The Oxford Companion to Chess' (2nd ed., OUP 1992), entry 'From's Gambit': \"From Gambit, 1 3 1 6, first given by GRECO. Writing in Schachzeitung, 1 862, SORENSEN named this opening after his countryman, M. S. J . From.\"",
+    "historical_notes": "The Oxford Companion names a rival claimant: Greco. Recorded as disputed rather than resolved."
+   },
+   "excluded_because": "la cita acredita un altre: GRECO"
+  },
+  {
+   "ocn1": "C.Sco.Cls.Sch.Nc2",
+   "evidence_grade": "CLEAR",
+   "source_refs": [
+    "Hooper & Whyld, 'The Oxford Companion to Chess' (2nd ed., OUP 1992), entry 'Fleissig Variation'"
+   ],
+   "fields": {
+    "attributed_to": "Bernhard Fleissig (populariser)",
+    "attribution_source": "Hooper & Whyld, 'The Oxford Companion to Chess' (2nd ed., OUP 1992), entry 'Fleissig Variation': \"Fleissig Variation, 989, the MflTNER VARIATION of the SCOTCH GAME, named after Bernhard Fleissig ( 1 853- 193 1  ). the younger brother of Max.\"",
+    "historical_notes": "The Oxford Companion names a rival claimant: Meitner. Recorded as disputed rather than resolved."
+   },
+   "excluded_because": "apareix com a persona a qui es dedica el nom, no com a agent"
+  }
+ ]
+}

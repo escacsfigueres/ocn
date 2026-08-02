@@ -1,0 +1,93 @@
+[
+ {
+  "ocn1": "A.Ama",
+  "canonical_name": "Amar Opening",
+  "asked_as": "Amar Opening",
+  "moves_san": "1.Nh3",
+  "person": "Charles Amar",
+  "prev_tier": "oxford-companion",
+  "companion_index": "1324",
+  "role": "unclear",
+  "rival": "none",
+  "verdict": "entry",
+  "quote": "Amar Opening, 1 324, usually known as the PARIS OPENING."
+ },
+ {
+  "ocn1": "A.Bar",
+  "canonical_name": "Barnes Opening",
+  "asked_as": "Barnes Opening",
+  "moves_san": "1.f3",
+  "person": "Thomas Wilson Barnes",
+  "prev_tier": "oxford-companion",
+  "companion_index": "1282",
+  "role": "unclear",
+  "rival": "none",
+  "verdict": "entry",
+  "quote": "Barnes Opening, 1 282, an opening move of little merit, so named because of its parallel with the BARNES DEFENCE ( 1 247)."
+ },
+ {
+  "ocn1": "A.Clm",
+  "canonical_name": "Clemenz Opening",
+  "asked_as": "Clemenz Opening",
+  "moves_san": "1.h3",
+  "person": "Hermann Clemenz",
+  "prev_tier": "oxford-companion",
+  "companion_index": "1323",
+  "role": "unclear",
+  "rival": "none",
+  "verdict": "entry",
+  "quote": "Clemenz Opening, 1 323, named after the Estonian player Hermann Clemenz ( 1 846-1 908)."
+ },
+ {
+  "ocn1": "A.Mie",
+  "canonical_name": "Mieses Opening",
+  "asked_as": "Mieses Opening",
+  "moves_san": "1.d3",
+  "person": "Jacques Mieses",
+  "prev_tier": "oxford-companion",
+  "companion_index": "47",
+  "role": "unclear",
+  "rival": "none",
+  "verdict": "entry",
+  "quote": "Mieses Opening, 47, played by BODEN in the 1 850s and by MIESES in his match against TEICHMANN, 1 9 1 0; in Spain it is called the Valencia Opening."
+ },
+ {
+  "ocn1": "A.War",
+  "canonical_name": "Ware Opening",
+  "asked_as": "Ware Opening",
+  "moves_san": "1.a4",
+  "person": "Preston Ware",
+  "prev_tier": "oxford-companion",
+  "companion_index": "3",
+  "role": "unclear",
+  "rival": "none",
+  "verdict": "entry",
+  "quote": "Ware Opening, 3, also known as the Meadow Hay Opening. Preston Ware ( 1 82 1 -90) of the USA had an independent attitude to openings. He also liked the STONE- WARE DEFENCE and the STONEWALL Attack."
+ },
+ {
+  "ocn1": "A.Hng",
+  "canonical_name": "Hungarian Opening",
+  "asked_as": "Benko's Opening",
+  "moves_san": "1.g3",
+  "person": "Pal Benko",
+  "prev_tier": "book",
+  "companion_index": "1318",
+  "role": "unclear",
+  "rival": "none",
+  "verdict": "entry",
+  "quote": "Benko Opening, a name occasionally given to 1 3 1 8, the KING'S FIANCHETTO OPENING."
+ },
+ {
+  "ocn1": "C.KGm.Acc.Kie.Be7",
+  "canonical_name": "Kieseritzky Gambit, Be7",
+  "asked_as": "Polerio Defense",
+  "moves_san": "1.e4 e5 2.f4 exf4 3.Nf3 g5 4.h4 g4 5.Ne5 Be7",
+  "person": "Giulio Cesare Polerio",
+  "prev_tier": "web",
+  "companion_index": "1157",
+  "role": "unclear",
+  "rival": "Giovanni Domenico",
+  "verdict": "entry",
+  "quote": "Polerio Defence, 969 in the TWO KNIGHTS DEFENCE, one of the moves suggested here by POLERIO in 1 594. 1 1 57 in the KIESERITZKY GAMBIT, also known as the Paulsen Variation. or the Salvio Polcrio Defence, is also in a Polcrio manuscript, but may be the idea of a contemporary, Giovanni Domenico."
+ }
+]

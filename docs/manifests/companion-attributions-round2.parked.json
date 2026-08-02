@@ -1,0 +1,120 @@
+{
+ "kind": "ocn.attribution_candidates.excluded",
+ "reason": "quote does not support the triaged role",
+ "candidates": [
+  {
+   "ocn1": "A.Eng.Mik.Nc6",
+   "evidence_grade": "CLEAR",
+   "source_refs": [
+    "Hooper & Whyld, 'The Oxford Companion to Chess' (2nd ed., OUP 1992), entry 'Kevitz Variation'"
+   ],
+   "fields": {
+    "attributed_to": "Alexander Kevitz (populariser)",
+    "attribution_source": "Hooper & Whyld, 'The Oxford Companion to Chess' (2nd ed., OUP 1992), entry 'Kevitz Variation': \"Kevitz Defence, 42 in the ENGLISH OPENING.\""
+   },
+   "excluded_because": "la cita només estableix l'epònim"
+  },
+  {
+   "ocn1": "A.Kan",
+   "evidence_grade": "CLEAR",
+   "source_refs": [
+    "Hooper & Whyld, 'The Oxford Companion to Chess' (2nd ed., OUP 1992), entry 'Keres Defence'"
+   ],
+   "fields": {
+    "attributed_to": "Paul Keres (populariser)",
+    "attribution_source": "Hooper & Whyld, 'The Oxford Companion to Chess' (2nd ed., OUP 1992), entry 'Keres Defence': \"Keres Defence, 244. Known since the 1 840s. this defence was played by HUCKLE in his 4th match game against LOWENTHAL, 1 85 1 . Whal is now the standard reply, 3 Bd2. was recommended by STAUNTON.\""
+   },
+   "excluded_because": "la cita només estableix l'epònim"
+  },
+  {
+   "ocn1": "A.Ret.d5.c4",
+   "evidence_grade": "CLEAR",
+   "source_refs": [
+    "Hooper & Whyld, 'The Oxford Companion to Chess' (2nd ed., OUP 1992), entry 'Réti Opening'"
+   ],
+   "fields": {
+    "attributed_to": "Richard Réti (populariser)",
+    "attribution_source": "Hooper & Whyld, 'The Oxford Companion to Chess' (2nd ed., OUP 1992), entry 'Réti Opening': \"Reti Opening, 1 286. also called the Landstrasse Gambit. It may transpose, for example, to the CATALAN OPENING. If instead White maintains a SMALL CENTRE, fianchettoes both bishops, and castles on the king's-side, the play is a Reti System. White endeavours to control the central squares directly or indirectly with pieces, withholding the advance of centre pawns to the fourth rank until Black's intentions are known. Meanwhile White remains poised to attack any enemy pawn centre that might be set up. The opening was first played in a game A. E. Wolf-Teich, in the Landstrasse Schachbund, 1 923, \"",
+    "historical_notes": "The Oxford Companion names a rival claimant: Wolf. Recorded as disputed rather than resolved."
+   },
+   "excluded_because": "la cita només estableix l'epònim"
+  },
+  {
+   "ocn1": "A.Ret.d5.g3",
+   "evidence_grade": "CLEAR",
+   "source_refs": [
+    "Hooper & Whyld, 'The Oxford Companion to Chess' (2nd ed., OUP 1992), entry 'Barcza System'"
+   ],
+   "fields": {
+    "attributed_to": "Gedeon Barcza (populariser)",
+    "attribution_source": "Hooper & Whyld, 'The Oxford Companion to Chess' (2nd ed., OUP 1992), entry 'Barcza System': \"Barcza Opening. 1 300 or 1 3 10, which may be a prelude to a system completed by White's playing 3 Bg2 and 4 0-0, as in 1 32 1 , delay1ng action in the centre until Black's intentions are known. Transpositions into other openings arc not uncommon. The HYPERMODERN movement created a vogue for the opening in the 1 920s, but it had been played in the 1 9th century. Describing the opening moves of the game Capablanca -Janowski, New York 1 924, as a 'white' Indian Opening, ALEKHINE noted that after I Nf3 d5 2 g3 c5 3 Bg2 Nc6 a Grunfcld variation could be forced here by 4 d4.\""
+   },
+   "excluded_because": "la cita només estableix l'epònim"
+  },
+  {
+   "ocn1": "B.CaK",
+   "evidence_grade": "CLEAR",
+   "source_refs": [
+    "Hooper & Whyld, 'The Oxford Companion to Chess' (2nd ed., OUP 1992), entry 'Caro–Kann Defence'"
+   ],
+   "fields": {
+    "attributed_to": "Horatio Caro; Marcus Kann (advocate)",
+    "attribution_source": "Hooper & Whyld, 'The Oxford Companion to Chess' (2nd ed., OUP 1992), entry 'Caro–Kann Defence': \"Caro--Kann Defence, 567. Black's intention is to play 2 . . . d7-d5 challenging White's e-pawn (compare FRENCH DEFENCE). After 2 d4 d5 3 Nc3 or 3 Nd2, however, Black probably has nothing better than 3 . . . dxe4, giving up the centre. For this reason the prospects seem, at first sight, to be less satisfactory than those offered by the French Defence, but there is a compensating advantage: Black can develop the LIGHT BISHOP on the king's side (Bf5) after 4 Nxe4, the CLASSICAL VARIATION, or after 2 d4 d5 3 e5, the ADVANCE VARIATION. Other lines include the KNIGHT VARIATION favoured by NIMZOWITSC\"",
+    "historical_notes": "The Oxford Companion names a rival claimant: Polerio. Recorded as disputed rather than resolved."
+   },
+   "excluded_because": "la cita només estableix l'epònim"
+  },
+  {
+   "ocn1": "B.Sic.Dra.Lev",
+   "evidence_grade": "CLEAR",
+   "source_refs": [
+    "Hooper & Whyld, 'The Oxford Companion to Chess' (2nd ed., OUP 1992), entry 'Levenfish Attack in the Sicilian Defence, Dragon Variation'"
+   ],
+   "fields": {
+    "attributed_to": "Grigory Levenfish (originator)",
+    "attribution_source": "Hooper & Whyld, 'The Oxford Companion to Chess' (2nd ed., OUP 1992), entry 'Levenfish Attack in the Sicilian Defence, Dragon Variation': \"Levenfish Attack. 537, a popular way, developed by LEVENFJSH in the 1 930s, of meeting the ))RAGON VARIATION. Sometimes called the Czerniak Attack.\"",
+    "historical_notes": "The Oxford Companion names a rival claimant: Czerniak. Recorded as disputed rather than resolved."
+   },
+   "excluded_because": "la cita només estableix l'epònim"
+  },
+  {
+   "ocn1": "C.Pet",
+   "evidence_grade": "CLEAR",
+   "source_refs": [
+    "Hooper & Whyld, 'The Oxford Companion to Chess' (2nd ed., OUP 1992), entry 'Petrov Defense'"
+   ],
+   "fields": {
+    "attributed_to": "Alexander Petrov (populariser)",
+    "attribution_source": "Hooper & Whyld, 'The Oxford Companion to Chess' (2nd ed., OUP 1992), entry 'Petrov Defense': \"Petroff Defence. I 052, also called the Russian Defence. Although dating from LUCENA, this defence was not thought satisfactory for Black until JAENISCH published an extensive analysis in the French magazine Le Palamede, April 1 842. After 3 Nxe5 PETROFF discovered the true worth of 3 . . . d6, a move attributed to cozio; Petroff and Jaenisch examined this move thoroughly, and it supplanted the older moves 3 . . . Nxe4 (Lucena) and 3 . . . Qe7 (Ruy L6PEZ). Jaenisch implies that Petroff was the abler analyst, and the name seems appropriate. The defence served its turn in the 1 840s (to avoid th\"",
+    "historical_notes": "The Oxford Companion names a rival claimant: Lucena, Cozio, Jaenisch. Recorded as disputed rather than resolved."
+   },
+   "excluded_because": "la cita només estableix l'epònim"
+  },
+  {
+   "ocn1": "C.RyL.Coz",
+   "evidence_grade": "CLEAR",
+   "source_refs": [
+    "Hooper & Whyld, 'The Oxford Companion to Chess' (2nd ed., OUP 1992), entry 'Cozio Defence'"
+   ],
+   "fields": {
+    "attributed_to": "Carlo Cozio (originator)",
+    "attribution_source": "Hooper & Whyld, 'The Oxford Companion to Chess' (2nd ed., OUP 1992), entry 'Cozio Defence': \"Cozio Defence, 1 1 02, a standard continuation in the KING'S GAMBIT Accepted given by LÓPEZ, and known also by other names such as Hanneken Defence, Lichtenhein Counterattack, Morphy Defence, and Prussian Defence; also 783 in the SPANISH OPENING, a variation first given by CARRERA, tried in recent times by LARSEN, and sometimes known as the Lucena- Cozio Variation, or Steinitz Variation.\"",
+    "historical_notes": "The Oxford Companion names a rival claimant: Lucena, Steinitz. Recorded as disputed rather than resolved."
+   },
+   "excluded_because": "la cita només estableix l'epònim"
+  },
+  {
+   "ocn1": "C.Sco.Gor",
+   "evidence_grade": "CLEAR",
+   "source_refs": [
+    "Hooper & Whyld, 'The Oxford Companion to Chess' (2nd ed., OUP 1992), entry 'Göring Gambit'"
+   ],
+   "fields": {
+    "attributed_to": "Carl Göring (populariser)",
+    "attribution_source": "Hooper & Whyld, 'The Oxford Companion to Chess' (2nd ed., OUP 1992), entry 'Göring Gambit': \"Goring Gambit, 972, a SCOTCH GAMBIT variation played by STAUNTON in the 1 840s, first analysed in the Chicago Sunday Leader by PAULSEN against whose brother, Wilfried, Goring played the variation at Leipzig 1 877. (See SEA-CADET MATE; SUETIN.)\"",
+    "historical_notes": "The Oxford Companion names a rival claimant: Staunton, Paulsen. Recorded as disputed rather than resolved."
+   },
+   "excluded_because": "la cita només estableix l'epònim"
+  }
+ ]
+}
