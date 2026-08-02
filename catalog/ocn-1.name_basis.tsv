@@ -4,7 +4,7 @@ B	Semi-Open Games	review	review
 C	Open Games	review	review
 D	Closed Queen's Pawn	review	review
 E	Indian Defences	review	review
-A.Eng	English Opening	review	review
+A.Eng	English Opening	person	attributed_to
 A.Eng.Sym	English Opening, Symmetrical	review	review
 A.Eng.Rev	English Opening, Reversed Sicilian	review	review
 A.Hol	Dutch Defence	review	review
@@ -125,7 +125,7 @@ E.KID.Fou	KID, Four Pawns Attack	review	review
 E.Nim	Nimzo-Indian Defence	person	attributed_to
 E.Nim.Rub	Nimzo, Rubinstein	review	review
 E.Nim.Cls	Nimzo, Classical	review	review
-E.Nim.Sml	Nimzo, Sämisch	review	review
+E.Nim.Sml	Nimzo, Sämisch	person	attributed_to
 E.Nim.Lng	Nimzo, Leningrad	review	review
 E.QID	Queen's Indian Defence	review	review
 E.QID.Pet	QID, Petrosian	review	review

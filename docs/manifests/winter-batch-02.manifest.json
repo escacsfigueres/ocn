@@ -1,0 +1,63 @@
+{
+  "kind": "ocn.attribution_manifest.v1",
+  "title": "DRAFT — Winter Chess Notes, batch 2: English Opening, Nimzowitsch, Nimzo-Indian, Sämisch",
+  "description": "UN-APPLIED DRAFT. Second batch from the Edward Winter vein, drawn from the complete local harvest of 2,692 C.N. items (2026-08-02). Four heads whose naming history Winter documents with primary citations, every item re-read first-hand at chesshistory.com before drafting. The centrepiece is E.Nim.Sml: Sämisch publicly denied that the variation bearing his name was his invention and credited Adolf Kramer. A.Eng and E.Nim.Sml take attribution; B.Nim and E.Nim keep the attribution they received in the Companion round-2 lot and have their placeholder historical_notes extended with the substance behind the Companion's bare 'rival claimant' line. See docs/evidence/provenance/winter-batch-02-findings.md.",
+  "mode": "attribution_fields_only",
+  "expected_catalog_rows": 5899,
+  "expected_changed_rows": ["A.Eng", "B.Nim", "E.Nim", "E.Nim.Sml"],
+  "changes": [
+    {
+      "ocn1": "A.Eng",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "G. Reichhelm, American Chess Journal, June 1879, p. 362 (reproduced from Hartford Weekly Times, 19 June 1879, p. 4)",
+        "Potter and Steinitz, The Field, 18 April 1874, p. 375, and City of London Chess Magazine, May 1874, p. 89",
+        "Edward Winter, Chess Notes C.N. 10066 and 9166 (chesshistory.com), verified first-hand 2026-08-02"
+      ],
+      "fields": {
+        "attributed_to": "Howard Staunton (populariser)",
+        "attribution_source": "G. Reichhelm on 1 c4, American Chess Journal, June 1879, p. 362 (annotations reproduced from Hartford Weekly Times, 19 June 1879, p. 4): \"Now justly called 'the English opening', it having been introduced by the great English champion, Staunton.\" Via Edward Winter, Chess Notes C.N. 10066.",
+        "historical_notes": "Earliest located use of the name: Potter and Steinitz on 1 c4, The Field, 18 April 1874, p. 375, and City of London Chess Magazine, May 1874, p. 89: \"This move, when made by the first player, constitutes what is called the 'English Opening'.\" Those 1874 uses name the opening without crediting anyone; the 1879 Reichhelm note is the earliest located source tying the name to Staunton, and it postdates his death. Winter's standing request (C.N. 9166) for an instance from Staunton's own lifetime crediting him for the name remains unanswered."
+      }
+    },
+    {
+      "ocn1": "E.Nim.Sml",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "Friedrich Sämisch, chess column, Berliner illustrierte Nachtausgabe, 23 February 1934 (located by Peter Anderberg)",
+        "Breslauer Neueste Nachrichten, 28 October 1926; A. Babel, 'Der Schachkongreß in Bad Altheide' (Breslau, 1927), pp. 11-12",
+        "Schweizerische Schachzeitung, September-October 1919, pp. 120-122",
+        "Edward Winter, Chess Notes C.N. 4981 and 5682 (chesshistory.com), verified first-hand 2026-08-02"
+      ],
+      "fields": {
+        "attributed_to": "Friedrich Sämisch (system namesake, disclaimed the invention); Adolf Kramer (first application, per Sämisch)",
+        "attribution_source": "Friedrich Sämisch in his chess column, Berliner illustrierte Nachtausgabe, 23 February 1934, on 1 d4 Nf6 2 c4 e6 3 Nc3 Bb4 4 a3: \"Die vorliegende Partie ist die Prioritätspartie der bekannten Variante 1 d4 Sf6 2 c4 e6 3 Sc3 Lb4 4 a3!?, die fälschlich als meine Erfindung ausgegeben wurde. Die erstmalige Anwendung dieser Spielweise geschah aber durch A. Kramer, nur ist diese Partie vergessen worden, weil sie in einem Provinzturnier gespielt wurde.\" Located by Peter Anderberg; via Edward Winter, Chess Notes C.N. 4981.",
+        "historical_notes": "The variation carries Sämisch's name against his own published objection. The priority game he named is Adolf Kramer v Gottlieb Machate, Silesian championship, Bad Altheide 1926 (Sämisch won that tournament as an unofficial competitor), published in Breslauer Neueste Nachrichten, 28 October 1926 and in A. Babel, 'Der Schachkongreß in Bad Altheide' (Breslau, 1927), pp. 11-12, but in neither Deutsche Schachzeitung nor Deutsche Schachblätter. Earlier occurrences are on record: by transposition, Voellmy v Procházka, correspondence 1918-19, Schweizerische Schachzeitung, September-October 1919, pp. 120-122 (C.N. 5682), and Ferrari v Stalda, Trieste 1923, in ChessBase MegaBase 2007. Winter observes that Sämisch, writing in 1934, was evidently unaware of the game Norman v Michell."
+      }
+    },
+    {
+      "ocn1": "B.Nim",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "Hugh Myers, 'The Nimzovich Defense to 1. e4' (Yorklyn, 1995), p. i",
+        "Alderley & Wilmslow Advertiser, 11 September 1903, p. 3",
+        "Modern Chess Openings, 11th edition (1972, ed. Walter Korn), p. 192",
+        "Edward Winter, Chess Notes C.N. 9484 and 12175 (chesshistory.com), verified first-hand 2026-08-02"
+      ],
+      "fields": {
+        "historical_notes": "The Oxford Companion names a rival claimant: Fischer. Recorded as disputed rather than resolved. That claimant is Eduard Fischer (1831-97), after whom the opening is known in Germany as the Fischer or Fischer-Nimzowitsch Defence; the name was already in British use by 1903 (\"the Fischer defence\", Alderley & Wilmslow Advertiser, 11 September 1903, p. 3, in a column probably by Carslake Winter-Wood), and entered Modern Chess Openings in the 11th edition (1972, ed. Walter Korn), p. 192. Hugh Myers, who wrote repeatedly on 1 e4 Nc6, recorded that he had \"never seen the score of a single game in which he played it\" (The Nimzovich Defense to 1. e4, Yorklyn, 1995, p. i), while judging Nimzowitsch \"by no means its originator or inventor\" but \"the first to play it with frequent success in major international competition\" — the basis of the populariser role recorded here. Edward Winter, Chess Notes C.N. 9484 and 12175."
+      }
+    },
+    {
+      "ocn1": "E.Nim",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "Edward Lasker, 'The Game of Chess' (New York, 1972), p. 447",
+        "Edward Winter, Chess Notes C.N. 11441 (chesshistory.com), verified first-hand 2026-08-02"
+      ],
+      "fields": {
+        "historical_notes": "The Oxford Companion names a rival claimant: Englisch. Recorded as disputed rather than resolved. On the compound name itself, Edward Lasker footnoted 'Nimzo-Indian' as \"a horrible abbreviation of Nimzovich-Indian. The mutilation of the name of the greatest chess theorist, the father of what the jocular master Tartakower called 'hypermodern chess', is as unnecessary as it is undignified\" (The Game of Chess, New York, 1972, p. 447); the footnote was dropped from the 1997 algebraic edition by John Nunn and Graham Burgess. Edward Winter, Chess Notes C.N. 11441."
+      }
+    }
+  ]
+}
