@@ -1,0 +1,8 @@
+ocn1	relation	subject_type	subject_id	date	games	source_ref	evidence_grade	note
+C.RyL	attested-in-print	work	OL5876877W	1963		Leonard Barden, 'The Ruy Lopez' (1963), title page; Open Library OL5876877W	attested	
+C.RyL.Shl	attested-in-print	work	OL8253900W	1970		T. Flórián, 'The Schliemann variation of the Ruy Lopez' (1970), title page; Open Library OL8253900W	attested	title names 3...f5, not the deferred 4...f5
+C.RyL.Mor.Ba4.Nf6.O-O.DEx	attested-in-print	work	OL15100849W	1975		Leonard M. Pickett, 'The DERLD (Delayed Exchange Ruy Lopez Deferred)' (1975), title page; Open Library OL15100849W	attested	
+C.RyL.Brk	attested-in-print	work	OL4571393W	1976		L. S. Blackstock, 'Ruy Lopez, Breyer system' (1976), title page; Open Library OL4571393W	attested	
+C.RyL.Mor.Ark	attested-in-print	work	OL21178285W	1987		Jerzy Konikowski, 'Arkhangelsk System in the Ruy Lopez' (1987), title page; Open Library OL21178285W	attested	
+C.RyL.Cls	attested-in-print	work	OL2211441W	1993		Anatoly Bikhovsky, 'The Closed Spanish' (1993), title page; Open Library OL2211441W	attested	
+C.RyL.ClD.c3.f5	attested-in-print	work	OL28268770W	2002		Filipowicz and Konikowski, '4...d5 Cordel Defense Spanish Game' (2002), title page; Open Library OL28268770W	attested	title names 3...Bc5, not the Berlin Rio Cordel
