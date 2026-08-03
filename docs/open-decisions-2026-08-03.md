@@ -5,18 +5,13 @@ recommendation for each. Nothing here is applied. Written after a day in
 which five commits landed (CI green throughout) and `attributed_to` went
 from 71 to 126 rows.
 
-## A. Two batches at the door
+## A. Two batches at the door — DONE
 
-Both drafted, verified first-hand against chesshistory.com, and green on
-`--validate` and `--dry-run --strict`.
-
-| batch | rows | what it records |
-|---|---:|---|
-| `winter-batch-04` | 3 | Dragon (a metaphor, earliest use pushed back to a 1914 facsimile; Wolf's lost form "Paulsensche Drachenvariante"; Gromer using the term for White's g2-g4), Kalashnikov (named after the rifle, "the semi-automatic, fast-firing version of the Sveshnikov"), Löwenthal (Winter: "the whole matter seems murky"; MCO printed a wrong origin date across three editions) |
-| `winter-batch-05` | 1 | Marshall Attack: he played the gambit publicly eight months before Capablanca (Brooklyn Daily Eagle, 7 March 1918), and the 1917 citation usually offered for the secrecy legend is unsourced |
-
-**Recommendation: apply both.** A fourth row (Fort Knox) was drafted and
-dropped when `--strict` refused it at PARTIAL — the guardrail was right.
+Applied 2026-08-03 05:15 as `d5501e2`, CI green. `winter-batch-04`
+(Dragon, Kalashnikov, Löwenthal) and `winter-batch-05` (Marshall Attack).
+A fourth row (Fort Knox) was drafted and dropped when `--strict` refused
+it at PARTIAL — the guardrail was right. `historical_notes` now stands at
+79 rows, `attributed_to` at 126.
 
 ## B. The QID packet
 
