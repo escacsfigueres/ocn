@@ -99,8 +99,34 @@ The sibling TSV, un-applied, in three parts:
   `Kushnir Aleksandr` rest only on the single correctly spelled row in the
   1969 match. Creating that record is the smallest useful next step.
 
-There is no batch engine for this file. `tools/apply_attribution_manifest.py`
-operates on the attribution fields of `catalog/ocn-1.csv` and nothing
-equivalent exists for the chronicle sidecars, which is itself worth fixing
-before a change of this size is applied by hand. See
-[[attribution-working-pattern]]: automate the triage, never the truth.
+## Two couplings that stop this being a two-column rename
+
+`tools/apply_sidecar_manifest.py` now exists, with twenty tests, and all four
+chronicle sidecars round-trip through it byte for byte. The manifest at
+`docs/manifests/wch-participant-integrity.manifest.json` dry-runs clean:
+1,040 rows to 1,033, every operation matching its declared count exactly.
+It is still **not enough to apply**, for two reasons found while checking.
+
+**The names are in the citation column as well.** Every row of `wch.tsv`
+carries `citation` in the form `White-Black, Event, Place, Year`, so the
+Aljechin row reads `Aljechin, Yuri-Bogoljubow, World Championship 14th,
+Deutschland/Niederlande, 1929`. Correcting `white` and `black` and leaving
+`citation` would fix the display and leave the evidence wrong.
+
+Fixing `citation` needs substring replacement, and the engine does not do it
+on purpose. `Bogoljubow` appears bare in citations and is also a prefix of the
+correct `Bogoljubow, Efim`, so an unbounded substitution turns the rows that
+are already right into `Bogoljubow, Efim, Efim`. The missing piece is a
+`substitute` operation with a boundary condition, which the citation format
+supplies: a player name is always followed by `-` or `, `.
+
+**Regenerating the chronicle would destroy the identity work.**
+`tools/build_chronicle.py` derives `people.tsv`, `events.tsv` and
+`claims.tsv` from `wch.tsv`, and `source_ref` is a verbatim copy of
+`citation`. Regenerating is therefore the obvious way to propagate this fix to
+the 733 wch-game claims — and it writes `people.tsv` with `wikidata_qid` empty
+by design, which would erase the **60 curated Wikidata identities** resolved on
+2026-07-31. Any regeneration must write to a scratch directory and take
+`claims.tsv` only.
+
+See [[attribution-working-pattern]]: automate the triage, never the truth.

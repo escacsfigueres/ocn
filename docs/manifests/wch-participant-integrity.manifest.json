@@ -1,0 +1,234 @@
+{
+  "kind": "ocn.sidecar_manifest.v1",
+  "title": "DRAFT, INCOMPLETE — name the world-championship participants after people",
+  "description": "UN-APPLIED AND NOT YET SUFFICIENT. This manifest corrects the 'white' and 'black' columns only. catalog/ocn-1.wch.tsv also carries every player name inside its 'citation' column, in the form 'White-Black, Event, Place, Year', and tools/build_chronicle.py copies that column verbatim into the 'source_ref' of every wch-game claim. Applying this alone would leave the chronicle's 733 claims still citing Aljechin, Yuri and Kushnir Aleksandr. Fixing 'citation' needs substring replacement, which this engine deliberately does not do: 'Bogoljubow' occurs bare in citations and is also a prefix of the correct 'Bogoljubow, Efim', so an unbounded substitution would produce 'Bogoljubow, Efim, Efim'. A bounded 'substitute' operation is the missing piece. catalog/ocn-1.wch.tsv holds one row per game and identifies players by a name string, so the same person appears under several spellings and games by unrelated people were filed into title matches on a surname match. Seven rows are games by people who did not play the match they sit under. Thirteen renames collapse the spellings, twelve of them onto a Wikidata identity already resolved in docs/evidence/people/wikidata-resolved.tsv on 2026-07-31; that pass corrected people.tsv and never reached the game records. The 49 rows naming '?' are absences and are left alone. See docs/evidence/provenance/wch-participant-integrity.md.",
+  "target": "catalog/ocn-1.wch.tsv",
+  "expected_file_rows": 1040,
+  "operations": [
+    {
+      "op": "drop",
+      "match": {
+        "year": "1886",
+        "white": "Loureda Garcia, Jose Antonio",
+        "black": "Garcia Camina, Belarmino"
+      },
+      "expected_rows": 1,
+      "evidence": "neither player is a participant in this event's match"
+    },
+    {
+      "op": "drop",
+      "match": {
+        "year": "1927",
+        "white": "Bellod Thomas, Gonzalo",
+        "black": "De La Torre Huertas, Carlos"
+      },
+      "expected_rows": 1,
+      "evidence": "neither player is a participant in this event's match"
+    },
+    {
+      "op": "drop",
+      "match": {
+        "year": "1927",
+        "white": "De La Torre Huertas, Carlos",
+        "black": "Gruenfeld, Ernst"
+      },
+      "expected_rows": 1,
+      "evidence": "neither player is a participant in this event's match"
+    },
+    {
+      "op": "drop",
+      "match": {
+        "year": "1927",
+        "white": "Stoppel Harald",
+        "black": "Werthmann, Ralph"
+      },
+      "expected_rows": 1,
+      "evidence": "neither player is a participant in this event's match"
+    },
+    {
+      "op": "drop",
+      "match": {
+        "year": "1929",
+        "white": "De La Torre Huertas, Carlos",
+        "black": "Saemisch, Friedrich"
+      },
+      "expected_rows": 1,
+      "evidence": "neither player is a participant in this event's match"
+    },
+    {
+      "op": "drop",
+      "match": {
+        "year": "1961",
+        "white": "Botvinnik, Alexander",
+        "black": "Al Tal, Ammar"
+      },
+      "expected_rows": 1,
+      "evidence": "neither player is a participant in this event's match"
+    },
+    {
+      "op": "drop",
+      "match": {
+        "year": "2011",
+        "white": "Hanvitha Koneru",
+        "black": "Hou, Yifan(HLJ)"
+      },
+      "expected_rows": 1,
+      "evidence": "neither player is a participant in this event's match"
+    },
+    {
+      "op": "rename",
+      "fields": [
+        "white",
+        "black"
+      ],
+      "from": "Aljechin, Yuri",
+      "to": "Alekhine, Alexander",
+      "expected_rows": 21,
+      "evidence": "wikidata-resolved.tsv; both forms also inside World Championship 14th 1929",
+      "wikidata_qid": "Q131374"
+    },
+    {
+      "op": "rename",
+      "fields": [
+        "white",
+        "black"
+      ],
+      "from": "Karpov, Aleksandr",
+      "to": "Karpov, Anatoly",
+      "expected_rows": 44,
+      "evidence": "wikidata-resolved.tsv, which records 'input forename was wrong'",
+      "wikidata_qid": "Q131674"
+    },
+    {
+      "op": "rename",
+      "fields": [
+        "white",
+        "black"
+      ],
+      "from": "Smyslov, Vladimir",
+      "to": "Smyslov, Vasily",
+      "expected_rows": 65,
+      "evidence": "wikidata-resolved.tsv; both forms also inside World Championship 21th 1957",
+      "wikidata_qid": "Q104148"
+    },
+    {
+      "op": "rename",
+      "fields": [
+        "white",
+        "black"
+      ],
+      "from": "Spassky, Boris V.",
+      "to": "Spassky, Boris",
+      "expected_rows": 41,
+      "evidence": "wikidata-resolved.tsv; the file holds two forms and the resolved name is neither",
+      "wikidata_qid": "Q177310"
+    },
+    {
+      "op": "rename",
+      "fields": [
+        "white",
+        "black"
+      ],
+      "from": "Spassky, Boris Vasily",
+      "to": "Spassky, Boris",
+      "expected_rows": 23,
+      "evidence": "wikidata-resolved.tsv",
+      "wikidata_qid": "Q177310"
+    },
+    {
+      "op": "rename",
+      "fields": [
+        "white",
+        "black"
+      ],
+      "from": "Bogoljubow",
+      "to": "Bogoljubow, Efim",
+      "expected_rows": 21,
+      "evidence": "wikidata-resolved.tsv; both forms also inside World Championship 14th 1929",
+      "wikidata_qid": "Q57310"
+    },
+    {
+      "op": "rename",
+      "fields": [
+        "white",
+        "black"
+      ],
+      "from": "Lasker, E.",
+      "to": "Lasker, Emanuel",
+      "expected_rows": 15,
+      "evidence": "wikidata-resolved.tsv; both forms also inside World Championship 6th 1907",
+      "wikidata_qid": "Q57095"
+    },
+    {
+      "op": "rename",
+      "fields": [
+        "white",
+        "black"
+      ],
+      "from": "Hou, Yifan(HLJ)",
+      "to": "Hou, Yifan",
+      "expected_rows": 20,
+      "evidence": "wikidata-resolved.tsv; the suffix is a stray federation tag",
+      "wikidata_qid": "Q234011"
+    },
+    {
+      "op": "rename",
+      "fields": [
+        "white",
+        "black"
+      ],
+      "from": "Bikova, E.",
+      "to": "Bykova, Elisaveta",
+      "expected_rows": 10,
+      "evidence": "wikidata-resolved.tsv, where bikova and bykova resolve to one identity",
+      "wikidata_qid": "Q253772"
+    },
+    {
+      "op": "rename",
+      "fields": [
+        "white",
+        "black"
+      ],
+      "from": "Bykova, Elizaveta",
+      "to": "Bykova, Elisaveta",
+      "expected_rows": 23,
+      "evidence": "wikidata-resolved.tsv; the file's own spelling differs from the resolved one",
+      "wikidata_qid": "Q253772"
+    },
+    {
+      "op": "rename",
+      "fields": [
+        "white",
+        "black"
+      ],
+      "from": "Zvorykina, K.",
+      "to": "Zvorykina, Kira",
+      "expected_rows": 10,
+      "evidence": "wikidata-resolved.tsv",
+      "wikidata_qid": "Q2222708"
+    },
+    {
+      "op": "rename",
+      "fields": [
+        "white",
+        "black"
+      ],
+      "from": "Marshall Viele, Fabrizio Aaron",
+      "to": "Marshall, Frank",
+      "expected_rows": 15,
+      "evidence": "wikidata-resolved.tsv, where marshall and marshall-viele resolve to one identity",
+      "wikidata_qid": "Q312814"
+    },
+    {
+      "op": "rename",
+      "fields": [
+        "white",
+        "black"
+      ],
+      "from": "Kushnir Aleksandr",
+      "to": "Kushnir, Alla",
+      "expected_rows": 26,
+      "evidence": "NO QID: Alla Kushnir has no person record; the only internal evidence is the single correctly spelled row in Wch women Moscow/Tbilisi 1969"
+    }
+  ]
+}
