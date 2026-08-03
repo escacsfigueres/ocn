@@ -13,7 +13,19 @@ A fourth row (Fort Knox) was drafted and dropped when `--strict` refused
 it at PARTIAL — the guardrail was right. `historical_notes` now stands at
 79 rows, `attributed_to` at 126.
 
-## B. The QID packet
+## B. The QID packet — MOSTLY DONE
+
+Applied 2026-08-03 05:25 as `3940c5d`, CI green: 60 of 61 rows carry a
+QID with dates, 16 display names corrected, one row left null on purpose,
+Gukesh D kept against the proposal. Record:
+`docs/evidence/people/identity-fill-record.md`.
+
+**Still open from this block:** the merges (deferred deliberately — see
+the record; the duplicates are now annotated and machine-detectable), the
+182-row additions file with its non-persons, and the greco/harrwitz date
+divergences.
+
+The original decision list follows for reference.
 
 Independently cross-checked: the repo's own `tools/resolve_people.py`
 agrees with the external packet on **57 of 61 rows, with zero conflicting
