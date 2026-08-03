@@ -1,0 +1,22 @@
+action	subject	becomes	wikidata_qid	rows	basis
+drop	1886: Loureda Garcia, Jose Antonio v Garcia Camina, Belarmino			1	neither player is a participant in this event's match
+drop	1927: Bellod Thomas, Gonzalo v De La Torre Huertas, Carlos			1	neither player is a participant in this event's match
+drop	1927: De La Torre Huertas, Carlos v Gruenfeld, Ernst			1	neither player is a participant in this event's match
+drop	1927: Stoppel Harald v Werthmann, Ralph			1	neither player is a participant in this event's match
+drop	1929: De La Torre Huertas, Carlos v Saemisch, Friedrich			1	neither player is a participant in this event's match
+drop	1961: Botvinnik, Alexander v Al Tal, Ammar			1	neither player is a participant in this event's match
+drop	2011: Hanvitha Koneru v Hou, Yifan(HLJ)			1	neither player is a participant in this event's match
+rename	Aljechin, Yuri	Alekhine, Alexander	Q131374	21	wikidata-resolved.tsv; both forms also inside World Championship 14th 1929
+rename	Karpov, Aleksandr	Karpov, Anatoly	Q131674	44	wikidata-resolved.tsv, which records 'input forename was wrong'
+rename	Smyslov, Vladimir	Smyslov, Vasily	Q104148	65	wikidata-resolved.tsv; both forms also inside World Championship 21th 1957
+rename	Spassky, Boris V.	Spassky, Boris	Q177310	41	wikidata-resolved.tsv; the file holds two forms and the resolved name is neither
+rename	Spassky, Boris Vasily	Spassky, Boris	Q177310	23	wikidata-resolved.tsv
+rename	Bogoljubow	Bogoljubow, Efim	Q57310	21	wikidata-resolved.tsv; both forms also inside World Championship 14th 1929
+rename	Lasker, E.	Lasker, Emanuel	Q57095	15	wikidata-resolved.tsv; both forms also inside World Championship 6th 1907
+rename	Hou, Yifan(HLJ)	Hou, Yifan	Q234011	20	wikidata-resolved.tsv; the suffix is a stray federation tag
+rename	Bikova, E.	Bykova, Elisaveta	Q253772	10	wikidata-resolved.tsv, where bikova and bykova resolve to one identity
+rename	Bykova, Elizaveta	Bykova, Elisaveta	Q253772	23	wikidata-resolved.tsv; the file's own spelling differs from the resolved one
+rename	Zvorykina, K.	Zvorykina, Kira	Q2222708	10	wikidata-resolved.tsv
+rename	Marshall Viele, Fabrizio Aaron	Marshall, Frank	Q312814	15	wikidata-resolved.tsv, where marshall and marshall-viele resolve to one identity
+rename	Kushnir Aleksandr	Kushnir, Alla		26	NO QID: Alla Kushnir has no person record; the only internal evidence is the single correctly spelled row in Wch women Moscow/Tbilisi 1969
+unresolved	?			49	player unknown in the source; women's championships 1975-1988
