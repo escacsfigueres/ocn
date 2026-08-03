@@ -34,13 +34,13 @@ corrupt, which is the repo tool refusing by design.
 
 | # | decision | recommendation |
 |---|---|---|
-| 1 | Five merges: aljechin→alekhine, bogoljubov→bogoljubow, bikova→bykova, master→gunderam, marshall-viele→marshall | **Merge all five.** The marshall case is no longer a coin flip: the catalogue has no `marshall` row, and `marshall-viele` carries the 1907 Lasker world championship match (15 games), which is Frank Marshall as historical fact. "Marshall Viele, Fabrizio Aaron" is a modern player's name string attached to 1907 games by the source database — the same failure as "Kushnir Aleksandr" |
-| 2 | Kushnir | **Non-negotiable: the QID and the display name "Kushnir, Alla" land in the same commit.** Otherwise the champion's challenger stays labelled with a man's forename |
-| 3 | 13 name corrections (PGN middle initials, `Hou, Yifan(HLJ)`, `Capablanca, Jose` → `José Raúl`, `Forgacs, Leo` → `Forgács, Leó`) | **Apply.** These are corpus artefacts, and consistent with the repo's own diacritic work |
+| 1 | ~~Five merges: aljechin→alekhine, bogoljubov→bogoljubow, bikova→bykova, master→gunderam, marshall-viele→marshall~~ **DONE 2026-08-03/04.** All five merged; `people.tsv` is 59 rows, 59 referenced, nothing dangling, no merge-pending note left | **Merge all five.** The marshall case is no longer a coin flip: the catalogue has no `marshall` row, and `marshall-viele` carries the 1907 Lasker world championship match (15 games), which is Frank Marshall as historical fact. "Marshall Viele, Fabrizio Aaron" is a modern player's name string attached to 1907 games by the source database — the same failure as "Kushnir Aleksandr" |
+| 2 | ~~Kushnir~~ **DONE.** Q269098 and "Kushnir, Alla" were already together; the slug `kushnir-aleksandr` was renamed to `kushnir` and the 26 game rows corrected | **Non-negotiable: the QID and the display name "Kushnir, Alla" land in the same commit.** Otherwise the champion's challenger stays labelled with a man's forename |
+| 3 | **PARTLY DONE, and the remainder is a live defect.** `people.tsv` carries `Capablanca, José Raúl` and `Forgács, Leó`; `wch.tsv` and `claims.tsv` still carry `Capablanca, Jose` (40 rows) and `Forgacs, Leo` (21), because correcting the person table never reaches the game records. `Hou, Yifan(HLJ)` is fixed in the game records. See the note below the table | **Apply.** These are corpus artefacts, and consistent with the repo's own diacritic work |
 | 4 | `gukesh-d`: "Gukesh D" → "Dommaraju, Gukesh" | **Keep "Gukesh D".** Wikidata's label ordering is not chess practice; FIDE and every broadcast use Gukesh D. If we want surname-first everywhere, make it a stated rule rather than an import side-effect |
 | 5 | The 182-row additions file, containing Chess.com (Q16829376), Frankenstein's monster (Q2021531) and Count Dracula | **Decide separately from the 61-row fill, and drop the non-persons.** A table called `people` should contain people |
 | 6 | Dates: greco (1634 vs 1630), harrwitz (1821 vs 1823) | Both historically uncertain. **Leave as they are and note the divergence** rather than picking a side without a source |
-| 7 | dunst vs Van Geet; worrall vs wormald | Naming decisions, not identity ones. See D below |
+| 7 | dunst vs Van Geet; ~~worrall vs wormald~~ **worrall/wormald DONE 2026-08-03**, retracted rather than moved, and the proposal retargeted | Naming decisions, not identity ones. See D below |
 
 ## C. `named-after-person`: 240 claims, re-tested over the whole population
 
@@ -79,6 +79,19 @@ These need a position, not more evidence.
    the others. The same question governs the parked group in C.
    *Recommendation: a relation for "known as the N Variation in tradition
    T", so the catalogue can record divergence instead of choosing.*
+
+   **Worked out in full on 2026-08-04** in
+   `docs/evidence/provenance/naming-traditions.md`, using the Modern and the
+   Robatsch, where the catalogue contradicts itself in four places at once:
+   `B.Mod` (1.e4 g6, ninety-six lines beneath it) never says "Robatsch"; the
+   alias sits on `A.Mod` instead; the proposed person record says Robatsch is
+   the eponym of the Modern Defence; and the one sourced sentence we hold
+   about him is filed in a dry-run report. The relation fits `claims.tsv`
+   unchanged **except for one thing**: there is no column for the tradition.
+   Either `claims.tsv` grows one, which touches every consumer and the
+   published packages, or the tradition is encoded inside `subject_id`, which
+   puts structure in a string. **That is the decision — the rest is already
+   built.**
 2. **`B.Sic.Kal` carries "Sicilian Defense: Löwenthal Variation" among its
    aliases** while `B.Sic.Loe` is the Löwenthal proper — the exact
    nineteenth-century confusion Winter documents, now encoded in the alias
@@ -107,3 +120,19 @@ eleven Marshall Gambit items that belong to the Ruy López. Pre-chewing
 speeds up drafting in the wrong direction too, so the drafting step still
 has to check the moves rather than the label — which is how batch 5 came
 out as one row instead of five.
+
+
+## The pattern behind half of section A
+
+Three separate passes have now corrected a person's name in
+`catalog/ocn-1.people.tsv` and stopped there. The game records store a **name
+string**, not a person key, so nothing propagates: `wch.tsv` and `claims.tsv`
+still spell Capablanca and Forgács the way the corpus did, 61 rows between
+them, while the person table has been right for days.
+
+**Whenever an identity is corrected, check every file that stores a name
+rather than a key** — `wch.tsv`, `popularity.tsv` (`top_player`),
+`notable-games.tsv`. `tools/apply_sidecar_manifest.py` now exists for exactly
+this and the work is a short manifest, not a pass. The full account of how the
+same defect ran through the world-championship data is in
+`docs/evidence/provenance/wch-participant-integrity.md`.
