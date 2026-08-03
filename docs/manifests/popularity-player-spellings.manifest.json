@@ -1,0 +1,2219 @@
+{
+  "kind": "ocn.sidecar_manifest.v1",
+  "title": "One spelling per player in the popularity table",
+  "description": "catalog/ocn-1.popularity.tsv names the strongest player recorded on each line as a free string, and the corpus spelled many of them several ways. Two defects are corrected: a doubled full stop, which is pure formatting; and a given name truncated to an initial or mid-word where the same file carries the full form for the same surname and initial. The evidence is internal — the file disagreeing with itself — and the collapse only runs where every shorter form is a strict prefix of the longest. Where two forms are genuinely different given names they are left alone, and where the longest form carries a database disambiguator (Fedoseev, Vladimir2; Jovanovic, Zoran2) nothing is collapsed onto it, because that digit marks a specific person and merging would be worse than the defect.",
+  "target": "catalog/ocn-1.popularity.tsv",
+  "expected_file_rows": 5894,
+  "operations": [
+    {
+      "op": "rename",
+      "fields": [
+        "top_player"
+      ],
+      "from": "Adams, Mi",
+      "to": "Adams, Michael",
+      "expected_rows": 2,
+      "evidence": "a truncation of 'Michael', which the file itself carries in full for the same surname and initial"
+    },
+    {
+      "op": "rename",
+      "fields": [
+        "top_player"
+      ],
+      "from": "Adly, A.",
+      "to": "Adly, Ahmed",
+      "expected_rows": 1,
+      "evidence": "a doubled full stop, a formatting defect and a truncation of 'Ahmed', which the file itself carries in full for the same surname and initial"
+    },
+    {
+      "op": "rename",
+      "fields": [
+        "top_player"
+      ],
+      "from": "Adnani, M.",
+      "to": "Adnani, M",
+      "expected_rows": 1,
+      "evidence": "a doubled full stop, a formatting defect"
+    },
+    {
+      "op": "rename",
+      "fields": [
+        "top_player"
+      ],
+      "from": "Agdestein, S.",
+      "to": "Agdestein, S",
+      "expected_rows": 2,
+      "evidence": "a doubled full stop, a formatting defect"
+    },
+    {
+      "op": "rename",
+      "fields": [
+        "top_player"
+      ],
+      "from": "Akobian, V.",
+      "to": "Akobian, Varuzhan",
+      "expected_rows": 1,
+      "evidence": "a doubled full stop, a formatting defect and a truncation of 'Varuzhan', which the file itself carries in full for the same surname and initial"
+    },
+    {
+      "op": "rename",
+      "fields": [
+        "top_player"
+      ],
+      "from": "Akopian, Vl",
+      "to": "Akopian, Vladimir",
+      "expected_rows": 2,
+      "evidence": "a truncation of 'Vladimir', which the file itself carries in full for the same surname and initial"
+    },
+    {
+      "op": "rename",
+      "fields": [
+        "top_player"
+      ],
+      "from": "Alekseenko, K.",
+      "to": "Alekseenko, K",
+      "expected_rows": 5,
+      "evidence": "a doubled full stop, a formatting defect"
+    },
+    {
+      "op": "rename",
+      "fields": [
+        "top_player"
+      ],
+      "from": "Almasi, Z.",
+      "to": "Almasi, Zoltan",
+      "expected_rows": 2,
+      "evidence": "a doubled full stop, a formatting defect and a truncation of 'Zoltan', which the file itself carries in full for the same surname and initial"
+    },
+    {
+      "op": "rename",
+      "fields": [
+        "top_player"
+      ],
+      "from": "Amin, B.",
+      "to": "Amin, B",
+      "expected_rows": 3,
+      "evidence": "a doubled full stop, a formatting defect"
+    },
+    {
+      "op": "rename",
+      "fields": [
+        "top_player"
+      ],
+      "from": "Amin, B..",
+      "to": "Amin, B",
+      "expected_rows": 1,
+      "evidence": "a doubled full stop, a formatting defect"
+    },
+    {
+      "op": "rename",
+      "fields": [
+        "top_player"
+      ],
+      "from": "Anand, V.",
+      "to": "Anand, Viswanathan",
+      "expected_rows": 28,
+      "evidence": "a doubled full stop, a formatting defect and a truncation of 'Viswanathan', which the file itself carries in full for the same surname and initial"
+    },
+    {
+      "op": "rename",
+      "fields": [
+        "top_player"
+      ],
+      "from": "Andreikin, D.",
+      "to": "Andreikin, Dmitry",
+      "expected_rows": 4,
+      "evidence": "a doubled full stop, a formatting defect and a truncation of 'Dmitry', which the file itself carries in full for the same surname and initial"
+    },
+    {
+      "op": "rename",
+      "fields": [
+        "top_player"
+      ],
+      "from": "Antipov, M2.",
+      "to": "Antipov, M2",
+      "expected_rows": 1,
+      "evidence": "a doubled full stop, a formatting defect"
+    },
+    {
+      "op": "rename",
+      "fields": [
+        "top_player"
+      ],
+      "from": "Anton Guijarro, D.",
+      "to": "Anton Guijarro, D",
+      "expected_rows": 1,
+      "evidence": "a doubled full stop, a formatting defect"
+    },
+    {
+      "op": "rename",
+      "fields": [
+        "top_player"
+      ],
+      "from": "Aravindh, Chithambaram VR.",
+      "to": "Aravindh, Chithambaram VR",
+      "expected_rows": 4,
+      "evidence": "a doubled full stop, a formatting defect"
+    },
+    {
+      "op": "rename",
+      "fields": [
+        "top_player"
+      ],
+      "from": "Aronian, L.",
+      "to": "Aronian, Levon",
+      "expected_rows": 96,
+      "evidence": "a doubled full stop, a formatting defect and a truncation of 'Levon', which the file itself carries in full for the same surname and initial"
+    },
+    {
+      "op": "rename",
+      "fields": [
+        "top_player"
+      ],
+      "from": "Arribas Lopez, A.",
+      "to": "Arribas Lopez, Angel",
+      "expected_rows": 1,
+      "evidence": "a doubled full stop, a formatting defect and a truncation of 'Angel', which the file itself carries in full for the same surname and initial"
+    },
+    {
+      "op": "rename",
+      "fields": [
+        "top_player"
+      ],
+      "from": "Aryan, C.",
+      "to": "Aryan, C",
+      "expected_rows": 2,
+      "evidence": "a doubled full stop, a formatting defect"
+    },
+    {
+      "op": "rename",
+      "fields": [
+        "top_player"
+      ],
+      "from": "Atabayev, M.",
+      "to": "Atabayev, M",
+      "expected_rows": 1,
+      "evidence": "a doubled full stop, a formatting defect"
+    },
+    {
+      "op": "rename",
+      "fields": [
+        "top_player"
+      ],
+      "from": "Azarov, S.",
+      "to": "Azarov, Sergei",
+      "expected_rows": 1,
+      "evidence": "a doubled full stop, a formatting defect and a truncation of 'Sergei', which the file itself carries in full for the same surname and initial"
+    },
+    {
+      "op": "rename",
+      "fields": [
+        "top_player"
+      ],
+      "from": "Bacrot, E.",
+      "to": "Bacrot, Etienne",
+      "expected_rows": 3,
+      "evidence": "a doubled full stop, a formatting defect and a truncation of 'Etienne', which the file itself carries in full for the same surname and initial"
+    },
+    {
+      "op": "rename",
+      "fields": [
+        "top_player"
+      ],
+      "from": "Bacrot, E..",
+      "to": "Bacrot, Etienne",
+      "expected_rows": 1,
+      "evidence": "a doubled full stop, a formatting defect and a truncation of 'Etienne', which the file itself carries in full for the same surname and initial"
+    },
+    {
+      "op": "rename",
+      "fields": [
+        "top_player"
+      ],
+      "from": "Bajarani, U.",
+      "to": "Bajarani, U",
+      "expected_rows": 1,
+      "evidence": "a doubled full stop, a formatting defect"
+    },
+    {
+      "op": "rename",
+      "fields": [
+        "top_player"
+      ],
+      "from": "Barlov, D.",
+      "to": "Barlov, Dragan",
+      "expected_rows": 1,
+      "evidence": "a doubled full stop, a formatting defect and a truncation of 'Dragan', which the file itself carries in full for the same surname and initial"
+    },
+    {
+      "op": "rename",
+      "fields": [
+        "top_player"
+      ],
+      "from": "Bartel, Mat",
+      "to": "Bartel, Mateusz",
+      "expected_rows": 2,
+      "evidence": "a truncation of 'Mateusz', which the file itself carries in full for the same surname and initial"
+    },
+    {
+      "op": "rename",
+      "fields": [
+        "top_player"
+      ],
+      "from": "Bauer, Ch",
+      "to": "Bauer, Christian",
+      "expected_rows": 3,
+      "evidence": "a truncation of 'Christian', which the file itself carries in full for the same surname and initial"
+    },
+    {
+      "op": "rename",
+      "fields": [
+        "top_player"
+      ],
+      "from": "Bernadskiy, V.",
+      "to": "Bernadskiy, Vitaliy",
+      "expected_rows": 2,
+      "evidence": "a doubled full stop, a formatting defect and a truncation of 'Vitaliy', which the file itself carries in full for the same surname and initial"
+    },
+    {
+      "op": "rename",
+      "fields": [
+        "top_player"
+      ],
+      "from": "Bluebaum, M.",
+      "to": "Bluebaum, M",
+      "expected_rows": 1,
+      "evidence": "a doubled full stop, a formatting defect"
+    },
+    {
+      "op": "rename",
+      "fields": [
+        "top_player"
+      ],
+      "from": "Bogner, S.",
+      "to": "Bogner, S",
+      "expected_rows": 1,
+      "evidence": "a doubled full stop, a formatting defect"
+    },
+    {
+      "op": "rename",
+      "fields": [
+        "top_player"
+      ],
+      "from": "Bok, B.",
+      "to": "Bok, B",
+      "expected_rows": 1,
+      "evidence": "a doubled full stop, a formatting defect"
+    },
+    {
+      "op": "rename",
+      "fields": [
+        "top_player"
+      ],
+      "from": "Bologan, V.",
+      "to": "Bologan, Viktor",
+      "expected_rows": 1,
+      "evidence": "a doubled full stop, a formatting defect and a truncation of 'Viktor', which the file itself carries in full for the same surname and initial"
+    },
+    {
+      "op": "rename",
+      "fields": [
+        "top_player"
+      ],
+      "from": "Carlsen, M.",
+      "to": "Carlsen, Magnus",
+      "expected_rows": 1147,
+      "evidence": "a doubled full stop, a formatting defect and a truncation of 'Magnus', which the file itself carries in full for the same surname and initial"
+    },
+    {
+      "op": "rename",
+      "fields": [
+        "top_player"
+      ],
+      "from": "Carlsen, M..",
+      "to": "Carlsen, Magnus",
+      "expected_rows": 108,
+      "evidence": "a doubled full stop, a formatting defect and a truncation of 'Magnus', which the file itself carries in full for the same surname and initial"
+    },
+    {
+      "op": "rename",
+      "fields": [
+        "top_player"
+      ],
+      "from": "Caruana, F.",
+      "to": "Caruana, Fabiano",
+      "expected_rows": 146,
+      "evidence": "a doubled full stop, a formatting defect and a truncation of 'Fabiano', which the file itself carries in full for the same surname and initial"
+    },
+    {
+      "op": "rename",
+      "fields": [
+        "top_player"
+      ],
+      "from": "Caruana, F..",
+      "to": "Caruana, Fabiano",
+      "expected_rows": 15,
+      "evidence": "a doubled full stop, a formatting defect and a truncation of 'Fabiano', which the file itself carries in full for the same surname and initial"
+    },
+    {
+      "op": "rename",
+      "fields": [
+        "top_player"
+      ],
+      "from": "Cheparinov, I.",
+      "to": "Cheparinov, Ivan",
+      "expected_rows": 5,
+      "evidence": "a doubled full stop, a formatting defect and a truncation of 'Ivan', which the file itself carries in full for the same surname and initial"
+    },
+    {
+      "op": "rename",
+      "fields": [
+        "top_player"
+      ],
+      "from": "Chigaev, M.",
+      "to": "Chigaev, M",
+      "expected_rows": 1,
+      "evidence": "a doubled full stop, a formatting defect"
+    },
+    {
+      "op": "rename",
+      "fields": [
+        "top_player"
+      ],
+      "from": "Chigaev, M..",
+      "to": "Chigaev, M",
+      "expected_rows": 1,
+      "evidence": "a doubled full stop, a formatting defect"
+    },
+    {
+      "op": "rename",
+      "fields": [
+        "top_player"
+      ],
+      "from": "Cori, J.",
+      "to": "Cori, J",
+      "expected_rows": 3,
+      "evidence": "a doubled full stop, a formatting defect"
+    },
+    {
+      "op": "rename",
+      "fields": [
+        "top_player"
+      ],
+      "from": "Demchenko, A.",
+      "to": "Demchenko, Anton",
+      "expected_rows": 3,
+      "evidence": "a doubled full stop, a formatting defect and a truncation of 'Anton', which the file itself carries in full for the same surname and initial"
+    },
+    {
+      "op": "rename",
+      "fields": [
+        "top_player"
+      ],
+      "from": "Demchenko, A..",
+      "to": "Demchenko, Anton",
+      "expected_rows": 1,
+      "evidence": "a doubled full stop, a formatting defect and a truncation of 'Anton', which the file itself carries in full for the same surname and initial"
+    },
+    {
+      "op": "rename",
+      "fields": [
+        "top_player"
+      ],
+      "from": "Dimitrov, R.",
+      "to": "Dimitrov, R",
+      "expected_rows": 1,
+      "evidence": "a doubled full stop, a formatting defect"
+    },
+    {
+      "op": "rename",
+      "fields": [
+        "top_player"
+      ],
+      "from": "Dominguez Perez, L.",
+      "to": "Dominguez Perez, L",
+      "expected_rows": 8,
+      "evidence": "a doubled full stop, a formatting defect"
+    },
+    {
+      "op": "rename",
+      "fields": [
+        "top_player"
+      ],
+      "from": "Drazic, S.",
+      "to": "Drazic, Sinisa",
+      "expected_rows": 1,
+      "evidence": "a doubled full stop, a formatting defect and a truncation of 'Sinisa', which the file itself carries in full for the same surname and initial"
+    },
+    {
+      "op": "rename",
+      "fields": [
+        "top_player"
+      ],
+      "from": "Duda, J.",
+      "to": "Duda, Jan Krzysztof",
+      "expected_rows": 10,
+      "evidence": "a doubled full stop, a formatting defect and a truncation of 'Jan Krzysztof', which the file itself carries in full for the same surname and initial"
+    },
+    {
+      "op": "rename",
+      "fields": [
+        "top_player"
+      ],
+      "from": "Edouard, R.",
+      "to": "Edouard, R",
+      "expected_rows": 3,
+      "evidence": "a doubled full stop, a formatting defect"
+    },
+    {
+      "op": "rename",
+      "fields": [
+        "top_player"
+      ],
+      "from": "Efimenko, Z.",
+      "to": "Efimenko, Zahar",
+      "expected_rows": 2,
+      "evidence": "a doubled full stop, a formatting defect and a truncation of 'Zahar', which the file itself carries in full for the same surname and initial"
+    },
+    {
+      "op": "rename",
+      "fields": [
+        "top_player"
+      ],
+      "from": "Eljanov, P.",
+      "to": "Eljanov, Pavel",
+      "expected_rows": 3,
+      "evidence": "a doubled full stop, a formatting defect and a truncation of 'Pavel', which the file itself carries in full for the same surname and initial"
+    },
+    {
+      "op": "rename",
+      "fields": [
+        "top_player"
+      ],
+      "from": "Ernst, S.",
+      "to": "Ernst, S",
+      "expected_rows": 1,
+      "evidence": "a doubled full stop, a formatting defect"
+    },
+    {
+      "op": "rename",
+      "fields": [
+        "top_player"
+      ],
+      "from": "Ernst, T.",
+      "to": "Ernst, Thomas",
+      "expected_rows": 1,
+      "evidence": "a doubled full stop, a formatting defect and a truncation of 'Thomas', which the file itself carries in full for the same surname and initial"
+    },
+    {
+      "op": "rename",
+      "fields": [
+        "top_player"
+      ],
+      "from": "Fernandez Guillen, E.",
+      "to": "Fernandez Guillen, E",
+      "expected_rows": 1,
+      "evidence": "a doubled full stop, a formatting defect"
+    },
+    {
+      "op": "rename",
+      "fields": [
+        "top_player"
+      ],
+      "from": "Fier, A.",
+      "to": "Fier, Alexandr",
+      "expected_rows": 1,
+      "evidence": "a doubled full stop, a formatting defect and a truncation of 'Alexandr', which the file itself carries in full for the same surname and initial"
+    },
+    {
+      "op": "rename",
+      "fields": [
+        "top_player"
+      ],
+      "from": "Finegold, B.",
+      "to": "Finegold, B",
+      "expected_rows": 1,
+      "evidence": "a doubled full stop, a formatting defect"
+    },
+    {
+      "op": "rename",
+      "fields": [
+        "top_player"
+      ],
+      "from": "Fishbein, A.",
+      "to": "Fishbein, Alexander",
+      "expected_rows": 1,
+      "evidence": "a doubled full stop, a formatting defect and a truncation of 'Alexander', which the file itself carries in full for the same surname and initial"
+    },
+    {
+      "op": "rename",
+      "fields": [
+        "top_player"
+      ],
+      "from": "Fossan, E.",
+      "to": "Fossan, E",
+      "expected_rows": 2,
+      "evidence": "a doubled full stop, a formatting defect"
+    },
+    {
+      "op": "rename",
+      "fields": [
+        "top_player"
+      ],
+      "from": "Fridman, D.",
+      "to": "Fridman, Daniel",
+      "expected_rows": 1,
+      "evidence": "a doubled full stop, a formatting defect and a truncation of 'Daniel', which the file itself carries in full for the same surname and initial"
+    },
+    {
+      "op": "rename",
+      "fields": [
+        "top_player"
+      ],
+      "from": "Ganguly, S.",
+      "to": "Ganguly, S",
+      "expected_rows": 8,
+      "evidence": "a doubled full stop, a formatting defect"
+    },
+    {
+      "op": "rename",
+      "fields": [
+        "top_player"
+      ],
+      "from": "Gareev, T.",
+      "to": "Gareev, T",
+      "expected_rows": 4,
+      "evidence": "a doubled full stop, a formatting defect"
+    },
+    {
+      "op": "rename",
+      "fields": [
+        "top_player"
+      ],
+      "from": "Gelfand, B.",
+      "to": "Gelfand, Boris",
+      "expected_rows": 1,
+      "evidence": "a doubled full stop, a formatting defect and a truncation of 'Boris', which the file itself carries in full for the same surname and initial"
+    },
+    {
+      "op": "rename",
+      "fields": [
+        "top_player"
+      ],
+      "from": "Giri, A.",
+      "to": "Giri, Anish",
+      "expected_rows": 26,
+      "evidence": "a doubled full stop, a formatting defect and a truncation of 'Anish', which the file itself carries in full for the same surname and initial"
+    },
+    {
+      "op": "rename",
+      "fields": [
+        "top_player"
+      ],
+      "from": "Giri, A..",
+      "to": "Giri, Anish",
+      "expected_rows": 1,
+      "evidence": "a doubled full stop, a formatting defect and a truncation of 'Anish', which the file itself carries in full for the same surname and initial"
+    },
+    {
+      "op": "rename",
+      "fields": [
+        "top_player"
+      ],
+      "from": "Goganov, A.",
+      "to": "Goganov, A",
+      "expected_rows": 2,
+      "evidence": "a doubled full stop, a formatting defect"
+    },
+    {
+      "op": "rename",
+      "fields": [
+        "top_player"
+      ],
+      "from": "Golubev, M.",
+      "to": "Golubev, M",
+      "expected_rows": 1,
+      "evidence": "a doubled full stop, a formatting defect"
+    },
+    {
+      "op": "rename",
+      "fields": [
+        "top_player"
+      ],
+      "from": "Grandelius, N.",
+      "to": "Grandelius, N",
+      "expected_rows": 5,
+      "evidence": "a doubled full stop, a formatting defect"
+    },
+    {
+      "op": "rename",
+      "fields": [
+        "top_player"
+      ],
+      "from": "Grigoryan, K2.",
+      "to": "Grigoryan, K2",
+      "expected_rows": 2,
+      "evidence": "a doubled full stop, a formatting defect"
+    },
+    {
+      "op": "rename",
+      "fields": [
+        "top_player"
+      ],
+      "from": "Grischuk, A.",
+      "to": "Grischuk, Alexander",
+      "expected_rows": 24,
+      "evidence": "a doubled full stop, a formatting defect and a truncation of 'Alexander', which the file itself carries in full for the same surname and initial"
+    },
+    {
+      "op": "rename",
+      "fields": [
+        "top_player"
+      ],
+      "from": "Grischuk, A..",
+      "to": "Grischuk, Alexander",
+      "expected_rows": 4,
+      "evidence": "a doubled full stop, a formatting defect and a truncation of 'Alexander', which the file itself carries in full for the same surname and initial"
+    },
+    {
+      "op": "rename",
+      "fields": [
+        "top_player"
+      ],
+      "from": "Gukesh, D.",
+      "to": "Gukesh, D",
+      "expected_rows": 3,
+      "evidence": "a doubled full stop, a formatting defect"
+    },
+    {
+      "op": "rename",
+      "fields": [
+        "top_player"
+      ],
+      "from": "Guliyev, N..",
+      "to": "Guliyev, Namig",
+      "expected_rows": 2,
+      "evidence": "a doubled full stop, a formatting defect and a truncation of 'Namig', which the file itself carries in full for the same surname and initial"
+    },
+    {
+      "op": "rename",
+      "fields": [
+        "top_player"
+      ],
+      "from": "Guseinov, G.",
+      "to": "Guseinov, G",
+      "expected_rows": 2,
+      "evidence": "a doubled full stop, a formatting defect"
+    },
+    {
+      "op": "rename",
+      "fields": [
+        "top_player"
+      ],
+      "from": "Harikrishna, P.",
+      "to": "Harikrishna, P",
+      "expected_rows": 16,
+      "evidence": "a doubled full stop, a formatting defect"
+    },
+    {
+      "op": "rename",
+      "fields": [
+        "top_player"
+      ],
+      "from": "Hellers, F.",
+      "to": "Hellers, Ferdinand",
+      "expected_rows": 2,
+      "evidence": "a doubled full stop, a formatting defect and a truncation of 'Ferdinand', which the file itself carries in full for the same surname and initial"
+    },
+    {
+      "op": "rename",
+      "fields": [
+        "top_player"
+      ],
+      "from": "Hjartarson, J.",
+      "to": "Hjartarson, J",
+      "expected_rows": 1,
+      "evidence": "a doubled full stop, a formatting defect"
+    },
+    {
+      "op": "rename",
+      "fields": [
+        "top_player"
+      ],
+      "from": "Howell, D.",
+      "to": "Howell, D",
+      "expected_rows": 3,
+      "evidence": "a doubled full stop, a formatting defect"
+    },
+    {
+      "op": "rename",
+      "fields": [
+        "top_player"
+      ],
+      "from": "Huschenbeth, N.",
+      "to": "Huschenbeth, N",
+      "expected_rows": 1,
+      "evidence": "a doubled full stop, a formatting defect"
+    },
+    {
+      "op": "rename",
+      "fields": [
+        "top_player"
+      ],
+      "from": "Ibarra Jerez, JC.",
+      "to": "Ibarra Jerez, JC",
+      "expected_rows": 1,
+      "evidence": "a doubled full stop, a formatting defect"
+    },
+    {
+      "op": "rename",
+      "fields": [
+        "top_player"
+      ],
+      "from": "Indjic, A.",
+      "to": "Indjic, A",
+      "expected_rows": 2,
+      "evidence": "a doubled full stop, a formatting defect"
+    },
+    {
+      "op": "rename",
+      "fields": [
+        "top_player"
+      ],
+      "from": "Iniyan, P..",
+      "to": "Iniyan, P",
+      "expected_rows": 1,
+      "evidence": "a doubled full stop, a formatting defect"
+    },
+    {
+      "op": "rename",
+      "fields": [
+        "top_player"
+      ],
+      "from": "Istratescu, A.",
+      "to": "Istratescu, Andrei",
+      "expected_rows": 1,
+      "evidence": "a doubled full stop, a formatting defect and a truncation of 'Andrei', which the file itself carries in full for the same surname and initial"
+    },
+    {
+      "op": "rename",
+      "fields": [
+        "top_player"
+      ],
+      "from": "Ivanchuk, V.",
+      "to": "Ivanchuk, Vassily",
+      "expected_rows": 8,
+      "evidence": "a doubled full stop, a formatting defect and a truncation of 'Vassily', which the file itself carries in full for the same surname and initial"
+    },
+    {
+      "op": "rename",
+      "fields": [
+        "top_player"
+      ],
+      "from": "Ivanisevic, I.",
+      "to": "Ivanisevic, Ivan",
+      "expected_rows": 3,
+      "evidence": "a doubled full stop, a formatting defect and a truncation of 'Ivan', which the file itself carries in full for the same surname and initial"
+    },
+    {
+      "op": "rename",
+      "fields": [
+        "top_player"
+      ],
+      "from": "Jakovenko, D.",
+      "to": "Jakovenko, Dmitrij",
+      "expected_rows": 1,
+      "evidence": "a doubled full stop, a formatting defect and a truncation of 'Dmitrij', which the file itself carries in full for the same surname and initial"
+    },
+    {
+      "op": "rename",
+      "fields": [
+        "top_player"
+      ],
+      "from": "Jankovic, A.",
+      "to": "Jankovic, A",
+      "expected_rows": 1,
+      "evidence": "a doubled full stop, a formatting defect"
+    },
+    {
+      "op": "rename",
+      "fields": [
+        "top_player"
+      ],
+      "from": "Jobava, Ba",
+      "to": "Jobava, Baadur",
+      "expected_rows": 5,
+      "evidence": "a truncation of 'Baadur', which the file itself carries in full for the same surname and initial"
+    },
+    {
+      "op": "rename",
+      "fields": [
+        "top_player"
+      ],
+      "from": "Johannessen, LE.",
+      "to": "Johannessen, Leif Erlend",
+      "expected_rows": 3,
+      "evidence": "a doubled full stop, a formatting defect and a truncation of 'Leif Erlend', which the file itself carries in full for the same surname and initial"
+    },
+    {
+      "op": "rename",
+      "fields": [
+        "top_player"
+      ],
+      "from": "Jumabayev, R.",
+      "to": "Jumabayev, R",
+      "expected_rows": 2,
+      "evidence": "a doubled full stop, a formatting defect"
+    },
+    {
+      "op": "rename",
+      "fields": [
+        "top_player"
+      ],
+      "from": "Kaczur, F.",
+      "to": "Kaczur, F",
+      "expected_rows": 2,
+      "evidence": "a doubled full stop, a formatting defect"
+    },
+    {
+      "op": "rename",
+      "fields": [
+        "top_player"
+      ],
+      "from": "Kamsky, G.",
+      "to": "Kamsky, Gata",
+      "expected_rows": 3,
+      "evidence": "a doubled full stop, a formatting defect and a truncation of 'Gata', which the file itself carries in full for the same surname and initial"
+    },
+    {
+      "op": "rename",
+      "fields": [
+        "top_player"
+      ],
+      "from": "Karthik, V4.",
+      "to": "Karthik, V4",
+      "expected_rows": 1,
+      "evidence": "a doubled full stop, a formatting defect"
+    },
+    {
+      "op": "rename",
+      "fields": [
+        "top_player"
+      ],
+      "from": "Kasimdzhanov, R.",
+      "to": "Kasimdzhanov, Rustam",
+      "expected_rows": 3,
+      "evidence": "a doubled full stop, a formatting defect and a truncation of 'Rustam', which the file itself carries in full for the same surname and initial"
+    },
+    {
+      "op": "rename",
+      "fields": [
+        "top_player"
+      ],
+      "from": "Kasparov, G.",
+      "to": "Kasparov, Garry",
+      "expected_rows": 6,
+      "evidence": "a doubled full stop, a formatting defect and a truncation of 'Garry', which the file itself carries in full for the same surname and initial"
+    },
+    {
+      "op": "rename",
+      "fields": [
+        "top_player"
+      ],
+      "from": "Khairullin, I.",
+      "to": "Khairullin, I",
+      "expected_rows": 1,
+      "evidence": "a doubled full stop, a formatting defect"
+    },
+    {
+      "op": "rename",
+      "fields": [
+        "top_player"
+      ],
+      "from": "Khanin, S..",
+      "to": "Khanin, S",
+      "expected_rows": 1,
+      "evidence": "a doubled full stop, a formatting defect"
+    },
+    {
+      "op": "rename",
+      "fields": [
+        "top_player"
+      ],
+      "from": "Kobalia, M.",
+      "to": "Kobalia, Mihail",
+      "expected_rows": 4,
+      "evidence": "a doubled full stop, a formatting defect and a truncation of 'Mihail', which the file itself carries in full for the same surname and initial"
+    },
+    {
+      "op": "rename",
+      "fields": [
+        "top_player"
+      ],
+      "from": "Korneev, O.",
+      "to": "Korneev, Oleg",
+      "expected_rows": 1,
+      "evidence": "a doubled full stop, a formatting defect and a truncation of 'Oleg', which the file itself carries in full for the same surname and initial"
+    },
+    {
+      "op": "rename",
+      "fields": [
+        "top_player"
+      ],
+      "from": "Korobov, A.",
+      "to": "Korobov, Anton",
+      "expected_rows": 3,
+      "evidence": "a doubled full stop, a formatting defect and a truncation of 'Anton', which the file itself carries in full for the same surname and initial"
+    },
+    {
+      "op": "rename",
+      "fields": [
+        "top_player"
+      ],
+      "from": "Kosteniuk, A.",
+      "to": "Kosteniuk, A",
+      "expected_rows": 1,
+      "evidence": "a doubled full stop, a formatting defect"
+    },
+    {
+      "op": "rename",
+      "fields": [
+        "top_player"
+      ],
+      "from": "Kovalenko, I.",
+      "to": "Kovalenko, I",
+      "expected_rows": 3,
+      "evidence": "a doubled full stop, a formatting defect"
+    },
+    {
+      "op": "rename",
+      "fields": [
+        "top_player"
+      ],
+      "from": "Kovalev, Vl",
+      "to": "Kovalev, Vladislav",
+      "expected_rows": 1,
+      "evidence": "a truncation of 'Vladislav', which the file itself carries in full for the same surname and initial"
+    },
+    {
+      "op": "rename",
+      "fields": [
+        "top_player"
+      ],
+      "from": "Kramnik, V.",
+      "to": "Kramnik, Vladimir",
+      "expected_rows": 12,
+      "evidence": "a doubled full stop, a formatting defect and a truncation of 'Vladimir', which the file itself carries in full for the same surname and initial"
+    },
+    {
+      "op": "rename",
+      "fields": [
+        "top_player"
+      ],
+      "from": "Kravtsiv, M.",
+      "to": "Kravtsiv, M",
+      "expected_rows": 1,
+      "evidence": "a doubled full stop, a formatting defect"
+    },
+    {
+      "op": "rename",
+      "fields": [
+        "top_player"
+      ],
+      "from": "Kritz, L.",
+      "to": "Kritz, L",
+      "expected_rows": 1,
+      "evidence": "a doubled full stop, a formatting defect"
+    },
+    {
+      "op": "rename",
+      "fields": [
+        "top_player"
+      ],
+      "from": "Krysa, L.",
+      "to": "Krysa, L",
+      "expected_rows": 1,
+      "evidence": "a doubled full stop, a formatting defect"
+    },
+    {
+      "op": "rename",
+      "fields": [
+        "top_player"
+      ],
+      "from": "Kryvoruchko, Y.",
+      "to": "Kryvoruchko, Yuriy",
+      "expected_rows": 1,
+      "evidence": "a doubled full stop, a formatting defect and a truncation of 'Yuriy', which the file itself carries in full for the same surname and initial"
+    },
+    {
+      "op": "rename",
+      "fields": [
+        "top_player"
+      ],
+      "from": "Kuegel, T.",
+      "to": "Kuegel, T",
+      "expected_rows": 1,
+      "evidence": "a doubled full stop, a formatting defect"
+    },
+    {
+      "op": "rename",
+      "fields": [
+        "top_player"
+      ],
+      "from": "Kulaots, K.",
+      "to": "Kulaots, Kaido",
+      "expected_rows": 2,
+      "evidence": "a doubled full stop, a formatting defect and a truncation of 'Kaido', which the file itself carries in full for the same surname and initial"
+    },
+    {
+      "op": "rename",
+      "fields": [
+        "top_player"
+      ],
+      "from": "Kuzubov, Y.",
+      "to": "Kuzubov, Y",
+      "expected_rows": 5,
+      "evidence": "a doubled full stop, a formatting defect"
+    },
+    {
+      "op": "rename",
+      "fields": [
+        "top_player"
+      ],
+      "from": "Ladron de Guevara Pinto, P.",
+      "to": "Ladron de Guevara Pinto, P",
+      "expected_rows": 1,
+      "evidence": "a doubled full stop, a formatting defect"
+    },
+    {
+      "op": "rename",
+      "fields": [
+        "top_player"
+      ],
+      "from": "Lagarde, Max",
+      "to": "Lagarde, Maxime",
+      "expected_rows": 3,
+      "evidence": "a truncation of 'Maxime', which the file itself carries in full for the same surname and initial"
+    },
+    {
+      "op": "rename",
+      "fields": [
+        "top_player"
+      ],
+      "from": "Lalith, B.",
+      "to": "Lalith, Babu MR",
+      "expected_rows": 2,
+      "evidence": "a doubled full stop, a formatting defect and a truncation of 'Babu MR', which the file itself carries in full for the same surname and initial"
+    },
+    {
+      "op": "rename",
+      "fields": [
+        "top_player"
+      ],
+      "from": "Laurusas, T.",
+      "to": "Laurusas, T",
+      "expected_rows": 2,
+      "evidence": "a doubled full stop, a formatting defect"
+    },
+    {
+      "op": "rename",
+      "fields": [
+        "top_player"
+      ],
+      "from": "Leko, P.",
+      "to": "Leko, Peter",
+      "expected_rows": 1,
+      "evidence": "a doubled full stop, a formatting defect and a truncation of 'Peter', which the file itself carries in full for the same surname and initial"
+    },
+    {
+      "op": "rename",
+      "fields": [
+        "top_player"
+      ],
+      "from": "Lenic, L.",
+      "to": "Lenic, L",
+      "expected_rows": 1,
+      "evidence": "a doubled full stop, a formatting defect"
+    },
+    {
+      "op": "rename",
+      "fields": [
+        "top_player"
+      ],
+      "from": "Lindgren, P.",
+      "to": "Lindgren, P",
+      "expected_rows": 1,
+      "evidence": "a doubled full stop, a formatting defect"
+    },
+    {
+      "op": "rename",
+      "fields": [
+        "top_player"
+      ],
+      "from": "Lipka, J.",
+      "to": "Lipka, J",
+      "expected_rows": 1,
+      "evidence": "a doubled full stop, a formatting defect"
+    },
+    {
+      "op": "rename",
+      "fields": [
+        "top_player"
+      ],
+      "from": "Lugovskoy, M.",
+      "to": "Lugovskoy, M",
+      "expected_rows": 3,
+      "evidence": "a doubled full stop, a formatting defect"
+    },
+    {
+      "op": "rename",
+      "fields": [
+        "top_player"
+      ],
+      "from": "Lupulescu, C.",
+      "to": "Lupulescu, C",
+      "expected_rows": 1,
+      "evidence": "a doubled full stop, a formatting defect"
+    },
+    {
+      "op": "rename",
+      "fields": [
+        "top_player"
+      ],
+      "from": "Lysyj, I..",
+      "to": "Lysyj, I",
+      "expected_rows": 1,
+      "evidence": "a doubled full stop, a formatting defect"
+    },
+    {
+      "op": "rename",
+      "fields": [
+        "top_player"
+      ],
+      "from": "Malakhov, V.",
+      "to": "Malakhov, Vladimir",
+      "expected_rows": 5,
+      "evidence": "a doubled full stop, a formatting defect and a truncation of 'Vladimir', which the file itself carries in full for the same surname and initial"
+    },
+    {
+      "op": "rename",
+      "fields": [
+        "top_player"
+      ],
+      "from": "Mamedov, Rau",
+      "to": "Mamedov, Rauf",
+      "expected_rows": 1,
+      "evidence": "a truncation of 'Rauf', which the file itself carries in full for the same surname and initial"
+    },
+    {
+      "op": "rename",
+      "fields": [
+        "top_player"
+      ],
+      "from": "Mamedyarov, S.",
+      "to": "Mamedyarov, Shakhriyar",
+      "expected_rows": 90,
+      "evidence": "a doubled full stop, a formatting defect and a truncation of 'Shakhriyar', which the file itself carries in full for the same surname and initial"
+    },
+    {
+      "op": "rename",
+      "fields": [
+        "top_player"
+      ],
+      "from": "Mamedyarov, S..",
+      "to": "Mamedyarov, Shakhriyar",
+      "expected_rows": 3,
+      "evidence": "a doubled full stop, a formatting defect and a truncation of 'Shakhriyar', which the file itself carries in full for the same surname and initial"
+    },
+    {
+      "op": "rename",
+      "fields": [
+        "top_player"
+      ],
+      "from": "Markov, M KGZ.",
+      "to": "Markov, M KGZ",
+      "expected_rows": 1,
+      "evidence": "a doubled full stop, a formatting defect"
+    },
+    {
+      "op": "rename",
+      "fields": [
+        "top_player"
+      ],
+      "from": "Matlakov, M.",
+      "to": "Matlakov, Maksim",
+      "expected_rows": 2,
+      "evidence": "a doubled full stop, a formatting defect and a truncation of 'Maksim', which the file itself carries in full for the same surname and initial"
+    },
+    {
+      "op": "rename",
+      "fields": [
+        "top_player"
+      ],
+      "from": "Megaranto, S.",
+      "to": "Megaranto, Susanto",
+      "expected_rows": 2,
+      "evidence": "a doubled full stop, a formatting defect and a truncation of 'Susanto', which the file itself carries in full for the same surname and initial"
+    },
+    {
+      "op": "rename",
+      "fields": [
+        "top_player"
+      ],
+      "from": "Megaranto, S..",
+      "to": "Megaranto, Susanto",
+      "expected_rows": 1,
+      "evidence": "a doubled full stop, a formatting defect and a truncation of 'Susanto', which the file itself carries in full for the same surname and initial"
+    },
+    {
+      "op": "rename",
+      "fields": [
+        "top_player"
+      ],
+      "from": "Melkumyan, H.",
+      "to": "Melkumyan, Hrant",
+      "expected_rows": 3,
+      "evidence": "a doubled full stop, a formatting defect and a truncation of 'Hrant', which the file itself carries in full for the same surname and initial"
+    },
+    {
+      "op": "rename",
+      "fields": [
+        "top_player"
+      ],
+      "from": "Mellado Trivino, J.",
+      "to": "Mellado Trivino, J",
+      "expected_rows": 2,
+      "evidence": "a doubled full stop, a formatting defect"
+    },
+    {
+      "op": "rename",
+      "fields": [
+        "top_player"
+      ],
+      "from": "Meszaros, Gy",
+      "to": "Meszaros, Gyula",
+      "expected_rows": 1,
+      "evidence": "a truncation of 'Gyula', which the file itself carries in full for the same surname and initial"
+    },
+    {
+      "op": "rename",
+      "fields": [
+        "top_player"
+      ],
+      "from": "Miton, K.",
+      "to": "Miton, Kamil",
+      "expected_rows": 1,
+      "evidence": "a doubled full stop, a formatting defect and a truncation of 'Kamil', which the file itself carries in full for the same surname and initial"
+    },
+    {
+      "op": "rename",
+      "fields": [
+        "top_player"
+      ],
+      "from": "Moiseenko, A1.",
+      "to": "Moiseenko, A1",
+      "expected_rows": 1,
+      "evidence": "a doubled full stop, a formatting defect"
+    },
+    {
+      "op": "rename",
+      "fields": [
+        "top_player"
+      ],
+      "from": "Moranda, W.",
+      "to": "Moranda, W",
+      "expected_rows": 1,
+      "evidence": "a doubled full stop, a formatting defect"
+    },
+    {
+      "op": "rename",
+      "fields": [
+        "top_player"
+      ],
+      "from": "Morozevich, A.",
+      "to": "Morozevich, Alexander",
+      "expected_rows": 6,
+      "evidence": "a doubled full stop, a formatting defect and a truncation of 'Alexander', which the file itself carries in full for the same surname and initial"
+    },
+    {
+      "op": "rename",
+      "fields": [
+        "top_player"
+      ],
+      "from": "Motylev, A.",
+      "to": "Motylev, Alexander",
+      "expected_rows": 1,
+      "evidence": "a doubled full stop, a formatting defect and a truncation of 'Alexander', which the file itself carries in full for the same surname and initial"
+    },
+    {
+      "op": "rename",
+      "fields": [
+        "top_player"
+      ],
+      "from": "Nabaty, T.",
+      "to": "Nabaty, T",
+      "expected_rows": 4,
+      "evidence": "a doubled full stop, a formatting defect"
+    },
+    {
+      "op": "rename",
+      "fields": [
+        "top_player"
+      ],
+      "from": "Naiditsch, A.",
+      "to": "Naiditsch, Arkadij",
+      "expected_rows": 3,
+      "evidence": "a doubled full stop, a formatting defect and a truncation of 'Arkadij', which the file itself carries in full for the same surname and initial"
+    },
+    {
+      "op": "rename",
+      "fields": [
+        "top_player"
+      ],
+      "from": "Najer, E.",
+      "to": "Najer, E",
+      "expected_rows": 5,
+      "evidence": "a doubled full stop, a formatting defect"
+    },
+    {
+      "op": "rename",
+      "fields": [
+        "top_player"
+      ],
+      "from": "Nakamura, Hi",
+      "to": "Nakamura, Hikaru",
+      "expected_rows": 93,
+      "evidence": "a truncation of 'Hikaru', which the file itself carries in full for the same surname and initial"
+    },
+    {
+      "op": "rename",
+      "fields": [
+        "top_player"
+      ],
+      "from": "Nanu, C.",
+      "to": "Nanu, C",
+      "expected_rows": 1,
+      "evidence": "a doubled full stop, a formatting defect"
+    },
+    {
+      "op": "rename",
+      "fields": [
+        "top_player"
+      ],
+      "from": "Narayanan, SL.",
+      "to": "Narayanan, SL",
+      "expected_rows": 2,
+      "evidence": "a doubled full stop, a formatting defect"
+    },
+    {
+      "op": "rename",
+      "fields": [
+        "top_player"
+      ],
+      "from": "Navara, D.",
+      "to": "Navara, David",
+      "expected_rows": 7,
+      "evidence": "a doubled full stop, a formatting defect and a truncation of 'David', which the file itself carries in full for the same surname and initial"
+    },
+    {
+      "op": "rename",
+      "fields": [
+        "top_player"
+      ],
+      "from": "Nepomniachtchi, I.",
+      "to": "Nepomniachtchi, Ian",
+      "expected_rows": 25,
+      "evidence": "a doubled full stop, a formatting defect and a truncation of 'Ian', which the file itself carries in full for the same surname and initial"
+    },
+    {
+      "op": "rename",
+      "fields": [
+        "top_player"
+      ],
+      "from": "Nepomniachtchi, I..",
+      "to": "Nepomniachtchi, Ian",
+      "expected_rows": 7,
+      "evidence": "a doubled full stop, a formatting defect and a truncation of 'Ian', which the file itself carries in full for the same surname and initial"
+    },
+    {
+      "op": "rename",
+      "fields": [
+        "top_player"
+      ],
+      "from": "Nestorovic, N.",
+      "to": "Nestorovic, N",
+      "expected_rows": 1,
+      "evidence": "a doubled full stop, a formatting defect"
+    },
+    {
+      "op": "rename",
+      "fields": [
+        "top_player"
+      ],
+      "from": "Nisipeanu, LD.",
+      "to": "Nisipeanu, LD",
+      "expected_rows": 1,
+      "evidence": "a doubled full stop, a formatting defect"
+    },
+    {
+      "op": "rename",
+      "fields": [
+        "top_player"
+      ],
+      "from": "Nyback, T.",
+      "to": "Nyback, Tomi",
+      "expected_rows": 1,
+      "evidence": "a doubled full stop, a formatting defect and a truncation of 'Tomi', which the file itself carries in full for the same surname and initial"
+    },
+    {
+      "op": "rename",
+      "fields": [
+        "top_player"
+      ],
+      "from": "Nyzhnyk, I..",
+      "to": "Nyzhnyk, I",
+      "expected_rows": 2,
+      "evidence": "a doubled full stop, a formatting defect"
+    },
+    {
+      "op": "rename",
+      "fields": [
+        "top_player"
+      ],
+      "from": "Onischuk, Al",
+      "to": "Onischuk, Alexander",
+      "expected_rows": 1,
+      "evidence": "a truncation of 'Alexander', which the file itself carries in full for the same surname and initial"
+    },
+    {
+      "op": "rename",
+      "fields": [
+        "top_player"
+      ],
+      "from": "Onischuk, V.",
+      "to": "Onischuk, V",
+      "expected_rows": 1,
+      "evidence": "a doubled full stop, a formatting defect"
+    },
+    {
+      "op": "rename",
+      "fields": [
+        "top_player"
+      ],
+      "from": "Oparin, G.",
+      "to": "Oparin, G",
+      "expected_rows": 2,
+      "evidence": "a doubled full stop, a formatting defect"
+    },
+    {
+      "op": "rename",
+      "fields": [
+        "top_player"
+      ],
+      "from": "Petrosian, TL.",
+      "to": "Petrosian, TL",
+      "expected_rows": 1,
+      "evidence": "a doubled full stop, a formatting defect"
+    },
+    {
+      "op": "rename",
+      "fields": [
+        "top_player"
+      ],
+      "from": "Petrov, N.",
+      "to": "Petrov, N",
+      "expected_rows": 2,
+      "evidence": "a doubled full stop, a formatting defect"
+    },
+    {
+      "op": "rename",
+      "fields": [
+        "top_player"
+      ],
+      "from": "Piorun, K.",
+      "to": "Piorun, K",
+      "expected_rows": 4,
+      "evidence": "a doubled full stop, a formatting defect"
+    },
+    {
+      "op": "rename",
+      "fields": [
+        "top_player"
+      ],
+      "from": "Plat, V.",
+      "to": "Plat, V",
+      "expected_rows": 1,
+      "evidence": "a doubled full stop, a formatting defect"
+    },
+    {
+      "op": "rename",
+      "fields": [
+        "top_player"
+      ],
+      "from": "Ponkratov, P.",
+      "to": "Ponkratov, P",
+      "expected_rows": 5,
+      "evidence": "a doubled full stop, a formatting defect"
+    },
+    {
+      "op": "rename",
+      "fields": [
+        "top_player"
+      ],
+      "from": "Ponomariov, R.",
+      "to": "Ponomariov, Ruslan",
+      "expected_rows": 1,
+      "evidence": "a doubled full stop, a formatting defect and a truncation of 'Ruslan', which the file itself carries in full for the same surname and initial"
+    },
+    {
+      "op": "rename",
+      "fields": [
+        "top_player"
+      ],
+      "from": "Popescu, D.",
+      "to": "Popescu, D",
+      "expected_rows": 1,
+      "evidence": "a doubled full stop, a formatting defect"
+    },
+    {
+      "op": "rename",
+      "fields": [
+        "top_player"
+      ],
+      "from": "Praggnanandhaa, R.",
+      "to": "Praggnanandhaa, R",
+      "expected_rows": 1,
+      "evidence": "a doubled full stop, a formatting defect"
+    },
+    {
+      "op": "rename",
+      "fields": [
+        "top_player"
+      ],
+      "from": "Predke, A.",
+      "to": "Predke, A",
+      "expected_rows": 2,
+      "evidence": "a doubled full stop, a formatting defect"
+    },
+    {
+      "op": "rename",
+      "fields": [
+        "top_player"
+      ],
+      "from": "Priyadharshan, K.",
+      "to": "Priyadharshan, Kannappan",
+      "expected_rows": 1,
+      "evidence": "a doubled full stop, a formatting defect and a truncation of 'Kannappan', which the file itself carries in full for the same surname and initial"
+    },
+    {
+      "op": "rename",
+      "fields": [
+        "top_player"
+      ],
+      "from": "Quinn, M.",
+      "to": "Quinn, M",
+      "expected_rows": 1,
+      "evidence": "a doubled full stop, a formatting defect"
+    },
+    {
+      "op": "rename",
+      "fields": [
+        "top_player"
+      ],
+      "from": "Radjabov, T.",
+      "to": "Radjabov, Teimour",
+      "expected_rows": 5,
+      "evidence": "a doubled full stop, a formatting defect and a truncation of 'Teimour', which the file itself carries in full for the same surname and initial"
+    },
+    {
+      "op": "rename",
+      "fields": [
+        "top_player"
+      ],
+      "from": "Ragger, M.",
+      "to": "Ragger, M",
+      "expected_rows": 4,
+      "evidence": "a doubled full stop, a formatting defect"
+    },
+    {
+      "op": "rename",
+      "fields": [
+        "top_player"
+      ],
+      "from": "Rapport, R.",
+      "to": "Rapport, R",
+      "expected_rows": 26,
+      "evidence": "a doubled full stop, a formatting defect"
+    },
+    {
+      "op": "rename",
+      "fields": [
+        "top_player"
+      ],
+      "from": "Riazantsev, A.",
+      "to": "Riazantsev, Alexander",
+      "expected_rows": 1,
+      "evidence": "a doubled full stop, a formatting defect and a truncation of 'Alexander', which the file itself carries in full for the same surname and initial"
+    },
+    {
+      "op": "rename",
+      "fields": [
+        "top_player"
+      ],
+      "from": "Robson, R.",
+      "to": "Robson, Ray",
+      "expected_rows": 1,
+      "evidence": "a doubled full stop, a formatting defect and a truncation of 'Ray', which the file itself carries in full for the same surname and initial"
+    },
+    {
+      "op": "rename",
+      "fields": [
+        "top_player"
+      ],
+      "from": "Rodriguez Vila, A.",
+      "to": "Rodriguez Vila, A",
+      "expected_rows": 1,
+      "evidence": "a doubled full stop, a formatting defect"
+    },
+    {
+      "op": "rename",
+      "fields": [
+        "top_player"
+      ],
+      "from": "Rodshtein, M.",
+      "to": "Rodshtein, M",
+      "expected_rows": 2,
+      "evidence": "a doubled full stop, a formatting defect"
+    },
+    {
+      "op": "rename",
+      "fields": [
+        "top_player"
+      ],
+      "from": "Rombaldoni, D.",
+      "to": "Rombaldoni, D",
+      "expected_rows": 1,
+      "evidence": "a doubled full stop, a formatting defect"
+    },
+    {
+      "op": "rename",
+      "fields": [
+        "top_player"
+      ],
+      "from": "Salem, AR.",
+      "to": "Salem, AR",
+      "expected_rows": 1,
+      "evidence": "a doubled full stop, a formatting defect"
+    },
+    {
+      "op": "rename",
+      "fields": [
+        "top_player"
+      ],
+      "from": "Sambuev, B.",
+      "to": "Sambuev, Bator",
+      "expected_rows": 1,
+      "evidence": "a doubled full stop, a formatting defect and a truncation of 'Bator', which the file itself carries in full for the same surname and initial"
+    },
+    {
+      "op": "rename",
+      "fields": [
+        "top_player"
+      ],
+      "from": "Sanal, V.",
+      "to": "Sanal, Vahap",
+      "expected_rows": 1,
+      "evidence": "a doubled full stop, a formatting defect and a truncation of 'Vahap', which the file itself carries in full for the same surname and initial"
+    },
+    {
+      "op": "rename",
+      "fields": [
+        "top_player"
+      ],
+      "from": "Sandipan, C.",
+      "to": "Sandipan, C",
+      "expected_rows": 1,
+      "evidence": "a doubled full stop, a formatting defect"
+    },
+    {
+      "op": "rename",
+      "fields": [
+        "top_player"
+      ],
+      "from": "Santos Latasa, J.",
+      "to": "Santos Latasa, J",
+      "expected_rows": 2,
+      "evidence": "a doubled full stop, a formatting defect"
+    },
+    {
+      "op": "rename",
+      "fields": [
+        "top_player"
+      ],
+      "from": "Saric, A.",
+      "to": "Saric, A",
+      "expected_rows": 1,
+      "evidence": "a doubled full stop, a formatting defect"
+    },
+    {
+      "op": "rename",
+      "fields": [
+        "top_player"
+      ],
+      "from": "Sarkar, J.",
+      "to": "Sarkar, J",
+      "expected_rows": 1,
+      "evidence": "a doubled full stop, a formatting defect"
+    },
+    {
+      "op": "rename",
+      "fields": [
+        "top_player"
+      ],
+      "from": "Sasikiran, K.",
+      "to": "Sasikiran, Krishnan",
+      "expected_rows": 1,
+      "evidence": "a doubled full stop, a formatting defect and a truncation of 'Krishnan', which the file itself carries in full for the same surname and initial"
+    },
+    {
+      "op": "rename",
+      "fields": [
+        "top_player"
+      ],
+      "from": "Sedlak, N.",
+      "to": "Sedlak, Nikola",
+      "expected_rows": 2,
+      "evidence": "a doubled full stop, a formatting defect and a truncation of 'Nikola', which the file itself carries in full for the same surname and initial"
+    },
+    {
+      "op": "rename",
+      "fields": [
+        "top_player"
+      ],
+      "from": "Sengupta, D.",
+      "to": "Sengupta, D",
+      "expected_rows": 1,
+      "evidence": "a doubled full stop, a formatting defect"
+    },
+    {
+      "op": "rename",
+      "fields": [
+        "top_player"
+      ],
+      "from": "Shankland, S.",
+      "to": "Shankland, S",
+      "expected_rows": 4,
+      "evidence": "a doubled full stop, a formatting defect"
+    },
+    {
+      "op": "rename",
+      "fields": [
+        "top_player"
+      ],
+      "from": "Shimanov, A.",
+      "to": "Shimanov, A",
+      "expected_rows": 2,
+      "evidence": "a doubled full stop, a formatting defect"
+    },
+    {
+      "op": "rename",
+      "fields": [
+        "top_player"
+      ],
+      "from": "Shirazi, K.",
+      "to": "Shirazi, Kamran G",
+      "expected_rows": 1,
+      "evidence": "a doubled full stop, a formatting defect and a truncation of 'Kamran G', which the file itself carries in full for the same surname and initial"
+    },
+    {
+      "op": "rename",
+      "fields": [
+        "top_player"
+      ],
+      "from": "Shirov, A.",
+      "to": "Shirov, Alexei",
+      "expected_rows": 5,
+      "evidence": "a doubled full stop, a formatting defect and a truncation of 'Alexei', which the file itself carries in full for the same surname and initial"
+    },
+    {
+      "op": "rename",
+      "fields": [
+        "top_player"
+      ],
+      "from": "Shirov, A..",
+      "to": "Shirov, Alexei",
+      "expected_rows": 2,
+      "evidence": "a doubled full stop, a formatting defect and a truncation of 'Alexei', which the file itself carries in full for the same surname and initial"
+    },
+    {
+      "op": "rename",
+      "fields": [
+        "top_player"
+      ],
+      "from": "Short, N.",
+      "to": "Short, Nigel D",
+      "expected_rows": 5,
+      "evidence": "a doubled full stop, a formatting defect and a truncation of 'Nigel D', which the file itself carries in full for the same surname and initial"
+    },
+    {
+      "op": "rename",
+      "fields": [
+        "top_player"
+      ],
+      "from": "Shyam, N.",
+      "to": "Shyam, N",
+      "expected_rows": 1,
+      "evidence": "a doubled full stop, a formatting defect"
+    },
+    {
+      "op": "rename",
+      "fields": [
+        "top_player"
+      ],
+      "from": "Sjugirov, S.",
+      "to": "Sjugirov, Sanan",
+      "expected_rows": 1,
+      "evidence": "a doubled full stop, a formatting defect and a truncation of 'Sanan', which the file itself carries in full for the same surname and initial"
+    },
+    {
+      "op": "rename",
+      "fields": [
+        "top_player"
+      ],
+      "from": "Smeets, J.",
+      "to": "Smeets, Jan",
+      "expected_rows": 3,
+      "evidence": "a doubled full stop, a formatting defect and a truncation of 'Jan', which the file itself carries in full for the same surname and initial"
+    },
+    {
+      "op": "rename",
+      "fields": [
+        "top_player"
+      ],
+      "from": "Smirin, I.",
+      "to": "Smirin, I",
+      "expected_rows": 2,
+      "evidence": "a doubled full stop, a formatting defect"
+    },
+    {
+      "op": "rename",
+      "fields": [
+        "top_player"
+      ],
+      "from": "Smirnov, P.",
+      "to": "Smirnov, P",
+      "expected_rows": 1,
+      "evidence": "a doubled full stop, a formatting defect"
+    },
+    {
+      "op": "rename",
+      "fields": [
+        "top_player"
+      ],
+      "from": "So, W.",
+      "to": "So, Wesley",
+      "expected_rows": 33,
+      "evidence": "a doubled full stop, a formatting defect and a truncation of 'Wesley', which the file itself carries in full for the same surname and initial"
+    },
+    {
+      "op": "rename",
+      "fields": [
+        "top_player"
+      ],
+      "from": "So, W..",
+      "to": "So, Wesley",
+      "expected_rows": 3,
+      "evidence": "a doubled full stop, a formatting defect and a truncation of 'Wesley', which the file itself carries in full for the same surname and initial"
+    },
+    {
+      "op": "rename",
+      "fields": [
+        "top_player"
+      ],
+      "from": "Starostits, I.",
+      "to": "Starostits, Ilmars",
+      "expected_rows": 1,
+      "evidence": "a doubled full stop, a formatting defect and a truncation of 'Ilmars', which the file itself carries in full for the same surname and initial"
+    },
+    {
+      "op": "rename",
+      "fields": [
+        "top_player"
+      ],
+      "from": "Stevic, H.",
+      "to": "Stevic, H",
+      "expected_rows": 1,
+      "evidence": "a doubled full stop, a formatting defect"
+    },
+    {
+      "op": "rename",
+      "fields": [
+        "top_player"
+      ],
+      "from": "Sturua, Z.",
+      "to": "Sturua, Z",
+      "expected_rows": 1,
+      "evidence": "a doubled full stop, a formatting defect"
+    },
+    {
+      "op": "rename",
+      "fields": [
+        "top_player"
+      ],
+      "from": "Sulskis, S.",
+      "to": "Sulskis, Sarunas",
+      "expected_rows": 2,
+      "evidence": "a doubled full stop, a formatting defect and a truncation of 'Sarunas', which the file itself carries in full for the same surname and initial"
+    },
+    {
+      "op": "rename",
+      "fields": [
+        "top_player"
+      ],
+      "from": "Svidler, P.",
+      "to": "Svidler, Peter",
+      "expected_rows": 4,
+      "evidence": "a doubled full stop, a formatting defect and a truncation of 'Peter', which the file itself carries in full for the same surname and initial"
+    },
+    {
+      "op": "rename",
+      "fields": [
+        "top_player"
+      ],
+      "from": "Tabatabaei, M.",
+      "to": "Tabatabaei, M",
+      "expected_rows": 4,
+      "evidence": "a doubled full stop, a formatting defect"
+    },
+    {
+      "op": "rename",
+      "fields": [
+        "top_player"
+      ],
+      "from": "Tari, A.",
+      "to": "Tari, A",
+      "expected_rows": 1,
+      "evidence": "a doubled full stop, a formatting defect"
+    },
+    {
+      "op": "rename",
+      "fields": [
+        "top_player"
+      ],
+      "from": "Telljohann, S.",
+      "to": "Telljohann, S",
+      "expected_rows": 1,
+      "evidence": "a doubled full stop, a formatting defect"
+    },
+    {
+      "op": "rename",
+      "fields": [
+        "top_player"
+      ],
+      "from": "Timofeev, Arty",
+      "to": "Timofeev, Artyom",
+      "expected_rows": 1,
+      "evidence": "a truncation of 'Artyom', which the file itself carries in full for the same surname and initial"
+    },
+    {
+      "op": "rename",
+      "fields": [
+        "top_player"
+      ],
+      "from": "Tomashevsky, E.",
+      "to": "Tomashevsky, E",
+      "expected_rows": 2,
+      "evidence": "a doubled full stop, a formatting defect"
+    },
+    {
+      "op": "rename",
+      "fields": [
+        "top_player"
+      ],
+      "from": "Topalov, V.",
+      "to": "Topalov, Veselin",
+      "expected_rows": 4,
+      "evidence": "a doubled full stop, a formatting defect and a truncation of 'Veselin', which the file itself carries in full for the same surname and initial"
+    },
+    {
+      "op": "rename",
+      "fields": [
+        "top_player"
+      ],
+      "from": "Tsydypov, Z..",
+      "to": "Tsydypov, Z",
+      "expected_rows": 3,
+      "evidence": "a doubled full stop, a formatting defect"
+    },
+    {
+      "op": "rename",
+      "fields": [
+        "top_player"
+      ],
+      "from": "Urkedal, F.",
+      "to": "Urkedal, F",
+      "expected_rows": 1,
+      "evidence": "a doubled full stop, a formatting defect"
+    },
+    {
+      "op": "rename",
+      "fields": [
+        "top_player"
+      ],
+      "from": "Utegaliyev, A.",
+      "to": "Utegaliyev, A",
+      "expected_rows": 1,
+      "evidence": "a doubled full stop, a formatting defect"
+    },
+    {
+      "op": "rename",
+      "fields": [
+        "top_player"
+      ],
+      "from": "Vachier Lagrave, M.",
+      "to": "Vachier Lagrave, Maxime",
+      "expected_rows": 42,
+      "evidence": "a doubled full stop, a formatting defect and a truncation of 'Maxime', which the file itself carries in full for the same surname and initial"
+    },
+    {
+      "op": "rename",
+      "fields": [
+        "top_player"
+      ],
+      "from": "Vachier Lagrave, M..",
+      "to": "Vachier Lagrave, Maxime",
+      "expected_rows": 2,
+      "evidence": "a doubled full stop, a formatting defect and a truncation of 'Maxime', which the file itself carries in full for the same surname and initial"
+    },
+    {
+      "op": "rename",
+      "fields": [
+        "top_player"
+      ],
+      "from": "Vaibhav, S.",
+      "to": "Vaibhav, S",
+      "expected_rows": 2,
+      "evidence": "a doubled full stop, a formatting defect"
+    },
+    {
+      "op": "rename",
+      "fields": [
+        "top_player"
+      ],
+      "from": "Vajda, Le",
+      "to": "Vajda, Levente",
+      "expected_rows": 1,
+      "evidence": "a truncation of 'Levente', which the file itself carries in full for the same surname and initial"
+    },
+    {
+      "op": "rename",
+      "fields": [
+        "top_player"
+      ],
+      "from": "Vallejo Pons, F.",
+      "to": "Vallejo Pons, Francisco",
+      "expected_rows": 7,
+      "evidence": "a doubled full stop, a formatting defect and a truncation of 'Francisco', which the file itself carries in full for the same surname and initial"
+    },
+    {
+      "op": "rename",
+      "fields": [
+        "top_player"
+      ],
+      "from": "Van Wely, L.",
+      "to": "Van Wely, Loek",
+      "expected_rows": 1,
+      "evidence": "a doubled full stop, a formatting defect and a truncation of 'Loek', which the file itself carries in full for the same surname and initial"
+    },
+    {
+      "op": "rename",
+      "fields": [
+        "top_player"
+      ],
+      "from": "Vidit, S.",
+      "to": "Vidit, S",
+      "expected_rows": 13,
+      "evidence": "a doubled full stop, a formatting defect"
+    },
+    {
+      "op": "rename",
+      "fields": [
+        "top_player"
+      ],
+      "from": "Vitiugov, N.",
+      "to": "Vitiugov, Nikita",
+      "expected_rows": 9,
+      "evidence": "a doubled full stop, a formatting defect and a truncation of 'Nikita', which the file itself carries in full for the same surname and initial"
+    },
+    {
+      "op": "rename",
+      "fields": [
+        "top_player"
+      ],
+      "from": "Vocaturo, D.",
+      "to": "Vocaturo, D",
+      "expected_rows": 1,
+      "evidence": "a doubled full stop, a formatting defect"
+    },
+    {
+      "op": "rename",
+      "fields": [
+        "top_player"
+      ],
+      "from": "Voloshin, SA.",
+      "to": "Voloshin, SA",
+      "expected_rows": 1,
+      "evidence": "a doubled full stop, a formatting defect"
+    },
+    {
+      "op": "rename",
+      "fields": [
+        "top_player"
+      ],
+      "from": "Williamson, Harvey D.",
+      "to": "Williamson, Harvey D",
+      "expected_rows": 1,
+      "evidence": "a doubled full stop, a formatting defect"
+    },
+    {
+      "op": "rename",
+      "fields": [
+        "top_player"
+      ],
+      "from": "Wojtaszek, R.",
+      "to": "Wojtaszek, Radoslaw",
+      "expected_rows": 5,
+      "evidence": "a doubled full stop, a formatting defect and a truncation of 'Radoslaw', which the file itself carries in full for the same surname and initial"
+    },
+    {
+      "op": "rename",
+      "fields": [
+        "top_player"
+      ],
+      "from": "Zherebukh, Y.",
+      "to": "Zherebukh, Y",
+      "expected_rows": 1,
+      "evidence": "a doubled full stop, a formatting defect"
+    },
+    {
+      "op": "rename",
+      "fields": [
+        "top_player"
+      ],
+      "from": "Zilka, S.",
+      "to": "Zilka, S",
+      "expected_rows": 1,
+      "evidence": "a doubled full stop, a formatting defect"
+    },
+    {
+      "op": "rename",
+      "fields": [
+        "top_player"
+      ],
+      "from": "Zvjaginsev, V.",
+      "to": "Zvjaginsev, Vadim",
+      "expected_rows": 3,
+      "evidence": "a doubled full stop, a formatting defect and a truncation of 'Vadim', which the file itself carries in full for the same surname and initial"
+    }
+  ]
+}

@@ -1,0 +1,116 @@
+{
+  "kind": "ocn.sidecar_manifest.v1",
+  "title": "Spell the champions the way the person table already does",
+  "description": "Decision 3 of docs/open-decisions-2026-08-03.md, recommended for application and never applied to the game records. people.tsv was curated with Wikidata identities on 2026-07-31 and again on 08-03; wch.tsv kept the corpus strings, so the same human is 'Capablanca, José Raúl' in one file and 'Capablanca, Jose' in another. Six of the eight are PGN middle initials, two are diacritics the repo has already normalised elsewhere. Every target is a curated display name with a QID behind it, and every link runs through events.tsv rather than through a surname.",
+  "target": "catalog/ocn-1.wch.tsv",
+  "expected_file_rows": 1033,
+  "operations": [
+    {
+      "op": "rename",
+      "fields": [
+        "white",
+        "black"
+      ],
+      "from": "Petrosian, Tigran V",
+      "to": "Petrosian, Tigran",
+      "expected_rows": 67,
+      "wikidata_qid": "Q180636",
+      "evidence": "catalog/ocn-1.people.tsv gives this person as 'Petrosian, Tigran' with Q180636; the game record kept the corpus spelling. The link is not inferred from the surname: events.tsv names 'petrosian' as a participant in the events these rows belong to"
+    },
+    {
+      "op": "rename",
+      "fields": [
+        "white",
+        "black"
+      ],
+      "from": "Capablanca, Jose",
+      "to": "Capablanca, José Raúl",
+      "expected_rows": 40,
+      "wikidata_qid": "Q160702",
+      "evidence": "catalog/ocn-1.people.tsv gives this person as 'Capablanca, José Raúl' with Q160702; the game record kept the corpus spelling. The link is not inferred from the surname: events.tsv names 'capablanca' as a participant in the events these rows belong to"
+    },
+    {
+      "op": "rename",
+      "fields": [
+        "white",
+        "black"
+      ],
+      "from": "Short, Nigel D",
+      "to": "Short, Nigel",
+      "expected_rows": 34,
+      "wikidata_qid": "Q313778",
+      "evidence": "catalog/ocn-1.people.tsv gives this person as 'Short, Nigel' with Q313778; the game record kept the corpus spelling. The link is not inferred from the surname: events.tsv names 'short' as a participant in the events these rows belong to"
+    },
+    {
+      "op": "rename",
+      "fields": [
+        "white",
+        "black"
+      ],
+      "from": "Forgacs, Leo",
+      "to": "Forgács, Leó",
+      "expected_rows": 21,
+      "wikidata_qid": "Q934474",
+      "evidence": "catalog/ocn-1.people.tsv gives this person as 'Forgács, Leó' with Q934474; the game record kept the corpus spelling. The link is not inferred from the surname: events.tsv names 'forgacs' as a participant in the events these rows belong to"
+    },
+    {
+      "op": "rename",
+      "fields": [
+        "white",
+        "black"
+      ],
+      "from": "Bronstein, David I",
+      "to": "Bronstein, David",
+      "expected_rows": 20,
+      "wikidata_qid": "Q312908",
+      "evidence": "catalog/ocn-1.people.tsv gives this person as 'Bronstein, David' with Q312908; the game record kept the corpus spelling. The link is not inferred from the surname: events.tsv names 'bronstein' as a participant in the events these rows belong to"
+    },
+    {
+      "op": "rename",
+      "fields": [
+        "white",
+        "black"
+      ],
+      "from": "Fischer, Robert J",
+      "to": "Fischer, Robert James",
+      "expected_rows": 19,
+      "wikidata_qid": "Q41314",
+      "evidence": "catalog/ocn-1.people.tsv gives this person as 'Fischer, Robert James' with Q41314; the game record kept the corpus spelling. The link is not inferred from the surname: events.tsv names 'fischer' as a participant in the events these rows belong to"
+    },
+    {
+      "op": "rename",
+      "fields": [
+        "white",
+        "black"
+      ],
+      "from": "Timman, Jan H",
+      "to": "Timman, Jan",
+      "expected_rows": 18,
+      "wikidata_qid": "Q139438",
+      "evidence": "catalog/ocn-1.people.tsv gives this person as 'Timman, Jan' with Q139438; the game record kept the corpus spelling. The link is not inferred from the surname: events.tsv names 'timman' as a participant in the events these rows belong to"
+    },
+    {
+      "op": "rename",
+      "fields": [
+        "white",
+        "black"
+      ],
+      "from": "Romanishin, Oleg M",
+      "to": "Romanishin, Oleg",
+      "expected_rows": 7,
+      "wikidata_qid": "Q1346918",
+      "evidence": "catalog/ocn-1.people.tsv gives this person as 'Romanishin, Oleg' with Q1346918; the game record kept the corpus spelling. The link is not inferred from the surname: events.tsv names 'romanishin' as a participant in the events these rows belong to"
+    },
+    {
+      "op": "sync_prefix",
+      "field": "citation",
+      "pair_fields": [
+        "white",
+        "black"
+      ],
+      "separator": "-",
+      "expected_rows": 226,
+      "evidence": "the citation repeats the pair it cites; verified to begin with it on every row"
+    }
+  ]
+}
