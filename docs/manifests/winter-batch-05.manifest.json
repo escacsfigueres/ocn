@@ -1,0 +1,22 @@
+{
+  "kind": "ocn.attribution_manifest.v1",
+  "title": "DRAFT — Winter Chess Notes, batch 5: what Marshall did not keep secret",
+  "description": "UN-APPLIED DRAFT. One row. The dossier's Marshall cluster looked like five slugs of material and is really one: the Ruy López Marshall Attack items were routed to the Semi-Slav, Tarrasch and French Marshall Gambits as well, which are different openings that this evidence does not touch. Only C.RyL.Mar is drafted. Its existing notes already record that the idea predates 1918; what this batch adds is the evidence bearing on the legend that Marshall hoarded it as a secret weapon — he played it publicly eight months before the Capablanca game, and the story's usual supporting citation is unsourced. See docs/evidence/provenance/winter-batch-05-findings.md.",
+  "mode": "attribution_fields_only",
+  "expected_catalog_rows": 5899,
+  "expected_changed_rows": ["C.RyL.Mar"],
+  "changes": [
+    {
+      "ocn1": "C.RyL.Mar",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "Brooklyn Daily Eagle, 7 March 1918, p. 6 (score contributed by Eduardo Bauzá Mercére)",
+        "A. Soltis, Chess Life, January 1983, p. 11; F.J. Marshall, 'Comparative Chess' (Philadelphia, 1932)",
+        "Edward Winter, Chess Notes C.N. 6980 and 6777, and the feature article 'The Marshall Gambit' (chesshistory.com), verified first-hand 2026-08-02"
+      ],
+      "fields": {
+        "historical_notes": "8...d5 gambit in the Ruy López. Named for Frank Marshall after he sprang it on Capablanca at New York 1918 (Capablanca defended and won). The idea predates that game — the 8.c3 d5 position appears as early as Walbrodt, Havana 1893 — so the 1918 game is the famous reveal that fixed the name to Marshall, not the line's first occurrence. Nor was it a secret weapon in the usual sense: Marshall had played the gambit publicly in a consultation game, Jaffe and Cleland v Marshall and Padelford, New York, circa 15 February 1918, printed in the Brooklyn Daily Eagle of 7 March 1918, p. 6 — eight months before the Capablanca game of 23 October 1918, and including the 16...h5 later debated in analysis (C.N. 6980, score located by Eduardo Bauzá Mercére). The commonly repeated claim that Marshall had seen the line published in a Frere v Marshall game of 1917 traces to A. Soltis, Chess Life, January 1983, p. 11, without a source; Winter reports finding that game nowhere before Marshall's own 'Comparative Chess' (Philadelphia, 1932), which printed it undated (C.N. 6777)."
+      }
+    }
+  ]
+}

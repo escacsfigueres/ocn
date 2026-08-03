@@ -1,0 +1,49 @@
+{
+  "kind": "ocn.attribution_manifest.v1",
+  "title": "DRAFT — Winter Chess Notes, batch 4: Dragon, Kalashnikov, Löwenthal",
+  "description": "UN-APPLIED DRAFT. Fourth batch from the Edward Winter vein, drawn from the complete dossier delivered 2026-08-02. Three sub-slugs of the Sicilian, all with empty attribution and notes. The material was filed in the dossier under the parent heads (B.Sic, B.Fre) but belongs on the sub-slugs, which is where the names actually live. No attribution is added: the Dragon is a metaphor, the Kalashnikov is a joke about a rifle, and why the Löwenthal carries its name is a documented open question. A fourth candidate, B.Fre.FKn (Fort Knox), was dropped: its only evidence is that Winter asked who named it and got no answer, which is too thin to be worth a row. See docs/evidence/provenance/winter-batch-04-findings.md.",
+  "mode": "attribution_fields_only",
+  "expected_catalog_rows": 5899,
+  "expected_changed_rows": ["B.Sic.Dra", "B.Sic.Kal", "B.Sic.Loe"],
+  "changes": [
+    {
+      "ocn1": "B.Sic.Dra",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "S. Tartakower, 'Die hypermoderne Schachpartie' (published in instalments 1924-25), p. 270",
+        "Heinrich Wolf, Wiener Schachzeitung, June 1924, p. 164",
+        "H. Weenink, Tijdschrift van den Nederlandschen Schaakbond, February-March 1925, p. 43",
+        "Aristide Gromer, 'Les échecs par la joie' (Brussels, 1939), pp. 52-53",
+        "Edward Winter, Chess Notes C.N. 5135 and 7826 (chesshistory.com), verified first-hand 2026-08-02"
+      ],
+      "fields": {
+        "historical_notes": "The name is a metaphor, not a person, and its earliest uses are still being pushed back. Tartakower wrote of 'Die Drachenvariante' annotating Alekhine v Sämisch, Vienna 1922, in 'Die hypermoderne Schachpartie' (instalments, 1924-25), p. 270. Heinrich Wolf, annotating Tartakower v Lasker, New York 1924, in the Wiener Schachzeitung of June 1924, p. 164, called it \"die sogenannte Paulsensche Drachenvariante\" — attaching Paulsen's name to it. H. Weenink used 'De \"drakevariant\" van den Siciliaan' in the Tijdschrift van den Nederlandschen Schaakbond, February-March 1925, p. 43. Winter reports a still earlier occurrence, reproduced in facsimile, on p. 30 of the Wiener Schachzeitung for January-February 1914. The term was not always understood as Black's setup: Aristide Gromer, 'Les échecs par la joie' (Brussels, 1939), pp. 52-53, applied 'la variante dite du \"Dragon\"' to White's g2-g4 advance. Edward Winter, Chess Notes C.N. 5135 and 7826."
+      }
+    },
+    {
+      "ocn1": "B.Sic.Kal",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "BCM, October 1991, p. 479",
+        "CHESS, April 1991, p. 25 (Ian Rogers)",
+        "New in Chess, 2/1990, p. 18 (Dirk Jan ten Geuzendam); New in Chess, 1/1989, p. 35 (John van der Wiel)",
+        "Edward Winter, Chess Notes C.N. 8450, 8456 and 8493 (chesshistory.com), verified first-hand 2026-08-02"
+      ],
+      "fields": {
+        "historical_notes": "The name is a joke about a rifle, not a tribute to a chess player: Dirk Jan ten Geuzendam described the line in New in Chess, 2/1990, p. 18, as \"the Kalashnikov — the semi-automatic, fast-firing version of the Sveshnikov\". The BCM of October 1991, p. 479, recorded it in the same spirit: \"The line 4 Nxd4 e5 5 Nb5 d6, known jocosely as 'Kalashnikov', has a band of followers of repute.\" Early printed uses located so far: a game headed 'Sicilian Kalashnikov' in an article by Ian Rogers, CHESS, April 1991, p. 25, and a note by John van der Wiel in New in Chess, 1/1989, p. 35. Winter, asking the question after Mikhail Kalashnikov's death on 23 December 2013, found nothing establishing when or why the name first attached; it remains open. Edward Winter, Chess Notes C.N. 8450, 8456 and 8493."
+      }
+    },
+    {
+      "ocn1": "B.Sic.Loe",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "Chess Player's Magazine, 1865, 'The Sicilian Opening' (six instalments), pp. 162-164 and p. 193",
+        "Modern Chess Openings, 10th ed. (Evans/Korn, 1965), p. 202; 11th ed. (Korn, 1972), p. 174; 12th ed. (Korn, 1982), p. 208",
+        "Edward Winter, Chess Notes C.N. 6580 (chesshistory.com), verified first-hand 2026-08-02"
+      ],
+      "fields": {
+        "historical_notes": "Why the line carries Löwenthal's name is unresolved, and Winter's verdict on the record is that \"the whole matter seems murky\". No game by Löwenthal beginning 1 e4 c5 2 Nf3 Nc6 3 d4 cxd4 4 Nxd4 e5 5 Nb5 a6 is known; his connection is editorial, through the six-part article 'The Sicilian Opening' in the Chess Player's Magazine of 1865, which he edited, where 5 Nb5 is discussed in two different move orders (pp. 162-164 and p. 193) and his own name attached with a wrong reference to the ninth rather than eleventh game of his match with Morphy. Modern Chess Openings compounded the confusion over three editions, crediting the idea to a Macdonnell v Labourdonnais game dated 1839 in the 10th edition (1965), p. 202 — impossible, McDonnell having died in 1835 — then 1934 in the 11th (1972), p. 174, before the correct 1834 appeared in the 12th (1982), p. 208. Winter's standing request is for early uses of the term applied to 4...e5 alone and to 4...e5 5 Nb5 a6 separately. Edward Winter, Chess Notes C.N. 6580."
+      }
+    }
+  ]
+}

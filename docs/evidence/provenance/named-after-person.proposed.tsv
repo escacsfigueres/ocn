@@ -1,0 +1,241 @@
+ocn1	relation	subject_type	subject_id	date	games	source_ref	evidence_grade	note
+E.Bud.Alk.Nxe5.f4.Nec6	named-after-person	person	abonyi			Wikipedia, 'István Abonyi'; cited there to http://www.chessgames.com/perl/chessplayer?pid=84291	attested	catalogue name 'Budapest Alekhine, Abonyi Variation' carries this person's name
+B.Sic.Naj.Adm	named-after-person	person	adams-weaver			Wikipedia, 'Weaver W. Adams'; cited there to https://www.chess.com/openings/Sicilian-Defense-Open-Najdorf-Adams-Attack	attested	catalogue name 'Sicilian Najdorf, Adams Attack' carries this person's name
+E.Bud.Adl	named-after-person	person	adler			Wikipedia, 'Mór Adler'; cited there to https://www.chessgames.com/perl/chessgame?gid=1503218	attested	catalogue name 'Budapest, Adler Variation' carries this person's name
+C.KPO.Ne2	named-after-person	person	alapin			Wikipedia, 'Semyon Alapin'; cited there to http://www.365chess.com/opening.php?m=4&n=355&ms=e4.e5.Ne2	attested	catalogue name 'King's Pawn Game, Alapin Opening' carries this person's name
+B.Sic.Alp	named-after-person	person	alapin			Wikipedia, 'Semyon Alapin'; cited there to http://www.chessgames.com/perl/chessopening?eco=b22	attested	catalogue name 'Sicilian Alapin' carries this person's name
+D.Alb	named-after-person	person	albin			Wikipedia, 'Adolf Albin'	attested	catalogue name 'Albin Counter-Gambit' carries this person's name
+B.Ale.Mod.KID	named-after-person	person	alburt			Wikipedia, 'Lev Alburt'; cited there to http://www.chessbase.com/espanola/shop/product.asp?pid=498	attested	catalogue name 'Alekhine Modern, King's Indian Variation' carries this person's name
+B.Fre.Cls.MLn.ACh	named-after-person	person	alekhine			Wikipedia, 'Alexander Alekhine'; cited there to https://www.chess.com/openings/French-Defense-Main-Line-Alekhine-Chatard-Attack	attested	catalogue name 'French Classical, Alekhine-Chatard Attack' carries this person's name
+B.Ale	named-after-person	person	alekhine			Wikipedia, 'Alexander Alekhine'	attested	catalogue name 'Alekhine Defence' carries this person's name
+E.Bud.Alk	named-after-person	person	alekhine			Wikipedia, 'Alexander Alekhine'; cited there to http://www.ewccf.com/eco.htm	attested	catalogue name 'Budapest, Alekhine Variation' carries this person's name
+C.KGm.Acc.All	named-after-person	person	allgaier			Wikipedia, 'Johann Baptist Allgaier'	attested	catalogue name 'King's Gambit Accepted, Allgaier' carries this person's name
+A.Ama	named-after-person	person	amar			Wikipedia; cited there to http://www.chessgames.com/perl/chessplayer?pid=12940	attested	catalogue name 'Amar Opening' carries this person's name
+A.And	named-after-person	person	anderssen			Wikipedia, 'Adolf Anderssen'; cited there to http://www.chessgames.com/perl/chessgame?gid=1019039	attested	catalogue name 'Anderssen's Opening' carries this person's name
+B.CaK.Adv.Bot	named-after-person	person	arkell			Wikipedia, 'Keith Arkell; Igor Khenkin'	attested	catalogue name 'Caro-Kann Advance, Botvinnik-Carls' carries this person's name
+B.CaK.Adv.Bot	named-after-person	person	khenkin			Wikipedia, 'Keith Arkell; Igor Khenkin'	attested	catalogue name 'Caro-Kann Advance, Botvinnik-Carls' carries this person's name
+E.KID.Avk	named-after-person	person	averbakh			Wikipedia, 'Yuri Averbakh'	attested	catalogue name 'KID, Averbakh' carries this person's name
+B.Rat.Bal	named-after-person	person	balogh			Wikipedia, 'János Balogh (chess player)'; cited there to http://www.chesscafe.com/text/kaiss13.pdf	attested	catalogue name 'Rat Defence, Balogh' carries this person's name
+A.Ret.d5.g3	named-after-person	person	barcza			Wikipedia, 'Gedeon Barcza'	traditional	catalogue name 'Réti, King's Indian Attack Setup' carries this person's name
+A.Bar	named-after-person	person	barnes			Wikipedia, 'Thomas Wilson Barnes'	attested	catalogue name 'Barnes Opening' carries this person's name
+B.Brg	named-after-person	person	basman			Wikipedia, 'Michael Basman'; cited there to http://www.365chess.com/opening.php?m=3&n=1204&ms=e4.g5	attested	catalogue name 'Borg Defence' carries this person's name
+C.KGm.Acc.Nf3.Bec	named-after-person	person	becker			Wikipedia, 'Albert Becker (chess player)'	attested	catalogue name 'King's Gambit Accepted, Becker Defence' carries this person's name
+A.Eng.Rev.Nc3.Nf6.Nf3.b5	named-after-person	person	lopez			Wikipedia, 'Juan Manuel Bellón López'	traditional	catalogue name 'English King's English, Bellon Gambit' carries this person's name
+E.Ben.Bnk	named-after-person	person	benko			Wikipedia, 'Pal Benko'	attested	catalogue name 'Benko / Volga Gambit' carries this person's name
+A.Hng	named-after-person	person	benko			Wikipedia, 'Pal Benko'	attested	catalogue name 'Hungarian Opening' carries this person's name
+C.RyL.Bir	named-after-person	person	bird			Wikipedia, 'Henry Bird (chess player)'; cited there to http://www.chessgames.com/perl/chessopening?eco=C61	attested	catalogue name 'Ruy López, Bird Variation' carries this person's name
+A.Bir	named-after-person	person	bird			Wikipedia, 'Henry Bird (chess player)'	attested	catalogue name 'Bird's Opening' carries this person's name
+C.Ita.Nd4	named-after-person	person	blackburne			Wikipedia, 'Joseph Henry Blackburne'	attested	catalogue name 'Italian Game, Blackburne-Kostić Gambit' carries this person's name
+D.Bgm.Cap.Nc3	named-after-person	person	blackmar			Wikipedia, 'Armand Blackmar; Emil Josef Diemer'	attested	catalogue name 'Blackmar-Diemer Gambit, Nc3' carries this person's name
+D.Bgm.Cap.Nc3	named-after-person	person	diemer			Wikipedia, 'Armand Blackmar; Emil Josef Diemer'	attested	catalogue name 'Blackmar-Diemer Gambit, Nc3' carries this person's name
+E.Bog	named-after-person	person	bogoljubov			Wikipedia, 'Efim Bogoljubov'	traditional	catalogue name 'Bogo-Indian Defence' carries this person's name
+E.Ind.Tgo	named-after-person	person	bogoljubov			Wikipedia, 'Efim Bogoljubov'	traditional	catalogue name 'Indian Game, Black Knights' Tango' carries this person's name
+B.Sic.Cls.Bol	named-after-person	person	boleslavsky			Wikipedia, 'Isaac Boleslavsky'	attested	catalogue name 'Sicilian Classical, Boleslavsky Variation' carries this person's name
+C.KPO.Ke2	named-after-person	person	chesscom			Wikipedia, 'Chess.com'; cited there to https://www.chess.com/openings/Kings-Pawn-Opening-The-Bongcloud	attested	catalogue name 'King's Pawn Game, Bongcloud Attack' carries this person's name
+C.KGm.Acc.Nf3.Bon	named-after-person	person	bonschosmolovsky			Wikipedia; cited there to http://www.chessgames.com/perl/chessgame?gid=1259983	attested	catalogue name 'King's Gambit Accepted, Bonsch-Osmolovsky Variation' carries this person's name
+C.RyL.Bre	named-after-person	person	brentano			Wikipedia, 'Franz Brentano'; cited there to http://www.chess-poster.com/english/chesmayne/brief_notes_on_the_history_of_chess_1900_1.htm	attested	catalogue name 'Ruy López, Brentano Gambit' carries this person's name
+C.KGm.Acc.Bre	named-after-person	person	breyer			Wikipedia, 'Gyula Breyer'; cited there to https://www.chess.com/openings/Kings-Gambit-Accepted-Breyer-Gambit	attested	catalogue name 'King's Gambit Accepted, Breyer Gambit' carries this person's name
+C.KPO.Kgt.Qe7	named-after-person	person	master			Wikipedia, 'International Master; Hélder Câmara (chess player)'	attested	catalogue name 'King's Knight Opening, Gunderam Defence' carries this person's name
+C.KPO.Kgt.Qe7	named-after-person	person	camara			Wikipedia, 'International Master; Hélder Câmara (chess player)'	attested	catalogue name 'King's Knight Opening, Gunderam Defence' carries this person's name
+B.CaK	named-after-person	person	caro			Wikipedia, 'Horatio Caro; Marcus Kann'	attested	catalogue name 'Caro-Kann Defence' carries this person's name
+B.CaK	named-after-person	person	kann			Wikipedia, 'Horatio Caro; Marcus Kann'	attested	catalogue name 'Caro-Kann Defence' carries this person's name
+C.KGm.Acc.Car	named-after-person	person	carrera			Wikipedia, 'Pietro Carrera'; cited there to https://www.chess.com/openings/Kings-Gambit-Accepted-Carrera-Gambit	attested	catalogue name 'King's Gambit Accepted, Carrera Gambit' carries this person's name
+B.Sic.Mod.d4.cxd4.Qxd4	named-after-person	person	chekhover			Wikipedia, 'Vitaly Chekhover'; cited there to http://www.365chess.com/opening.php?m=3&n=3&ms=e4.c5	attested	catalogue name 'Sicilian Modern, Chekhover Variation' carries this person's name
+D.Chi	named-after-person	person	chigorin			Wikipedia, 'Mikhail Chigorin'	attested	catalogue name 'Chigorin Defence' carries this person's name
+B.Fre.Qe2	named-after-person	person	chigorin			Wikipedia, 'Mikhail Chigorin'	traditional	catalogue name 'French Defence, Chigorin Variation' carries this person's name
+A.Clm	named-after-person	person	clemenz			Wikipedia, 'Hermann Clemenz'	attested	catalogue name 'Clemenz Opening' carries this person's name
+C.Pet.Coc	named-after-person	person	cochrane			Wikipedia, 'John Cochrane (chess player)'	attested	catalogue name 'Petrov, Cochrane Gambit' carries this person's name
+D.QPG.Zuk.Nf6.e3	named-after-person	person	colle			Wikipedia, 'Edgard Colle'	attested	catalogue name 'Zukertort Queen's Pawn, e3' carries this person's name
+C.Ita.Two.Ng5.Pol.Bb5.Col	named-after-person	person	colman			Wikipedia, 'Eugene Ernest Colman'	attested	catalogue name 'Italian, Two Knights Defence, Colman Variation' carries this person's name
+C.RyL.Coz	named-after-person	person	cozio			Wikipedia, 'Carlo Cozio'	attested	catalogue name 'Ruy López, Cozio Defence' carries this person's name
+C.KGm.Acc.Nf3.Cun	named-after-person	person	cunningham			Wikipedia, 'Alexander Cunningham (jurist)'	attested	catalogue name 'King's Gambit Accepted, Cunningham Defence' carries this person's name
+C.Dam	named-after-person	person	damiano			Wikipedia, 'Pedro Damiano'; cited there to https://www.chess.com/openings/Kings-Pawn-Opening-Kings-Knight-Damiano-Defense	attested	catalogue name 'Damiano Defence' carries this person's name
+A.Kad	named-after-person	person	desprez			Wikipedia	attested	catalogue name 'Kádas Opening' carries this person's name
+E.Ind.e6.Nf3.Ne4	named-after-person	person	dory			Wikipedia	attested	catalogue name 'Indian Defence, Doery Indian' carries this person's name
+A.Van	named-after-person	person	dunst			Wikipedia	attested	catalogue name 'Van Geet Opening' carries this person's name
+C.RyL.Mor.Ba4.d6.c4	named-after-person	person	duras			Wikipedia, 'Oldřich Duras'; cited there to https://www.chess.com/openings/Ruy-Lopez-Opening-Morphy-Defense-Modern-Steinitz-Defense-5.c4	attested	catalogue name 'Ruy López Modern Steinitz, c4' carries this person's name
+A.Sod	named-after-person	person	durkin			Wikipedia	attested	catalogue name 'Sodium Attack' carries this person's name
+C.KGm.Acc.Eis	named-after-person	person	eisenberg			Wikipedia, 'Louis Eisenberg'; cited there to https://www.chess.com/openings/Kings-Gambit-Accepted-Eisenberg-Variation	attested	catalogue name 'King's Gambit Accepted, Eisenberg Variation' carries this person's name
+A.Egl	named-after-person	person	englund			Wikipedia, 'Fritz Englund'	attested	catalogue name 'Englund Gambit' carries this person's name
+C.Ita.Evn	named-after-person	person	evans			Wikipedia, 'William Davies Evans'	attested	catalogue name 'Italian, Evans Gambit' carries this person's name
+E.Bud.Faj	named-after-person	person	fajarowicz			Wikipedia, 'Sammi Fajarowicz'	attested	catalogue name 'Budapest, Fajarowicz Variation' carries this person's name
+C.KGm.Dec.Fal	named-after-person	person	falkbeer			Wikipedia, 'Ernst Falkbeer'	attested	catalogue name 'King's Gambit Declined, Falkbeer' carries this person's name
+C.KGm.Acc.Nf3.Fis	named-after-person	person	fischer			Wikipedia, 'Bobby Fischer'	attested	catalogue name 'King's Gambit Accepted, Fischer Defence' carries this person's name
+C.Sco.Cls.Sch.Nc2	named-after-person	person	fleissig			Wikipedia, 'Bernhard Fleissig'; cited there to http://www.geocities.com/siliconvalley/lab/7378/opening.htm	attested	catalogue name 'Scotch Classical Schmidt, Meitner' carries this person's name
+A.Eng.Mik	named-after-person	person	flohr			Wikipedia, 'Salo Flohr; Vladas Mikėnas'; cited there to http://www.chessgames.com/perl/chessgame?gid=1093119	attested	catalogue name 'English Opening, Mikėnas-Carls' carries this person's name
+A.Eng.Mik	named-after-person	person	mikenas			Wikipedia, 'Salo Flohr; Vladas Mikėnas'; cited there to http://www.chessgames.com/perl/chessgame?gid=1093119	attested	catalogue name 'English Opening, Mikėnas-Carls' carries this person's name
+B.CaK.Cls.Ng3.Bg6.Nh3	named-after-person	person	flohr			Wikipedia, 'Salo Flohr'	attested	catalogue name 'Caro-Kann Classical, Flohr Variation' carries this person's name
+E.Gru.Thr.Qa4	named-after-person	person	flohr			Wikipedia, 'Salo Flohr'; cited there to http://www.chessarch.com/library/0000_eco/d70_d99.shtml	attested	catalogue name 'Grünfeld Three Knights, Qa4+' carries this person's name
+C.Vie.Fal.MLn	named-after-person	person	monster			Wikipedia, 'Frankenstein's monster; Count Dracula'	traditional	catalogue name 'Vienna Falkbeer, Main Line' carries this person's name
+C.Vie.Fal.MLn	named-after-person	person	dracula			Wikipedia, 'Frankenstein's monster; Count Dracula'	traditional	catalogue name 'Vienna Falkbeer, Main Line' carries this person's name
+A.Bir.Fro	named-after-person	person	from			Wikipedia, 'Martin Severin From'	attested	catalogue name 'Bird's Opening, From's Gambit' carries this person's name
+D.QGA.Cls.MLn.dxc5.Bxc5	named-after-person	person	furman			Wikipedia, 'Semyon Furman'	attested	catalogue name 'QGA Classical Main Line, Bxc5' carries this person's name
+C.RyL.Cha.Gaj	named-after-person	person	gajewski			Wikipedia, 'Grzegorz Gajewski'; cited there to http://www.newinchess.com/Attacking_the_Spanish-p-1829.html	attested	catalogue name 'Ruy López Chigorin, Gajewski Gambit' carries this person's name
+E.KID.Cls.e5.O-O.Na6	named-after-person	person	glek			Wikipedia, 'Igor Glek'; cited there to http://www.newinchess.com/Yearbook_63-p-249.html	attested	catalogue name 'KID Classical Castled, Glek' carries this person's name
+C.Fou.Glk	named-after-person	person	glek			Wikipedia, 'Igor Glek'; cited there to http://www.newinchess.com/SO_Glek_Variation_4_g3-so-464.html	attested	catalogue name 'Four Knights, Glek System' carries this person's name
+E.Ind.WIn.f3.d5	named-after-person	person	goglidze			Wikipedia; cited there to https://www.chess.com/openings/Kings-Indian-Defense-Alekhine-Anti-Grunfeld-Neo-Grunfeld-Defense-Goglidze-Attack	attested	catalogue name 'Anti-Grünfeld Alekhine, Goglidze Attack' carries this person's name
+C.Sco.Gor	named-after-person	person	goring			Wikipedia, 'Carl Göring'	attested	catalogue name 'Scotch, Göring Gambit' carries this person's name
+B.Sic.Old.d4.cxd4.Nxd4.Qb6	named-after-person	person	grivas			Wikipedia, 'Efstratios Grivas'	attested	catalogue name 'Old Sicilian, Godiva Variation' carries this person's name
+A.Gro	named-after-person	person	grob			Wikipedia, 'Henri Grob'	attested	catalogue name 'Grob Opening' carries this person's name
+C.KPO.Kgt.Qe7	named-after-person	person	gunderam			Wikipedia; cited there to http://www.chessarch.com/library/0000_eco/c40.shtml	attested	catalogue name 'King's Knight Opening, Gunderam Defence' carries this person's name
+B.Mod.Std.Nc3.C6S.Grg	named-after-person	person	gurgenidze			Wikipedia, 'Bukhuti Gurgenidze'; cited there to http://www.chessbase.com/newsdetail.asp?newsid=4653	attested	catalogue name 'Modern Defence, Gurgenidze Defence' carries this person's name
+B.CaK.Dpn.Nc3.Gur	named-after-person	person	gurgenidze			Wikipedia, 'Bukhuti Gurgenidze'	attested	catalogue name 'Caro-Kann, Gurgenidze Counterattack' carries this person's name
+B.Sic.Ros.Cls.MLn.Gur	named-after-person	person	gurgenidze			Wikipedia, 'Bukhuti Gurgenidze'	attested	catalogue name 'Rossolimo Classical, Gurgenidze Variation' carries this person's name
+D.QPG.c4.c5.cxd5.Nf6	named-after-person	person	gusev			Wikipedia, 'Yuri Gusev'; cited there to https://www.chess.com/openings/Queens-Gambit-Declined-Austrian-Gusev-Countergambit	attested	catalogue name 'Queen's Gambit Austrian, Gusev Countergambit' carries this person's name
+C.KPO.Kgt.Qf6	named-after-person	person	greco			Wikipedia, 'Gioachino Greco'	attested	catalogue name 'King's Knight Opening, McConnell Defence' carries this person's name
+E.Gru	named-after-person	person	grunfeld			Wikipedia, 'Ernst Grünfeld'	attested	catalogue name 'Grünfeld Defence' carries this person's name
+C.PhD.d4.Nd7	named-after-person	person	hanham			Wikipedia, 'James Hanham'	attested	catalogue name 'Philidor Defence, Hanham Move Order' carries this person's name
+D.QGD.QKn.Nrm.Har	named-after-person	person	harrwitz			Wikipedia, 'Daniel Harrwitz'; cited there to https://www.chess.com/openings/Queens-Gambit-Declined-Harrwitz-Attack	attested	catalogue name 'QGD Queen's Knight Normal, Harrwitz Prefix' carries this person's name
+D.QPG.Lev	named-after-person	person	hodgson			Wikipedia, 'Julian Hodgson'	attested	catalogue name 'Levitsky Attack' carries this person's name
+A.Hol.Hop	named-after-person	person	hopton			Wikipedia; cited there to http://www.chessgames.com/perl/chessgame?gid=1242990	attested	catalogue name 'Dutch Defence, Hopton Attack' carries this person's name
+A.Hor	named-after-person	person	horwitz			Wikipedia, 'Bernhard Horwitz'	traditional	catalogue name 'Horwitz Defence' carries this person's name
+E.Ben.d5.d6	named-after-person	person	hromadka			Wikipedia, 'Karel Hromádka'; cited there to http://www.chessarch.com/library/0000_eco/a56.shtml	attested	catalogue name 'Benoni Defence d5, d6' carries this person's name
+E.Nim.Rub.c5	named-after-person	person	hubner			Wikipedia, 'Robert Hübner'; cited there to https://www.chess.com/openings/Nimzo-Indian-Defense-Hubner-Variation	attested	catalogue name 'Nimzo Rubinstein, c5' carries this person's name
+A.Hol.Cls.IZh	named-after-person	person	ilyingenevsky			Wikipedia, 'Alexander Ilyin-Genevsky'; cited there to http://www.chessgames.com/perl/chessopening?eco=A98	attested	catalogue name 'Dutch Classical, Ilyin-Zhenevsky' carries this person's name
+E.OldI.Jan	named-after-person	person	janowski			Wikipedia, 'Dawid Janowski'	traditional	catalogue name 'Old Indian, Janowski Variation' carries this person's name
+C.Ita.Giu.Bxf7	named-after-person	person	jerome			Wikipedia	attested	catalogue name 'Italian Giuoco Piano, Jerome Attack' carries this person's name
+B.Sic.Kan	named-after-person	person	kan			Wikipedia, 'Ilya Kan'	attested	catalogue name 'Sicilian Kan' carries this person's name
+C.Pet.Nxe5.d6.Nd3	named-after-person	person	karklins			Wikipedia; cited there to https://www.chess.com/openings/Petrovs-Defense-Classical-Karklins-Martinovsky-Variation	attested	catalogue name 'Petrov Defence, Karklins-Martinovsky' carries this person's name
+C.Pet.Nxe5.d6.Nd3	named-after-person	person	martinovsky			Wikipedia; cited there to https://www.chess.com/openings/Petrovs-Defense-Classical-Karklins-Martinovsky-Variation	attested	catalogue name 'Petrov Defence, Karklins-Martinovsky' carries this person's name
+B.CaK.Kar	named-after-person	person	karpov			Wikipedia, 'Anatoly Karpov'; cited there to https://www.chess.com/openings/Caro-Kann-Defense-Karpov-Variation	attested	catalogue name 'Caro-Kann, Karpov' carries this person's name
+B.Pir.150.MLn	named-after-person	person	kasparov			Wikipedia, 'Garry Kasparov'	traditional	catalogue name 'Pirc 150 Attack, Main Line' carries this person's name
+B.Sic.Nf3.b6	named-after-person	person	katalymov			Wikipedia, 'Boris Katalymov'; cited there to http://www.365chess.com/opening.php?m=5&n=313&ms=e4.c5.Nf3.b6	attested	catalogue name 'Sicilian 2.Nf3, Katalimov Variation' carries this person's name
+C.KGm.Qh4.g3.Qe7	named-after-person	person	keene			Wikipedia, 'Raymond Keene'; cited there to https://www.chess.com/openings/Kings-Gambit-Declined-Keene-Defense-3.g3-Qe7	attested	catalogue name 'King's Gambit Keene Defence' carries this person's name
+B.Sic.Sch.Krs	named-after-person	person	keres			Wikipedia, 'Paul Keres'	attested	catalogue name 'Sicilian Scheveningen, Keres Attack' carries this person's name
+A.Kan	named-after-person	person	keres			Wikipedia, 'Paul Keres'; cited there to http://www.fqechecs.qc.ca/index.php?typ=actu&id=252&categorie=1	attested	catalogue name 'Kangaroo Defence' carries this person's name
+B.Sic.Ker	named-after-person	person	keres			Wikipedia, 'Paul Keres'	attested	catalogue name 'Sicilian, Keres Variation' carries this person's name
+A.Eng.Mik.Nc6	named-after-person	person	kevitz			Wikipedia, 'Alexander Kevitz'	attested	catalogue name 'English Mikėnas-Carls, Nc6' carries this person's name
+C.KGm.Acc.Kie	named-after-person	person	kieseritzky			Wikipedia, 'Lionel Kieseritzky'	traditional	catalogue name 'King's Gambit Accepted, Kieseritzky' carries this person's name
+C.RyL.Mor.Opn.Nc3	named-after-person	person	knorre			Wikipedia, 'Viktor Knorre'; cited there to http://chess-ref.org/opening.php?id=1412	attested	catalogue name 'Ruy López Open, Knorre Variation' carries this person's name
+C.Ita.Giu.O-O.Nf6.d4	named-after-person	person	koltanowski			Wikipedia, 'George Koltanowski'	traditional	catalogue name 'Italian Giuoco Piano O-O Nf6, d4' carries this person's name
+B.Fre.Win.Knd	named-after-person	person	kondratiyev			Wikipedia; cited there to http://chess-ref.org/opening.php?id=783	attested	catalogue name 'French Winawer, Kondratiyev Variation' carries this person's name
+C.RyL.ClD.c3.d5	named-after-person	person	konikowski			Wikipedia, 'Jerzy Konikowski'; cited there to http://www.vikingskak.dk/GambiteersGuild/Gambits/e4e5Nf3.htm	attested	catalogue name 'Ruy López Classical, Konikowski Gambit' carries this person's name
+C.KPO.Kgt.MLn.g3	named-after-person	person	konstantinopolsky			Wikipedia, 'Alexander Konstantinopolsky'	attested	catalogue name 'King's Knight Opening Main Line, g3' carries this person's name
+D.Bgm.Dec.Lam	named-after-person	person	lamb			Wikipedia; cited there to https://www.chess.com/openings/Queens-Pawn-Opening-Blackmar-Diemer-Gambit-Declined-Lamb-Defense	attested	catalogue name 'Blackmar-Diemer Declined, Lamb Defence' carries this person's name
+A.Lar	named-after-person	person	larsen			Wikipedia, 'Bent Larsen'; cited there to http://www.365chess.com/eco/A01_Nimzovich-Larsen_attack	attested	catalogue name 'Larsen Attack' carries this person's name
+C.Ita.Evn.Acc.Stn.O-O.Las	named-after-person	person	lasker			Wikipedia, 'Emanuel Lasker'; cited there to https://www.365chess.com/eco/C52_Evans_gambit_Lasker_defence	attested	catalogue name 'Evans Accepted Steinitz, Lasker Defence' carries this person's name
+D.QGD.Lsk	named-after-person	person	lasker			Wikipedia, 'Emanuel Lasker'; cited there to https://www.365chess.com/eco/D56_Queen%27s_Gambit_Declined_Lasker_defence	attested	catalogue name 'QGD, Lasker' carries this person's name
+E.Ind.WIn.f3.e5	named-after-person	person	leko			Wikipedia, 'Peter Leko'; cited there to http://www.chessgames.com/perl/chessgame?gid=1266450	attested	catalogue name 'Anti-Grünfeld Alekhine, Leko Gambit' carries this person's name
+C.KPO.d3	named-after-person	person	leonard			Wikipedia, 'James A. Leonard'; cited there to https://www.chess.com/lessons/make-the-most-of-your-pieces/using-your-knights	attested	catalogue name 'King's Pawn Game, Leonardis Variation' carries this person's name
+C.Ita.Evn.Acc.Stn.d4.b5	named-after-person	person	leonhardt			Wikipedia, 'Paul Saladin Leonhardt'	attested	catalogue name 'Evans Accepted Steinitz d4, b5' carries this person's name
+D.QPG.Lev	named-after-person	person	levitsky			Wikipedia, 'Stepan Levitsky'	traditional	catalogue name 'Levitsky Attack' carries this person's name
+B.Sic.Dra.Lev	named-after-person	person	levenfish			Wikipedia, 'Grigory Levenfish'; cited there to http://www.chessgames.com/perl/chessopening?eco=B71	attested	catalogue name 'Sicilian Dragon, Levenfish' carries this person's name
+E.Gru.Rus.Hng.e4.b6	named-after-person	person	levenfish			Wikipedia, 'Grigory Levenfish'; cited there to http://www.chessarch.com/library/0000_eco/d70_d99.shtml	attested	catalogue name 'Grünfeld Russian Hungarian, b6' carries this person's name
+A.Ret.Lis	named-after-person	person	lisitsin			Wikipedia, 'Georgy Lisitsin'	attested	catalogue name 'Réti Opening, Lisitsyn Gambit' carries this person's name
+C.Ita.Two.Ng5.Lol	named-after-person	person	lolli			Wikipedia, 'Giambattista Lolli'; cited there to https://www.chess.com/openings/Italian-Game-Knight-Attack-Lolli-Attack	attested	catalogue name 'Two Knights, Lolli Attack' carries this person's name
+C.RyL.Luc	named-after-person	person	lucena			Wikipedia, 'Luis Ramirez de Lucena'	attested	catalogue name 'Ruy López, Lucena Variation' carries this person's name
+A.Mik	named-after-person	person	lundin			Wikipedia, 'Erik Lundin'; cited there to http://www.365chess.com/opening.php?m=3&n=104&ms=d4.Nc6	attested	catalogue name 'Mikėnas Defence' carries this person's name
+E.Gru.Sml	named-after-person	person	lutikov			Wikipedia, 'Anatoly Lutikov'	attested	catalogue name 'Grünfeld, Sämisch' carries this person's name
+C.KPO.c3	named-after-person	person	macleod			Wikipedia, 'Nicholas MacLeod'	traditional	catalogue name 'King's Pawn Game, MacLeod Attack' carries this person's name
+E.KID.Mak	named-after-person	person	makogonov			Wikipedia, 'Vladimir Makogonov'; cited there to http://www.chessgames.com/perl/chessopening?eco=E71	attested	catalogue name 'KID, Makogonov' carries this person's name
+B.Sic.Acc.Mar	named-after-person	person	maroczy			Wikipedia, 'Géza Maróczy'	attested	catalogue name 'Accelerated Dragon, Maróczy Bind' carries this person's name
+C.RyL.Mar	named-after-person	person	marshall			Wikipedia, 'Frank Marshall (chess player)'; cited there to http://www.chesshistory.com/winter/extra/marshallgambit.html	attested	catalogue name 'Ruy López, Marshall Attack' carries this person's name
+D.QGD.Mar	named-after-person	person	marshall			Wikipedia, 'Frank Marshall (chess player)'	attested	catalogue name 'QGD, Marshall Defence' carries this person's name
+D.Sem.Mar.MLn	named-after-person	person	marshall			Wikipedia, 'Frank Marshall (chess player)'	attested	catalogue name 'Semi-Slav Marshall, Main Line' carries this person's name
+D.Tar.Mar	named-after-person	person	marshall			Wikipedia, 'Frank Marshall (chess player)'	attested	catalogue name 'Tarrasch, Marshall Gambit' carries this person's name
+B.Sic.Fre.d4.d5	named-after-person	person	marshall			Wikipedia, 'Frank Marshall (chess player)'	attested	catalogue name 'Sicilian French, Marshall Counterattack' carries this person's name
+C.Ita.Two.Max	named-after-person	person	lange			Wikipedia, 'Max Lange'	attested	catalogue name 'Italian Two Knights, Max Lange Attack' carries this person's name
+B.Fre.Mac	named-after-person	person	mccutcheon			Wikipedia; cited there to http://www.chessgames.com/perl/chessopening?eco=C12	attested	catalogue name 'French, MacCutcheon' carries this person's name
+C.KGm.Acc.Nf3.KKn.Bc4.McD	named-after-person	person	mcdonnell			Wikipedia, 'Alexander McDonnell (chess player)'; cited there to http://www.chessgames.com/perl/chessopening?eco=C37	attested	catalogue name 'King's Gambit Accepted, McDonnell Gambit' carries this person's name
+A.Mie	named-after-person	person	mieses			Wikipedia, 'Jacques Mieses'	attested	catalogue name 'Mieses Opening' carries this person's name
+E.Ben.Mod.Fou.Mik	named-after-person	person	mikenas			Wikipedia, 'Vladas Mikėnas'; cited there to https://www.chess.com/openings/Benoni-Defense-Modern-Pawn-Storm-Mikenas-Variation	attested	catalogue name 'Modern Benoni Four Pawns, Mikėnas' carries this person's name
+E.QID.Mil	named-after-person	person	miles			Wikipedia, 'Tony Miles'	attested	catalogue name 'QID, Miles Variation' carries this person's name
+B.Fre.Tar.Mor	named-after-person	person	morozevich			Wikipedia, 'Alexander Morozevich'; cited there to https://www.chess.com/openings/French-Defense-Tarrasch-Morozevich-Variation	attested	catalogue name 'French Tarrasch, Morozevich Variation' carries this person's name
+C.RyL.Mor	named-after-person	person	morphy			Wikipedia, 'Paul Morphy'	attested	catalogue name 'Ruy López, Morphy Defence' carries this person's name
+B.Fre.Nrm.d5.Nh3	named-after-person	person	morphy			Wikipedia, 'Paul Morphy'; cited there to https://www.chess.com/openings/French-Defense-Morphy-Gambit	attested	catalogue name 'French Defence, Morphy Gambit' carries this person's name
+C.KGm.Acc.Muz.Dbl.MLn	named-after-person	person	sarratt			Wikipedia, 'Jacob Sarratt; Alessandro Salvio'	attested	catalogue name 'Double Muzio Gambit, Main Line' carries this person's name
+C.KGm.Acc.Muz.Dbl.MLn	named-after-person	person	salvio			Wikipedia, 'Jacob Sarratt; Alessandro Salvio'	attested	catalogue name 'Double Muzio Gambit, Main Line' carries this person's name
+E.Gru.cxd5.Nxd5.Na4	named-after-person	person	nadanian			Wikipedia, 'Ashot Nadanian'; cited there to http://www.newinchess.com/Ashot_Nadanian-sa-133.html	attested	catalogue name 'Grünfeld Exchange Prefix, Na4' carries this person's name
+B.Sic.Naj	named-after-person	person	najdorf			Wikipedia, 'Miguel Najdorf'; cited there to http://www.chessgames.com/perl/chessopening?eco=b90	attested	catalogue name 'Sicilian, Najdorf' carries this person's name
+C.KPO.Nap	named-after-person	person	bonaparte			Wikipedia, 'Napoleon Bonaparte'; cited there to http://www.chessgames.com/perl/chessgame?gid=1250610	attested	catalogue name 'Napoleon Opening' carries this person's name
+C.KGm.Acc.Kie.Nc6	named-after-person	person	neumann			Wikipedia, 'Gustav Neumann'; cited there to https://www.365chess.com/eco/C39_King's_Gambit_Accepted_Kieseritsky_Neumann_defence	attested	catalogue name 'Kieseritzky Gambit, Nc6' carries this person's name
+E.Nim	named-after-person	person	nimzowitsch			Wikipedia, 'Aron Nimzowitsch'	attested	catalogue name 'Nimzo-Indian Defence' carries this person's name
+B.Nim	named-after-person	person	nimzowitsch			Wikipedia, 'Aron Nimzowitsch'	attested	catalogue name 'Nimzowitsch Defence' carries this person's name
+B.Sic.Nim	named-after-person	person	nimzowitsch			Wikipedia, 'Aron Nimzowitsch'	attested	catalogue name 'Sicilian, Nimzowitsch Variation' carries this person's name
+B.Sic.OKe	named-after-person	person	galway			Wikipedia, 'Albéric O'Kelly de Galway'; cited there to http://www.chessgames.com/perl/chessopening?eco=B28	attested	catalogue name 'Sicilian, O'Kelly' carries this person's name
+A.Tro	named-after-person	person	opocensky			Wikipedia, 'Karel Opočenský'	attested	catalogue name 'Trompowsky Attack' carries this person's name
+B.Sic.Naj.Be2	named-after-person	person	opocensky			Wikipedia, 'Karel Opočenský'; cited there to http://www.chessgames.com/perl/chessopening?eco=B92	attested	catalogue name 'Sicilian Najdorf, Opočenský Variation' carries this person's name
+B.OwM	named-after-person	person	owen			Wikipedia, 'John Owen (chess player)'	attested	catalogue name 'Owen's Modern (...b6 vs e4)' carries this person's name
+B.CaK.Pmv	named-after-person	person	panov			Wikipedia, 'Vasily Panov'	attested	catalogue name 'Caro-Kann, Panov-Botvinnik Attack' carries this person's name
+C.KPO.Qh5	named-after-person	person	parham			Wikipedia, 'Bernard Parham'; cited there to http://www.thechessdrum.net/newsbriefs/2003/NB_BParham.html	attested	catalogue name 'King's Pawn Game, Wayward Queen Attack' carries this person's name
+C.Pet.Nxe5.d6.Nc4	named-after-person	person	paulsen			Wikipedia, 'Louis Paulsen'	attested	catalogue name 'Petrov Defence, Paulsen Attack' carries this person's name
+E.KID.Cls.Pet	named-after-person	person	petrosian			Wikipedia, 'Tigran Petrosian'	attested	catalogue name 'KID Classical, Petrosian' carries this person's name
+E.QID.Pet	named-after-person	person	petrosian			Wikipedia, 'Tigran Petrosian'	attested	catalogue name 'QID, Petrosian' carries this person's name
+C.Pet	named-after-person	person	petrov			Wikipedia, 'Alexander Petrov (chess player)'	attested	catalogue name 'Petrov Defence' carries this person's name
+C.PhD.d4.f5	named-after-person	person	philidor			Wikipedia, 'François-André Danican Philidor'	attested	catalogue name 'Philidor Countergambit' carries this person's name
+C.PhD	named-after-person	person	philidor			Wikipedia, 'François-André Danican Philidor'	attested	catalogue name 'Philidor Defence' carries this person's name
+C.Bsh.Bc5.c3	named-after-person	person	philidor			Wikipedia, 'François-André Danican Philidor'	traditional	catalogue name 'Bishop's Opening, Philidor Variation' carries this person's name
+B.Pir	named-after-person	person	pirc			Wikipedia, 'Vasja Pirc'	attested	catalogue name 'Pirc Defence' carries this person's name
+C.KGm.Acc.Kie.Be7	named-after-person	person	polerio			Wikipedia, 'Giulio Cesare Polerio'; cited there to https://www.chess.com/openings/Kings-Gambit-Accepted-Kieseritzky-Polerio-Defense	attested	catalogue name 'Kieseritzky Gambit, Be7' carries this person's name
+C.RyL.Pol	named-after-person	person	pollock			Wikipedia, 'William Pollock (chess player)'	attested	catalogue name 'Ruy López, Pollock Defence' carries this person's name
+B.Sic.Naj.Pol	named-after-person	person	polugaevsky			Wikipedia, 'Lev Polugaevsky'	attested	catalogue name 'Sicilian Najdorf, Polugaevsky' carries this person's name
+C.Pon	named-after-person	person	ponziani			Wikipedia, 'Domenico Lorenzo Ponziani'	attested	catalogue name 'Ponziani Opening' carries this person's name
+C.RyL.Bul	named-after-person	person	popov			Wikipedia, 'Georgi Alexandrov Popov'; cited there to https://www.newinchess.com/Archives/SOSList.aspx?AuthorID=355	attested	catalogue name 'Ruy López, Bulgarian Variation' carries this person's name
+B.Sic.Nf3.Qc7	named-after-person	person	quinteros			Wikipedia, 'Miguel Quinteros'; cited there to https://www.chess.com/openings/Sicilian-Defense-Quinteros-Variation	attested	catalogue name 'Sicilian 2.Nf3, Quinteros Variation' carries this person's name
+A.Ret.d5.c4	named-after-person	person	reti			Wikipedia, 'Richard Réti'	attested	catalogue name 'Réti Opening, 2.c4' carries this person's name
+C.KGm.Acc.Kie.MLn.Bc4.Ri2	named-after-person	person	rice			Wikipedia, 'Isaac Rice (businessman)'	attested	catalogue name 'King's Gambit Accepted, Kieseritzky, Rice Gambit' carries this person's name
+B.Sic.Cls.Rch.e6.Qd2	named-after-person	person	richter			Wikipedia, 'Kurt Richter; Vsevolod Rauzer'	attested	catalogue name 'Richter-Rauzer, Traditional Variation' carries this person's name
+B.Sic.Cls.Rch.e6.Qd2	named-after-person	person	rauzer			Wikipedia, 'Kurt Richter; Vsevolod Rauzer'	attested	catalogue name 'Richter-Rauzer, Traditional Variation' carries this person's name
+D.QPG.Ver	named-after-person	person	richter			Wikipedia, 'Kurt Richter; Gavriil Veresov'	attested	catalogue name 'Queen's Pawn Game, Veresov Setup' carries this person's name
+D.QPG.Ver	named-after-person	person	veresov			Wikipedia, 'Kurt Richter; Gavriil Veresov'	attested	catalogue name 'Queen's Pawn Game, Veresov Setup' carries this person's name
+E.QID.Euw.MLn.Riu	named-after-person	person	riumin			Wikipedia, 'Nikolai Riumin'; cited there to https://www.chess.com/openings/Queens-Indian-Defense-Fianchetto-Capablanca-Riumin-Variation	attested	catalogue name 'QID Euwe Main Line, Riumin Variation' carries this person's name
+B.Mod.Std	named-after-person	person	robatsch			Wikipedia, 'Karl Robatsch'	attested	catalogue name 'Modern Defence, Standard Setup' carries this person's name
+B.Sic.Ros	named-after-person	person	rossolimo			Wikipedia, 'Nicolas Rossolimo'; cited there to http://www.chessgames.com/perl/chessopening?eco=b31	attested	catalogue name 'Sicilian Rossolimo' carries this person's name
+C.Fou.Spa.Rub	named-after-person	person	rubinstein			Wikipedia, 'Akiba Rubinstein'	attested	catalogue name 'Four Knights Spanish, Rubinstein' carries this person's name
+B.Fre.Rub	named-after-person	person	rubinstein			Wikipedia, 'Akiba Rubinstein'	attested	catalogue name 'French, Rubinstein' carries this person's name
+E.Nim.Rub	named-after-person	person	rubinstein			Wikipedia, 'Akiba Rubinstein'	attested	catalogue name 'Nimzo, Rubinstein' carries this person's name
+C.RyL	named-after-person	person	segura			Wikipedia, 'Ruy López de Segura'	attested	catalogue name 'Ruy López' carries this person's name
+E.KID.Sml	named-after-person	person	samisch			Wikipedia, 'Friedrich Sämisch'	attested	catalogue name 'KID, Sämisch' carries this person's name
+E.Nim.Sml	named-after-person	person	samisch			Wikipedia, 'Friedrich Sämisch'; cited there to http://www.chessgames.com/perl/chessopening?eco=e27	attested	catalogue name 'Nimzo, Sämisch' carries this person's name
+A.Ret.Nf6.b4	named-after-person	person	santasiere			Wikipedia, 'Anthony Santasiere'	attested	catalogue name 'Polish Opening, Zukertort System' carries this person's name
+C.KGm.Acc.Nf3.Scl	named-after-person	person	schallopp			Wikipedia, 'Emil Schallopp'	attested	catalogue name 'King's Gambit Accepted, Schallopp Defence' carries this person's name
+A.Bir.Fro.fxe5.Nc6	named-after-person	person	schlechter			Wikipedia, 'Carl Schlechter'	traditional	catalogue name 'From's Gambit, Schlechter Gambit' carries this person's name
+D.Tar.Rub	named-after-person	person	schlechter			Wikipedia, 'Carl Schlechter; Akiba Rubinstein'	attested	catalogue name 'Tarrasch, Rubinstein System' carries this person's name
+D.Tar.Rub	named-after-person	person	rubinstein			Wikipedia, 'Carl Schlechter; Akiba Rubinstein'	attested	catalogue name 'Tarrasch, Rubinstein System' carries this person's name
+B.Fre.Nrm.d5.Bd3	named-after-person	person	schlechter			Wikipedia, 'Carl Schlechter'; cited there to http://www.chessgames.com/perl/chessgame?gid=1002548	attested	catalogue name 'French Defence, Schlechter Variation' carries this person's name
+D.Sla.Nf3.Nf6.Nc3.Sch	named-after-person	person	schlechter			Wikipedia, 'Carl Schlechter'	attested	catalogue name 'Slav Defence, Three Knights Prefix, Schlechter Variation' carries this person's name
+C.RyL.Shl	named-after-person	person	jaenisch			Wikipedia, 'Carl Jaenisch'	attested	catalogue name 'Ruy López, Schliemann Defence' carries this person's name
+D.STa	named-after-person	person	tarrasch			Wikipedia, 'Siegbert Tarrasch'	attested	catalogue name 'Semi-Tarrasch' carries this person's name
+D.Sem.AMe.Shr	named-after-person	person	shabalov			Wikipedia, 'Alexander Shabalov; Alexei Shirov'; cited there to http://www.chessbase.com/cbmnewsdetail.asp?newsid=5259	attested	catalogue name 'Semi-Slav Anti-Meran, Shirov-Shabalov' carries this person's name
+D.Sem.AMe.Shr	named-after-person	person	shirov			Wikipedia, 'Alexander Shabalov; Alexei Shirov'; cited there to http://www.chessbase.com/cbmnewsdetail.asp?newsid=5259	attested	catalogue name 'Semi-Slav Anti-Meran, Shirov-Shabalov' carries this person's name
+B.CaK.Adv.Bf5.c3.e6.Be2	named-after-person	person	short			Wikipedia, 'Nigel Short'	traditional	catalogue name 'Caro-Kann Advance c3, Short Variation' carries this person's name
+B.Sic.SmM.Acc.Nxc3	named-after-person	person	smith			Wikipedia, 'Ken Smith (chess)'	attested	catalogue name 'Smith-Morra Accepted, Nxc3' carries this person's name
+E.Gru.Rus.Hng.e4.Bg4	named-after-person	person	smyslov			Wikipedia, 'Vasily Smyslov'; cited there to http://www.chessgames.com/perl/chessopening?eco=D99	attested	catalogue name 'Grünfeld Russian Hungarian, Bg4' carries this person's name
+C.RyL.Cls.Smy	named-after-person	person	smyslov			Wikipedia, 'Vasily Smyslov'; cited there to http://www.chessgames.com/perl/chessopening?eco=C93	attested	catalogue name 'Ruy López Closed, Smyslov Defence' carries this person's name
+B.Sic.Cze	named-after-person	person	snyder			Wikipedia; cited there to https://www.chess.com/openings/Sicilian-Defense-Snyder-Variation	attested	catalogue name 'Sicilian, Czerniak Attack' carries this person's name
+A.Pol	named-after-person	person	sokolsky			Wikipedia, 'Alexey Sokolsky'	attested	catalogue name 'Polish Opening' carries this person's name
+C.KGm.Dec.Cls.fxe5	named-after-person	person	soldatenkov			Wikipedia, 'Vasily Soldatenkov'	attested	catalogue name 'King's Gambit Declined Classical, Soldatenkov' carries this person's name
+D.Sla.Sou	named-after-person	person	soultanbeieff			Wikipedia, 'Victor Soultanbeieff'; cited there to http://www.chessgames.com/perl/chessgame?gid=1281050	attested	catalogue name 'Slav, Soultanbeieff Variation' carries this person's name
+B.CaK.Nc3.Gld	named-after-person	person	spielmann			Wikipedia, 'Rudolph Spielmann'; cited there to http://www.fqechecs.qc.ca/index.php?typ=actu&categorie=1&id=254	attested	catalogue name 'Caro-Kann 2.Nc3, Goldman Variation' carries this person's name
+C.KGm.Acc.Sta	named-after-person	person	stamma			Wikipedia, 'Philipp Stamma'; cited there to http://www.365chess.com/opening.php?m=6&n=33596&ms=e4.e5.f4.exf4.h4	attested	catalogue name 'King's Gambit Accepted, Stamma Gambit' carries this person's name
+A.Hol.Sta	named-after-person	person	staunton			Wikipedia, 'Howard Staunton'	attested	catalogue name 'Dutch Defence, Staunton Gambit' carries this person's name
+B.Fre.e5	named-after-person	person	steinitz			Wikipedia, 'Wilhelm Steinitz'; cited there to https://www.365chess.com/eco/C00_French_Steinitz_attack	attested	catalogue name 'French Defence, Steinitz Attack' carries this person's name
+C.RyL.Stn	named-after-person	person	steinitz			Wikipedia, 'Wilhelm Steinitz'; cited there to http://www.chessgames.com/perl/chessopening?eco=C62	attested	catalogue name 'Ruy López, Steinitz Defence' carries this person's name
+C.Vie.Nc6.f4	named-after-person	person	steinitz			Wikipedia, 'Wilhelm Steinitz'	attested	catalogue name 'Vienna Gambit, Max Lange Defence' carries this person's name
+C.Pet.Mod	named-after-person	person	steinitz			Wikipedia, 'Wilhelm Steinitz'; cited there to http://www.365chess.com/opening.php?m=6&n=765&ms=e4.e5.Nf3.Nf6.d4	attested	catalogue name 'Petrov, Modern Attack' carries this person's name
+B.Sic.LDu	named-after-person	person	steinitz			Wikipedia, 'Wilhelm Steinitz'; cited there to http://www.365chess.com/opening.php?m=4&n=120&ms=e4.c5.g3	attested	catalogue name 'Sicilian, Lasker-Dunne Attack' carries this person's name
+B.Sic.Sve	named-after-person	person	sveshnikov			Wikipedia, 'Evgeny Sveshnikov'	attested	catalogue name 'Sicilian Sveshnikov' carries this person's name
+B.Sic.Tay.Nb5	named-after-person	person	szen			Wikipedia, 'József Szén'	attested	catalogue name 'Sicilian Taimanov, Szén Variation' carries this person's name
+B.Sic.Tay	named-after-person	person	taimanov			Wikipedia, 'Mark Taimanov'; cited there to http://www.chessgames.com/perl/chessopening?eco=B47	attested	catalogue name 'Sicilian Taimanov' carries this person's name
+B.Sic.McD.Tal	named-after-person	person	tal			Wikipedia, 'Mikhail Tal'	traditional	catalogue name 'Sicilian McDonnell Attack, Tal Gambit' carries this person's name
+B.CaK.Adv.Tal	named-after-person	person	tal			Wikipedia, 'Mikhail Tal'	traditional	catalogue name 'Caro-Kann Advance, Tal' carries this person's name
+D.Tar	named-after-person	person	tarrasch			Wikipedia, 'Siegbert Tarrasch'	attested	catalogue name 'Tarrasch Defence' carries this person's name
+B.Fre.Tar	named-after-person	person	tarrasch			Wikipedia, 'Siegbert Tarrasch'	attested	catalogue name 'French, Tarrasch' carries this person's name
+A.Tor	named-after-person	person	torre			Wikipedia, 'Carlos Torre'; cited there to https://archive.org/details/winningwithtorre00gufe_0	attested	catalogue name 'Torre Attack' carries this person's name
+C.Ita.Two.Ng5.Trx	named-after-person	person	traxler			Wikipedia, 'Karel Traxler'; cited there to http://www.chessbase.com/newsdetail.asp?newsid=1710	attested	catalogue name 'Two Knights, Traxler Counterattack' carries this person's name
+A.Tro	named-after-person	person	trompowsky			Wikipedia, 'Octavio Trompowsky'	attested	catalogue name 'Trompowsky Attack' carries this person's name
+B.Pir	named-after-person	person	ufimtsev			Wikipedia, 'Anatoly Ufimtsev (chess player)'; cited there to http://www.365chess.com/opening.php?m=7&n=167&ms=e4.d6.d4.Nf6.Nc3.c6	attested	catalogue name 'Pirc Defence' carries this person's name
+C.Bsh.Urs	named-after-person	person	urusov			Wikipedia, 'Sergey Semyonovich Urusov'	traditional	catalogue name 'Bishop's Opening, Urusov Gambit' carries this person's name
+A.VtK	named-after-person	person	kruijs			Wikipedia, 'Maarten van 't Kruijs'	attested	catalogue name 'Van't Kruijs Opening' carries this person's name
+C.KGm.Acc.Vil	named-after-person	person	villemson			Wikipedia, 'Martin Villemson'	attested	catalogue name 'King's Gambit Accepted, Villemson Gambit' carries this person's name
+C.RyL.Vin	named-after-person	person	vinogradov			Wikipedia, 'Paul Vinogradov'; cited there to http://www.365chess.com/opening.php?m=7&n=23417&ms=e4.e5.Nf3.Nc6.Bb5.Qe7	attested	catalogue name 'Ruy López, Vinogradov Variation' carries this person's name
+A.OID.Wad	named-after-person	person	wade			Wikipedia, 'Robert Wade (chess player)'	attested	catalogue name 'Old Indian, Wade Defence' carries this person's name
+B.War	named-after-person	person	ware			Wikipedia, 'Preston Ware'	traditional	catalogue name 'Ware Defence' carries this person's name
+A.War	named-after-person	person	ware			Wikipedia, 'Preston Ware'	attested	catalogue name 'Ware Opening' carries this person's name
+B.Fre.Win	named-after-person	person	winawer			Wikipedia, 'Simon Winawer'; cited there to http://www.chessgames.com/perl/chessopening?eco=c18	attested	catalogue name 'French, Winawer' carries this person's name
+C.RyL.Mor.Wor	named-after-person	person	worrall			Wikipedia	attested	catalogue name 'Ruy López Morphy, Wormald Attack' carries this person's name
+E.Gru.h4	named-after-person	person	zaitsev-alexander			Wikipedia, 'Alexander Nikolayevich Zaitsev'; cited there to http://studimonetari.org/edg/	attested	catalogue name 'Grünfeld Defence, Zaitsev Gambit' carries this person's name
+C.RyL.Cls.c3.O-O.h3.Bb7	named-after-person	person	zaitsev-igor			Wikipedia, 'Igor Zaitsev'	attested	catalogue name 'Ruy López Closed h3, Bb7' carries this person's name
+A.Egl.dxe5.Nc6.Nf3.Nge7	named-after-person	person	zilbermints			Wikipedia	attested	catalogue name 'Englund Gambit Nf3, Zilbermints Gambit' carries this person's name
+A.Ret	named-after-person	person	zukertort			Wikipedia, 'Johannes Zukertort'	attested	catalogue name 'Réti Opening' carries this person's name
+B.Sic.Kro	named-after-person	person	zvjaginsev			Wikipedia, 'Vadim Zvjaginsev'; cited there to http://www.newinchess.com/Yearbook_78-p-184.html	attested	catalogue name 'Sicilian, Kronberger Variation' carries this person's name
