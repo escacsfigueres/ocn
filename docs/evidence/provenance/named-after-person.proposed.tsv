@@ -233,7 +233,7 @@ A.OID.Wad	named-after-person	person	wade			Wikipedia, 'Robert Wade (chess player
 B.War	named-after-person	person	ware			Wikipedia, 'Preston Ware'	traditional	catalogue name 'Ware Defence' carries this person's name
 A.War	named-after-person	person	ware			Wikipedia, 'Preston Ware'	attested	catalogue name 'Ware Opening' carries this person's name
 B.Fre.Win	named-after-person	person	winawer			Wikipedia, 'Simon Winawer'; cited there to http://www.chessgames.com/perl/chessopening?eco=c18	attested	catalogue name 'French, Winawer' carries this person's name
-C.RyL.Mor.Wor	named-after-person	person	worrall			Wikipedia	attested	catalogue name 'Ruy López Morphy, Wormald Attack' carries this person's name
+C.RyL.Mor.Ba4.Nf6.O-O.Wor	named-after-person	person	worrall			Wikipedia	attested	catalogue name 'Ruy López, Closed, Worrall Attack' carries this person's name; retargeted from C.RyL.Mor.Wor, which is the Wormald Attack and had been matched on the shared identifier fragment 'Wor'
 E.Gru.h4	named-after-person	person	zaitsev-alexander			Wikipedia, 'Alexander Nikolayevich Zaitsev'; cited there to http://studimonetari.org/edg/	attested	catalogue name 'Grünfeld Defence, Zaitsev Gambit' carries this person's name
 C.RyL.Cls.c3.O-O.h3.Bb7	named-after-person	person	zaitsev-igor			Wikipedia, 'Igor Zaitsev'	attested	catalogue name 'Ruy López Closed h3, Bb7' carries this person's name
 A.Egl.dxe5.Nc6.Nf3.Nge7	named-after-person	person	zilbermints			Wikipedia	attested	catalogue name 'Englund Gambit Nf3, Zilbermints Gambit' carries this person's name

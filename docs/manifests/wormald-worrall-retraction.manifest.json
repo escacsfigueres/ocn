@@ -1,0 +1,24 @@
+{
+  "kind": "ocn.attribution_manifest.v1",
+  "title": "Retract the Worrall attribution from the Wormald Attack",
+  "description": "One row. C.RyL.Mor.Wor is the 5.Qe2 line, which the catalogue and the literature call the Wormald Attack after Robert Wormald. Its attribution names Thomas Herbert Worrall and cites the Oxford Companion entry 'Worrall Attack' — but that entry describes 6.Qe2, which is a different line, held at C.RyL.Mor.Ba4.Nf6.O-O.Wor. The attribution was matched to the wrong row, almost certainly on the shared slug fragment 'Wor'. This retracts it rather than replacing it, because the correct attribution for either row is not established: what the sources give is an eponym, and the catalogue does not record an eponym in a field that demands a role. The question of who named each line, and when, goes to the open questions. See docs/evidence/provenance/wormald-worrall-findings.md.",
+  "mode": "attribution_fields_only",
+  "expected_catalog_rows": 5899,
+  "expected_changed_rows": [
+    "C.RyL.Mor.Wor"
+  ],
+  "changes": [
+    {
+      "ocn1": "C.RyL.Mor.Wor",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "Hooper & Whyld, 'The Oxford Companion to Chess' (2nd ed., OUP 1992), entry 'Worrall Attack', which describes 6.Qe2 and not the 5.Qe2 line this row holds"
+      ],
+      "fields": {
+        "attributed_to": "",
+        "attribution_source": "",
+        "historical_notes": "The attribution formerly on this row named Thomas Herbert Worrall (1807-78) and cited the Oxford Companion entry 'Worrall Attack'. That entry describes 6.Qe2, which is a different line (C.RyL.Mor.Ba4.Nf6.O-O.Wor); this row is 5.Qe2, named for Robert Wormald. The attribution had been matched to the wrong row and was retracted in this edition rather than replaced, because no source has been located that establishes what either man did beyond lending a name. The earliest printed use of each name, and for which move order, is an open question."
+      }
+    }
+  ]
+}
