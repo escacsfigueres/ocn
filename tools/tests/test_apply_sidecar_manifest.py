@@ -13,13 +13,17 @@ from apply_sidecar_manifest import (  # noqa: E402
     serialize, validate_manifest,
 )
 
-HEADER = "ocn1\tevent\tyear\twhite\tblack\n"
+HEADER = "ocn1\tevent\tyear\twhite\tblack\tcitation\n"
+def _row(slug, ev, yr, w, b):
+    return f"{slug}\t{ev}\t{yr}\t{w}\t{b}\t{w}-{b}, {ev}, {yr}"
+
+
 ROWS = [
-    "C.RyL\tWorld Championship 1st\t1886\tSteinitz, Wilhelm\tZukertort, Johannes",
-    "C.RyL\tWorld Championship 1st\t1886\tZukertort, Johannes\tSteinitz, Wilhelm",
-    "C.RyL\tWorld Championship 1st\t1886\tLoureda Garcia, Jose\tGarcia Camina, Bel",
-    "A.Bir\tWorld Championship 14th\t1929\tAljechin, Yuri\tBogoljubow",
-    "A.Bir\tWorld Championship 14th\t1929\tBogoljubow\tAljechin, Yuri",
+    _row("C.RyL", "World Championship 1st", "1886", "Steinitz, Wilhelm", "Zukertort, Johannes"),
+    _row("C.RyL", "World Championship 1st", "1886", "Zukertort, Johannes", "Steinitz, Wilhelm"),
+    _row("C.RyL", "World Championship 1st", "1886", "Loureda Garcia, Jose", "Garcia Camina, Bel"),
+    _row("A.Bir", "World Championship 14th", "1929", "Aljechin, Yuri", "Bogoljubow"),
+    _row("A.Bir", "World Championship 14th", "1929", "Bogoljubow", "Aljechin, Yuri"),
 ]
 
 
@@ -94,13 +98,16 @@ class ValidateManifest(unittest.TestCase):
 
 
 class Apply(unittest.TestCase):
-    def test_renames_exactly_the_declared_rows(self):
+    def test_renames_exactly_the_declared_fields_and_nothing_else(self):
+        """A rename reaches the fields it names and stops there. The citation
+        still carries the old spelling afterwards, which is the coupling that
+        sync_prefix exists to close, and leaving it visible here is the point."""
         with TempSidecar() as p:
             res = apply(base_manifest(), load_sidecar(p))
         self.assertEqual(res.rows_before, 5)
         self.assertEqual(res.rows_after, 5)
-        self.assertNotIn("Aljechin, Yuri", res.text)
         self.assertEqual(res.text.count("Alekhine, Alexander"), 2)
+        self.assertEqual(res.text.count("Aljechin, Yuri"), 2)  # both in citations
 
     def test_refuses_when_the_file_is_a_different_size(self):
         with TempSidecar() as p:
@@ -165,6 +172,54 @@ class Apply(unittest.TestCase):
         with TempSidecar() as p:
             s = load_sidecar(p)
             self.assertEqual(serialize(s.fieldnames, s.rows), sidecar_text())
+
+
+SYNC = {"op": "sync_prefix", "field": "citation",
+        "pair_fields": ["white", "black"], "separator": "-",
+        "expected_rows": 2, "evidence": "the citation repeats the pair it cites"}
+
+
+class SyncPrefix(unittest.TestCase):
+    def test_reanchors_the_citation_on_the_corrected_pair(self):
+        m = base_manifest()
+        m["operations"] = m["operations"] + [SYNC]
+        with TempSidecar() as p:
+            res = apply(m, load_sidecar(p))
+        self.assertNotIn("Aljechin, Yuri", res.text)
+        self.assertEqual(res.text.count("Alekhine, Alexander-Bogoljubow,"), 1)
+        self.assertEqual(res.text.count("Bogoljubow-Alekhine, Alexander,"), 1)
+
+    def test_never_touches_a_correct_row_that_the_wrong_one_is_a_prefix_of(self):
+        """Bogoljubow, Efim contains Bogoljubow, which is why this is anchored
+        rather than substituted."""
+        m = base_manifest(operations=[
+            {"op": "rename", "fields": ["white", "black"], "from": "Bogoljubow",
+             "to": "Bogoljubow, Efim", "expected_rows": 2,
+             "evidence": "wikidata Q57310"},
+            dict(SYNC, expected_rows=2)])
+        with TempSidecar() as p:
+            res = apply(m, load_sidecar(p))
+        self.assertNotIn("Efim, Efim", res.text)
+        self.assertEqual(res.text.count("Bogoljubow, Efim"), 4)
+
+    def test_leaves_rows_whose_pair_did_not_change(self):
+        m = base_manifest(operations=[dict(SYNC, expected_rows=1)])
+        with TempSidecar() as p:
+            with self.assertRaisesRegex(ApplyError, "matched 0"):
+                apply(m, load_sidecar(p))
+
+    def test_refuses_a_file_whose_citation_is_not_its_own_pair(self):
+        m = base_manifest()
+        m["operations"] = m["operations"] + [SYNC]
+        with TempSidecar() as p:
+            text = p.read_text().replace("Steinitz, Wilhelm-Zukertort", "Nobody-Nobody", 1)
+            p.write_text(text, encoding="utf-8")
+            with self.assertRaisesRegex(ApplyError, "does not begin with its own"):
+                apply(m, load_sidecar(p))
+
+    def test_rejects_pair_fields_that_are_not_a_pair(self):
+        with self.assertRaisesRegex(ApplyError, "pair_fields"):
+            validate_manifest(base_manifest(operations=[dict(SYNC, pair_fields=["white"])]))
 
 
 class Referential(unittest.TestCase):

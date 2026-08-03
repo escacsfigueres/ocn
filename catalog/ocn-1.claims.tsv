@@ -41,15 +41,15 @@ C.RyL.Exc.dxc6.Nc3.f6	wch-game	event	wch-1896-lasker-steinitz	1896	1	Lasker, Ema
 C.RyL.Mor.StD	wch-game	event	wch-1896-lasker-steinitz	1896	2	Lasker, Emanuel-Steinitz, Wilhelm, World Championship 6th, Moskou wch-m, 1896	attested	
 C.RyL.Stn.d4.Bd7	wch-game	event	wch-1896-lasker-steinitz	1896	1	Lasker, Emanuel-Steinitz, Wilhelm, World Championship 6th, Moskou wch-m, 1896	attested	
 D.QGD.Ort.Rau	wch-game	event	wch-1896-lasker-steinitz	1896	1	Steinitz, Wilhelm-Lasker, Emanuel, World Championship 6th, Moscow RUS, 1896	attested	
-A.Hol.Sta.MLn.c6	wch-game	event	wch-1907-lasker-marshall-viele	1907	1	Marshall Viele, Fabrizio Aaron-Lasker, E., World Championship 7th, Chicago wch-m, 1907	attested	
-A.Hor.Fch.MLn.Bg5.Be7.Ne4	wch-game	event	wch-1907-lasker-marshall-viele	1907	3	Marshall Viele, Fabrizio Aaron-Lasker, E., World Championship 7th, New York wch-m, 1907	attested	
-B.Fre.Cls.Bd3	wch-game	event	wch-1907-lasker-marshall-viele	1907	3	Lasker, E.-Marshall Viele, Fabrizio Aaron, World Championship 7th, Memphis wch-m, 1907	attested	
-B.Fre.Mac.MLn.Bd2.Bxc3.g6	wch-game	event	wch-1907-lasker-marshall-viele	1907	1	Lasker, E.-Marshall Viele, Fabrizio Aaron, World Championship 7th, New York wch-m, 1907	attested	
-B.Fre.Mac.exd5	wch-game	event	wch-1907-lasker-marshall-viele	1907	3	Lasker, E.-Marshall Viele, Fabrizio Aaron, World Championship 7th, New York wch-m, 1907	attested	
-C.RyL.Ber.Nyh	wch-game	event	wch-1907-lasker-marshall-viele	1907	1	Marshall Viele, Fabrizio Aaron-Lasker, E., World Championship 7th, New York wch-m, 1907	attested	
-D.Chi.Exc	wch-game	event	wch-1907-lasker-marshall-viele	1907	1	Marshall Viele, Fabrizio Aaron-Lasker, E., World Championship 7th, Memphis wch-m, 1907	attested	
-D.Tar.Exd.Nf3	wch-game	event	wch-1907-lasker-marshall-viele	1907	1	Marshall Viele, Fabrizio Aaron-Lasker, E., World Championship 7th, Philadelphia wch-m, 1907	attested	
-D.Tar.Exd.Nf3.Nc6	wch-game	event	wch-1907-lasker-marshall-viele	1907	1	Marshall Viele, Fabrizio Aaron-Lasker, E., World Championship 7th, Philadelphia wch-m, 1907	attested	
+A.Hol.Sta.MLn.c6	wch-game	event	wch-1907-lasker-marshall	1907	1	Marshall, Frank-Lasker, Emanuel, World Championship 7th, Chicago wch-m, 1907	attested	
+A.Hor.Fch.MLn.Bg5.Be7.Ne4	wch-game	event	wch-1907-lasker-marshall	1907	3	Marshall, Frank-Lasker, Emanuel, World Championship 7th, New York wch-m, 1907	attested	
+B.Fre.Cls.Bd3	wch-game	event	wch-1907-lasker-marshall	1907	3	Lasker, Emanuel-Marshall, Frank, World Championship 7th, Memphis wch-m, 1907	attested	
+B.Fre.Mac.MLn.Bd2.Bxc3.g6	wch-game	event	wch-1907-lasker-marshall	1907	1	Lasker, Emanuel-Marshall, Frank, World Championship 7th, New York wch-m, 1907	attested	
+B.Fre.Mac.exd5	wch-game	event	wch-1907-lasker-marshall	1907	3	Lasker, Emanuel-Marshall, Frank, World Championship 7th, New York wch-m, 1907	attested	
+C.RyL.Ber.Nyh	wch-game	event	wch-1907-lasker-marshall	1907	1	Marshall, Frank-Lasker, Emanuel, World Championship 7th, New York wch-m, 1907	attested	
+D.Chi.Exc	wch-game	event	wch-1907-lasker-marshall	1907	1	Marshall, Frank-Lasker, Emanuel, World Championship 7th, Memphis wch-m, 1907	attested	
+D.Tar.Exd.Nf3	wch-game	event	wch-1907-lasker-marshall	1907	1	Marshall, Frank-Lasker, Emanuel, World Championship 7th, Philadelphia wch-m, 1907	attested	
+D.Tar.Exd.Nf3.Nc6	wch-game	event	wch-1907-lasker-marshall	1907	1	Marshall, Frank-Lasker, Emanuel, World Championship 7th, Philadelphia wch-m, 1907	attested	
 B.Fre.Mac	wch-game	event	wch-1908-lasker-tarrasch	1908	2	Lasker, Emanuel-Tarrasch, Siegbert, World Championship 8th, Munchen wch-m, 1908	attested	
 B.Fre.Mac.exd5	wch-game	event	wch-1908-lasker-tarrasch	1908	1	Lasker, Emanuel-Tarrasch, Siegbert, World Championship 8th, Munchen wch-m, 1908	attested	
 B.Fre.Rub.Nxe4	wch-game	event	wch-1908-lasker-tarrasch	1908	1	Tarrasch, Siegbert-Lasker, Emanuel, World Championship 8th, Munchen wch-m, 1908	attested	
@@ -104,26 +104,25 @@ D.QGD.Ort.Rc1.a6	wch-game	event	wch-1927-alekhine-capablanca	1927	4	Capablanca, 
 D.QGD.Ort.Rc1.c6.a3	wch-game	event	wch-1927-alekhine-capablanca	1927	4	Alekhine, Alexander-Capablanca, Jose, World Championship 13th, Buenos Aires ARG, 1927	attested	
 D.QGD.Ort.Rub.Flo	wch-game	event	wch-1927-alekhine-capablanca	1927	2	Alekhine, Alexander-Capablanca, Jose, World Championship 13th, Buenos Aires ARG, 1927	attested	
 D.QGD.Ort.Te7.a6.cxd5	wch-game	event	wch-1927-alekhine-capablanca	1927	1	Alekhine, Alexander-Capablanca, Jose, World Championship 13th, Buenos Aires ARG, 1927	attested	
+B.Fre.Bur.Be7	wch-game	event	wch-1929-alekhine-bogoljubow	1929	1	Bogoljubow, Efim-Alekhine, Alexander, World Championship 14th, Deutschland/Niederlande, 1929	attested	
+B.Fre.Bur.Mrz	wch-game	event	wch-1929-alekhine-bogoljubow	1929	1	Bogoljubow, Efim-Alekhine, Alexander, World Championship 14th, Deutschland/Niederlande, 1929	attested	
+C.RyL.Mor.Ba4.d6.c3	wch-game	event	wch-1929-alekhine-bogoljubow	1929	1	Bogoljubow, Efim-Alekhine, Alexander, World Championship 14th, Deutschland/Niederlande, 1929	attested	
+C.RyL.Mor.Ba4.d6.c3.Bd7	wch-game	event	wch-1929-alekhine-bogoljubow	1929	1	Bogoljubow, Efim-Alekhine, Alexander, World Championship 14th, Deutschland/Niederlande, 1929	attested	
 D.QGD.Cmb.Nd2.Bb4.Qc2	wch-game	event	wch-1929-alekhine-bogoljubow	1929	1	Bogoljubow, Efim-Alekhine, Alexander, World Championship 14th, Heidelberg wch-m, 1929	attested	
+D.QGD.Cmb.Nd2.Bb4.Qc2.O-O	wch-game	event	wch-1929-alekhine-bogoljubow	1929	1	Alekhine, Alexander-Bogoljubow, Efim, World Championship 14th, Deutschland/Niederlande, 1929	attested	
 D.QGD.Cmb.cxd5.Nxd5	wch-game	event	wch-1929-alekhine-bogoljubow	1929	2	Bogoljubow, Efim-Alekhine, Alexander, World Championship 14th, Berlijn wch-m, 1929	attested	
-D.Sla.Nf3.Nf6.e3.e6	wch-game	event	wch-1929-alekhine-bogoljubow	1929	2	Bogoljubow, Efim-Alekhine, Alexander, Alekhine - Bogoljubov World Championship Match, Berlin GER, 1929	attested	
+D.Sem.Bg5.Nbd7.e4	wch-game	event	wch-1929-alekhine-bogoljubow	1929	2	Alekhine, Alexander-Bogoljubow, Efim, World Championship 14th, Deutschland/Niederlande, 1929	attested	
+D.Sla.Cze.Kra.MLn.e6	wch-game	event	wch-1929-alekhine-bogoljubow	1929	1	Alekhine, Alexander-Bogoljubow, Efim, World Championship 14th, Deutschland/Niederlande, 1929	attested	
+D.Sla.Cze.Kra.MLn.e6.f3	wch-game	event	wch-1929-alekhine-bogoljubow	1929	1	Alekhine, Alexander-Bogoljubow, Efim, World Championship 14th, Deutschland/Niederlande, 1929	attested	
+D.Sla.Nf3.Nf6.e3.e6	wch-game	event	wch-1929-alekhine-bogoljubow	1929	6	Alekhine, Alexander-Bogoljubow, Efim, World Championship 14th, Deutschland/Niederlande, 1929	attested	
+D.Sla.Sou	wch-game	event	wch-1929-alekhine-bogoljubow	1929	1	Alekhine, Alexander-Bogoljubow, Efim, World Championship 14th, Deutschland/Niederlande, 1929	attested	
+E.Gru.Fch.Pac.MLn	wch-game	event	wch-1929-alekhine-bogoljubow	1929	1	Alekhine, Alexander-Bogoljubow, Efim, World Championship 14th, Deutschland/Niederlande, 1929	attested	
+E.Ind.QID	wch-game	event	wch-1929-alekhine-bogoljubow	1929	1	Bogoljubow, Efim-Alekhine, Alexander, World Championship 14th, Deutschland/Niederlande, 1929	attested	
+E.Ind.WIn.f3	wch-game	event	wch-1929-alekhine-bogoljubow	1929	1	Alekhine, Alexander-Bogoljubow, Efim, World Championship 14th, Deutschland/Niederlande, 1929	attested	
 E.Ind.WIn.f3.d5	wch-game	event	wch-1929-alekhine-bogoljubow	1929	1	Alekhine, Alexander-Bogoljubow, Efim, Alekhine - Bogoljubov World Championship Match, Berlin GER, 1929	attested	
-B.Fre.Bur.Be7	wch-game	event	wch-1929-aljechin-bogoljubow	1929	1	Bogoljubow-Aljechin, Yuri, World Championship 14th, Deutschland/Niederlande, 1929	attested	
-B.Fre.Bur.Mrz	wch-game	event	wch-1929-aljechin-bogoljubow	1929	1	Bogoljubow-Aljechin, Yuri, World Championship 14th, Deutschland/Niederlande, 1929	attested	
-C.RyL.Mor.Ba4.d6.c3	wch-game	event	wch-1929-aljechin-bogoljubow	1929	1	Bogoljubow-Aljechin, Yuri, World Championship 14th, Deutschland/Niederlande, 1929	attested	
-C.RyL.Mor.Ba4.d6.c3.Bd7	wch-game	event	wch-1929-aljechin-bogoljubow	1929	1	Bogoljubow-Aljechin, Yuri, World Championship 14th, Deutschland/Niederlande, 1929	attested	
-D.QGD.Cmb.Nd2.Bb4.Qc2.O-O	wch-game	event	wch-1929-aljechin-bogoljubow	1929	1	Aljechin, Yuri-Bogoljubow, World Championship 14th, Deutschland/Niederlande, 1929	attested	
-D.Sem.Bg5.Nbd7.e4	wch-game	event	wch-1929-aljechin-bogoljubow	1929	2	Aljechin, Yuri-Bogoljubow, World Championship 14th, Deutschland/Niederlande, 1929	attested	
-D.Sla.Cze.Kra.MLn.e6	wch-game	event	wch-1929-aljechin-bogoljubow	1929	1	Aljechin, Yuri-Bogoljubow, World Championship 14th, Deutschland/Niederlande, 1929	attested	
-D.Sla.Cze.Kra.MLn.e6.f3	wch-game	event	wch-1929-aljechin-bogoljubow	1929	1	Aljechin, Yuri-Bogoljubow, World Championship 14th, Deutschland/Niederlande, 1929	attested	
-D.Sla.Nf3.Nf6.e3.e6	wch-game	event	wch-1929-aljechin-bogoljubow	1929	4	Aljechin, Yuri-Bogoljubow, World Championship 14th, Deutschland/Niederlande, 1929	attested	
-D.Sla.Sou	wch-game	event	wch-1929-aljechin-bogoljubow	1929	1	Aljechin, Yuri-Bogoljubow, World Championship 14th, Deutschland/Niederlande, 1929	attested	
-E.Gru.Fch.Pac.MLn	wch-game	event	wch-1929-aljechin-bogoljubow	1929	1	Aljechin, Yuri-Bogoljubow, World Championship 14th, Deutschland/Niederlande, 1929	attested	
-E.Ind.QID	wch-game	event	wch-1929-aljechin-bogoljubow	1929	1	Bogoljubow-Aljechin, Yuri, World Championship 14th, Deutschland/Niederlande, 1929	attested	
-E.Ind.WIn.f3	wch-game	event	wch-1929-aljechin-bogoljubow	1929	1	Aljechin, Yuri-Bogoljubow, World Championship 14th, Deutschland/Niederlande, 1929	attested	
-E.Nim.Spl	wch-game	event	wch-1929-aljechin-bogoljubow	1929	1	Bogoljubow-Aljechin, Yuri, World Championship 14th, Deutschland/Niederlande, 1929	attested	
-E.Nim.Spl.MLn	wch-game	event	wch-1929-aljechin-bogoljubow	1929	2	Aljechin, Yuri-Bogoljubow, World Championship 14th, Deutschland/Niederlande, 1929	attested	
-E.Nim.Spl.Rom.Nf3	wch-game	event	wch-1929-aljechin-bogoljubow	1929	1	Bogoljubow-Aljechin, Yuri, World Championship 14th, Deutschland/Niederlande, 1929	attested	
+E.Nim.Spl	wch-game	event	wch-1929-alekhine-bogoljubow	1929	1	Bogoljubow, Efim-Alekhine, Alexander, World Championship 14th, Deutschland/Niederlande, 1929	attested	
+E.Nim.Spl.MLn	wch-game	event	wch-1929-alekhine-bogoljubow	1929	2	Alekhine, Alexander-Bogoljubow, Efim, World Championship 14th, Deutschland/Niederlande, 1929	attested	
+E.Nim.Spl.Rom.Nf3	wch-game	event	wch-1929-alekhine-bogoljubow	1929	1	Bogoljubow, Efim-Alekhine, Alexander, World Championship 14th, Deutschland/Niederlande, 1929	attested	
 A.Eng.Rev.Nf3.e4	wch-game	event	wch-1935-alekhine-euwe	1935	1	Euwe, Max-Alekhine, Alexander, World Championship 16th, Amsterdam wch-m, 1935	attested	
 A.Hol.c4.Nf6.g3.e6.Bd2	wch-game	event	wch-1935-alekhine-euwe	1935	2	Euwe, Max-Alekhine, Alexander, World Championship 16th, Zandvoort wch-m, 1935	attested	
 B.Ale.Nrm.Dpn.d6.Nb6.Be2	wch-game	event	wch-1935-alekhine-euwe	1935	1	Alekhine, Alexander-Euwe, Max, World Championship 16th, Amsterdam wch-m, 1935	attested	
@@ -180,76 +179,76 @@ E.Nim.Rub.Flo	wch-game	event	wch-1951-botvinnik-bronstein	1951	1	Botvinnik, Mikh
 E.Nim.Rub.StP.MLn.Nf3.Ca4	wch-game	event	wch-1951-botvinnik-bronstein	1951	1	Botvinnik, Mikhail-Bronstein, David I, World Championship 19th, Moskou wch-m, 1951	attested	
 E.Nim.Rub.StP.Ne2	wch-game	event	wch-1951-botvinnik-bronstein	1951	1	Botvinnik, Mikhail-Bronstein, David I, World Championship 19th, Moskou wch-m, 1951	attested	
 E.QID.Mod.Fch.Euw	wch-game	event	wch-1951-botvinnik-bronstein	1951	1	Botvinnik, Mikhail-Bronstein, David I, World Championship 19th, Moskou wch-m, 1951	attested	
-A.Ret.Nf6.g3.g6.Bg2.Bg7	wch-game	event	wch-1954-botvinnik-smyslov	1954	1	Smyslov, Vladimir-Botvinnik, Mikhail, World Championship 20th, Moskou wch-m, 1954	attested	
-B.Fre.Win	wch-game	event	wch-1954-botvinnik-smyslov	1954	3	Smyslov, Vladimir-Botvinnik, Mikhail, World Championship 20th, Moskou wch-m, 1954	attested	
-B.Fre.Win.Arm.b4	wch-game	event	wch-1954-botvinnik-smyslov	1954	3	Smyslov, Vladimir-Botvinnik, Mikhail, World Championship 20th, Moskou wch-m, 1954	attested	
-B.Fre.d3	wch-game	event	wch-1954-botvinnik-smyslov	1954	1	Smyslov, Vladimir-Botvinnik, Mikhail, World Championship 20th, Moskou wch-m, 1954	attested	
-B.Sic.Clo.Fch.MLn.Nge2.e5	wch-game	event	wch-1954-botvinnik-smyslov	1954	1	Smyslov, Vladimir-Botvinnik, Mikhail, World Championship 20th, Moskou wch-m, 1954	attested	
-B.Sic.Clo.Fch.g6.Bg2.Bg7	wch-game	event	wch-1954-botvinnik-smyslov	1954	1	Smyslov, Vladimir-Botvinnik, Mikhail, World Championship 20th, Moskou wch-m, 1954	attested	
-C.RyL.Mor.Ba4.Nf6.O-O.d6	wch-game	event	wch-1954-botvinnik-smyslov	1954	1	Smyslov, Vladimir-Botvinnik, Mikhail, World Championship 20th, Moskou wch-m, 1954	attested	
-D.QGA.Jan.e3.Bg4.Bxc4.e6	wch-game	event	wch-1954-botvinnik-smyslov	1954	2	Botvinnik, Mikhail-Smyslov, Vladimir, World Championship 20th, Moskou wch-m, 1954	attested	
-D.QPG.Zuk.Bf5	wch-game	event	wch-1954-botvinnik-smyslov	1954	1	Botvinnik, Mikhail-Smyslov, Vladimir, World Championship 20th, Moskou wch-m, 1954	attested	
-D.Sem.Bg5.Bot.MLn.g5.Nxg5	wch-game	event	wch-1954-botvinnik-smyslov	1954	1	Smyslov, Vladimir-Botvinnik, Mikhail, World Championship 20th, Moskou wch-m, 1954	attested	
-D.Sla.Cls.MLn.O-O.Nbd7	wch-game	event	wch-1954-botvinnik-smyslov	1954	1	Botvinnik, Mikhail-Smyslov, Vladimir, World Championship 20th, Moskou wch-m, 1954	attested	
-E.Gru.Exc.SeV.Bc4.Lsr	wch-game	event	wch-1954-botvinnik-smyslov	1954	1	Botvinnik, Mikhail-Smyslov, Vladimir, World Championship 20th, Moskou wch-m, 1954	attested	
-E.Gru.Hng	wch-game	event	wch-1954-botvinnik-smyslov	1954	1	Botvinnik, Mikhail-Smyslov, Vladimir, World Championship 20th, Moskou wch-m, 1954	attested	
-E.Ind.WIn.g3.Bg7.Bg2	wch-game	event	wch-1954-botvinnik-smyslov	1954	3	Botvinnik, Mikhail-Smyslov, Vladimir, World Championship 20th, Moskou wch-m, 1954	attested	
-E.KID.Fch.Kav.Nc3.e5.e4	wch-game	event	wch-1954-botvinnik-smyslov	1954	1	Botvinnik, Mikhail-Smyslov, Vladimir, World Championship 20th, Moskou wch-m, 1954	attested	
-E.KID.Fch.Kav.Nc3.e5.h3	wch-game	event	wch-1954-botvinnik-smyslov	1954	1	Botvinnik, Mikhail-Smyslov, Vladimir, World Championship 20th, Moskou wch-m, 1954	attested	
-E.Nim.Rub.Flo	wch-game	event	wch-1954-botvinnik-smyslov	1954	1	Botvinnik, Mikhail-Smyslov, Vladimir, World Championship 20th, Moskou wch-m, 1954	attested	
-A.Eng.AIn.Nc3.g6	wch-game	event	wch-1957-botvinnik-smyslov	1957	1	Botvinnik, Mikhail-Smyslov, Vladimir, World Championship 21th, Moskou wch-m, 1957	attested	
-A.Eng.Sym.Nc3.Nc6.g3.Bg2	wch-game	event	wch-1957-botvinnik-smyslov	1957	1	Botvinnik, Mikhail-Smyslov, Vladimir, World Championship 21th, Moskou wch-m, 1957	attested	
-A.Ret.Nf6.g3.g6.Bg2.Bg7	wch-game	event	wch-1957-botvinnik-smyslov	1957	1	Botvinnik, Mikhail-Smyslov, Vladimir, World Championship 21th, Moskou wch-m, 1957	attested	
-A.Ret.g6.d4	wch-game	event	wch-1957-botvinnik-smyslov	1957	1	Smyslov, Vladimir-Botvinnik, Mikhail, World Championship 21th, Moskou wch-m, 1957	attested	
-B.Fre.Bur	wch-game	event	wch-1957-botvinnik-smyslov	1957	1	Smyslov, Vladimir-Botvinnik, Mikhail, World Championship 21th, Moskou wch-m, 1957	attested	
-B.Fre.Win	wch-game	event	wch-1957-botvinnik-smyslov	1957	1	Smyslov, Vladimir-Botvinnik, Mikhail, World Championship 21th, Moskou wch-m, 1957	attested	
-B.Fre.Win.Adv.MLn.Qc7	wch-game	event	wch-1957-botvinnik-smyslov	1957	2	Smyslov, Vladimir-Botvinnik, Mikhail, World Championship 21th, Moskou wch-m, 1957	attested	
-B.Sic.Cls.Rch.e6.Qd2.a6	wch-game	event	wch-1957-botvinnik-smyslov	1957	3	Smyslov, Vladimir-Botvinnik, Mikhail, World Championship 21th, Moskou wch-m, 1957	attested	
+A.Ret.Nf6.g3.g6.Bg2.Bg7	wch-game	event	wch-1954-botvinnik-smyslov	1954	1	Smyslov, Vasily-Botvinnik, Mikhail, World Championship 20th, Moskou wch-m, 1954	attested	
+B.Fre.Win	wch-game	event	wch-1954-botvinnik-smyslov	1954	3	Smyslov, Vasily-Botvinnik, Mikhail, World Championship 20th, Moskou wch-m, 1954	attested	
+B.Fre.Win.Arm.b4	wch-game	event	wch-1954-botvinnik-smyslov	1954	3	Smyslov, Vasily-Botvinnik, Mikhail, World Championship 20th, Moskou wch-m, 1954	attested	
+B.Fre.d3	wch-game	event	wch-1954-botvinnik-smyslov	1954	1	Smyslov, Vasily-Botvinnik, Mikhail, World Championship 20th, Moskou wch-m, 1954	attested	
+B.Sic.Clo.Fch.MLn.Nge2.e5	wch-game	event	wch-1954-botvinnik-smyslov	1954	1	Smyslov, Vasily-Botvinnik, Mikhail, World Championship 20th, Moskou wch-m, 1954	attested	
+B.Sic.Clo.Fch.g6.Bg2.Bg7	wch-game	event	wch-1954-botvinnik-smyslov	1954	1	Smyslov, Vasily-Botvinnik, Mikhail, World Championship 20th, Moskou wch-m, 1954	attested	
+C.RyL.Mor.Ba4.Nf6.O-O.d6	wch-game	event	wch-1954-botvinnik-smyslov	1954	1	Smyslov, Vasily-Botvinnik, Mikhail, World Championship 20th, Moskou wch-m, 1954	attested	
+D.QGA.Jan.e3.Bg4.Bxc4.e6	wch-game	event	wch-1954-botvinnik-smyslov	1954	2	Botvinnik, Mikhail-Smyslov, Vasily, World Championship 20th, Moskou wch-m, 1954	attested	
+D.QPG.Zuk.Bf5	wch-game	event	wch-1954-botvinnik-smyslov	1954	1	Botvinnik, Mikhail-Smyslov, Vasily, World Championship 20th, Moskou wch-m, 1954	attested	
+D.Sem.Bg5.Bot.MLn.g5.Nxg5	wch-game	event	wch-1954-botvinnik-smyslov	1954	1	Smyslov, Vasily-Botvinnik, Mikhail, World Championship 20th, Moskou wch-m, 1954	attested	
+D.Sla.Cls.MLn.O-O.Nbd7	wch-game	event	wch-1954-botvinnik-smyslov	1954	1	Botvinnik, Mikhail-Smyslov, Vasily, World Championship 20th, Moskou wch-m, 1954	attested	
+E.Gru.Exc.SeV.Bc4.Lsr	wch-game	event	wch-1954-botvinnik-smyslov	1954	1	Botvinnik, Mikhail-Smyslov, Vasily, World Championship 20th, Moskou wch-m, 1954	attested	
+E.Gru.Hng	wch-game	event	wch-1954-botvinnik-smyslov	1954	1	Botvinnik, Mikhail-Smyslov, Vasily, World Championship 20th, Moskou wch-m, 1954	attested	
+E.Ind.WIn.g3.Bg7.Bg2	wch-game	event	wch-1954-botvinnik-smyslov	1954	3	Botvinnik, Mikhail-Smyslov, Vasily, World Championship 20th, Moskou wch-m, 1954	attested	
+E.KID.Fch.Kav.Nc3.e5.e4	wch-game	event	wch-1954-botvinnik-smyslov	1954	1	Botvinnik, Mikhail-Smyslov, Vasily, World Championship 20th, Moskou wch-m, 1954	attested	
+E.KID.Fch.Kav.Nc3.e5.h3	wch-game	event	wch-1954-botvinnik-smyslov	1954	1	Botvinnik, Mikhail-Smyslov, Vasily, World Championship 20th, Moskou wch-m, 1954	attested	
+E.Nim.Rub.Flo	wch-game	event	wch-1954-botvinnik-smyslov	1954	1	Botvinnik, Mikhail-Smyslov, Vasily, World Championship 20th, Moskou wch-m, 1954	attested	
+A.Eng.AIn.Nc3.g6	wch-game	event	wch-1957-botvinnik-smyslov	1957	1	Botvinnik, Mikhail-Smyslov, Vasily, World Championship 21th, Moskou wch-m, 1957	attested	
+A.Eng.Sym.Nc3.Nc6.g3.Bg2	wch-game	event	wch-1957-botvinnik-smyslov	1957	1	Botvinnik, Mikhail-Smyslov, Vasily, World Championship 21th, Moskou wch-m, 1957	attested	
+A.Ret.Nf6.g3.g6.Bg2.Bg7	wch-game	event	wch-1957-botvinnik-smyslov	1957	1	Botvinnik, Mikhail-Smyslov, Vasily, World Championship 21th, Moskou wch-m, 1957	attested	
+A.Ret.g6.d4	wch-game	event	wch-1957-botvinnik-smyslov	1957	1	Smyslov, Vasily-Botvinnik, Mikhail, World Championship 21th, Moskou wch-m, 1957	attested	
+B.Fre.Bur	wch-game	event	wch-1957-botvinnik-smyslov	1957	1	Smyslov, Vasily-Botvinnik, Mikhail, World Championship 21th, Moskou wch-m, 1957	attested	
+B.Fre.Win	wch-game	event	wch-1957-botvinnik-smyslov	1957	1	Smyslov, Vasily-Botvinnik, Mikhail, World Championship 21th, Moskou wch-m, 1957	attested	
+B.Fre.Win.Adv.MLn.Qc7	wch-game	event	wch-1957-botvinnik-smyslov	1957	2	Smyslov, Vasily-Botvinnik, Mikhail, World Championship 21th, Moskou wch-m, 1957	attested	
+B.Sic.Cls.Rch.e6.Qd2.a6	wch-game	event	wch-1957-botvinnik-smyslov	1957	3	Smyslov, Vasily-Botvinnik, Mikhail, World Championship 21th, Moskou wch-m, 1957	attested	
 C.RyL.Cha.MLn.d4.Qc7.dxc5	wch-game	event	wch-1957-botvinnik-smyslov	1957	2	Smyslov, Vasily-Botvinnik, Mikhail, World Championship 21th, Moscow RUS, 1957	attested	
-E.Gru.Fch.Pac	wch-game	event	wch-1957-botvinnik-smyslov	1957	1	Botvinnik, Mikhail-Smyslov, Vladimir, World Championship 21th, Moskou wch-m, 1957	attested	
+E.Gru.Fch.Pac	wch-game	event	wch-1957-botvinnik-smyslov	1957	1	Botvinnik, Mikhail-Smyslov, Vasily, World Championship 21th, Moskou wch-m, 1957	attested	
 E.Gru.Rus.Hng.e4.Bg4	wch-game	event	wch-1957-botvinnik-smyslov	1957	1	Smyslov, Vasily-Botvinnik, Mikhail, World Championship 21th, Moscow RUS, 1957	attested	
-E.Ind.WIn.g3	wch-game	event	wch-1957-botvinnik-smyslov	1957	1	Botvinnik, Mikhail-Smyslov, Vladimir, World Championship 21th, Moskou wch-m, 1957	attested	
-E.KID.Fch.MLn	wch-game	event	wch-1957-botvinnik-smyslov	1957	1	Botvinnik, Mikhail-Smyslov, Vladimir, World Championship 21th, Moskou wch-m, 1957	attested	
-E.KID.Fch.MLn.O-O.Lrs	wch-game	event	wch-1957-botvinnik-smyslov	1957	1	Botvinnik, Mikhail-Smyslov, Vladimir, World Championship 21th, Moskou wch-m, 1957	attested	
-E.KID.Fch.Sim.MLn.Blk	wch-game	event	wch-1957-botvinnik-smyslov	1957	1	Botvinnik, Mikhail-Smyslov, Vladimir, World Championship 21th, Moskou wch-m, 1957	attested	
-E.Nim.Rub.Flo	wch-game	event	wch-1957-botvinnik-smyslov	1957	3	Botvinnik, Mikhail-Smyslov, Vladimir, World Championship 21th, Moskou wch-m, 1957	attested	
-A.Eng.AIn.Nc3.d5.cxd5.Nxc3	wch-game	event	wch-1958-botvinnik-smyslov	1958	4	Botvinnik, Mikhail-Smyslov, Vladimir, World Championship 22th, Moskou wch-m, 1958	attested	
-A.Eng.Sym.Nf3	wch-game	event	wch-1958-botvinnik-smyslov	1958	1	Botvinnik, Mikhail-Smyslov, Vladimir, World Championship 22th, Moskou wch-m, 1958	attested	
-A.Hol.Sto.c4.Nc3.c6	wch-game	event	wch-1958-botvinnik-smyslov	1958	1	Botvinnik, Mikhail-Smyslov, Vladimir, World Championship 22th, Moskou wch-m, 1958	attested	
-A.Ret.Ang.g3.Nf6.b3.Bf5	wch-game	event	wch-1958-botvinnik-smyslov	1958	1	Botvinnik, Mikhail-Smyslov, Vladimir, World Championship 22th, Moskou wch-m, 1958	attested	
-A.Ret.Nf6.g3.g6.b4	wch-game	event	wch-1958-botvinnik-smyslov	1958	1	Smyslov, Vladimir-Botvinnik, Mikhail, World Championship 22th, Moskou wch-m, 1958	attested	
+E.Ind.WIn.g3	wch-game	event	wch-1957-botvinnik-smyslov	1957	1	Botvinnik, Mikhail-Smyslov, Vasily, World Championship 21th, Moskou wch-m, 1957	attested	
+E.KID.Fch.MLn	wch-game	event	wch-1957-botvinnik-smyslov	1957	1	Botvinnik, Mikhail-Smyslov, Vasily, World Championship 21th, Moskou wch-m, 1957	attested	
+E.KID.Fch.MLn.O-O.Lrs	wch-game	event	wch-1957-botvinnik-smyslov	1957	1	Botvinnik, Mikhail-Smyslov, Vasily, World Championship 21th, Moskou wch-m, 1957	attested	
+E.KID.Fch.Sim.MLn.Blk	wch-game	event	wch-1957-botvinnik-smyslov	1957	1	Botvinnik, Mikhail-Smyslov, Vasily, World Championship 21th, Moskou wch-m, 1957	attested	
+E.Nim.Rub.Flo	wch-game	event	wch-1957-botvinnik-smyslov	1957	3	Botvinnik, Mikhail-Smyslov, Vasily, World Championship 21th, Moskou wch-m, 1957	attested	
+A.Eng.AIn.Nc3.d5.cxd5.Nxc3	wch-game	event	wch-1958-botvinnik-smyslov	1958	4	Botvinnik, Mikhail-Smyslov, Vasily, World Championship 22th, Moskou wch-m, 1958	attested	
+A.Eng.Sym.Nf3	wch-game	event	wch-1958-botvinnik-smyslov	1958	1	Botvinnik, Mikhail-Smyslov, Vasily, World Championship 22th, Moskou wch-m, 1958	attested	
+A.Hol.Sto.c4.Nc3.c6	wch-game	event	wch-1958-botvinnik-smyslov	1958	1	Botvinnik, Mikhail-Smyslov, Vasily, World Championship 22th, Moskou wch-m, 1958	attested	
+A.Ret.Ang.g3.Nf6.b3.Bf5	wch-game	event	wch-1958-botvinnik-smyslov	1958	1	Botvinnik, Mikhail-Smyslov, Vasily, World Championship 22th, Moskou wch-m, 1958	attested	
+A.Ret.Nf6.g3.g6.b4	wch-game	event	wch-1958-botvinnik-smyslov	1958	1	Smyslov, Vasily-Botvinnik, Mikhail, World Championship 22th, Moskou wch-m, 1958	attested	
 B.CaK.Cls.Spd.Nd7	wch-game	event	wch-1958-botvinnik-smyslov	1958	1	Smyslov, Vasily-Botvinnik, Mikhail, World Championship 22th, Moscow RUS, 1958	attested	
-B.CaK.Fan	wch-game	event	wch-1958-botvinnik-smyslov	1958	1	Smyslov, Vladimir-Botvinnik, Mikhail, World Championship 22th, Moskou wch-m, 1958	attested	
-B.CaK.Two.Bg4.h3.Bxf3	wch-game	event	wch-1958-botvinnik-smyslov	1958	2	Smyslov, Vladimir-Botvinnik, Mikhail, World Championship 22th, Moskou wch-m, 1958	attested	
-B.CaK.Two.Nf6.MLn	wch-game	event	wch-1958-botvinnik-smyslov	1958	1	Smyslov, Vladimir-Botvinnik, Mikhail, World Championship 22th, Moskou wch-m, 1958	attested	
-B.Mod.Avk	wch-game	event	wch-1958-botvinnik-smyslov	1958	1	Botvinnik, Mikhail-Smyslov, Vladimir, World Championship 22th, Moskou wch-m, 1958	attested	
-B.Sic.Dra.Be3.Bg7.Be2.Nc6	wch-game	event	wch-1958-botvinnik-smyslov	1958	3	Smyslov, Vladimir-Botvinnik, Mikhail, World Championship 22th, Moskou wch-m, 1958	attested	
-B.Sic.Old.d4.cxd4.Nxd4.Nf6	wch-game	event	wch-1958-botvinnik-smyslov	1958	1	Smyslov, Vladimir-Botvinnik, Mikhail, World Championship 22th, Moskou wch-m, 1958	attested	
-D.Sem.Mer.Bd3.b4	wch-game	event	wch-1958-botvinnik-smyslov	1958	1	Smyslov, Vladimir-Botvinnik, Mikhail, World Championship 22th, Moskou wch-m, 1958	attested	
-E.Gru.Rus.Hng.e4.Bg4	wch-game	event	wch-1958-botvinnik-smyslov	1958	2	Botvinnik, Mikhail-Smyslov, Vladimir, World Championship 22th, Moskou wch-m, 1958	attested	
-E.KID.Fch.Kav.Nc3.e5.h3	wch-game	event	wch-1958-botvinnik-smyslov	1958	1	Botvinnik, Mikhail-Smyslov, Vladimir, World Championship 22th, Moskou wch-m, 1958	attested	
-E.KID.Sml.Cst.Be3	wch-game	event	wch-1958-botvinnik-smyslov	1958	1	Botvinnik, Mikhail-Smyslov, Vladimir, World Championship 22th, Moskou wch-m, 1958	attested	
-A.OID.Nf6.Nc3	wch-game	event	wch-1958-bykova-rubtsova	1958	1	Rubtsova, Olga-Bykova, Elizaveta, Wch women, Moskou wch-m, 1958	attested	
-B.Sic.Alp.Cen.MLn	wch-game	event	wch-1958-bykova-rubtsova	1958	1	Bykova, Elizaveta-Rubtsova, Olga, Wch women, Moskou wch-m, 1958	attested	
-B.Sic.Cls	wch-game	event	wch-1958-bykova-rubtsova	1958	1	Bykova, Elizaveta-Rubtsova, Olga, Wch women, Moskou wch-m, 1958	attested	
-B.Sic.Cls.Rch.e6.Qd2.a6	wch-game	event	wch-1958-bykova-rubtsova	1958	1	Rubtsova, Olga-Bykova, Elizaveta, Wch women, Moskou wch-m, 1958	attested	
-B.Sic.Cls.Rch.e6.Qd2.f4	wch-game	event	wch-1958-bykova-rubtsova	1958	1	Rubtsova, Olga-Bykova, Elizaveta, Wch women, Moskou wch-m, 1958	attested	
-B.Sic.Ros.Cls	wch-game	event	wch-1958-bykova-rubtsova	1958	1	Bykova, Elizaveta-Rubtsova, Olga, Wch women, Moskou wch-m, 1958	attested	
-C.RyL.Bir	wch-game	event	wch-1958-bykova-rubtsova	1958	1	Bykova, Elizaveta-Rubtsova, Olga, Wch women, Moskou wch-m, 1958	attested	
-C.RyL.Mor.Opn.MLn.Mot	wch-game	event	wch-1958-bykova-rubtsova	1958	1	Bykova, Elizaveta-Rubtsova, Olga, Wch women, Moscow RUS, 1958	attested	
-E.Ben.Czk.MLn.g6	wch-game	event	wch-1958-bykova-rubtsova	1958	1	Rubtsova, Olga-Bykova, Elizaveta, Wch women, Moskou wch-m, 1958	attested	
-E.KID.Cls.e5.O-O.Nbd7	wch-game	event	wch-1958-bykova-rubtsova	1958	1	Rubtsova, Olga-Bykova, Elizaveta, Wch women, Moscow RUS, 1958	attested	
-E.Nim.Fou.MLn	wch-game	event	wch-1958-bykova-rubtsova	1958	1	Rubtsova, Olga-Bykova, Elizaveta, Wch women, Moskou wch-m, 1958	attested	
-E.Nim.Sml.Bxc3.bxc3	wch-game	event	wch-1958-bykova-rubtsova	1958	1	Rubtsova, Olga-Bykova, Elizaveta, Wch women, Moskou wch-m, 1958	attested	
-B.CaK.Cls.Spd	wch-game	event	wch-1959-bikova-zvorykina	1959	1	Zvorykina, K.-Bikova, E., Wch women, Moskou wch-m, 1959	attested	
-B.Fre.Bur.Be7	wch-game	event	wch-1959-bikova-zvorykina	1959	1	Zvorykina, K.-Bikova, E., Wch women, Moskou wch-m, 1959	attested	
-B.Fre.Win.Adv	wch-game	event	wch-1959-bikova-zvorykina	1959	1	Zvorykina, K.-Bikova, E., Wch women, Moskou wch-m, 1959	attested	
-B.Pir.Pre.d4.Nf6.Nc3.e5	wch-game	event	wch-1959-bikova-zvorykina	1959	1	Zvorykina, K.-Bikova, E., Wch women, Moskou wch-m, 1959	attested	
-B.Sic.Cls.Rch.e6.Qd2.a6	wch-game	event	wch-1959-bikova-zvorykina	1959	1	Zvorykina, K.-Bikova, E., Wch women, Moskou wch-m, 1959	attested	
-B.Sic.Naj.g3	wch-game	event	wch-1959-bikova-zvorykina	1959	2	Zvorykina, K.-Bikova, E., Wch women, Moskou wch-m, 1959	attested	
-C.RyL.Mor.Ba4.d6.c3	wch-game	event	wch-1959-bikova-zvorykina	1959	1	Bikova, E.-Zvorykina, K., Wch women, Moskou wch-m, 1959	attested	
-C.RyL.Shl.Jae.fxe4.Nxe4.Qg5	wch-game	event	wch-1959-bikova-zvorykina	1959	1	Bikova, E.-Zvorykina, K., Wch women, Moskou wch-m, 1959	attested	
-E.QID.Fch	wch-game	event	wch-1959-bikova-zvorykina	1959	1	Bikova, E.-Zvorykina, K., Wch women, Moskou wch-m, 1959	attested	
+B.CaK.Fan	wch-game	event	wch-1958-botvinnik-smyslov	1958	1	Smyslov, Vasily-Botvinnik, Mikhail, World Championship 22th, Moskou wch-m, 1958	attested	
+B.CaK.Two.Bg4.h3.Bxf3	wch-game	event	wch-1958-botvinnik-smyslov	1958	2	Smyslov, Vasily-Botvinnik, Mikhail, World Championship 22th, Moskou wch-m, 1958	attested	
+B.CaK.Two.Nf6.MLn	wch-game	event	wch-1958-botvinnik-smyslov	1958	1	Smyslov, Vasily-Botvinnik, Mikhail, World Championship 22th, Moskou wch-m, 1958	attested	
+B.Mod.Avk	wch-game	event	wch-1958-botvinnik-smyslov	1958	1	Botvinnik, Mikhail-Smyslov, Vasily, World Championship 22th, Moskou wch-m, 1958	attested	
+B.Sic.Dra.Be3.Bg7.Be2.Nc6	wch-game	event	wch-1958-botvinnik-smyslov	1958	3	Smyslov, Vasily-Botvinnik, Mikhail, World Championship 22th, Moskou wch-m, 1958	attested	
+B.Sic.Old.d4.cxd4.Nxd4.Nf6	wch-game	event	wch-1958-botvinnik-smyslov	1958	1	Smyslov, Vasily-Botvinnik, Mikhail, World Championship 22th, Moskou wch-m, 1958	attested	
+D.Sem.Mer.Bd3.b4	wch-game	event	wch-1958-botvinnik-smyslov	1958	1	Smyslov, Vasily-Botvinnik, Mikhail, World Championship 22th, Moskou wch-m, 1958	attested	
+E.Gru.Rus.Hng.e4.Bg4	wch-game	event	wch-1958-botvinnik-smyslov	1958	2	Botvinnik, Mikhail-Smyslov, Vasily, World Championship 22th, Moskou wch-m, 1958	attested	
+E.KID.Fch.Kav.Nc3.e5.h3	wch-game	event	wch-1958-botvinnik-smyslov	1958	1	Botvinnik, Mikhail-Smyslov, Vasily, World Championship 22th, Moskou wch-m, 1958	attested	
+E.KID.Sml.Cst.Be3	wch-game	event	wch-1958-botvinnik-smyslov	1958	1	Botvinnik, Mikhail-Smyslov, Vasily, World Championship 22th, Moskou wch-m, 1958	attested	
+A.OID.Nf6.Nc3	wch-game	event	wch-1958-bykova-rubtsova	1958	1	Rubtsova, Olga-Bykova, Elisaveta, Wch women, Moskou wch-m, 1958	attested	
+B.Sic.Alp.Cen.MLn	wch-game	event	wch-1958-bykova-rubtsova	1958	1	Bykova, Elisaveta-Rubtsova, Olga, Wch women, Moskou wch-m, 1958	attested	
+B.Sic.Cls	wch-game	event	wch-1958-bykova-rubtsova	1958	1	Bykova, Elisaveta-Rubtsova, Olga, Wch women, Moskou wch-m, 1958	attested	
+B.Sic.Cls.Rch.e6.Qd2.a6	wch-game	event	wch-1958-bykova-rubtsova	1958	1	Rubtsova, Olga-Bykova, Elisaveta, Wch women, Moskou wch-m, 1958	attested	
+B.Sic.Cls.Rch.e6.Qd2.f4	wch-game	event	wch-1958-bykova-rubtsova	1958	1	Rubtsova, Olga-Bykova, Elisaveta, Wch women, Moskou wch-m, 1958	attested	
+B.Sic.Ros.Cls	wch-game	event	wch-1958-bykova-rubtsova	1958	1	Bykova, Elisaveta-Rubtsova, Olga, Wch women, Moskou wch-m, 1958	attested	
+C.RyL.Bir	wch-game	event	wch-1958-bykova-rubtsova	1958	1	Bykova, Elisaveta-Rubtsova, Olga, Wch women, Moskou wch-m, 1958	attested	
+C.RyL.Mor.Opn.MLn.Mot	wch-game	event	wch-1958-bykova-rubtsova	1958	1	Bykova, Elisaveta-Rubtsova, Olga, Wch women, Moscow RUS, 1958	attested	
+E.Ben.Czk.MLn.g6	wch-game	event	wch-1958-bykova-rubtsova	1958	1	Rubtsova, Olga-Bykova, Elisaveta, Wch women, Moskou wch-m, 1958	attested	
+E.KID.Cls.e5.O-O.Nbd7	wch-game	event	wch-1958-bykova-rubtsova	1958	1	Rubtsova, Olga-Bykova, Elisaveta, Wch women, Moscow RUS, 1958	attested	
+E.Nim.Fou.MLn	wch-game	event	wch-1958-bykova-rubtsova	1958	1	Rubtsova, Olga-Bykova, Elisaveta, Wch women, Moskou wch-m, 1958	attested	
+E.Nim.Sml.Bxc3.bxc3	wch-game	event	wch-1958-bykova-rubtsova	1958	1	Rubtsova, Olga-Bykova, Elisaveta, Wch women, Moskou wch-m, 1958	attested	
+B.CaK.Cls.Spd	wch-game	event	wch-1959-bykova-zvorykina	1959	1	Zvorykina, Kira-Bykova, Elisaveta, Wch women, Moskou wch-m, 1959	attested	
+B.Fre.Bur.Be7	wch-game	event	wch-1959-bykova-zvorykina	1959	1	Zvorykina, Kira-Bykova, Elisaveta, Wch women, Moskou wch-m, 1959	attested	
+B.Fre.Win.Adv	wch-game	event	wch-1959-bykova-zvorykina	1959	1	Zvorykina, Kira-Bykova, Elisaveta, Wch women, Moskou wch-m, 1959	attested	
+B.Pir.Pre.d4.Nf6.Nc3.e5	wch-game	event	wch-1959-bykova-zvorykina	1959	1	Zvorykina, Kira-Bykova, Elisaveta, Wch women, Moskou wch-m, 1959	attested	
+B.Sic.Cls.Rch.e6.Qd2.a6	wch-game	event	wch-1959-bykova-zvorykina	1959	1	Zvorykina, Kira-Bykova, Elisaveta, Wch women, Moskou wch-m, 1959	attested	
+B.Sic.Naj.g3	wch-game	event	wch-1959-bykova-zvorykina	1959	2	Zvorykina, Kira-Bykova, Elisaveta, Wch women, Moskou wch-m, 1959	attested	
+C.RyL.Mor.Ba4.d6.c3	wch-game	event	wch-1959-bykova-zvorykina	1959	1	Bykova, Elisaveta-Zvorykina, Kira, Wch women, Moskou wch-m, 1959	attested	
+C.RyL.Shl.Jae.fxe4.Nxe4.Qg5	wch-game	event	wch-1959-bykova-zvorykina	1959	1	Bykova, Elisaveta-Zvorykina, Kira, Wch women, Moskou wch-m, 1959	attested	
+E.QID.Fch	wch-game	event	wch-1959-bykova-zvorykina	1959	1	Bykova, Elisaveta-Zvorykina, Kira, Wch women, Moskou wch-m, 1959	attested	
 A.Eng.Sym.Nf3.Nf6	wch-game	event	wch-1960-botvinnik-tal	1960	1	Tal, Mikhail-Botvinnik, Mikhail, World Championship 23th, Moskou wch-m, 1960	attested	
 A.Ret.Nf6.g3.g6.Bg2.Bg7	wch-game	event	wch-1960-botvinnik-tal	1960	2	Tal, Mikhail-Botvinnik, Mikhail, World Championship 23th, Moscow RUS, 1960	attested	
 B.CaK.Cls.Ng3.Bg6	wch-game	event	wch-1960-botvinnik-tal	1960	5	Tal, Mikhail-Botvinnik, Mikhail, World Championship 23th, Moskou wch-m, 1960	attested	
@@ -273,16 +272,16 @@ E.KID.Sml	wch-game	event	wch-1961-botvinnik-tal	1961	1	Botvinnik, Mikhail-Tal, M
 E.KID.Sml.Cst.Be3	wch-game	event	wch-1961-botvinnik-tal	1961	1	Botvinnik, Mikhail-Tal, Mikhail, World Championship 24th, Moskou wch-m, 1961	attested	
 E.KID.Sml.Ort.Exc.dxe5	wch-game	event	wch-1961-botvinnik-tal	1961	1	Botvinnik, Mikhail-Tal, Mikhail, World Championship 24th, Moskou wch-m, 1961	attested	
 E.Nim.Rub.Cls.a3	wch-game	event	wch-1961-botvinnik-tal	1961	3	Botvinnik, Mikhail-Tal, Mikhail, World Championship 24th, Moskou wch-m, 1961	attested	
-A.Eng.Rev.Nc3.Nc6.g3.Bg2	wch-game	event	wch-1962-bykova-gaprindashvili	1962	1	Gaprindashvili, Nona-Bykova, Elizaveta, Wch women, Moskou wch-m, 1962	attested	
-B.Pir.Cls.Bg7	wch-game	event	wch-1962-bykova-gaprindashvili	1962	1	Bykova, Elizaveta-Gaprindashvili, Nona, Wch women, Moskou wch-m, 1962	attested	
-B.Sic.Acc.Nc3.Bg7	wch-game	event	wch-1962-bykova-gaprindashvili	1962	2	Gaprindashvili, Nona-Bykova, Elizaveta, Wch women, Moskou wch-m, 1962	attested	
-B.Sic.Clo.GPr	wch-game	event	wch-1962-bykova-gaprindashvili	1962	1	Gaprindashvili, Nona-Bykova, Elizaveta, Wch women, Moskou wch-m, 1962	attested	
-B.Sic.HAc	wch-game	event	wch-1962-bykova-gaprindashvili	1962	1	Gaprindashvili, Nona-Bykova, Elizaveta, Wch women, Moskou wch-m, 1962	attested	
-C.RyL.AntM.d3.d6.c3.Na5	wch-game	event	wch-1962-bykova-gaprindashvili	1962	1	Bykova, Elizaveta-Gaprindashvili, Nona, Wch women, Moskou wch-m, 1962	attested	
-C.RyL.Cha.MLn.d4.Qc7	wch-game	event	wch-1962-bykova-gaprindashvili	1962	1	Bykova, Elizaveta-Gaprindashvili, Nona, Wch women, Moskou wch-m, 1962	attested	
-C.RyL.Mor.Ba4.Nf6.O-O.DEx	wch-game	event	wch-1962-bykova-gaprindashvili	1962	1	Bykova, Elizaveta-Gaprindashvili, Nona, Wch women, Moskou wch-m, 1962	attested	
-C.RyL.Mor.Ba4.Nf6.O-O.b5	wch-game	event	wch-1962-bykova-gaprindashvili	1962	1	Bykova, Elizaveta-Gaprindashvili, Nona, Wch women, Moskou wch-m, 1962	attested	
-D.QPG.Ver.Ric.Bf5.Bxf6	wch-game	event	wch-1962-bykova-gaprindashvili	1962	1	Bykova, Elizaveta-Gaprindashvili, Nona, Wch women, Moskou wch-m, 1962	attested	
+A.Eng.Rev.Nc3.Nc6.g3.Bg2	wch-game	event	wch-1962-bykova-gaprindashvili	1962	1	Gaprindashvili, Nona-Bykova, Elisaveta, Wch women, Moskou wch-m, 1962	attested	
+B.Pir.Cls.Bg7	wch-game	event	wch-1962-bykova-gaprindashvili	1962	1	Bykova, Elisaveta-Gaprindashvili, Nona, Wch women, Moskou wch-m, 1962	attested	
+B.Sic.Acc.Nc3.Bg7	wch-game	event	wch-1962-bykova-gaprindashvili	1962	2	Gaprindashvili, Nona-Bykova, Elisaveta, Wch women, Moskou wch-m, 1962	attested	
+B.Sic.Clo.GPr	wch-game	event	wch-1962-bykova-gaprindashvili	1962	1	Gaprindashvili, Nona-Bykova, Elisaveta, Wch women, Moskou wch-m, 1962	attested	
+B.Sic.HAc	wch-game	event	wch-1962-bykova-gaprindashvili	1962	1	Gaprindashvili, Nona-Bykova, Elisaveta, Wch women, Moskou wch-m, 1962	attested	
+C.RyL.AntM.d3.d6.c3.Na5	wch-game	event	wch-1962-bykova-gaprindashvili	1962	1	Bykova, Elisaveta-Gaprindashvili, Nona, Wch women, Moskou wch-m, 1962	attested	
+C.RyL.Cha.MLn.d4.Qc7	wch-game	event	wch-1962-bykova-gaprindashvili	1962	1	Bykova, Elisaveta-Gaprindashvili, Nona, Wch women, Moskou wch-m, 1962	attested	
+C.RyL.Mor.Ba4.Nf6.O-O.DEx	wch-game	event	wch-1962-bykova-gaprindashvili	1962	1	Bykova, Elisaveta-Gaprindashvili, Nona, Wch women, Moskou wch-m, 1962	attested	
+C.RyL.Mor.Ba4.Nf6.O-O.b5	wch-game	event	wch-1962-bykova-gaprindashvili	1962	1	Bykova, Elisaveta-Gaprindashvili, Nona, Wch women, Moskou wch-m, 1962	attested	
+D.QPG.Ver.Ric.Bf5.Bxf6	wch-game	event	wch-1962-bykova-gaprindashvili	1962	1	Bykova, Elisaveta-Gaprindashvili, Nona, Wch women, Moskou wch-m, 1962	attested	
 A.Eng.AIn.Nc3.d5.cxd5.g6	wch-game	event	wch-1963-botvinnik-petrosian	1963	1	Petrosian, Tigran V-Botvinnik, Mikhail, World Championship 25th, Moskou wch-m, 1963	attested	
 A.Eng.GSn	wch-game	event	wch-1963-botvinnik-petrosian	1963	1	Petrosian, Tigran V-Botvinnik, Mikhail, World Championship 25th, Moskou wch-m, 1963	attested	
 A.Eng.Sym.Nc3.Nc6	wch-game	event	wch-1963-botvinnik-petrosian	1963	1	Botvinnik, Mikhail-Petrosian, Tigran V, World Championship 25th, Moskou wch-m, 1963	attested	
@@ -299,79 +298,79 @@ E.Nim.Cls.d5.cxd5.exd5	wch-game	event	wch-1963-botvinnik-petrosian	1963	1	Petros
 E.QID.Mod.Fch.MLn	wch-game	event	wch-1963-botvinnik-petrosian	1963	2	Petrosian, Tigran V-Botvinnik, Mikhail, World Championship 25th, Moskou wch-m, 1963	attested	
 E.QID.Mod.Fch.MLn.Trd	wch-game	event	wch-1963-botvinnik-petrosian	1963	1	Petrosian, Tigran V-Botvinnik, Mikhail, World Championship 25th, Moskou wch-m, 1963	attested	
 E.QID.Sps.Bb7	wch-game	event	wch-1963-botvinnik-petrosian	1963	1	Petrosian, Tigran V-Botvinnik, Mikhail, World Championship 25th, Moskou wch-m, 1963	attested	
-B.Mod.Std.Nc3.StD	wch-game	event	wch-1965-gaprindashvili-kushnir-aleksandr	1965	1	Kushnir Aleksandr-Gaprindashvili, Nona, Wch women Riga LAT, Wch women Riga LAT, 1965	attested	
-B.Sic.Cls.Rch.e6.Qd2.Bd7	wch-game	event	wch-1965-gaprindashvili-kushnir-aleksandr	1965	1	Gaprindashvili, Nona-Kushnir Aleksandr, Wch women Riga LAT, Wch women Riga LAT, 1965	attested	
-C.Fou.Spa.Rub.MLn	wch-game	event	wch-1965-gaprindashvili-kushnir-aleksandr	1965	1	Gaprindashvili, Nona-Kushnir Aleksandr, Wch women Riga LAT, Wch women Riga LAT, 1965	attested	
-C.RyL.Mor.Ba4.Nf6.O-O.Cen	wch-game	event	wch-1965-gaprindashvili-kushnir-aleksandr	1965	2	Gaprindashvili, Nona-Kushnir Aleksandr, Wch women Riga LAT, Wch women Riga LAT, 1965	attested	
-C.RyL.Mor.Wor	wch-game	event	wch-1965-gaprindashvili-kushnir-aleksandr	1965	1	Gaprindashvili, Nona-Kushnir Aleksandr, Wch women Riga LAT, Wch women Riga LAT, 1965	attested	
-D.QGA.Bog.MLn.O-O	wch-game	event	wch-1965-gaprindashvili-kushnir-aleksandr	1965	1	Kushnir Aleksandr-Gaprindashvili, Nona, Wch women Riga LAT, Wch women Riga LAT, 1965	attested	
-D.QGA.Cls.Rub.MLn.Qe2	wch-game	event	wch-1965-gaprindashvili-kushnir-aleksandr	1965	2	Kushnir Aleksandr-Gaprindashvili, Nona, Wch women Riga LAT, Wch women Riga LAT, 1965	attested	
-D.QGA.Nf3.Nf6.Nc3	wch-game	event	wch-1965-gaprindashvili-kushnir-aleksandr	1965	1	Kushnir Aleksandr-Gaprindashvili, Nona, Wch women Riga LAT, Wch women Riga LAT, 1965	attested	
-A.Eng.Sym.Rub	wch-game	event	wch-1966-petrosian-spassky	1966	1	Petrosian, Tigran V-Spassky, Boris Vasily, World Championship 26th, Moskou wch-m, 1966	attested	
-A.PoD.Bb7	wch-game	event	wch-1966-petrosian-spassky	1966	1	Petrosian, Tigran V-Spassky, Boris V., World Championship 26th, Moskou wch-m, 1966	attested	
-A.Ret.Nf6.g3.b5	wch-game	event	wch-1966-petrosian-spassky	1966	1	Petrosian, Tigran V-Spassky, Boris V., World Championship 26th, Moskou wch-m, 1966	attested	
-A.Ret.g6	wch-game	event	wch-1966-petrosian-spassky	1966	1	Petrosian, Tigran V-Spassky, Boris V., World Championship 26th, Moskou wch-m, 1966	attested	
-B.CaK.Cls.Spd.Nd7	wch-game	event	wch-1966-petrosian-spassky	1966	1	Spassky, Boris Vasily-Petrosian, Tigran V, World Championship 26th, Moskou wch-m, 1966	attested	
-B.CaK.Cls.Spd.Nd7.h5.Bd3	wch-game	event	wch-1966-petrosian-spassky	1966	1	Spassky, Boris V.-Petrosian, Tigran V, World Championship 26th, Moskou wch-m, 1966	attested	
-B.CaK.Pmv.Fch	wch-game	event	wch-1966-petrosian-spassky	1966	1	Spassky, Boris V.-Petrosian, Tigran V, World Championship 26th, Moskou wch-m, 1966	attested	
-B.CaK.Pmv.Nf6.Nc3.e6.Nf3	wch-game	event	wch-1966-petrosian-spassky	1966	2	Spassky, Boris Vasily-Petrosian, Tigran V, World Championship 26th, Moskou wch-m, 1966	attested	
-B.Fre.Bur.Be7	wch-game	event	wch-1966-petrosian-spassky	1966	2	Spassky, Boris V.-Petrosian, Tigran V, World Championship 26th, Moskou wch-m, 1966	attested	
-B.Fre.Rub.MLn.Nf6.Nxf6.Nxf6	wch-game	event	wch-1966-petrosian-spassky	1966	1	Spassky, Boris Vasily-Petrosian, Tigran V, World Championship 26th, Moskou wch-m, 1966	attested	
-B.Fre.Stn.MLn	wch-game	event	wch-1966-petrosian-spassky	1966	1	Spassky, Boris V.-Petrosian, Tigran V, World Championship 26th, Moskou wch-m, 1966	attested	
-B.Mod.Std.Nf3	wch-game	event	wch-1966-petrosian-spassky	1966	1	Petrosian, Tigran V-Spassky, Boris V., World Championship 26th, Moskou wch-m, 1966	attested	
-B.Sic.Clo.Fch.MLn	wch-game	event	wch-1966-petrosian-spassky	1966	1	Spassky, Boris Vasily-Petrosian, Tigran V, World Championship 26th, Moskou wch-m, 1966	attested	
-B.Sic.Old	wch-game	event	wch-1966-petrosian-spassky	1966	1	Spassky, Boris V.-Petrosian, Tigran V, World Championship 26th, Moskou wch-m, 1966	attested	
-D.QGD.Tar.Exc.Mak	wch-game	event	wch-1966-petrosian-spassky	1966	1	Petrosian, Tigran V-Spassky, Boris V., World Championship 26th, Moskou wch-m, 1966	attested	
-D.STa.Exc	wch-game	event	wch-1966-petrosian-spassky	1966	1	Petrosian, Tigran V-Spassky, Boris Vasily, World Championship 26th, Moskou wch-m, 1966	attested	
-E.Ind.Cat.d5.Bg2.Be7.O-O	wch-game	event	wch-1966-petrosian-spassky	1966	1	Petrosian, Tigran V-Spassky, Boris V., World Championship 26th, Moskou wch-m, 1966	attested	
-E.Ind.WIn.g3.Bg7.Bg2	wch-game	event	wch-1966-petrosian-spassky	1966	1	Petrosian, Tigran V-Spassky, Boris V., World Championship 26th, Moskou wch-m, 1966	attested	
-E.Nim.Rub.Res.MLn.O-O.ML2	wch-game	event	wch-1966-petrosian-spassky	1966	1	Petrosian, Tigran V-Spassky, Boris V., World Championship 26th, Moscow RUS, 1966	attested	
-E.QID.Pet.KPe	wch-game	event	wch-1966-petrosian-spassky	1966	1	Petrosian, Tigran V-Spassky, Boris V., World Championship 26th, Moskou wch-m, 1966	attested	
-A.Eng.Sym.Hdg	wch-game	event	wch-1969-gaprindashvili-kushnir-aleksandr	1969	3	Kushnir Aleksandr-Gaprindashvili, Nona, Wch women Moscow/Tbilisi, Wch women Moscow/Tbilisi, 1969	attested	
-A.Eng.Sym.Nf3.Nf6	wch-game	event	wch-1969-gaprindashvili-kushnir-aleksandr	1969	3	Kushnir Aleksandr-Gaprindashvili, Nona, Wch women Moscow/Tbilisi, Wch women Moscow/Tbilisi, 1969	attested	
-B.Ale.Mod.MLn.Be2.e6	wch-game	event	wch-1969-gaprindashvili-kushnir-aleksandr	1969	2	Gaprindashvili, Nona-Kushnir Aleksandr, Wch women, Moscow/Tbilisi, 1969	attested	
-B.Ale.Mod.dxe5	wch-game	event	wch-1969-gaprindashvili-kushnir-aleksandr	1969	1	Gaprindashvili, Nona-Kushnir Aleksandr, Wch women, Moscow/Tbilisi, 1969	attested	
-B.Sic.Acc.Mar.Bg7.Be3.Nf6	wch-game	event	wch-1969-gaprindashvili-kushnir-aleksandr	1969	1	Kushnir Aleksandr-Gaprindashvili, Nona, Wch women, Moscow/Tbilisi, 1969	attested	
-B.Sic.Tay.Nb5.d6.c4.Be7	wch-game	event	wch-1969-gaprindashvili-kushnir-aleksandr	1969	2	Gaprindashvili, Nona-Kushnir Aleksandr, Wch women, Moscow/Tbilisi, 1969	attested	
-A.Hor.Fch.MLn.Bg5.Be7.Nf3	wch-game	event	wch-1969-petrosian-spassky	1969	1	Petrosian, Tigran V-Spassky, Boris V., World Championship 27th, Moskou wch-m, 1969	attested	
-B.Sic.Acc.Mar.Nf6.Nc3.Nxd4	wch-game	event	wch-1969-petrosian-spassky	1969	1	Spassky, Boris Vasily-Petrosian, Tigran V, World Championship 27th, Moscow RUS, 1969	attested	
-B.Sic.Kan.Bd3	wch-game	event	wch-1969-petrosian-spassky	1969	2	Spassky, Boris Vasily-Petrosian, Tigran V, World Championship 27th, Moskou wch-m, 1969	attested	
-B.Sic.Naj.Bg5.Nbd7	wch-game	event	wch-1969-petrosian-spassky	1969	1	Spassky, Boris V.-Petrosian, Tigran V, World Championship 27th, Moskou wch-m, 1969	attested	
-B.Sic.Tay.Nc3.Qc7.Be3.a6	wch-game	event	wch-1969-petrosian-spassky	1969	1	Spassky, Boris Vasily-Petrosian, Tigran V, World Championship 27th, Moskou wch-m, 1969	attested	
-C.Pet.Nxe5.d6.Nf3.Nxe4.Qe2	wch-game	event	wch-1969-petrosian-spassky	1969	2	Spassky, Boris V.-Petrosian, Tigran V, World Championship 27th, Moskou wch-m, 1969	attested	
-C.RyL.Cls.Kho	wch-game	event	wch-1969-petrosian-spassky	1969	1	Spassky, Boris V.-Petrosian, Tigran V, World Championship 27th, Moscow RUS, 1969	attested	
-D.QGD.Cls.MLn.Ant	wch-game	event	wch-1969-petrosian-spassky	1969	2	Petrosian, Tigran V-Spassky, Boris V., World Championship 27th, Moskou wch-m, 1969	attested	
-D.QGD.Har	wch-game	event	wch-1969-petrosian-spassky	1969	1	Petrosian, Tigran V-Spassky, Boris V., World Championship 27th, Moskou wch-m, 1969	attested	
-D.STa.Exc.MLn.Nxd5.Bb4	wch-game	event	wch-1969-petrosian-spassky	1969	1	Spassky, Boris Vasily-Petrosian, Tigran V, World Championship 27th, Moskou wch-m, 1969	attested	
-D.Sla.Cls.MLn.O-O.Nbd7	wch-game	event	wch-1969-petrosian-spassky	1969	1	Spassky, Boris Vasily-Petrosian, Tigran V, World Championship 27th, Moskou wch-m, 1969	attested	
-D.Tar.Cls.Bg5.Be6	wch-game	event	wch-1969-petrosian-spassky	1969	1	Petrosian, Tigran V-Spassky, Boris V., World Championship 27th, Moskou wch-m, 1969	attested	
-D.Tar.Cls.Bg5.MLn	wch-game	event	wch-1969-petrosian-spassky	1969	1	Petrosian, Tigran V-Spassky, Boris V., World Championship 27th, Moskou wch-m, 1969	attested	
-D.Tar.Cls.Spa	wch-game	event	wch-1969-petrosian-spassky	1969	3	Petrosian, Tigran V-Spassky, Boris V., World Championship 27th, Moskou wch-m, 1969	attested	
-E.Ben.Czk.MLn.g6	wch-game	event	wch-1969-petrosian-spassky	1969	1	Spassky, Boris Vasily-Petrosian, Tigran V, World Championship 27th, Moskou wch-m, 1969	attested	
-E.Ind.e6.Nf3.d5.Bg5	wch-game	event	wch-1969-petrosian-spassky	1969	1	Petrosian, Tigran V-Spassky, Boris V., World Championship 27th, Moskou wch-m, 1969	attested	
-E.Nim.Rub.Res	wch-game	event	wch-1969-petrosian-spassky	1969	1	Petrosian, Tigran V-Spassky, Boris V., World Championship 27th, Moskou wch-m, 1969	attested	
-E.QID.Pet.KPe.d5	wch-game	event	wch-1969-petrosian-spassky	1969	1	Spassky, Boris V.-Petrosian, Tigran V, World Championship 27th, Moskou wch-m, 1969	attested	
-A.Eng.Sym.Nf3.Nf6.Nc3.O-O	wch-game	event	wch-1972-fischer-spassky	1972	1	Fischer, Robert J-Spassky, Boris V., World Championship 28th, Reykjavik ISL, 1972	attested	
-B.Ale.Mod.KID	wch-game	event	wch-1972-fischer-spassky	1972	1	Spassky, Boris V.-Fischer, Robert J, World Championship 28th, Reykjavik ISL, 1972	attested	
-B.Ale.Mod.MLn.Be2.e6	wch-game	event	wch-1972-fischer-spassky	1972	1	Spassky, Boris Vasily-Fischer, Robert J, World Championship 28th, Reykjavik wch-m, 1972	attested	
-B.Pir.Aus.c5	wch-game	event	wch-1972-fischer-spassky	1972	1	Spassky, Boris V.-Fischer, Robert J, World Championship 28th, Reykjavik ISL, 1972	attested	
-B.Sic.Cls.Rch.e6.Qd2.Bxf6	wch-game	event	wch-1972-fischer-spassky	1972	1	Fischer, Robert J-Spassky, Boris Vasily, World Championship 28th, Reykjavik wch-m, 1972	attested	
-B.Sic.Cls.Rch.e6.Qd2.O-O-O	wch-game	event	wch-1972-fischer-spassky	1972	1	Fischer, Robert J-Spassky, Boris V., World Championship 28th, Reykjavik ISL, 1972	attested	
-B.Sic.Cls.Soz.e6.Bb3.Be7	wch-game	event	wch-1972-fischer-spassky	1972	1	Fischer, Robert J-Spassky, Boris Vasily, World Championship 28th, Reykjavik wch-m, 1972	attested	
-B.Sic.Naj.Bg5.e6.f4.Nbd7	wch-game	event	wch-1972-fischer-spassky	1972	1	Spassky, Boris Vasily-Fischer, Robert J, World Championship 28th, Reykjavik wch-m, 1972	attested	
-B.Sic.Naj.Pst.MLn.Qxb2	wch-game	event	wch-1972-fischer-spassky	1972	2	Spassky, Boris Vasily-Fischer, Robert J, World Championship 28th, Reykjavik wch-m, 1972	attested	
-B.Sic.Tay.Eng.MLn	wch-game	event	wch-1972-fischer-spassky	1972	1	Spassky, Boris V.-Fischer, Robert J, World Championship 28th, Reykjavik wch-m, 1972	attested	
-C.RyL.Brk.d4.Nbd7.Nbd2.Bb7	wch-game	event	wch-1972-fischer-spassky	1972	1	Fischer, Robert J-Spassky, Boris V., World Championship 28th, Reykjavik ISL, 1972	attested	
-C.RyL.Exc.dxc6.O-O.f6	wch-game	event	wch-1972-fischer-spassky	1972	1	Fischer, Robert J-Spassky, Boris Vasily, World Championship 28th, Reykjavik wch-m, 1972	attested	
-D.QGD.Cls.MLn.Bh4	wch-game	event	wch-1972-fischer-spassky	1972	1	Fischer, Robert J-Spassky, Boris Vasily, World Championship 28th, Reykjavik wch-m, 1972	attested	
-D.QGD.Har.MLn.c5.dxc5	wch-game	event	wch-1972-fischer-spassky	1972	2	Fischer, Robert J-Spassky, Boris V., World Championship 28th, Reykjavik ISL, 1972	attested	
-E.Ind.e6.Nf3.c5.d5.Nd2	wch-game	event	wch-1972-fischer-spassky	1972	1	Spassky, Boris V.-Fischer, Robert J, World Championship 28th, Reykjavik wch-m, 1972	attested	
-E.Nim.Rub.Hub.Rau	wch-game	event	wch-1972-fischer-spassky	1972	1	Spassky, Boris V.-Fischer, Robert J, World Championship 28th, Reykjavik ISL, 1972	attested	
-E.Nim.Rub.Res.MLn.O-O.Brn	wch-game	event	wch-1972-fischer-spassky	1972	1	Spassky, Boris V.-Fischer, Robert J, World Championship 28th, Reykjavik ISL, 1972	attested	
-A.Kan.MLn.e3.c5.Ne2.cxd4	wch-game	event	wch-1972-gaprindashvili-kushnir-aleksandr	1972	1	Kushnir Aleksandr-Gaprindashvili, Nona, Wch women Riga LAT, Wch women Riga LAT, 1972	attested	
-B.Sic.Fre.c3	wch-game	event	wch-1972-gaprindashvili-kushnir-aleksandr	1972	1	Gaprindashvili, Nona-Kushnir Aleksandr, Wch women Riga LAT, Wch women Riga LAT, 1972	attested	
-B.Sic.Tay.Nc3.d6.Be2.Nf6	wch-game	event	wch-1972-gaprindashvili-kushnir-aleksandr	1972	1	Gaprindashvili, Nona-Kushnir Aleksandr, Wch women Riga LAT, Wch women Riga LAT, 1972	attested	
-E.Nim.Rub.c5.Ne2	wch-game	event	wch-1972-gaprindashvili-kushnir-aleksandr	1972	1	Kushnir Aleksandr-Gaprindashvili, Nona, Wch women Riga LAT, Wch women Riga LAT, 1972	attested	
+B.Mod.Std.Nc3.StD	wch-game	event	wch-1965-gaprindashvili-kushnir	1965	1	Kushnir, Alla-Gaprindashvili, Nona, Wch women Riga LAT, Wch women Riga LAT, 1965	attested	
+B.Sic.Cls.Rch.e6.Qd2.Bd7	wch-game	event	wch-1965-gaprindashvili-kushnir	1965	1	Gaprindashvili, Nona-Kushnir, Alla, Wch women Riga LAT, Wch women Riga LAT, 1965	attested	
+C.Fou.Spa.Rub.MLn	wch-game	event	wch-1965-gaprindashvili-kushnir	1965	1	Gaprindashvili, Nona-Kushnir, Alla, Wch women Riga LAT, Wch women Riga LAT, 1965	attested	
+C.RyL.Mor.Ba4.Nf6.O-O.Cen	wch-game	event	wch-1965-gaprindashvili-kushnir	1965	2	Gaprindashvili, Nona-Kushnir, Alla, Wch women Riga LAT, Wch women Riga LAT, 1965	attested	
+C.RyL.Mor.Wor	wch-game	event	wch-1965-gaprindashvili-kushnir	1965	1	Gaprindashvili, Nona-Kushnir, Alla, Wch women Riga LAT, Wch women Riga LAT, 1965	attested	
+D.QGA.Bog.MLn.O-O	wch-game	event	wch-1965-gaprindashvili-kushnir	1965	1	Kushnir, Alla-Gaprindashvili, Nona, Wch women Riga LAT, Wch women Riga LAT, 1965	attested	
+D.QGA.Cls.Rub.MLn.Qe2	wch-game	event	wch-1965-gaprindashvili-kushnir	1965	2	Kushnir, Alla-Gaprindashvili, Nona, Wch women Riga LAT, Wch women Riga LAT, 1965	attested	
+D.QGA.Nf3.Nf6.Nc3	wch-game	event	wch-1965-gaprindashvili-kushnir	1965	1	Kushnir, Alla-Gaprindashvili, Nona, Wch women Riga LAT, Wch women Riga LAT, 1965	attested	
+A.Eng.Sym.Rub	wch-game	event	wch-1966-petrosian-spassky	1966	1	Petrosian, Tigran V-Spassky, Boris, World Championship 26th, Moskou wch-m, 1966	attested	
+A.PoD.Bb7	wch-game	event	wch-1966-petrosian-spassky	1966	1	Petrosian, Tigran V-Spassky, Boris, World Championship 26th, Moskou wch-m, 1966	attested	
+A.Ret.Nf6.g3.b5	wch-game	event	wch-1966-petrosian-spassky	1966	1	Petrosian, Tigran V-Spassky, Boris, World Championship 26th, Moskou wch-m, 1966	attested	
+A.Ret.g6	wch-game	event	wch-1966-petrosian-spassky	1966	1	Petrosian, Tigran V-Spassky, Boris, World Championship 26th, Moskou wch-m, 1966	attested	
+B.CaK.Cls.Spd.Nd7	wch-game	event	wch-1966-petrosian-spassky	1966	1	Spassky, Boris-Petrosian, Tigran V, World Championship 26th, Moskou wch-m, 1966	attested	
+B.CaK.Cls.Spd.Nd7.h5.Bd3	wch-game	event	wch-1966-petrosian-spassky	1966	1	Spassky, Boris-Petrosian, Tigran V, World Championship 26th, Moskou wch-m, 1966	attested	
+B.CaK.Pmv.Fch	wch-game	event	wch-1966-petrosian-spassky	1966	1	Spassky, Boris-Petrosian, Tigran V, World Championship 26th, Moskou wch-m, 1966	attested	
+B.CaK.Pmv.Nf6.Nc3.e6.Nf3	wch-game	event	wch-1966-petrosian-spassky	1966	2	Spassky, Boris-Petrosian, Tigran V, World Championship 26th, Moskou wch-m, 1966	attested	
+B.Fre.Bur.Be7	wch-game	event	wch-1966-petrosian-spassky	1966	2	Spassky, Boris-Petrosian, Tigran V, World Championship 26th, Moskou wch-m, 1966	attested	
+B.Fre.Rub.MLn.Nf6.Nxf6.Nxf6	wch-game	event	wch-1966-petrosian-spassky	1966	1	Spassky, Boris-Petrosian, Tigran V, World Championship 26th, Moskou wch-m, 1966	attested	
+B.Fre.Stn.MLn	wch-game	event	wch-1966-petrosian-spassky	1966	1	Spassky, Boris-Petrosian, Tigran V, World Championship 26th, Moskou wch-m, 1966	attested	
+B.Mod.Std.Nf3	wch-game	event	wch-1966-petrosian-spassky	1966	1	Petrosian, Tigran V-Spassky, Boris, World Championship 26th, Moskou wch-m, 1966	attested	
+B.Sic.Clo.Fch.MLn	wch-game	event	wch-1966-petrosian-spassky	1966	1	Spassky, Boris-Petrosian, Tigran V, World Championship 26th, Moskou wch-m, 1966	attested	
+B.Sic.Old	wch-game	event	wch-1966-petrosian-spassky	1966	1	Spassky, Boris-Petrosian, Tigran V, World Championship 26th, Moskou wch-m, 1966	attested	
+D.QGD.Tar.Exc.Mak	wch-game	event	wch-1966-petrosian-spassky	1966	1	Petrosian, Tigran V-Spassky, Boris, World Championship 26th, Moskou wch-m, 1966	attested	
+D.STa.Exc	wch-game	event	wch-1966-petrosian-spassky	1966	1	Petrosian, Tigran V-Spassky, Boris, World Championship 26th, Moskou wch-m, 1966	attested	
+E.Ind.Cat.d5.Bg2.Be7.O-O	wch-game	event	wch-1966-petrosian-spassky	1966	1	Petrosian, Tigran V-Spassky, Boris, World Championship 26th, Moskou wch-m, 1966	attested	
+E.Ind.WIn.g3.Bg7.Bg2	wch-game	event	wch-1966-petrosian-spassky	1966	1	Petrosian, Tigran V-Spassky, Boris, World Championship 26th, Moskou wch-m, 1966	attested	
+E.Nim.Rub.Res.MLn.O-O.ML2	wch-game	event	wch-1966-petrosian-spassky	1966	1	Petrosian, Tigran V-Spassky, Boris, World Championship 26th, Moscow RUS, 1966	attested	
+E.QID.Pet.KPe	wch-game	event	wch-1966-petrosian-spassky	1966	1	Petrosian, Tigran V-Spassky, Boris, World Championship 26th, Moskou wch-m, 1966	attested	
+A.Eng.Sym.Hdg	wch-game	event	wch-1969-gaprindashvili-kushnir	1969	3	Kushnir, Alla-Gaprindashvili, Nona, Wch women Moscow/Tbilisi, Wch women Moscow/Tbilisi, 1969	attested	
+A.Eng.Sym.Nf3.Nf6	wch-game	event	wch-1969-gaprindashvili-kushnir	1969	3	Kushnir, Alla-Gaprindashvili, Nona, Wch women Moscow/Tbilisi, Wch women Moscow/Tbilisi, 1969	attested	
+B.Ale.Mod.MLn.Be2.e6	wch-game	event	wch-1969-gaprindashvili-kushnir	1969	2	Gaprindashvili, Nona-Kushnir, Alla, Wch women, Moscow/Tbilisi, 1969	attested	
+B.Ale.Mod.dxe5	wch-game	event	wch-1969-gaprindashvili-kushnir	1969	1	Gaprindashvili, Nona-Kushnir, Alla, Wch women, Moscow/Tbilisi, 1969	attested	
+B.Sic.Acc.Mar.Bg7.Be3.Nf6	wch-game	event	wch-1969-gaprindashvili-kushnir	1969	1	Kushnir, Alla-Gaprindashvili, Nona, Wch women, Moscow/Tbilisi, 1969	attested	
+B.Sic.Tay.Nb5.d6.c4.Be7	wch-game	event	wch-1969-gaprindashvili-kushnir	1969	3	Gaprindashvili, Nona-Kushnir, Alla, Wch women, Moscow/Tbilisi, 1969	attested	
+A.Hor.Fch.MLn.Bg5.Be7.Nf3	wch-game	event	wch-1969-petrosian-spassky	1969	1	Petrosian, Tigran V-Spassky, Boris, World Championship 27th, Moskou wch-m, 1969	attested	
+B.Sic.Acc.Mar.Nf6.Nc3.Nxd4	wch-game	event	wch-1969-petrosian-spassky	1969	1	Spassky, Boris-Petrosian, Tigran V, World Championship 27th, Moscow RUS, 1969	attested	
+B.Sic.Kan.Bd3	wch-game	event	wch-1969-petrosian-spassky	1969	2	Spassky, Boris-Petrosian, Tigran V, World Championship 27th, Moskou wch-m, 1969	attested	
+B.Sic.Naj.Bg5.Nbd7	wch-game	event	wch-1969-petrosian-spassky	1969	1	Spassky, Boris-Petrosian, Tigran V, World Championship 27th, Moskou wch-m, 1969	attested	
+B.Sic.Tay.Nc3.Qc7.Be3.a6	wch-game	event	wch-1969-petrosian-spassky	1969	1	Spassky, Boris-Petrosian, Tigran V, World Championship 27th, Moskou wch-m, 1969	attested	
+C.Pet.Nxe5.d6.Nf3.Nxe4.Qe2	wch-game	event	wch-1969-petrosian-spassky	1969	2	Spassky, Boris-Petrosian, Tigran V, World Championship 27th, Moskou wch-m, 1969	attested	
+C.RyL.Cls.Kho	wch-game	event	wch-1969-petrosian-spassky	1969	1	Spassky, Boris-Petrosian, Tigran V, World Championship 27th, Moscow RUS, 1969	attested	
+D.QGD.Cls.MLn.Ant	wch-game	event	wch-1969-petrosian-spassky	1969	2	Petrosian, Tigran V-Spassky, Boris, World Championship 27th, Moskou wch-m, 1969	attested	
+D.QGD.Har	wch-game	event	wch-1969-petrosian-spassky	1969	1	Petrosian, Tigran V-Spassky, Boris, World Championship 27th, Moskou wch-m, 1969	attested	
+D.STa.Exc.MLn.Nxd5.Bb4	wch-game	event	wch-1969-petrosian-spassky	1969	1	Spassky, Boris-Petrosian, Tigran V, World Championship 27th, Moskou wch-m, 1969	attested	
+D.Sla.Cls.MLn.O-O.Nbd7	wch-game	event	wch-1969-petrosian-spassky	1969	1	Spassky, Boris-Petrosian, Tigran V, World Championship 27th, Moskou wch-m, 1969	attested	
+D.Tar.Cls.Bg5.Be6	wch-game	event	wch-1969-petrosian-spassky	1969	1	Petrosian, Tigran V-Spassky, Boris, World Championship 27th, Moskou wch-m, 1969	attested	
+D.Tar.Cls.Bg5.MLn	wch-game	event	wch-1969-petrosian-spassky	1969	1	Petrosian, Tigran V-Spassky, Boris, World Championship 27th, Moskou wch-m, 1969	attested	
+D.Tar.Cls.Spa	wch-game	event	wch-1969-petrosian-spassky	1969	3	Petrosian, Tigran V-Spassky, Boris, World Championship 27th, Moskou wch-m, 1969	attested	
+E.Ben.Czk.MLn.g6	wch-game	event	wch-1969-petrosian-spassky	1969	1	Spassky, Boris-Petrosian, Tigran V, World Championship 27th, Moskou wch-m, 1969	attested	
+E.Ind.e6.Nf3.d5.Bg5	wch-game	event	wch-1969-petrosian-spassky	1969	1	Petrosian, Tigran V-Spassky, Boris, World Championship 27th, Moskou wch-m, 1969	attested	
+E.Nim.Rub.Res	wch-game	event	wch-1969-petrosian-spassky	1969	1	Petrosian, Tigran V-Spassky, Boris, World Championship 27th, Moskou wch-m, 1969	attested	
+E.QID.Pet.KPe.d5	wch-game	event	wch-1969-petrosian-spassky	1969	1	Spassky, Boris-Petrosian, Tigran V, World Championship 27th, Moskou wch-m, 1969	attested	
+A.Eng.Sym.Nf3.Nf6.Nc3.O-O	wch-game	event	wch-1972-fischer-spassky	1972	1	Fischer, Robert J-Spassky, Boris, World Championship 28th, Reykjavik ISL, 1972	attested	
+B.Ale.Mod.KID	wch-game	event	wch-1972-fischer-spassky	1972	1	Spassky, Boris-Fischer, Robert J, World Championship 28th, Reykjavik ISL, 1972	attested	
+B.Ale.Mod.MLn.Be2.e6	wch-game	event	wch-1972-fischer-spassky	1972	1	Spassky, Boris-Fischer, Robert J, World Championship 28th, Reykjavik wch-m, 1972	attested	
+B.Pir.Aus.c5	wch-game	event	wch-1972-fischer-spassky	1972	1	Spassky, Boris-Fischer, Robert J, World Championship 28th, Reykjavik ISL, 1972	attested	
+B.Sic.Cls.Rch.e6.Qd2.Bxf6	wch-game	event	wch-1972-fischer-spassky	1972	1	Fischer, Robert J-Spassky, Boris, World Championship 28th, Reykjavik wch-m, 1972	attested	
+B.Sic.Cls.Rch.e6.Qd2.O-O-O	wch-game	event	wch-1972-fischer-spassky	1972	1	Fischer, Robert J-Spassky, Boris, World Championship 28th, Reykjavik ISL, 1972	attested	
+B.Sic.Cls.Soz.e6.Bb3.Be7	wch-game	event	wch-1972-fischer-spassky	1972	1	Fischer, Robert J-Spassky, Boris, World Championship 28th, Reykjavik wch-m, 1972	attested	
+B.Sic.Naj.Bg5.e6.f4.Nbd7	wch-game	event	wch-1972-fischer-spassky	1972	1	Spassky, Boris-Fischer, Robert J, World Championship 28th, Reykjavik wch-m, 1972	attested	
+B.Sic.Naj.Pst.MLn.Qxb2	wch-game	event	wch-1972-fischer-spassky	1972	2	Spassky, Boris-Fischer, Robert J, World Championship 28th, Reykjavik wch-m, 1972	attested	
+B.Sic.Tay.Eng.MLn	wch-game	event	wch-1972-fischer-spassky	1972	1	Spassky, Boris-Fischer, Robert J, World Championship 28th, Reykjavik wch-m, 1972	attested	
+C.RyL.Brk.d4.Nbd7.Nbd2.Bb7	wch-game	event	wch-1972-fischer-spassky	1972	1	Fischer, Robert J-Spassky, Boris, World Championship 28th, Reykjavik ISL, 1972	attested	
+C.RyL.Exc.dxc6.O-O.f6	wch-game	event	wch-1972-fischer-spassky	1972	1	Fischer, Robert J-Spassky, Boris, World Championship 28th, Reykjavik wch-m, 1972	attested	
+D.QGD.Cls.MLn.Bh4	wch-game	event	wch-1972-fischer-spassky	1972	1	Fischer, Robert J-Spassky, Boris, World Championship 28th, Reykjavik wch-m, 1972	attested	
+D.QGD.Har.MLn.c5.dxc5	wch-game	event	wch-1972-fischer-spassky	1972	2	Fischer, Robert J-Spassky, Boris, World Championship 28th, Reykjavik ISL, 1972	attested	
+E.Ind.e6.Nf3.c5.d5.Nd2	wch-game	event	wch-1972-fischer-spassky	1972	1	Spassky, Boris-Fischer, Robert J, World Championship 28th, Reykjavik wch-m, 1972	attested	
+E.Nim.Rub.Hub.Rau	wch-game	event	wch-1972-fischer-spassky	1972	1	Spassky, Boris-Fischer, Robert J, World Championship 28th, Reykjavik ISL, 1972	attested	
+E.Nim.Rub.Res.MLn.O-O.Brn	wch-game	event	wch-1972-fischer-spassky	1972	1	Spassky, Boris-Fischer, Robert J, World Championship 28th, Reykjavik ISL, 1972	attested	
+A.Kan.MLn.e3.c5.Ne2.cxd4	wch-game	event	wch-1972-gaprindashvili-kushnir	1972	1	Kushnir, Alla-Gaprindashvili, Nona, Wch women Riga LAT, Wch women Riga LAT, 1972	attested	
+B.Sic.Fre.c3	wch-game	event	wch-1972-gaprindashvili-kushnir	1972	1	Gaprindashvili, Nona-Kushnir, Alla, Wch women Riga LAT, Wch women Riga LAT, 1972	attested	
+B.Sic.Tay.Nc3.d6.Be2.Nf6	wch-game	event	wch-1972-gaprindashvili-kushnir	1972	1	Gaprindashvili, Nona-Kushnir, Alla, Wch women Riga LAT, Wch women Riga LAT, 1972	attested	
+E.Nim.Rub.c5.Ne2	wch-game	event	wch-1972-gaprindashvili-kushnir	1972	1	Kushnir, Alla-Gaprindashvili, Nona, Wch women Riga LAT, Wch women Riga LAT, 1972	attested	
 A.Eng.AIn.Nc3.d5.cxd5.Nxc3	wch-game	event	wch-1978-karpov-korchnoi	1978	2	Karpov, Anatoly-Korchnoi, Viktor, World Championship 29th, Baguio City wch-m, 1978	attested	
 A.Eng.Mik.c5.e5.Ng8	wch-game	event	wch-1978-karpov-korchnoi	1978	1	Korchnoi, Viktor-Karpov, Anatoly, World Championship 29th, Baguio City wch-m, 1978	attested	
 A.Eng.Rev.Fou.g3	wch-game	event	wch-1978-karpov-korchnoi	1978	2	Korchnoi, Viktor-Karpov, Anatoly, World Championship 29th, Baguio City wch-m, 1978	attested	
@@ -397,18 +396,18 @@ D.QGD.Exc.Bg5.Be7.e3	wch-game	event	wch-1978-karpov-korchnoi	1978	1	Korchnoi, Vi
 D.QGD.Har.Qc2.Rd1	wch-game	event	wch-1978-karpov-korchnoi	1978	3	Korchnoi, Viktor-Karpov, Anatoly, World Championship 29th, Baguio City wch-m, 1978	attested	
 E.Nim.Rub.Res	wch-game	event	wch-1978-karpov-korchnoi	1978	1	Korchnoi, Viktor-Karpov, Anatoly, World Championship 29th, Baguio City wch-m, 1978	attested	
 E.Nim.Rub.c5.Ne2	wch-game	event	wch-1978-karpov-korchnoi	1978	1	Korchnoi, Viktor-Karpov, Anatoly, Karpov - Korchnoi World Championship Match, City of Baguio PHI, 1978	attested	
-A.Eng.AIn.Nc3.d5.cxd5.Nf3	wch-game	event	wch-1981-karpov-korchnoi	1981	1	Karpov, Aleksandr-Korchnoi, Viktor, World Championship 30th, Merano wch-m, 1981	attested	
-A.Eng.Rev.Fou.g3	wch-game	event	wch-1981-karpov-korchnoi	1981	1	Korchnoi, Viktor-Karpov, Aleksandr, World Championship 30th, Merano wch-m, 1981	attested	
-A.Hor.Fch.MLn.Bg5.Be7.Nf3	wch-game	event	wch-1981-karpov-korchnoi	1981	2	Korchnoi, Viktor-Karpov, Aleksandr, World Championship 30th, Merano wch-m, 1981	attested	
-A.Hor.Fch.MLn.Bg5.Be7.h6	wch-game	event	wch-1981-karpov-korchnoi	1981	2	Korchnoi, Viktor-Karpov, Aleksandr, World Championship 30th, Merano wch-m, 1981	attested	
-C.Ita.Giu.Ga6	wch-game	event	wch-1981-karpov-korchnoi	1981	1	Karpov, Aleksandr-Korchnoi, Viktor, World Championship 30th, Merano wch-m, 1981	attested	
-C.Ita.Pia.Wai.MLn.Re1.Ba7	wch-game	event	wch-1981-karpov-korchnoi	1981	1	Karpov, Aleksandr-Korchnoi, Viktor, World Championship 30th, Merano wch-m, 1981	attested	
-C.Pet.Cls.Bd3.Nc6.O-O.Chg	wch-game	event	wch-1981-karpov-korchnoi	1981	1	Karpov, Aleksandr-Korchnoi, Viktor, World Championship 30th, Merano wch-m, 1981	attested	
+A.Eng.AIn.Nc3.d5.cxd5.Nf3	wch-game	event	wch-1981-karpov-korchnoi	1981	1	Karpov, Anatoly-Korchnoi, Viktor, World Championship 30th, Merano wch-m, 1981	attested	
+A.Eng.Rev.Fou.g3	wch-game	event	wch-1981-karpov-korchnoi	1981	1	Korchnoi, Viktor-Karpov, Anatoly, World Championship 30th, Merano wch-m, 1981	attested	
+A.Hor.Fch.MLn.Bg5.Be7.Nf3	wch-game	event	wch-1981-karpov-korchnoi	1981	2	Korchnoi, Viktor-Karpov, Anatoly, World Championship 30th, Merano wch-m, 1981	attested	
+A.Hor.Fch.MLn.Bg5.Be7.h6	wch-game	event	wch-1981-karpov-korchnoi	1981	2	Korchnoi, Viktor-Karpov, Anatoly, World Championship 30th, Merano wch-m, 1981	attested	
+C.Ita.Giu.Ga6	wch-game	event	wch-1981-karpov-korchnoi	1981	1	Karpov, Anatoly-Korchnoi, Viktor, World Championship 30th, Merano wch-m, 1981	attested	
+C.Ita.Pia.Wai.MLn.Re1.Ba7	wch-game	event	wch-1981-karpov-korchnoi	1981	1	Karpov, Anatoly-Korchnoi, Viktor, World Championship 30th, Merano wch-m, 1981	attested	
+C.Pet.Cls.Bd3.Nc6.O-O.Chg	wch-game	event	wch-1981-karpov-korchnoi	1981	1	Karpov, Anatoly-Korchnoi, Viktor, World Championship 30th, Merano wch-m, 1981	attested	
 C.RyL.Ber.Rio.Qe2.Nd6.Bxc6	wch-game	event	wch-1981-karpov-korchnoi	1981	1	Karpov, Anatoly-Korchnoi, Viktor, World Championship 30th, Meran ITA, 1981	attested	
-C.RyL.Mor.Opn.MLn.Brn	wch-game	event	wch-1981-karpov-korchnoi	1981	3	Karpov, Aleksandr-Korchnoi, Viktor, World Championship 30th, Merano wch-m, 1981	attested	
+C.RyL.Mor.Opn.MLn.Brn	wch-game	event	wch-1981-karpov-korchnoi	1981	3	Karpov, Anatoly-Korchnoi, Viktor, World Championship 30th, Merano wch-m, 1981	attested	
 C.RyL.Mor.Opn.MLn.StP	wch-game	event	wch-1981-karpov-korchnoi	1981	1	Karpov, Anatoly-Korchnoi, Viktor, World Championship 30th, Meran ITA, 1981	attested	
 D.QGD.Alt	wch-game	event	wch-1981-karpov-korchnoi	1981	2	Korchnoi, Viktor-Karpov, Anatoly, World Championship 30th, Meran ITA, 1981	attested	
-D.QGD.Cls.MLn.Bh4.b6	wch-game	event	wch-1981-karpov-korchnoi	1981	2	Korchnoi, Viktor-Karpov, Aleksandr, World Championship 30th, Merano wch-m, 1981	attested	
+D.QGD.Cls.MLn.Bh4.b6	wch-game	event	wch-1981-karpov-korchnoi	1981	2	Korchnoi, Viktor-Karpov, Anatoly, World Championship 30th, Merano wch-m, 1981	attested	
 D.QGD.Har.Qc2.Rd1	wch-game	event	wch-1981-karpov-korchnoi	1981	1	Korchnoi, Viktor-Karpov, Anatoly, World Championship 30th, Meran ITA, 1981	attested	
 A.Eng.AIn.Nf3.b6	wch-game	event	wch-1984-karpov-kasparov	1984	1	Karpov, Anatoly-Kasparov, Garry, World Championship 31th-KK1, Moskou wch-m, 1984	attested	
 A.Eng.Sym.Rub	wch-game	event	wch-1984-karpov-kasparov	1984	2	Kasparov, Garry-Karpov, Anatoly, World Championship 31th-KK1, Moskou wch-m, 1984	attested	
@@ -442,11 +441,11 @@ E.Nim.Kas.c5.g3	wch-game	event	wch-1985-karpov-kasparov	1985	3	Kasparov, Garry-K
 A.Hor.Fch.MLn.Bg5.Be7.Nf3	wch-game	event	wch-1986-karpov-kasparov	1986	1	Kasparov, Garry-Karpov, Anatoly, World Championship 33th-KK3, London ENG / Leningrad RUS, 1986	attested	
 C.Pet.Cls.Bd3.Nc6.O-O	wch-game	event	wch-1986-karpov-kasparov	1986	1	Kasparov, Garry-Karpov, Anatoly, World Championship 33th-KK3, London/Leningrad, 1986	attested	
 C.RyL.Zai.MLn	wch-game	event	wch-1986-karpov-kasparov	1986	2	Kasparov, Garry-Karpov, Anatoly, World Championship 33th-KK3, London/Leningrad, 1986	attested	
-D.Cat.Fch.Ope	wch-game	event	wch-1986-karpov-kasparov	1986	1	Kasparov, Garry-Karpov, Aleksandr, World Championship 33th-KK3, London/Leningrad, 1986	attested	
-E.Bog.WSm.MLn.Yat	wch-game	event	wch-1986-karpov-kasparov	1986	1	Kasparov, Garry-Karpov, Aleksandr, World Championship 33th-KK3, London/Leningrad, 1986	attested	
+D.Cat.Fch.Ope	wch-game	event	wch-1986-karpov-kasparov	1986	1	Kasparov, Garry-Karpov, Anatoly, World Championship 33th-KK3, London/Leningrad, 1986	attested	
+E.Bog.WSm.MLn.Yat	wch-game	event	wch-1986-karpov-kasparov	1986	1	Kasparov, Garry-Karpov, Anatoly, World Championship 33th-KK3, London/Leningrad, 1986	attested	
 E.Gru.Brn	wch-game	event	wch-1986-karpov-kasparov	1986	3	Karpov, Anatoly-Kasparov, Garry, World Championship 33th-KK3, London/Leningrad, 1986	attested	
-E.Gru.Rus.Hng.e4.Bg4	wch-game	event	wch-1986-karpov-kasparov	1986	2	Karpov, Aleksandr-Kasparov, Garry, World Championship 33th-KK3, London/Leningrad, 1986	attested	
-E.Ind.WIn.Nf3.Bg7.g3	wch-game	event	wch-1986-karpov-kasparov	1986	1	Karpov, Aleksandr-Kasparov, Garry, World Championship 33th-KK3, London ENG / Leningrad RUS, 1986	attested	
+E.Gru.Rus.Hng.e4.Bg4	wch-game	event	wch-1986-karpov-kasparov	1986	2	Karpov, Anatoly-Kasparov, Garry, World Championship 33th-KK3, London/Leningrad, 1986	attested	
+E.Ind.WIn.Nf3.Bg7.g3	wch-game	event	wch-1986-karpov-kasparov	1986	1	Karpov, Anatoly-Kasparov, Garry, World Championship 33th-KK3, London ENG / Leningrad RUS, 1986	attested	
 E.Nim.Kas.c5.g3	wch-game	event	wch-1986-karpov-kasparov	1986	1	Kasparov, Garry-Karpov, Anatoly, World Championship 33th-KK3, London/Leningrad, 1986	attested	
 A.Eng.Rev.Fou.g3	wch-game	event	wch-1987-karpov-kasparov	1987	3	Kasparov, Garry-Karpov, Anatoly, World Championship 34th-KK4, Seville ESP, 1987	attested	
 A.Eng.Rev.Nc3.Nc6.g3.g6	wch-game	event	wch-1987-karpov-kasparov	1987	1	Kasparov, Garry-Karpov, Anatoly, World Championship 34th-KK4, Sevilla wch-m, 1987	attested	
@@ -477,20 +476,20 @@ B.Sic.Naj.Eng.Ng4	wch-game	event	wch-1993-ioseliani-xie	1993	1	Xie, Jun-Ioselian
 B.Sic.Naj.Eng.e5	wch-game	event	wch-1993-ioseliani-xie	1993	1	Xie, Jun-Ioseliani, Nana, Wch women, Monte Carlo MNC, 1993	attested	
 E.KID.Cls.Glg	wch-game	event	wch-1993-ioseliani-xie	1993	3	Ioseliani, Nana-Xie, Jun, Wch women, Monte Carlo MNC, 1993	attested	
 E.KID.Cls.Mar.Nd2	wch-game	event	wch-1993-ioseliani-xie	1993	2	Ioseliani, Nana-Xie, Jun, Wch women, Monte Carlo MNC, 1993	attested	
-A.Eng.Rev.Fou.g3.Bc5.O-O	wch-game	event	wch-1993-karpov-timman	1993	1	Timman, Jan H-Karpov, Aleksandr, FIDE-Wch, Arnhem wch-m, 1993	attested	
-A.Eng.Sym.Rub	wch-game	event	wch-1993-karpov-timman	1993	1	Karpov, Aleksandr-Timman, Jan H, FIDE-Wch, Jakarta wch-m, 1993	attested	
-A.KIA.Bg2.c6.O-O.Bg4	wch-game	event	wch-1993-karpov-timman	1993	1	Timman, Jan H-Karpov, Aleksandr, FIDE-Wch, Jakarta wch-m, 1993	attested	
-A.Tor.Nim	wch-game	event	wch-1993-karpov-timman	1993	1	Timman, Jan H-Karpov, Aleksandr, FIDE-Wch, Amsterdam wch-m, 1993	attested	
-B.CaK.Adv.Bf5.VdW	wch-game	event	wch-1993-karpov-timman	1993	1	Timman, Jan H-Karpov, Aleksandr, FIDE-Wch, Jakarta wch-m, 1993	attested	
+A.Eng.Rev.Fou.g3.Bc5.O-O	wch-game	event	wch-1993-karpov-timman	1993	1	Timman, Jan H-Karpov, Anatoly, FIDE-Wch, Arnhem wch-m, 1993	attested	
+A.Eng.Sym.Rub	wch-game	event	wch-1993-karpov-timman	1993	1	Karpov, Anatoly-Timman, Jan H, FIDE-Wch, Jakarta wch-m, 1993	attested	
+A.KIA.Bg2.c6.O-O.Bg4	wch-game	event	wch-1993-karpov-timman	1993	1	Timman, Jan H-Karpov, Anatoly, FIDE-Wch, Jakarta wch-m, 1993	attested	
+A.Tor.Nim	wch-game	event	wch-1993-karpov-timman	1993	1	Timman, Jan H-Karpov, Anatoly, FIDE-Wch, Amsterdam wch-m, 1993	attested	
+B.CaK.Adv.Bf5.VdW	wch-game	event	wch-1993-karpov-timman	1993	1	Timman, Jan H-Karpov, Anatoly, FIDE-Wch, Jakarta wch-m, 1993	attested	
 B.CaK.Kar.Bc4.Ngf6.Qe2.Nb6	wch-game	event	wch-1993-karpov-timman	1993	2	Timman, Jan H-Karpov, Anatoly, FIDE-Wch, NLD/INA, 1993	attested	
-D.QGD.Vie	wch-game	event	wch-1993-karpov-timman	1993	1	Karpov, Aleksandr-Timman, Jan H, FIDE-Wch, Arnhem wch-m, 1993	attested	
-D.QGD.Vie.MLn	wch-game	event	wch-1993-karpov-timman	1993	2	Karpov, Aleksandr-Timman, Jan H, FIDE-Wch, Jakarta wch-m, 1993	attested	
-E.Gru.Exc.SeV	wch-game	event	wch-1993-karpov-timman	1993	1	Karpov, Aleksandr-Timman, Jan H, FIDE-Wch, Amsterdam wch-m, 1993	attested	
-E.Ind.WIn.Nf3.Bg7.g3	wch-game	event	wch-1993-karpov-timman	1993	1	Karpov, Aleksandr-Timman, Jan H, FIDE-Wch, Amsterdam wch-m, 1993	attested	
-E.KID.Sml.Cst.Be3	wch-game	event	wch-1993-karpov-timman	1993	2	Karpov, Aleksandr-Timman, Jan H, FIDE-Wch, Jakarta wch-m, 1993	attested	
-E.Nim.Cls.Ker.MLn	wch-game	event	wch-1993-karpov-timman	1993	1	Timman, Jan H-Karpov, Aleksandr, FIDE-Wch, Jakarta wch-m, 1993	attested	
-E.QID.Nim.Int.Be7	wch-game	event	wch-1993-karpov-timman	1993	2	Karpov, Aleksandr-Timman, Jan H, FIDE-Wch, Zwolle wch-m, 1993	attested	
-E.QID.Pet.KPe.d5.cxd5.Qc2	wch-game	event	wch-1993-karpov-timman	1993	1	Timman, Jan H-Karpov, Aleksandr, FIDE-Wch, Jakarta wch-m, 1993	attested	
+D.QGD.Vie	wch-game	event	wch-1993-karpov-timman	1993	1	Karpov, Anatoly-Timman, Jan H, FIDE-Wch, Arnhem wch-m, 1993	attested	
+D.QGD.Vie.MLn	wch-game	event	wch-1993-karpov-timman	1993	2	Karpov, Anatoly-Timman, Jan H, FIDE-Wch, Jakarta wch-m, 1993	attested	
+E.Gru.Exc.SeV	wch-game	event	wch-1993-karpov-timman	1993	1	Karpov, Anatoly-Timman, Jan H, FIDE-Wch, Amsterdam wch-m, 1993	attested	
+E.Ind.WIn.Nf3.Bg7.g3	wch-game	event	wch-1993-karpov-timman	1993	1	Karpov, Anatoly-Timman, Jan H, FIDE-Wch, Amsterdam wch-m, 1993	attested	
+E.KID.Sml.Cst.Be3	wch-game	event	wch-1993-karpov-timman	1993	2	Karpov, Anatoly-Timman, Jan H, FIDE-Wch, Jakarta wch-m, 1993	attested	
+E.Nim.Cls.Ker.MLn	wch-game	event	wch-1993-karpov-timman	1993	1	Timman, Jan H-Karpov, Anatoly, FIDE-Wch, Jakarta wch-m, 1993	attested	
+E.QID.Nim.Int.Be7	wch-game	event	wch-1993-karpov-timman	1993	2	Karpov, Anatoly-Timman, Jan H, FIDE-Wch, Zwolle wch-m, 1993	attested	
+E.QID.Pet.KPe.d5.cxd5.Qc2	wch-game	event	wch-1993-karpov-timman	1993	1	Timman, Jan H-Karpov, Anatoly, FIDE-Wch, Jakarta wch-m, 1993	attested	
 B.Sic.Cls.Rch.e6.Qd2.f4	wch-game	event	wch-1993-kasparov-short	1993	1	Short, Nigel D-Kasparov, Garry, PCA-World Championship, London ENG, 1993	attested	
 B.Sic.Naj.Bc4	wch-game	event	wch-1993-kasparov-short	1993	5	Short, Nigel D-Kasparov, Garry, PCA-World Championship, London ENG, 1993	attested	
 B.Sic.Naj.Bc4.Bb3	wch-game	event	wch-1993-kasparov-short	1993	3	Short, Nigel D-Kasparov, Garry, PCA-World Championship, London ENG, 1993	attested	
@@ -551,15 +550,15 @@ C.RyL.Mor.Ba4.Nf6.O-O.b5	wch-game	event	wch-1995-anand-kasparov	1995	1	Kasparov,
 C.RyL.Mor.Opn.MLn.Krp	wch-game	event	wch-1995-anand-kasparov	1995	2	Kasparov, Garry-Anand, Viswanathan, PCA-World Championship, New York, NY USA, 1995	attested	
 C.Sco.Mie.Nxc6.bxc6.e5	wch-game	event	wch-1995-anand-kasparov	1995	1	Kasparov, Garry-Anand, Viswanathan, PCA-World Championship, New York, NY USA, 1995	attested	
 E.Nim.Cls.d5.cxd5	wch-game	event	wch-1995-anand-kasparov	1995	1	Kasparov, Garry-Anand, Viswanathan, PCA-World Championship, New York, NY USA, 1995	attested	
-A.Kan.MLn.e3.c5.Bd3.Nc6	wch-game	event	wch-1996-kamsky-karpov	1996	1	Kamsky, Gata-Karpov, Aleksandr, FIDE-Wch, Elista wch-m, 1996	attested	
-B.CaK.Pmv.Nf6.Nc3.e6.Nf3	wch-game	event	wch-1996-kamsky-karpov	1996	2	Kamsky, Gata-Karpov, Aleksandr, FIDE-Wch, Elista wch-m, 1996	attested	
-C.Pet.Mod.Nxe4.Bd3.d5.Nxe5	wch-game	event	wch-1996-kamsky-karpov	1996	1	Kamsky, Gata-Karpov, Aleksandr, FIDE-Wch, Elista wch-m, 1996	attested	
-E.Gru.Rus.Hng.e4.a6	wch-game	event	wch-1996-kamsky-karpov	1996	1	Karpov, Aleksandr-Kamsky, Gata, FIDE-Wch, Elista wch-m, 1996	attested	
-E.Gru.Rus.Prz.MLn	wch-game	event	wch-1996-kamsky-karpov	1996	1	Karpov, Aleksandr-Kamsky, Gata, FIDE-Wch, Elista wch-m, 1996	attested	
-E.Ind.e6.Nf3.c5.d5.h3	wch-game	event	wch-1996-kamsky-karpov	1996	1	Karpov, Aleksandr-Kamsky, Gata, FIDE-Wch, Elista wch-m, 1996	attested	
-E.KID.Cls.Byn.Nh5.Re1	wch-game	event	wch-1996-kamsky-karpov	1996	1	Karpov, Aleksandr-Kamsky, Gata, FIDE-Wch, Elista wch-m, 1996	attested	
-E.QID.Nim.Int.Be7	wch-game	event	wch-1996-kamsky-karpov	1996	3	Karpov, Aleksandr-Kamsky, Gata, FIDE-Wch, Elista wch-m, 1996	attested	
-E.QID.Pet.KPe.d5.cxd5.Bd2	wch-game	event	wch-1996-kamsky-karpov	1996	1	Kamsky, Gata-Karpov, Aleksandr, FIDE-Wch, Elista wch-m, 1996	attested	
+A.Kan.MLn.e3.c5.Bd3.Nc6	wch-game	event	wch-1996-kamsky-karpov	1996	1	Kamsky, Gata-Karpov, Anatoly, FIDE-Wch, Elista wch-m, 1996	attested	
+B.CaK.Pmv.Nf6.Nc3.e6.Nf3	wch-game	event	wch-1996-kamsky-karpov	1996	2	Kamsky, Gata-Karpov, Anatoly, FIDE-Wch, Elista wch-m, 1996	attested	
+C.Pet.Mod.Nxe4.Bd3.d5.Nxe5	wch-game	event	wch-1996-kamsky-karpov	1996	1	Kamsky, Gata-Karpov, Anatoly, FIDE-Wch, Elista wch-m, 1996	attested	
+E.Gru.Rus.Hng.e4.a6	wch-game	event	wch-1996-kamsky-karpov	1996	1	Karpov, Anatoly-Kamsky, Gata, FIDE-Wch, Elista wch-m, 1996	attested	
+E.Gru.Rus.Prz.MLn	wch-game	event	wch-1996-kamsky-karpov	1996	1	Karpov, Anatoly-Kamsky, Gata, FIDE-Wch, Elista wch-m, 1996	attested	
+E.Ind.e6.Nf3.c5.d5.h3	wch-game	event	wch-1996-kamsky-karpov	1996	1	Karpov, Anatoly-Kamsky, Gata, FIDE-Wch, Elista wch-m, 1996	attested	
+E.KID.Cls.Byn.Nh5.Re1	wch-game	event	wch-1996-kamsky-karpov	1996	1	Karpov, Anatoly-Kamsky, Gata, FIDE-Wch, Elista wch-m, 1996	attested	
+E.QID.Nim.Int.Be7	wch-game	event	wch-1996-kamsky-karpov	1996	3	Karpov, Anatoly-Kamsky, Gata, FIDE-Wch, Elista wch-m, 1996	attested	
+E.QID.Pet.KPe.d5.cxd5.Bd2	wch-game	event	wch-1996-kamsky-karpov	1996	1	Kamsky, Gata-Karpov, Anatoly, FIDE-Wch, Elista wch-m, 1996	attested	
 A.Hng.Sym	wch-game	event	wch-1996-polgar-xie	1996	1	Polgar, Susan-Xie, Jun, Wch women, Jaen, 1996	attested	
 B.Sic.Cls.Rch	wch-game	event	wch-1996-polgar-xie	1996	1	Xie, Jun-Polgar, Susan, Wch women, Jaen wch-m, 1996	attested	
 B.Sic.Cls.Rch.Lip	wch-game	event	wch-1996-polgar-xie	1996	1	Xie, Jun-Polgar, Susan, Wch women, Jaen, 1996	attested	
@@ -614,15 +613,15 @@ E.Gru.Exc.SeV.Bc4.c5.Nc6	wch-game	event	wch-2010-anand-topalov	2010	1	Topalov, V
 E.Gru.Exc.Sps	wch-game	event	wch-2010-anand-topalov	2010	1	Topalov, Veselin-Anand, Viswanathan, World Championship, Sofia BUL, 2010	attested	
 E.Ind.Cat.d5.Bg2.dxc4.Nf3	wch-game	event	wch-2010-anand-topalov	2010	1	Anand, Viswanathan-Topalov, Veselin, World Championship, Sofia BUL, 2010	attested	
 E.Nim.Rub.Res.MLn.O-O	wch-game	event	wch-2010-anand-topalov	2010	1	Anand, Viswanathan-Topalov, Veselin, World Championship, Sofia BUL, 2010	attested	
-B.CaK.Tar	wch-game	event	wch-2010-hou-ruan	2010	1	Hou, Yifan(HLJ)-Ruan, Lufei, WCh Women playoff, Antakya TUR, 2010	attested	
-B.Sic.Acc.Mar.Nf6.Nc3.Nxd4	wch-game	event	wch-2010-hou-ruan	2010	1	Ruan, Lufei-Hou, Yifan(HLJ), WCh Women playoff, Antakya TUR, 2010	attested	
-B.Sic.Acc.Nc3.Bg7	wch-game	event	wch-2010-hou-ruan	2010	1	Ruan, Lufei-Hou, Yifan(HLJ), WCh Women playoff, Antakya TUR, 2010	attested	
-C.RyL.Bir	wch-game	event	wch-2010-hou-ruan	2010	1	Hou, Yifan(HLJ)-Ruan, Lufei, WCh Women playoff, Antakya TUR, 2010	attested	
-C.Pet.Nxe5.d6.Nf3.Nxe4.Nc3	wch-game	event	wch-2011-hou-koneru	2011	1	Hou, Yifan(HLJ)-Koneru, Humpy, WCh women, Tirana ALB, 2011	attested	
-C.RyL.Cls.c3.O-O.h3	wch-game	event	wch-2011-hou-koneru	2011	1	Hou, Yifan(HLJ)-Koneru, Humpy, WCh women, Tirana ALB, 2011	attested	
-C.RyL.Mor.Opn.MLn.Brn.Cla	wch-game	event	wch-2011-hou-koneru	2011	2	Hou, Yifan(HLJ)-Koneru, Humpy, WCh women, Tirana ALB, 2011	attested	
-D.Cat.Fch.Ope	wch-game	event	wch-2011-hou-koneru	2011	1	Koneru, Humpy-Hou, Yifan(HLJ), WCh women, Tirana ALB, 2011	attested	
-D.QGD.Rag.Qa4	wch-game	event	wch-2011-hou-koneru	2011	1	Koneru, Humpy-Hou, Yifan(HLJ), WCh women, Tirana ALB, 2011	attested	
+B.CaK.Tar	wch-game	event	wch-2010-hou-ruan	2010	1	Hou, Yifan-Ruan, Lufei, WCh Women playoff, Antakya TUR, 2010	attested	
+B.Sic.Acc.Mar.Nf6.Nc3.Nxd4	wch-game	event	wch-2010-hou-ruan	2010	1	Ruan, Lufei-Hou, Yifan, WCh Women playoff, Antakya TUR, 2010	attested	
+B.Sic.Acc.Nc3.Bg7	wch-game	event	wch-2010-hou-ruan	2010	1	Ruan, Lufei-Hou, Yifan, WCh Women playoff, Antakya TUR, 2010	attested	
+C.RyL.Bir	wch-game	event	wch-2010-hou-ruan	2010	1	Hou, Yifan-Ruan, Lufei, WCh Women playoff, Antakya TUR, 2010	attested	
+C.Pet.Nxe5.d6.Nf3.Nxe4.Nc3	wch-game	event	wch-2011-hou-koneru	2011	1	Hou, Yifan-Koneru, Humpy, WCh women, Tirana ALB, 2011	attested	
+C.RyL.Cls.c3.O-O.h3	wch-game	event	wch-2011-hou-koneru	2011	1	Hou, Yifan-Koneru, Humpy, WCh women, Tirana ALB, 2011	attested	
+C.RyL.Mor.Opn.MLn.Brn.Cla	wch-game	event	wch-2011-hou-koneru	2011	2	Hou, Yifan-Koneru, Humpy, WCh women, Tirana ALB, 2011	attested	
+D.Cat.Fch.Ope	wch-game	event	wch-2011-hou-koneru	2011	1	Koneru, Humpy-Hou, Yifan, WCh women, Tirana ALB, 2011	attested	
+D.QGD.Rag.Qa4	wch-game	event	wch-2011-hou-koneru	2011	1	Koneru, Humpy-Hou, Yifan, WCh women, Tirana ALB, 2011	attested	
 B.Sic.Ros.Nim	wch-game	event	wch-2012-anand-gelfand	2012	2	Anand, Viswanathan-Gelfand, Boris, World Championship, 2012	attested	
 B.Sic.Sve.Nd5.Be7.Bxf6	wch-game	event	wch-2012-anand-gelfand	2012	1	Anand, Viswanathan-Gelfand, Boris, WCh 2012, Moscow RUS, 2012	attested	
 D.Sem.e3.a6	wch-game	event	wch-2012-anand-gelfand	2012	4	Gelfand, Boris-Anand, Viswanathan, WCh 2012, Moscow RUS, 2012	attested	
@@ -648,15 +647,15 @@ C.RyL.Ber.d3.Bc5	wch-game	event	wch-2016-carlsen-karjakin	2016	1	Carlsen, Magnus
 C.RyL.Mor.Ba4.Nf6.O-O.Mrt	wch-game	event	wch-2016-carlsen-karjakin	2016	2	Karjakin, Sergey-Carlsen, Magnus, WCh 2016, New York, NY USA, 2016	attested	
 C.RyL.Mor.Ba4.Nf6.O-O.b5	wch-game	event	wch-2016-carlsen-karjakin	2016	1	Karjakin, Sergey-Carlsen, Magnus, WCh 2016, New York, NY USA, 2016	attested	
 D.Sla.Nc3.Nf6.e3	wch-game	event	wch-2016-carlsen-karjakin	2016	1	Karjakin, Sergey-Carlsen, Magnus, WCh 2016, New York, NY USA, 2016	attested	
-A.QPO.Nf6.Nf3.e6	wch-game	event	wch-2016-hou-muzychuk	2016	1	Muzychuk, Mariya-Hou, Yifan(HLJ), WCh Women 2016, Lvov UKR, 2016	attested	
-A.Ret.Ang.g3	wch-game	event	wch-2016-hou-muzychuk	2016	1	Hou, Yifan(HLJ)-Muzychuk, Mariya, WCh Women 2016, Lvov UKR, 2016	attested	
-B.Sic.Cls.Bol.MLn.Be3.Be6	wch-game	event	wch-2016-hou-muzychuk	2016	1	Hou, Yifan(HLJ)-Muzychuk, Mariya, WCh Women 2016, Lvov UKR, 2016	attested	
-C.Ita.Giu.O-O.Nf6.d3.O-O	wch-game	event	wch-2016-hou-muzychuk	2016	1	Muzychuk, Mariya-Hou, Yifan(HLJ), WCh Women 2016, Lvov UKR, 2016	attested	
-C.Ita.Pia.Nf6.MLn	wch-game	event	wch-2016-hou-muzychuk	2016	1	Muzychuk, Mariya-Hou, Yifan(HLJ), WCh Women 2016, Lvov UKR, 2016	attested	
-C.RyL.Mor.Opn.MLn.Brn.Cla	wch-game	event	wch-2016-hou-muzychuk	2016	1	Hou, Yifan(HLJ)-Muzychuk, Mariya, WCh Women 2016, Lvov UKR, 2016	attested	
-C.RyL.Mor.Opn.MLn.Cls	wch-game	event	wch-2016-hou-muzychuk	2016	1	Hou, Yifan(HLJ)-Muzychuk, Mariya, WCh Women 2016, Lvov UKR, 2016	attested	
-C.RyL.Mor.Opn.MLn.dxe5.Be6	wch-game	event	wch-2016-hou-muzychuk	2016	1	Hou, Yifan(HLJ)-Muzychuk, Mariya, WCh Women 2016, Lvov UKR, 2016	attested	
-D.Cat.Fch.C01	wch-game	event	wch-2016-hou-muzychuk	2016	1	Muzychuk, Mariya-Hou, Yifan(HLJ), WCh Women 2016, Lvov UKR, 2016	attested	
+A.QPO.Nf6.Nf3.e6	wch-game	event	wch-2016-hou-muzychuk	2016	1	Muzychuk, Mariya-Hou, Yifan, WCh Women 2016, Lvov UKR, 2016	attested	
+A.Ret.Ang.g3	wch-game	event	wch-2016-hou-muzychuk	2016	1	Hou, Yifan-Muzychuk, Mariya, WCh Women 2016, Lvov UKR, 2016	attested	
+B.Sic.Cls.Bol.MLn.Be3.Be6	wch-game	event	wch-2016-hou-muzychuk	2016	1	Hou, Yifan-Muzychuk, Mariya, WCh Women 2016, Lvov UKR, 2016	attested	
+C.Ita.Giu.O-O.Nf6.d3.O-O	wch-game	event	wch-2016-hou-muzychuk	2016	1	Muzychuk, Mariya-Hou, Yifan, WCh Women 2016, Lvov UKR, 2016	attested	
+C.Ita.Pia.Nf6.MLn	wch-game	event	wch-2016-hou-muzychuk	2016	1	Muzychuk, Mariya-Hou, Yifan, WCh Women 2016, Lvov UKR, 2016	attested	
+C.RyL.Mor.Opn.MLn.Brn.Cla	wch-game	event	wch-2016-hou-muzychuk	2016	1	Hou, Yifan-Muzychuk, Mariya, WCh Women 2016, Lvov UKR, 2016	attested	
+C.RyL.Mor.Opn.MLn.Cls	wch-game	event	wch-2016-hou-muzychuk	2016	1	Hou, Yifan-Muzychuk, Mariya, WCh Women 2016, Lvov UKR, 2016	attested	
+C.RyL.Mor.Opn.MLn.dxe5.Be6	wch-game	event	wch-2016-hou-muzychuk	2016	1	Hou, Yifan-Muzychuk, Mariya, WCh Women 2016, Lvov UKR, 2016	attested	
+D.Cat.Fch.C01	wch-game	event	wch-2016-hou-muzychuk	2016	1	Muzychuk, Mariya-Hou, Yifan, WCh Women 2016, Lvov UKR, 2016	attested	
 A.Eng.Rev.Fou.MLn.Bg2.Bc5	wch-game	event	wch-2018-carlsen-caruana	2018	2	Carlsen, Magnus-Caruana, Fabiano, WCh 2018, London ENG, 2018	attested	
 B.Sic.Ros.Cls	wch-game	event	wch-2018-carlsen-caruana	2018	2	Caruana, Fabiano-Carlsen, Magnus, WCh 2018, London ENG, 2018	attested	
 B.Sic.Ros.Cls.MLn.Gur	wch-game	event	wch-2018-carlsen-caruana	2018	1	Caruana, Fabiano-Carlsen, Magnus, WCh 2018, London ENG, 2018	attested	
@@ -1094,7 +1093,7 @@ E.KID.Sml.Cst.Bg5.c5.Bf4	renamed	name	King's Indian Defense: Sämisch Variation,
 E.KID.Sml.Cst.Bg5.c5.Bxh6	renamed	name	King's Indian Defense: Sämisch Variation, with Bg5	2026-03-27		lichess-org/chess-openings, pull request #304 'Added E57, E88, E81 and E71 lines' by Chess4757: https://github.com/lichess-org/chess-openings/pull/304	attested	renamed to 'King's Indian Defense: Steiner Attack' on 2026-03-27
 E.KID.Sml.Cst.Bg5.c5.Nxd5	renamed	name	King's Indian Defense: Sämisch Variation, with Bg5	2026-03-27		lichess-org/chess-openings, pull request #304 'Added E57, E88, E81 and E71 lines' by Chess4757: https://github.com/lichess-org/chess-openings/pull/304	attested	renamed to 'King's Indian Defense: Steiner Attack' on 2026-03-27
 E.KID.Sml.Cst.Be3.c5.Bxc5	renamed	name	King's Indian Defense: Sämisch Variation, Sämisch Gambit, Sämisch Gambit Accepted	2026-04-03		lichess-org/chess-openings, pull request #308 'E81 change' by Chess4757: https://github.com/lichess-org/chess-openings/pull/308	attested	renamed to 'King's Indian Defense: Sämisch Variation, Sämisch Gambit Accepted' on 2026-04-03
-B.Sic.Naj.Rg1	renamed	name	Sicilian Defense: Najdorf Variation, Freak Attack	2026-04-13		lichess-org/chess-openings, pull request #314 '[PROPOSAL]: rename "Sicilian Defense: Najdorf Variation, Freak Attack" to Petronić Attack' by cmgchess: https://github.com/lichess-org/chess-openings/pull/314	attested	renamed to 'Sicilian Defense: Najdorf Variation, Petronić Attack' on 2026-04-13
+B.Sic.Naj.Rg1	renamed	name	Sicilian Defense: Najdorf Variation, Freak Attack	2026-04-13		"lichess-org/chess-openings, pull request #314 '[PROPOSAL]: rename ""Sicilian Defense: Najdorf Variation, Freak Attack"" to Petronić Attack' by cmgchess: https://github.com/lichess-org/chess-openings/pull/314"	attested	renamed to 'Sicilian Defense: Najdorf Variation, Petronić Attack' on 2026-04-13
 C.RyL.Mor.NeA	renamed	name	Ruy Lopez: Morphy Defense, Neo-Arkhangelsk Variation	2026-04-16		lichess-org/chess-openings, pull request #318 'Updates C78 Møller Variation and Neo-Arkhangelsk Variation' by Panthee: https://github.com/lichess-org/chess-openings/pull/318	attested	renamed to 'Ruy Lopez: Morphy Defense, Møller Variation' on 2026-04-16
 B.Sic.Dra.Yug.Bd7	renamed	name	Sicilian Defense: Dragon Variation, Yugoslav Attack	2026-05-02		lichess-org/chess-openings, pull request #322 'B77 fixes' by Chess4757: https://github.com/lichess-org/chess-openings/pull/322	attested	renamed to 'Sicilian Defense: Dragon Variation, Yugoslav Attack, Main Line' on 2026-05-02
 C.Pet.Stf.MLn	renamed	name	Petrov's Defense: Stafford Gambit	2026-05-29		lichess-org/chess-openings, pull request #336 'Rename Stafford Gambit continuations after acceptance' by AyushSinha2603: https://github.com/lichess-org/chess-openings/pull/336	attested	renamed to 'Petrov's Defense: Stafford Gambit Accepted' on 2026-05-29

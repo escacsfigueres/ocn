@@ -37,7 +37,7 @@ from pathlib import Path
 KIND = "ocn.sidecar_manifest.v1"
 REQUIRED_KEYS = ("kind", "title", "description", "target",
                  "expected_file_rows", "operations")
-OPS = ("rename", "drop")
+OPS = ("rename", "drop", "sync_prefix")
 
 
 class ApplyError(Exception):
@@ -87,13 +87,22 @@ def validate_manifest(obj: object) -> None:
                 raise ApplyError(f"{where}: 'to' must be a non-empty string")
             if op["from"] == op["to"]:
                 raise ApplyError(f"{where}: 'from' and 'to' are identical")
-        else:
+        elif kind == "drop":
             match = op.get("match")
             if not isinstance(match, dict) or not match:
                 raise ApplyError(f"{where}: 'match' must be a non-empty object")
             if not all(isinstance(k, str) and isinstance(v, str)
                        for k, v in match.items()):
                 raise ApplyError(f"{where}: 'match' must map field names to strings")
+        else:
+            if not isinstance(op.get("field"), str) or not op["field"]:
+                raise ApplyError(f"{where}: 'field' must be a non-empty string")
+            pair = op.get("pair_fields")
+            if not isinstance(pair, list) or len(pair) != 2 or not all(
+                    isinstance(f, str) and f for f in pair):
+                raise ApplyError(f"{where}: 'pair_fields' must be two field names")
+            if not isinstance(op.get("separator"), str) or not op["separator"]:
+                raise ApplyError(f"{where}: 'separator' must be a non-empty string")
 
 
 def load_manifest(path: Path) -> dict:
@@ -165,13 +174,14 @@ def apply(manifest: dict, sidecar: Sidecar) -> ApplyResult:
 
     for op in manifest["operations"]:
         if op["op"] == "rename":
-            for f in op["fields"]:
-                if f not in sidecar.fieldnames:
-                    raise ApplyError(f"field {f!r} is not in {sidecar.path.name}")
+            need = op["fields"]
+        elif op["op"] == "drop":
+            need = list(op["match"])
         else:
-            for f in op["match"]:
-                if f not in sidecar.fieldnames:
-                    raise ApplyError(f"field {f!r} is not in {sidecar.path.name}")
+            need = [op["field"], *op["pair_fields"]]
+        for f in need:
+            if f not in sidecar.fieldnames:
+                raise ApplyError(f"field {f!r} is not in {sidecar.path.name}")
 
     rows = [dict(r) for r in sidecar.rows]
     results: list[OpResult] = []
@@ -187,7 +197,7 @@ def apply(manifest: dict, sidecar: Sidecar) -> ApplyResult:
                         matched += 1
                         if len(samples) < 2:
                             samples.append(f"{f}: {op['from']} -> {op['to']}")
-        else:
+        elif op["op"] == "drop":
             for i, r in enumerate(rows):
                 if i in dropped:
                     continue
@@ -196,6 +206,29 @@ def apply(manifest: dict, sidecar: Sidecar) -> ApplyResult:
                     matched += 1
                     if len(samples) < 2:
                         samples.append(", ".join(f"{k}={v}" for k, v in op["match"].items()))
+        else:
+            # A citation repeats the pair it cites. Rewriting it by substring is
+            # not safe -- "Bogoljubow, Efim" contains "Bogoljubow," -- so the
+            # rewrite is anchored instead: the prefix the row used to carry,
+            # replaced by the one it carries now, at position zero or not at all.
+            a, b = op["pair_fields"]
+            sep, fld = op["separator"], op["field"]
+            for i, r in enumerate(rows):
+                if i in dropped:
+                    continue
+                was = f'{sidecar.rows[i].get(a, "")}{sep}{sidecar.rows[i].get(b, "")}'
+                now = f'{r.get(a, "")}{sep}{r.get(b, "")}'
+                cite = r.get(fld) or ""
+                if not cite.startswith(was):
+                    raise ApplyError(
+                        f"row {i + 1}: {fld} does not begin with its own "
+                        f"{a}{sep}{b}; sync_prefix assumes it always does, and "
+                        "that assumption no longer holds for this file")
+                if was != now:
+                    r[fld] = now + cite[len(was):]
+                    matched += 1
+                    if len(samples) < 2:
+                        samples.append(f"{was} -> {now}")
         if matched != op["expected_rows"]:
             raise ApplyError(
                 f"operation {op['op']} declared {op['expected_rows']} rows but "
@@ -236,8 +269,11 @@ def report_markdown(manifest: dict, res: ApplyResult, target: Path) -> str:
         op = r.op
         if op["op"] == "rename":
             head = f"`{op['from']}` -> `{op['to']}` in {', '.join(op['fields'])}"
-        else:
+        elif op["op"] == "drop":
             head = "drop " + ", ".join(f"{k}={v!r}" for k, v in op["match"].items())
+        else:
+            head = (f"re-anchor `{op['field']}` on "
+                    f"{op['separator'].join(op['pair_fields'])}")
         qid = f" ({op['wikidata_qid']})" if op.get("wikidata_qid") else ""
         out.append(f"### {head}{qid}")
         out.append(f"- rows: {r.matched}")

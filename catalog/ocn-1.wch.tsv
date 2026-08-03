@@ -51,7 +51,6 @@ D.Sla	open	match	World Championship 1st	1886	Zukertort, Johannes	Steinitz, Wilhe
 A.Hor.Fch.MLn.Bg5.Be7.Nf3	open	match	World Championship 1st	1886	Zukertort, Johannes	Steinitz, Wilhelm	0-1	9	Zukertort, Johannes-Steinitz, Wilhelm, World Championship 1st, New Orleans wch-m, 1886
 C.Pet.Thr.Fou.Gun	open	match	World Championship 1st	1886	Zukertort, Johannes	Steinitz, Wilhelm	0-1	14	Zukertort, Johannes-Steinitz, Wilhelm, World Championship 1st, New Orleans wch-m, 1886
 D.Tar.e3.Nf6.Nf3.Nc6	open	match	World Championship 1st	1886	Zukertort, Johannes	Steinitz, Wilhelm	0-1	10	Zukertort, Johannes-Steinitz, Wilhelm, World Championship 1st, St.Louis wch-m, 1886
-C.RyL.Ber.O-O.Nxe4	open	match	World Championship 1st	1886	Loureda Garcia, Jose Antonio	Garcia Camina, Belarmino	1/2-1/2	8	Loureda Garcia, Jose Antonio-Garcia Camina, Belarmino, World Championship 1st, St.Louis wch-m, 1886
 C.Ita.Giu.c3.Nf6.d3.d6	open	match	World Championship 3rd	1890	Gunsberg, Isidor	Steinitz, Wilhelm	1/2-1/2	10	Gunsberg, Isidor-Steinitz, Wilhelm, World Championship 3rd, New York, NY USA, 1890
 C.Ita.Pia.Nf6	open	match	World Championship 3rd	1890	Gunsberg, Isidor	Steinitz, Wilhelm	1-0	8	Gunsberg, Isidor-Steinitz, Wilhelm, World Championship 3rd, New York, NY USA, 1890
 C.Ita.Evn.Acc.Stn.O-O	open	match	World Championship 3rd	1890	Gunsberg, Isidor	Steinitz, Wilhelm	1-0	11	Gunsberg, Isidor-Steinitz, Wilhelm, World Championship 3rd, New York, NY USA, 1890
@@ -59,28 +58,27 @@ D.Rub.Nc6.O-O	open	match	World Championship 3rd	1890	Gunsberg, Isidor	Steinitz, 
 D.QGA.Nf3.Nf6.e3.e6	open	match	World Championship 3rd	1890	Steinitz, Wilhelm	Gunsberg, Isidor	1-0	8	Steinitz, Wilhelm-Gunsberg, Isidor, World Championship 3rd, New York, NY USA, 1890
 D.QGD.Cmb.Nd2.Bb4.Qc2	open	match	World Championship 14th	1929	Bogoljubow, Efim	Alekhine, Alexander	0-1	15	Bogoljubow, Efim-Alekhine, Alexander, World Championship 14th, Heidelberg wch-m, 1929
 D.QGD.Cmb.cxd5.Nxd5	open	match	World Championship 14th	1929	Bogoljubow, Efim	Alekhine, Alexander	0-1	14	Bogoljubow, Efim-Alekhine, Alexander, World Championship 14th, Berlijn wch-m, 1929
-C.RyL.Mor.Ba4.d6.c3	open	match	World Championship 14th	1929	Bogoljubow	Aljechin, Yuri	1/2-1/2	9	Bogoljubow-Aljechin, Yuri, World Championship 14th, Deutschland/Niederlande, 1929
-D.Sem.Bg5.Nbd7.e4	open	match	World Championship 14th	1929	Aljechin, Yuri	Bogoljubow	1-0	11	Aljechin, Yuri-Bogoljubow, World Championship 14th, Deutschland/Niederlande, 1929
-E.Nim.Spl	open	match	World Championship 14th	1929	Bogoljubow	Aljechin, Yuri	1-0	7	Bogoljubow-Aljechin, Yuri, World Championship 14th, Deutschland/Niederlande, 1929
-E.Gru.Fch.Pac.MLn	open	match	World Championship 14th	1929	Aljechin, Yuri	Bogoljubow	1-0	14	Aljechin, Yuri-Bogoljubow, World Championship 14th, Deutschland/Niederlande, 1929
-D.Sla.Cze.Kra.MLn.e6.f3	open	match	World Championship 14th	1929	Aljechin, Yuri	Bogoljubow	1/2-1/2	13	Aljechin, Yuri-Bogoljubow, World Championship 14th, Deutschland/Niederlande, 1929
-E.Nim.Spl.MLn	open	match	World Championship 14th	1929	Aljechin, Yuri	Bogoljubow	1-0	8	Aljechin, Yuri-Bogoljubow, World Championship 14th, Deutschland/Niederlande, 1929
-E.Nim.Spl.Rom.Nf3	open	match	World Championship 14th	1929	Bogoljubow	Aljechin, Yuri	1/2-1/2	11	Bogoljubow-Aljechin, Yuri, World Championship 14th, Deutschland/Niederlande, 1929
-D.Sla.Sou	open	match	World Championship 14th	1929	Aljechin, Yuri	Bogoljubow	1-0	10	Aljechin, Yuri-Bogoljubow, World Championship 14th, Deutschland/Niederlande, 1929
-D.Sla.Cze.Kra.MLn.e6	open	match	World Championship 14th	1929	Aljechin, Yuri	Bogoljubow	1-0	12	Aljechin, Yuri-Bogoljubow, World Championship 14th, Deutschland/Niederlande, 1929
-D.QGD.Cmb.cxd5.Nxd5	open	match	World Championship 14th	1929	De La Torre Huertas, Carlos	Saemisch, Friedrich	1/2-1/2	14	De La Torre Huertas, Carlos-Saemisch, Friedrich, World Championship 14th, Deutschland/Niederlande, 1929
-D.QGD.Cmb.Nd2.Bb4.Qc2.O-O	open	match	World Championship 14th	1929	Aljechin, Yuri	Bogoljubow	1/2-1/2	16	Aljechin, Yuri-Bogoljubow, World Championship 14th, Deutschland/Niederlande, 1929
-D.Sem.Bg5.Nbd7.e4	open	match	World Championship 14th	1929	Aljechin, Yuri	Bogoljubow	1/2-1/2	11	Aljechin, Yuri-Bogoljubow, World Championship 14th, Deutschland/Niederlande, 1929
-C.RyL.Mor.Ba4.d6.c3.Bd7	open	match	World Championship 14th	1929	Bogoljubow	Aljechin, Yuri	0-1	10	Bogoljubow-Aljechin, Yuri, World Championship 14th, Deutschland/Niederlande, 1929
-B.Fre.Bur.Mrz	open	match	World Championship 14th	1929	Bogoljubow	Aljechin, Yuri	1-0	12	Bogoljubow-Aljechin, Yuri, World Championship 14th, Deutschland/Niederlande, 1929
-D.Sla.Nf3.Nf6.e3.e6	open	match	World Championship 14th	1929	Aljechin, Yuri	Bogoljubow	1/2-1/2	8	Aljechin, Yuri-Bogoljubow, World Championship 14th, Deutschland/Niederlande, 1929
-D.Sla.Nf3.Nf6.e3.e6	open	match	World Championship 14th	1929	Bogoljubow	Aljechin, Yuri	1-0	8	Bogoljubow-Aljechin, Yuri, World Championship 14th, Deutschland/Niederlande, 1929
-E.Ind.WIn.f3	open	match	World Championship 14th	1929	Aljechin, Yuri	Bogoljubow	1/2-1/2	5	Aljechin, Yuri-Bogoljubow, World Championship 14th, Deutschland/Niederlande, 1929
-D.Sla.Nf3.Nf6.e3.e6	open	match	World Championship 14th	1929	Bogoljubow	Aljechin, Yuri	0-1	8	Bogoljubow-Aljechin, Yuri, World Championship 14th, Deutschland/Niederlande, 1929
-D.Sla.Nf3.Nf6.e3.e6	open	match	World Championship 14th	1929	Aljechin, Yuri	Bogoljubow	1/2-1/2	8	Aljechin, Yuri-Bogoljubow, World Championship 14th, Deutschland/Niederlande, 1929
-E.Ind.QID	open	match	World Championship 14th	1929	Bogoljubow	Aljechin, Yuri	0-1	4	Bogoljubow-Aljechin, Yuri, World Championship 14th, Deutschland/Niederlande, 1929
-E.Nim.Spl.MLn	open	match	World Championship 14th	1929	Bogoljubow	Aljechin, Yuri	1-0	8	Bogoljubow-Aljechin, Yuri, World Championship 14th, Deutschland/Niederlande, 1929
-B.Fre.Bur.Be7	open	match	World Championship 14th	1929	Bogoljubow	Aljechin, Yuri	1/2-1/2	10	Bogoljubow-Aljechin, Yuri, World Championship 14th, Deutschland/Niederlande, 1929
+C.RyL.Mor.Ba4.d6.c3	open	match	World Championship 14th	1929	Bogoljubow, Efim	Alekhine, Alexander	1/2-1/2	9	Bogoljubow, Efim-Alekhine, Alexander, World Championship 14th, Deutschland/Niederlande, 1929
+D.Sem.Bg5.Nbd7.e4	open	match	World Championship 14th	1929	Alekhine, Alexander	Bogoljubow, Efim	1-0	11	Alekhine, Alexander-Bogoljubow, Efim, World Championship 14th, Deutschland/Niederlande, 1929
+E.Nim.Spl	open	match	World Championship 14th	1929	Bogoljubow, Efim	Alekhine, Alexander	1-0	7	Bogoljubow, Efim-Alekhine, Alexander, World Championship 14th, Deutschland/Niederlande, 1929
+E.Gru.Fch.Pac.MLn	open	match	World Championship 14th	1929	Alekhine, Alexander	Bogoljubow, Efim	1-0	14	Alekhine, Alexander-Bogoljubow, Efim, World Championship 14th, Deutschland/Niederlande, 1929
+D.Sla.Cze.Kra.MLn.e6.f3	open	match	World Championship 14th	1929	Alekhine, Alexander	Bogoljubow, Efim	1/2-1/2	13	Alekhine, Alexander-Bogoljubow, Efim, World Championship 14th, Deutschland/Niederlande, 1929
+E.Nim.Spl.MLn	open	match	World Championship 14th	1929	Alekhine, Alexander	Bogoljubow, Efim	1-0	8	Alekhine, Alexander-Bogoljubow, Efim, World Championship 14th, Deutschland/Niederlande, 1929
+E.Nim.Spl.Rom.Nf3	open	match	World Championship 14th	1929	Bogoljubow, Efim	Alekhine, Alexander	1/2-1/2	11	Bogoljubow, Efim-Alekhine, Alexander, World Championship 14th, Deutschland/Niederlande, 1929
+D.Sla.Sou	open	match	World Championship 14th	1929	Alekhine, Alexander	Bogoljubow, Efim	1-0	10	Alekhine, Alexander-Bogoljubow, Efim, World Championship 14th, Deutschland/Niederlande, 1929
+D.Sla.Cze.Kra.MLn.e6	open	match	World Championship 14th	1929	Alekhine, Alexander	Bogoljubow, Efim	1-0	12	Alekhine, Alexander-Bogoljubow, Efim, World Championship 14th, Deutschland/Niederlande, 1929
+D.QGD.Cmb.Nd2.Bb4.Qc2.O-O	open	match	World Championship 14th	1929	Alekhine, Alexander	Bogoljubow, Efim	1/2-1/2	16	Alekhine, Alexander-Bogoljubow, Efim, World Championship 14th, Deutschland/Niederlande, 1929
+D.Sem.Bg5.Nbd7.e4	open	match	World Championship 14th	1929	Alekhine, Alexander	Bogoljubow, Efim	1/2-1/2	11	Alekhine, Alexander-Bogoljubow, Efim, World Championship 14th, Deutschland/Niederlande, 1929
+C.RyL.Mor.Ba4.d6.c3.Bd7	open	match	World Championship 14th	1929	Bogoljubow, Efim	Alekhine, Alexander	0-1	10	Bogoljubow, Efim-Alekhine, Alexander, World Championship 14th, Deutschland/Niederlande, 1929
+B.Fre.Bur.Mrz	open	match	World Championship 14th	1929	Bogoljubow, Efim	Alekhine, Alexander	1-0	12	Bogoljubow, Efim-Alekhine, Alexander, World Championship 14th, Deutschland/Niederlande, 1929
+D.Sla.Nf3.Nf6.e3.e6	open	match	World Championship 14th	1929	Alekhine, Alexander	Bogoljubow, Efim	1/2-1/2	8	Alekhine, Alexander-Bogoljubow, Efim, World Championship 14th, Deutschland/Niederlande, 1929
+D.Sla.Nf3.Nf6.e3.e6	open	match	World Championship 14th	1929	Bogoljubow, Efim	Alekhine, Alexander	1-0	8	Bogoljubow, Efim-Alekhine, Alexander, World Championship 14th, Deutschland/Niederlande, 1929
+E.Ind.WIn.f3	open	match	World Championship 14th	1929	Alekhine, Alexander	Bogoljubow, Efim	1/2-1/2	5	Alekhine, Alexander-Bogoljubow, Efim, World Championship 14th, Deutschland/Niederlande, 1929
+D.Sla.Nf3.Nf6.e3.e6	open	match	World Championship 14th	1929	Bogoljubow, Efim	Alekhine, Alexander	0-1	8	Bogoljubow, Efim-Alekhine, Alexander, World Championship 14th, Deutschland/Niederlande, 1929
+D.Sla.Nf3.Nf6.e3.e6	open	match	World Championship 14th	1929	Alekhine, Alexander	Bogoljubow, Efim	1/2-1/2	8	Alekhine, Alexander-Bogoljubow, Efim, World Championship 14th, Deutschland/Niederlande, 1929
+E.Ind.QID	open	match	World Championship 14th	1929	Bogoljubow, Efim	Alekhine, Alexander	0-1	4	Bogoljubow, Efim-Alekhine, Alexander, World Championship 14th, Deutschland/Niederlande, 1929
+E.Nim.Spl.MLn	open	match	World Championship 14th	1929	Bogoljubow, Efim	Alekhine, Alexander	1-0	8	Bogoljubow, Efim-Alekhine, Alexander, World Championship 14th, Deutschland/Niederlande, 1929
+B.Fre.Bur.Be7	open	match	World Championship 14th	1929	Bogoljubow, Efim	Alekhine, Alexander	1/2-1/2	10	Bogoljubow, Efim-Alekhine, Alexander, World Championship 14th, Deutschland/Niederlande, 1929
 D.QGD.Cmb.cxd5.Nxd5	open	match	World Championship 16th	1935	Alekhine, Alexander	Euwe, Max	0-1	14	Alekhine, Alexander-Euwe, Max, World Championship 16th, Amsterdam wch-m, 1935
 E.Nim.Cls.Zur.Mil	open	match	World Championship 16th	1935	Euwe, Max	Alekhine, Alexander	1/2-1/2	10	Euwe, Max-Alekhine, Alexander, World Championship 16th, The Netherlands, 1935
 B.Fre.Win	open	match	World Championship 16th	1935	Alekhine, Alexander	Euwe, Max	1-0	6	Alekhine, Alexander-Euwe, Max, World Championship 16th, Amsterdam wch-m, 1935
@@ -147,7 +145,6 @@ D.QGD.Ort.Rc1.c6.a3	open	match	World Championship 13th	1927	Alekhine, Alexander	
 D.QGD.Ort.Hne.Bxe7.Qxe7.Ne4	open	match	World Championship 13th	1927	Alekhine, Alexander	Capablanca, Jose	1/2-1/2	21	Alekhine, Alexander-Capablanca, Jose, World Championship 13th, Buenos Aires ARG, 1927
 A.Hor.Fch.MLn.Bg5.Nbd7.c6	open	match	World Championship 13th	1927	Capablanca, Jose	Alekhine, Alexander	1/2-1/2	10	Capablanca, Jose-Alekhine, Alexander, World Championship 13th, Buenos Aires ARG, 1927
 D.QGD.Ort.Hne.Bxe7.Qxe7.Ne4	open	match	World Championship 13th	1927	Alekhine, Alexander	Capablanca, Jose	1/2-1/2	21	Alekhine, Alexander-Capablanca, Jose, World Championship 13th, Buenos Aires ARG, 1927
-D.QGD.Ort.Hne.Bxe7.Qxe7.Ne4	open	match	World Championship 13th	1927	Bellod Thomas, Gonzalo	De La Torre Huertas, Carlos	1/2-1/2	21	Bellod Thomas, Gonzalo-De La Torre Huertas, Carlos, World Championship 13th, Buenos Aires ARG, 1927
 D.QGD.Ort.Rc1.c6.a3	open	match	World Championship 13th	1927	Alekhine, Alexander	Capablanca, Jose	1/2-1/2	17	Alekhine, Alexander-Capablanca, Jose, World Championship 13th, Buenos Aires ARG, 1927
 D.QGD.Ort.Hne.Bxe7.Qxe7.Ne4	open	match	World Championship 13th	1927	Alekhine, Alexander	Capablanca, Jose	1/2-1/2	21	Alekhine, Alexander-Capablanca, Jose, World Championship 13th, Buenos Aires ARG, 1927
 D.QGD.Ort.Rc1.c6.a3	open	match	World Championship 13th	1927	Alekhine, Alexander	Capablanca, Jose	1-0	17	Alekhine, Alexander-Capablanca, Jose, World Championship 13th, Buenos Aires wch-m, 1927
@@ -155,11 +152,9 @@ D.QGD.Ort.Hne.Bxe7.Qxe7.Ne4	open	match	World Championship 13th	1927	Alekhine, Al
 A.PQI.Fch.Mar	open	match	World Championship 13th	1927	Capablanca, Jose	Alekhine, Alexander	1-0	8	Capablanca, Jose-Alekhine, Alexander, World Championship 13th, Buenos Aires ARG, 1927
 D.QGD.Ort.Rc1.c6.a3	open	match	World Championship 13th	1927	Alekhine, Alexander	Capablanca, Jose	1/2-1/2	17	Alekhine, Alexander-Capablanca, Jose, World Championship 13th, Buenos Aires ARG, 1927
 A.Hor.Fch.MLn.Bg5.Nbd7.c6	open	match	World Championship 13th	1927	Capablanca, Jose	Alekhine, Alexander	1/2-1/2	10	Capablanca, Jose-Alekhine, Alexander, World Championship 13th, Buenos Aires ARG, 1927
-D.QGD.Ort.Rc1.a6	open	match	World Championship 13th	1927	De La Torre Huertas, Carlos	Gruenfeld, Ernst	1-0	14	De La Torre Huertas, Carlos-Gruenfeld, Ernst, World Championship 13th, Buenos Aires wch-m, 1927
 D.QGD.Ort.Rc1.a6	open	match	World Championship 13th	1927	Capablanca, Jose	Alekhine, Alexander	1/2-1/2	14	Capablanca, Jose-Alekhine, Alexander, World Championship 13th, Buenos Aires ARG, 1927
 D.QGD.Ort.Rc1.a6	open	match	World Championship 13th	1927	Capablanca, Jose	Alekhine, Alexander	0-1	14	Capablanca, Jose-Alekhine, Alexander, World Championship 13th, Buenos Aires wch-m, 1927
 D.QGD.Ort.Hne.Bxe7.Qxe7.Ne4	open	match	World Championship 13th	1927	Alekhine, Alexander	Capablanca, Jose	1/2-1/2	21	Alekhine, Alexander-Capablanca, Jose, World Championship 13th, Buenos Aires ARG, 1927
-D.QGD.Ort.Hne.Sws	open	match	World Championship 13th	1927	Stoppel Harald	Werthmann, Ralph	1/2-1/2	15	Stoppel Harald-Werthmann, Ralph, World Championship 13th, Buenos Aires wch-m, 1927
 C.KGm.Dec.Cls.c3.Bg4	open	match	World Championship 11th	1910	Lasker, Emanuel	Forgacs, Leo	1-0	8	Lasker, Emanuel-Forgacs, Leo, World Championship 11th, Berlijn wch-m, 1910
 D.QPG.Zuk.c5.e3.Nf6	open	match	World Championship 11th	1910	Forgacs, Leo	Lasker, Emanuel	0-1	6	Forgacs, Leo-Lasker, Emanuel, World Championship 11th, Berlijn wch-m, 1910
 D.Rub.Nc6.O-O.Bd6.Bb2.O-O	open	match	World Championship 11th	1910	Forgacs, Leo	Lasker, Emanuel	1/2-1/2	14	Forgacs, Leo-Lasker, Emanuel, World Championship 11th, Berlijn wch-m, 1910
@@ -181,21 +176,21 @@ C.Fou.Spa.Dbl.MLn.d3.d6	open	match	World Championship 9th	1909	Forgacs, Leo	Lask
 C.RyL.Exc.dxc6.d4.exd4.Qxd4	open	match	World Championship 9th	1909	Lasker, Emanuel	Forgacs, Leo	1-0	11	Lasker, Emanuel-Forgacs, Leo, World Championship 9th, Parijs wch-m, 1909
 B.Sic.Acc.Nc3.Bg7.Be3.Nf6	open	match	World Championship 9th	1909	Forgacs, Leo	Lasker, Emanuel	0-1	12	Forgacs, Leo-Lasker, Emanuel, World Championship 9th, Parijs wch-m, 1909
 C.RyL.Exc.dxc6.d4.exd4.Qxd4	open	match	World Championship 9th	1909	Lasker, Emanuel	Forgacs, Leo	1-0	11	Lasker, Emanuel-Forgacs, Leo, World Championship 9th, Parijs wch-m, 1909
-B.Fre.Mac.exd5	open	match	World Championship 7th	1907	Lasker, E.	Marshall Viele, Fabrizio Aaron	1/2-1/2	10	Lasker, E.-Marshall Viele, Fabrizio Aaron, World Championship 7th, New York wch-m, 1907
-D.Chi.Exc	open	match	World Championship 7th	1907	Marshall Viele, Fabrizio Aaron	Lasker, E.	0-1	6	Marshall Viele, Fabrizio Aaron-Lasker, E., World Championship 7th, Memphis wch-m, 1907
-A.Hor.Fch.MLn.Bg5.Be7.Ne4	open	match	World Championship 7th	1907	Marshall Viele, Fabrizio Aaron	Lasker, E.	1/2-1/2	10	Marshall Viele, Fabrizio Aaron-Lasker, E., World Championship 7th, New York wch-m, 1907
-B.Fre.Cls.Bd3	open	match	World Championship 7th	1907	Lasker, E.	Marshall Viele, Fabrizio Aaron	1-0	7	Lasker, E.-Marshall Viele, Fabrizio Aaron, World Championship 7th, Memphis wch-m, 1907
-B.Fre.Cls.Bd3	open	match	World Championship 7th	1907	Lasker, E.	Marshall Viele, Fabrizio Aaron	1-0	7	Lasker, E.-Marshall Viele, Fabrizio Aaron, World Championship 7th, New York wch-m, 1907
-D.Tar.Exd.Nf3	open	match	World Championship 7th	1907	Marshall Viele, Fabrizio Aaron	Lasker, E.	1/2-1/2	9	Marshall Viele, Fabrizio Aaron-Lasker, E., World Championship 7th, Philadelphia wch-m, 1907
-D.Tar.Exd.Nf3.Nc6	open	match	World Championship 7th	1907	Marshall Viele, Fabrizio Aaron	Lasker, E.	1/2-1/2	10	Marshall Viele, Fabrizio Aaron-Lasker, E., World Championship 7th, Philadelphia wch-m, 1907
-C.RyL.Ber.Nyh	open	match	World Championship 7th	1907	Marshall Viele, Fabrizio Aaron	Lasker, E.	0-1	9	Marshall Viele, Fabrizio Aaron-Lasker, E., World Championship 7th, New York wch-m, 1907
-B.Fre.Mac.exd5	open	match	World Championship 7th	1907	Lasker, E.	Marshall Viele, Fabrizio Aaron	1/2-1/2	10	Lasker, E.-Marshall Viele, Fabrizio Aaron, World Championship 7th, Baltimore wch-m, 1907
-B.Fre.Mac.exd5	open	match	World Championship 7th	1907	Lasker, E.	Marshall Viele, Fabrizio Aaron	1-0	10	Lasker, E.-Marshall Viele, Fabrizio Aaron, World Championship 7th, Philadelphia wch-m, 1907
-A.Hor.Fch.MLn.Bg5.Be7.Ne4	open	match	World Championship 7th	1907	Marshall Viele, Fabrizio Aaron	Lasker, E.	0-1	10	Marshall Viele, Fabrizio Aaron-Lasker, E., World Championship 7th, New York wch-m, 1907
-A.Hol.Sta.MLn.c6	open	match	World Championship 7th	1907	Marshall Viele, Fabrizio Aaron	Lasker, E.	1/2-1/2	8	Marshall Viele, Fabrizio Aaron-Lasker, E., World Championship 7th, Chicago wch-m, 1907
-B.Fre.Cls.Bd3	open	match	World Championship 7th	1907	Lasker, E.	Marshall Viele, Fabrizio Aaron	1-0	7	Lasker, E.-Marshall Viele, Fabrizio Aaron, World Championship 7th, Memphis wch-m, 1907
-A.Hor.Fch.MLn.Bg5.Be7.Ne4	open	match	World Championship 7th	1907	Marshall Viele, Fabrizio Aaron	Lasker, E.	0-1	10	Marshall Viele, Fabrizio Aaron-Lasker, E., World Championship 7th, New York wch-m, 1907
-B.Fre.Mac.MLn.Bd2.Bxc3.g6	open	match	World Championship 7th	1907	Lasker, E.	Marshall Viele, Fabrizio Aaron	1/2-1/2	16	Lasker, E.-Marshall Viele, Fabrizio Aaron, World Championship 7th, New York wch-m, 1907
+B.Fre.Mac.exd5	open	match	World Championship 7th	1907	Lasker, Emanuel	Marshall, Frank	1/2-1/2	10	Lasker, Emanuel-Marshall, Frank, World Championship 7th, New York wch-m, 1907
+D.Chi.Exc	open	match	World Championship 7th	1907	Marshall, Frank	Lasker, Emanuel	0-1	6	Marshall, Frank-Lasker, Emanuel, World Championship 7th, Memphis wch-m, 1907
+A.Hor.Fch.MLn.Bg5.Be7.Ne4	open	match	World Championship 7th	1907	Marshall, Frank	Lasker, Emanuel	1/2-1/2	10	Marshall, Frank-Lasker, Emanuel, World Championship 7th, New York wch-m, 1907
+B.Fre.Cls.Bd3	open	match	World Championship 7th	1907	Lasker, Emanuel	Marshall, Frank	1-0	7	Lasker, Emanuel-Marshall, Frank, World Championship 7th, Memphis wch-m, 1907
+B.Fre.Cls.Bd3	open	match	World Championship 7th	1907	Lasker, Emanuel	Marshall, Frank	1-0	7	Lasker, Emanuel-Marshall, Frank, World Championship 7th, New York wch-m, 1907
+D.Tar.Exd.Nf3	open	match	World Championship 7th	1907	Marshall, Frank	Lasker, Emanuel	1/2-1/2	9	Marshall, Frank-Lasker, Emanuel, World Championship 7th, Philadelphia wch-m, 1907
+D.Tar.Exd.Nf3.Nc6	open	match	World Championship 7th	1907	Marshall, Frank	Lasker, Emanuel	1/2-1/2	10	Marshall, Frank-Lasker, Emanuel, World Championship 7th, Philadelphia wch-m, 1907
+C.RyL.Ber.Nyh	open	match	World Championship 7th	1907	Marshall, Frank	Lasker, Emanuel	0-1	9	Marshall, Frank-Lasker, Emanuel, World Championship 7th, New York wch-m, 1907
+B.Fre.Mac.exd5	open	match	World Championship 7th	1907	Lasker, Emanuel	Marshall, Frank	1/2-1/2	10	Lasker, Emanuel-Marshall, Frank, World Championship 7th, Baltimore wch-m, 1907
+B.Fre.Mac.exd5	open	match	World Championship 7th	1907	Lasker, Emanuel	Marshall, Frank	1-0	10	Lasker, Emanuel-Marshall, Frank, World Championship 7th, Philadelphia wch-m, 1907
+A.Hor.Fch.MLn.Bg5.Be7.Ne4	open	match	World Championship 7th	1907	Marshall, Frank	Lasker, Emanuel	0-1	10	Marshall, Frank-Lasker, Emanuel, World Championship 7th, New York wch-m, 1907
+A.Hol.Sta.MLn.c6	open	match	World Championship 7th	1907	Marshall, Frank	Lasker, Emanuel	1/2-1/2	8	Marshall, Frank-Lasker, Emanuel, World Championship 7th, Chicago wch-m, 1907
+B.Fre.Cls.Bd3	open	match	World Championship 7th	1907	Lasker, Emanuel	Marshall, Frank	1-0	7	Lasker, Emanuel-Marshall, Frank, World Championship 7th, Memphis wch-m, 1907
+A.Hor.Fch.MLn.Bg5.Be7.Ne4	open	match	World Championship 7th	1907	Marshall, Frank	Lasker, Emanuel	0-1	10	Marshall, Frank-Lasker, Emanuel, World Championship 7th, New York wch-m, 1907
+B.Fre.Mac.MLn.Bd2.Bxc3.g6	open	match	World Championship 7th	1907	Lasker, Emanuel	Marshall, Frank	1/2-1/2	16	Lasker, Emanuel-Marshall, Frank, World Championship 7th, New York wch-m, 1907
 D.QGD.Ort.Te7	open	match	World Championship 12th	1921	Capablanca, Jose	Lasker, Emanuel	1/2-1/2	15	Capablanca, Jose-Lasker, Emanuel, World Championship 12th, Havana CUB, 1921
 D.QGD.Cls.Nf3.Nbd7.Qc2	open	match	World Championship 12th	1921	Lasker, Emanuel	Capablanca, Jose	0-1	13	Lasker, Emanuel-Capablanca, Jose, World Championship 12th, Havana CUB, 1921
 C.RyL.Ber.O-O.Hdg	open	match	World Championship 12th	1921	Capablanca, Jose	Lasker, Emanuel	1/2-1/2	12	Capablanca, Jose-Lasker, Emanuel, World Championship 12th, Havana CUB, 1921
@@ -237,29 +232,29 @@ C.RyL.Ber.O-O.Ben	open	match	World Championship 10th	1910	Morrison, John	Lasker,
 C.RyL.Ber.O-O.d6.d4.Bd7	open	match	World Championship 10th	1910	Morrison, John	Lasker, Emanuel	1/2-1/2	10	Morrison, John-Lasker, Emanuel, World Championship 10th, Wenen wch-m, 1910
 D.Sla.Sch.MLn.Bd3.O-O	open	match	World Championship 10th	1910	Lasker, Emanuel	Morrison, John	1-0	12	Lasker, Emanuel-Morrison, John, World Championship 10th, Berlijn wch-m, 1910
 B.Sic.Sve.Nb3	open	match	World Championship 10th	1910	Morrison, John	Lasker, Emanuel	1/2-1/2	11	Morrison, John-Lasker, Emanuel, World Championship 10th, Berlijn wch-m, 1910
-D.Tar.Cls.Spa	open	match	World Championship 27th	1969	Petrosian, Tigran V	Spassky, Boris V.	1/2-1/2	22	Petrosian, Tigran V-Spassky, Boris V., World Championship 27th, Moskou wch-m, 1969
-D.Tar.Cls.Spa	open	match	World Championship 27th	1969	Petrosian, Tigran V	Spassky, Boris V.	1/2-1/2	22	Petrosian, Tigran V-Spassky, Boris V., World Championship 27th, Moskou wch-m, 1969
-D.QGD.Cls.MLn.Ant	open	match	World Championship 27th	1969	Petrosian, Tigran V	Spassky, Boris V.	1-0	13	Petrosian, Tigran V-Spassky, Boris V., World Championship 27th, Moskou wch-m, 1969
-E.Ind.e6.Nf3.d5.Bg5	open	match	World Championship 27th	1969	Petrosian, Tigran V	Spassky, Boris V.	1/2-1/2	7	Petrosian, Tigran V-Spassky, Boris V., World Championship 27th, Moskou wch-m, 1969
-E.QID.Pet.KPe.d5	open	match	World Championship 27th	1969	Spassky, Boris V.	Petrosian, Tigran V	0-1	10	Spassky, Boris V.-Petrosian, Tigran V, World Championship 27th, Moskou wch-m, 1969
-C.RyL.Cls.Kho	open	match	World Championship 27th	1969	Spassky, Boris V.	Petrosian, Tigran V	1-0	18	Spassky, Boris V.-Petrosian, Tigran V, World Championship 27th, Moscow RUS, 1969
-D.Tar.Cls.Spa	open	match	World Championship 27th	1969	Petrosian, Tigran V	Spassky, Boris V.	0-1	22	Petrosian, Tigran V-Spassky, Boris V., World Championship 27th, Moskou wch-m, 1969
-D.STa.Exc.MLn.Nxd5.Bb4	open	match	World Championship 27th	1969	Spassky, Boris Vasily	Petrosian, Tigran V	1-0	16	Spassky, Boris Vasily-Petrosian, Tigran V, World Championship 27th, Moskou wch-m, 1969
-D.Sla.Cls.MLn.O-O.Nbd7	open	match	World Championship 27th	1969	Spassky, Boris Vasily	Petrosian, Tigran V	1/2-1/2	16	Spassky, Boris Vasily-Petrosian, Tigran V, World Championship 27th, Moskou wch-m, 1969
-B.Sic.Naj.Bg5.Nbd7	open	match	World Championship 27th	1969	Spassky, Boris V.	Petrosian, Tigran V	1-0	12	Spassky, Boris V.-Petrosian, Tigran V, World Championship 27th, Moskou wch-m, 1969
-B.Sic.Kan.Bd3	open	match	World Championship 27th	1969	Spassky, Boris Vasily	Petrosian, Tigran V	1-0	9	Spassky, Boris Vasily-Petrosian, Tigran V, World Championship 27th, Moskou wch-m, 1969
-C.Pet.Nxe5.d6.Nf3.Nxe4.Qe2	open	match	World Championship 27th	1969	Spassky, Boris V.	Petrosian, Tigran V	1/2-1/2	9	Spassky, Boris V.-Petrosian, Tigran V, World Championship 27th, Moskou wch-m, 1969
-C.Pet.Nxe5.d6.Nf3.Nxe4.Qe2	open	match	World Championship 27th	1969	Spassky, Boris Vasily	Petrosian, Tigran V	1/2-1/2	9	Spassky, Boris Vasily-Petrosian, Tigran V, World Championship 27th, Moskou wch-m, 1969
-B.Sic.Kan.Bd3	open	match	World Championship 27th	1969	Spassky, Boris V.	Petrosian, Tigran V	0-1	9	Spassky, Boris V.-Petrosian, Tigran V, World Championship 27th, Moskou wch-m, 1969
-B.Sic.Acc.Mar.Nf6.Nc3.Nxd4	open	match	World Championship 27th	1969	Spassky, Boris Vasily	Petrosian, Tigran V	1/2-1/2	12	Spassky, Boris Vasily-Petrosian, Tigran V, World Championship 27th, Moscow RUS, 1969
-D.Tar.Cls.Bg5.MLn	open	match	World Championship 27th	1969	Petrosian, Tigran V	Spassky, Boris V.	1/2-1/2	22	Petrosian, Tigran V-Spassky, Boris V., World Championship 27th, Moskou wch-m, 1969
-A.Hor.Fch.MLn.Bg5.Be7.Nf3	open	match	World Championship 27th	1969	Petrosian, Tigran V	Spassky, Boris V.	1/2-1/2	9	Petrosian, Tigran V-Spassky, Boris V., World Championship 27th, Moskou wch-m, 1969
-D.Tar.Cls.Bg5.Be6	open	match	World Championship 27th	1969	Petrosian, Tigran V	Spassky, Boris V.	1/2-1/2	18	Petrosian, Tigran V-Spassky, Boris V., World Championship 27th, Moskou wch-m, 1969
-D.QGD.Har	open	match	World Championship 27th	1969	Petrosian, Tigran V	Spassky, Boris V.	0-1	9	Petrosian, Tigran V-Spassky, Boris V., World Championship 27th, Moskou wch-m, 1969
-D.QGD.Cls.MLn.Ant	open	match	World Championship 27th	1969	Petrosian, Tigran V	Spassky, Boris V.	1/2-1/2	13	Petrosian, Tigran V-Spassky, Boris V., World Championship 27th, Moskou wch-m, 1969
-E.Ben.Czk.MLn.g6	open	match	World Championship 27th	1969	Spassky, Boris Vasily	Petrosian, Tigran V	1/2-1/2	10	Spassky, Boris Vasily-Petrosian, Tigran V, World Championship 27th, Moskou wch-m, 1969
-E.Nim.Rub.Res	open	match	World Championship 27th	1969	Petrosian, Tigran V	Spassky, Boris V.	1-0	9	Petrosian, Tigran V-Spassky, Boris V., World Championship 27th, Moskou wch-m, 1969
-B.Sic.Tay.Nc3.Qc7.Be3.a6	open	match	World Championship 27th	1969	Spassky, Boris Vasily	Petrosian, Tigran V	1/2-1/2	12	Spassky, Boris Vasily-Petrosian, Tigran V, World Championship 27th, Moskou wch-m, 1969
+D.Tar.Cls.Spa	open	match	World Championship 27th	1969	Petrosian, Tigran V	Spassky, Boris	1/2-1/2	22	Petrosian, Tigran V-Spassky, Boris, World Championship 27th, Moskou wch-m, 1969
+D.Tar.Cls.Spa	open	match	World Championship 27th	1969	Petrosian, Tigran V	Spassky, Boris	1/2-1/2	22	Petrosian, Tigran V-Spassky, Boris, World Championship 27th, Moskou wch-m, 1969
+D.QGD.Cls.MLn.Ant	open	match	World Championship 27th	1969	Petrosian, Tigran V	Spassky, Boris	1-0	13	Petrosian, Tigran V-Spassky, Boris, World Championship 27th, Moskou wch-m, 1969
+E.Ind.e6.Nf3.d5.Bg5	open	match	World Championship 27th	1969	Petrosian, Tigran V	Spassky, Boris	1/2-1/2	7	Petrosian, Tigran V-Spassky, Boris, World Championship 27th, Moskou wch-m, 1969
+E.QID.Pet.KPe.d5	open	match	World Championship 27th	1969	Spassky, Boris	Petrosian, Tigran V	0-1	10	Spassky, Boris-Petrosian, Tigran V, World Championship 27th, Moskou wch-m, 1969
+C.RyL.Cls.Kho	open	match	World Championship 27th	1969	Spassky, Boris	Petrosian, Tigran V	1-0	18	Spassky, Boris-Petrosian, Tigran V, World Championship 27th, Moscow RUS, 1969
+D.Tar.Cls.Spa	open	match	World Championship 27th	1969	Petrosian, Tigran V	Spassky, Boris	0-1	22	Petrosian, Tigran V-Spassky, Boris, World Championship 27th, Moskou wch-m, 1969
+D.STa.Exc.MLn.Nxd5.Bb4	open	match	World Championship 27th	1969	Spassky, Boris	Petrosian, Tigran V	1-0	16	Spassky, Boris-Petrosian, Tigran V, World Championship 27th, Moskou wch-m, 1969
+D.Sla.Cls.MLn.O-O.Nbd7	open	match	World Championship 27th	1969	Spassky, Boris	Petrosian, Tigran V	1/2-1/2	16	Spassky, Boris-Petrosian, Tigran V, World Championship 27th, Moskou wch-m, 1969
+B.Sic.Naj.Bg5.Nbd7	open	match	World Championship 27th	1969	Spassky, Boris	Petrosian, Tigran V	1-0	12	Spassky, Boris-Petrosian, Tigran V, World Championship 27th, Moskou wch-m, 1969
+B.Sic.Kan.Bd3	open	match	World Championship 27th	1969	Spassky, Boris	Petrosian, Tigran V	1-0	9	Spassky, Boris-Petrosian, Tigran V, World Championship 27th, Moskou wch-m, 1969
+C.Pet.Nxe5.d6.Nf3.Nxe4.Qe2	open	match	World Championship 27th	1969	Spassky, Boris	Petrosian, Tigran V	1/2-1/2	9	Spassky, Boris-Petrosian, Tigran V, World Championship 27th, Moskou wch-m, 1969
+C.Pet.Nxe5.d6.Nf3.Nxe4.Qe2	open	match	World Championship 27th	1969	Spassky, Boris	Petrosian, Tigran V	1/2-1/2	9	Spassky, Boris-Petrosian, Tigran V, World Championship 27th, Moskou wch-m, 1969
+B.Sic.Kan.Bd3	open	match	World Championship 27th	1969	Spassky, Boris	Petrosian, Tigran V	0-1	9	Spassky, Boris-Petrosian, Tigran V, World Championship 27th, Moskou wch-m, 1969
+B.Sic.Acc.Mar.Nf6.Nc3.Nxd4	open	match	World Championship 27th	1969	Spassky, Boris	Petrosian, Tigran V	1/2-1/2	12	Spassky, Boris-Petrosian, Tigran V, World Championship 27th, Moscow RUS, 1969
+D.Tar.Cls.Bg5.MLn	open	match	World Championship 27th	1969	Petrosian, Tigran V	Spassky, Boris	1/2-1/2	22	Petrosian, Tigran V-Spassky, Boris, World Championship 27th, Moskou wch-m, 1969
+A.Hor.Fch.MLn.Bg5.Be7.Nf3	open	match	World Championship 27th	1969	Petrosian, Tigran V	Spassky, Boris	1/2-1/2	9	Petrosian, Tigran V-Spassky, Boris, World Championship 27th, Moskou wch-m, 1969
+D.Tar.Cls.Bg5.Be6	open	match	World Championship 27th	1969	Petrosian, Tigran V	Spassky, Boris	1/2-1/2	18	Petrosian, Tigran V-Spassky, Boris, World Championship 27th, Moskou wch-m, 1969
+D.QGD.Har	open	match	World Championship 27th	1969	Petrosian, Tigran V	Spassky, Boris	0-1	9	Petrosian, Tigran V-Spassky, Boris, World Championship 27th, Moskou wch-m, 1969
+D.QGD.Cls.MLn.Ant	open	match	World Championship 27th	1969	Petrosian, Tigran V	Spassky, Boris	1/2-1/2	13	Petrosian, Tigran V-Spassky, Boris, World Championship 27th, Moskou wch-m, 1969
+E.Ben.Czk.MLn.g6	open	match	World Championship 27th	1969	Spassky, Boris	Petrosian, Tigran V	1/2-1/2	10	Spassky, Boris-Petrosian, Tigran V, World Championship 27th, Moskou wch-m, 1969
+E.Nim.Rub.Res	open	match	World Championship 27th	1969	Petrosian, Tigran V	Spassky, Boris	1-0	9	Petrosian, Tigran V-Spassky, Boris, World Championship 27th, Moskou wch-m, 1969
+B.Sic.Tay.Nc3.Qc7.Be3.a6	open	match	World Championship 27th	1969	Spassky, Boris	Petrosian, Tigran V	1/2-1/2	12	Spassky, Boris-Petrosian, Tigran V, World Championship 27th, Moskou wch-m, 1969
 D.Cat.Cls.Qc2.Bf4	open	match	World Championship 25th	1963	Petrosian, Tigran V	Botvinnik, Mikhail	1/2-1/2	15	Petrosian, Tigran V-Botvinnik, Mikhail, World Championship 25th, Moskou wch-m, 1963
 E.QID.Mod.Fch.MLn	open	match	World Championship 25th	1963	Petrosian, Tigran V	Botvinnik, Mikhail	1/2-1/2	13	Petrosian, Tigran V-Botvinnik, Mikhail, World Championship 25th, Moskou wch-m, 1963
 A.Eng.AIn.Nc3.d5.cxd5.g6	open	match	World Championship 25th	1963	Petrosian, Tigran V	Botvinnik, Mikhail	1/2-1/2	8	Petrosian, Tigran V-Botvinnik, Mikhail, World Championship 25th, Moskou wch-m, 1963
@@ -282,28 +277,28 @@ D.QGA.Man	open	match	World Championship 25th	1963	Botvinnik, Mikhail	Petrosian, 
 D.QGA.Cls.MLn	open	match	World Championship 25th	1963	Botvinnik, Mikhail	Petrosian, Tigran V	1/2-1/2	12	Botvinnik, Mikhail-Petrosian, Tigran V, World Championship 25th, Moskou wch-m, 1963
 D.QGA.Cls.Rub.MLn.Qe2	open	match	World Championship 25th	1963	Botvinnik, Mikhail	Petrosian, Tigran V	1/2-1/2	15	Botvinnik, Mikhail-Petrosian, Tigran V, World Championship 25th, Moskou wch-m, 1963
 E.Gru.Qb3	open	match	World Championship 25th	1963	Petrosian, Tigran V	Botvinnik, Mikhail	1-0	7	Petrosian, Tigran V-Botvinnik, Mikhail, World Championship 25th, Moskou wch-m, 1963
-A.Eng.AIn.Nc3.g6	open	match	World Championship 21th	1957	Botvinnik, Mikhail	Smyslov, Vladimir	0-1	4	Botvinnik, Mikhail-Smyslov, Vladimir, World Championship 21th, Moskou wch-m, 1957
+A.Eng.AIn.Nc3.g6	open	match	World Championship 21th	1957	Botvinnik, Mikhail	Smyslov, Vasily	0-1	4	Botvinnik, Mikhail-Smyslov, Vasily, World Championship 21th, Moskou wch-m, 1957
 C.RyL.Cha.MLn.d4.Qc7.dxc5	open	match	World Championship 21th	1957	Smyslov, Vasily	Botvinnik, Mikhail	1/2-1/2	25	Smyslov, Vasily-Botvinnik, Mikhail, World Championship 21th, Moscow RUS, 1957
-B.Fre.Win	open	match	World Championship 21th	1957	Smyslov, Vladimir	Botvinnik, Mikhail	1/2-1/2	6	Smyslov, Vladimir-Botvinnik, Mikhail, World Championship 21th, Moskou wch-m, 1957
-B.Fre.Bur	open	match	World Championship 21th	1957	Smyslov, Vladimir	Botvinnik, Mikhail	1/2-1/2	8	Smyslov, Vladimir-Botvinnik, Mikhail, World Championship 21th, Moskou wch-m, 1957
-A.Eng.Sym.Nc3.Nc6.g3.Bg2	open	match	World Championship 21th	1957	Botvinnik, Mikhail	Smyslov, Vladimir	1/2-1/2	8	Botvinnik, Mikhail-Smyslov, Vladimir, World Championship 21th, Moskou wch-m, 1957
-B.Sic.Cls.Rch.e6.Qd2.a6	open	match	World Championship 21th	1957	Smyslov, Vladimir	Botvinnik, Mikhail	0-1	14	Smyslov, Vladimir-Botvinnik, Mikhail, World Championship 21th, Moskou wch-m, 1957
-B.Fre.Win.Adv.MLn.Qc7	open	match	World Championship 21th	1957	Smyslov, Vladimir	Botvinnik, Mikhail	1-0	12	Smyslov, Vladimir-Botvinnik, Mikhail, World Championship 21th, Moskou wch-m, 1957
-E.Gru.Fch.Pac	open	match	World Championship 21th	1957	Botvinnik, Mikhail	Smyslov, Vladimir	0-1	12	Botvinnik, Mikhail-Smyslov, Vladimir, World Championship 21th, Moskou wch-m, 1957
+B.Fre.Win	open	match	World Championship 21th	1957	Smyslov, Vasily	Botvinnik, Mikhail	1/2-1/2	6	Smyslov, Vasily-Botvinnik, Mikhail, World Championship 21th, Moskou wch-m, 1957
+B.Fre.Bur	open	match	World Championship 21th	1957	Smyslov, Vasily	Botvinnik, Mikhail	1/2-1/2	8	Smyslov, Vasily-Botvinnik, Mikhail, World Championship 21th, Moskou wch-m, 1957
+A.Eng.Sym.Nc3.Nc6.g3.Bg2	open	match	World Championship 21th	1957	Botvinnik, Mikhail	Smyslov, Vasily	1/2-1/2	8	Botvinnik, Mikhail-Smyslov, Vasily, World Championship 21th, Moskou wch-m, 1957
+B.Sic.Cls.Rch.e6.Qd2.a6	open	match	World Championship 21th	1957	Smyslov, Vasily	Botvinnik, Mikhail	0-1	14	Smyslov, Vasily-Botvinnik, Mikhail, World Championship 21th, Moskou wch-m, 1957
+B.Fre.Win.Adv.MLn.Qc7	open	match	World Championship 21th	1957	Smyslov, Vasily	Botvinnik, Mikhail	1-0	12	Smyslov, Vasily-Botvinnik, Mikhail, World Championship 21th, Moskou wch-m, 1957
+E.Gru.Fch.Pac	open	match	World Championship 21th	1957	Botvinnik, Mikhail	Smyslov, Vasily	0-1	12	Botvinnik, Mikhail-Smyslov, Vasily, World Championship 21th, Moskou wch-m, 1957
 C.RyL.Cha.MLn.d4.Qc7.dxc5	open	match	World Championship 21th	1957	Smyslov, Vasily	Botvinnik, Mikhail	1/2-1/2	25	Smyslov, Vasily-Botvinnik, Mikhail, World Championship 21th, Moscow RUS, 1957
-E.Nim.Rub.Flo	open	match	World Championship 21th	1957	Botvinnik, Mikhail	Smyslov, Vladimir	1/2-1/2	10	Botvinnik, Mikhail-Smyslov, Vladimir, World Championship 21th, Moskou wch-m, 1957
-E.Ind.WIn.g3	open	match	World Championship 21th	1957	Botvinnik, Mikhail	Smyslov, Vladimir	1/2-1/2	5	Botvinnik, Mikhail-Smyslov, Vladimir, World Championship 21th, Moskou wch-m, 1957
-E.KID.Fch.MLn.O-O.Lrs	open	match	World Championship 21th	1957	Botvinnik, Mikhail	Smyslov, Vladimir	1/2-1/2	14	Botvinnik, Mikhail-Smyslov, Vladimir, World Championship 21th, Moskou wch-m, 1957
-E.KID.Fch.Sim.MLn.Blk	open	match	World Championship 21th	1957	Botvinnik, Mikhail	Smyslov, Vladimir	1/2-1/2	20	Botvinnik, Mikhail-Smyslov, Vladimir, World Championship 21th, Moskou wch-m, 1957
-E.KID.Fch.MLn	open	match	World Championship 21th	1957	Botvinnik, Mikhail	Smyslov, Vladimir	1-0	11	Botvinnik, Mikhail-Smyslov, Vladimir, World Championship 21th, Moskou wch-m, 1957
+E.Nim.Rub.Flo	open	match	World Championship 21th	1957	Botvinnik, Mikhail	Smyslov, Vasily	1/2-1/2	10	Botvinnik, Mikhail-Smyslov, Vasily, World Championship 21th, Moskou wch-m, 1957
+E.Ind.WIn.g3	open	match	World Championship 21th	1957	Botvinnik, Mikhail	Smyslov, Vasily	1/2-1/2	5	Botvinnik, Mikhail-Smyslov, Vasily, World Championship 21th, Moskou wch-m, 1957
+E.KID.Fch.MLn.O-O.Lrs	open	match	World Championship 21th	1957	Botvinnik, Mikhail	Smyslov, Vasily	1/2-1/2	14	Botvinnik, Mikhail-Smyslov, Vasily, World Championship 21th, Moskou wch-m, 1957
+E.KID.Fch.Sim.MLn.Blk	open	match	World Championship 21th	1957	Botvinnik, Mikhail	Smyslov, Vasily	1/2-1/2	20	Botvinnik, Mikhail-Smyslov, Vasily, World Championship 21th, Moskou wch-m, 1957
+E.KID.Fch.MLn	open	match	World Championship 21th	1957	Botvinnik, Mikhail	Smyslov, Vasily	1-0	11	Botvinnik, Mikhail-Smyslov, Vasily, World Championship 21th, Moskou wch-m, 1957
 E.Gru.Rus.Hng.e4.Bg4	open	match	World Championship 21th	1957	Smyslov, Vasily	Botvinnik, Mikhail	1-0	14	Smyslov, Vasily-Botvinnik, Mikhail, World Championship 21th, Moscow RUS, 1957
-A.Ret.Nf6.g3.g6.Bg2.Bg7	open	match	World Championship 21th	1957	Botvinnik, Mikhail	Smyslov, Vladimir	1/2-1/2	6	Botvinnik, Mikhail-Smyslov, Vladimir, World Championship 21th, Moskou wch-m, 1957
-B.Fre.Win.Adv.MLn.Qc7	open	match	World Championship 21th	1957	Smyslov, Vladimir	Botvinnik, Mikhail	1/2-1/2	12	Smyslov, Vladimir-Botvinnik, Mikhail, World Championship 21th, Moskou wch-m, 1957
-E.Nim.Rub.Flo	open	match	World Championship 21th	1957	Botvinnik, Mikhail	Smyslov, Vladimir	1-0	10	Botvinnik, Mikhail-Smyslov, Vladimir, World Championship 21th, Moskou wch-m, 1957
-E.Nim.Rub.Flo	open	match	World Championship 21th	1957	Botvinnik, Mikhail	Smyslov, Vladimir	1/2-1/2	10	Botvinnik, Mikhail-Smyslov, Vladimir, World Championship 21th, Moskou wch-m, 1957
-A.Ret.g6.d4	open	match	World Championship 21th	1957	Smyslov, Vladimir	Botvinnik, Mikhail	1-0	8	Smyslov, Vladimir-Botvinnik, Mikhail, World Championship 21th, Moskou wch-m, 1957
-B.Sic.Cls.Rch.e6.Qd2.a6	open	match	World Championship 21th	1957	Smyslov, Vladimir	Botvinnik, Mikhail	1-0	14	Smyslov, Vladimir-Botvinnik, Mikhail, World Championship 21th, Moskou wch-m, 1957
-B.Sic.Cls.Rch.e6.Qd2.a6	open	match	World Championship 21th	1957	Smyslov, Vladimir	Botvinnik, Mikhail	1/2-1/2	14	Smyslov, Vladimir-Botvinnik, Mikhail, World Championship 21th, Moskou wch-m, 1957
+A.Ret.Nf6.g3.g6.Bg2.Bg7	open	match	World Championship 21th	1957	Botvinnik, Mikhail	Smyslov, Vasily	1/2-1/2	6	Botvinnik, Mikhail-Smyslov, Vasily, World Championship 21th, Moskou wch-m, 1957
+B.Fre.Win.Adv.MLn.Qc7	open	match	World Championship 21th	1957	Smyslov, Vasily	Botvinnik, Mikhail	1/2-1/2	12	Smyslov, Vasily-Botvinnik, Mikhail, World Championship 21th, Moskou wch-m, 1957
+E.Nim.Rub.Flo	open	match	World Championship 21th	1957	Botvinnik, Mikhail	Smyslov, Vasily	1-0	10	Botvinnik, Mikhail-Smyslov, Vasily, World Championship 21th, Moskou wch-m, 1957
+E.Nim.Rub.Flo	open	match	World Championship 21th	1957	Botvinnik, Mikhail	Smyslov, Vasily	1/2-1/2	10	Botvinnik, Mikhail-Smyslov, Vasily, World Championship 21th, Moskou wch-m, 1957
+A.Ret.g6.d4	open	match	World Championship 21th	1957	Smyslov, Vasily	Botvinnik, Mikhail	1-0	8	Smyslov, Vasily-Botvinnik, Mikhail, World Championship 21th, Moskou wch-m, 1957
+B.Sic.Cls.Rch.e6.Qd2.a6	open	match	World Championship 21th	1957	Smyslov, Vasily	Botvinnik, Mikhail	1-0	14	Smyslov, Vasily-Botvinnik, Mikhail, World Championship 21th, Moskou wch-m, 1957
+B.Sic.Cls.Rch.e6.Qd2.a6	open	match	World Championship 21th	1957	Smyslov, Vasily	Botvinnik, Mikhail	1/2-1/2	14	Smyslov, Vasily-Botvinnik, Mikhail, World Championship 21th, Moskou wch-m, 1957
 D.Sla.Nf3.Nf6.Nc3.Sch	open	match	World Championship 19th	1951	Bronstein, David I	Botvinnik, Mikhail	1/2-1/2	8	Bronstein, David I-Botvinnik, Mikhail, World Championship 19th, Moskou wch-m, 1951
 A.Hol.Sto.Bot.MLn.Ba3	open	match	World Championship 19th	1951	Botvinnik, Mikhail	Bronstein, David I	1-0	15	Botvinnik, Mikhail-Bronstein, David I, World Championship 19th, Moskou wch-m, 1951
 E.KID.Fch.Kav.Nc3.e5.h3	open	match	World Championship 19th	1951	Botvinnik, Mikhail	Bronstein, David I	0-1	17	Botvinnik, Mikhail-Bronstein, David I, World Championship 19th, Moskou wch-m, 1951
@@ -324,39 +319,39 @@ E.Ind.WIn.g3	open	match	World Championship 19th	1951	Botvinnik, Mikhail	Bronstei
 E.Gru.Neo.MLn.cxd5.O-O	open	match	World Championship 19th	1951	Botvinnik, Mikhail	Bronstein, David I	1-0	13	Botvinnik, Mikhail-Bronstein, David I, World Championship 19th, Moskou wch-m, 1951
 B.Sic.Cls.Rch.e6.Qd2	open	match	World Championship 19th	1951	Bronstein, David I	Botvinnik, Mikhail	0-1	13	Bronstein, David I-Botvinnik, Mikhail, World Championship 19th, Moskou wch-m, 1951
 B.Fre.Tar.Ope.MLn	open	match	World Championship 19th	1951	Botvinnik, Mikhail	Bronstein, David I	1/2-1/2	8	Botvinnik, Mikhail-Bronstein, David I, World Championship 19th, Moskou wch-m, 1951
-D.QGA.Bog.MLn.O-O	women	match	Wch women Riga LAT	1965	Kushnir Aleksandr	Gaprindashvili, Nona	0-1	11	Kushnir Aleksandr-Gaprindashvili, Nona, Wch women Riga LAT, Wch women Riga LAT, 1965
-D.QGA.Cls.Rub.MLn.Qe2	women	match	Wch women Riga LAT	1965	Kushnir Aleksandr	Gaprindashvili, Nona	0-1	15	Kushnir Aleksandr-Gaprindashvili, Nona, Wch women Riga LAT, Wch women Riga LAT, 1965
-D.QGA.Cls.Rub.MLn.Qe2	women	match	Wch women Riga LAT	1965	Kushnir Aleksandr	Gaprindashvili, Nona	1/2-1/2	15	Kushnir Aleksandr-Gaprindashvili, Nona, Wch women Riga LAT, Wch women Riga LAT, 1965
-C.RyL.Mor.Ba4.Nf6.O-O.Cen	women	match	Wch women Riga LAT	1965	Gaprindashvili, Nona	Kushnir Aleksandr	1/2-1/2	11	Gaprindashvili, Nona-Kushnir Aleksandr, Wch women Riga LAT, Wch women Riga LAT, 1965
-C.RyL.Mor.Ba4.Nf6.O-O.Cen	women	match	Wch women Riga LAT	1965	Gaprindashvili, Nona	Kushnir Aleksandr	1-0	11	Gaprindashvili, Nona-Kushnir Aleksandr, Wch women Riga LAT, Wch women Riga LAT, 1965
-C.RyL.Mor.Wor	women	match	Wch women Riga LAT	1965	Gaprindashvili, Nona	Kushnir Aleksandr	0-1	9	Gaprindashvili, Nona-Kushnir Aleksandr, Wch women Riga LAT, Wch women Riga LAT, 1965
-C.Fou.Spa.Rub.MLn	women	match	Wch women Riga LAT	1965	Gaprindashvili, Nona	Kushnir Aleksandr	1-0	9	Gaprindashvili, Nona-Kushnir Aleksandr, Wch women Riga LAT, Wch women Riga LAT, 1965
-D.QGA.Nf3.Nf6.Nc3	women	match	Wch women Riga LAT	1965	Kushnir Aleksandr	Gaprindashvili, Nona	0-1	7	Kushnir Aleksandr-Gaprindashvili, Nona, Wch women Riga LAT, Wch women Riga LAT, 1965
-B.Mod.Std.Nc3.StD	women	match	Wch women Riga LAT	1965	Kushnir Aleksandr	Gaprindashvili, Nona	0-1	6	Kushnir Aleksandr-Gaprindashvili, Nona, Wch women Riga LAT, Wch women Riga LAT, 1965
-B.Sic.Cls.Rch.e6.Qd2.Bd7	women	match	Wch women Riga LAT	1965	Gaprindashvili, Nona	Kushnir Aleksandr	0-1	16	Gaprindashvili, Nona-Kushnir Aleksandr, Wch women Riga LAT, Wch women Riga LAT, 1965
-A.Hol.Sto.c4.Nc3.c6	open	match	World Championship 22th	1958	Botvinnik, Mikhail	Smyslov, Vladimir	0-1	14	Botvinnik, Mikhail-Smyslov, Vladimir, World Championship 22th, Moskou wch-m, 1958
-E.KID.Sml.Cst.Be3	open	match	World Championship 22th	1958	Botvinnik, Mikhail	Smyslov, Vladimir	1-0	11	Botvinnik, Mikhail-Smyslov, Vladimir, World Championship 22th, Moskou wch-m, 1958
-E.Gru.Rus.Hng.e4.Bg4	open	match	World Championship 22th	1958	Botvinnik, Mikhail	Smyslov, Vladimir	1/2-1/2	14	Botvinnik, Mikhail-Smyslov, Vladimir, World Championship 22th, Moskou wch-m, 1958
+D.QGA.Bog.MLn.O-O	women	match	Wch women Riga LAT	1965	Kushnir, Alla	Gaprindashvili, Nona	0-1	11	Kushnir, Alla-Gaprindashvili, Nona, Wch women Riga LAT, Wch women Riga LAT, 1965
+D.QGA.Cls.Rub.MLn.Qe2	women	match	Wch women Riga LAT	1965	Kushnir, Alla	Gaprindashvili, Nona	0-1	15	Kushnir, Alla-Gaprindashvili, Nona, Wch women Riga LAT, Wch women Riga LAT, 1965
+D.QGA.Cls.Rub.MLn.Qe2	women	match	Wch women Riga LAT	1965	Kushnir, Alla	Gaprindashvili, Nona	1/2-1/2	15	Kushnir, Alla-Gaprindashvili, Nona, Wch women Riga LAT, Wch women Riga LAT, 1965
+C.RyL.Mor.Ba4.Nf6.O-O.Cen	women	match	Wch women Riga LAT	1965	Gaprindashvili, Nona	Kushnir, Alla	1/2-1/2	11	Gaprindashvili, Nona-Kushnir, Alla, Wch women Riga LAT, Wch women Riga LAT, 1965
+C.RyL.Mor.Ba4.Nf6.O-O.Cen	women	match	Wch women Riga LAT	1965	Gaprindashvili, Nona	Kushnir, Alla	1-0	11	Gaprindashvili, Nona-Kushnir, Alla, Wch women Riga LAT, Wch women Riga LAT, 1965
+C.RyL.Mor.Wor	women	match	Wch women Riga LAT	1965	Gaprindashvili, Nona	Kushnir, Alla	0-1	9	Gaprindashvili, Nona-Kushnir, Alla, Wch women Riga LAT, Wch women Riga LAT, 1965
+C.Fou.Spa.Rub.MLn	women	match	Wch women Riga LAT	1965	Gaprindashvili, Nona	Kushnir, Alla	1-0	9	Gaprindashvili, Nona-Kushnir, Alla, Wch women Riga LAT, Wch women Riga LAT, 1965
+D.QGA.Nf3.Nf6.Nc3	women	match	Wch women Riga LAT	1965	Kushnir, Alla	Gaprindashvili, Nona	0-1	7	Kushnir, Alla-Gaprindashvili, Nona, Wch women Riga LAT, Wch women Riga LAT, 1965
+B.Mod.Std.Nc3.StD	women	match	Wch women Riga LAT	1965	Kushnir, Alla	Gaprindashvili, Nona	0-1	6	Kushnir, Alla-Gaprindashvili, Nona, Wch women Riga LAT, Wch women Riga LAT, 1965
+B.Sic.Cls.Rch.e6.Qd2.Bd7	women	match	Wch women Riga LAT	1965	Gaprindashvili, Nona	Kushnir, Alla	0-1	16	Gaprindashvili, Nona-Kushnir, Alla, Wch women Riga LAT, Wch women Riga LAT, 1965
+A.Hol.Sto.c4.Nc3.c6	open	match	World Championship 22th	1958	Botvinnik, Mikhail	Smyslov, Vasily	0-1	14	Botvinnik, Mikhail-Smyslov, Vasily, World Championship 22th, Moskou wch-m, 1958
+E.KID.Sml.Cst.Be3	open	match	World Championship 22th	1958	Botvinnik, Mikhail	Smyslov, Vasily	1-0	11	Botvinnik, Mikhail-Smyslov, Vasily, World Championship 22th, Moskou wch-m, 1958
+E.Gru.Rus.Hng.e4.Bg4	open	match	World Championship 22th	1958	Botvinnik, Mikhail	Smyslov, Vasily	1/2-1/2	14	Botvinnik, Mikhail-Smyslov, Vasily, World Championship 22th, Moskou wch-m, 1958
 B.CaK.Cls.Spd.Nd7	open	match	World Championship 22th	1958	Smyslov, Vasily	Botvinnik, Mikhail	0-1	14	Smyslov, Vasily-Botvinnik, Mikhail, World Championship 22th, Moscow RUS, 1958
-B.CaK.Fan	open	match	World Championship 22th	1958	Smyslov, Vladimir	Botvinnik, Mikhail	1-0	5	Smyslov, Vladimir-Botvinnik, Mikhail, World Championship 22th, Moskou wch-m, 1958
-A.Ret.Nf6.g3.g6.b4	open	match	World Championship 22th	1958	Smyslov, Vladimir	Botvinnik, Mikhail	1/2-1/2	5	Smyslov, Vladimir-Botvinnik, Mikhail, World Championship 22th, Moskou wch-m, 1958
-B.CaK.Two.Bg4.h3.Bxf3	open	match	World Championship 22th	1958	Smyslov, Vladimir	Botvinnik, Mikhail	1-0	8	Smyslov, Vladimir-Botvinnik, Mikhail, World Championship 22th, Moskou wch-m, 1958
-B.CaK.Two.Nf6.MLn	open	match	World Championship 22th	1958	Smyslov, Vladimir	Botvinnik, Mikhail	1/2-1/2	9	Smyslov, Vladimir-Botvinnik, Mikhail, World Championship 22th, Moskou wch-m, 1958
-A.Ret.Ang.g3.Nf6.b3.Bf5	open	match	World Championship 22th	1958	Botvinnik, Mikhail	Smyslov, Vladimir	1-0	8	Botvinnik, Mikhail-Smyslov, Vladimir, World Championship 22th, Moskou wch-m, 1958
-B.Sic.Old.d4.cxd4.Nxd4.Nf6	open	match	World Championship 22th	1958	Smyslov, Vladimir	Botvinnik, Mikhail	1/2-1/2	8	Smyslov, Vladimir-Botvinnik, Mikhail, World Championship 22th, Moskou wch-m, 1958
-B.Sic.Dra.Be3.Bg7.Be2.Nc6	open	match	World Championship 22th	1958	Smyslov, Vladimir	Botvinnik, Mikhail	1/2-1/2	14	Smyslov, Vladimir-Botvinnik, Mikhail, World Championship 22th, Moskou wch-m, 1958
-E.KID.Fch.Kav.Nc3.e5.h3	open	match	World Championship 22th	1958	Botvinnik, Mikhail	Smyslov, Vladimir	1/2-1/2	17	Botvinnik, Mikhail-Smyslov, Vladimir, World Championship 22th, Moskou wch-m, 1958
-A.Eng.AIn.Nc3.d5.cxd5.Nxc3	open	match	World Championship 22th	1958	Botvinnik, Mikhail	Smyslov, Vladimir	1/2-1/2	10	Botvinnik, Mikhail-Smyslov, Vladimir, World Championship 22th, Moskou wch-m, 1958
-A.Eng.AIn.Nc3.d5.cxd5.Nxc3	open	match	World Championship 22th	1958	Botvinnik, Mikhail	Smyslov, Vladimir	1/2-1/2	10	Botvinnik, Mikhail-Smyslov, Vladimir, World Championship 22th, Moskou wch-m, 1958
-D.Sem.Mer.Bd3.b4	open	match	World Championship 22th	1958	Smyslov, Vladimir	Botvinnik, Mikhail	1/2-1/2	16	Smyslov, Vladimir-Botvinnik, Mikhail, World Championship 22th, Moskou wch-m, 1958
-E.Gru.Rus.Hng.e4.Bg4	open	match	World Championship 22th	1958	Smyslov, Vladimir	Botvinnik, Mikhail	1-0	14	Smyslov, Vladimir-Botvinnik, Mikhail, World Championship 22th, Moskou wch-m, 1958
-B.Sic.Dra.Be3.Bg7.Be2.Nc6	open	match	World Championship 22th	1958	Smyslov, Vladimir	Botvinnik, Mikhail	1/2-1/2	14	Smyslov, Vladimir-Botvinnik, Mikhail, World Championship 22th, Moskou wch-m, 1958
-B.Sic.Dra.Be3.Bg7.Be2.Nc6	open	match	World Championship 22th	1958	Smyslov, Vladimir	Botvinnik, Mikhail	1-0	14	Smyslov, Vladimir-Botvinnik, Mikhail, World Championship 22th, Moskou wch-m, 1958
-A.Eng.Sym.Nf3	open	match	World Championship 22th	1958	Botvinnik, Mikhail	Smyslov, Vladimir	1/2-1/2	3	Botvinnik, Mikhail-Smyslov, Vladimir, World Championship 22th, Moskou wch-m, 1958
-B.Mod.Avk	open	match	World Championship 22th	1958	Botvinnik, Mikhail	Smyslov, Vladimir	1-0	7	Botvinnik, Mikhail-Smyslov, Vladimir, World Championship 22th, Moskou wch-m, 1958
-A.Eng.AIn.Nc3.d5.cxd5.Nxc3	open	match	World Championship 22th	1958	Botvinnik, Mikhail	Smyslov, Vladimir	1-0	10	Botvinnik, Mikhail-Smyslov, Vladimir, World Championship 22th, Moskou wch-m, 1958
-A.Eng.AIn.Nc3.d5.cxd5.Nxc3	open	match	World Championship 22th	1958	Botvinnik, Mikhail	Smyslov, Vladimir	1-0	10	Botvinnik, Mikhail-Smyslov, Vladimir, World Championship 22th, Moskou wch-m, 1958
-B.CaK.Two.Bg4.h3.Bxf3	open	match	World Championship 22th	1958	Smyslov, Vladimir	Botvinnik, Mikhail	0-1	8	Smyslov, Vladimir-Botvinnik, Mikhail, World Championship 22th, Moskou wch-m, 1958
+B.CaK.Fan	open	match	World Championship 22th	1958	Smyslov, Vasily	Botvinnik, Mikhail	1-0	5	Smyslov, Vasily-Botvinnik, Mikhail, World Championship 22th, Moskou wch-m, 1958
+A.Ret.Nf6.g3.g6.b4	open	match	World Championship 22th	1958	Smyslov, Vasily	Botvinnik, Mikhail	1/2-1/2	5	Smyslov, Vasily-Botvinnik, Mikhail, World Championship 22th, Moskou wch-m, 1958
+B.CaK.Two.Bg4.h3.Bxf3	open	match	World Championship 22th	1958	Smyslov, Vasily	Botvinnik, Mikhail	1-0	8	Smyslov, Vasily-Botvinnik, Mikhail, World Championship 22th, Moskou wch-m, 1958
+B.CaK.Two.Nf6.MLn	open	match	World Championship 22th	1958	Smyslov, Vasily	Botvinnik, Mikhail	1/2-1/2	9	Smyslov, Vasily-Botvinnik, Mikhail, World Championship 22th, Moskou wch-m, 1958
+A.Ret.Ang.g3.Nf6.b3.Bf5	open	match	World Championship 22th	1958	Botvinnik, Mikhail	Smyslov, Vasily	1-0	8	Botvinnik, Mikhail-Smyslov, Vasily, World Championship 22th, Moskou wch-m, 1958
+B.Sic.Old.d4.cxd4.Nxd4.Nf6	open	match	World Championship 22th	1958	Smyslov, Vasily	Botvinnik, Mikhail	1/2-1/2	8	Smyslov, Vasily-Botvinnik, Mikhail, World Championship 22th, Moskou wch-m, 1958
+B.Sic.Dra.Be3.Bg7.Be2.Nc6	open	match	World Championship 22th	1958	Smyslov, Vasily	Botvinnik, Mikhail	1/2-1/2	14	Smyslov, Vasily-Botvinnik, Mikhail, World Championship 22th, Moskou wch-m, 1958
+E.KID.Fch.Kav.Nc3.e5.h3	open	match	World Championship 22th	1958	Botvinnik, Mikhail	Smyslov, Vasily	1/2-1/2	17	Botvinnik, Mikhail-Smyslov, Vasily, World Championship 22th, Moskou wch-m, 1958
+A.Eng.AIn.Nc3.d5.cxd5.Nxc3	open	match	World Championship 22th	1958	Botvinnik, Mikhail	Smyslov, Vasily	1/2-1/2	10	Botvinnik, Mikhail-Smyslov, Vasily, World Championship 22th, Moskou wch-m, 1958
+A.Eng.AIn.Nc3.d5.cxd5.Nxc3	open	match	World Championship 22th	1958	Botvinnik, Mikhail	Smyslov, Vasily	1/2-1/2	10	Botvinnik, Mikhail-Smyslov, Vasily, World Championship 22th, Moskou wch-m, 1958
+D.Sem.Mer.Bd3.b4	open	match	World Championship 22th	1958	Smyslov, Vasily	Botvinnik, Mikhail	1/2-1/2	16	Smyslov, Vasily-Botvinnik, Mikhail, World Championship 22th, Moskou wch-m, 1958
+E.Gru.Rus.Hng.e4.Bg4	open	match	World Championship 22th	1958	Smyslov, Vasily	Botvinnik, Mikhail	1-0	14	Smyslov, Vasily-Botvinnik, Mikhail, World Championship 22th, Moskou wch-m, 1958
+B.Sic.Dra.Be3.Bg7.Be2.Nc6	open	match	World Championship 22th	1958	Smyslov, Vasily	Botvinnik, Mikhail	1/2-1/2	14	Smyslov, Vasily-Botvinnik, Mikhail, World Championship 22th, Moskou wch-m, 1958
+B.Sic.Dra.Be3.Bg7.Be2.Nc6	open	match	World Championship 22th	1958	Smyslov, Vasily	Botvinnik, Mikhail	1-0	14	Smyslov, Vasily-Botvinnik, Mikhail, World Championship 22th, Moskou wch-m, 1958
+A.Eng.Sym.Nf3	open	match	World Championship 22th	1958	Botvinnik, Mikhail	Smyslov, Vasily	1/2-1/2	3	Botvinnik, Mikhail-Smyslov, Vasily, World Championship 22th, Moskou wch-m, 1958
+B.Mod.Avk	open	match	World Championship 22th	1958	Botvinnik, Mikhail	Smyslov, Vasily	1-0	7	Botvinnik, Mikhail-Smyslov, Vasily, World Championship 22th, Moskou wch-m, 1958
+A.Eng.AIn.Nc3.d5.cxd5.Nxc3	open	match	World Championship 22th	1958	Botvinnik, Mikhail	Smyslov, Vasily	1-0	10	Botvinnik, Mikhail-Smyslov, Vasily, World Championship 22th, Moskou wch-m, 1958
+A.Eng.AIn.Nc3.d5.cxd5.Nxc3	open	match	World Championship 22th	1958	Botvinnik, Mikhail	Smyslov, Vasily	1-0	10	Botvinnik, Mikhail-Smyslov, Vasily, World Championship 22th, Moskou wch-m, 1958
+B.CaK.Two.Bg4.h3.Bxf3	open	match	World Championship 22th	1958	Smyslov, Vasily	Botvinnik, Mikhail	0-1	8	Smyslov, Vasily-Botvinnik, Mikhail, World Championship 22th, Moskou wch-m, 1958
 E.Nim.Sml.Bxc3.bxc3	open	match	World Championship 23th	1960	Botvinnik, Mikhail	Tal, Mikhail	1/2-1/2	9	Botvinnik, Mikhail-Tal, Mikhail, World Championship 23th, Moskou wch-m, 1960
 A.Ret.Nf6.g3.g6.Bg2.Bg7	open	match	World Championship 23th	1960	Tal, Mikhail	Botvinnik, Mikhail	1-0	6	Tal, Mikhail-Botvinnik, Mikhail, World Championship 23th, Moscow RUS, 1960
 A.Ret.Nf6.g3.g6.Bg2.Bg7	open	match	World Championship 23th	1960	Tal, Mikhail	Botvinnik, Mikhail	1-0	6	Tal, Mikhail-Botvinnik, Mikhail, World Championship 23th, Moskou wch-m, 1960
@@ -392,120 +387,119 @@ B.CaK.Adv.Bot	open	match	World Championship 24th	1961	Tal, Mikhail	Botvinnik, Mi
 B.CaK.Adv.Bot	open	match	World Championship 24th	1961	Tal, Mikhail	Botvinnik, Mikhail	1/2-1/2	6	Tal, Mikhail-Botvinnik, Mikhail, World Championship 24th, Moskou wch-m, 1961
 E.Nim.Rub.Cls.a3	open	match	World Championship 24th	1961	Botvinnik, Mikhail	Tal, Mikhail	1-0	11	Botvinnik, Mikhail-Tal, Mikhail, World Championship 24th, Moskou wch-m, 1961
 E.Nim.Rub.Cls.a3	open	match	World Championship 24th	1961	Botvinnik, Mikhail	Tal, Mikhail	1-0	11	Botvinnik, Mikhail-Tal, Mikhail, World Championship 24th, Moskou wch-m, 1961
-E.Nim.Sml.Bxc3.bxc3	open	match	World Championship 24th	1961	Botvinnik, Alexander	Al Tal, Ammar	1-0	9	Botvinnik, Alexander-Al Tal, Ammar, World Championship 24th, World Championship Match, 1961
 E.Nim.Rub.Cls.a3	open	match	World Championship 24th	1961	Botvinnik, Mikhail	Tal, Mikhail	1/2-1/2	11	Botvinnik, Mikhail-Tal, Mikhail, World Championship 24th, Moskou wch-m, 1961
 E.KID.Sml	open	match	World Championship 24th	1961	Botvinnik, Mikhail	Tal, Mikhail	1-0	9	Botvinnik, Mikhail-Tal, Mikhail, World Championship 24th, Moskou wch-m, 1961
-B.Sic.Clo.GPr	women	match	Wch women	1962	Gaprindashvili, Nona	Bykova, Elizaveta	1-0	5	Gaprindashvili, Nona-Bykova, Elizaveta, Wch women, Moskou wch-m, 1962
-A.Eng.Rev.Nc3.Nc6.g3.Bg2	women	match	Wch women	1962	Gaprindashvili, Nona	Bykova, Elizaveta	1/2-1/2	8	Gaprindashvili, Nona-Bykova, Elizaveta, Wch women, Moskou wch-m, 1962
-C.RyL.AntM.d3.d6.c3.Na5	women	match	Wch women	1962	Bykova, Elizaveta	Gaprindashvili, Nona	0-1	18	Bykova, Elizaveta-Gaprindashvili, Nona, Wch women, Moskou wch-m, 1962
-B.Pir.Cls.Bg7	women	match	Wch women	1962	Bykova, Elizaveta	Gaprindashvili, Nona	1/2-1/2	8	Bykova, Elizaveta-Gaprindashvili, Nona, Wch women, Moskou wch-m, 1962
-C.RyL.Mor.Ba4.Nf6.O-O.b5	women	match	Wch women	1962	Bykova, Elizaveta	Gaprindashvili, Nona	0-1	10	Bykova, Elizaveta-Gaprindashvili, Nona, Wch women, Moskou wch-m, 1962
-C.RyL.Mor.Ba4.Nf6.O-O.DEx	women	match	Wch women	1962	Bykova, Elizaveta	Gaprindashvili, Nona	1/2-1/2	11	Bykova, Elizaveta-Gaprindashvili, Nona, Wch women, Moskou wch-m, 1962
-B.Sic.Acc.Nc3.Bg7	women	match	Wch women	1962	Gaprindashvili, Nona	Bykova, Elizaveta	1-0	10	Gaprindashvili, Nona-Bykova, Elizaveta, Wch women, Moskou wch-m, 1962
-B.Sic.Acc.Nc3.Bg7	women	match	Wch women	1962	Gaprindashvili, Nona	Bykova, Elizaveta	1-0	10	Gaprindashvili, Nona-Bykova, Elizaveta, Wch women, Moskou wch-m, 1962
-D.QPG.Ver.Ric.Bf5.Bxf6	women	match	Wch women	1962	Bykova, Elizaveta	Gaprindashvili, Nona	0-1	7	Bykova, Elizaveta-Gaprindashvili, Nona, Wch women, Moskou wch-m, 1962
-C.RyL.Cha.MLn.d4.Qc7	women	match	Wch women	1962	Bykova, Elizaveta	Gaprindashvili, Nona	1/2-1/2	22	Bykova, Elizaveta-Gaprindashvili, Nona, Wch women, Moskou wch-m, 1962
-B.Sic.HAc	women	match	Wch women	1962	Gaprindashvili, Nona	Bykova, Elizaveta	1-0	4	Gaprindashvili, Nona-Bykova, Elizaveta, Wch women, Moskou wch-m, 1962
-B.CaK.Cls.Spd	women	match	Wch women	1959	Zvorykina, K.	Bikova, E.	1/2-1/2	12	Zvorykina, K.-Bikova, E., Wch women, Moskou wch-m, 1959
-B.Sic.Cls.Rch.e6.Qd2.a6	women	match	Wch women	1959	Zvorykina, K.	Bikova, E.	0-1	14	Zvorykina, K.-Bikova, E., Wch women, Moskou wch-m, 1959
-E.QID.Fch	women	match	Wch women	1959	Bikova, E.	Zvorykina, K.	1-0	7	Bikova, E.-Zvorykina, K., Wch women, Moskou wch-m, 1959
-C.RyL.Mor.Ba4.d6.c3	women	match	Wch women	1959	Bikova, E.	Zvorykina, K.	1-0	9	Bikova, E.-Zvorykina, K., Wch women, Moskou wch-m, 1959
-B.Fre.Win.Adv	women	match	Wch women	1959	Zvorykina, K.	Bikova, E.	0-1	7	Zvorykina, K.-Bikova, E., Wch women, Moskou wch-m, 1959
-B.Fre.Bur.Be7	women	match	Wch women	1959	Zvorykina, K.	Bikova, E.	1/2-1/2	10	Zvorykina, K.-Bikova, E., Wch women, Moskou wch-m, 1959
-C.RyL.Shl.Jae.fxe4.Nxe4.Qg5	women	match	Wch women	1959	Bikova, E.	Zvorykina, K.	1-0	14	Bikova, E.-Zvorykina, K., Wch women, Moskou wch-m, 1959
-B.Sic.Naj.g3	women	match	Wch women	1959	Zvorykina, K.	Bikova, E.	1-0	11	Zvorykina, K.-Bikova, E., Wch women, Moskou wch-m, 1959
-B.Sic.Naj.g3	women	match	Wch women	1959	Zvorykina, K.	Bikova, E.	1/2-1/2	11	Zvorykina, K.-Bikova, E., Wch women, Moskou wch-m, 1959
-B.Pir.Pre.d4.Nf6.Nc3.e5	women	match	Wch women	1959	Zvorykina, K.	Bikova, E.	1-0	8	Zvorykina, K.-Bikova, E., Wch women, Moskou wch-m, 1959
-B.Fre.d3	open	match	World Championship 20th	1954	Smyslov, Vladimir	Botvinnik, Mikhail	1-0	3	Smyslov, Vladimir-Botvinnik, Mikhail, World Championship 20th, Moskou wch-m, 1954
-B.Fre.Win	open	match	World Championship 20th	1954	Smyslov, Vladimir	Botvinnik, Mikhail	1/2-1/2	6	Smyslov, Vladimir-Botvinnik, Mikhail, World Championship 20th, Moskou wch-m, 1954
-B.Fre.Win	open	match	World Championship 20th	1954	Smyslov, Vladimir	Botvinnik, Mikhail	1/2-1/2	6	Smyslov, Vladimir-Botvinnik, Mikhail, World Championship 20th, Moskou wch-m, 1954
-B.Fre.Win	open	match	World Championship 20th	1954	Smyslov, Vladimir	Botvinnik, Mikhail	1-0	6	Smyslov, Vladimir-Botvinnik, Mikhail, World Championship 20th, Moskou wch-m, 1954
-E.Gru.Hng	open	match	World Championship 20th	1954	Botvinnik, Mikhail	Smyslov, Vladimir	1/2-1/2	10	Botvinnik, Mikhail-Smyslov, Vladimir, World Championship 20th, Moskou wch-m, 1954
-E.KID.Fch.Kav.Nc3.e5.e4	open	match	World Championship 20th	1954	Botvinnik, Mikhail	Smyslov, Vladimir	0-1	15	Botvinnik, Mikhail-Smyslov, Vladimir, World Championship 20th, Moskou wch-m, 1954
-C.RyL.Mor.Ba4.Nf6.O-O.d6	open	match	World Championship 20th	1954	Smyslov, Vladimir	Botvinnik, Mikhail	1-0	10	Smyslov, Vladimir-Botvinnik, Mikhail, World Championship 20th, Moskou wch-m, 1954
-B.Fre.Win.Arm.b4	open	match	World Championship 20th	1954	Smyslov, Vladimir	Botvinnik, Mikhail	0-1	12	Smyslov, Vladimir-Botvinnik, Mikhail, World Championship 20th, Moskou wch-m, 1954
-D.Sla.Cls.MLn.O-O.Nbd7	open	match	World Championship 20th	1954	Botvinnik, Mikhail	Smyslov, Vladimir	1-0	16	Botvinnik, Mikhail-Smyslov, Vladimir, World Championship 20th, Moskou wch-m, 1954
-E.Nim.Rub.Flo	open	match	World Championship 20th	1954	Botvinnik, Mikhail	Smyslov, Vladimir	1-0	10	Botvinnik, Mikhail-Smyslov, Vladimir, World Championship 20th, Moskou wch-m, 1954
-B.Sic.Clo.Fch.MLn.Nge2.e5	open	match	World Championship 20th	1954	Smyslov, Vladimir	Botvinnik, Mikhail	0-1	12	Smyslov, Vladimir-Botvinnik, Mikhail, World Championship 20th, Moskou wch-m, 1954
-A.Ret.Nf6.g3.g6.Bg2.Bg7	open	match	World Championship 20th	1954	Smyslov, Vladimir	Botvinnik, Mikhail	1/2-1/2	6	Smyslov, Vladimir-Botvinnik, Mikhail, World Championship 20th, Moskou wch-m, 1954
-D.QPG.Zuk.Bf5	open	match	World Championship 20th	1954	Botvinnik, Mikhail	Smyslov, Vladimir	1/2-1/2	4	Botvinnik, Mikhail-Smyslov, Vladimir, World Championship 20th, Moskou wch-m, 1954
-E.Ind.WIn.g3.Bg7.Bg2	open	match	World Championship 20th	1954	Botvinnik, Mikhail	Smyslov, Vladimir	1/2-1/2	7	Botvinnik, Mikhail-Smyslov, Vladimir, World Championship 20th, Moskou wch-m, 1954
-E.Gru.Exc.SeV.Bc4.Lsr	open	match	World Championship 20th	1954	Botvinnik, Mikhail	Smyslov, Vladimir	1/2-1/2	16	Botvinnik, Mikhail-Smyslov, Vladimir, World Championship 20th, Moskou wch-m, 1954
-B.Sic.Clo.Fch.g6.Bg2.Bg7	open	match	World Championship 20th	1954	Smyslov, Vladimir	Botvinnik, Mikhail	0-1	8	Smyslov, Vladimir-Botvinnik, Mikhail, World Championship 20th, Moskou wch-m, 1954
-E.KID.Fch.Kav.Nc3.e5.h3	open	match	World Championship 20th	1954	Botvinnik, Mikhail	Smyslov, Vladimir	1/2-1/2	17	Botvinnik, Mikhail-Smyslov, Vladimir, World Championship 20th, Moskou wch-m, 1954
-D.Sem.Bg5.Bot.MLn.g5.Nxg5	open	match	World Championship 20th	1954	Smyslov, Vladimir	Botvinnik, Mikhail	1/2-1/2	17	Smyslov, Vladimir-Botvinnik, Mikhail, World Championship 20th, Moskou wch-m, 1954
-D.QGA.Jan.e3.Bg4.Bxc4.e6	open	match	World Championship 20th	1954	Botvinnik, Mikhail	Smyslov, Vladimir	0-1	10	Botvinnik, Mikhail-Smyslov, Vladimir, World Championship 20th, Moskou wch-m, 1954
-D.QGA.Jan.e3.Bg4.Bxc4.e6	open	match	World Championship 20th	1954	Botvinnik, Mikhail	Smyslov, Vladimir	1-0	10	Botvinnik, Mikhail-Smyslov, Vladimir, World Championship 20th, Moskou wch-m, 1954
-E.Ind.WIn.g3.Bg7.Bg2	open	match	World Championship 20th	1954	Botvinnik, Mikhail	Smyslov, Vladimir	0-1	7	Botvinnik, Mikhail-Smyslov, Vladimir, World Championship 20th, Moskou wch-m, 1954
-E.Ind.WIn.g3.Bg7.Bg2	open	match	World Championship 20th	1954	Botvinnik, Mikhail	Smyslov, Vladimir	1-0	7	Botvinnik, Mikhail-Smyslov, Vladimir, World Championship 20th, Moskou wch-m, 1954
-B.Fre.Win.Arm.b4	open	match	World Championship 20th	1954	Smyslov, Vladimir	Botvinnik, Mikhail	1-0	12	Smyslov, Vladimir-Botvinnik, Mikhail, World Championship 20th, Moskou wch-m, 1954
-B.Fre.Win.Arm.b4	open	match	World Championship 20th	1954	Smyslov, Vladimir	Botvinnik, Mikhail	1/2-1/2	12	Smyslov, Vladimir-Botvinnik, Mikhail, World Championship 20th, Moskou wch-m, 1954
-B.Ale.Mod.dxe5	women	match	Wch women	1969	Gaprindashvili, Nona	Kushnir Aleksandr	1-0	8	Gaprindashvili, Nona-Kushnir Aleksandr, Wch women, Moscow/Tbilisi, 1969
-B.Ale.Mod.MLn.Be2.e6	women	match	Wch women	1969	Gaprindashvili, Nona	Kushnir Aleksandr	0-1	10	Gaprindashvili, Nona-Kushnir Aleksandr, Wch women, Moscow/Tbilisi, 1969
-B.Sic.Acc.Mar.Bg7.Be3.Nf6	women	match	Wch women	1969	Kushnir Aleksandr	Gaprindashvili, Nona	1-0	12	Kushnir Aleksandr-Gaprindashvili, Nona, Wch women, Moscow/Tbilisi, 1969
-B.Ale.Mod.MLn.Be2.e6	women	match	Wch women	1969	Gaprindashvili, Nona	Kushnir Aleksandr	1/2-1/2	10	Gaprindashvili, Nona-Kushnir Aleksandr, Wch women, Moscow/Tbilisi, 1969
-B.Sic.Tay.Nb5.d6.c4.Be7	women	match	Wch women	1969	Gaprindashvili, Nona	Kushnir Aleksandr	1-0	16	Gaprindashvili, Nona-Kushnir Aleksandr, Wch women, Moscow/Tbilisi, 1969
-A.Eng.Sym.Hdg	women	match	Wch women Moscow/Tbilisi	1969	Kushnir Aleksandr	Gaprindashvili, Nona	1/2-1/2	12	Kushnir Aleksandr-Gaprindashvili, Nona, Wch women Moscow/Tbilisi, Wch women Moscow/Tbilisi, 1969
-A.Eng.Sym.Nf3.Nf6	women	match	Wch women Moscow/Tbilisi	1969	Kushnir Aleksandr	Gaprindashvili, Nona	0-1	4	Kushnir Aleksandr-Gaprindashvili, Nona, Wch women Moscow/Tbilisi, Wch women Moscow/Tbilisi, 1969
-A.Eng.Sym.Hdg	women	match	Wch women Moscow/Tbilisi	1969	Kushnir Aleksandr	Gaprindashvili, Nona	1/2-1/2	12	Kushnir Aleksandr-Gaprindashvili, Nona, Wch women Moscow/Tbilisi, Wch women Moscow/Tbilisi, 1969
-A.Eng.Sym.Nf3.Nf6	women	match	Wch women Moscow/Tbilisi	1969	Kushnir Aleksandr	Gaprindashvili, Nona	1/2-1/2	4	Kushnir Aleksandr-Gaprindashvili, Nona, Wch women Moscow/Tbilisi, Wch women Moscow/Tbilisi, 1969
-A.Eng.Sym.Hdg	women	match	Wch women Moscow/Tbilisi	1969	Kushnir Aleksandr	Gaprindashvili, Nona	1/2-1/2	12	Kushnir Aleksandr-Gaprindashvili, Nona, Wch women Moscow/Tbilisi, Wch women Moscow/Tbilisi, 1969
-A.Eng.Sym.Nf3.Nf6	women	match	Wch women Moscow/Tbilisi	1969	Kushnir Aleksandr	Gaprindashvili, Nona	0-1	4	Kushnir Aleksandr-Gaprindashvili, Nona, Wch women Moscow/Tbilisi, Wch women Moscow/Tbilisi, 1969
+B.Sic.Clo.GPr	women	match	Wch women	1962	Gaprindashvili, Nona	Bykova, Elisaveta	1-0	5	Gaprindashvili, Nona-Bykova, Elisaveta, Wch women, Moskou wch-m, 1962
+A.Eng.Rev.Nc3.Nc6.g3.Bg2	women	match	Wch women	1962	Gaprindashvili, Nona	Bykova, Elisaveta	1/2-1/2	8	Gaprindashvili, Nona-Bykova, Elisaveta, Wch women, Moskou wch-m, 1962
+C.RyL.AntM.d3.d6.c3.Na5	women	match	Wch women	1962	Bykova, Elisaveta	Gaprindashvili, Nona	0-1	18	Bykova, Elisaveta-Gaprindashvili, Nona, Wch women, Moskou wch-m, 1962
+B.Pir.Cls.Bg7	women	match	Wch women	1962	Bykova, Elisaveta	Gaprindashvili, Nona	1/2-1/2	8	Bykova, Elisaveta-Gaprindashvili, Nona, Wch women, Moskou wch-m, 1962
+C.RyL.Mor.Ba4.Nf6.O-O.b5	women	match	Wch women	1962	Bykova, Elisaveta	Gaprindashvili, Nona	0-1	10	Bykova, Elisaveta-Gaprindashvili, Nona, Wch women, Moskou wch-m, 1962
+C.RyL.Mor.Ba4.Nf6.O-O.DEx	women	match	Wch women	1962	Bykova, Elisaveta	Gaprindashvili, Nona	1/2-1/2	11	Bykova, Elisaveta-Gaprindashvili, Nona, Wch women, Moskou wch-m, 1962
+B.Sic.Acc.Nc3.Bg7	women	match	Wch women	1962	Gaprindashvili, Nona	Bykova, Elisaveta	1-0	10	Gaprindashvili, Nona-Bykova, Elisaveta, Wch women, Moskou wch-m, 1962
+B.Sic.Acc.Nc3.Bg7	women	match	Wch women	1962	Gaprindashvili, Nona	Bykova, Elisaveta	1-0	10	Gaprindashvili, Nona-Bykova, Elisaveta, Wch women, Moskou wch-m, 1962
+D.QPG.Ver.Ric.Bf5.Bxf6	women	match	Wch women	1962	Bykova, Elisaveta	Gaprindashvili, Nona	0-1	7	Bykova, Elisaveta-Gaprindashvili, Nona, Wch women, Moskou wch-m, 1962
+C.RyL.Cha.MLn.d4.Qc7	women	match	Wch women	1962	Bykova, Elisaveta	Gaprindashvili, Nona	1/2-1/2	22	Bykova, Elisaveta-Gaprindashvili, Nona, Wch women, Moskou wch-m, 1962
+B.Sic.HAc	women	match	Wch women	1962	Gaprindashvili, Nona	Bykova, Elisaveta	1-0	4	Gaprindashvili, Nona-Bykova, Elisaveta, Wch women, Moskou wch-m, 1962
+B.CaK.Cls.Spd	women	match	Wch women	1959	Zvorykina, Kira	Bykova, Elisaveta	1/2-1/2	12	Zvorykina, Kira-Bykova, Elisaveta, Wch women, Moskou wch-m, 1959
+B.Sic.Cls.Rch.e6.Qd2.a6	women	match	Wch women	1959	Zvorykina, Kira	Bykova, Elisaveta	0-1	14	Zvorykina, Kira-Bykova, Elisaveta, Wch women, Moskou wch-m, 1959
+E.QID.Fch	women	match	Wch women	1959	Bykova, Elisaveta	Zvorykina, Kira	1-0	7	Bykova, Elisaveta-Zvorykina, Kira, Wch women, Moskou wch-m, 1959
+C.RyL.Mor.Ba4.d6.c3	women	match	Wch women	1959	Bykova, Elisaveta	Zvorykina, Kira	1-0	9	Bykova, Elisaveta-Zvorykina, Kira, Wch women, Moskou wch-m, 1959
+B.Fre.Win.Adv	women	match	Wch women	1959	Zvorykina, Kira	Bykova, Elisaveta	0-1	7	Zvorykina, Kira-Bykova, Elisaveta, Wch women, Moskou wch-m, 1959
+B.Fre.Bur.Be7	women	match	Wch women	1959	Zvorykina, Kira	Bykova, Elisaveta	1/2-1/2	10	Zvorykina, Kira-Bykova, Elisaveta, Wch women, Moskou wch-m, 1959
+C.RyL.Shl.Jae.fxe4.Nxe4.Qg5	women	match	Wch women	1959	Bykova, Elisaveta	Zvorykina, Kira	1-0	14	Bykova, Elisaveta-Zvorykina, Kira, Wch women, Moskou wch-m, 1959
+B.Sic.Naj.g3	women	match	Wch women	1959	Zvorykina, Kira	Bykova, Elisaveta	1-0	11	Zvorykina, Kira-Bykova, Elisaveta, Wch women, Moskou wch-m, 1959
+B.Sic.Naj.g3	women	match	Wch women	1959	Zvorykina, Kira	Bykova, Elisaveta	1/2-1/2	11	Zvorykina, Kira-Bykova, Elisaveta, Wch women, Moskou wch-m, 1959
+B.Pir.Pre.d4.Nf6.Nc3.e5	women	match	Wch women	1959	Zvorykina, Kira	Bykova, Elisaveta	1-0	8	Zvorykina, Kira-Bykova, Elisaveta, Wch women, Moskou wch-m, 1959
+B.Fre.d3	open	match	World Championship 20th	1954	Smyslov, Vasily	Botvinnik, Mikhail	1-0	3	Smyslov, Vasily-Botvinnik, Mikhail, World Championship 20th, Moskou wch-m, 1954
+B.Fre.Win	open	match	World Championship 20th	1954	Smyslov, Vasily	Botvinnik, Mikhail	1/2-1/2	6	Smyslov, Vasily-Botvinnik, Mikhail, World Championship 20th, Moskou wch-m, 1954
+B.Fre.Win	open	match	World Championship 20th	1954	Smyslov, Vasily	Botvinnik, Mikhail	1/2-1/2	6	Smyslov, Vasily-Botvinnik, Mikhail, World Championship 20th, Moskou wch-m, 1954
+B.Fre.Win	open	match	World Championship 20th	1954	Smyslov, Vasily	Botvinnik, Mikhail	1-0	6	Smyslov, Vasily-Botvinnik, Mikhail, World Championship 20th, Moskou wch-m, 1954
+E.Gru.Hng	open	match	World Championship 20th	1954	Botvinnik, Mikhail	Smyslov, Vasily	1/2-1/2	10	Botvinnik, Mikhail-Smyslov, Vasily, World Championship 20th, Moskou wch-m, 1954
+E.KID.Fch.Kav.Nc3.e5.e4	open	match	World Championship 20th	1954	Botvinnik, Mikhail	Smyslov, Vasily	0-1	15	Botvinnik, Mikhail-Smyslov, Vasily, World Championship 20th, Moskou wch-m, 1954
+C.RyL.Mor.Ba4.Nf6.O-O.d6	open	match	World Championship 20th	1954	Smyslov, Vasily	Botvinnik, Mikhail	1-0	10	Smyslov, Vasily-Botvinnik, Mikhail, World Championship 20th, Moskou wch-m, 1954
+B.Fre.Win.Arm.b4	open	match	World Championship 20th	1954	Smyslov, Vasily	Botvinnik, Mikhail	0-1	12	Smyslov, Vasily-Botvinnik, Mikhail, World Championship 20th, Moskou wch-m, 1954
+D.Sla.Cls.MLn.O-O.Nbd7	open	match	World Championship 20th	1954	Botvinnik, Mikhail	Smyslov, Vasily	1-0	16	Botvinnik, Mikhail-Smyslov, Vasily, World Championship 20th, Moskou wch-m, 1954
+E.Nim.Rub.Flo	open	match	World Championship 20th	1954	Botvinnik, Mikhail	Smyslov, Vasily	1-0	10	Botvinnik, Mikhail-Smyslov, Vasily, World Championship 20th, Moskou wch-m, 1954
+B.Sic.Clo.Fch.MLn.Nge2.e5	open	match	World Championship 20th	1954	Smyslov, Vasily	Botvinnik, Mikhail	0-1	12	Smyslov, Vasily-Botvinnik, Mikhail, World Championship 20th, Moskou wch-m, 1954
+A.Ret.Nf6.g3.g6.Bg2.Bg7	open	match	World Championship 20th	1954	Smyslov, Vasily	Botvinnik, Mikhail	1/2-1/2	6	Smyslov, Vasily-Botvinnik, Mikhail, World Championship 20th, Moskou wch-m, 1954
+D.QPG.Zuk.Bf5	open	match	World Championship 20th	1954	Botvinnik, Mikhail	Smyslov, Vasily	1/2-1/2	4	Botvinnik, Mikhail-Smyslov, Vasily, World Championship 20th, Moskou wch-m, 1954
+E.Ind.WIn.g3.Bg7.Bg2	open	match	World Championship 20th	1954	Botvinnik, Mikhail	Smyslov, Vasily	1/2-1/2	7	Botvinnik, Mikhail-Smyslov, Vasily, World Championship 20th, Moskou wch-m, 1954
+E.Gru.Exc.SeV.Bc4.Lsr	open	match	World Championship 20th	1954	Botvinnik, Mikhail	Smyslov, Vasily	1/2-1/2	16	Botvinnik, Mikhail-Smyslov, Vasily, World Championship 20th, Moskou wch-m, 1954
+B.Sic.Clo.Fch.g6.Bg2.Bg7	open	match	World Championship 20th	1954	Smyslov, Vasily	Botvinnik, Mikhail	0-1	8	Smyslov, Vasily-Botvinnik, Mikhail, World Championship 20th, Moskou wch-m, 1954
+E.KID.Fch.Kav.Nc3.e5.h3	open	match	World Championship 20th	1954	Botvinnik, Mikhail	Smyslov, Vasily	1/2-1/2	17	Botvinnik, Mikhail-Smyslov, Vasily, World Championship 20th, Moskou wch-m, 1954
+D.Sem.Bg5.Bot.MLn.g5.Nxg5	open	match	World Championship 20th	1954	Smyslov, Vasily	Botvinnik, Mikhail	1/2-1/2	17	Smyslov, Vasily-Botvinnik, Mikhail, World Championship 20th, Moskou wch-m, 1954
+D.QGA.Jan.e3.Bg4.Bxc4.e6	open	match	World Championship 20th	1954	Botvinnik, Mikhail	Smyslov, Vasily	0-1	10	Botvinnik, Mikhail-Smyslov, Vasily, World Championship 20th, Moskou wch-m, 1954
+D.QGA.Jan.e3.Bg4.Bxc4.e6	open	match	World Championship 20th	1954	Botvinnik, Mikhail	Smyslov, Vasily	1-0	10	Botvinnik, Mikhail-Smyslov, Vasily, World Championship 20th, Moskou wch-m, 1954
+E.Ind.WIn.g3.Bg7.Bg2	open	match	World Championship 20th	1954	Botvinnik, Mikhail	Smyslov, Vasily	0-1	7	Botvinnik, Mikhail-Smyslov, Vasily, World Championship 20th, Moskou wch-m, 1954
+E.Ind.WIn.g3.Bg7.Bg2	open	match	World Championship 20th	1954	Botvinnik, Mikhail	Smyslov, Vasily	1-0	7	Botvinnik, Mikhail-Smyslov, Vasily, World Championship 20th, Moskou wch-m, 1954
+B.Fre.Win.Arm.b4	open	match	World Championship 20th	1954	Smyslov, Vasily	Botvinnik, Mikhail	1-0	12	Smyslov, Vasily-Botvinnik, Mikhail, World Championship 20th, Moskou wch-m, 1954
+B.Fre.Win.Arm.b4	open	match	World Championship 20th	1954	Smyslov, Vasily	Botvinnik, Mikhail	1/2-1/2	12	Smyslov, Vasily-Botvinnik, Mikhail, World Championship 20th, Moskou wch-m, 1954
+B.Ale.Mod.dxe5	women	match	Wch women	1969	Gaprindashvili, Nona	Kushnir, Alla	1-0	8	Gaprindashvili, Nona-Kushnir, Alla, Wch women, Moscow/Tbilisi, 1969
+B.Ale.Mod.MLn.Be2.e6	women	match	Wch women	1969	Gaprindashvili, Nona	Kushnir, Alla	0-1	10	Gaprindashvili, Nona-Kushnir, Alla, Wch women, Moscow/Tbilisi, 1969
+B.Sic.Acc.Mar.Bg7.Be3.Nf6	women	match	Wch women	1969	Kushnir, Alla	Gaprindashvili, Nona	1-0	12	Kushnir, Alla-Gaprindashvili, Nona, Wch women, Moscow/Tbilisi, 1969
+B.Ale.Mod.MLn.Be2.e6	women	match	Wch women	1969	Gaprindashvili, Nona	Kushnir, Alla	1/2-1/2	10	Gaprindashvili, Nona-Kushnir, Alla, Wch women, Moscow/Tbilisi, 1969
+B.Sic.Tay.Nb5.d6.c4.Be7	women	match	Wch women	1969	Gaprindashvili, Nona	Kushnir, Alla	1-0	16	Gaprindashvili, Nona-Kushnir, Alla, Wch women, Moscow/Tbilisi, 1969
+A.Eng.Sym.Hdg	women	match	Wch women Moscow/Tbilisi	1969	Kushnir, Alla	Gaprindashvili, Nona	1/2-1/2	12	Kushnir, Alla-Gaprindashvili, Nona, Wch women Moscow/Tbilisi, Wch women Moscow/Tbilisi, 1969
+A.Eng.Sym.Nf3.Nf6	women	match	Wch women Moscow/Tbilisi	1969	Kushnir, Alla	Gaprindashvili, Nona	0-1	4	Kushnir, Alla-Gaprindashvili, Nona, Wch women Moscow/Tbilisi, Wch women Moscow/Tbilisi, 1969
+A.Eng.Sym.Hdg	women	match	Wch women Moscow/Tbilisi	1969	Kushnir, Alla	Gaprindashvili, Nona	1/2-1/2	12	Kushnir, Alla-Gaprindashvili, Nona, Wch women Moscow/Tbilisi, Wch women Moscow/Tbilisi, 1969
+A.Eng.Sym.Nf3.Nf6	women	match	Wch women Moscow/Tbilisi	1969	Kushnir, Alla	Gaprindashvili, Nona	1/2-1/2	4	Kushnir, Alla-Gaprindashvili, Nona, Wch women Moscow/Tbilisi, Wch women Moscow/Tbilisi, 1969
+A.Eng.Sym.Hdg	women	match	Wch women Moscow/Tbilisi	1969	Kushnir, Alla	Gaprindashvili, Nona	1/2-1/2	12	Kushnir, Alla-Gaprindashvili, Nona, Wch women Moscow/Tbilisi, Wch women Moscow/Tbilisi, 1969
+A.Eng.Sym.Nf3.Nf6	women	match	Wch women Moscow/Tbilisi	1969	Kushnir, Alla	Gaprindashvili, Nona	0-1	4	Kushnir, Alla-Gaprindashvili, Nona, Wch women Moscow/Tbilisi, Wch women Moscow/Tbilisi, 1969
 B.Sic.Tay.Nb5.d6.c4.Be7	women	match	Wch women Moscow/Tbilisi	1969	Gaprindashvili, Nona	Kushnir, Alla	1-0	16	Gaprindashvili, Nona-Kushnir, Alla, Wch women Moscow/Tbilisi, Wch women Moscow/Tbilisi, 1969
-B.Sic.Tay.Nb5.d6.c4.Be7	women	match	Wch women Moscow/Tbilisi	1969	Gaprindashvili, Nona	Kushnir Aleksandr	1-0	16	Gaprindashvili, Nona-Kushnir Aleksandr, Wch women Moscow/Tbilisi, Wch women Moscow/Tbilisi, 1969
-E.Nim.Sml.Bxc3.bxc3	women	match	Wch women	1958	Rubtsova, Olga	Bykova, Elizaveta	1-0	9	Rubtsova, Olga-Bykova, Elizaveta, Wch women, Moskou wch-m, 1958
-B.Sic.Cls	women	match	Wch women	1958	Bykova, Elizaveta	Rubtsova, Olga	1/2-1/2	10	Bykova, Elizaveta-Rubtsova, Olga, Wch women, Moskou wch-m, 1958
-B.Sic.Cls.Rch.e6.Qd2.f4	women	match	Wch women	1958	Rubtsova, Olga	Bykova, Elizaveta	0-1	17	Rubtsova, Olga-Bykova, Elizaveta, Wch women, Moskou wch-m, 1958
-E.KID.Cls.e5.O-O.Nbd7	women	match	Wch women	1958	Rubtsova, Olga	Bykova, Elizaveta	0-1	14	Rubtsova, Olga-Bykova, Elizaveta, Wch women, Moscow RUS, 1958
-E.Nim.Fou.MLn	women	match	Wch women	1958	Rubtsova, Olga	Bykova, Elizaveta	1-0	8	Rubtsova, Olga-Bykova, Elizaveta, Wch women, Moskou wch-m, 1958
-C.RyL.Bir	women	match	Wch women	1958	Bykova, Elizaveta	Rubtsova, Olga	1-0	6	Bykova, Elizaveta-Rubtsova, Olga, Wch women, Moskou wch-m, 1958
-C.RyL.Mor.Opn.MLn.Mot	women	match	Wch women	1958	Bykova, Elizaveta	Rubtsova, Olga	1-0	19	Bykova, Elizaveta-Rubtsova, Olga, Wch women, Moscow RUS, 1958
-B.Sic.Alp.Cen.MLn	women	match	Wch women	1958	Bykova, Elizaveta	Rubtsova, Olga	1/2-1/2	7	Bykova, Elizaveta-Rubtsova, Olga, Wch women, Moskou wch-m, 1958
-A.OID.Nf6.Nc3	women	match	Wch women	1958	Rubtsova, Olga	Bykova, Elizaveta	1-0	5	Rubtsova, Olga-Bykova, Elizaveta, Wch women, Moskou wch-m, 1958
-B.Sic.Ros.Cls	women	match	Wch women	1958	Bykova, Elizaveta	Rubtsova, Olga	1-0	6	Bykova, Elizaveta-Rubtsova, Olga, Wch women, Moskou wch-m, 1958
-E.Ben.Czk.MLn.g6	women	match	Wch women	1958	Rubtsova, Olga	Bykova, Elizaveta	1-0	10	Rubtsova, Olga-Bykova, Elizaveta, Wch women, Moskou wch-m, 1958
-B.Sic.Cls.Rch.e6.Qd2.a6	women	match	Wch women	1958	Rubtsova, Olga	Bykova, Elizaveta	0-1	14	Rubtsova, Olga-Bykova, Elizaveta, Wch women, Moskou wch-m, 1958
-B.CaK.Cls.Spd.Nd7.h5.Bd3	open	match	World Championship 26th	1966	Spassky, Boris V.	Petrosian, Tigran V	1-0	17	Spassky, Boris V.-Petrosian, Tigran V, World Championship 26th, Moskou wch-m, 1966
-B.Mod.Std.Nf3	open	match	World Championship 26th	1966	Petrosian, Tigran V	Spassky, Boris V.	1/2-1/2	5	Petrosian, Tigran V-Spassky, Boris V., World Championship 26th, Moskou wch-m, 1966
-D.STa.Exc	open	match	World Championship 26th	1966	Petrosian, Tigran V	Spassky, Boris Vasily	1/2-1/2	10	Petrosian, Tigran V-Spassky, Boris Vasily, World Championship 26th, Moskou wch-m, 1966
-A.PoD.Bb7	open	match	World Championship 26th	1966	Petrosian, Tigran V	Spassky, Boris V.	1-0	4	Petrosian, Tigran V-Spassky, Boris V., World Championship 26th, Moskou wch-m, 1966
-B.CaK.Cls.Spd.Nd7	open	match	World Championship 26th	1966	Spassky, Boris Vasily	Petrosian, Tigran V	1/2-1/2	14	Spassky, Boris Vasily-Petrosian, Tigran V, World Championship 26th, Moskou wch-m, 1966
-B.Fre.Stn.MLn	open	match	World Championship 26th	1966	Spassky, Boris V.	Petrosian, Tigran V	1-0	8	Spassky, Boris V.-Petrosian, Tigran V, World Championship 26th, Moskou wch-m, 1966
-A.Ret.g6	open	match	World Championship 26th	1966	Petrosian, Tigran V	Spassky, Boris V.	1/2-1/2	2	Petrosian, Tigran V-Spassky, Boris V., World Championship 26th, Moskou wch-m, 1966
-A.Eng.Sym.Rub	open	match	World Championship 26th	1966	Petrosian, Tigran V	Spassky, Boris Vasily	1/2-1/2	10	Petrosian, Tigran V-Spassky, Boris Vasily, World Championship 26th, Moskou wch-m, 1966
-B.Fre.Bur.Be7	open	match	World Championship 26th	1966	Spassky, Boris V.	Petrosian, Tigran V	1/2-1/2	10	Spassky, Boris V.-Petrosian, Tigran V, World Championship 26th, Moskou wch-m, 1966
-B.CaK.Pmv.Nf6.Nc3.e6.Nf3	open	match	World Championship 26th	1966	Spassky, Boris Vasily	Petrosian, Tigran V	1/2-1/2	11	Spassky, Boris Vasily-Petrosian, Tigran V, World Championship 26th, Moskou wch-m, 1966
-B.Fre.Rub.MLn.Nf6.Nxf6.Nxf6	open	match	World Championship 26th	1966	Spassky, Boris Vasily	Petrosian, Tigran V	1/2-1/2	12	Spassky, Boris Vasily-Petrosian, Tigran V, World Championship 26th, Moskou wch-m, 1966
-E.Nim.Rub.Res.MLn.O-O.ML2	open	match	World Championship 26th	1966	Petrosian, Tigran V	Spassky, Boris V.	1-0	19	Petrosian, Tigran V-Spassky, Boris V., World Championship 26th, Moscow RUS, 1966
-E.QID.Pet.KPe	open	match	World Championship 26th	1966	Petrosian, Tigran V	Spassky, Boris V.	1/2-1/2	9	Petrosian, Tigran V-Spassky, Boris V., World Championship 26th, Moskou wch-m, 1966
-B.Sic.Clo.Fch.MLn	open	match	World Championship 26th	1966	Spassky, Boris Vasily	Petrosian, Tigran V	1/2-1/2	10	Spassky, Boris Vasily-Petrosian, Tigran V, World Championship 26th, Moskou wch-m, 1966
-B.Sic.Old	open	match	World Championship 26th	1966	Spassky, Boris V.	Petrosian, Tigran V	1/2-1/2	4	Spassky, Boris V.-Petrosian, Tigran V, World Championship 26th, Moskou wch-m, 1966
-E.Ind.Cat.d5.Bg2.Be7.O-O	open	match	World Championship 26th	1966	Petrosian, Tigran V	Spassky, Boris V.	1/2-1/2	11	Petrosian, Tigran V-Spassky, Boris V., World Championship 26th, Moskou wch-m, 1966
-D.QGD.Tar.Exc.Mak	open	match	World Championship 26th	1966	Petrosian, Tigran V	Spassky, Boris V.	1/2-1/2	22	Petrosian, Tigran V-Spassky, Boris V., World Championship 26th, Moskou wch-m, 1966
-E.Ind.WIn.g3.Bg7.Bg2	open	match	World Championship 26th	1966	Petrosian, Tigran V	Spassky, Boris V.	1/2-1/2	7	Petrosian, Tigran V-Spassky, Boris V., World Championship 26th, Moskou wch-m, 1966
-B.CaK.Pmv.Nf6.Nc3.e6.Nf3	open	match	World Championship 26th	1966	Spassky, Boris V.	Petrosian, Tigran V	1/2-1/2	11	Spassky, Boris V.-Petrosian, Tigran V, World Championship 26th, Moskou wch-m, 1966
-B.CaK.Pmv.Fch	open	match	World Championship 26th	1966	Spassky, Boris V.	Petrosian, Tigran V	1/2-1/2	10	Spassky, Boris V.-Petrosian, Tigran V, World Championship 26th, Moskou wch-m, 1966
-B.Fre.Bur.Be7	open	match	World Championship 26th	1966	Spassky, Boris Vasily	Petrosian, Tigran V	1-0	10	Spassky, Boris Vasily-Petrosian, Tigran V, World Championship 26th, Moskou wch-m, 1966
-A.Ret.Nf6.g3.b5	open	match	World Championship 26th	1966	Petrosian, Tigran V	Spassky, Boris V.	1/2-1/2	4	Petrosian, Tigran V-Spassky, Boris V., World Championship 26th, Moskou wch-m, 1966
-A.Hor.Fch.MLn.Bg5.Be7.Nf3	open	match	World Championship 30th	1981	Korchnoi, Viktor	Karpov, Aleksandr	1/2-1/2	9	Korchnoi, Viktor-Karpov, Aleksandr, World Championship 30th, Merano wch-m, 1981
+B.Sic.Tay.Nb5.d6.c4.Be7	women	match	Wch women Moscow/Tbilisi	1969	Gaprindashvili, Nona	Kushnir, Alla	1-0	16	Gaprindashvili, Nona-Kushnir, Alla, Wch women Moscow/Tbilisi, Wch women Moscow/Tbilisi, 1969
+E.Nim.Sml.Bxc3.bxc3	women	match	Wch women	1958	Rubtsova, Olga	Bykova, Elisaveta	1-0	9	Rubtsova, Olga-Bykova, Elisaveta, Wch women, Moskou wch-m, 1958
+B.Sic.Cls	women	match	Wch women	1958	Bykova, Elisaveta	Rubtsova, Olga	1/2-1/2	10	Bykova, Elisaveta-Rubtsova, Olga, Wch women, Moskou wch-m, 1958
+B.Sic.Cls.Rch.e6.Qd2.f4	women	match	Wch women	1958	Rubtsova, Olga	Bykova, Elisaveta	0-1	17	Rubtsova, Olga-Bykova, Elisaveta, Wch women, Moskou wch-m, 1958
+E.KID.Cls.e5.O-O.Nbd7	women	match	Wch women	1958	Rubtsova, Olga	Bykova, Elisaveta	0-1	14	Rubtsova, Olga-Bykova, Elisaveta, Wch women, Moscow RUS, 1958
+E.Nim.Fou.MLn	women	match	Wch women	1958	Rubtsova, Olga	Bykova, Elisaveta	1-0	8	Rubtsova, Olga-Bykova, Elisaveta, Wch women, Moskou wch-m, 1958
+C.RyL.Bir	women	match	Wch women	1958	Bykova, Elisaveta	Rubtsova, Olga	1-0	6	Bykova, Elisaveta-Rubtsova, Olga, Wch women, Moskou wch-m, 1958
+C.RyL.Mor.Opn.MLn.Mot	women	match	Wch women	1958	Bykova, Elisaveta	Rubtsova, Olga	1-0	19	Bykova, Elisaveta-Rubtsova, Olga, Wch women, Moscow RUS, 1958
+B.Sic.Alp.Cen.MLn	women	match	Wch women	1958	Bykova, Elisaveta	Rubtsova, Olga	1/2-1/2	7	Bykova, Elisaveta-Rubtsova, Olga, Wch women, Moskou wch-m, 1958
+A.OID.Nf6.Nc3	women	match	Wch women	1958	Rubtsova, Olga	Bykova, Elisaveta	1-0	5	Rubtsova, Olga-Bykova, Elisaveta, Wch women, Moskou wch-m, 1958
+B.Sic.Ros.Cls	women	match	Wch women	1958	Bykova, Elisaveta	Rubtsova, Olga	1-0	6	Bykova, Elisaveta-Rubtsova, Olga, Wch women, Moskou wch-m, 1958
+E.Ben.Czk.MLn.g6	women	match	Wch women	1958	Rubtsova, Olga	Bykova, Elisaveta	1-0	10	Rubtsova, Olga-Bykova, Elisaveta, Wch women, Moskou wch-m, 1958
+B.Sic.Cls.Rch.e6.Qd2.a6	women	match	Wch women	1958	Rubtsova, Olga	Bykova, Elisaveta	0-1	14	Rubtsova, Olga-Bykova, Elisaveta, Wch women, Moskou wch-m, 1958
+B.CaK.Cls.Spd.Nd7.h5.Bd3	open	match	World Championship 26th	1966	Spassky, Boris	Petrosian, Tigran V	1-0	17	Spassky, Boris-Petrosian, Tigran V, World Championship 26th, Moskou wch-m, 1966
+B.Mod.Std.Nf3	open	match	World Championship 26th	1966	Petrosian, Tigran V	Spassky, Boris	1/2-1/2	5	Petrosian, Tigran V-Spassky, Boris, World Championship 26th, Moskou wch-m, 1966
+D.STa.Exc	open	match	World Championship 26th	1966	Petrosian, Tigran V	Spassky, Boris	1/2-1/2	10	Petrosian, Tigran V-Spassky, Boris, World Championship 26th, Moskou wch-m, 1966
+A.PoD.Bb7	open	match	World Championship 26th	1966	Petrosian, Tigran V	Spassky, Boris	1-0	4	Petrosian, Tigran V-Spassky, Boris, World Championship 26th, Moskou wch-m, 1966
+B.CaK.Cls.Spd.Nd7	open	match	World Championship 26th	1966	Spassky, Boris	Petrosian, Tigran V	1/2-1/2	14	Spassky, Boris-Petrosian, Tigran V, World Championship 26th, Moskou wch-m, 1966
+B.Fre.Stn.MLn	open	match	World Championship 26th	1966	Spassky, Boris	Petrosian, Tigran V	1-0	8	Spassky, Boris-Petrosian, Tigran V, World Championship 26th, Moskou wch-m, 1966
+A.Ret.g6	open	match	World Championship 26th	1966	Petrosian, Tigran V	Spassky, Boris	1/2-1/2	2	Petrosian, Tigran V-Spassky, Boris, World Championship 26th, Moskou wch-m, 1966
+A.Eng.Sym.Rub	open	match	World Championship 26th	1966	Petrosian, Tigran V	Spassky, Boris	1/2-1/2	10	Petrosian, Tigran V-Spassky, Boris, World Championship 26th, Moskou wch-m, 1966
+B.Fre.Bur.Be7	open	match	World Championship 26th	1966	Spassky, Boris	Petrosian, Tigran V	1/2-1/2	10	Spassky, Boris-Petrosian, Tigran V, World Championship 26th, Moskou wch-m, 1966
+B.CaK.Pmv.Nf6.Nc3.e6.Nf3	open	match	World Championship 26th	1966	Spassky, Boris	Petrosian, Tigran V	1/2-1/2	11	Spassky, Boris-Petrosian, Tigran V, World Championship 26th, Moskou wch-m, 1966
+B.Fre.Rub.MLn.Nf6.Nxf6.Nxf6	open	match	World Championship 26th	1966	Spassky, Boris	Petrosian, Tigran V	1/2-1/2	12	Spassky, Boris-Petrosian, Tigran V, World Championship 26th, Moskou wch-m, 1966
+E.Nim.Rub.Res.MLn.O-O.ML2	open	match	World Championship 26th	1966	Petrosian, Tigran V	Spassky, Boris	1-0	19	Petrosian, Tigran V-Spassky, Boris, World Championship 26th, Moscow RUS, 1966
+E.QID.Pet.KPe	open	match	World Championship 26th	1966	Petrosian, Tigran V	Spassky, Boris	1/2-1/2	9	Petrosian, Tigran V-Spassky, Boris, World Championship 26th, Moskou wch-m, 1966
+B.Sic.Clo.Fch.MLn	open	match	World Championship 26th	1966	Spassky, Boris	Petrosian, Tigran V	1/2-1/2	10	Spassky, Boris-Petrosian, Tigran V, World Championship 26th, Moskou wch-m, 1966
+B.Sic.Old	open	match	World Championship 26th	1966	Spassky, Boris	Petrosian, Tigran V	1/2-1/2	4	Spassky, Boris-Petrosian, Tigran V, World Championship 26th, Moskou wch-m, 1966
+E.Ind.Cat.d5.Bg2.Be7.O-O	open	match	World Championship 26th	1966	Petrosian, Tigran V	Spassky, Boris	1/2-1/2	11	Petrosian, Tigran V-Spassky, Boris, World Championship 26th, Moskou wch-m, 1966
+D.QGD.Tar.Exc.Mak	open	match	World Championship 26th	1966	Petrosian, Tigran V	Spassky, Boris	1/2-1/2	22	Petrosian, Tigran V-Spassky, Boris, World Championship 26th, Moskou wch-m, 1966
+E.Ind.WIn.g3.Bg7.Bg2	open	match	World Championship 26th	1966	Petrosian, Tigran V	Spassky, Boris	1/2-1/2	7	Petrosian, Tigran V-Spassky, Boris, World Championship 26th, Moskou wch-m, 1966
+B.CaK.Pmv.Nf6.Nc3.e6.Nf3	open	match	World Championship 26th	1966	Spassky, Boris	Petrosian, Tigran V	1/2-1/2	11	Spassky, Boris-Petrosian, Tigran V, World Championship 26th, Moskou wch-m, 1966
+B.CaK.Pmv.Fch	open	match	World Championship 26th	1966	Spassky, Boris	Petrosian, Tigran V	1/2-1/2	10	Spassky, Boris-Petrosian, Tigran V, World Championship 26th, Moskou wch-m, 1966
+B.Fre.Bur.Be7	open	match	World Championship 26th	1966	Spassky, Boris	Petrosian, Tigran V	1-0	10	Spassky, Boris-Petrosian, Tigran V, World Championship 26th, Moskou wch-m, 1966
+A.Ret.Nf6.g3.b5	open	match	World Championship 26th	1966	Petrosian, Tigran V	Spassky, Boris	1/2-1/2	4	Petrosian, Tigran V-Spassky, Boris, World Championship 26th, Moskou wch-m, 1966
+A.Hor.Fch.MLn.Bg5.Be7.Nf3	open	match	World Championship 30th	1981	Korchnoi, Viktor	Karpov, Anatoly	1/2-1/2	9	Korchnoi, Viktor-Karpov, Anatoly, World Championship 30th, Merano wch-m, 1981
 D.QGD.Alt	open	match	World Championship 30th	1981	Korchnoi, Viktor	Karpov, Anatoly	1-0	6	Korchnoi, Viktor-Karpov, Anatoly, World Championship 30th, Meran ITA, 1981
-D.QGD.Alt	open	match	World Championship 30th	1981	Korchnoi, Viktor	Karpov, Aleksandr	1-0	6	Korchnoi, Viktor-Karpov, Aleksandr, World Championship 30th, Merano wch-m, 1981
+D.QGD.Alt	open	match	World Championship 30th	1981	Korchnoi, Viktor	Karpov, Anatoly	1-0	6	Korchnoi, Viktor-Karpov, Anatoly, World Championship 30th, Merano wch-m, 1981
 D.QGD.Har.Qc2.Rd1	open	match	World Championship 30th	1981	Korchnoi, Viktor	Karpov, Anatoly	1/2-1/2	19	Korchnoi, Viktor-Karpov, Anatoly, World Championship 30th, Meran ITA, 1981
 C.RyL.Ber.Rio.Qe2.Nd6.Bxc6	open	match	World Championship 30th	1981	Karpov, Anatoly	Korchnoi, Viktor	1-0	13	Karpov, Anatoly-Korchnoi, Viktor, World Championship 30th, Meran ITA, 1981
-C.Ita.Giu.Ga6	open	match	World Championship 30th	1981	Karpov, Aleksandr	Korchnoi, Viktor	1/2-1/2	12	Karpov, Aleksandr-Korchnoi, Viktor, World Championship 30th, Merano wch-m, 1981
+C.Ita.Giu.Ga6	open	match	World Championship 30th	1981	Karpov, Anatoly	Korchnoi, Viktor	1/2-1/2	12	Karpov, Anatoly-Korchnoi, Viktor, World Championship 30th, Merano wch-m, 1981
 C.RyL.Mor.Opn.MLn.StP	open	match	World Championship 30th	1981	Karpov, Anatoly	Korchnoi, Viktor	0-1	19	Karpov, Anatoly-Korchnoi, Viktor, World Championship 30th, Meran ITA, 1981
-C.RyL.Mor.Opn.MLn.Brn	open	match	World Championship 30th	1981	Karpov, Aleksandr	Korchnoi, Viktor	1-0	17	Karpov, Aleksandr-Korchnoi, Viktor, World Championship 30th, Merano wch-m, 1981
+C.RyL.Mor.Opn.MLn.Brn	open	match	World Championship 30th	1981	Karpov, Anatoly	Korchnoi, Viktor	1-0	17	Karpov, Anatoly-Korchnoi, Viktor, World Championship 30th, Merano wch-m, 1981
 C.RyL.Mor.Opn.MLn.Brn	open	match	World Championship 30th	1981	Karpov, Anatoly	Korchnoi, Viktor	1-0	17	Karpov, Anatoly-Korchnoi, Viktor, World Championship 30th, Meran ITA, 1981
 C.RyL.Mor.Opn.MLn.Brn	open	match	World Championship 30th	1981	Karpov, Anatoly	Korchnoi, Viktor	1/2-1/2	17	Karpov, Anatoly-Korchnoi, Viktor, World Championship 30th, Meran ITA, 1981
-C.Ita.Pia.Wai.MLn.Re1.Ba7	open	match	World Championship 30th	1981	Karpov, Aleksandr	Korchnoi, Viktor	1/2-1/2	14	Karpov, Aleksandr-Korchnoi, Viktor, World Championship 30th, Merano wch-m, 1981
-A.Hor.Fch.MLn.Bg5.Be7.Nf3	open	match	World Championship 30th	1981	Korchnoi, Viktor	Karpov, Aleksandr	1-0	9	Korchnoi, Viktor-Karpov, Aleksandr, World Championship 30th, Merano wch-m, 1981
-C.Pet.Cls.Bd3.Nc6.O-O.Chg	open	match	World Championship 30th	1981	Karpov, Aleksandr	Korchnoi, Viktor	1-0	15	Karpov, Aleksandr-Korchnoi, Viktor, World Championship 30th, Merano wch-m, 1981
-A.Hor.Fch.MLn.Bg5.Be7.h6	open	match	World Championship 30th	1981	Korchnoi, Viktor	Karpov, Aleksandr	1/2-1/2	14	Korchnoi, Viktor-Karpov, Aleksandr, World Championship 30th, Merano wch-m, 1981
-A.Eng.Rev.Fou.g3	open	match	World Championship 30th	1981	Korchnoi, Viktor	Karpov, Aleksandr	1/2-1/2	7	Korchnoi, Viktor-Karpov, Aleksandr, World Championship 30th, Merano wch-m, 1981
-A.Eng.AIn.Nc3.d5.cxd5.Nf3	open	match	World Championship 30th	1981	Karpov, Aleksandr	Korchnoi, Viktor	1/2-1/2	7	Karpov, Aleksandr-Korchnoi, Viktor, World Championship 30th, Merano wch-m, 1981
-A.Hor.Fch.MLn.Bg5.Be7.h6	open	match	World Championship 30th	1981	Korchnoi, Viktor	Karpov, Aleksandr	0-1	14	Korchnoi, Viktor-Karpov, Aleksandr, World Championship 30th, Merano wch-m, 1981
-D.QGD.Cls.MLn.Bh4.b6	open	match	World Championship 30th	1981	Korchnoi, Viktor	Karpov, Aleksandr	0-1	14	Korchnoi, Viktor-Karpov, Aleksandr, World Championship 30th, Merano wch-m, 1981
-D.QGD.Cls.MLn.Bh4.b6	open	match	World Championship 30th	1981	Korchnoi, Viktor	Karpov, Aleksandr	1/2-1/2	14	Korchnoi, Viktor-Karpov, Aleksandr, World Championship 30th, Merano wch-m, 1981
+C.Ita.Pia.Wai.MLn.Re1.Ba7	open	match	World Championship 30th	1981	Karpov, Anatoly	Korchnoi, Viktor	1/2-1/2	14	Karpov, Anatoly-Korchnoi, Viktor, World Championship 30th, Merano wch-m, 1981
+A.Hor.Fch.MLn.Bg5.Be7.Nf3	open	match	World Championship 30th	1981	Korchnoi, Viktor	Karpov, Anatoly	1-0	9	Korchnoi, Viktor-Karpov, Anatoly, World Championship 30th, Merano wch-m, 1981
+C.Pet.Cls.Bd3.Nc6.O-O.Chg	open	match	World Championship 30th	1981	Karpov, Anatoly	Korchnoi, Viktor	1-0	15	Karpov, Anatoly-Korchnoi, Viktor, World Championship 30th, Merano wch-m, 1981
+A.Hor.Fch.MLn.Bg5.Be7.h6	open	match	World Championship 30th	1981	Korchnoi, Viktor	Karpov, Anatoly	1/2-1/2	14	Korchnoi, Viktor-Karpov, Anatoly, World Championship 30th, Merano wch-m, 1981
+A.Eng.Rev.Fou.g3	open	match	World Championship 30th	1981	Korchnoi, Viktor	Karpov, Anatoly	1/2-1/2	7	Korchnoi, Viktor-Karpov, Anatoly, World Championship 30th, Merano wch-m, 1981
+A.Eng.AIn.Nc3.d5.cxd5.Nf3	open	match	World Championship 30th	1981	Karpov, Anatoly	Korchnoi, Viktor	1/2-1/2	7	Karpov, Anatoly-Korchnoi, Viktor, World Championship 30th, Merano wch-m, 1981
+A.Hor.Fch.MLn.Bg5.Be7.h6	open	match	World Championship 30th	1981	Korchnoi, Viktor	Karpov, Anatoly	0-1	14	Korchnoi, Viktor-Karpov, Anatoly, World Championship 30th, Merano wch-m, 1981
+D.QGD.Cls.MLn.Bh4.b6	open	match	World Championship 30th	1981	Korchnoi, Viktor	Karpov, Anatoly	0-1	14	Korchnoi, Viktor-Karpov, Anatoly, World Championship 30th, Merano wch-m, 1981
+D.QGD.Cls.MLn.Bh4.b6	open	match	World Championship 30th	1981	Korchnoi, Viktor	Karpov, Anatoly	1/2-1/2	14	Korchnoi, Viktor-Karpov, Anatoly, World Championship 30th, Merano wch-m, 1981
 D.QGD.Cls.MLn.Bh4.b6	open	match	World Championship 34th-KK4	1987	Kasparov, Garry	Karpov, Anatoly	1/2-1/2	14	Kasparov, Garry-Karpov, Anatoly, World Championship 34th-KK4, Sevilla wch-m, 1987
 D.QGD.Har.Har.MLn	open	match	World Championship 34th-KK4	1987	Kasparov, Garry	Karpov, Anatoly	1/2-1/2	14	Kasparov, Garry-Karpov, Anatoly, World Championship 34th-KK4, Sevilla wch-m, 1987
 E.Gru.Rus.Hng.e4.Na6	open	match	World Championship 34th-KK4	1987	Karpov, Anatoly	Kasparov, Garry	1/2-1/2	14	Karpov, Anatoly-Kasparov, Garry, World Championship 34th-KK4, Seville ESP, 1987
@@ -583,10 +577,10 @@ A.Hor.Fch.MLn.Bg5.Be7.h6	open	match	World Championship 31th-KK1	1984	Karpov, Ana
 D.Sem.Mer	open	match	World Championship 31th-KK1	1984	Karpov, Anatoly	Kasparov, Garry	1/2-1/2	14	Karpov, Anatoly-Kasparov, Garry, World Championship 31th-KK1, Moskou wch-m, 1984
 A.Eng.Sym.Rub	open	match	World Championship 31th-KK1	1984	Kasparov, Garry	Karpov, Anatoly	1/2-1/2	10	Kasparov, Garry-Karpov, Anatoly, World Championship 31th-KK1, Moskou wch-m, 1984
 A.Eng.Sym.Rub	open	match	World Championship 31th-KK1	1984	Kasparov, Garry	Karpov, Anatoly	1/2-1/2	10	Kasparov, Garry-Karpov, Anatoly, World Championship 31th-KK1, Moskou wch-m, 1984
-E.Nim.Rub.c5.Ne2	women	match	Wch women Riga LAT	1972	Kushnir Aleksandr	Gaprindashvili, Nona	1/2-1/2	9	Kushnir Aleksandr-Gaprindashvili, Nona, Wch women Riga LAT, Wch women Riga LAT, 1972
-B.Sic.Tay.Nc3.d6.Be2.Nf6	women	match	Wch women Riga LAT	1972	Gaprindashvili, Nona	Kushnir Aleksandr	0-1	12	Gaprindashvili, Nona-Kushnir Aleksandr, Wch women Riga LAT, Wch women Riga LAT, 1972
-A.Kan.MLn.e3.c5.Ne2.cxd4	women	match	Wch women Riga LAT	1972	Kushnir Aleksandr	Gaprindashvili, Nona	1-0	10	Kushnir Aleksandr-Gaprindashvili, Nona, Wch women Riga LAT, Wch women Riga LAT, 1972
-B.Sic.Fre.c3	women	match	Wch women Riga LAT	1972	Gaprindashvili, Nona	Kushnir Aleksandr	1/2-1/2	5	Gaprindashvili, Nona-Kushnir Aleksandr, Wch women Riga LAT, Wch women Riga LAT, 1972
+E.Nim.Rub.c5.Ne2	women	match	Wch women Riga LAT	1972	Kushnir, Alla	Gaprindashvili, Nona	1/2-1/2	9	Kushnir, Alla-Gaprindashvili, Nona, Wch women Riga LAT, Wch women Riga LAT, 1972
+B.Sic.Tay.Nc3.d6.Be2.Nf6	women	match	Wch women Riga LAT	1972	Gaprindashvili, Nona	Kushnir, Alla	0-1	12	Gaprindashvili, Nona-Kushnir, Alla, Wch women Riga LAT, Wch women Riga LAT, 1972
+A.Kan.MLn.e3.c5.Ne2.cxd4	women	match	Wch women Riga LAT	1972	Kushnir, Alla	Gaprindashvili, Nona	1-0	10	Kushnir, Alla-Gaprindashvili, Nona, Wch women Riga LAT, Wch women Riga LAT, 1972
+B.Sic.Fre.c3	women	match	Wch women Riga LAT	1972	Gaprindashvili, Nona	Kushnir, Alla	1/2-1/2	5	Gaprindashvili, Nona-Kushnir, Alla, Wch women Riga LAT, Wch women Riga LAT, 1972
 A.Hor.Fch.MLn.Bg5.Be7.Nf3	open	match	World Championship 32th-KK2	1985	Kasparov, Garry	Karpov, Anatoly	1/2-1/2	9	Kasparov, Garry-Karpov, Anatoly, World Championship 32th-KK2, Moskou wch-m, 1985
 E.Nim.Kas.c5.g3	open	match	World Championship 32th-KK2	1985	Kasparov, Garry	Karpov, Anatoly	1-0	9	Kasparov, Garry-Karpov, Anatoly, World Championship 32th-KK2, Moskou wch-m, 1985
 B.Sic.Naj.Sch.O-O.Be7	open	match	World Championship 32th-KK2	1985	Karpov, Anatoly	Kasparov, Garry	1/2-1/2	14	Karpov, Anatoly-Kasparov, Garry, World Championship 32th-KK2, Moscow RUS, 1985
@@ -604,25 +598,25 @@ E.Nim.Kas.c5.g3	open	match	World Championship 32th-KK2	1985	Kasparov, Garry	Karp
 E.Nim.Kas.c5.g3	open	match	World Championship 32th-KK2	1985	Kasparov, Garry	Karpov, Anatoly	1/2-1/2	9	Kasparov, Garry-Karpov, Anatoly, World Championship 32th-KK2, Moskou wch-m, 1985
 E.Nim.Kas	open	match	World Championship 32th-KK2	1985	Kasparov, Garry	Karpov, Anatoly	1/2-1/2	7	Kasparov, Garry-Karpov, Anatoly, World Championship 32th-KK2, Moskou wch-m, 1985
 C.RyL.Zai.MLn	open	match	World Championship 32th-KK2	1985	Kasparov, Garry	Karpov, Anatoly	1/2-1/2	22	Kasparov, Garry-Karpov, Anatoly, World Championship 32th-KK2, Moscow RUS, 1985
-B.Sic.Naj.Pst.MLn.Qxb2	open	match	World Championship 28th	1972	Spassky, Boris Vasily	Fischer, Robert J	1-0	16	Spassky, Boris Vasily-Fischer, Robert J, World Championship 28th, Reykjavik wch-m, 1972
-B.Sic.Naj.Bg5.e6.f4.Nbd7	open	match	World Championship 28th	1972	Spassky, Boris Vasily	Fischer, Robert J	1/2-1/2	18	Spassky, Boris Vasily-Fischer, Robert J, World Championship 28th, Reykjavik wch-m, 1972
-B.Sic.Naj.Pst.MLn.Qxb2	open	match	World Championship 28th	1972	Spassky, Boris Vasily	Fischer, Robert J	1/2-1/2	16	Spassky, Boris Vasily-Fischer, Robert J, World Championship 28th, Reykjavik wch-m, 1972
-B.Sic.Tay.Eng.MLn	open	match	World Championship 28th	1972	Spassky, Boris V.	Fischer, Robert J	0-1	12	Spassky, Boris V.-Fischer, Robert J, World Championship 28th, Reykjavik wch-m, 1972
-B.Ale.Mod.MLn.Be2.e6	open	match	World Championship 28th	1972	Spassky, Boris Vasily	Fischer, Robert J	1/2-1/2	10	Spassky, Boris Vasily-Fischer, Robert J, World Championship 28th, Reykjavik wch-m, 1972
-D.QGD.Cls.MLn.Bh4	open	match	World Championship 28th	1972	Fischer, Robert J	Spassky, Boris Vasily	1/2-1/2	13	Fischer, Robert J-Spassky, Boris Vasily, World Championship 28th, Reykjavik wch-m, 1972
-B.Sic.Cls.Rch.e6.Qd2.O-O-O	open	match	World Championship 28th	1972	Fischer, Robert J	Spassky, Boris V.	1/2-1/2	18	Fischer, Robert J-Spassky, Boris V., World Championship 28th, Reykjavik ISL, 1972
-E.Nim.Rub.Hub.Rau	open	match	World Championship 28th	1972	Spassky, Boris V.	Fischer, Robert J	0-1	15	Spassky, Boris V.-Fischer, Robert J, World Championship 28th, Reykjavik ISL, 1972
-E.Nim.Rub.Res.MLn.O-O.Brn	open	match	World Championship 28th	1972	Spassky, Boris V.	Fischer, Robert J	1-0	14	Spassky, Boris V.-Fischer, Robert J, World Championship 28th, Reykjavik ISL, 1972
-B.Sic.Cls.Rch.e6.Qd2.Bxf6	open	match	World Championship 28th	1972	Fischer, Robert J	Spassky, Boris Vasily	1/2-1/2	21	Fischer, Robert J-Spassky, Boris Vasily, World Championship 28th, Reykjavik wch-m, 1972
-C.RyL.Exc.dxc6.O-O.f6	open	match	World Championship 28th	1972	Fischer, Robert J	Spassky, Boris Vasily	1/2-1/2	10	Fischer, Robert J-Spassky, Boris Vasily, World Championship 28th, Reykjavik wch-m, 1972
-B.Ale.Mod.KID	open	match	World Championship 28th	1972	Spassky, Boris V.	Fischer, Robert J	0-1	8	Spassky, Boris V.-Fischer, Robert J, World Championship 28th, Reykjavik ISL, 1972
-C.RyL.Brk.d4.Nbd7.Nbd2.Bb7	open	match	World Championship 28th	1972	Fischer, Robert J	Spassky, Boris V.	1-0	22	Fischer, Robert J-Spassky, Boris V., World Championship 28th, Reykjavik ISL, 1972
-A.Eng.Sym.Nf3.Nf6.Nc3.O-O	open	match	World Championship 28th	1972	Fischer, Robert J	Spassky, Boris V.	1-0	13	Fischer, Robert J-Spassky, Boris V., World Championship 28th, Reykjavik ISL, 1972
-D.QGD.Har.MLn.c5.dxc5	open	match	World Championship 28th	1972	Fischer, Robert J	Spassky, Boris V.	1/2-1/2	13	Fischer, Robert J-Spassky, Boris V., World Championship 28th, Reykjavik ISL, 1972
-D.QGD.Har.MLn.c5.dxc5	open	match	World Championship 28th	1972	Fischer, Robert J	Spassky, Boris Vasily	1/2-1/2	13	Fischer, Robert J-Spassky, Boris Vasily, World Championship 28th, Reykjavik wch-m, 1972
-B.Pir.Aus.c5	open	match	World Championship 28th	1972	Spassky, Boris V.	Fischer, Robert J	1/2-1/2	10	Spassky, Boris V.-Fischer, Robert J, World Championship 28th, Reykjavik ISL, 1972
-E.Ind.e6.Nf3.c5.d5.Nd2	open	match	World Championship 28th	1972	Spassky, Boris V.	Fischer, Robert J	0-1	13	Spassky, Boris V.-Fischer, Robert J, World Championship 28th, Reykjavik wch-m, 1972
-B.Sic.Cls.Soz.e6.Bb3.Be7	open	match	World Championship 28th	1972	Fischer, Robert J	Spassky, Boris Vasily	1/2-1/2	14	Fischer, Robert J-Spassky, Boris Vasily, World Championship 28th, Reykjavik wch-m, 1972
+B.Sic.Naj.Pst.MLn.Qxb2	open	match	World Championship 28th	1972	Spassky, Boris	Fischer, Robert J	1-0	16	Spassky, Boris-Fischer, Robert J, World Championship 28th, Reykjavik wch-m, 1972
+B.Sic.Naj.Bg5.e6.f4.Nbd7	open	match	World Championship 28th	1972	Spassky, Boris	Fischer, Robert J	1/2-1/2	18	Spassky, Boris-Fischer, Robert J, World Championship 28th, Reykjavik wch-m, 1972
+B.Sic.Naj.Pst.MLn.Qxb2	open	match	World Championship 28th	1972	Spassky, Boris	Fischer, Robert J	1/2-1/2	16	Spassky, Boris-Fischer, Robert J, World Championship 28th, Reykjavik wch-m, 1972
+B.Sic.Tay.Eng.MLn	open	match	World Championship 28th	1972	Spassky, Boris	Fischer, Robert J	0-1	12	Spassky, Boris-Fischer, Robert J, World Championship 28th, Reykjavik wch-m, 1972
+B.Ale.Mod.MLn.Be2.e6	open	match	World Championship 28th	1972	Spassky, Boris	Fischer, Robert J	1/2-1/2	10	Spassky, Boris-Fischer, Robert J, World Championship 28th, Reykjavik wch-m, 1972
+D.QGD.Cls.MLn.Bh4	open	match	World Championship 28th	1972	Fischer, Robert J	Spassky, Boris	1/2-1/2	13	Fischer, Robert J-Spassky, Boris, World Championship 28th, Reykjavik wch-m, 1972
+B.Sic.Cls.Rch.e6.Qd2.O-O-O	open	match	World Championship 28th	1972	Fischer, Robert J	Spassky, Boris	1/2-1/2	18	Fischer, Robert J-Spassky, Boris, World Championship 28th, Reykjavik ISL, 1972
+E.Nim.Rub.Hub.Rau	open	match	World Championship 28th	1972	Spassky, Boris	Fischer, Robert J	0-1	15	Spassky, Boris-Fischer, Robert J, World Championship 28th, Reykjavik ISL, 1972
+E.Nim.Rub.Res.MLn.O-O.Brn	open	match	World Championship 28th	1972	Spassky, Boris	Fischer, Robert J	1-0	14	Spassky, Boris-Fischer, Robert J, World Championship 28th, Reykjavik ISL, 1972
+B.Sic.Cls.Rch.e6.Qd2.Bxf6	open	match	World Championship 28th	1972	Fischer, Robert J	Spassky, Boris	1/2-1/2	21	Fischer, Robert J-Spassky, Boris, World Championship 28th, Reykjavik wch-m, 1972
+C.RyL.Exc.dxc6.O-O.f6	open	match	World Championship 28th	1972	Fischer, Robert J	Spassky, Boris	1/2-1/2	10	Fischer, Robert J-Spassky, Boris, World Championship 28th, Reykjavik wch-m, 1972
+B.Ale.Mod.KID	open	match	World Championship 28th	1972	Spassky, Boris	Fischer, Robert J	0-1	8	Spassky, Boris-Fischer, Robert J, World Championship 28th, Reykjavik ISL, 1972
+C.RyL.Brk.d4.Nbd7.Nbd2.Bb7	open	match	World Championship 28th	1972	Fischer, Robert J	Spassky, Boris	1-0	22	Fischer, Robert J-Spassky, Boris, World Championship 28th, Reykjavik ISL, 1972
+A.Eng.Sym.Nf3.Nf6.Nc3.O-O	open	match	World Championship 28th	1972	Fischer, Robert J	Spassky, Boris	1-0	13	Fischer, Robert J-Spassky, Boris, World Championship 28th, Reykjavik ISL, 1972
+D.QGD.Har.MLn.c5.dxc5	open	match	World Championship 28th	1972	Fischer, Robert J	Spassky, Boris	1/2-1/2	13	Fischer, Robert J-Spassky, Boris, World Championship 28th, Reykjavik ISL, 1972
+D.QGD.Har.MLn.c5.dxc5	open	match	World Championship 28th	1972	Fischer, Robert J	Spassky, Boris	1/2-1/2	13	Fischer, Robert J-Spassky, Boris, World Championship 28th, Reykjavik wch-m, 1972
+B.Pir.Aus.c5	open	match	World Championship 28th	1972	Spassky, Boris	Fischer, Robert J	1/2-1/2	10	Spassky, Boris-Fischer, Robert J, World Championship 28th, Reykjavik ISL, 1972
+E.Ind.e6.Nf3.c5.d5.Nd2	open	match	World Championship 28th	1972	Spassky, Boris	Fischer, Robert J	0-1	13	Spassky, Boris-Fischer, Robert J, World Championship 28th, Reykjavik wch-m, 1972
+B.Sic.Cls.Soz.e6.Bb3.Be7	open	match	World Championship 28th	1972	Fischer, Robert J	Spassky, Boris	1/2-1/2	14	Fischer, Robert J-Spassky, Boris, World Championship 28th, Reykjavik wch-m, 1972
 B.Pir.Fch	women	match	Wch women	1978	?	Gaprindashvili, Nona	1-0	7	?-Gaprindashvili, Nona, Wch women, Pitsunda wch-m, 1978
 C.Ita.Giu.Ga6	women	match	Wch women	1978	Gaprindashvili, Nona	?	1/2-1/2	12	Gaprindashvili, Nona-?, Wch women, Pitsunda wch-m, 1978
 B.Sic.Cls.Rch.e6.Qd2.a6	women	match	Wch women	1978	?	Gaprindashvili, Nona	0-1	14	?-Gaprindashvili, Nona, Wch women, Pitsunda wch-m, 1978
@@ -655,14 +649,14 @@ A.Eng.Rev.Nc3.Nf6.g3.Bb4	open	match	Karpov - Korchnoi World Championship Match	1
 E.Nim.Kas.c5.g3	open	match	World Championship 33th-KK3	1986	Kasparov, Garry	Karpov, Anatoly	1/2-1/2	9	Kasparov, Garry-Karpov, Anatoly, World Championship 33th-KK3, London/Leningrad, 1986
 A.Hor.Fch.MLn.Bg5.Be7.Nf3	open	match	World Championship 33th-KK3	1986	Kasparov, Garry	Karpov, Anatoly	1/2-1/2	9	Kasparov, Garry-Karpov, Anatoly, World Championship 33th-KK3, London ENG / Leningrad RUS, 1986
 E.Gru.Brn	open	match	World Championship 33th-KK3	1986	Karpov, Anatoly	Kasparov, Garry	1/2-1/2	7	Karpov, Anatoly-Kasparov, Garry, World Championship 33th-KK3, London/Leningrad, 1986
-E.Bog.WSm.MLn.Yat	open	match	World Championship 33th-KK3	1986	Kasparov, Garry	Karpov, Aleksandr	1/2-1/2	12	Kasparov, Garry-Karpov, Aleksandr, World Championship 33th-KK3, London/Leningrad, 1986
+E.Bog.WSm.MLn.Yat	open	match	World Championship 33th-KK3	1986	Kasparov, Garry	Karpov, Anatoly	1/2-1/2	12	Kasparov, Garry-Karpov, Anatoly, World Championship 33th-KK3, London/Leningrad, 1986
 C.Pet.Cls.Bd3.Nc6.O-O	open	match	World Championship 33th-KK3	1986	Kasparov, Garry	Karpov, Anatoly	1/2-1/2	13	Kasparov, Garry-Karpov, Anatoly, World Championship 33th-KK3, London/Leningrad, 1986
-E.Gru.Rus.Hng.e4.Bg4	open	match	World Championship 33th-KK3	1986	Karpov, Aleksandr	Kasparov, Garry	1-0	14	Karpov, Aleksandr-Kasparov, Garry, World Championship 33th-KK3, London/Leningrad, 1986
-E.Gru.Rus.Hng.e4.Bg4	open	match	World Championship 33th-KK3	1986	Karpov, Aleksandr	Kasparov, Garry	1/2-1/2	14	Karpov, Aleksandr-Kasparov, Garry, World Championship 33th-KK3, London/Leningrad, 1986
-D.Cat.Fch.Ope	open	match	World Championship 33th-KK3	1986	Kasparov, Garry	Karpov, Aleksandr	1/2-1/2	12	Kasparov, Garry-Karpov, Aleksandr, World Championship 33th-KK3, London/Leningrad, 1986
+E.Gru.Rus.Hng.e4.Bg4	open	match	World Championship 33th-KK3	1986	Karpov, Anatoly	Kasparov, Garry	1-0	14	Karpov, Anatoly-Kasparov, Garry, World Championship 33th-KK3, London/Leningrad, 1986
+E.Gru.Rus.Hng.e4.Bg4	open	match	World Championship 33th-KK3	1986	Karpov, Anatoly	Kasparov, Garry	1/2-1/2	14	Karpov, Anatoly-Kasparov, Garry, World Championship 33th-KK3, London/Leningrad, 1986
+D.Cat.Fch.Ope	open	match	World Championship 33th-KK3	1986	Kasparov, Garry	Karpov, Anatoly	1/2-1/2	12	Kasparov, Garry-Karpov, Anatoly, World Championship 33th-KK3, London/Leningrad, 1986
 C.RyL.Zai.MLn	open	match	World Championship 33th-KK3	1986	Kasparov, Garry	Karpov, Anatoly	1-0	22	Kasparov, Garry-Karpov, Anatoly, World Championship 33th-KK3, London/Leningrad, 1986
 C.RyL.Zai.MLn	open	match	World Championship 33th-KK3	1986	Kasparov, Garry	Karpov, Anatoly	1-0	22	Kasparov, Garry-Karpov, Anatoly, World Championship 33th-KK3, London/Leningrad, 1986
-E.Ind.WIn.Nf3.Bg7.g3	open	match	World Championship 33th-KK3	1986	Karpov, Aleksandr	Kasparov, Garry	1/2-1/2	7	Karpov, Aleksandr-Kasparov, Garry, World Championship 33th-KK3, London ENG / Leningrad RUS, 1986
+E.Ind.WIn.Nf3.Bg7.g3	open	match	World Championship 33th-KK3	1986	Karpov, Anatoly	Kasparov, Garry	1/2-1/2	7	Karpov, Anatoly-Kasparov, Garry, World Championship 33th-KK3, London ENG / Leningrad RUS, 1986
 E.Gru.Brn	open	match	World Championship 33th-KK3	1986	Karpov, Anatoly	Kasparov, Garry	1-0	7	Karpov, Anatoly-Kasparov, Garry, World Championship 33th-KK3, London/Leningrad, 1986
 E.Gru.Brn	open	match	World Championship 33th-KK3	1986	Karpov, Anatoly	Kasparov, Garry	1/2-1/2	7	Karpov, Anatoly-Kasparov, Garry, World Championship 33th-KK3, London/Leningrad, 1986
 B.Pir.Cls.Bg7.MLn.O-O.Bg4	women	match	Wch (Women) Pitsunda/Tbilisi	1975	?	Gaprindashvili, Nona	1-0	12	?-Gaprindashvili, Nona, Wch (Women) Pitsunda/Tbilisi, Pitsunda wch-m, 1975
@@ -722,36 +716,36 @@ A.Eng.AIn.Nc3.e6.Nf3	open	match	PCA-Wch Candidats m4	1994	Kramnik, Vladimir	Kams
 D.Sem.Mar.MLn.Qxd4	open	match	PCA-Wch Candidats m4	1994	Kamsky, Gata	Kramnik, Vladimir	1/2-1/2	12	Kamsky, Gata-Kramnik, Vladimir, PCA-Wch Candidats m4, New York, NY USA, 1994
 A.Eng.Sym.Nf3	open	match	PCA-Wch Candidats m4	1994	Kramnik, Vladimir	Kamsky, Gata	1/2-1/2	3	Kramnik, Vladimir-Kamsky, Gata, PCA-Wch Candidats m4, New York, NY USA, 1994
 A.Eng.Sym.Nf3	open	match	PCA-Wch Candidats m4	1994	Kramnik, Vladimir	Kamsky, Gata	0-1	3	Kramnik, Vladimir-Kamsky, Gata, PCA-Wch Candidats m4, New York, NY USA, 1994
-E.Nim.Cls.Ker.MLn	open	match	FIDE-Wch	1993	Timman, Jan H	Karpov, Aleksandr	1/2-1/2	13	Timman, Jan H-Karpov, Aleksandr, FIDE-Wch, Jakarta wch-m, 1993
-D.QGD.Vie	open	match	FIDE-Wch	1993	Karpov, Aleksandr	Timman, Jan H	1/2-1/2	8	Karpov, Aleksandr-Timman, Jan H, FIDE-Wch, Arnhem wch-m, 1993
-E.KID.Sml.Cst.Be3	open	match	FIDE-Wch	1993	Karpov, Aleksandr	Timman, Jan H	1/2-1/2	11	Karpov, Aleksandr-Timman, Jan H, FIDE-Wch, Jakarta wch-m, 1993
-E.KID.Sml.Cst.Be3	open	match	FIDE-Wch	1993	Karpov, Aleksandr	Timman, Jan H	1-0	11	Karpov, Aleksandr-Timman, Jan H, FIDE-Wch, Jakarta wch-m, 1993
-E.QID.Pet.KPe.d5.cxd5.Qc2	open	match	FIDE-Wch	1993	Timman, Jan H	Karpov, Aleksandr	1/2-1/2	13	Timman, Jan H-Karpov, Aleksandr, FIDE-Wch, Jakarta wch-m, 1993
-E.QID.Nim.Int.Be7	open	match	FIDE-Wch	1993	Karpov, Aleksandr	Timman, Jan H	0-1	12	Karpov, Aleksandr-Timman, Jan H, FIDE-Wch, Zwolle wch-m, 1993
-A.Eng.Rev.Fou.g3.Bc5.O-O	open	match	FIDE-Wch	1993	Timman, Jan H	Karpov, Aleksandr	1/2-1/2	13	Timman, Jan H-Karpov, Aleksandr, FIDE-Wch, Arnhem wch-m, 1993
-E.Gru.Exc.SeV	open	match	FIDE-Wch	1993	Karpov, Aleksandr	Timman, Jan H	1-0	12	Karpov, Aleksandr-Timman, Jan H, FIDE-Wch, Amsterdam wch-m, 1993
-E.QID.Nim.Int.Be7	open	match	FIDE-Wch	1993	Timman, Jan H	Karpov, Aleksandr	1/2-1/2	12	Timman, Jan H-Karpov, Aleksandr, FIDE-Wch, Amsterdam wch-m, 1993
-D.QGD.Vie.MLn	open	match	FIDE-Wch	1993	Karpov, Aleksandr	Timman, Jan H	1-0	11	Karpov, Aleksandr-Timman, Jan H, FIDE-Wch, Jakarta wch-m, 1993
-A.Eng.Sym.Rub	open	match	FIDE-Wch	1993	Karpov, Aleksandr	Timman, Jan H	0-1	10	Karpov, Aleksandr-Timman, Jan H, FIDE-Wch, Jakarta wch-m, 1993
-A.KIA.Bg2.c6.O-O.Bg4	open	match	FIDE-Wch	1993	Timman, Jan H	Karpov, Aleksandr	1/2-1/2	8	Timman, Jan H-Karpov, Aleksandr, FIDE-Wch, Jakarta wch-m, 1993
-A.Tor.Nim	open	match	FIDE-Wch	1993	Timman, Jan H	Karpov, Aleksandr	1/2-1/2	6	Timman, Jan H-Karpov, Aleksandr, FIDE-Wch, Amsterdam wch-m, 1993
+E.Nim.Cls.Ker.MLn	open	match	FIDE-Wch	1993	Timman, Jan H	Karpov, Anatoly	1/2-1/2	13	Timman, Jan H-Karpov, Anatoly, FIDE-Wch, Jakarta wch-m, 1993
+D.QGD.Vie	open	match	FIDE-Wch	1993	Karpov, Anatoly	Timman, Jan H	1/2-1/2	8	Karpov, Anatoly-Timman, Jan H, FIDE-Wch, Arnhem wch-m, 1993
+E.KID.Sml.Cst.Be3	open	match	FIDE-Wch	1993	Karpov, Anatoly	Timman, Jan H	1/2-1/2	11	Karpov, Anatoly-Timman, Jan H, FIDE-Wch, Jakarta wch-m, 1993
+E.KID.Sml.Cst.Be3	open	match	FIDE-Wch	1993	Karpov, Anatoly	Timman, Jan H	1-0	11	Karpov, Anatoly-Timman, Jan H, FIDE-Wch, Jakarta wch-m, 1993
+E.QID.Pet.KPe.d5.cxd5.Qc2	open	match	FIDE-Wch	1993	Timman, Jan H	Karpov, Anatoly	1/2-1/2	13	Timman, Jan H-Karpov, Anatoly, FIDE-Wch, Jakarta wch-m, 1993
+E.QID.Nim.Int.Be7	open	match	FIDE-Wch	1993	Karpov, Anatoly	Timman, Jan H	0-1	12	Karpov, Anatoly-Timman, Jan H, FIDE-Wch, Zwolle wch-m, 1993
+A.Eng.Rev.Fou.g3.Bc5.O-O	open	match	FIDE-Wch	1993	Timman, Jan H	Karpov, Anatoly	1/2-1/2	13	Timman, Jan H-Karpov, Anatoly, FIDE-Wch, Arnhem wch-m, 1993
+E.Gru.Exc.SeV	open	match	FIDE-Wch	1993	Karpov, Anatoly	Timman, Jan H	1-0	12	Karpov, Anatoly-Timman, Jan H, FIDE-Wch, Amsterdam wch-m, 1993
+E.QID.Nim.Int.Be7	open	match	FIDE-Wch	1993	Timman, Jan H	Karpov, Anatoly	1/2-1/2	12	Timman, Jan H-Karpov, Anatoly, FIDE-Wch, Amsterdam wch-m, 1993
+D.QGD.Vie.MLn	open	match	FIDE-Wch	1993	Karpov, Anatoly	Timman, Jan H	1-0	11	Karpov, Anatoly-Timman, Jan H, FIDE-Wch, Jakarta wch-m, 1993
+A.Eng.Sym.Rub	open	match	FIDE-Wch	1993	Karpov, Anatoly	Timman, Jan H	0-1	10	Karpov, Anatoly-Timman, Jan H, FIDE-Wch, Jakarta wch-m, 1993
+A.KIA.Bg2.c6.O-O.Bg4	open	match	FIDE-Wch	1993	Timman, Jan H	Karpov, Anatoly	1/2-1/2	8	Timman, Jan H-Karpov, Anatoly, FIDE-Wch, Jakarta wch-m, 1993
+A.Tor.Nim	open	match	FIDE-Wch	1993	Timman, Jan H	Karpov, Anatoly	1/2-1/2	6	Timman, Jan H-Karpov, Anatoly, FIDE-Wch, Amsterdam wch-m, 1993
 B.CaK.Kar.Bc4.Ngf6.Qe2.Nb6	open	match	FIDE-Wch	1993	Timman, Jan H	Karpov, Anatoly	1/2-1/2	14	Timman, Jan H-Karpov, Anatoly, FIDE-Wch, NLD/INA, 1993
-D.QGD.Vie.MLn	open	match	FIDE-Wch	1993	Karpov, Aleksandr	Timman, Jan H	1/2-1/2	11	Karpov, Aleksandr-Timman, Jan H, FIDE-Wch, Amsterdam wch-m, 1993
-B.CaK.Adv.Bf5.VdW	open	match	FIDE-Wch	1993	Timman, Jan H	Karpov, Aleksandr	1/2-1/2	13	Timman, Jan H-Karpov, Aleksandr, FIDE-Wch, Jakarta wch-m, 1993
+D.QGD.Vie.MLn	open	match	FIDE-Wch	1993	Karpov, Anatoly	Timman, Jan H	1/2-1/2	11	Karpov, Anatoly-Timman, Jan H, FIDE-Wch, Amsterdam wch-m, 1993
+B.CaK.Adv.Bf5.VdW	open	match	FIDE-Wch	1993	Timman, Jan H	Karpov, Anatoly	1/2-1/2	13	Timman, Jan H-Karpov, Anatoly, FIDE-Wch, Jakarta wch-m, 1993
 B.CaK.Kar.Bc4.Ngf6.Qe2.Nb6	open	match	FIDE-Wch	1993	Timman, Jan H	Karpov, Anatoly	1/2-1/2	14	Timman, Jan H-Karpov, Anatoly, FIDE-Wch, NLD/INA, 1993
-E.Ind.WIn.Nf3.Bg7.g3	open	match	FIDE-Wch	1993	Karpov, Aleksandr	Timman, Jan H	1/2-1/2	7	Karpov, Aleksandr-Timman, Jan H, FIDE-Wch, Amsterdam wch-m, 1993
-E.QID.Pet.KPe.d5.cxd5.Bd2	open	match	FIDE-Wch	1996	Kamsky, Gata	Karpov, Aleksandr	1-0	13	Kamsky, Gata-Karpov, Aleksandr, FIDE-Wch, Elista wch-m, 1996
-E.Gru.Rus.Prz.MLn	open	match	FIDE-Wch	1996	Karpov, Aleksandr	Kamsky, Gata	1-0	14	Karpov, Aleksandr-Kamsky, Gata, FIDE-Wch, Elista wch-m, 1996
-E.QID.Nim.Int.Be7	open	match	FIDE-Wch	1996	Karpov, Aleksandr	Kamsky, Gata	1/2-1/2	12	Karpov, Aleksandr-Kamsky, Gata, FIDE-Wch, Elista wch-m, 1996
+E.Ind.WIn.Nf3.Bg7.g3	open	match	FIDE-Wch	1993	Karpov, Anatoly	Timman, Jan H	1/2-1/2	7	Karpov, Anatoly-Timman, Jan H, FIDE-Wch, Amsterdam wch-m, 1993
+E.QID.Pet.KPe.d5.cxd5.Bd2	open	match	FIDE-Wch	1996	Kamsky, Gata	Karpov, Anatoly	1-0	13	Kamsky, Gata-Karpov, Anatoly, FIDE-Wch, Elista wch-m, 1996
+E.Gru.Rus.Prz.MLn	open	match	FIDE-Wch	1996	Karpov, Anatoly	Kamsky, Gata	1-0	14	Karpov, Anatoly-Kamsky, Gata, FIDE-Wch, Elista wch-m, 1996
+E.QID.Nim.Int.Be7	open	match	FIDE-Wch	1996	Karpov, Anatoly	Kamsky, Gata	1/2-1/2	12	Karpov, Anatoly-Kamsky, Gata, FIDE-Wch, Elista wch-m, 1996
 E.QID.Nim.Int.Be7	open	match	FIDE-Wch	1996	Kamsky, Gata	Karpov, Anatoly	1-0	12	Kamsky, Gata-Karpov, Anatoly, FIDE-Wch, Elista RUS, 1996
-E.KID.Cls.Byn.Nh5.Re1	open	match	FIDE-Wch	1996	Karpov, Aleksandr	Kamsky, Gata	1-0	19	Karpov, Aleksandr-Kamsky, Gata, FIDE-Wch, Elista wch-m, 1996
-C.Pet.Mod.Nxe4.Bd3.d5.Nxe5	open	match	FIDE-Wch	1996	Kamsky, Gata	Karpov, Aleksandr	0-1	9	Kamsky, Gata-Karpov, Aleksandr, FIDE-Wch, Elista wch-m, 1996
-E.Gru.Rus.Hng.e4.a6	open	match	FIDE-Wch	1996	Karpov, Aleksandr	Kamsky, Gata	1/2-1/2	14	Karpov, Aleksandr-Kamsky, Gata, FIDE-Wch, Elista wch-m, 1996
-A.Kan.MLn.e3.c5.Bd3.Nc6	open	match	FIDE-Wch	1996	Kamsky, Gata	Karpov, Aleksandr	0-1	10	Kamsky, Gata-Karpov, Aleksandr, FIDE-Wch, Elista wch-m, 1996
+E.KID.Cls.Byn.Nh5.Re1	open	match	FIDE-Wch	1996	Karpov, Anatoly	Kamsky, Gata	1-0	19	Karpov, Anatoly-Kamsky, Gata, FIDE-Wch, Elista wch-m, 1996
+C.Pet.Mod.Nxe4.Bd3.d5.Nxe5	open	match	FIDE-Wch	1996	Kamsky, Gata	Karpov, Anatoly	0-1	9	Kamsky, Gata-Karpov, Anatoly, FIDE-Wch, Elista wch-m, 1996
+E.Gru.Rus.Hng.e4.a6	open	match	FIDE-Wch	1996	Karpov, Anatoly	Kamsky, Gata	1/2-1/2	14	Karpov, Anatoly-Kamsky, Gata, FIDE-Wch, Elista wch-m, 1996
+A.Kan.MLn.e3.c5.Bd3.Nc6	open	match	FIDE-Wch	1996	Kamsky, Gata	Karpov, Anatoly	0-1	10	Kamsky, Gata-Karpov, Anatoly, FIDE-Wch, Elista wch-m, 1996
 E.QID.Nim.Int.Be7	open	match	FIDE-Wch	1996	Kamsky, Gata	Karpov, Anatoly	1/2-1/2	12	Kamsky, Gata-Karpov, Anatoly, FIDE-Wch, Elista RUS, 1996
-B.CaK.Pmv.Nf6.Nc3.e6.Nf3	open	match	FIDE-Wch	1996	Kamsky, Gata	Karpov, Aleksandr	0-1	11	Kamsky, Gata-Karpov, Aleksandr, FIDE-Wch, Elista wch-m, 1996
-E.Ind.e6.Nf3.c5.d5.h3	open	match	FIDE-Wch	1996	Karpov, Aleksandr	Kamsky, Gata	1/2-1/2	15	Karpov, Aleksandr-Kamsky, Gata, FIDE-Wch, Elista wch-m, 1996
-B.CaK.Pmv.Nf6.Nc3.e6.Nf3	open	match	FIDE-Wch	1996	Kamsky, Gata	Karpov, Aleksandr	1-0	11	Kamsky, Gata-Karpov, Aleksandr, FIDE-Wch, Elista wch-m, 1996
+B.CaK.Pmv.Nf6.Nc3.e6.Nf3	open	match	FIDE-Wch	1996	Kamsky, Gata	Karpov, Anatoly	0-1	11	Kamsky, Gata-Karpov, Anatoly, FIDE-Wch, Elista wch-m, 1996
+E.Ind.e6.Nf3.c5.d5.h3	open	match	FIDE-Wch	1996	Karpov, Anatoly	Kamsky, Gata	1/2-1/2	15	Karpov, Anatoly-Kamsky, Gata, FIDE-Wch, Elista wch-m, 1996
+B.CaK.Pmv.Nf6.Nc3.e6.Nf3	open	match	FIDE-Wch	1996	Kamsky, Gata	Karpov, Anatoly	1-0	11	Kamsky, Gata-Karpov, Anatoly, FIDE-Wch, Elista wch-m, 1996
 E.QID.Mod.Fch.MLn	open	match	PCA-Wch Candidats m1	1994	Adams, Michael	Tiviakov, Sergei	0-1	13	Adams, Michael-Tiviakov, Sergei, PCA-Wch Candidats m1, New York, NY USA, 1994
 C.RyL.Mor.Ba4.Nf6.O-O.d3	open	match	PCA-Wch Candidats m1	1994	Tiviakov, Sergei	Adams, Michael	1/2-1/2	17	Tiviakov, Sergei-Adams, Michael, PCA-Wch Candidats m1, New York, NY USA, 1994
 C.RyL.Mor.Ba4.Nf6.O-O.DEx	open	match	PCA-Wch Candidats m1	1994	Tiviakov, Sergei	Adams, Michael	1-0	11	Tiviakov, Sergei-Adams, Michael, PCA-Wch Candidats m1, New York, NY USA, 1994
@@ -892,13 +886,12 @@ E.Nim.Cls.d5.cxd5	open	match	World Championship	2008	Anand, Viswanathan	Kramnik,
 B.Sic.Naj.Bg5.e6.f4	open	match	World Championship	2008	Anand, Viswanathan	Kramnik, Vladimir	1/2-1/2	13	Anand, Viswanathan-Kramnik, Vladimir, World Championship, Bonn GER, 2008
 D.Sem.Mer.Blu	open	match	World Championship	2008	Kramnik, Vladimir	Anand, Viswanathan	0-1	21	Kramnik, Vladimir-Anand, Viswanathan, World Championship, 2008
 D.QGD.Har.MLn.Nbd7	open	match	World Championship	2008	Anand, Viswanathan	Kramnik, Vladimir	1/2-1/2	12	Anand, Viswanathan-Kramnik, Vladimir, World Championship, Bonn GER, 2008
-D.QGD.Rag.Qa4	women	match	WCh women	2011	Hanvitha Koneru	Hou, Yifan(HLJ)	0-1	9	Hanvitha Koneru-Hou, Yifan(HLJ), WCh women, Tirana ALB, 2011
-D.QGD.Rag.Qa4	women	match	WCh women	2011	Koneru, Humpy	Hou, Yifan(HLJ)	1/2-1/2	9	Koneru, Humpy-Hou, Yifan(HLJ), WCh women, Tirana ALB, 2011
-C.RyL.Mor.Opn.MLn.Brn.Cla	women	match	WCh women	2011	Hou, Yifan(HLJ)	Koneru, Humpy	1/2-1/2	20	Hou, Yifan(HLJ)-Koneru, Humpy, WCh women, Tirana ALB, 2011
-C.RyL.Mor.Opn.MLn.Brn.Cla	women	match	WCh women	2011	Hou, Yifan(HLJ)	Koneru, Humpy	1/2-1/2	20	Hou, Yifan(HLJ)-Koneru, Humpy, WCh women, Tirana ALB, 2011
-D.Cat.Fch.Ope	women	match	WCh women	2011	Koneru, Humpy	Hou, Yifan(HLJ)	1/2-1/2	12	Koneru, Humpy-Hou, Yifan(HLJ), WCh women, Tirana ALB, 2011
-C.RyL.Cls.c3.O-O.h3	women	match	WCh women	2011	Hou, Yifan(HLJ)	Koneru, Humpy	1-0	17	Hou, Yifan(HLJ)-Koneru, Humpy, WCh women, Tirana ALB, 2011
-C.Pet.Nxe5.d6.Nf3.Nxe4.Nc3	women	match	WCh women	2011	Hou, Yifan(HLJ)	Koneru, Humpy	1/2-1/2	9	Hou, Yifan(HLJ)-Koneru, Humpy, WCh women, Tirana ALB, 2011
+D.QGD.Rag.Qa4	women	match	WCh women	2011	Koneru, Humpy	Hou, Yifan	1/2-1/2	9	Koneru, Humpy-Hou, Yifan, WCh women, Tirana ALB, 2011
+C.RyL.Mor.Opn.MLn.Brn.Cla	women	match	WCh women	2011	Hou, Yifan	Koneru, Humpy	1/2-1/2	20	Hou, Yifan-Koneru, Humpy, WCh women, Tirana ALB, 2011
+C.RyL.Mor.Opn.MLn.Brn.Cla	women	match	WCh women	2011	Hou, Yifan	Koneru, Humpy	1/2-1/2	20	Hou, Yifan-Koneru, Humpy, WCh women, Tirana ALB, 2011
+D.Cat.Fch.Ope	women	match	WCh women	2011	Koneru, Humpy	Hou, Yifan	1/2-1/2	12	Koneru, Humpy-Hou, Yifan, WCh women, Tirana ALB, 2011
+C.RyL.Cls.c3.O-O.h3	women	match	WCh women	2011	Hou, Yifan	Koneru, Humpy	1-0	17	Hou, Yifan-Koneru, Humpy, WCh women, Tirana ALB, 2011
+C.Pet.Nxe5.d6.Nf3.Nxe4.Nc3	women	match	WCh women	2011	Hou, Yifan	Koneru, Humpy	1/2-1/2	9	Hou, Yifan-Koneru, Humpy, WCh women, Tirana ALB, 2011
 E.Ind.Cat.d5.Bg2.dxc4.Nf3	open	match	World Championship	2010	Anand, Viswanathan	Topalov, Veselin	1/2-1/2	9	Anand, Viswanathan-Topalov, Veselin, World Championship, Sofia BUL, 2010
 E.Gru.Exc.SeV.Bc4.c5.Nc6	open	match	World Championship	2010	Topalov, Veselin	Anand, Viswanathan	1/2-1/2	16	Topalov, Veselin-Anand, Viswanathan, World Championship, Sofia BUL, 2010
 E.Gru.Exc.Sps	open	match	World Championship	2010	Topalov, Veselin	Anand, Viswanathan	1/2-1/2	16	Topalov, Veselin-Anand, Viswanathan, World Championship, Sofia BUL, 2010
@@ -926,10 +919,10 @@ B.Sic.Ros.Nim	open	match	World Championship	2012	Anand, Viswanathan	Gelfand, Bor
 B.Sic.Ros.Nim	open	match	World Championship	2012	Anand, Viswanathan	Gelfand, Boris	1/2-1/2	6	Anand, Viswanathan-Gelfand, Boris, World Championship, 2012
 D.Sem.e3.a6	open	match	World Championship	2012	Gelfand, Boris	Anand, Viswanathan	1-0	10	Gelfand, Boris-Anand, Viswanathan, World Championship, Moscow RUS, 2012
 E.Ind.WIn.f3.c5.d5.d6	open	match	World Championship	2012	Anand, Viswanathan	Gelfand, Boris	1-0	8	Anand, Viswanathan-Gelfand, Boris, World Championship, Moscow RUS, 2012
-B.CaK.Tar	women	match	WCh Women playoff	2010	Hou, Yifan(HLJ)	Ruan, Lufei	1-0	10	Hou, Yifan(HLJ)-Ruan, Lufei, WCh Women playoff, Antakya TUR, 2010
-B.Sic.Acc.Mar.Nf6.Nc3.Nxd4	women	match	WCh Women playoff	2010	Ruan, Lufei	Hou, Yifan(HLJ)	1/2-1/2	12	Ruan, Lufei-Hou, Yifan(HLJ), WCh Women playoff, Antakya TUR, 2010
-B.Sic.Acc.Nc3.Bg7	women	match	WCh Women playoff	2010	Ruan, Lufei	Hou, Yifan(HLJ)	1/2-1/2	10	Ruan, Lufei-Hou, Yifan(HLJ), WCh Women playoff, Antakya TUR, 2010
-C.RyL.Bir	women	match	WCh Women playoff	2010	Hou, Yifan(HLJ)	Ruan, Lufei	1-0	6	Hou, Yifan(HLJ)-Ruan, Lufei, WCh Women playoff, Antakya TUR, 2010
+B.CaK.Tar	women	match	WCh Women playoff	2010	Hou, Yifan	Ruan, Lufei	1-0	10	Hou, Yifan-Ruan, Lufei, WCh Women playoff, Antakya TUR, 2010
+B.Sic.Acc.Mar.Nf6.Nc3.Nxd4	women	match	WCh Women playoff	2010	Ruan, Lufei	Hou, Yifan	1/2-1/2	12	Ruan, Lufei-Hou, Yifan, WCh Women playoff, Antakya TUR, 2010
+B.Sic.Acc.Nc3.Bg7	women	match	WCh Women playoff	2010	Ruan, Lufei	Hou, Yifan	1/2-1/2	10	Ruan, Lufei-Hou, Yifan, WCh Women playoff, Antakya TUR, 2010
+C.RyL.Bir	women	match	WCh Women playoff	2010	Hou, Yifan	Ruan, Lufei	1-0	6	Hou, Yifan-Ruan, Lufei, WCh Women playoff, Antakya TUR, 2010
 B.Sic.Sve.Ndb5.d6	open	match	WCh 2018	2018	Caruana, Fabiano	Carlsen, Magnus	1/2-1/2	12	Caruana, Fabiano-Carlsen, Magnus, WCh 2018, London ENG, 2018
 B.Sic.Sve.Ndb5.d6	open	match	WCh 2018	2018	Caruana, Fabiano	Carlsen, Magnus	1/2-1/2	12	Caruana, Fabiano-Carlsen, Magnus, WCh 2018, London ENG, 2018
 B.Sic.Sve.Ndb5.d6	open	match	WCh 2018	2018	Caruana, Fabiano	Carlsen, Magnus	1/2-1/2	12	Caruana, Fabiano-Carlsen, Magnus, WCh 2018, London ENG, 2018
@@ -954,15 +947,15 @@ C.RyL.Ber.d3.Bc5	open	match	WCh 2016	2016	Carlsen, Magnus	Karjakin, Sergey	1-0	8
 C.RyL.Ber.O-O.Nxe4	open	match	WCh 2016	2016	Carlsen, Magnus	Karjakin, Sergey	1/2-1/2	8	Carlsen, Magnus-Karjakin, Sergey, WCh 2016, New York, NY USA, 2016
 A.Tro	open	match	WCh 2016	2016	Carlsen, Magnus	Karjakin, Sergey	1/2-1/2	3	Carlsen, Magnus-Karjakin, Sergey, WCh 2016, New York, NY USA, 2016
 A.Col.Zuk	open	match	WCh 2016	2016	Carlsen, Magnus	Karjakin, Sergey	0-1	9	Carlsen, Magnus-Karjakin, Sergey, WCh 2016, New York, NY USA, 2016
-B.Sic.Cls.Bol.MLn.Be3.Be6	women	match	WCh Women 2016	2016	Hou, Yifan(HLJ)	Muzychuk, Mariya	1-0	18	Hou, Yifan(HLJ)-Muzychuk, Mariya, WCh Women 2016, Lvov UKR, 2016
-A.QPO.Nf6.Nf3.e6	women	match	WCh Women 2016	2016	Muzychuk, Mariya	Hou, Yifan(HLJ)	1/2-1/2	4	Muzychuk, Mariya-Hou, Yifan(HLJ), WCh Women 2016, Lvov UKR, 2016
-C.RyL.Mor.Opn.MLn.dxe5.Be6	women	match	WCh Women 2016	2016	Hou, Yifan(HLJ)	Muzychuk, Mariya	1-0	16	Hou, Yifan(HLJ)-Muzychuk, Mariya, WCh Women 2016, Lvov UKR, 2016
-C.RyL.Mor.Opn.MLn.Brn.Cla	women	match	WCh Women 2016	2016	Hou, Yifan(HLJ)	Muzychuk, Mariya	1/2-1/2	20	Hou, Yifan(HLJ)-Muzychuk, Mariya, WCh Women 2016, Lvov UKR, 2016
-C.Ita.Giu.O-O.Nf6.d3.O-O	women	match	WCh Women 2016	2016	Muzychuk, Mariya	Hou, Yifan(HLJ)	1/2-1/2	10	Muzychuk, Mariya-Hou, Yifan(HLJ), WCh Women 2016, Lvov UKR, 2016
-A.Ret.Ang.g3	women	match	WCh Women 2016	2016	Hou, Yifan(HLJ)	Muzychuk, Mariya	1/2-1/2	5	Hou, Yifan(HLJ)-Muzychuk, Mariya, WCh Women 2016, Lvov UKR, 2016
-C.RyL.Mor.Opn.MLn.Cls	women	match	WCh Women 2016	2016	Hou, Yifan(HLJ)	Muzychuk, Mariya	1/2-1/2	18	Hou, Yifan(HLJ)-Muzychuk, Mariya, WCh Women 2016, Lvov UKR, 2016
-D.Cat.Fch.C01	women	match	WCh Women 2016	2016	Muzychuk, Mariya	Hou, Yifan(HLJ)	1/2-1/2	19	Muzychuk, Mariya-Hou, Yifan(HLJ), WCh Women 2016, Lvov UKR, 2016
-C.Ita.Pia.Nf6.MLn	women	match	WCh Women 2016	2016	Muzychuk, Mariya	Hou, Yifan(HLJ)	0-1	11	Muzychuk, Mariya-Hou, Yifan(HLJ), WCh Women 2016, Lvov UKR, 2016
+B.Sic.Cls.Bol.MLn.Be3.Be6	women	match	WCh Women 2016	2016	Hou, Yifan	Muzychuk, Mariya	1-0	18	Hou, Yifan-Muzychuk, Mariya, WCh Women 2016, Lvov UKR, 2016
+A.QPO.Nf6.Nf3.e6	women	match	WCh Women 2016	2016	Muzychuk, Mariya	Hou, Yifan	1/2-1/2	4	Muzychuk, Mariya-Hou, Yifan, WCh Women 2016, Lvov UKR, 2016
+C.RyL.Mor.Opn.MLn.dxe5.Be6	women	match	WCh Women 2016	2016	Hou, Yifan	Muzychuk, Mariya	1-0	16	Hou, Yifan-Muzychuk, Mariya, WCh Women 2016, Lvov UKR, 2016
+C.RyL.Mor.Opn.MLn.Brn.Cla	women	match	WCh Women 2016	2016	Hou, Yifan	Muzychuk, Mariya	1/2-1/2	20	Hou, Yifan-Muzychuk, Mariya, WCh Women 2016, Lvov UKR, 2016
+C.Ita.Giu.O-O.Nf6.d3.O-O	women	match	WCh Women 2016	2016	Muzychuk, Mariya	Hou, Yifan	1/2-1/2	10	Muzychuk, Mariya-Hou, Yifan, WCh Women 2016, Lvov UKR, 2016
+A.Ret.Ang.g3	women	match	WCh Women 2016	2016	Hou, Yifan	Muzychuk, Mariya	1/2-1/2	5	Hou, Yifan-Muzychuk, Mariya, WCh Women 2016, Lvov UKR, 2016
+C.RyL.Mor.Opn.MLn.Cls	women	match	WCh Women 2016	2016	Hou, Yifan	Muzychuk, Mariya	1/2-1/2	18	Hou, Yifan-Muzychuk, Mariya, WCh Women 2016, Lvov UKR, 2016
+D.Cat.Fch.C01	women	match	WCh Women 2016	2016	Muzychuk, Mariya	Hou, Yifan	1/2-1/2	19	Muzychuk, Mariya-Hou, Yifan, WCh Women 2016, Lvov UKR, 2016
+C.Ita.Pia.Nf6.MLn	women	match	WCh Women 2016	2016	Muzychuk, Mariya	Hou, Yifan	0-1	11	Muzychuk, Mariya-Hou, Yifan, WCh Women 2016, Lvov UKR, 2016
 D.QGD.Exc.Bg5.c6	women	match	WCh Women 2020	2020	Goryachkina, Aleksandra	Ju, Wenjun	0-1	10	Goryachkina, Aleksandra-Ju, Wenjun, WCh Women 2020, Shanghai/Vladivostok CHN, 2020
 D.Sla.Sou	women	match	WCh Women 2020	2020	Ju, Wenjun	Goryachkina, Aleksandra	1-0	10	Ju, Wenjun-Goryachkina, Aleksandra, WCh Women 2020, Shanghai/Vladivostok CHN, 2020
 A.Hor.Fch.MLn.Nf3.Be7	women	match	WCh Women 2020	2020	Goryachkina, Aleksandra	Ju, Wenjun	1/2-1/2	8	Goryachkina, Aleksandra-Ju, Wenjun, WCh Women 2020, Shanghai/Vladivostok CHN, 2020

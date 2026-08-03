@@ -1,13 +1,11 @@
 person_id	display_name	wikidata_qid	born	died	note
 adams	Adams, Michael	Q299636	1971		identity resolved
-alekhine	Alekhine, Alexander	Q131374	1892	1946	identity resolved; duplicate identity: shares Q131374 with aljechin — merge pending
-aljechin	Alekhine, Alexander	Q131374	1892	1946	identity resolved; duplicate identity: shares Q131374 with alekhine — merge pending
+alekhine	Alekhine, Alexander	Q131374	1892	1946	identity resolved
 anand	Anand, Viswanathan	Q45747	1969		identity resolved
-bikova	Bykova, Elisaveta	Q253772	1913	1989	identity resolved; duplicate identity: shares Q253772 with bykova — merge pending
 bogoljubow	Bogoljubow, Efim	Q57310	1889	1952	identity resolved
 botvinnik	Botvinnik, Mikhail	Q178865	1911	1995	identity resolved
 bronstein	Bronstein, David	Q312908	1924	2006	identity resolved
-bykova	Bykova, Elisaveta	Q253772	1913	1989	identity resolved; duplicate identity: shares Q253772 with bikova — merge pending
+bykova	Bykova, Elisaveta	Q253772	1913	1989	identity resolved
 capablanca	Capablanca, José Raúl	Q160702	1888	1942	identity resolved
 carlsen	Carlsen, Magnus	Q106807	1990		identity resolved
 caruana	Caruana, Fabiano	Q367277	1992		identity resolved
@@ -33,11 +31,11 @@ kasparov	Kasparov, Garry	Q28614	1963		identity resolved
 koneru	Koneru, Humpy	Q255044	1987		identity resolved
 korchnoi	Korchnoi, Viktor	Q212889	1931	2016	identity resolved
 kramnik	Kramnik, Vladimir	Q161092	1975		identity resolved
-kushnir-aleksandr	Kushnir, Alla	Q269098	1941	2013	identity resolved
+kushnir	Kushnir, Alla	Q269098	1941	2013	identity resolved
 lasker	Lasker, Emanuel	Q57095	1868	1941	identity resolved
 lei	Lei, Tingjie	Q16845654	1997		identity resolved
 leko	Leko, Peter	Q210922	1979		identity resolved
-marshall-viele	Marshall, Frank	Q312814	1877	1944	identity resolved
+marshall	Marshall, Frank	Q312814	1877	1944	identity resolved
 morrison	Morrison, John				seen in world championship games; identity unverified; no Wikidata item found on a fresh search, left null deliberately
 muzychuk	Muzychuk, Mariya	Q439881	1992		identity resolved
 nepomniachtchi	Nepomniachtchi, Ian	Q521817	1990		identity resolved

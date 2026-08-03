@@ -1,0 +1,67 @@
+{
+  "kind": "ocn.sidecar_manifest.v1",
+  "title": "Merge the four duplicate person identities the event rename left orphaned",
+  "description": "Correcting the world-championship participant names changed the event identifiers derived from them, so events.tsv now names 'alekhine', 'bykova', 'kushnir' and 'marshall' where it used to name their misspelled twins. Four rows of people.tsv are left unreferenced and two references have nothing to point at. The Wikidata pass of 2026-07-31 had already resolved every one of these: alekhine and aljechin are both Q131374, bikova and bykova are both Q253772, and it marked each pair 'merge pending'. This performs the merge. kushnir-aleksandr and marshall-viele are not duplicates of anything — each is the only record of its person, correctly resolved (Alla Kushnir Q269098, Frank Marshall Q312814), carrying a slug built from a misspelling — so they are renamed rather than dropped. See docs/evidence/provenance/wch-participant-integrity.md.",
+  "target": "catalog/ocn-1.people.tsv",
+  "expected_file_rows": 61,
+  "operations": [
+    {
+      "op": "drop",
+      "match": {
+        "person_id": "aljechin"
+      },
+      "expected_rows": 1,
+      "evidence": "duplicate of alekhine, both Q131374, marked 'merge pending' on 2026-07-31; no longer referenced by any event"
+    },
+    {
+      "op": "drop",
+      "match": {
+        "person_id": "bikova"
+      },
+      "expected_rows": 1,
+      "evidence": "duplicate of bykova, both Q253772, marked 'merge pending' on 2026-07-31; no longer referenced by any event"
+    },
+    {
+      "op": "rename",
+      "fields": [
+        "person_id"
+      ],
+      "from": "kushnir-aleksandr",
+      "to": "kushnir",
+      "expected_rows": 1,
+      "wikidata_qid": "Q269098",
+      "evidence": "the record is right and the slug is not: display_name is already 'Kushnir, Alla' with Q269098 and her dates; the slug was built from the misspelling 'Kushnir Aleksandr'"
+    },
+    {
+      "op": "rename",
+      "fields": [
+        "person_id"
+      ],
+      "from": "marshall-viele",
+      "to": "marshall",
+      "expected_rows": 1,
+      "wikidata_qid": "Q312814",
+      "evidence": "display_name is already 'Marshall, Frank' with Q312814; the slug was built from the misspelling 'Marshall Viele, Fabrizio Aaron'"
+    },
+    {
+      "op": "rename",
+      "fields": [
+        "note"
+      ],
+      "from": "identity resolved; duplicate identity: shares Q131374 with aljechin — merge pending",
+      "to": "identity resolved",
+      "expected_rows": 1,
+      "evidence": "the merge is done in this manifest, so the note no longer describes the file"
+    },
+    {
+      "op": "rename",
+      "fields": [
+        "note"
+      ],
+      "from": "identity resolved; duplicate identity: shares Q253772 with bikova — merge pending",
+      "to": "identity resolved",
+      "expected_rows": 1,
+      "evidence": "the merge is done in this manifest, so the note no longer describes the file"
+    }
+  ]
+}

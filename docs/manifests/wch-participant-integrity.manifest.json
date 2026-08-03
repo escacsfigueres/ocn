@@ -1,7 +1,7 @@
 {
   "kind": "ocn.sidecar_manifest.v1",
-  "title": "DRAFT, INCOMPLETE — name the world-championship participants after people",
-  "description": "UN-APPLIED AND NOT YET SUFFICIENT. This manifest corrects the 'white' and 'black' columns only. catalog/ocn-1.wch.tsv also carries every player name inside its 'citation' column, in the form 'White-Black, Event, Place, Year', and tools/build_chronicle.py copies that column verbatim into the 'source_ref' of every wch-game claim. Applying this alone would leave the chronicle's 733 claims still citing Aljechin, Yuri and Kushnir Aleksandr. Fixing 'citation' needs substring replacement, which this engine deliberately does not do: 'Bogoljubow' occurs bare in citations and is also a prefix of the correct 'Bogoljubow, Efim', so an unbounded substitution would produce 'Bogoljubow, Efim, Efim'. A bounded 'substitute' operation is the missing piece. catalog/ocn-1.wch.tsv holds one row per game and identifies players by a name string, so the same person appears under several spellings and games by unrelated people were filed into title matches on a surname match. Seven rows are games by people who did not play the match they sit under. Thirteen renames collapse the spellings, twelve of them onto a Wikidata identity already resolved in docs/evidence/people/wikidata-resolved.tsv on 2026-07-31; that pass corrected people.tsv and never reached the game records. The 49 rows naming '?' are absences and are left alone. See docs/evidence/provenance/wch-participant-integrity.md.",
+  "title": "Name the world-championship participants after people, not spellings",
+  "description": "The final sync_prefix operation re-anchors the 'citation' column on the corrected pair, because that column repeats every player name and tools/build_chronicle.py copies it verbatim into the 'source_ref' of every wch-game claim. catalog/ocn-1.wch.tsv holds one row per game and identifies players by a name string, so the same person appears under several spellings and games by unrelated people were filed into title matches on a surname match. Seven rows are games by people who did not play the match they sit under. Thirteen renames collapse the spellings, twelve of them onto a Wikidata identity already resolved in docs/evidence/people/wikidata-resolved.tsv on 2026-07-31; that pass corrected people.tsv and never reached the game records. The 49 rows naming '?' are absences and are left alone. See docs/evidence/provenance/wch-participant-integrity.md.",
   "target": "catalog/ocn-1.wch.tsv",
   "expected_file_rows": 1040,
   "operations": [
@@ -229,6 +229,17 @@
       "to": "Kushnir, Alla",
       "expected_rows": 26,
       "evidence": "NO QID: Alla Kushnir has no person record; the only internal evidence is the single correctly spelled row in Wch women Moscow/Tbilisi 1969"
+    },
+    {
+      "op": "sync_prefix",
+      "field": "citation",
+      "pair_fields": [
+        "white",
+        "black"
+      ],
+      "separator": "-",
+      "expected_rows": 287,
+      "evidence": "every citation begins with exactly '{white}-{black}', verified on all 1,040 rows; re-anchoring rather than substituting because 'Bogoljubow, Efim' contains 'Bogoljubow,' and no substring rule can tell the corrected rows from the uncorrected ones"
     }
   ]
 }

@@ -1,6 +1,6 @@
 # Who actually played in the world-championship claims
 
-**Status: verified, un-applied.** Companion to
+**Status: applied 2026-08-03.** Companion to
 `wch-participant-integrity.proposed.tsv`. Found 2026-08-03 while checking a
 single suspicious name printed in the Ruy López monograph.
 
@@ -94,18 +94,19 @@ The sibling TSV, un-applied, in three parts:
   Elizaveta`. In both cases the catalogue is wrong twice over and the
   consistency test could only see it because it was wrong in two different
   ways.
-- **unresolved**, the 49 rows naming `?`, plus one rename with no identity
-  behind it: Alla Kushnir has no person record at all, so the 26 rows reading
-  `Kushnir Aleksandr` rest only on the single correctly spelled row in the
-  1969 match. Creating that record is the smallest useful next step.
+- **unresolved**, the 49 rows naming `?`. Alla Kushnir turned out to have a
+  record after all — resolved to Q269098 with her dates on 31 July — filed
+  under the slug `kushnir-aleksandr`, built from the misspelling. The identity
+  work had been right and only the handle carried the error.
 
-## Two couplings that stop this being a two-column rename
+## Two couplings that made this more than a two-column rename
 
 `tools/apply_sidecar_manifest.py` now exists, with twenty tests, and all four
 chronicle sidecars round-trip through it byte for byte. The manifest at
 `docs/manifests/wch-participant-integrity.manifest.json` dry-runs clean:
 1,040 rows to 1,033, every operation matching its declared count exactly.
-It is still **not enough to apply**, for two reasons found while checking.
+It was **not enough to apply on its own**, for two reasons found while
+checking, and both are now handled.
 
 **The names are in the citation column as well.** Every row of `wch.tsv`
 carries `citation` in the form `White-Black, Event, Place, Year`, so the
@@ -113,20 +114,46 @@ Aljechin row reads `Aljechin, Yuri-Bogoljubow, World Championship 14th,
 Deutschland/Niederlande, 1929`. Correcting `white` and `black` and leaving
 `citation` would fix the display and leave the evidence wrong.
 
-Fixing `citation` needs substring replacement, and the engine does not do it
-on purpose. `Bogoljubow` appears bare in citations and is also a prefix of the
-correct `Bogoljubow, Efim`, so an unbounded substitution turns the rows that
-are already right into `Bogoljubow, Efim, Efim`. The missing piece is a
-`substitute` operation with a boundary condition, which the citation format
-supplies: a player name is always followed by `-` or `, `.
+Substring replacement cannot do this safely, and no boundary rule saves it:
+the corrected `Bogoljubow, Efim` *contains* `Bogoljubow,`, so any rule that
+matches the wrong rows matches the right ones too. The engine gained a
+`sync_prefix` operation instead, anchored rather than searched — it rebuilds
+the citation's opening from the row's own corrected pair, having first checked
+that the citation begins with the pair it used to carry. That holds on all
+1,040 rows, and the operation refuses to run if it ever stops holding.
 
 **Regenerating the chronicle would destroy the identity work.**
 `tools/build_chronicle.py` derives `people.tsv`, `events.tsv` and
 `claims.tsv` from `wch.tsv`, and `source_ref` is a verbatim copy of
-`citation`. Regenerating is therefore the obvious way to propagate this fix to
-the 733 wch-game claims — and it writes `people.tsv` with `wikidata_qid` empty
-by design, which would erase the **60 curated Wikidata identities** resolved on
-2026-07-31. Any regeneration must write to a scratch directory and take
-`claims.tsv` only.
+`citation`. Regenerating is therefore the way to propagate this fix to the 733 wch-game
+claims, and it is also a trap twice over. It writes `people.tsv` with
+`wikidata_qid` empty by design, which would have erased the **60 curated
+identities** resolved on 2026-07-31. And its `claims.tsv` holds *only* the
+wch-game relation, so copying it would have deleted the 259 `renamed` and 119
+`named-after-place` claims built by other passes.
+
+What was done instead: regenerate into a scratch directory, take `events.tsv`
+whole because it is entirely derived, splice the regenerated wch-game block
+into the existing `claims.tsv` keeping the other 378 claims in place, and
+leave `people.tsv` alone.
+
+## What the rename then forced
+
+Renaming the participants renamed the event identifiers derived from them, and
+that broke the chronicle's own joins: `events.tsv` began naming `kushnir` and
+`marshall`, which `people.tsv` did not hold, while `aljechin`, `bikova`,
+`kushnir-aleksandr` and `marshall-viele` sat referenced by nothing. The July
+pass had marked two of those pairs **merge pending** and the merge had never
+happened; this forced it. Applied through the same engine
+(`docs/manifests/people-identity-merge.manifest.json`): two duplicates dropped,
+two slugs renamed onto the identity they already carried.
+
+One thing the regeneration healed by itself. The 1929 match had been split
+into two events, `wch-1929-alekhine-bogoljubow` with six games and
+`wch-1929-aljechin-bogoljubow` with twenty-one, because one man was spelled two
+ways. It is now one event with twenty-seven.
+
+**After: 59 people, 59 referenced, nothing dangling in either direction, no
+`merge pending` note left, and 58 of the 59 carrying a Wikidata identity.**
 
 See [[attribution-working-pattern]]: automate the triage, never the truth.
