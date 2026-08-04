@@ -42,3 +42,8 @@ web/dist/
 # crates.io publishing). Never committed: this repo is public.
 .env
 .env.local
+
+# The monograph generator writes its HTML and probe pages beside itself. They
+# are megabytes of derived output; the PDF is produced from them by Chrome.
+tools/monograph/*.html
+tools/monograph/*.pdf
