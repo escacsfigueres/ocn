@@ -2171,12 +2171,12 @@ CSS = f"""
 @page {{ size: A4; margin: 0; }}
 * {{ margin: 0; box-sizing: border-box; }}
 html {{ -webkit-print-color-adjust: exact; print-color-adjust: exact; }}
-body {{ font-family: Spectral, Georgia, serif; color: {INK}; background: {PAPER};
+body {{ font-family: Spectral, serif; color: {INK}; background: {PAPER};
   font-size: 10.2pt; line-height: 1.6; counter-reset: page; }}
 .page {{ width: 210mm; height: 297mm; padding: 20mm 18mm 16mm; position: relative;
   page-break-after: always; overflow: hidden; counter-increment: page; }}
 .page:last-child {{ page-break-after: auto; }}
-h1,h2,h3,h4,.din {{ font-family:'OCN DIN','Helvetica Neue',sans-serif; font-weight:400; letter-spacing:.05em; }}
+h1,h2,h3,h4,.din {{ font-family:'OCN DIN',Spectral,serif; font-weight:400; letter-spacing:.05em; }}
 h2 {{ font-size: 18pt; margin-bottom: 3mm; }}
 h3 {{ font-size: 10.5pt; letter-spacing: .14em; text-transform: uppercase; color: {NAMING}; margin: 5.5mm 0 1.6mm; }}
 p {{ margin-bottom: 2.8mm; max-width: 64em; hyphens: auto; }}
@@ -2213,13 +2213,13 @@ figure {{ margin:0; }}
 .diagram .cap {{ color:#3c3f44; }}
 table {{ border-collapse:collapse; width:100%; margin-top:2.5mm; font-size:8.9pt; }}
 th, td {{ text-align:left; padding:1.1mm 1.8mm; border-bottom:.4pt solid #d8d3c6; vertical-align:top; }}
-th {{ font-family:'OCN DIN',sans-serif; letter-spacing:.1em; font-size:8.2pt; text-transform:uppercase;
+th {{ font-family:'OCN DIN',Spectral,serif; letter-spacing:.1em; font-size:8.2pt; text-transform:uppercase;
   color:{NAMING}; border-bottom:1pt solid {INK}; }}
 td.num, th.num {{ text-align:right; font-family:'Plex Mono',monospace; font-size:8.2pt; }}
 table.tight td, table.tight th {{ padding:.65mm 1.3mm; font-size:8pt; }}
 table.kv td:first-child {{ width:34mm; color:{NAMING}; }}
 .stats {{ display:flex; flex-wrap:wrap; gap:6.5mm; margin:4mm 0 2mm; }}
-.stat .n {{ font-family:'OCN DIN',sans-serif; font-size:21pt; line-height:1; }}
+.stat .n {{ font-family:'OCN DIN',Spectral,serif; font-size:21pt; line-height:1; }}
 .stat .l {{ font-family:'Plex Mono',monospace; font-size:7pt; color:#6b6e73; letter-spacing:.05em; text-transform:uppercase; }}
 .bars {{ margin:3mm 0 4mm; }}
 .bar {{ display:grid; grid-template-columns:24mm 1fr 10mm; align-items:center; gap:2.5mm; margin-bottom:1.3mm; }}
@@ -2271,7 +2271,7 @@ table.kv td:first-child {{ width:34mm; color:{NAMING}; }}
 .chead span:last-child {{ color:{NAMING}; }}
 .csup {{ font-family:'Plex Mono',monospace; font-size:6.5pt; text-transform:uppercase;
   letter-spacing:.14em; color:{NAMING}; margin-top:2.4mm; }}
-.ctitle {{ font-family:'OCN DIN',sans-serif; font-size:40pt; line-height:1.02;
+.ctitle {{ font-family:'OCN DIN',Spectral,serif; font-size:40pt; line-height:1.02;
   letter-spacing:.005em; margin:.8mm 0 1.4mm; }}
 .cmoves {{ font-size:8.4pt; }}
 .cmid {{ display:grid; grid-template-columns:1fr 84mm; gap:6mm; margin-top:5mm; }}
@@ -2280,7 +2280,7 @@ table.kv td:first-child {{ width:34mm; color:{NAMING}; }}
 .census {{ display:grid; grid-template-columns:1fr 1fr; gap:5mm; }}
 .cl {{ font-family:'Plex Mono',monospace; font-size:6.2pt; text-transform:uppercase;
   letter-spacing:.12em; color:{INK}; }}
-.cv {{ font-family:'OCN DIN',sans-serif; font-size:17pt; line-height:1.1; }}
+.cv {{ font-family:'OCN DIN',Spectral,serif; font-size:17pt; line-height:1.1; }}
 .cv.big {{ font-size:44pt; line-height:1; }}
 .crule {{ border-bottom:.25pt solid #cfcabb; margin:1.2mm 0 2.2mm; }}
 .crule.gold {{ border-bottom:.5pt solid {BAND}; }}
@@ -2290,7 +2290,7 @@ table.kv td:first-child {{ width:34mm; color:{NAMING}; }}
   letter-spacing:.1em; color:{NAMING}; margin-bottom:2mm; }}
 .csig {{ position:absolute; left:18mm; right:18mm; bottom:26mm; border-top:.6pt solid {BAND};
   padding-top:2.4mm; display:grid; grid-template-columns:54mm 1fr; gap:6mm; align-items:start; }}
-.csn {{ font-family:'OCN DIN',sans-serif; font-size:28pt; line-height:1; color:{NAMING}; }}
+.csn {{ font-family:'OCN DIN',Spectral,serif; font-size:28pt; line-height:1; color:{NAMING}; }}
 .cst {{ font-size:10.5pt; line-height:1.45; }}
 .lt {{ font-size:7.2pt; }}
 .lt.two-col {{ column-count:2; column-gap:7mm; }}
@@ -2302,9 +2302,9 @@ table.kv td:first-child {{ width:34mm; color:{NAMING}; }}
 .ltb span {{ display:block; height:100%; background:{BAND}; }}
 .ltg {{ font-family:'Plex Mono',monospace; font-size:6.4pt; width:12mm; text-align:right; color:#6b6e73; }}
 .dossier {{ display:grid; grid-template-columns:1fr 1fr; gap:7mm; }}
-.dname {{ font-family:'OCN DIN',sans-serif; font-size:14pt; margin:.6mm 0 1.4mm; }}
+.dname {{ font-family:'OCN DIN',Spectral,serif; font-size:14pt; margin:.6mm 0 1.4mm; }}
 .dq {{ font-size:9.2pt; line-height:1.45; }}
-.dhero {{ font-family:'OCN DIN',sans-serif; font-size:26pt; line-height:1; margin:.6mm 0 .6mm; }}
+.dhero {{ font-family:'OCN DIN',Spectral,serif; font-size:26pt; line-height:1; margin:.6mm 0 .6mm; }}
 .split {{ display:flex; height:4mm; margin:1.8mm 0 1mm; border:.3pt solid {INK}; }}
 .split.empty {{ background:{PAPER}; }}
 .sw {{ background:{INK}; }} .sd {{ background:{BAND}; }} .sb {{ background:{PAPER}; }}
@@ -2315,13 +2315,13 @@ table.kv td:first-child {{ width:34mm; color:{NAMING}; }}
 .chopen {{ display:grid; grid-template-columns:46mm 1fr; gap:6mm; margin-bottom:4mm;
   padding-bottom:4mm; border-bottom:1pt solid {INK}; }}
 .chb .board {{ width:46mm; }}
-.chn {{ font-family:'OCN DIN',sans-serif; font-size:17pt; letter-spacing:.03em; margin-bottom:1mm; }}
+.chn {{ font-family:'OCN DIN',Spectral,serif; font-size:17pt; letter-spacing:.03em; margin-bottom:1mm; }}
 .fentry {{ display:grid; grid-template-columns:34mm 1fr; gap:4mm; margin-bottom:4.5mm;
   padding-bottom:3.5mm; border-bottom:.4pt solid #ddd8ca; break-inside:avoid; }}
 .fentry:last-child {{ border-bottom:none; }}
 .fb .board {{ width:34mm; }}
 .fh {{ display:flex; gap:3mm; align-items:baseline; }}
-.fn {{ font-family:'OCN DIN',sans-serif; font-size:12pt; letter-spacing:.03em; margin:.6mm 0 1mm; }}
+.fn {{ font-family:'OCN DIN',Spectral,serif; font-size:12pt; letter-spacing:.03em; margin:.6mm 0 1mm; }}
 .fm {{ font-size:7.2pt; color:#5c5f64; margin-bottom:1.2mm; }}
 .fs {{ font-size:7.6pt; line-height:1.5; }}
 .fs .attr {{ color:{NAMING}; }}
