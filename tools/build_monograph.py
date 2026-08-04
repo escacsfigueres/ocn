@@ -631,6 +631,17 @@ def chapter_cover(ci, ch, band_html):
 """
 
 
+def _gcell_attr(c):
+    """The attribution line of a gathered cell, or nothing.
+
+    Written out rather than inlined because the inline form nested a
+    single-quoted subscript inside a single-quoted f-string, which is PEP 701
+    and therefore 3.12 and later. This repository builds on 3.10.
+    """
+    a = CATALOG[c]["attributed_to"]
+    return f'<br><span class="attr">{a}</span>' if a else ""
+
+
 # ------------------------------------------------------------------ pages
 
 micro = li((BRAND / "micro-c.svg").read_text(encoding="utf-8"))
@@ -2045,7 +2056,7 @@ played strongly again.</p>
          f'<span class="slug">{c}</span> <span class="eco">{eco_of(c)}</span><br>'
          f'<b>{short(c)}</b><br><span class="cap">{CATALOG[c]["notes"].strip()}</span><br>'
          f'<span class="eco">{games(c):,} master, {lich(c):,} Lichess</span>'
-         f'{f"<br><span class=attr>{CATALOG[c]['attributed_to']}</span>" if CATALOG[c]["attributed_to"] else ""}'
+         f'{_gcell_attr(c)}'
          f'</figcaption></figure>' for c in GATHERED)}
 </div>
 """, "Single names")
