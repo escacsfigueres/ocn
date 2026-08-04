@@ -1,0 +1,24 @@
+{
+  "kind": "ocn.sidecar_manifest.v1",
+  "title": "Give Robert B. Wormald the record the retraction left him needing",
+  "description": "The Worrall attribution was retracted from C.RyL.Mor.Wor on 2026-08-03 because the Oxford Companion entry it cited describes a different line. That left the Wormald Attack with no person attached at all. docs/evidence/people/wikidata-resolved.tsv already holds the identity, recorded there as a warning while resolving Worrall: 'Do not substitute Robert B. Wormald (Q16597044, 1834-1876), a different person.' The warning was right and it is also the evidence. Thomas Herbert Worrall stays without a QID, and that file explains at length why one must not be invented for him. This adds Wormald only; the named-after-person claim linking him to the line is proposed separately and asserts the checkable thing, that the catalogue name carries his name, and not a role no source establishes.",
+  "target": "catalog/ocn-1.people.tsv",
+  "expected_file_rows": 59,
+  "operations": [
+    {
+      "op": "insert",
+      "unique_by": "person_id",
+      "expected_rows": 1,
+      "wikidata_qid": "Q16597044",
+      "evidence": "docs/evidence/people/wikidata-resolved.tsv, worrall row: 'Do not substitute Robert B. Wormald (Q16597044, 1834-1876), a different person'",
+      "row": {
+        "person_id": "wormald",
+        "display_name": "Wormald, Robert B.",
+        "wikidata_qid": "Q16597044",
+        "born": "1834",
+        "died": "1876",
+        "note": "identity resolved; eponym of the Wormald Attack (C77, 5.Qe2). Not to be confused with Thomas Herbert Worrall of the Worrall Attack (C86, 6.Qe2), whose entry the catalogue had attached to this line until 2026-08-03"
+      }
+    }
+  ]
+}

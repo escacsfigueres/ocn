@@ -56,6 +56,39 @@ analysed this in his manuscripts" becomes a row rather than prose.
 | `played-by` | it is in this player's repertoire |
 | `wch-game` | played in a world championship match |
 | `renamed` | the line carried a different name before this |
+| `known-as` | a source gives this name for the same position |
+| `attested-in-print` | this name was on a title page by this year |
+
+`known-as` and `attested-in-print` were added on 2026-08-04, and the reason
+is the same in both cases: the `aliases` column had been carrying claims it
+cannot support.
+
+An alias is a bare string in a pipe-delimited field. It has no source, no
+date and no grade, and it is **directional** — one name is canonical and the
+rest are beneath it. That is right for a spelling ("Modern Defense") and
+wrong for a name a reference work treats as the head. The Oxford Companion's
+entry for 1.e4 g6 2.d4 Bg7 is titled **Robatsch Defence** and gives the
+Modern Defence as one of three alternatives; OCN files the position the other
+way round. Recording that as an alias would encode one choice as the truth
+and lose the only interesting part, which is that two authorities disagree.
+`known-as` carries the name with the source that gives it and the grade it
+earns, and says nothing about which one wins.
+
+Where a source establishes *which* community uses a name, that belongs in the
+note. The relation deliberately does **not** say "in tradition T", because
+most sources say "also known as" and naming a tradition they do not name
+would assert more than they support. If enough rows accumulate that do carry
+a sourced tradition, a column is the next step and not before.
+
+`attested-in-print` dates a **name**, which nothing else here can do. Every
+other date in this catalogue is the date of a game, and a game proves when a
+move was played, not when anybody called it anything. A book titled *Ruy
+Lopez, Breyer system* and printed in 1976 puts the name in circulation by
+1976. It is weaker than a first attestation and it is evidence of the right
+kind. It is distinct from `analysed-in`, which asserts that a publication
+analyses the line: a title page proves the name and says nothing about the
+contents, and claiming the stronger relation from the weaker evidence is the
+error this catalogue exists to avoid.
 
 `renamed` was added after the fact, on two findings that had nowhere to
 go. The Latvian Gambit was the Greco Counter-Gambit until Riga analysts

@@ -37,7 +37,7 @@ from pathlib import Path
 KIND = "ocn.sidecar_manifest.v1"
 REQUIRED_KEYS = ("kind", "title", "description", "target",
                  "expected_file_rows", "operations")
-OPS = ("rename", "drop", "sync_prefix")
+OPS = ("rename", "drop", "sync_prefix", "insert")
 
 
 class ApplyError(Exception):
@@ -94,6 +94,20 @@ def validate_manifest(obj: object) -> None:
             if not all(isinstance(k, str) and isinstance(v, str)
                        for k, v in match.items()):
                 raise ApplyError(f"{where}: 'match' must map field names to strings")
+        elif kind == "insert":
+            row = op.get("row")
+            if not isinstance(row, dict) or not row:
+                raise ApplyError(f"{where}: 'row' must be a non-empty object")
+            if not all(isinstance(k, str) and isinstance(v, str) for k, v in row.items()):
+                raise ApplyError(f"{where}: 'row' must map field names to strings")
+            key = op.get("unique_by")
+            if not isinstance(key, str) or not key:
+                raise ApplyError(f"{where}: 'unique_by' names the field that must not "
+                                 "already hold this value")
+            if key not in row:
+                raise ApplyError(f"{where}: 'unique_by' field {key!r} is not in 'row'")
+            if op["expected_rows"] != 1:
+                raise ApplyError(f"{where}: an insert adds exactly one row")
         else:
             if not isinstance(op.get("field"), str) or not op["field"]:
                 raise ApplyError(f"{where}: 'field' must be a non-empty string")
@@ -177,6 +191,8 @@ def apply(manifest: dict, sidecar: Sidecar) -> ApplyResult:
             need = op["fields"]
         elif op["op"] == "drop":
             need = list(op["match"])
+        elif op["op"] == "insert":
+            need = list(op["row"])
         else:
             need = [op["field"], *op["pair_fields"]]
         for f in need:
@@ -197,6 +213,14 @@ def apply(manifest: dict, sidecar: Sidecar) -> ApplyResult:
                         matched += 1
                         if len(samples) < 2:
                             samples.append(f"{f}: {op['from']} -> {op['to']}")
+        elif op["op"] == "insert":
+            key, val = op["unique_by"], op["row"][op["unique_by"]]
+            if any(r.get(key) == val for i, r in enumerate(rows) if i not in dropped):
+                raise ApplyError(
+                    f"insert: {key}={val!r} is already in the file; an insert adds a "
+                    "row that is not there, and this one is")
+            rows.append({f: op["row"].get(f, "") for f in sidecar.fieldnames})
+            matched, samples = 1, [f"{key}={val}"]
         elif op["op"] == "drop":
             for i, r in enumerate(rows):
                 if i in dropped:
@@ -214,8 +238,8 @@ def apply(manifest: dict, sidecar: Sidecar) -> ApplyResult:
             a, b = op["pair_fields"]
             sep, fld = op["separator"], op["field"]
             for i, r in enumerate(rows):
-                if i in dropped:
-                    continue
+                if i in dropped or i >= len(sidecar.rows):
+                    continue          # a row inserted by this manifest has no "before"
                 was = f'{sidecar.rows[i].get(a, "")}{sep}{sidecar.rows[i].get(b, "")}'
                 now = f'{r.get(a, "")}{sep}{r.get(b, "")}'
                 cite = r.get(fld) or ""
@@ -271,6 +295,8 @@ def report_markdown(manifest: dict, res: ApplyResult, target: Path) -> str:
             head = f"`{op['from']}` -> `{op['to']}` in {', '.join(op['fields'])}"
         elif op["op"] == "drop":
             head = "drop " + ", ".join(f"{k}={v!r}" for k, v in op["match"].items())
+        elif op["op"] == "insert":
+            head = f"insert {op['unique_by']}=`{op['row'][op['unique_by']]}`"
         else:
             head = (f"re-anchor `{op['field']}` on "
                     f"{op['separator'].join(op['pair_fields'])}")

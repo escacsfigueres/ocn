@@ -222,6 +222,43 @@ class SyncPrefix(unittest.TestCase):
             validate_manifest(base_manifest(operations=[dict(SYNC, pair_fields=["white"])]))
 
 
+INSERT = {"op": "insert", "unique_by": "ocn1", "expected_rows": 1,
+          "evidence": "a person the catalogue references and does not hold",
+          "row": {"ocn1": "C.New", "event": "New Event", "year": "2026",
+                  "white": "Somebody, A", "black": "Nobody, B",
+                  "citation": "Somebody, A-Nobody, B, New Event, 2026"}}
+
+
+class Insert(unittest.TestCase):
+    def test_adds_exactly_one_row(self):
+        with TempSidecar() as p:
+            res = apply(base_manifest(operations=[INSERT]), load_sidecar(p))
+        self.assertEqual((res.rows_before, res.rows_after), (5, 6))
+        self.assertIn("C.New", res.text)
+
+    def test_refuses_to_insert_something_already_there(self):
+        m = base_manifest(operations=[dict(INSERT, row=dict(INSERT["row"], ocn1="A.Bir"))])
+        with TempSidecar() as p:
+            with self.assertRaisesRegex(ApplyError, "already in the file"):
+                apply(m, load_sidecar(p))
+
+    def test_rejects_an_insert_claiming_more_than_one_row(self):
+        with self.assertRaisesRegex(ApplyError, "exactly one row"):
+            validate_manifest(base_manifest(operations=[dict(INSERT, expected_rows=2)]))
+
+    def test_rejects_a_unique_by_field_not_in_the_row(self):
+        with self.assertRaisesRegex(ApplyError, "unique_by"):
+            validate_manifest(base_manifest(operations=[dict(INSERT, unique_by="nope")]))
+
+    def test_an_inserted_row_survives_a_later_sync_prefix(self):
+        m = base_manifest()
+        m["operations"] = m["operations"] + [INSERT, SYNC]
+        with TempSidecar() as p:
+            res = apply(m, load_sidecar(p))
+        self.assertIn("Somebody, A-Nobody, B, New Event, 2026", res.text)
+        self.assertEqual(res.rows_after, 6)
+
+
 class Referential(unittest.TestCase):
     def test_reports_slugs_the_catalogue_does_not_know(self):
         with tempfile.TemporaryDirectory() as d:
