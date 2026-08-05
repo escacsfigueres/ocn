@@ -249,7 +249,7 @@ def dendrogram(root_slug, width=470, per_leaf=9.0, max_h=452):
         g = games(n)
         r = 1.1 + (2.4 * (math.log10(g + 1) / 6) if g else 0)
         parts.append(f'<circle cx="{xs(n):.1f}" cy="{ys(n):.1f}" r="{r:.2f}" '
-                     f'fill="{BAND if n == root_slug or int(CATALOG[n]["depth"])-d0<=1 else INK}" '
+                     f'fill="{INK}" opacity="{1 if n == root_slug or int(CATALOG[n]["depth"])-d0<=1 else 0.55}" '
                      f'opacity="{1 if int(CATALOG[n]["depth"])-d0<=1 else .5}"/>')
     last_y = -99.0
     for n in CHILDREN.get(root_slug, []):
@@ -387,7 +387,14 @@ def bars(pairs, width_mm=112):
 
 # ------------------------------------------------------------------ chapter cover
 
-GOLD_LIGHT, GOLD_DARK = PAPER, BAND
+# One rule for colour in this volume: gold marks a line that carries
+# documentary evidence, and nothing else. It was previously doing eight jobs at
+# once — family identity, board squares, bar length, treemap share, the draw
+# segment of a result split, "still played", and rules — which is the same as
+# doing none. Everything that is a quantity is ink at varying weight; the cover
+# keeps the band and the letter, because that is identity and not data.
+SQ_LIGHT, SQ_DARK = PAPER, "#dedbd2"   # a warm grey, not the family colour
+GOLD_LIGHT, GOLD_DARK = SQ_LIGHT, SQ_DARK
 
 
 def board_gold(fen, mark=()):
@@ -864,8 +871,8 @@ def treemap(width=470, height=430):
             for i, (kx, ky, kw, kh) in enumerate(inner):
                 share = kv[i] / kt
                 p.append(f'<rect x="{kx:.2f}" y="{ky:.2f}" width="{max(kw,0):.2f}" '
-                         f'height="{max(kh,0):.2f}" fill="#F0C053" '
-                         f'opacity="{0.16 + 0.62 * share:.2f}" '
+                         f'height="{max(kh,0):.2f}" fill="{INK}" '
+                         f'opacity="{0.10 + 0.40 * share:.2f}" '
                          f'stroke="#f6f6f3" stroke-width="0.5"/>')
         if w > 46 and h > 15:
             nm = short(c).split(",")[-1].strip() if "," in short(c) else short(c)
@@ -1097,16 +1104,16 @@ def span_chart(width=470, height=486):
     for i, (a, b, s) in enumerate(SPANS):
         y = b_top + i * rh + rh / 2
         live = b >= 2023
-        col = "#654F1E" if live else "#15171a"
+        col = INK
         if a == b:
             p.append(f'<circle cx="{B(a):.2f}" cy="{y:.2f}" r="0.9" fill="{col}" '
                      f'opacity="0.85"/>')
         else:
             p.append(f'<line x1="{B(a):.2f}" y1="{y:.2f}" x2="{B(b):.2f}" y2="{y:.2f}" '
-                     f'stroke="{col}" stroke-width="{0.9 if live else 0.75}" '
-                     f'opacity="{0.95 if live else 0.55}"/>')
+                     f'stroke="{col}" stroke-width="{1.15 if live else 0.7}" '
+                     f'opacity="{0.95 if live else 0.4}"/>')
     p.append(f'<text x="{bx0}" y="{height - 3:.0f}" font-size="6.4" fill="#654F1E" '
-             f'font-family="Spectral">gold: still played in the sample in 2023 or later'
+             f'font-family="Spectral">heavier line: still played in the sample in 2023 or later'
              f'</text>')
     p.append("</svg>")
     return "".join(p)
@@ -1114,7 +1121,7 @@ def span_chart(width=470, height=486):
 
 add("How long a name stays in play", f"""
 <p class="lead">The upper axis is the opening's documented life as this catalogue can cite
-it, from the incunabula to now. The gold mark on it is everything the game sample can
+it, from the incunabula to now. The gold band on it is everything the game sample can
 see, opened out below as one hairline for each of the {len(SPANS)} lines that can be dated
 at both ends.</p>
 {span_chart()}
@@ -1131,7 +1138,7 @@ between them is what this catalogue spends most of its time apologising for.</p>
 <p>Drawn on its own the lower register would say this opening began in {SPAN_LO}. It did
 not. The position is in the Göttingen manuscript by about 1490; the opening takes its
 name from a book printed at Alcalá in 1561, seventy years later; a French magazine was
-dismissing it by 1846; and the world-championship record runs from 1886. What the game sample reaches is the gold sliver: a
+dismissing it by 1846; and the world-championship record runs from 1886. What the game sample reaches is the marked sliver: a
 {SPAN_HI - SPAN_LO}-year window at the end of a five-century record, which is
 {round(100 * (SPAN_HI - SPAN_LO) / (SPAN_HI - 1490))} per cent of the documented life of
 the thing it is measuring.</p>
@@ -1625,9 +1632,9 @@ def child_flow(slug, width=470, height=15):
         w = max(g / tot * width, 1.2)
         op = 1 - (i * 0.075)
         parts.append(f'<rect x="{x:.1f}" y="0" width="{w:.1f}" height="{height}" '
-                     f'fill="{BAND}" opacity="{max(op,0.28):.2f}"/>')
+                     f'fill="{INK}" opacity="{max(op * 0.62, 0.16):.2f}"/>')
         if w > 34:
-            labels.append(f'<text x="{x+3:.1f}" y="{height-4}" font-size="5.4" fill="{INK}" '
+            labels.append(f'<text x="{x+3:.1f}" y="{height-4}" font-size="5.4" fill="{PAPER}" '
                           f'font-family="Plex Mono, monospace">{short(k)[:16]}</text>')
         x += w
     rest = sum(games(k) for k in kids[9:])
@@ -2178,12 +2185,12 @@ body {{ font-family: Spectral, serif; color: {INK}; background: {PAPER};
 .page:last-child {{ page-break-after: auto; }}
 h1,h2,h3,h4,.din {{ font-family:'OCN DIN',Spectral,serif; font-weight:400; letter-spacing:.05em; }}
 h2 {{ font-size: 18pt; margin-bottom: 3mm; }}
-h3 {{ font-size: 10.5pt; letter-spacing: .14em; text-transform: uppercase; color: {NAMING}; margin: 5.5mm 0 1.6mm; }}
+h3 {{ font-size: 10.5pt; letter-spacing: .14em; text-transform: uppercase; color: {INK}; opacity:.62; margin: 5.5mm 0 1.6mm; }}
 p {{ margin-bottom: 2.8mm; max-width: 64em; hyphens: auto; }}
 .lead {{ font-size: 11.6pt; }}
 .small {{ font-size: 8.9pt; line-height: 1.5; }}
 .mono {{ font-family: 'Plex Mono', monospace; font-size: 8.2pt; }}
-blockquote {{ margin: 3mm 0 3mm 5mm; padding-left: 4.5mm; border-left: 2.5pt solid {BAND};
+blockquote {{ margin: 3mm 0 3mm 5mm; padding-left: 4.5mm; border-left: 2.5pt solid {INK};
   font-style: italic; font-size: 9.6pt; }}
 blockquote .src {{ display:block; font-style:normal; font-family:'Plex Mono',monospace;
   font-size: 7.4pt; color:#5c5f64; margin-top:1.4mm; }}
@@ -2208,16 +2215,16 @@ blockquote .src {{ display:block; font-style:normal; font-family:'Plex Mono',mon
 figure {{ margin:0; }}
 .board {{ display:block; width:100%; height:auto; }}
 .diagram figcaption {{ margin-top:1.6mm; font-size:8pt; line-height:1.34; }}
-.diagram .slug, .entry .slug {{ font-family:'Plex Mono',monospace; font-size:7.4pt; color:{NAMING}; }}
+.diagram .slug, .entry .slug {{ font-family:'Plex Mono',monospace; font-size:7.4pt; color:{INK}; opacity:.55; }}
 .diagram .eco, .entry .eco {{ font-family:'Plex Mono',monospace; font-size:7.4pt; color:#6b6e73; }}
 .diagram .cap {{ color:#3c3f44; }}
 table {{ border-collapse:collapse; width:100%; margin-top:2.5mm; font-size:8.9pt; }}
 th, td {{ text-align:left; padding:1.1mm 1.8mm; border-bottom:.4pt solid #d8d3c6; vertical-align:top; }}
 th {{ font-family:'OCN DIN',Spectral,serif; letter-spacing:.1em; font-size:8.2pt; text-transform:uppercase;
-  color:{NAMING}; border-bottom:1pt solid {INK}; }}
+  color:{INK}; opacity:.62; border-bottom:1pt solid {INK}; }}
 td.num, th.num {{ text-align:right; font-family:'Plex Mono',monospace; font-size:8.2pt; }}
 table.tight td, table.tight th {{ padding:.65mm 1.3mm; font-size:8pt; }}
-table.kv td:first-child {{ width:34mm; color:{NAMING}; }}
+table.kv td:first-child {{ width:34mm; color:{INK}; opacity:.62; }}
 .stats {{ display:flex; flex-wrap:wrap; gap:6.5mm; margin:4mm 0 2mm; }}
 .stat .n {{ font-family:'OCN DIN',Spectral,serif; font-size:21pt; line-height:1; }}
 .stat .l {{ font-family:'Plex Mono',monospace; font-size:7pt; color:#6b6e73; letter-spacing:.05em; text-transform:uppercase; }}
@@ -2226,10 +2233,10 @@ table.kv td:first-child {{ width:34mm; color:{NAMING}; }}
 .bl {{ font-family:'Plex Mono',monospace; font-size:7.4pt; color:#6b6e73; overflow:hidden;
   text-overflow:ellipsis; white-space:nowrap; }}
 .btrack {{ position:relative; height:3.2mm; }}
-.bb {{ position:absolute; left:0; top:0; height:100%; background:{BAND}; }}
+.bb {{ position:absolute; left:0; top:0; height:100%; background:{INK}; opacity:.72; }}
 .bn {{ font-family:'Plex Mono',monospace; font-size:7.4pt; text-align:right; }}
-.ask {{ border:1pt solid {NAMING}; padding:3mm 3.6mm; margin-top:2.4mm; }}
-.ask h4 {{ font-size:10.5pt; color:{NAMING}; margin-bottom:1.8mm; }}
+.ask {{ border:1pt solid {INK}; padding:3mm 3.6mm; margin-top:2.4mm; }}
+.ask h4 {{ font-size:10.5pt; color:{INK}; margin-bottom:1.8mm; }}
 .figwrap {{ text-align:center; margin:3mm 0; }}
 .chart {{ display:block; margin:0 auto; max-width:100%; height:auto; }}
 .grid3 {{ display:grid; grid-template-columns:repeat(3,1fr); gap:6mm 6mm; }}
@@ -2241,16 +2248,16 @@ table.kv td:first-child {{ width:34mm; color:{NAMING}; }}
 .entry .mv {{ font-size:6.6pt; color:#5c5f64; }}
 .entry .attr {{ color:{NAMING}; font-size:7.2pt; }}
 .entry .prop {{ color:#8a8d92; font-size:7pt; font-style:italic; }}
-.chip {{ font-family:'Plex Mono',monospace; font-size:5.8pt; color:{NAMING}; }}
+.chip {{ font-family:'Plex Mono',monospace; font-size:5.8pt; color:{INK}; opacity:.55; }}
 .ixcols {{ display:grid; grid-template-columns:1fr 1fr 1fr; gap:0 5mm; }}
 .ixline {{ display:flex; justify-content:space-between; align-items:baseline; gap:1.5mm;
   font-size:6.9pt; line-height:1.55; border-bottom:.2pt dotted #ddd8ca; }}
 .ixn {{ overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }}
-.ixp {{ font-family:'Plex Mono',monospace; font-size:6.2pt; color:{NAMING}; flex:none; }}
+.ixp {{ font-family:'Plex Mono',monospace; font-size:6.2pt; color:{INK}; opacity:.55; flex:none; }}
 .entry .inh {{ display:block; font-size:6.8pt; color:#8b8e93; margin-top:.8mm; }}
 .entry.sm .inh {{ font-size:6.1pt; }}
 .entry .hist {{ display:block; font-size:7.2pt; line-height:1.42; color:#3c3f44;
-  border-left:1.6pt solid {NAMING}; padding-left:2.2mm; margin-top:1.1mm; }}
+  border-left:1.6pt solid {INK}; padding-left:2.2mm; margin-top:1.1mm; }}
 .entry.sm .hist {{ font-size:6.4pt; }}
 .chron td {{ padding:1.4mm 2mm; vertical-align:top; }}
 .chron .yr {{ width:12mm; font-size:9pt; }}
@@ -2268,9 +2275,9 @@ table.kv td:first-child {{ width:34mm; color:{NAMING}; }}
 .chead {{ display:flex; justify-content:space-between; font-family:'Plex Mono',monospace;
   font-size:6.5pt; text-transform:uppercase; letter-spacing:.14em; padding-bottom:1mm;
   border-bottom:.25pt solid {INK}; }}
-.chead span:last-child {{ color:{NAMING}; }}
+.chead span:last-child {{ color:{INK}; opacity:.5; }}
 .csup {{ font-family:'Plex Mono',monospace; font-size:6.5pt; text-transform:uppercase;
-  letter-spacing:.14em; color:{NAMING}; margin-top:2.4mm; }}
+  letter-spacing:.14em; color:{INK}; opacity:.5; margin-top:2.4mm; }}
 .ctitle {{ font-family:'OCN DIN',Spectral,serif; font-size:40pt; line-height:1.02;
   letter-spacing:.005em; margin:.8mm 0 1.4mm; }}
 .cmoves {{ font-size:8.4pt; }}
@@ -2283,14 +2290,14 @@ table.kv td:first-child {{ width:34mm; color:{NAMING}; }}
 .cv {{ font-family:'OCN DIN',Spectral,serif; font-size:17pt; line-height:1.1; }}
 .cv.big {{ font-size:44pt; line-height:1; }}
 .crule {{ border-bottom:.25pt solid #cfcabb; margin:1.2mm 0 2.2mm; }}
-.crule.gold {{ border-bottom:.5pt solid {BAND}; }}
+.crule.gold {{ border-bottom:.5pt solid {INK}; opacity:.35; }}
 .fgame {{ font-size:8.4pt; line-height:1.4; margin-top:1mm; }}
 .cfield {{ margin-top:5mm; border-top:.25pt solid {INK}; padding-top:1.6mm; }}
 .cflabel {{ font-family:'Plex Mono',monospace; font-size:6.2pt; text-transform:uppercase;
-  letter-spacing:.1em; color:{NAMING}; margin-bottom:2mm; }}
-.csig {{ position:absolute; left:18mm; right:18mm; bottom:26mm; border-top:.6pt solid {BAND};
+  letter-spacing:.1em; color:{INK}; opacity:.5; margin-bottom:2mm; }}
+.csig {{ position:absolute; left:18mm; right:18mm; bottom:26mm; border-top:.6pt solid {INK};
   padding-top:2.4mm; display:grid; grid-template-columns:54mm 1fr; gap:6mm; align-items:start; }}
-.csn {{ font-family:'OCN DIN',Spectral,serif; font-size:28pt; line-height:1; color:{NAMING}; }}
+.csn {{ font-family:'OCN DIN',Spectral,serif; font-size:28pt; line-height:1; color:{INK}; }}
 .cst {{ font-size:10.5pt; line-height:1.45; }}
 .lt {{ font-size:7.2pt; }}
 .lt.two-col {{ column-count:2; column-gap:7mm; }}
@@ -2299,7 +2306,7 @@ table.kv td:first-child {{ width:34mm; color:{NAMING}; }}
 .tickx {{ width:1.8mm; height:1.8mm; flex:none; }}
 .ltn {{ flex:1; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }}
 .ltb {{ width:22mm; height:1.1mm; background:#e6e1d4; flex:none; }}
-.ltb span {{ display:block; height:100%; background:{BAND}; }}
+.ltb span {{ display:block; height:100%; background:{INK}; opacity:.72; }}
 .ltg {{ font-family:'Plex Mono',monospace; font-size:6.4pt; width:12mm; text-align:right; color:#6b6e73; }}
 .dossier {{ display:grid; grid-template-columns:1fr 1fr; gap:7mm; }}
 .dname {{ font-family:'OCN DIN',Spectral,serif; font-size:14pt; margin:.6mm 0 1.4mm; }}
@@ -2307,11 +2314,11 @@ table.kv td:first-child {{ width:34mm; color:{NAMING}; }}
 .dhero {{ font-family:'OCN DIN',Spectral,serif; font-size:26pt; line-height:1; margin:.6mm 0 .6mm; }}
 .split {{ display:flex; height:4mm; margin:1.8mm 0 1mm; border:.3pt solid {INK}; }}
 .split.empty {{ background:{PAPER}; }}
-.sw {{ background:{INK}; }} .sd {{ background:{BAND}; }} .sb {{ background:{PAPER}; }}
+.sw {{ background:{INK}; }} .sd {{ background:{INK}; opacity:.34; }} .sb {{ background:{PAPER}; }}
 .tocline {{ display:flex; align-items:baseline; gap:2mm; font-size:9pt; padding:.5mm 0; }}
 .tt {{ white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }}
 .td {{ flex:1; border-bottom:.4pt dotted #b9b2a2; transform:translateY(-1mm); }}
-.tp {{ font-family:'Plex Mono',monospace; font-size:8pt; color:{NAMING}; }}
+.tp {{ font-family:'Plex Mono',monospace; font-size:8pt; color:{INK}; opacity:.55; }}
 .chopen {{ display:grid; grid-template-columns:46mm 1fr; gap:6mm; margin-bottom:4mm;
   padding-bottom:4mm; border-bottom:1pt solid {INK}; }}
 .chb .board {{ width:46mm; }}
@@ -2329,15 +2336,15 @@ table.kv td:first-child {{ width:34mm; color:{NAMING}; }}
 .fs .first {{ color:{INK}; }}
 .fs .alias {{ color:#6b6e73; font-style:italic; }}
 .flag {{ font-family:'Plex Mono',monospace; font-size:6pt; letter-spacing:.06em;
-  text-transform:uppercase; color:{NAMING}; border:.4pt solid #d8cfae; padding:0 1mm; border-radius:1mm; }}
+  text-transform:uppercase; color:{INK}; opacity:.6; border:.4pt solid #ccc8bd; padding:0 1mm; border-radius:1mm; }}
 .flag.basis {{ color:#5c5f64; border-color:#ddd8ca; }}
 .fs .prop {{ color:#7c7f84; font-style:italic; }}
 .fs .xref {{ color:#8a8d92; font-family:'Plex Mono',monospace; font-size:6.8pt; }}
 .kids {{ margin-top:1.6mm; display:flex; align-items:center; gap:2mm; }}
-.kh {{ font-family:'Plex Mono',monospace; font-size:6.4pt; color:{NAMING}; white-space:nowrap; }}
+.kh {{ font-family:'Plex Mono',monospace; font-size:6.4pt; color:{INK}; opacity:.55; white-space:nowrap; }}
 .kflow {{ width:52mm; height:3.4mm; }}
 .gm {{ margin-top:1.4mm; display:grid; grid-template-columns:11mm 1fr; gap:2mm; }}
-.gh {{ font-family:'Plex Mono',monospace; font-size:6.4pt; color:{NAMING}; text-transform:uppercase; }}
+.gh {{ font-family:'Plex Mono',monospace; font-size:6.4pt; color:{INK}; opacity:.55; text-transform:uppercase; }}
 .gg {{ font-size:6.9pt; line-height:1.42; }}
 .wg {{ color:{INK}; display:block; }}
 .wg::before {{ content:"WCh"; font-family:'Plex Mono',monospace; font-size:5.6pt;
