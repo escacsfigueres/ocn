@@ -170,6 +170,18 @@ H0.1-H0.7 ──> H0.8 flip public ──> H1.1 pip + H1.2 JSON ──> H1.3 aut
 
 ## Execution log
 
+**2026-08-03/05 — the monograph track.** A 222-page generated volume on the
+Ruy López, built as a showcase and useful mainly as an audit: rendering the
+catalogue is what surfaced a wrong attribution, seven games filed into
+championship matches they did not belong to, thirteen misspelled participants
+over 334 rows, 221 player-name defects, and a citation field leaking names into
+the place column — all now corrected and pushed. The generator moved from a
+scratch directory into `tools/`. Print readiness, the InDesign question and the
+ordered next steps are in [`monograph-and-print.md`](monograph-and-print.md).
+Two blockers it exposed sit on this roadmap's own path: the shipped font
+subsets lack four characters the catalogue uses, and `web/dist` has been stale
+since 2026-07-31 while the catalogue changed on 08-03.
+
 *(append entries as horizons land: date, IDs completed, release, evidence)*
 
 - 2026-07-29 — Roadmap adopted. Audit snapshot:
