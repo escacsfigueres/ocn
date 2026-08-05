@@ -33,7 +33,7 @@ _BUILT = _git("log", "-1", "--format=%cs")
 for p in (OCN / "tools", OCN / "web"):
     sys.path.insert(0, str(p))
 
-from build import row_fen  # noqa: E402
+from build import moves_san, row_fen  # noqa: E402
 
 HERE = Path(__file__).resolve().parent / "monograph"   # cached inputs and output
 
@@ -291,10 +291,39 @@ def eco_of(s):
 def short(s):
     return re.sub(r"^Ruy L[oó]pez[ ,]*", "", CATALOG[s]["canonical_name"]) or CATALOG[s]["canonical_name"]
 
-def moves_text(s):
-    u = CATALOG[s]["moves_uci"].split()
-    return " ".join(f"{i//2+1}.{u[i]}{(' ' + u[i+1]) if i+1 < len(u) else ''}"
-                    for i in range(0, len(u), 2))
+_FIG = {"K": "wK", "Q": "wQ", "R": "wR", "B": "wB", "N": "wN"}
+# Bound to the whole shape of a move, not just its first letter. The loose
+# form matched "Berlin" and "Kasparov", which is only harmless while this
+# is applied to generated notation and nothing else. It should stay safe
+# if somebody one day points it at prose.
+_TOKEN = re.compile(r"(?<![A-Za-z0-9])([KQRBN])(?=[a-h]?[1-8]?x?[a-h][1-8])")
+
+
+def figurine(san):
+    """Swap the piece letter for the piece.
+
+    Algebraic notation is not language-independent — a knight is N in English,
+    S in German, C in Catalan and Spanish — which is why every serious printed
+    reference since Informant has used figurines. The pieces are already here
+    as an SVG sprite for the diagrams, so this costs nothing but a `use`.
+
+    Only an uppercase K/Q/R/B/N followed by the rest of a move is a piece:
+    files are lowercase and castling has no piece letter at all. White glyphs
+    are used for both sides, which is the convention and the only legible
+    choice at text size."""
+    return _TOKEN.sub(
+        lambda m: f'<svg class="fig" viewBox="0 0 45 45" aria-label="{m.group(1)}">'
+                  f'<use href="#p{_FIG[m.group(1)]}"/></svg>', san)
+
+
+def moves_text(s, fig=True):
+    """The move list in algebraic notation.
+
+    This printed raw UCI until 2026-08-05 — "1.e2e4 e7e5 2.g1f3" — which is
+    the catalogue's storage format and not something any chess reader wants to
+    look at. web/build.py already had the converter."""
+    san = moves_san(CATALOG[s]["moves_uci"])
+    return figurine(san) if fig else san
 
 CHILDREN = defaultdict(list)
 for k, v in RYL.items():
@@ -2297,6 +2326,7 @@ table.kv td:first-child {{ width:34mm; color:{INK}; opacity:.62; }}
 .entry .hist {{ display:block; font-size:7.2pt; line-height:1.42; color:#3c3f44;
   border-left:1.6pt solid {INK}; padding-left:2.2mm; margin-top:1.1mm; }}
 .entry.sm .hist {{ font-size:6.4pt; }}
+svg.fig {{ height:1em; width:1em; vertical-align:-.14em; margin-right:.02em; }}
 .chron td {{ padding:1.4mm 2mm; vertical-align:top; }}
 .chron .yr {{ width:12mm; font-size:9pt; }}
 .chron .gm2 {{ width:74mm; font-size:8.4pt; line-height:1.35; }}
