@@ -62,12 +62,24 @@ python3 tools/set_pdf_boxes.py book.pdf --trim 210x297 --bleed 3 --marks 5
 Without `--bleed` the output is exactly A4, as before, and that build is
 unchanged: 222 pages, no overflow.
 
-**One real blocker before any of it.** Spectral ships here as the Google Fonts
-*latin* subset, 14 KB, and it has no `ř`. The catalogue needs exactly four
-characters beyond Latin-1 across every name and attribution — `ć`, `č`, `ė`,
-`ř` — and Oldřich Duras currently renders one letter in a fallback face on
-three pages. Ship the *latin-ext* subsets before anything goes to a printer.
-This affects the web too, which loads the same files.
+**The font gap is closed.** The faces here were the Google Fonts *latin*
+subset, which stops at Latin-1, while the catalogue does not — `ć`, `č`, `ė`
+and `ř` all appear in names, and Oldřich Duras was rendering one letter in
+Times. [`tools/subset_fonts.py`](../tools/subset_fonts.py) now rebuilds
+`web/fonts` from upstream with Latin Extended-A, which cost **under a kilobyte
+per face**: 337 glyphs instead of 229, and the directory is still 140 KB.
+
+The range is stated rather than derived from today's data, because subsetting
+to exactly what the catalogue currently contains would rearm the same trap for
+the next Czech or Lithuanian name.
+
+An alternative typeface was never needed. Spectral itself covers all four; only
+the file we shipped did not.
+
+The result is a PDF with **ten embedded faces, none of them from the machine
+that built it, and no span set in a foreign face** — verified with PyMuPDF, not
+by looking. It was fourteen faces before, four of which were Georgia,
+Helvetica and Times.
 
 ## Colour
 
@@ -82,19 +94,17 @@ Anything added to this volume follows that rule or argues with it in writing.
 
 ## Next, in order
 
-1. **Ship the latin-ext font subsets.** Blocks print, and it is wrong on the
-   live site today.
-2. **Colour conversion.** The geometry, marks and boxes are done; what remains
+1. **Colour conversion.** The geometry, marks and boxes are done; what remains
    is RGB to CMYK with a stated profile and a PDF/X output intent. Either
    `brew install ghostscript`, or script Acrobat or InDesign, both installed.
-3. **Deploy the explorer.** `web/dist` was last built 2026-07-31 and the
+2. **Deploy the explorer.** `web/dist` was last built 2026-07-31 and the
    catalogue changed on 08-03; production still shows the retracted Worrall
    attribution and the misspelled participants.
-4. **The README asks nobody for anything.** One sentence — "corrections and
+3. **The README asks nobody for anything.** One sentence — "corrections and
    additions welcome via issues" — buried in a paragraph about release notes.
    No offer of the data to Lichess, ChessBase or chessgames.com, which is the
    whole distribution argument of the traction roadmap.
-5. **Working names.** 2,144 of 5,899 rows carry no alternative name. The
+4. **Working names.** 2,144 of 5,899 rows carry no alternative name. The
    `known-as` relation exists for it now. This is the project, not a task.
 
 ## What is deliberately not being done
