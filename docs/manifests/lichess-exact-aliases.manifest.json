@@ -1,0 +1,1716 @@
+{
+  "kind": "ocn.attribution_manifest.v1",
+  "title": "Give 155 unnamed rows the name Lichess uses for the same position",
+  "description": "2,144 of 5,899 rows carry no alternative name at all, which is the catalogue's largest gap: a reader searching the name their own source uses does not find us. This closes the part that needs no research. Every row here cross-references lichess-org/chess-openings by EXACT position, so the Lichess string names the same thing rather than an ancestor, and it is what millions of players see. Four filters: no existing alias; exact position match only, because a prefix match names a shallower line and would give dozens of rows one alias; the name must identify exactly one row in the whole cross-reference, because Lichess reuses names; no ASCII-folded eponym, because the catalogue's diacritic rule forbids them; and nothing that is already another row's canonical name or alias, which the registrar guard rejects. 2,105 rows differ from their Lichess name, 367 by exact match, 186 uniquely, and 155 survive every filter. The 30 held back are a policy question, not a data one: see docs/evidence/provenance/lichess-alias-import.md.",
+  "mode": "aliases_only",
+  "expected_catalog_rows": 5899,
+  "expected_changed_rows": [
+    "B.Fre.Win",
+    "B.Fre.Tar",
+    "B.Sic.Kal.MLn",
+    "B.Sic.Ama",
+    "A.Ret.Nh6.d4",
+    "B.Fre.Nrm.c5.d5",
+    "B.Sic.Fre.d4.cxd4.Nxd4.Nf6",
+    "C.PhD.Bc4.Be7.c3",
+    "C.PhD.d4.Bd7",
+    "C.Bsh.b5.Bxb5.c6",
+    "E.Ben.Bnk.Nf3",
+    "B.Nim.ScD.exd5.Qxd5",
+    "B.Nim.Ken.dxe5.Nxe5.f4.Ng6",
+    "A.Kad.f5.e4.fxe4.d3",
+    "A.War.b6.d4.d5.Nc3.Nd7",
+    "A.War.b5.axb5.Bb7",
+    "C.Pon.Jae.d4.Nxe4.d5.Bc5",
+    "C.Fou.Sco.Bb4.d5.Nd4",
+    "A.Bar.f5.e4.fxe4.Nc3",
+    "A.Gro.Gbt.c6.c4.dxc4.b3",
+    "A.Gro.Gbt.e5.d4.exd4.c3",
+    "A.VtK.e5.Bc4.b5.Bb3",
+    "B.Sca.Nf6.d4.c6.dxc6.e5",
+    "A.EID.Bf4.Bg7.e3.d6.Bd3",
+    "C.Vie.Nc6.d4.f5",
+    "E.OldI.Jan.f3",
+    "E.Ben.Mod.KPL.Be3",
+    "E.Ind.WIn.Nf3.d5",
+    "D.Tar.Exd.dxc5.d4.Na4.b5",
+    "B.Fre.Tar.Gui.MLn",
+    "B.Ale.Fou.Trd.Be3",
+    "B.Sic.Nim.e5.Nc6",
+    "B.Fre.Tar.Ope.exd5.exd5.Nc6",
+    "B.Fre.Adv.c5.c3.Nc6.Qb6",
+    "B.Fre.Tar.Cls.MLn.Bd3.MLn",
+    "B.Fre.Adv.Mil.MLn.Bd7",
+    "C.KGm.Acc.Nf3.KKn.Bc4.Aus",
+    "C.KGm.Acc.Nf3.KKn.Bc4.Ktv",
+    "C.KGm.Acc.Nf3.KKn.Bc4.Lol",
+    "C.KGm.Acc.Nf3.KKn.Bc4.Yng",
+    "C.KGm.Acc.Nf3.KKn.Bc4.McD",
+    "C.KGm.Acc.Nf3.KKn.Bc4.Slv",
+    "C.KGm.Acc.Nf3.KKn.Bc4.And",
+    "C.KGm.Acc.Nf3.KKn.Bc4.Coc",
+    "C.KGm.Acc.Nf3.KKn.Bc4.Vns",
+    "C.KGm.Acc.Nf3.KKn.Bc4.Slb",
+    "C.Ita.Evn.Acc.Fra",
+    "C.Ita.Evn.Acc.FrM",
+    "C.Ita.Evn.Acc.Gor",
+    "C.Ita.Evn.Acc.Hrd",
+    "C.Ita.Evn.Acc.Mrt",
+    "C.Ita.Evn.Acc.Pau",
+    "C.Ita.Evn.Acc.St2",
+    "C.Ita.Evn.Acc.Ulv",
+    "C.Vie.Nc6.HAg",
+    "C.Vie.Nc6.Alp",
+    "C.Vie.Nc6.Thr",
+    "C.Vie.Nc6.HMz",
+    "C.Vie.Nc6.Prc",
+    "C.Vie.Nc6.HM2",
+    "C.Vie.Nc6.Dub",
+    "C.Vie.Nc6.Rus",
+    "C.KGm.Dec.Fal.MLn.Alp",
+    "C.KGm.Dec.Fal.MLn.Chr",
+    "C.KGm.Dec.Fal.MLn.Ker",
+    "C.KGm.Dec.Fal.MLn.Ch2",
+    "C.KGm.Dec.Fal.MLn.Old",
+    "C.KGm.Dec.Fal.MLn.ChV",
+    "C.KGm.Dec.Fal.MLn.Tar",
+    "C.Ita.Giu.Mol.MLn.Grc",
+    "C.Ita.Giu.Mol.MLn.Gr2",
+    "C.Ita.Giu.Mol.MLn.Atk",
+    "C.Ita.Giu.Mol.MLn.Brn",
+    "C.Ita.Giu.Mol.MLn.Stn",
+    "C.Ita.Giu.Mol.MLn.Thr",
+    "C.Fou.Spa.Dbl.MLn.Blk",
+    "C.Fou.Spa.Dbl.MLn.Met",
+    "C.Fou.Spa.Dbl.MLn.Tar",
+    "C.KGm.Acc.Muz.MLn.Dbl",
+    "C.KGm.Acc.Muz.MLn.Bld",
+    "C.KGm.Acc.Muz.MLn.Bll",
+    "C.KGm.Acc.Muz.MLn.Yng",
+    "C.KGm.Acc.All.MLn.Thr",
+    "C.KGm.Acc.All.MLn.Urs",
+    "C.KGm.Acc.All.MLn.Blc",
+    "C.KGm.Acc.All.MLn.Coo",
+    "C.KGm.Acc.All.MLn.Ur2",
+    "C.Ita.Two.Opn.MLn.O-O.And",
+    "C.Ita.Two.Opn.MLn.O-O.An2",
+    "C.Ita.Two.Opn.MLn.O-O.Cnl",
+    "C.Ita.Two.Opn.MLn.O-O.Nkh",
+    "C.KGm.Acc.Kie.MLn.Bc4.An2",
+    "C.KGm.Acc.Kie.MLn.Bc4.Ric",
+    "C.KGm.Acc.Kie.MLn.Bc4.Ri2",
+    "C.Ita.Evn.Dec.Hck",
+    "C.Ita.Evn.Dec.Hrs",
+    "C.Ita.Evn.Dec.Lng",
+    "C.Ita.Evn.Dec.Pvl",
+    "D.Sem.Mer.Rab.Ng4",
+    "D.Tar.Cls.Bg5.MLn",
+    "C.KPO.Prt.Mig",
+    "C.KPO.Prt.Por",
+    "C.Bsh.Lew.Wal",
+    "C.Vie.Gbt.Fal.Ste",
+    "C.Vie.Gbt.Fal.MLn.Nf3.Kau",
+    "C.Ele.Mar",
+    "C.Ele.Was",
+    "C.Pon.Rom",
+    "C.Pon.Ret",
+    "C.Pon.Ste.Spa",
+    "C.Pon.Ste.Nik",
+    "C.Pon.CGm.MLn.Sch",
+    "C.Pon.Ste.MLn.Car",
+    "C.Pon.Ste.MLn.Leo",
+    "C.Thr.Sch",
+    "C.Thr.Stn.Ste",
+    "C.Ita.Pia.Dub",
+    "C.Ita.Pia.Luc",
+    "C.Ita.Pia.Nf6.Can",
+    "C.Ita.Pia.Nf6.Ita",
+    "C.Ita.Pia.Nf6.MLn.Mai",
+    "C.Ita.Pia.Nf6.MLn.A4A",
+    "C.Ita.Evn.Acc.Mcd.Mor",
+    "C.Ita.Evn.Dec.Hrs.Vas",
+    "C.KGm.Acc.Nf3.Mac.Bla",
+    "C.KGm.Dec.Fal.MLn.And",
+    "C.KGm.Dec.Fal.MLn.Rub",
+    "C.KGm.Acc.Bsh.Nf6.Nc3.Pau",
+    "C.KGm.Acc.Nf3.Fis.Gre.Sch",
+    "C.Bsh.Urs.Pan",
+    "C.Bsh.Nc6.Nc3.Sve",
+    "C.Bsh.Urs.Kei.Kei",
+    "C.Vie.Nc6.Bc4.Nf6.Hro",
+    "C.Ita.Giu.Grc.Ghu",
+    "C.Ita.Giu.Mol.Cra",
+    "C.Ita.Giu.Cls.MLn.Kra",
+    "C.Ita.Giu.Grc.MLn.And",
+    "C.Sco.Gor.Nc3.Sea",
+    "C.Sco.Mie.Ste.Mai",
+    "C.Fou.Spa.Cls.MLn.Bar",
+    "C.Fou.Spa.Rub.MLn.Mar",
+    "C.Cen.Pau.MLn.Bb4.Bd2.Kup",
+    "C.KPO.Kgt.MLn.Be2.Nf6.Inv",
+    "E.Ben.Mod.Fou.MLn.Re8",
+    "B.Sic.Clo.Fch.Bot.e5",
+    "B.Sca.MLn.Qd8.d4.Nf6.Bg4",
+    "B.CaK.Kar.Bc4.Ngf6.Qe2.Nb6",
+    "B.CaK.Kar.Bc4.Ngf6.Qe2.Bb3",
+    "A.Tro.Psn.Nc3",
+    "A.Ret.Ang.MLn.Nf6.Nc3.Bd6",
+    "D.Sem.AMe.Sto.MLn",
+    "C.PhD.d4.exd4.Nxd4.d5.exd5",
+    "B.Sic.Naj.Sch.O-O.Nbd7",
+    "C.LtO.Bc4.fxe4.Nxh8.Nf6",
+    "C.KPO.Kgt.MLn.c4.Nf6.Nxe5"
+  ],
+  "changes": [
+    {
+      "ocn1": "B.Fre.Win",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "catalog/ocn-1.lichess-xref.tsv: B.Fre.Win matches lichess-org/chess-openings by exact position (6 of 6 plies, C15), where the line is called 'French Defense: Winawer Variation'"
+      ],
+      "fields": {
+        "aliases": "French Defense: Winawer Variation"
+      }
+    },
+    {
+      "ocn1": "B.Fre.Tar",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "catalog/ocn-1.lichess-xref.tsv: B.Fre.Tar matches lichess-org/chess-openings by exact position (5 of 5 plies, C03), where the line is called 'French Defense: Tarrasch Variation'"
+      ],
+      "fields": {
+        "aliases": "French Defense: Tarrasch Variation"
+      }
+    },
+    {
+      "ocn1": "B.Sic.Kal.MLn",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "catalog/ocn-1.lichess-xref.tsv: B.Sic.Kal.MLn matches lichess-org/chess-openings by exact position (10 of 10 plies, B32), where the line is called 'Sicilian Defense: Kalashnikov Variation'"
+      ],
+      "fields": {
+        "aliases": "Sicilian Defense: Kalashnikov Variation"
+      }
+    },
+    {
+      "ocn1": "B.Sic.Ama",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "catalog/ocn-1.lichess-xref.tsv: B.Sic.Ama matches lichess-org/chess-openings by exact position (3 of 3 plies, B20), where the line is called 'Sicilian Defense: Amazon Attack'"
+      ],
+      "fields": {
+        "aliases": "Sicilian Defense: Amazon Attack"
+      }
+    },
+    {
+      "ocn1": "A.Ret.Nh6.d4",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "catalog/ocn-1.lichess-xref.tsv: A.Ret.Nh6.d4 matches lichess-org/chess-openings by exact position (4 of 4 plies, A04), where the line is called 'Zukertort Defense: Kingside Variation'"
+      ],
+      "fields": {
+        "aliases": "Zukertort Defense: Kingside Variation"
+      }
+    },
+    {
+      "ocn1": "B.Fre.Nrm.c5.d5",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "catalog/ocn-1.lichess-xref.tsv: B.Fre.Nrm.c5.d5 matches lichess-org/chess-openings by exact position (5 of 5 plies, A43), where the line is called 'Benoni Defense: French Benoni'"
+      ],
+      "fields": {
+        "aliases": "Benoni Defense: French Benoni"
+      }
+    },
+    {
+      "ocn1": "B.Sic.Fre.d4.cxd4.Nxd4.Nf6",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "catalog/ocn-1.lichess-xref.tsv: B.Sic.Fre.d4.cxd4.Nxd4.Nf6 matches lichess-org/chess-openings by exact position (8 of 8 plies, B40), where the line is called 'Sicilian Defense: French Variation, Normal'"
+      ],
+      "fields": {
+        "aliases": "Sicilian Defense: French Variation, Normal"
+      }
+    },
+    {
+      "ocn1": "C.PhD.Bc4.Be7.c3",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "catalog/ocn-1.lichess-xref.tsv: C.PhD.Bc4.Be7.c3 matches lichess-org/chess-openings by exact position (7 of 7 plies, C41), where the line is called 'Philidor Defense: Steinitz Variation'"
+      ],
+      "fields": {
+        "aliases": "Philidor Defense: Steinitz Variation"
+      }
+    },
+    {
+      "ocn1": "C.PhD.d4.Bd7",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "catalog/ocn-1.lichess-xref.tsv: C.PhD.d4.Bd7 matches lichess-org/chess-openings by exact position (6 of 6 plies, C41), where the line is called 'Philidor Defense: Philidor Gambit'"
+      ],
+      "fields": {
+        "aliases": "Philidor Defense: Philidor Gambit"
+      }
+    },
+    {
+      "ocn1": "C.Bsh.b5.Bxb5.c6",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "catalog/ocn-1.lichess-xref.tsv: C.Bsh.b5.Bxb5.c6 matches lichess-org/chess-openings by exact position (6 of 6 plies, C23), where the line is called 'Bishop's Opening: Anderssen Gambit'"
+      ],
+      "fields": {
+        "aliases": "Bishop's Opening: Anderssen Gambit"
+      }
+    },
+    {
+      "ocn1": "E.Ben.Bnk.Nf3",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "catalog/ocn-1.lichess-xref.tsv: E.Ben.Bnk.Nf3 matches lichess-org/chess-openings by exact position (7 of 7 plies, A57), where the line is called 'Benko Gambit Declined: Main Line'"
+      ],
+      "fields": {
+        "aliases": "Benko Gambit Declined: Main Line"
+      }
+    },
+    {
+      "ocn1": "B.Nim.ScD.exd5.Qxd5",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "catalog/ocn-1.lichess-xref.tsv: B.Nim.ScD.exd5.Qxd5 matches lichess-org/chess-openings by exact position (6 of 6 plies, B00), where the line is called 'Nimzowitsch Defense: Scandinavian Variation, Exchange Variation'"
+      ],
+      "fields": {
+        "aliases": "Nimzowitsch Defense: Scandinavian Variation, Exchange Variation"
+      }
+    },
+    {
+      "ocn1": "B.Nim.Ken.dxe5.Nxe5.f4.Ng6",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "catalog/ocn-1.lichess-xref.tsv: B.Nim.Ken.dxe5.Nxe5.f4.Ng6 matches lichess-org/chess-openings by exact position (8 of 8 plies, B00), where the line is called 'Nimzowitsch Defense: Kennedy Variation, Main Line'"
+      ],
+      "fields": {
+        "aliases": "Nimzowitsch Defense: Kennedy Variation, Main Line"
+      }
+    },
+    {
+      "ocn1": "A.Kad.f5.e4.fxe4.d3",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "catalog/ocn-1.lichess-xref.tsv: A.Kad.f5.e4.fxe4.d3 matches lichess-org/chess-openings by exact position (5 of 5 plies, A00), where the line is called 'Kádas Opening: Steinbok Gambit'"
+      ],
+      "fields": {
+        "aliases": "Kádas Opening: Steinbok Gambit"
+      }
+    },
+    {
+      "ocn1": "A.War.b6.d4.d5.Nc3.Nd7",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "catalog/ocn-1.lichess-xref.tsv: A.War.b6.d4.d5.Nc3.Nd7 matches lichess-org/chess-openings by exact position (6 of 6 plies, A00), where the line is called 'Ware Opening: Cologne Gambit'"
+      ],
+      "fields": {
+        "aliases": "Ware Opening: Cologne Gambit"
+      }
+    },
+    {
+      "ocn1": "A.War.b5.axb5.Bb7",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "catalog/ocn-1.lichess-xref.tsv: A.War.b5.axb5.Bb7 matches lichess-org/chess-openings by exact position (4 of 4 plies, A00), where the line is called 'Ware Opening: Wing Gambit'"
+      ],
+      "fields": {
+        "aliases": "Ware Opening: Wing Gambit"
+      }
+    },
+    {
+      "ocn1": "C.Pon.Jae.d4.Nxe4.d5.Bc5",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "catalog/ocn-1.lichess-xref.tsv: C.Pon.Jae.d4.Nxe4.d5.Bc5 matches lichess-org/chess-openings by exact position (10 of 10 plies, C44), where the line is called 'Ponziani Opening: Vukovic Gambit'"
+      ],
+      "fields": {
+        "aliases": "Ponziani Opening: Vukovic Gambit"
+      }
+    },
+    {
+      "ocn1": "C.Fou.Sco.Bb4.d5.Nd4",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "catalog/ocn-1.lichess-xref.tsv: C.Fou.Sco.Bb4.d5.Nd4 matches lichess-org/chess-openings by exact position (10 of 10 plies, C47), where the line is called 'Four Knights Game: Scotch Variation, Oxford Gambit'"
+      ],
+      "fields": {
+        "aliases": "Four Knights Game: Scotch Variation, Oxford Gambit"
+      }
+    },
+    {
+      "ocn1": "A.Bar.f5.e4.fxe4.Nc3",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "catalog/ocn-1.lichess-xref.tsv: A.Bar.f5.e4.fxe4.Nc3 matches lichess-org/chess-openings by exact position (5 of 5 plies, A00), where the line is called 'Barnes Opening: Gedult Gambit'"
+      ],
+      "fields": {
+        "aliases": "Barnes Opening: Gedult Gambit"
+      }
+    },
+    {
+      "ocn1": "A.Gro.Gbt.c6.c4.dxc4.b3",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "catalog/ocn-1.lichess-xref.tsv: A.Gro.Gbt.c6.c4.dxc4.b3 matches lichess-org/chess-openings by exact position (7 of 7 plies, A00), where the line is called 'Grob Opening: Grob Gambit, Richter-Grob Gambit'"
+      ],
+      "fields": {
+        "aliases": "Grob Opening: Grob Gambit, Richter-Grob Gambit"
+      }
+    },
+    {
+      "ocn1": "A.Gro.Gbt.e5.d4.exd4.c3",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "catalog/ocn-1.lichess-xref.tsv: A.Gro.Gbt.e5.d4.exd4.c3 matches lichess-org/chess-openings by exact position (7 of 7 plies, A00), where the line is called 'Grob Opening: Grob Gambit, Keres Gambit'"
+      ],
+      "fields": {
+        "aliases": "Grob Opening: Grob Gambit, Keres Gambit"
+      }
+    },
+    {
+      "ocn1": "A.VtK.e5.Bc4.b5.Bb3",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "catalog/ocn-1.lichess-xref.tsv: A.VtK.e5.Bc4.b5.Bb3 matches lichess-org/chess-openings by exact position (5 of 5 plies, A00), where the line is called 'Van't Kruijs Opening: Bouncing Bishop Variation'"
+      ],
+      "fields": {
+        "aliases": "Van't Kruijs Opening: Bouncing Bishop Variation"
+      }
+    },
+    {
+      "ocn1": "B.Sca.Nf6.d4.c6.dxc6.e5",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "catalog/ocn-1.lichess-xref.tsv: B.Sca.Nf6.d4.c6.dxc6.e5 matches lichess-org/chess-openings by exact position (8 of 8 plies, B01), where the line is called 'Scandinavian Defense: Kádas Gambit'"
+      ],
+      "fields": {
+        "aliases": "Scandinavian Defense: Kádas Gambit"
+      }
+    },
+    {
+      "ocn1": "A.EID.Bf4.Bg7.e3.d6.Bd3",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "catalog/ocn-1.lichess-xref.tsv: A.EID.Bf4.Bg7.e3.d6.Bd3 matches lichess-org/chess-openings by exact position (9 of 9 plies, A48), where the line is called 'London System, with Bd3'"
+      ],
+      "fields": {
+        "aliases": "London System, with Bd3"
+      }
+    },
+    {
+      "ocn1": "C.Vie.Nc6.d4.f5",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "catalog/ocn-1.lichess-xref.tsv: C.Vie.Nc6.d4.f5 matches lichess-org/chess-openings by exact position (6 of 6 plies, C25), where the line is called 'Vienna Game: Philidor Countergambit'"
+      ],
+      "fields": {
+        "aliases": "Vienna Game: Philidor Countergambit"
+      }
+    },
+    {
+      "ocn1": "E.OldI.Jan.f3",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "catalog/ocn-1.lichess-xref.tsv: E.OldI.Jan.f3 matches lichess-org/chess-openings by exact position (7 of 7 plies, A53), where the line is called 'Old Indian Defense: Janowski Variation, Main Line'"
+      ],
+      "fields": {
+        "aliases": "Old Indian Defense: Janowski Variation, Main Line"
+      }
+    },
+    {
+      "ocn1": "E.Ben.Mod.KPL.Be3",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "catalog/ocn-1.lichess-xref.tsv: E.Ben.Mod.KPL.Be3 matches lichess-org/chess-openings by exact position (15 of 15 plies, A65), where the line is called 'Benoni Defense: King's Pawn Line, with Be3'"
+      ],
+      "fields": {
+        "aliases": "Benoni Defense: King's Pawn Line, with Be3"
+      }
+    },
+    {
+      "ocn1": "E.Ind.WIn.Nf3.d5",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "catalog/ocn-1.lichess-xref.tsv: E.Ind.WIn.Nf3.d5 matches lichess-org/chess-openings by exact position (6 of 6 plies, D70), where the line is called 'Neo-Grünfeld Defense: with Nf3'"
+      ],
+      "fields": {
+        "aliases": "Neo-Grünfeld Defense: with Nf3"
+      }
+    },
+    {
+      "ocn1": "D.Tar.Exd.dxc5.d4.Na4.b5",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "catalog/ocn-1.lichess-xref.tsv: D.Tar.Exd.dxc5.d4.Na4.b5 matches lichess-org/chess-openings by exact position (12 of 12 plies, D32), where the line is called 'Tarrasch Defense: Tarrasch Gambit'"
+      ],
+      "fields": {
+        "aliases": "Tarrasch Defense: Tarrasch Gambit"
+      }
+    },
+    {
+      "ocn1": "B.Fre.Tar.Gui.MLn",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "catalog/ocn-1.lichess-xref.tsv: B.Fre.Tar.Gui.MLn matches lichess-org/chess-openings by exact position (8 of 8 plies, C04), where the line is called 'French Defense: Tarrasch Variation, Guimard Defense, Main Line'"
+      ],
+      "fields": {
+        "aliases": "French Defense: Tarrasch Variation, Guimard Defense, Main Line"
+      }
+    },
+    {
+      "ocn1": "B.Ale.Fou.Trd.Be3",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "catalog/ocn-1.lichess-xref.tsv: B.Ale.Fou.Trd.Be3 matches lichess-org/chess-openings by exact position (13 of 13 plies, B03), where the line is called 'Alekhine Defense: Four Pawns Attack, Main Line'"
+      ],
+      "fields": {
+        "aliases": "Alekhine Defense: Four Pawns Attack, Main Line"
+      }
+    },
+    {
+      "ocn1": "B.Sic.Nim.e5.Nc6",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "catalog/ocn-1.lichess-xref.tsv: B.Sic.Nim.e5.Nc6 matches lichess-org/chess-openings by exact position (12 of 12 plies, B29), where the line is called 'Sicilian Defense: Nimzowitsch Variation, Main Line'"
+      ],
+      "fields": {
+        "aliases": "Sicilian Defense: Nimzowitsch Variation, Main Line"
+      }
+    },
+    {
+      "ocn1": "B.Fre.Tar.Ope.exd5.exd5.Nc6",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "catalog/ocn-1.lichess-xref.tsv: B.Fre.Tar.Ope.exd5.exd5.Nc6 matches lichess-org/chess-openings by exact position (10 of 10 plies, C09), where the line is called 'French Defense: Tarrasch Variation, Open System, Main Line'"
+      ],
+      "fields": {
+        "aliases": "French Defense: Tarrasch Variation, Open System, Main Line"
+      }
+    },
+    {
+      "ocn1": "B.Fre.Adv.c5.c3.Nc6.Qb6",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "catalog/ocn-1.lichess-xref.tsv: B.Fre.Adv.c5.c3.Nc6.Qb6 matches lichess-org/chess-openings by exact position (11 of 11 plies, C02), where the line is called 'French Defense: Advance Variation, Main Line'"
+      ],
+      "fields": {
+        "aliases": "French Defense: Advance Variation, Main Line"
+      }
+    },
+    {
+      "ocn1": "B.Fre.Tar.Cls.MLn.Bd3.MLn",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "catalog/ocn-1.lichess-xref.tsv: B.Fre.Tar.Cls.MLn.Bd3.MLn matches lichess-org/chess-openings by exact position (15 of 15 plies, C06), where the line is called 'French Defense: Tarrasch Variation, Closed Variation, Main Line'"
+      ],
+      "fields": {
+        "aliases": "French Defense: Tarrasch Variation, Closed Variation, Main Line"
+      }
+    },
+    {
+      "ocn1": "B.Fre.Adv.Mil.MLn.Bd7",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "catalog/ocn-1.lichess-xref.tsv: B.Fre.Adv.Mil.MLn.Bd7 matches lichess-org/chess-openings by exact position (15 of 15 plies, C02), where the line is called 'French Defense: Advance Variation, Milner-Barry Gambit, Main Line'"
+      ],
+      "fields": {
+        "aliases": "French Defense: Advance Variation, Milner-Barry Gambit, Main Line"
+      }
+    },
+    {
+      "ocn1": "C.KGm.Acc.Nf3.KKn.Bc4.Aus",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "catalog/ocn-1.lichess-xref.tsv: C.KGm.Acc.Nf3.KKn.Bc4.Aus matches lichess-org/chess-openings by exact position (9 of 9 plies, C37), where the line is called 'King's Gambit Accepted: Australian Gambit'"
+      ],
+      "fields": {
+        "aliases": "King's Gambit Accepted: Australian Gambit"
+      }
+    },
+    {
+      "ocn1": "C.KGm.Acc.Nf3.KKn.Bc4.Ktv",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "catalog/ocn-1.lichess-xref.tsv: C.KGm.Acc.Nf3.KKn.Bc4.Ktv matches lichess-org/chess-openings by exact position (11 of 11 plies, C37), where the line is called 'King's Gambit Accepted: Kotov Gambit'"
+      ],
+      "fields": {
+        "aliases": "King's Gambit Accepted: Kotov Gambit"
+      }
+    },
+    {
+      "ocn1": "C.KGm.Acc.Nf3.KKn.Bc4.Lol",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "catalog/ocn-1.lichess-xref.tsv: C.KGm.Acc.Nf3.KKn.Bc4.Lol matches lichess-org/chess-openings by exact position (9 of 9 plies, C37), where the line is called 'King's Gambit Accepted: Lolli Gambit'"
+      ],
+      "fields": {
+        "aliases": "King's Gambit Accepted: Lolli Gambit"
+      }
+    },
+    {
+      "ocn1": "C.KGm.Acc.Nf3.KKn.Bc4.Yng",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "catalog/ocn-1.lichess-xref.tsv: C.KGm.Acc.Nf3.KKn.Bc4.Yng matches lichess-org/chess-openings by exact position (19 of 19 plies, C37), where the line is called 'King's Gambit Accepted: Lolli Gambit, Young Variation'"
+      ],
+      "fields": {
+        "aliases": "King's Gambit Accepted: Lolli Gambit, Young Variation"
+      }
+    },
+    {
+      "ocn1": "C.KGm.Acc.Nf3.KKn.Bc4.McD",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "catalog/ocn-1.lichess-xref.tsv: C.KGm.Acc.Nf3.KKn.Bc4.McD matches lichess-org/chess-openings by exact position (9 of 9 plies, C37), where the line is called 'King's Gambit Accepted: McDonnell Gambit'"
+      ],
+      "fields": {
+        "aliases": "King's Gambit Accepted: McDonnell Gambit"
+      }
+    },
+    {
+      "ocn1": "C.KGm.Acc.Nf3.KKn.Bc4.Slv",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "catalog/ocn-1.lichess-xref.tsv: C.KGm.Acc.Nf3.KKn.Bc4.Slv matches lichess-org/chess-openings by exact position (9 of 9 plies, C37), where the line is called 'King's Gambit Accepted: Salvio Gambit'"
+      ],
+      "fields": {
+        "aliases": "King's Gambit Accepted: Salvio Gambit"
+      }
+    },
+    {
+      "ocn1": "C.KGm.Acc.Nf3.KKn.Bc4.And",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "catalog/ocn-1.lichess-xref.tsv: C.KGm.Acc.Nf3.KKn.Bc4.And matches lichess-org/chess-openings by exact position (14 of 14 plies, C37), where the line is called 'King's Gambit Accepted: Salvio Gambit, Anderssen Counterattack'"
+      ],
+      "fields": {
+        "aliases": "King's Gambit Accepted: Salvio Gambit, Anderssen Counterattack"
+      }
+    },
+    {
+      "ocn1": "C.KGm.Acc.Nf3.KKn.Bc4.Coc",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "catalog/ocn-1.lichess-xref.tsv: C.KGm.Acc.Nf3.KKn.Bc4.Coc matches lichess-org/chess-openings by exact position (12 of 12 plies, C37), where the line is called 'King's Gambit Accepted: Salvio Gambit, Cochrane Gambit'"
+      ],
+      "fields": {
+        "aliases": "King's Gambit Accepted: Salvio Gambit, Cochrane Gambit"
+      }
+    },
+    {
+      "ocn1": "C.KGm.Acc.Nf3.KKn.Bc4.Vns",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "catalog/ocn-1.lichess-xref.tsv: C.KGm.Acc.Nf3.KKn.Bc4.Vns matches lichess-org/chess-openings by exact position (12 of 12 plies, C37), where the line is called 'King's Gambit Accepted: Salvio Gambit, Viennese Variation'"
+      ],
+      "fields": {
+        "aliases": "King's Gambit Accepted: Salvio Gambit, Viennese Variation"
+      }
+    },
+    {
+      "ocn1": "C.KGm.Acc.Nf3.KKn.Bc4.Slb",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "catalog/ocn-1.lichess-xref.tsv: C.KGm.Acc.Nf3.KKn.Bc4.Slb matches lichess-org/chess-openings by exact position (14 of 14 plies, C37), where the line is called 'King's Gambit Accepted: Silberschmidt Gambit'"
+      ],
+      "fields": {
+        "aliases": "King's Gambit Accepted: Silberschmidt Gambit"
+      }
+    },
+    {
+      "ocn1": "C.Ita.Evn.Acc.Fra",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "catalog/ocn-1.lichess-xref.tsv: C.Ita.Evn.Acc.Fra matches lichess-org/chess-openings by exact position (19 of 19 plies, C51), where the line is called 'Italian Game: Evans Gambit, Fraser Attack'"
+      ],
+      "fields": {
+        "aliases": "Italian Game: Evans Gambit, Fraser Attack"
+      }
+    },
+    {
+      "ocn1": "C.Ita.Evn.Acc.FrM",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "catalog/ocn-1.lichess-xref.tsv: C.Ita.Evn.Acc.FrM matches lichess-org/chess-openings by exact position (25 of 25 plies, C51), where the line is called 'Italian Game: Evans Gambit, Fraser-Mortimer Attack'"
+      ],
+      "fields": {
+        "aliases": "Italian Game: Evans Gambit, Fraser-Mortimer Attack"
+      }
+    },
+    {
+      "ocn1": "C.Ita.Evn.Acc.Gor",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "catalog/ocn-1.lichess-xref.tsv: C.Ita.Evn.Acc.Gor matches lichess-org/chess-openings by exact position (19 of 19 plies, C51), where the line is called 'Italian Game: Evans Gambit, Göring Attack'"
+      ],
+      "fields": {
+        "aliases": "Italian Game: Evans Gambit, Göring Attack"
+      }
+    },
+    {
+      "ocn1": "C.Ita.Evn.Acc.Hrd",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "catalog/ocn-1.lichess-xref.tsv: C.Ita.Evn.Acc.Hrd matches lichess-org/chess-openings by exact position (15 of 15 plies, C51), where the line is called 'Italian Game: Evans Gambit, Harding Variation'"
+      ],
+      "fields": {
+        "aliases": "Italian Game: Evans Gambit, Harding Variation"
+      }
+    },
+    {
+      "ocn1": "C.Ita.Evn.Acc.Mrt",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "catalog/ocn-1.lichess-xref.tsv: C.Ita.Evn.Acc.Mrt matches lichess-org/chess-openings by exact position (26 of 26 plies, C51), where the line is called 'Italian Game: Evans Gambit, Mortimer-Evans Gambit'"
+      ],
+      "fields": {
+        "aliases": "Italian Game: Evans Gambit, Mortimer-Evans Gambit"
+      }
+    },
+    {
+      "ocn1": "C.Ita.Evn.Acc.Pau",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "catalog/ocn-1.lichess-xref.tsv: C.Ita.Evn.Acc.Pau matches lichess-org/chess-openings by exact position (20 of 20 plies, C51), where the line is called 'Italian Game: Evans Gambit, Paulsen Variation'"
+      ],
+      "fields": {
+        "aliases": "Italian Game: Evans Gambit, Paulsen Variation"
+      }
+    },
+    {
+      "ocn1": "C.Ita.Evn.Acc.St2",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "catalog/ocn-1.lichess-xref.tsv: C.Ita.Evn.Acc.St2 matches lichess-org/chess-openings by exact position (21 of 21 plies, C51), where the line is called 'Italian Game: Evans Gambit, Steinitz Variation'"
+      ],
+      "fields": {
+        "aliases": "Italian Game: Evans Gambit, Steinitz Variation"
+      }
+    },
+    {
+      "ocn1": "C.Ita.Evn.Acc.Ulv",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "catalog/ocn-1.lichess-xref.tsv: C.Ita.Evn.Acc.Ulv matches lichess-org/chess-openings by exact position (19 of 19 plies, C51), where the line is called 'Italian Game: Evans Gambit, Ulvestad Variation'"
+      ],
+      "fields": {
+        "aliases": "Italian Game: Evans Gambit, Ulvestad Variation"
+      }
+    },
+    {
+      "ocn1": "C.Vie.Nc6.HAg",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "catalog/ocn-1.lichess-xref.tsv: C.Vie.Nc6.HAg matches lichess-org/chess-openings by exact position (11 of 11 plies, C25), where the line is called 'Vienna Gambit, with Max Lange Defense: Hamppe-Allgaier Gambit'"
+      ],
+      "fields": {
+        "aliases": "Vienna Gambit, with Max Lange Defense: Hamppe-Allgaier Gambit"
+      }
+    },
+    {
+      "ocn1": "C.Vie.Nc6.Alp",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "catalog/ocn-1.lichess-xref.tsv: C.Vie.Nc6.Alp matches lichess-org/chess-openings by exact position (12 of 12 plies, C25), where the line is called 'Vienna Gambit, with Max Lange Defense: Hamppe-Allgaier Gambit, Alapin Variation'"
+      ],
+      "fields": {
+        "aliases": "Vienna Gambit, with Max Lange Defense: Hamppe-Allgaier Gambit, Alapin Variation"
+      }
+    },
+    {
+      "ocn1": "C.Vie.Nc6.Thr",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "catalog/ocn-1.lichess-xref.tsv: C.Vie.Nc6.Thr matches lichess-org/chess-openings by exact position (15 of 15 plies, C25), where the line is called 'Vienna Gambit, with Max Lange Defense: Hamppe-Allgaier Gambit, Thorold Variation'"
+      ],
+      "fields": {
+        "aliases": "Vienna Gambit, with Max Lange Defense: Hamppe-Allgaier Gambit, Thorold Variation"
+      }
+    },
+    {
+      "ocn1": "C.Vie.Nc6.HMz",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "catalog/ocn-1.lichess-xref.tsv: C.Vie.Nc6.HMz matches lichess-org/chess-openings by exact position (12 of 12 plies, C25), where the line is called 'Vienna Gambit, with Max Lange Defense: Hamppe-Muzio Gambit'"
+      ],
+      "fields": {
+        "aliases": "Vienna Gambit, with Max Lange Defense: Hamppe-Muzio Gambit"
+      }
+    },
+    {
+      "ocn1": "C.Vie.Nc6.Prc",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "catalog/ocn-1.lichess-xref.tsv: C.Vie.Nc6.Prc matches lichess-org/chess-openings by exact position (9 of 9 plies, C25), where the line is called 'Vienna Gambit, with Max Lange Defense: Pierce Gambit'"
+      ],
+      "fields": {
+        "aliases": "Vienna Gambit, with Max Lange Defense: Pierce Gambit"
+      }
+    },
+    {
+      "ocn1": "C.Vie.Nc6.HM2",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "catalog/ocn-1.lichess-xref.tsv: C.Vie.Nc6.HM2 matches lichess-org/chess-openings by exact position (11 of 11 plies, C25), where the line is called 'Vienna Game: Hamppe-Muzio Gambit'"
+      ],
+      "fields": {
+        "aliases": "Vienna Game: Hamppe-Muzio Gambit"
+      }
+    },
+    {
+      "ocn1": "C.Vie.Nc6.Dub",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "catalog/ocn-1.lichess-xref.tsv: C.Vie.Nc6.Dub matches lichess-org/chess-openings by exact position (16 of 16 plies, C25), where the line is called 'Vienna Game: Hamppe-Muzio, Dubois Variation'"
+      ],
+      "fields": {
+        "aliases": "Vienna Game: Hamppe-Muzio, Dubois Variation"
+      }
+    },
+    {
+      "ocn1": "C.Vie.Nc6.Rus",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "catalog/ocn-1.lichess-xref.tsv: C.Vie.Nc6.Rus matches lichess-org/chess-openings by exact position (17 of 17 plies, C25), where the line is called 'Vienna Game: Pierce Gambit, Rushmere Attack'"
+      ],
+      "fields": {
+        "aliases": "Vienna Game: Pierce Gambit, Rushmere Attack"
+      }
+    },
+    {
+      "ocn1": "C.KGm.Dec.Fal.MLn.Alp",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "catalog/ocn-1.lichess-xref.tsv: C.KGm.Dec.Fal.MLn.Alp matches lichess-org/chess-openings by exact position (17 of 17 plies, C32), where the line is called 'King's Gambit Declined: Falkbeer Countergambit, Alapin Variation'"
+      ],
+      "fields": {
+        "aliases": "King's Gambit Declined: Falkbeer Countergambit, Alapin Variation"
+      }
+    },
+    {
+      "ocn1": "C.KGm.Dec.Fal.MLn.Chr",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "catalog/ocn-1.lichess-xref.tsv: C.KGm.Dec.Fal.MLn.Chr matches lichess-org/chess-openings by exact position (9 of 9 plies, C32), where the line is called 'King's Gambit Declined: Falkbeer Countergambit, Charousek Gambit Accepted'"
+      ],
+      "fields": {
+        "aliases": "King's Gambit Declined: Falkbeer Countergambit, Charousek Gambit Accepted"
+      }
+    },
+    {
+      "ocn1": "C.KGm.Dec.Fal.MLn.Ker",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "catalog/ocn-1.lichess-xref.tsv: C.KGm.Dec.Fal.MLn.Ker matches lichess-org/chess-openings by exact position (9 of 9 plies, C32), where the line is called 'King's Gambit Declined: Falkbeer Countergambit, Charousek Gambit, Keres Variation'"
+      ],
+      "fields": {
+        "aliases": "King's Gambit Declined: Falkbeer Countergambit, Charousek Gambit, Keres Variation"
+      }
+    },
+    {
+      "ocn1": "C.KGm.Dec.Fal.MLn.Ch2",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "catalog/ocn-1.lichess-xref.tsv: C.KGm.Dec.Fal.MLn.Ch2 matches lichess-org/chess-openings by exact position (14 of 14 plies, C32), where the line is called 'King's Gambit Declined: Falkbeer Countergambit, Charousek Gambit, Main Line'"
+      ],
+      "fields": {
+        "aliases": "King's Gambit Declined: Falkbeer Countergambit, Charousek Gambit, Main Line"
+      }
+    },
+    {
+      "ocn1": "C.KGm.Dec.Fal.MLn.Old",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "catalog/ocn-1.lichess-xref.tsv: C.KGm.Dec.Fal.MLn.Old matches lichess-org/chess-openings by exact position (9 of 9 plies, C32), where the line is called 'King's Gambit Declined: Falkbeer Countergambit, Charousek Gambit, Old Line'"
+      ],
+      "fields": {
+        "aliases": "King's Gambit Declined: Falkbeer Countergambit, Charousek Gambit, Old Line"
+      }
+    },
+    {
+      "ocn1": "C.KGm.Dec.Fal.MLn.ChV",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "catalog/ocn-1.lichess-xref.tsv: C.KGm.Dec.Fal.MLn.ChV matches lichess-org/chess-openings by exact position (15 of 15 plies, C32), where the line is called 'King's Gambit Declined: Falkbeer Countergambit, Charousek Variation'"
+      ],
+      "fields": {
+        "aliases": "King's Gambit Declined: Falkbeer Countergambit, Charousek Variation"
+      }
+    },
+    {
+      "ocn1": "C.KGm.Dec.Fal.MLn.Tar",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "catalog/ocn-1.lichess-xref.tsv: C.KGm.Dec.Fal.MLn.Tar matches lichess-org/chess-openings by exact position (16 of 16 plies, C32), where the line is called 'King's Gambit Declined: Falkbeer Countergambit, Tarrasch Variation'"
+      ],
+      "fields": {
+        "aliases": "King's Gambit Declined: Falkbeer Countergambit, Tarrasch Variation"
+      }
+    },
+    {
+      "ocn1": "C.Ita.Giu.Mol.MLn.Grc",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "catalog/ocn-1.lichess-xref.tsv: C.Ita.Giu.Mol.MLn.Grc matches lichess-org/chess-openings by exact position (16 of 16 plies, C54), where the line is called 'Italian Game: Classical Variation, Greco Gambit, Greco Variation'"
+      ],
+      "fields": {
+        "aliases": "Italian Game: Classical Variation, Greco Gambit, Greco Variation"
+      }
+    },
+    {
+      "ocn1": "C.Ita.Giu.Mol.MLn.Gr2",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "catalog/ocn-1.lichess-xref.tsv: C.Ita.Giu.Mol.MLn.Gr2 matches lichess-org/chess-openings by exact position (16 of 16 plies, C54), where the line is called 'Italian Game: Classical Variation, Greco Gambit, Main Line'"
+      ],
+      "fields": {
+        "aliases": "Italian Game: Classical Variation, Greco Gambit, Main Line"
+      }
+    },
+    {
+      "ocn1": "C.Ita.Giu.Mol.MLn.Atk",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "catalog/ocn-1.lichess-xref.tsv: C.Ita.Giu.Mol.MLn.Atk matches lichess-org/chess-openings by exact position (19 of 19 plies, C54), where the line is called 'Italian Game: Giuoco Piano, Aitken Variation'"
+      ],
+      "fields": {
+        "aliases": "Italian Game: Giuoco Piano, Aitken Variation"
+      }
+    },
+    {
+      "ocn1": "C.Ita.Giu.Mol.MLn.Brn",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "catalog/ocn-1.lichess-xref.tsv: C.Ita.Giu.Mol.MLn.Brn matches lichess-org/chess-openings by exact position (20 of 20 plies, C54), where the line is called 'Italian Game: Giuoco Piano, Bernstein Variation'"
+      ],
+      "fields": {
+        "aliases": "Italian Game: Giuoco Piano, Bernstein Variation"
+      }
+    },
+    {
+      "ocn1": "C.Ita.Giu.Mol.MLn.Stn",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "catalog/ocn-1.lichess-xref.tsv: C.Ita.Giu.Mol.MLn.Stn matches lichess-org/chess-openings by exact position (19 of 19 plies, C54), where the line is called 'Italian Game: Giuoco Piano, Steinitz Variation'"
+      ],
+      "fields": {
+        "aliases": "Italian Game: Giuoco Piano, Steinitz Variation"
+      }
+    },
+    {
+      "ocn1": "C.Ita.Giu.Mol.MLn.Thr",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "catalog/ocn-1.lichess-xref.tsv: C.Ita.Giu.Mol.MLn.Thr matches lichess-org/chess-openings by exact position (27 of 27 plies, C54), where the line is called 'Italian Game: Giuoco Piano, Therkatz-Herzog Variation'"
+      ],
+      "fields": {
+        "aliases": "Italian Game: Giuoco Piano, Therkatz-Herzog Variation"
+      }
+    },
+    {
+      "ocn1": "C.Fou.Spa.Dbl.MLn.Blk",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "catalog/ocn-1.lichess-xref.tsv: C.Fou.Spa.Dbl.MLn.Blk matches lichess-org/chess-openings by exact position (20 of 20 plies, C49), where the line is called 'Four Knights Game: Spanish Variation, Symmetrical Variation, Blake Variation'"
+      ],
+      "fields": {
+        "aliases": "Four Knights Game: Spanish Variation, Symmetrical Variation, Blake Variation"
+      }
+    },
+    {
+      "ocn1": "C.Fou.Spa.Dbl.MLn.Met",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "catalog/ocn-1.lichess-xref.tsv: C.Fou.Spa.Dbl.MLn.Met matches lichess-org/chess-openings by exact position (16 of 16 plies, C49), where the line is called 'Four Knights Game: Spanish Variation, Symmetrical Variation, Metger Unpin'"
+      ],
+      "fields": {
+        "aliases": "Four Knights Game: Spanish Variation, Symmetrical Variation, Metger Unpin"
+      }
+    },
+    {
+      "ocn1": "C.Fou.Spa.Dbl.MLn.Tar",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "catalog/ocn-1.lichess-xref.tsv: C.Fou.Spa.Dbl.MLn.Tar matches lichess-org/chess-openings by exact position (14 of 14 plies, C49), where the line is called 'Four Knights Game: Spanish Variation, Symmetrical Variation, Tarrasch Variation'"
+      ],
+      "fields": {
+        "aliases": "Four Knights Game: Spanish Variation, Symmetrical Variation, Tarrasch Variation"
+      }
+    },
+    {
+      "ocn1": "C.KGm.Acc.Muz.MLn.Dbl",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "catalog/ocn-1.lichess-xref.tsv: C.KGm.Acc.Muz.MLn.Dbl matches lichess-org/chess-openings by exact position (15 of 15 plies, C37), where the line is called 'King's Gambit Accepted: Double Muzio Gambit'"
+      ],
+      "fields": {
+        "aliases": "King's Gambit Accepted: Double Muzio Gambit"
+      }
+    },
+    {
+      "ocn1": "C.KGm.Acc.Muz.MLn.Bld",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "catalog/ocn-1.lichess-xref.tsv: C.KGm.Acc.Muz.MLn.Bld matches lichess-org/chess-openings by exact position (17 of 17 plies, C37), where the line is called 'King's Gambit Accepted: Double Muzio Gambit, Baldwin Gambit'"
+      ],
+      "fields": {
+        "aliases": "King's Gambit Accepted: Double Muzio Gambit, Baldwin Gambit"
+      }
+    },
+    {
+      "ocn1": "C.KGm.Acc.Muz.MLn.Bll",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "catalog/ocn-1.lichess-xref.tsv: C.KGm.Acc.Muz.MLn.Bll matches lichess-org/chess-openings by exact position (13 of 13 plies, C37), where the line is called 'King's Gambit Accepted: Double Muzio Gambit, Bello Gambit'"
+      ],
+      "fields": {
+        "aliases": "King's Gambit Accepted: Double Muzio Gambit, Bello Gambit"
+      }
+    },
+    {
+      "ocn1": "C.KGm.Acc.Muz.MLn.Yng",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "catalog/ocn-1.lichess-xref.tsv: C.KGm.Acc.Muz.MLn.Yng matches lichess-org/chess-openings by exact position (20 of 20 plies, C37), where the line is called 'King's Gambit Accepted: Double Muzio Gambit, Young Gambit'"
+      ],
+      "fields": {
+        "aliases": "King's Gambit Accepted: Double Muzio Gambit, Young Gambit"
+      }
+    },
+    {
+      "ocn1": "C.KGm.Acc.All.MLn.Thr",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "catalog/ocn-1.lichess-xref.tsv: C.KGm.Acc.All.MLn.Thr matches lichess-org/chess-openings by exact position (13 of 13 plies, C39), where the line is called 'King's Gambit Accepted: Allgaier Gambit, Thorold Attack'"
+      ],
+      "fields": {
+        "aliases": "King's Gambit Accepted: Allgaier Gambit, Thorold Attack"
+      }
+    },
+    {
+      "ocn1": "C.KGm.Acc.All.MLn.Urs",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "catalog/ocn-1.lichess-xref.tsv: C.KGm.Acc.All.MLn.Urs matches lichess-org/chess-openings by exact position (13 of 13 plies, C39), where the line is called 'King's Gambit Accepted: Allgaier Gambit, Urusov Attack'"
+      ],
+      "fields": {
+        "aliases": "King's Gambit Accepted: Allgaier Gambit, Urusov Attack"
+      }
+    },
+    {
+      "ocn1": "C.KGm.Acc.All.MLn.Blc",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "catalog/ocn-1.lichess-xref.tsv: C.KGm.Acc.All.MLn.Blc matches lichess-org/chess-openings by exact position (13 of 13 plies, C39), where the line is called 'King's Gambit Accepted: Allgaier, Blackburne Gambit'"
+      ],
+      "fields": {
+        "aliases": "King's Gambit Accepted: Allgaier, Blackburne Gambit"
+      }
+    },
+    {
+      "ocn1": "C.KGm.Acc.All.MLn.Coo",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "catalog/ocn-1.lichess-xref.tsv: C.KGm.Acc.All.MLn.Coo matches lichess-org/chess-openings by exact position (19 of 19 plies, C39), where the line is called 'King's Gambit Accepted: Allgaier, Cook Variation'"
+      ],
+      "fields": {
+        "aliases": "King's Gambit Accepted: Allgaier, Cook Variation"
+      }
+    },
+    {
+      "ocn1": "C.KGm.Acc.All.MLn.Ur2",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "catalog/ocn-1.lichess-xref.tsv: C.KGm.Acc.All.MLn.Ur2 matches lichess-org/chess-openings by exact position (17 of 17 plies, C39), where the line is called 'King's Gambit Accepted: Allgaier, Urusov Attack'"
+      ],
+      "fields": {
+        "aliases": "King's Gambit Accepted: Allgaier, Urusov Attack"
+      }
+    },
+    {
+      "ocn1": "C.Ita.Two.Opn.MLn.O-O.And",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "catalog/ocn-1.lichess-xref.tsv: C.Ita.Two.Opn.MLn.O-O.And matches lichess-org/chess-openings by exact position (15 of 15 plies, C56), where the line is called 'Italian Game: Scotch Gambit, Anderssen Attack'"
+      ],
+      "fields": {
+        "aliases": "Italian Game: Scotch Gambit, Anderssen Attack"
+      }
+    },
+    {
+      "ocn1": "C.Ita.Two.Opn.MLn.O-O.An2",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "catalog/ocn-1.lichess-xref.tsv: C.Ita.Two.Opn.MLn.O-O.An2 matches lichess-org/chess-openings by exact position (21 of 21 plies, C56), where the line is called 'Italian Game: Scotch Gambit, Anderssen Attack, Main Line'"
+      ],
+      "fields": {
+        "aliases": "Italian Game: Scotch Gambit, Anderssen Attack, Main Line"
+      }
+    },
+    {
+      "ocn1": "C.Ita.Two.Opn.MLn.O-O.Cnl",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "catalog/ocn-1.lichess-xref.tsv: C.Ita.Two.Opn.MLn.O-O.Cnl matches lichess-org/chess-openings by exact position (13 of 13 plies, C56), where the line is called 'Italian Game: Scotch Gambit, Canal Variation'"
+      ],
+      "fields": {
+        "aliases": "Italian Game: Scotch Gambit, Canal Variation"
+      }
+    },
+    {
+      "ocn1": "C.Ita.Two.Opn.MLn.O-O.Nkh",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "catalog/ocn-1.lichess-xref.tsv: C.Ita.Two.Opn.MLn.O-O.Nkh matches lichess-org/chess-openings by exact position (11 of 11 plies, C56), where the line is called 'Italian Game: Scotch Gambit, Nakhmanson Gambit'"
+      ],
+      "fields": {
+        "aliases": "Italian Game: Scotch Gambit, Nakhmanson Gambit"
+      }
+    },
+    {
+      "ocn1": "C.KGm.Acc.Kie.MLn.Bc4.An2",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "catalog/ocn-1.lichess-xref.tsv: C.KGm.Acc.Kie.MLn.Bc4.An2 matches lichess-org/chess-openings by exact position (18 of 18 plies, C39), where the line is called 'King's Gambit Accepted: Kieseritzky Gambit, Anderssen-Cordel Gambit'"
+      ],
+      "fields": {
+        "aliases": "King's Gambit Accepted: Kieseritzky Gambit, Anderssen-Cordel Gambit"
+      }
+    },
+    {
+      "ocn1": "C.KGm.Acc.Kie.MLn.Bc4.Ric",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "catalog/ocn-1.lichess-xref.tsv: C.KGm.Acc.Kie.MLn.Bc4.Ric matches lichess-org/chess-openings by exact position (16 of 16 plies, C39), where the line is called 'King's Gambit Accepted: Kieseritzky Gambit, Rice Gambit'"
+      ],
+      "fields": {
+        "aliases": "King's Gambit Accepted: Kieseritzky Gambit, Rice Gambit"
+      }
+    },
+    {
+      "ocn1": "C.KGm.Acc.Kie.MLn.Bc4.Ri2",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "catalog/ocn-1.lichess-xref.tsv: C.KGm.Acc.Kie.MLn.Bc4.Ri2 matches lichess-org/chess-openings by exact position (15 of 15 plies, C39), where the line is called 'King's Gambit Accepted: Kieseritzky, Rice Gambit'"
+      ],
+      "fields": {
+        "aliases": "King's Gambit Accepted: Kieseritzky, Rice Gambit"
+      }
+    },
+    {
+      "ocn1": "C.Ita.Evn.Dec.Hck",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "catalog/ocn-1.lichess-xref.tsv: C.Ita.Evn.Dec.Hck matches lichess-org/chess-openings by exact position (17 of 17 plies, C51), where the line is called 'Italian Game: Evans Gambit Declined, Hicken Variation'"
+      ],
+      "fields": {
+        "aliases": "Italian Game: Evans Gambit Declined, Hicken Variation"
+      }
+    },
+    {
+      "ocn1": "C.Ita.Evn.Dec.Hrs",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "catalog/ocn-1.lichess-xref.tsv: C.Ita.Evn.Dec.Hrs matches lichess-org/chess-openings by exact position (12 of 12 plies, C51), where the line is called 'Italian Game: Evans Gambit Declined, Hirschbach Variation'"
+      ],
+      "fields": {
+        "aliases": "Italian Game: Evans Gambit Declined, Hirschbach Variation"
+      }
+    },
+    {
+      "ocn1": "C.Ita.Evn.Dec.Lng",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "catalog/ocn-1.lichess-xref.tsv: C.Ita.Evn.Dec.Lng matches lichess-org/chess-openings by exact position (12 of 12 plies, C51), where the line is called 'Italian Game: Evans Gambit Declined, Lange Variation'"
+      ],
+      "fields": {
+        "aliases": "Italian Game: Evans Gambit Declined, Lange Variation"
+      }
+    },
+    {
+      "ocn1": "C.Ita.Evn.Dec.Pvl",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "catalog/ocn-1.lichess-xref.tsv: C.Ita.Evn.Dec.Pvl matches lichess-org/chess-openings by exact position (23 of 23 plies, C51), where the line is called 'Italian Game: Evans Gambit Declined, Pavlov Variation'"
+      ],
+      "fields": {
+        "aliases": "Italian Game: Evans Gambit Declined, Pavlov Variation"
+      }
+    },
+    {
+      "ocn1": "D.Sem.Mer.Rab.Ng4",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "catalog/ocn-1.lichess-xref.tsv: D.Sem.Mer.Rab.Ng4 matches lichess-org/chess-openings by exact position (22 of 22 plies, D49), where the line is called 'Semi-Slav Defense: Meran Variation, Rabinovich Variation'"
+      ],
+      "fields": {
+        "aliases": "Semi-Slav Defense: Meran Variation, Rabinovich Variation"
+      }
+    },
+    {
+      "ocn1": "D.Tar.Cls.Bg5.MLn",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "catalog/ocn-1.lichess-xref.tsv: D.Tar.Cls.Bg5.MLn matches lichess-org/chess-openings by exact position (22 of 22 plies, D34), where the line is called 'Tarrasch Defense: Classical Variation, Main Line'"
+      ],
+      "fields": {
+        "aliases": "Tarrasch Defense: Classical Variation, Main Line"
+      }
+    },
+    {
+      "ocn1": "C.KPO.Prt.Mig",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "catalog/ocn-1.lichess-xref.tsv: C.KPO.Prt.Mig matches lichess-org/chess-openings by exact position (5 of 5 plies, C20), where the line is called 'Portuguese Opening: Miguel Gambit'"
+      ],
+      "fields": {
+        "aliases": "Portuguese Opening: Miguel Gambit"
+      }
+    },
+    {
+      "ocn1": "C.KPO.Prt.Por",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "catalog/ocn-1.lichess-xref.tsv: C.KPO.Prt.Por matches lichess-org/chess-openings by exact position (5 of 5 plies, C20), where the line is called 'Portuguese Opening: Portuguese Gambit'"
+      ],
+      "fields": {
+        "aliases": "Portuguese Opening: Portuguese Gambit"
+      }
+    },
+    {
+      "ocn1": "C.Bsh.Lew.Wal",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "catalog/ocn-1.lichess-xref.tsv: C.Bsh.Lew.Wal matches lichess-org/chess-openings by exact position (9 of 9 plies, C23), where the line is called 'Bishop's Opening: Lewis Countergambit, Walker Variation'"
+      ],
+      "fields": {
+        "aliases": "Bishop's Opening: Lewis Countergambit, Walker Variation"
+      }
+    },
+    {
+      "ocn1": "C.Vie.Gbt.Fal.Ste",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "catalog/ocn-1.lichess-xref.tsv: C.Vie.Gbt.Fal.Ste matches lichess-org/chess-openings by exact position (7 of 7 plies, C29), where the line is called 'Vienna Game: Vienna Gambit, Steinitz Variation'"
+      ],
+      "fields": {
+        "aliases": "Vienna Game: Vienna Gambit, Steinitz Variation"
+      }
+    },
+    {
+      "ocn1": "C.Vie.Gbt.Fal.MLn.Nf3.Kau",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "catalog/ocn-1.lichess-xref.tsv: C.Vie.Gbt.Fal.MLn.Nf3.Kau matches lichess-org/chess-openings by exact position (11 of 11 plies, C29), where the line is called 'Vienna Game: Vienna Gambit, Kaufmann Variation'"
+      ],
+      "fields": {
+        "aliases": "Vienna Game: Vienna Gambit, Kaufmann Variation"
+      }
+    },
+    {
+      "ocn1": "C.Ele.Mar",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "catalog/ocn-1.lichess-xref.tsv: C.Ele.Mar matches lichess-org/chess-openings by exact position (6 of 6 plies, C40), where the line is called 'Elephant Gambit: Maróczy Gambit'"
+      ],
+      "fields": {
+        "aliases": "Elephant Gambit: Maróczy Gambit"
+      }
+    },
+    {
+      "ocn1": "C.Ele.Was",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "catalog/ocn-1.lichess-xref.tsv: C.Ele.Was matches lichess-org/chess-openings by exact position (8 of 8 plies, C40), where the line is called 'Elephant Gambit: Wasp Variation'"
+      ],
+      "fields": {
+        "aliases": "Elephant Gambit: Wasp Variation"
+      }
+    },
+    {
+      "ocn1": "C.Pon.Rom",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "catalog/ocn-1.lichess-xref.tsv: C.Pon.Rom matches lichess-org/chess-openings by exact position (6 of 6 plies, C44), where the line is called 'Ponziani Opening: Romanishin Variation'"
+      ],
+      "fields": {
+        "aliases": "Ponziani Opening: Romanishin Variation"
+      }
+    },
+    {
+      "ocn1": "C.Pon.Ret",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "catalog/ocn-1.lichess-xref.tsv: C.Pon.Ret matches lichess-org/chess-openings by exact position (6 of 6 plies, C44), where the line is called 'Ponziani Opening: Réti Variation'"
+      ],
+      "fields": {
+        "aliases": "Ponziani Opening: Réti Variation"
+      }
+    },
+    {
+      "ocn1": "C.Pon.Ste.Spa",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "catalog/ocn-1.lichess-xref.tsv: C.Pon.Ste.Spa matches lichess-org/chess-openings by exact position (7 of 7 plies, C44), where the line is called 'Ponziani Opening: Spanish Variation'"
+      ],
+      "fields": {
+        "aliases": "Ponziani Opening: Spanish Variation"
+      }
+    },
+    {
+      "ocn1": "C.Pon.Ste.Nik",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "catalog/ocn-1.lichess-xref.tsv: C.Pon.Ste.Nik matches lichess-org/chess-openings by exact position (11 of 11 plies, C44), where the line is called 'Ponziani Opening: Spanish Variation, Harrwitz Attack, Nikitin Gambit'"
+      ],
+      "fields": {
+        "aliases": "Ponziani Opening: Spanish Variation, Harrwitz Attack, Nikitin Gambit"
+      }
+    },
+    {
+      "ocn1": "C.Pon.CGm.MLn.Sch",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "catalog/ocn-1.lichess-xref.tsv: C.Pon.CGm.MLn.Sch matches lichess-org/chess-openings by exact position (9 of 9 plies, C44), where the line is called 'Ponziani Opening: Ponziani Countergambit, Schmidt Attack'"
+      ],
+      "fields": {
+        "aliases": "Ponziani Opening: Ponziani Countergambit, Schmidt Attack"
+      }
+    },
+    {
+      "ocn1": "C.Pon.Ste.MLn.Car",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "catalog/ocn-1.lichess-xref.tsv: C.Pon.Ste.MLn.Car matches lichess-org/chess-openings by exact position (8 of 8 plies, C44), where the line is called 'Ponziani Opening: Caro Gambit'"
+      ],
+      "fields": {
+        "aliases": "Ponziani Opening: Caro Gambit"
+      }
+    },
+    {
+      "ocn1": "C.Pon.Ste.MLn.Leo",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "catalog/ocn-1.lichess-xref.tsv: C.Pon.Ste.MLn.Leo matches lichess-org/chess-openings by exact position (8 of 8 plies, C44), where the line is called 'Ponziani Opening: Leonhardt Variation'"
+      ],
+      "fields": {
+        "aliases": "Ponziani Opening: Leonhardt Variation"
+      }
+    },
+    {
+      "ocn1": "C.Thr.Sch",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "catalog/ocn-1.lichess-xref.tsv: C.Thr.Sch matches lichess-org/chess-openings by exact position (8 of 8 plies, C46), where the line is called 'Three Knights Opening: Schlechter Variation'"
+      ],
+      "fields": {
+        "aliases": "Three Knights Opening: Schlechter Variation"
+      }
+    },
+    {
+      "ocn1": "C.Thr.Stn.Ste",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "catalog/ocn-1.lichess-xref.tsv: C.Thr.Stn.Ste matches lichess-org/chess-openings by exact position (9 of 9 plies, C46), where the line is called 'Three Knights Opening: Steinitz-Rosenthal Variation'"
+      ],
+      "fields": {
+        "aliases": "Three Knights Opening: Steinitz-Rosenthal Variation"
+      }
+    },
+    {
+      "ocn1": "C.Ita.Pia.Dub",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "catalog/ocn-1.lichess-xref.tsv: C.Ita.Pia.Dub matches lichess-org/chess-openings by exact position (10 of 10 plies, C50), where the line is called 'Italian Game: Giuoco Pianissimo, Dubois Variation'"
+      ],
+      "fields": {
+        "aliases": "Italian Game: Giuoco Pianissimo, Dubois Variation"
+      }
+    },
+    {
+      "ocn1": "C.Ita.Pia.Luc",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "catalog/ocn-1.lichess-xref.tsv: C.Ita.Pia.Luc matches lichess-org/chess-openings by exact position (8 of 8 plies, C50), where the line is called 'Italian Game: Giuoco Pianissimo, Lucchini Gambit'"
+      ],
+      "fields": {
+        "aliases": "Italian Game: Giuoco Pianissimo, Lucchini Gambit"
+      }
+    },
+    {
+      "ocn1": "C.Ita.Pia.Nf6.Can",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "catalog/ocn-1.lichess-xref.tsv: C.Ita.Pia.Nf6.Can matches lichess-org/chess-openings by exact position (11 of 11 plies, C50), where the line is called 'Italian Game: Giuoco Pianissimo, Canal Variation'"
+      ],
+      "fields": {
+        "aliases": "Italian Game: Giuoco Pianissimo, Canal Variation"
+      }
+    },
+    {
+      "ocn1": "C.Ita.Pia.Nf6.Ita",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "catalog/ocn-1.lichess-xref.tsv: C.Ita.Pia.Nf6.Ita matches lichess-org/chess-openings by exact position (9 of 9 plies, C50), where the line is called 'Italian Game: Giuoco Pianissimo, Italian Four Knights Variation'"
+      ],
+      "fields": {
+        "aliases": "Italian Game: Giuoco Pianissimo, Italian Four Knights Variation"
+      }
+    },
+    {
+      "ocn1": "C.Ita.Pia.Nf6.MLn.Mai",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "catalog/ocn-1.lichess-xref.tsv: C.Ita.Pia.Nf6.MLn.Mai matches lichess-org/chess-openings by exact position (17 of 17 plies, C54), where the line is called 'Italian Game: Classical Variation, Giuoco Pianissimo, Main Line'"
+      ],
+      "fields": {
+        "aliases": "Italian Game: Classical Variation, Giuoco Pianissimo, Main Line"
+      }
+    },
+    {
+      "ocn1": "C.Ita.Pia.Nf6.MLn.A4A",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "catalog/ocn-1.lichess-xref.tsv: C.Ita.Pia.Nf6.MLn.A4A matches lichess-org/chess-openings by exact position (14 of 14 plies, C54), where the line is called 'Italian Game: Classical Variation, Giuoco Pianissimo, with a4 a5'"
+      ],
+      "fields": {
+        "aliases": "Italian Game: Classical Variation, Giuoco Pianissimo, with a4 a5"
+      }
+    },
+    {
+      "ocn1": "C.Ita.Evn.Acc.Mcd.Mor",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "catalog/ocn-1.lichess-xref.tsv: C.Ita.Evn.Acc.Mcd.Mor matches lichess-org/chess-openings by exact position (17 of 17 plies, C51), where the line is called 'Italian Game: Evans Gambit, Morphy Attack'"
+      ],
+      "fields": {
+        "aliases": "Italian Game: Evans Gambit, Morphy Attack"
+      }
+    },
+    {
+      "ocn1": "C.Ita.Evn.Dec.Hrs.Vas",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "catalog/ocn-1.lichess-xref.tsv: C.Ita.Evn.Dec.Hrs.Vas matches lichess-org/chess-openings by exact position (15 of 15 plies, C51), where the line is called 'Italian Game: Evans Gambit Declined, Vasquez Variation'"
+      ],
+      "fields": {
+        "aliases": "Italian Game: Evans Gambit Declined, Vasquez Variation"
+      }
+    },
+    {
+      "ocn1": "C.KGm.Acc.Nf3.Mac.Bla",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "catalog/ocn-1.lichess-xref.tsv: C.KGm.Acc.Nf3.Mac.Bla matches lichess-org/chess-openings by exact position (8 of 8 plies, C37), where the line is called 'King's Gambit Accepted: Blachly Gambit'"
+      ],
+      "fields": {
+        "aliases": "King's Gambit Accepted: Blachly Gambit"
+      }
+    },
+    {
+      "ocn1": "C.KGm.Dec.Fal.MLn.And",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "catalog/ocn-1.lichess-xref.tsv: C.KGm.Dec.Fal.MLn.And matches lichess-org/chess-openings by exact position (7 of 7 plies, C31), where the line is called 'King's Gambit Declined: Falkbeer Countergambit, Anderssen Attack'"
+      ],
+      "fields": {
+        "aliases": "King's Gambit Declined: Falkbeer Countergambit, Anderssen Attack"
+      }
+    },
+    {
+      "ocn1": "C.KGm.Dec.Fal.MLn.Rub",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "catalog/ocn-1.lichess-xref.tsv: C.KGm.Dec.Fal.MLn.Rub matches lichess-org/chess-openings by exact position (9 of 9 plies, C31), where the line is called 'King's Gambit Declined: Falkbeer Countergambit, Rubinstein Variation'"
+      ],
+      "fields": {
+        "aliases": "King's Gambit Declined: Falkbeer Countergambit, Rubinstein Variation"
+      }
+    },
+    {
+      "ocn1": "C.KGm.Acc.Bsh.Nf6.Nc3.Pau",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "catalog/ocn-1.lichess-xref.tsv: C.KGm.Acc.Bsh.Nf6.Nc3.Pau matches lichess-org/chess-openings by exact position (9 of 9 plies, C33), where the line is called 'King's Gambit Accepted: Bishop's Gambit, Paulsen Attack'"
+      ],
+      "fields": {
+        "aliases": "King's Gambit Accepted: Bishop's Gambit, Paulsen Attack"
+      }
+    },
+    {
+      "ocn1": "C.KGm.Acc.Nf3.Fis.Gre.Sch",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "catalog/ocn-1.lichess-xref.tsv: C.KGm.Acc.Nf3.Fis.Gre.Sch matches lichess-org/chess-openings by exact position (13 of 13 plies, C38), where the line is called 'King's Gambit Accepted: Philidor Gambit, Schultz Variation'"
+      ],
+      "fields": {
+        "aliases": "King's Gambit Accepted: Philidor Gambit, Schultz Variation"
+      }
+    },
+    {
+      "ocn1": "C.Bsh.Urs.Pan",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "catalog/ocn-1.lichess-xref.tsv: C.Bsh.Urs.Pan matches lichess-org/chess-openings by exact position (12 of 12 plies, C24), where the line is called 'Bishop's Opening: Urusov Gambit, Panov Variation'"
+      ],
+      "fields": {
+        "aliases": "Bishop's Opening: Urusov Gambit, Panov Variation"
+      }
+    },
+    {
+      "ocn1": "C.Bsh.Nc6.Nc3.Sve",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "catalog/ocn-1.lichess-xref.tsv: C.Bsh.Nc6.Nc3.Sve matches lichess-org/chess-openings by exact position (16 of 16 plies, C30), where the line is called 'King's Gambit Declined: Classical, Svenonius Variation'"
+      ],
+      "fields": {
+        "aliases": "King's Gambit Declined: Classical, Svenonius Variation"
+      }
+    },
+    {
+      "ocn1": "C.Bsh.Urs.Kei.Kei",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "catalog/ocn-1.lichess-xref.tsv: C.Bsh.Urs.Kei.Kei matches lichess-org/chess-openings by exact position (9 of 9 plies, C43), where the line is called 'Bishop's Opening: Urusov Gambit, Keidansky Gambit'"
+      ],
+      "fields": {
+        "aliases": "Bishop's Opening: Urusov Gambit, Keidansky Gambit"
+      }
+    },
+    {
+      "ocn1": "C.Vie.Nc6.Bc4.Nf6.Hro",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "catalog/ocn-1.lichess-xref.tsv: C.Vie.Nc6.Bc4.Nf6.Hro matches lichess-org/chess-openings by exact position (9 of 9 plies, C28), where the line is called 'Bishop's Opening: Vienna Hybrid, Hromádka Variation'"
+      ],
+      "fields": {
+        "aliases": "Bishop's Opening: Vienna Hybrid, Hromádka Variation"
+      }
+    },
+    {
+      "ocn1": "C.Ita.Giu.Grc.Ghu",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "catalog/ocn-1.lichess-xref.tsv: C.Ita.Giu.Grc.Ghu matches lichess-org/chess-openings by exact position (17 of 17 plies, C54), where the line is called 'Italian Game: Classical Variation, Ghulam-Kassim Variation'"
+      ],
+      "fields": {
+        "aliases": "Italian Game: Classical Variation, Ghulam-Kassim Variation"
+      }
+    },
+    {
+      "ocn1": "C.Ita.Giu.Mol.Cra",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "catalog/ocn-1.lichess-xref.tsv: C.Ita.Giu.Mol.Cra matches lichess-org/chess-openings by exact position (13 of 13 plies, C54), where the line is called 'Italian Game: Giuoco Piano, Cracow Variation'"
+      ],
+      "fields": {
+        "aliases": "Italian Game: Giuoco Piano, Cracow Variation"
+      }
+    },
+    {
+      "ocn1": "C.Ita.Giu.Cls.MLn.Kra",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "catalog/ocn-1.lichess-xref.tsv: C.Ita.Giu.Cls.MLn.Kra matches lichess-org/chess-openings by exact position (23 of 23 plies, C54), where the line is called 'Italian Game: Giuoco Piano, Krause Variation'"
+      ],
+      "fields": {
+        "aliases": "Italian Game: Giuoco Piano, Krause Variation"
+      }
+    },
+    {
+      "ocn1": "C.Ita.Giu.Grc.MLn.And",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "catalog/ocn-1.lichess-xref.tsv: C.Ita.Giu.Grc.MLn.And matches lichess-org/chess-openings by exact position (16 of 16 plies, C54), where the line is called 'Italian Game: Classical Variation, Greco Gambit, Anderssen Variation'"
+      ],
+      "fields": {
+        "aliases": "Italian Game: Classical Variation, Greco Gambit, Anderssen Variation"
+      }
+    },
+    {
+      "ocn1": "C.Sco.Gor.Nc3.Sea",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "catalog/ocn-1.lichess-xref.tsv: C.Sco.Gor.Nc3.Sea matches lichess-org/chess-openings by exact position (19 of 19 plies, C44), where the line is called 'Scotch Game: Sea-Cadet Mate'"
+      ],
+      "fields": {
+        "aliases": "Scotch Game: Sea-Cadet Mate"
+      }
+    },
+    {
+      "ocn1": "C.Sco.Mie.Ste.Mai",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "catalog/ocn-1.lichess-xref.tsv: C.Sco.Mie.Ste.Mai matches lichess-org/chess-openings by exact position (17 of 17 plies, C47), where the line is called 'Four Knights Game: Scotch Variation Accepted, Main Line'"
+      ],
+      "fields": {
+        "aliases": "Four Knights Game: Scotch Variation Accepted, Main Line"
+      }
+    },
+    {
+      "ocn1": "C.Fou.Spa.Cls.MLn.Bar",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "catalog/ocn-1.lichess-xref.tsv: C.Fou.Spa.Cls.MLn.Bar matches lichess-org/chess-openings by exact position (18 of 18 plies, C48), where the line is called 'Four Knights Game: Spanish Variation, Bardeleben Variation'"
+      ],
+      "fields": {
+        "aliases": "Four Knights Game: Spanish Variation, Bardeleben Variation"
+      }
+    },
+    {
+      "ocn1": "C.Fou.Spa.Rub.MLn.Mar",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "catalog/ocn-1.lichess-xref.tsv: C.Fou.Spa.Rub.MLn.Mar matches lichess-org/chess-openings by exact position (12 of 12 plies, C48), where the line is called 'Four Knights Game: Spanish Variation, Rubinstein Variation, Marshall Gambit'"
+      ],
+      "fields": {
+        "aliases": "Four Knights Game: Spanish Variation, Rubinstein Variation, Marshall Gambit"
+      }
+    },
+    {
+      "ocn1": "C.Cen.Pau.MLn.Bb4.Bd2.Kup",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "catalog/ocn-1.lichess-xref.tsv: C.Cen.Pau.MLn.Bb4.Bd2.Kup matches lichess-org/chess-openings by exact position (17 of 17 plies, C22), where the line is called 'Center Game: Kupreichik Variation'"
+      ],
+      "fields": {
+        "aliases": "Center Game: Kupreichik Variation"
+      }
+    },
+    {
+      "ocn1": "C.KPO.Kgt.MLn.Be2.Nf6.Inv",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "catalog/ocn-1.lichess-xref.tsv: C.KPO.Kgt.MLn.Be2.Nf6.Inv matches lichess-org/chess-openings by exact position (9 of 9 plies, C44), where the line is called 'King's Pawn Game: Tayler Opening, Inverted Hanham'"
+      ],
+      "fields": {
+        "aliases": "King's Pawn Game: Tayler Opening, Inverted Hanham"
+      }
+    },
+    {
+      "ocn1": "E.Ben.Mod.Fou.MLn.Re8",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "catalog/ocn-1.lichess-xref.tsv: E.Ben.Mod.Fou.MLn.Re8 matches lichess-org/chess-openings by exact position (18 of 18 plies, A69), where the line is called 'Benoni Defense: Four Pawns Attack, Main Line'"
+      ],
+      "fields": {
+        "aliases": "Benoni Defense: Four Pawns Attack, Main Line"
+      }
+    },
+    {
+      "ocn1": "B.Sic.Clo.Fch.Bot.e5",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "catalog/ocn-1.lichess-xref.tsv: B.Sic.Clo.Fch.Bot.e5 matches lichess-org/chess-openings by exact position (12 of 12 plies, B25), where the line is called 'Sicilian Defense: Closed, Botvinnik Defense, with f4'"
+      ],
+      "fields": {
+        "aliases": "Sicilian Defense: Closed, Botvinnik Defense, with f4"
+      }
+    },
+    {
+      "ocn1": "B.Sca.MLn.Qd8.d4.Nf6.Bg4",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "catalog/ocn-1.lichess-xref.tsv: B.Sca.MLn.Qd8.d4.Nf6.Bg4 matches lichess-org/chess-openings by exact position (10 of 10 plies, B01), where the line is called 'Scandinavian Defense: Valencian Variation, Main Line'"
+      ],
+      "fields": {
+        "aliases": "Scandinavian Defense: Valencian Variation, Main Line"
+      }
+    },
+    {
+      "ocn1": "B.CaK.Kar.Bc4.Ngf6.Qe2.Nb6",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "catalog/ocn-1.lichess-xref.tsv: B.CaK.Kar.Bc4.Ngf6.Qe2.Nb6 matches lichess-org/chess-openings by exact position (14 of 14 plies, B17), where the line is called 'Caro-Kann Defense: Karpov Variation, Smyslov Variation'"
+      ],
+      "fields": {
+        "aliases": "Caro-Kann Defense: Karpov Variation, Smyslov Variation"
+      }
+    },
+    {
+      "ocn1": "B.CaK.Kar.Bc4.Ngf6.Qe2.Bb3",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "catalog/ocn-1.lichess-xref.tsv: B.CaK.Kar.Bc4.Ngf6.Qe2.Bb3 matches lichess-org/chess-openings by exact position (15 of 15 plies, B17), where the line is called 'Caro-Kann Defense: Karpov Variation, Smyslov Variation, Main Line'"
+      ],
+      "fields": {
+        "aliases": "Caro-Kann Defense: Karpov Variation, Smyslov Variation, Main Line"
+      }
+    },
+    {
+      "ocn1": "A.Tro.Psn.Nc3",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "catalog/ocn-1.lichess-xref.tsv: A.Tro.Psn.Nc3 matches lichess-org/chess-openings by exact position (7 of 7 plies, A45), where the line is called 'Trompowsky Attack: Poisoned Pawn Variation'"
+      ],
+      "fields": {
+        "aliases": "Trompowsky Attack: Poisoned Pawn Variation"
+      }
+    },
+    {
+      "ocn1": "A.Ret.Ang.MLn.Nf6.Nc3.Bd6",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "catalog/ocn-1.lichess-xref.tsv: A.Ret.Ang.MLn.Nf6.Nc3.Bd6 matches lichess-org/chess-openings by exact position (10 of 10 plies, A11), where the line is called 'Réti Opening: Anglo-Slav Variation, Gurevich System'"
+      ],
+      "fields": {
+        "aliases": "Réti Opening: Anglo-Slav Variation, Gurevich System"
+      }
+    },
+    {
+      "ocn1": "D.Sem.AMe.Sto.MLn",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "catalog/ocn-1.lichess-xref.tsv: D.Sem.AMe.Sto.MLn matches lichess-org/chess-openings by exact position (19 of 19 plies, D46), where the line is called 'Semi-Slav Defense: Main Line'"
+      ],
+      "fields": {
+        "aliases": "Semi-Slav Defense: Main Line"
+      }
+    },
+    {
+      "ocn1": "C.PhD.d4.exd4.Nxd4.d5.exd5",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "catalog/ocn-1.lichess-xref.tsv: C.PhD.d4.exd4.Nxd4.d5.exd5 matches lichess-org/chess-openings by exact position (9 of 9 plies, C41), where the line is called 'Philidor Defense: Paulsen Attack'"
+      ],
+      "fields": {
+        "aliases": "Philidor Defense: Paulsen Attack"
+      }
+    },
+    {
+      "ocn1": "B.Sic.Naj.Sch.O-O.Nbd7",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "catalog/ocn-1.lichess-xref.tsv: B.Sic.Naj.Sch.O-O.Nbd7 matches lichess-org/chess-openings by exact position (14 of 14 plies, B84), where the line is called 'Sicilian Defense: Najdorf Variation, Scheveningen Variation'"
+      ],
+      "fields": {
+        "aliases": "Sicilian Defense: Najdorf Variation, Scheveningen Variation"
+      }
+    },
+    {
+      "ocn1": "C.LtO.Bc4.fxe4.Nxh8.Nf6",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "catalog/ocn-1.lichess-xref.tsv: C.LtO.Bc4.fxe4.Nxh8.Nf6 matches lichess-org/chess-openings by exact position (14 of 14 plies, C40), where the line is called 'Latvian Gambit: Behting Variation'"
+      ],
+      "fields": {
+        "aliases": "Latvian Gambit: Behting Variation"
+      }
+    },
+    {
+      "ocn1": "C.KPO.Kgt.MLn.c4.Nf6.Nxe5",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "catalog/ocn-1.lichess-xref.tsv: C.KPO.Kgt.MLn.c4.Nf6.Nxe5 matches lichess-org/chess-openings by exact position (7 of 7 plies, C44), where the line is called 'Dresden Opening: The Goblin'"
+      ],
+      "fields": {
+        "aliases": "Dresden Opening: The Goblin"
+      }
+    }
+  ]
+}
