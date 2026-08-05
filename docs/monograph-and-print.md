@@ -30,23 +30,37 @@ This week the catalogue changed on hundreds of rows. The generated volume
 regenerates in seconds and was verified byte-identical after being moved
 between directories; a laid-out one would have to be rebuilt by hand each time.
 
-**What InDesign is actually wanted for here is prepress, and prepress does not
-need it.** See below.
+**And this was answered too quickly the first time.** The file-format argument
+is sound and it skipped the obvious route: InDesign can be driven — it ships a
+Scripts panel and ExtendScript, and every Adobe application on macOS answers
+AppleScript. Having InDesign write the `.indd` is entirely possible. It is
+still the wrong trade for the layout, for the reason above. It is a perfectly
+good option for the one step left, the colour conversion, alongside Acrobat.
+
+**What InDesign was actually wanted for here is prepress, and most of prepress
+did not need it.** See below.
 
 ## What printing it would take
 
 The current PDF is A4 exactly (209.9 × 297 mm), PDF-1.4, all fourteen faces
 embedded and subset. What a printer would ask for and it does not have:
 
-| missing | why it matters | how to add it |
-|---|---|---|
-| **BleedBox and TrimBox** | the cover band and the chapter boards run to the edge; without bleed they trim white | generate at 216 × 303 mm with the page content inset 3 mm, then set the boxes in a post-process |
-| **crop and registration marks** | the printer needs to know where to cut | drawn in the HTML outside the trim area, or added by the same post-process |
-| **CMYK, or an output intent** | Chrome emits RGB; gold and the warm greys will shift | convert with a stated profile (Ghostscript or a prepress tool), then proof |
-| **PDF/X-1a or X-4** | most printers require it | a conversion step, after the above |
+| | state |
+|---|---|
+| **bleed** | done. `--bleed` lays the trimmed page inside a 226 × 313 mm sheet and extends what must run off the cut |
+| **crop marks** | done. drawn in the margin outside the bleed, so a mark never prints on the work |
+| **TrimBox and BleedBox** | done. [`tools/set_pdf_boxes.py`](../tools/set_pdf_boxes.py) writes MediaBox 226 × 313, BleedBox 216 × 303, TrimBox 210 × 297 |
+| **CMYK, or an output intent** | not done. Chrome emits RGB and Ghostscript is not installed here. Acrobat and InDesign both are, and both are scriptable |
+| **PDF/X-1a or X-4** | not done, and follows the colour conversion |
 
-None of that requires laying the book out again. It is a post-process on a PDF
-the generator already produces, plus one change to the page geometry.
+```
+python3 tools/build_monograph.py --bleed
+# print to PDF with Chrome, then
+python3 tools/set_pdf_boxes.py book.pdf --trim 210x297 --bleed 3 --marks 5
+```
+
+Without `--bleed` the output is exactly A4, as before, and that build is
+unchanged: 222 pages, no overflow.
 
 **One real blocker before any of it.** Spectral ships here as the Google Fonts
 *latin* subset, 14 KB, and it has no `ř`. The catalogue needs exactly four
@@ -70,8 +84,9 @@ Anything added to this volume follows that rule or argues with it in writing.
 
 1. **Ship the latin-ext font subsets.** Blocks print, and it is wrong on the
    live site today.
-2. **Page geometry with bleed**, then the prepress post-process. Only worth
-   doing when a print run is actually intended.
+2. **Colour conversion.** The geometry, marks and boxes are done; what remains
+   is RGB to CMYK with a stated profile and a PDF/X output intent. Either
+   `brew install ghostscript`, or script Acrobat or InDesign, both installed.
 3. **Deploy the explorer.** `web/dist` was last built 2026-07-31 and the
    catalogue changed on 08-03; production still shows the retracted Worrall
    attribution and the misspelled participants.

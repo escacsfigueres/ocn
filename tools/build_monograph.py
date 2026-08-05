@@ -36,6 +36,16 @@ for p in (OCN / "tools", OCN / "web"):
 from build import row_fen  # noqa: E402
 
 HERE = Path(__file__).resolve().parent / "monograph"   # cached inputs and output
+
+# Print geometry. With --bleed the sheet grows by BLEED on every side and the
+# trimmed page sits inside it, so nothing in the layout moves: elements that
+# must run off the cut are extended, and crop marks are drawn in the margin.
+# tools/set_pdf_boxes.py then writes TrimBox and BleedBox into the PDF, which
+# is what a printer reads. Without it the output is exactly A4, as before.
+BLEED = 3.0 if "--bleed" in sys.argv else 0.0
+MARGIN = 5.0 if BLEED else 0.0        # room for the marks, outside the bleed
+OFF = BLEED + MARGIN
+SHEET_W, SHEET_H = 210 + 2 * OFF, 297 + 2 * OFF
 FAMILY, ROOT = "c", "C.RyL"
 # The OCN identity lives in the separate ocn-logo-system workspace, which this
 # repository does not depend on. What the monograph needs from it is four
@@ -654,6 +664,26 @@ def _gcell_attr(c):
 micro = li((BRAND / "micro-c.svg").read_text(encoding="utf-8"))
 lock = li((BRAND / "lockup-horizontal.svg").read_text(encoding="utf-8"))
 HW = f"{H_TOTAL_WIDTH:.3f}".rstrip("0").rstrip(".")
+def _crop_marks():
+    """Four corner pairs, in the bleed margin, 3mm long and offset 1mm from the
+    trim so the knife does not cut through them."""
+    if not BLEED:
+        return ""
+    L, S = 3.0, 1.0                      # mark length, gap from the trim edge
+    out = []
+    for x, y, dx, dy in ((OFF, OFF, -1, -1), (OFF + 210, OFF, 1, -1),
+                         (OFF, OFF + 297, -1, 1), (OFF + 210, OFF + 297, 1, 1)):
+        # each arm starts beyond the bleed, so a mark never prints on the work
+        x0 = x + dx * (BLEED + S) - (L if dx > 0 else 0)
+        y0 = y + dy * (BLEED + S) - (L if dy > 0 else 0)
+        out.append(f'<div class="cm" style="left:{x0:.2f}mm;top:{y:.2f}mm;'
+                   f'width:{L}mm;height:0"></div>')
+        out.append(f'<div class="cm" style="left:{x:.2f}mm;top:{y0:.2f}mm;'
+                   f'width:0;height:{L}mm"></div>')
+    return "".join(out)
+
+
+MARKS = _crop_marks()
 PAGES = []
 
 SECTIONS = []
@@ -661,17 +691,18 @@ SECTIONS = []
 def add(title, body, folio, cls=""):
     SECTIONS.append((title, folio, len(PAGES)))
     head = "" if "chcover" in cls else f"<h2>{title}</h2>"
-    PAGES.append(f'<section class="page {cls}">{head}{body}'
-                 f'<div class="folio"><span>{folio}</span><span class="pn"></span></div></section>')
+    PAGES.append(f'<div class="sheet">{MARKS}<section class="page {cls}">{head}{body}'
+                 f'<div class="folio"><span>{folio}</span><span class="pn"></span></div>'
+                 f'</section></div>')
 
-COVER = f"""<section class="page cover"><div class="band"></div><div class="inner">
+COVER = f"""<div class="sheet">{MARKS}<section class="page cover"><div class="band"></div><div class="inner">
  <div class="eyebrow din">OCN MONOGRAPHS</div>
  <div class="micro"><svg viewBox="0 0 72 72" xmlns="http://www.w3.org/2000/svg">{micro}</svg></div>
  <div class="letter din">C</div><h1>THE RUY LÓPEZ</h1>
  <div class="sub">SPANISH OPENING, C.RyL<br>{len(RYL)} NAMED LINES, ECO C60 TO C99<br>THE COMPLETE VOLUME</div>
  <div class="foot"><span class="din">CLUB D'ESCACS FIGUERES</span>
   <span class="lockup"><svg viewBox="0 0 {HW} 72" xmlns="http://www.w3.org/2000/svg">{lock}</svg></span></div>
-</div></section>"""
+</div></section></div>"""
 
 stat_block = "".join(f'<div class="stat"><div class="n">{n}</div><div class="l">{l}</div></div>'
     for n, l in [(f"{len(RYL)}", "named lines"), (f"{len(ECOS)}", "ECO codes"),
@@ -2175,13 +2206,19 @@ Wikipedia and Lichess use, rendered from the catalogue's own move lists.</p>
 
 CSS = f"""
 {FONTS}
-@page {{ size: A4; margin: 0; }}
+@page {{ size: {SHEET_W}mm {SHEET_H}mm; margin: 0; }}
 * {{ margin: 0; box-sizing: border-box; }}
 html {{ -webkit-print-color-adjust: exact; print-color-adjust: exact; }}
 body {{ font-family: Spectral, serif; color: {INK}; background: {PAPER};
   font-size: 10.2pt; line-height: 1.6; counter-reset: page; }}
-.page {{ width: 210mm; height: 297mm; padding: 20mm 18mm 16mm; position: relative;
-  page-break-after: always; overflow: hidden; counter-increment: page; }}
+.cm {{ position:absolute; border-top:.3pt solid {INK}; border-left:.3pt solid {INK};
+  z-index:9; }}
+.sheet {{ width:{SHEET_W}mm; height:{SHEET_H}mm; position:relative; overflow:hidden;
+  background:{PAPER}; page-break-after:always; }}
+.page {{ position:absolute; left:{OFF}mm; top:{OFF}mm;
+  width: 210mm; height: 297mm; padding: 20mm 18mm 16mm; box-sizing:border-box;
+  page-break-after: always; overflow: {'visible' if BLEED else 'hidden'};
+  counter-increment: page; }}
 .page:last-child {{ page-break-after: auto; }}
 h1,h2,h3,h4,.din {{ font-family:'OCN DIN',Spectral,serif; font-weight:400; letter-spacing:.05em; }}
 h2 {{ font-size: 18pt; margin-bottom: 3mm; }}
@@ -2195,7 +2232,8 @@ blockquote {{ margin: 3mm 0 3mm 5mm; padding-left: 4.5mm; border-left: 2.5pt sol
 blockquote .src {{ display:block; font-style:normal; font-family:'Plex Mono',monospace;
   font-size: 7.4pt; color:#5c5f64; margin-top:1.4mm; }}
 .cover {{ padding: 0; }}
-.cover .band {{ position:absolute; inset:0 0 auto 0; height:12mm; background:{BAND}; }}
+.cover .band {{ position:absolute; inset:{-BLEED}mm {-BLEED}mm auto {-BLEED}mm;
+  height:{12 + BLEED}mm; background:{BAND}; }}
 .cover .inner {{ position:absolute; inset:22mm 20mm 16mm; }}
 .cover .eyebrow {{ font-size:9.5pt; letter-spacing:.34em; }}
 .cover .micro {{ position:absolute; right:0; top:8mm; width:16mm; }}
@@ -2391,12 +2429,12 @@ def build_contents(offset):
     rows_c = "".join(f'<div class="tocline"><span class="tt">{t}</span>'
                      f'<span class="td"></span><span class="tp">{n}</span></div>'
                      for t, n in chaps)
-    p1 = (f'<section class="page"><h2>Contents</h2>'
+    p1 = (f'<div class="sheet">{MARKS}<section class="page"><h2>Contents</h2>'
           f'<h3>The opening, and what is recorded about it</h3>{rows_f}'
           f'<h3>Chronology</h3><div class="tocline"><span class="tt">By first recorded '
           f'game, {chron[0][0]} to {chron[-1][0]}</span><span class="td"></span>'
           f'<span class="tp">{chron_first}</span></div>'
-          f'<div class="folio"><span>Contents</span><span class="pn"></span></div></section>')
+          f'<div class="folio"><span>Contents</span><span class="pn"></span></div></section></div>')
     half = (len(chaps) + 1) // 2
     rows_c1 = "".join(f'<div class="tocline"><span class="tt">{t}</span>'
                       f'<span class="td"></span><span class="tp">{n}</span></div>'
@@ -2404,11 +2442,11 @@ def build_contents(offset):
     rows_c2 = "".join(f'<div class="tocline"><span class="tt">{t}</span>'
                       f'<span class="td"></span><span class="tp">{n}</span></div>'
                       for t, n in chaps[half:])
-    p2 = (f'<section class="page"><h2>Contents, the chapters</h2>'
+    p2 = (f'<div class="sheet">{MARKS}<section class="page"><h2>Contents, the chapters</h2>'
           f'<p class="small">One chapter for each line that branches directly from 3.Bb5, '
           f'ordered by how many names hang beneath it.</p>'
           f'<div class="two"><div>{rows_c1}</div><div>{rows_c2}</div></div>'
-          f'<div class="folio"><span>Contents</span><span class="pn"></span></div></section>')
+          f'<div class="folio"><span>Contents</span><span class="pn"></span></div></section></div>')
     return [p1, p2]
 
 # ---------------- the indexes
