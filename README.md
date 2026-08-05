@@ -148,8 +148,9 @@ chronicle layer: 1,111 sourced claims over 854 slugs, and a popularity
 sidecar. Release notes:
 [`docs/release-ocn-1.3.0-notes.md`](docs/release-ocn-1.3.0-notes.md). Post-1.2
 work adds internationalised alias sidecars and consumer tooling, planned in
-[`docs/traction-roadmap.md`](docs/traction-roadmap.md). Comments,
-corrections and additions welcome via issues.
+[`docs/traction-roadmap.md`](docs/traction-roadmap.md). Corrections, and the
+names you use that this catalogue does not have, are what it most needs:
+see [Contributing](#contributing-and-what-we-would-ask-for).
 
 > Naming history: previously drafted as **OCS — Open Chess Slug** during
 > alpha. Renamed to OCN before public release because "slug" carries
@@ -428,6 +429,70 @@ explicit — invented, published, popularised, event anchor? Methodology:
 and the internationalised alias sidecars, where the English `canonical_name`
 stays definitive. Release records, decision logs and the rest of the
 documentation are indexed in [`docs/INDEX.md`](docs/INDEX.md).
+
+A separate track covers the monograph and what printing it would take:
+[`docs/monograph-and-print.md`](docs/monograph-and-print.md).
+
+## Contributing, and what we would ask for
+
+This catalogue can be corrected by anyone, and one thing in it can only be
+fixed by people who are not us.
+
+### The gap we cannot close alone
+
+**2,144 of the 5,899 rows carry no alternative name at all.** Where a line has
+one name here and a different one in the book on your shelf, in your database,
+or in the course you bought last month, searching for the name you know will
+not find us. That is worse than being wrong, because a wrong name gets argued
+with and a missing one is simply invisible.
+
+The Ruy López alone shows the shape of it: a 2026 course teaches one line as
+the *Modern Archangel*, a recent book teaches another as the *Neo-Møller*, and
+neither string appears anywhere in this catalogue. There is now a `known-as`
+relation for recording that a source gives a different name for the same
+position, with the source and a grade attached, so a second name does not have
+to be demoted to a synonym in a pipe-delimited field.
+
+**What helps most:** the name you use for a line, and where you got it. A
+book, an edition, a page, a course, a language. Open an issue with the OCN
+identifier and the string. Uncertainty is fine and gets recorded as
+uncertainty — every claim in the chronicle carries a grade, and
+`traditional` ("universally repeated, no primary source found") is a legitimate
+answer.
+
+### Corrections
+
+Every claim is meant to be falsifiable. If a date, an attribution or a name is
+wrong, the identifier and the row are all we need to check it. Attributions in
+particular are held to a specific standard: a source has to establish the
+person **and what they did** — invented, published, popularised — because
+"named after" and "invented by" are different claims and the evidence usually
+supports only one. Twenty proposals sit unapplied for exactly that reason, and
+one attribution was retracted in the current release when its source turned
+out to describe a neighbouring line.
+
+### If you run a chess project
+
+The catalogue is CC-BY-4.0 and built to be consumed rather than admired. It is
+already keyed to what you probably have:
+
+- **ECO** — every row carries its legacy range, 500 codes covered, and the
+  mapping runs both ways. Nothing that uses ECO has to stop.
+- **Lichess opening names** — all 5,899 rows cross-reference
+  [lichess-org/chess-openings](https://github.com/lichess-org/chess-openings),
+  3,339 by exact position and 2,555 by prefix, in
+  [`catalog/ocn-1.lichess-xref.tsv`](catalog/ocn-1.lichess-xref.tsv).
+- **Positions** — slugs are derived from move sequences and canonicalised
+  across transpositions, so a FEN or a move list is enough to look one up.
+
+Install it with `pip install ocn-chess`, take the CSVs directly, or read the
+JSON the explorer uses. If a different shape would be more useful — a
+different serialisation, a stable endpoint, a mapping to your own identifiers —
+say so in an issue. This is a small club's catalogue and the whole point of
+releasing it was that other people find it useful; a request from someone
+actually building something outranks our roadmap.
+
+What we would ask in return is the thing above: the names your users type.
 
 ## Acknowledgements
 
