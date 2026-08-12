@@ -94,3 +94,5 @@ written.
   proposal, the whole-catalogue factory map) whose surviving conclusions
   are carried by the catalogue and by
   [`attribution-source-status.tsv`](attribution-source-status.tsv).
+
+- [`session-handoff-2026-08-05.md`](session-handoff-2026-08-05.md) — the monograph run: what rendering the catalogue found, the two new relations, and four open decisions

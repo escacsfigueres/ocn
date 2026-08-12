@@ -177,7 +177,9 @@ championship matches they did not belong to, thirteen misspelled participants
 over 334 rows, 221 player-name defects, and a citation field leaking names into
 the place column — all now corrected and pushed. The generator moved from a
 scratch directory into `tools/`. Print readiness, the InDesign question and the
-ordered next steps are in [`monograph-and-print.md`](monograph-and-print.md).
+ordered next steps are in [`monograph-and-print.md`](monograph-and-print.md);
+the full account of the run is in
+[`session-handoff-2026-08-05.md`](session-handoff-2026-08-05.md).
 Two blockers it exposed sit on this roadmap's own path: the shipped font
 subsets lack four characters the catalogue uses, and `web/dist` has been stale
 since 2026-07-31 while the catalogue changed on 08-03.
