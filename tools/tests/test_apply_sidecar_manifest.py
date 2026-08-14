@@ -1,5 +1,6 @@
 """The sidecar engine's job is to refuse. These test the refusals."""
 
+import csv
 import json
 import sys
 import tempfile
@@ -249,6 +250,35 @@ class Insert(unittest.TestCase):
     def test_rejects_a_unique_by_field_not_in_the_row(self):
         with self.assertRaisesRegex(ApplyError, "unique_by"):
             validate_manifest(base_manifest(operations=[dict(INSERT, unique_by="nope")]))
+
+    def test_several_fields_together_can_be_what_makes_a_row_new(self):
+        """A claim has no id column. Its opening already appears (a
+        championship game), and so does its subject (another opening
+        named after the same person); only the combination is new."""
+        m = base_manifest(operations=[dict(
+            INSERT, unique_by=["ocn1", "event"],
+            row=dict(INSERT["row"], ocn1="A.Bir", event="Another Event"),
+        )])
+        with TempSidecar() as p:
+            res = apply(m, load_sidecar(p))
+        self.assertEqual(res.rows_after, 6)
+
+    def test_refuses_when_every_field_of_the_combination_matches(self):
+        with TempSidecar() as p:
+            rows = list(csv.DictReader(p.read_text().splitlines(), delimiter="\t"))
+            taken = {k: rows[0][k] for k in ("ocn1", "event")}
+            m = base_manifest(operations=[dict(
+                INSERT, unique_by=["ocn1", "event"],
+                row=dict(INSERT["row"], **taken),
+            )])
+            with self.assertRaisesRegex(ApplyError, "already in the file"):
+                apply(m, load_sidecar(p))
+
+    def test_rejects_a_unique_by_list_naming_a_field_not_in_the_row(self):
+        with self.assertRaisesRegex(ApplyError, "unique_by"):
+            validate_manifest(base_manifest(operations=[
+                dict(INSERT, unique_by=["ocn1", "nope"])
+            ]))
 
     def test_an_inserted_row_survives_a_later_sync_prefix(self):
         m = base_manifest()

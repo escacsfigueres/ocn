@@ -101,11 +101,20 @@ def validate_manifest(obj: object) -> None:
             if not all(isinstance(k, str) and isinstance(v, str) for k, v in row.items()):
                 raise ApplyError(f"{where}: 'row' must map field names to strings")
             key = op.get("unique_by")
-            if not isinstance(key, str) or not key:
-                raise ApplyError(f"{where}: 'unique_by' names the field that must not "
-                                 "already hold this value")
-            if key not in row:
-                raise ApplyError(f"{where}: 'unique_by' field {key!r} is not in 'row'")
+            #: One field where the table has an id column, several where it
+            #: does not: a claim's opening already appears (a championship
+            #: game) and so does its subject (another opening named after
+            #: the same person), and only the combination is new.
+            fields = [key] if isinstance(key, str) else key
+            if not isinstance(fields, list) or not fields or not all(
+                    isinstance(f, str) and f for f in fields):
+                raise ApplyError(f"{where}: 'unique_by' names the field, or the "
+                                 "fields together, that must not already hold "
+                                 "this value")
+            for field in fields:
+                if field not in row:
+                    raise ApplyError(
+                        f"{where}: 'unique_by' field {field!r} is not in 'row'")
             if op["expected_rows"] != 1:
                 raise ApplyError(f"{where}: an insert adds exactly one row")
         else:
@@ -214,13 +223,18 @@ def apply(manifest: dict, sidecar: Sidecar) -> ApplyResult:
                         if len(samples) < 2:
                             samples.append(f"{f}: {op['from']} -> {op['to']}")
         elif op["op"] == "insert":
-            key, val = op["unique_by"], op["row"][op["unique_by"]]
-            if any(r.get(key) == val for i, r in enumerate(rows) if i not in dropped):
+            key = op["unique_by"]
+            fields = [key] if isinstance(key, str) else key
+            taken = {f: op["row"][f] for f in fields}
+            if any(all(r.get(f) == v for f, v in taken.items())
+                   for i, r in enumerate(rows) if i not in dropped):
                 raise ApplyError(
-                    f"insert: {key}={val!r} is already in the file; an insert adds a "
-                    "row that is not there, and this one is")
+                    "insert: " + ", ".join(f"{f}={v!r}" for f, v in taken.items())
+                    + " is already in the file; an insert adds a row that is not "
+                    "there, and this one is")
             rows.append({f: op["row"].get(f, "") for f in sidecar.fieldnames})
-            matched, samples = 1, [f"{key}={val}"]
+            matched = 1
+            samples = [", ".join(f"{f}={v}" for f, v in taken.items())]
         elif op["op"] == "drop":
             for i, r in enumerate(rows):
                 if i in dropped:
@@ -296,7 +310,9 @@ def report_markdown(manifest: dict, res: ApplyResult, target: Path) -> str:
         elif op["op"] == "drop":
             head = "drop " + ", ".join(f"{k}={v!r}" for k, v in op["match"].items())
         elif op["op"] == "insert":
-            head = f"insert {op['unique_by']}=`{op['row'][op['unique_by']]}`"
+            key = op["unique_by"]
+            fields = [key] if isinstance(key, str) else key
+            head = "insert " + ", ".join(f"{f}=`{op['row'][f]}`" for f in fields)
         else:
             head = (f"re-anchor `{op['field']}` on "
                     f"{op['separator'].join(op['pair_fields'])}")
