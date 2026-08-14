@@ -1,0 +1,43 @@
+{
+  "kind": "ocn.sidecar_manifest.v1",
+  "title": "Record that a document contains this opening, which the catalogue has never said",
+  "description": "Two analysed-in claims on C.RyL, the first use of a relation that has been in the closed set of docs/chronicle-layer-design.md since the design was written and had never been exercised: 'published analysis, subject is a publication event'. Every other claim in this table says a game played a line; these say a document analyses one. Proposed 2026-08-04 in docs/evidence/provenance/opening-in-print.md and blocked until now on the builder overwriting the tables. The pair is the point: the position was written down around 1490 and the name arrives in 1561, so for a catalogue whose subject is names rather than moves the gap between the two rows is the fact worth having. Lucena is deliberately absent — the sources that put the Ruy López among his eleven openings are a blog post and Grokipedia, which is below the standard applied to everything else here.",
+  "target": "catalog/ocn-1.claims.tsv",
+  "expected_file_rows": 1120,
+  "operations": [
+    {
+      "op": "insert",
+      "unique_by": "subject_id",
+      "expected_rows": 1,
+      "evidence": "Wikipedia, 'Ruy Lopez' (retrieved 2026-08-04): 'Although it bears his name, this particular opening was included in the Göttingen manuscript, which dates from c. 1490.'",
+      "row": {
+        "ocn1": "C.RyL",
+        "relation": "analysed-in",
+        "subject_type": "event",
+        "subject_id": "pub-c1490-gottingen",
+        "date": "1490",
+        "games": "",
+        "source_ref": "Wikipedia, 'Ruy Lopez' (retrieved 2026-08-04): \"Although it bears his name, this particular opening was included in the Göttingen manuscript, which dates from c. 1490.\"",
+        "evidence_grade": "attested",
+        "note": "the position, not the name: about seventy years before Ruy López de Segura. Date uncertain in the literature, given as somewhere between 1471 and 1505"
+      }
+    },
+    {
+      "op": "insert",
+      "unique_by": "subject_id",
+      "expected_rows": 1,
+      "evidence": "Wikipedia, 'Ruy Lopez' (retrieved 2026-08-04): 'The Ruy Lopez is named after Ruy López de Segura, a 16th-century Spanish priest who systematically studied this and other openings in his 150-page chess book, Libro del Axedrez, written in 1561.'",
+      "row": {
+        "ocn1": "C.RyL",
+        "relation": "analysed-in",
+        "subject_type": "event",
+        "subject_id": "pub-1561-segura",
+        "date": "1561",
+        "games": "",
+        "source_ref": "Wikipedia, 'Ruy Lopez' (retrieved 2026-08-04): \"The Ruy Lopez is named after Ruy López de Segura, a 16th-century Spanish priest who systematically studied this and other openings in his 150-page chess book, Libro del Axedrez, written in 1561.\"",
+        "evidence_grade": "attested",
+        "note": "the book the opening is named after, and the earliest systematic study of it"
+      }
+    }
+  ]
+}

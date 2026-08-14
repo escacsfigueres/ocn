@@ -170,9 +170,15 @@ class SidecarTests(unittest.TestCase):
                 self.assertEqual(claim["relation"], "named-after-place")
 
     def test_every_event_names_people_the_table_knows(self) -> None:
+        """Whoever an event names must be in the people table. It is not
+        that every event names someone: a publication has no
+        participants, and giving it one would be an assertion nobody
+        made."""
         people = {p["person_id"] for p in self.read("ocn-1.people.tsv")}
         for event in self.read("ocn-1.events.tsv"):
             for pid in event["participants"].split("|"):
+                if not pid:
+                    continue
                 with self.subTest(event=event["event_id"], person=pid):
                     self.assertIn(pid, people)
 

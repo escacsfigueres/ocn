@@ -1,8 +1,12 @@
 # The position is seventy years older than the name
 
-**Status: proposal, blocked, nothing applied.** Companions:
-`opening-in-print.proposed.tsv` and `opening-in-print.events.proposed.tsv`.
-Written 2026-08-04 from a question Albert asked while reading the monograph.
+**Status: applied 2026-08-14, ten days after it was written and blocked.**
+Two events and two claims, through
+`docs/manifests/opening-in-print-events.manifest.json` and
+`opening-in-print-claims.manifest.json`. Companions:
+`opening-in-print.proposed.tsv` and `opening-in-print.events.proposed.tsv`,
+kept as the proposal they were. Written 2026-08-04 from a question Albert
+asked while reading the monograph.
 
 ## The question
 
@@ -50,7 +54,7 @@ closed set** in `docs/chronicle-layer-design.md` and has never been used:
 time the catalogue records that a *document contains an opening*, as against
 recording that a *game plays* one.
 
-## Why it is blocked
+## Why it was blocked, and what unblocked it
 
 `catalog/ocn-1.events.tsv` is generated. `tools/build_chronicle.py` derives it
 wholesale from `catalog/ocn-1.wch.tsv`, emits only `wch_match` and
@@ -66,7 +70,11 @@ it generates, and merge rather than overwrite. The same argument applies to
 (see `wch-participant-integrity.md`), and to `people.tsv`, where regenerating
 would erase the curated Wikidata identities.
 
-Until then the two claims and their two event rows sit here.
+That fix landed on 2026-08-14, and it turned out to be holding more than this
+proposal: a regeneration would also have erased 59 reviewed Wikidata
+identities, 119 place claims and 259 renamings. The two claims and their two
+event rows went in the same day, and a full `build_chronicle.py` run now
+reports them as kept rather than rewriting them away.
 
 ## A caveat to keep with the date
 

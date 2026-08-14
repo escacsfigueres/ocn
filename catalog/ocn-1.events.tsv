@@ -69,3 +69,5 @@ wch-2023-ding-nepomniachtchi	WCh 2023	wch_match	match	2023	ding|nepomniachtchi	1
 wch-2023-ju-lei	WCh Women 2023	wch_match_women	match	2023	ju|lei	12	LumbrasGigaBase (freely downloadable), via tools/build_wch_map.py; each game identified by players, event and year
 wch-2024-ding-gukesh-d	WCh 2024	wch_match	match	2024	ding|gukesh-d	14	LumbrasGigaBase (freely downloadable), via tools/build_wch_map.py; each game identified by players, event and year
 wch-2025-ju-tan	WCh Women 2025	wch_match_women	match	2025	ju|tan	9	LumbrasGigaBase (freely downloadable), via tools/build_wch_map.py; each game identified by players, event and year
+pub-c1490-gottingen	Göttingen manuscript	publication	manuscript	1490			Wikipedia, 'Ruy Lopez' and 'Göttingen manuscript'
+pub-1561-segura	Libro de la invención liberal y arte del juego del axedrez	publication	book	1561			Ruy López de Segura, Alcalá de Henares, 1561

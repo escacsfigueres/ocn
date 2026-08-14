@@ -1,0 +1,41 @@
+{
+  "kind": "ocn.sidecar_manifest.v1",
+  "title": "Add the two documents the Ruy López is older than",
+  "description": "The events table has only ever held title matches, because the builder that wrote it derives them from the championship map. It merges now (2026-08-14), so a publication event survives a regeneration and these two can land. They are the subjects of the two analysed-in claims proposed on 2026-08-04 in docs/evidence/provenance/opening-in-print.md: the Göttingen manuscript, which contains the opening about seventy years before the man it is named after published anything, and Ruy López de Segura's own book of 1561. The manuscript's date is not settled — the literature places it between 1471 and 1505 — which is why the claim rather than the event carries the caveat, and why the event's year is the c. 1490 the sources most often give. Neither row asserts a game: participants and games are empty because a document has none.",
+  "target": "catalog/ocn-1.events.tsv",
+  "expected_file_rows": 70,
+  "operations": [
+    {
+      "op": "insert",
+      "unique_by": "event_id",
+      "expected_rows": 1,
+      "evidence": "Wikipedia, 'Ruy Lopez' (retrieved 2026-08-04): 'Although it bears his name, this particular opening was included in the Göttingen manuscript, which dates from c. 1490.'",
+      "row": {
+        "event_id": "pub-c1490-gottingen",
+        "display_name": "Göttingen manuscript",
+        "kind": "publication",
+        "format": "manuscript",
+        "year": "1490",
+        "participants": "",
+        "games": "",
+        "source": "Wikipedia, 'Ruy Lopez' and 'Göttingen manuscript'"
+      }
+    },
+    {
+      "op": "insert",
+      "unique_by": "event_id",
+      "expected_rows": 1,
+      "evidence": "Wikipedia, 'Ruy Lopez' (retrieved 2026-08-04): 'The Ruy Lopez is named after Ruy López de Segura, a 16th-century Spanish priest who systematically studied this and other openings in his 150-page chess book, Libro del Axedrez, written in 1561.'",
+      "row": {
+        "event_id": "pub-1561-segura",
+        "display_name": "Libro de la invención liberal y arte del juego del axedrez",
+        "kind": "publication",
+        "format": "book",
+        "year": "1561",
+        "participants": "",
+        "games": "",
+        "source": "Ruy López de Segura, Alcalá de Henares, 1561"
+      }
+    }
+  ]
+}
