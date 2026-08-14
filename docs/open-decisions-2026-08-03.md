@@ -124,12 +124,37 @@ These need a position, not more evidence.
 
 ## E. Outward-facing
 
-- **The chessgames.com letter** is drafted at
-  `~/Downloads/2026-08-02-chessgames-permission-email.md`. It explains
-  what OCN is and why, offers deep links per opening, the catalogue itself
-  (it is CC-BY), and credit to their kibitzers as provenance; it leaves
-  the "how" entirely to them. Three independent models recommended sending
-  it. Nothing is sent without a human.
+- **The chessgames.com letter.** Now at
+  `~/Downloads/2026-08-14-chessgames-permission-email-v3.md`; v2 stays beside
+  it. It explains what OCN is and why, offers deep links per opening, the
+  catalogue itself (it is CC-BY), and credit to their kibitzers as provenance;
+  it leaves the "how" entirely to them. Three independent models recommended
+  sending it. Nothing is sent without a human.
+
+  **v3, 2026-08-14, after checking every factual claim in it against the
+  catalogue.** Three did not hold, and the recipient is exactly who would
+  check:
+
+  1. v2 said "5,899 openings, each name traced to people and published
+     sources". The count is 125 rows with `attributed_to` (2.1%), 1,322
+     sourced claims over 1,016 openings (17.2%), 532 with a claim about the
+     *name* (9.0%). Anyone who opens the explorer sees this immediately, and
+     the true figures are the better ask: the gap is why we are writing.
+  2. v2 offered "the Dragon named after a constellation" as its one worked
+     example. The catalogue makes no such claim — `B.Sic.Dra` says the name is
+     a metaphor and then declines to date it, citing Tartakower 1922, Wolf's
+     "Paulsensche Drachenvariante" of June 1924, a facsimile Winter puts at
+     January 1914, and Gromer still using it for White's g2-g4 in 1939. To
+     readers who know Winter's Chess Notes, the tidy myth is the worst line in
+     the letter and that entry is the best thing in it.
+  3. v2 said "your robots.txt restricts automated access". It does not, in
+     general: `Crawl-delay: 5` for all allowed crawlers and a targeted
+     `Disallow` list, in which `/perl/kibitzing` appears and the opening pages
+     do not. Stated precisely it proves we read it and narrows the ask to the
+     one thing that genuinely needs permission.
+
+  Also fixed: the deep links per opening **do not exist yet**. v2 offered them
+  in the present tense; v3 says they would be built.
 - The harvest cron is paused with a two-week tripwire pending their reply.
 
 ## F. A caution about the pre-chewed batch cards
