@@ -143,6 +143,26 @@ has to check the moves rather than the label — which is how batch 5 came
 out as one row instead of five.
 
 
+## G. The `feat/finish-goals` branch, triaged 2026-08-14
+
+Three commits from 2026-06-19, untouched since, and its worktree has been
+removed — the branch stays on the remote at `9b2304c`, which is where the
+content lives.
+
+Most of it has been overtaken. The one CLEAR draft it carried (Allgaier) is on
+`main` and in the catalogue. Of its ten PARTIAL eponym heads, five have since
+been attributed from the Oxford Companion, which is a better source than the
+web pages the draft cites: Winawer, McCutcheon, Kieseritzky and both Sämisch
+rows. Its fr/de i18n alias seeds are superseded by the 2026-08-05 finding that
+a translated name is the same shape as a tradition name — `known-as` with a
+source — which folds i18n into naming rather than running a sidecar alongside.
+
+**What is genuinely still there:** web-sourced PARTIAL drafts for five rows
+that carry no attribution at all — `B.Fre.Bur` (Burn), `C.Sco.Gor` (Göring),
+`D.QGD.Lsk` (Lasker), `D.QGD.Rag` (Ragozin), `D.QGD.Har` (Harrwitz). PARTIAL is
+the grade `--strict` refuses, so they are leads rather than a batch. Worth a
+Companion pass, at which point the branch has nothing left in it.
+
 ## The pattern behind half of section A
 
 Three separate passes have now corrected a person's name in
