@@ -184,6 +184,28 @@ carries the ASCII forms) and is populated in the same commit that applies
 the lot, so guard and data activate atomically. The check mechanism itself
 is tested with an injected list from day one.
 
+### Amendment, 2026-08-14: the guard binds `canonical_name` only
+
+`aliases` is exempt. The rule's stated intent, at the top of this document,
+is that **canonical names** spell an eponym's surname the way the person
+spelled it — an assertion about how a name *should* be written. An alias
+asserts nothing; it records how a name *might be searched for*, which is why
+the column already holds `Modern Defense`. Applying the rule to both fields
+made the catalogue unfindable by the spelling nearly every database, book
+index and search box uses, including Lichess's own.
+
+The Non-goals below already deferred this ("**No alias additions.**
+Preserving ASCII search forms as aliases is a separate decision"). This is
+that decision, and it goes the other way from the guard's first draft.
+Nothing in the applied lots changes: 621 canonical names keep their
+diacritics and rule 17 still fails on any regression there. Fixture
+`tools/tests/fixtures/valid_ascii_alias.csv` pins the exemption;
+`invalid_banned_ascii_form.csv` pins that `canonical_name` still errors.
+
+Immediate consequence: the 30 Lichess aliases parked in
+[`evidence/provenance/lichess-alias-import.md`](evidence/provenance/lichess-alias-import.md)
+(28 `Lopez`, two `Moeller`) become importable.
+
 ## Dry-run finding (2026-06-11)
 
 Normalizing `A.Ret` ("Reti Opening" → "Réti Opening") collides with

@@ -36,8 +36,8 @@ Checks performed:
 16. No alias identical to the row's own canonical_name.
 17. Diacritic regression guard: ASCII surname forms retired by the
     normalization lot (`BANNED_ASCII_NAME_FORMS`, extendable per run via
-    `--ban-ascii-form ASCII=Normalized`) fail in canonical_name/aliases
-    and warn in notes.
+    `--ban-ascii-form ASCII=Normalized`) fail in canonical_name and warn
+    in notes. Aliases are exempt: they exist to be searched for.
 18. With `--audit-naming`, children whose canonical_name is shorter than
     their parent's warn — an audit-sweep heuristic (~1,400 legitimate
     hits on the live catalogue), never part of the default gate.
@@ -185,8 +185,9 @@ BANNED_CHAR_LABELS = {
 
 # Diacritic regression guard (see docs/diacritic-normalization-map.md).
 # Maps a banned ASCII surname form -> its normalized spelling. Word-boundary
-# match: error in canonical_name/aliases, warning in notes (notes may
-# legitimately quote titles). Populated by the same commit that applied the
+# match: error in canonical_name, warning in notes (notes may legitimately
+# quote titles), and nothing at all in aliases — an alias is a lookup key,
+# not an assertion about spelling. Populated by the same commit that applied the
 # Tier 1 normalization lot, so data and guard activated atomically; the
 # entries mirror tools/generate_diacritic_manifest.py's Tier 1 map (a test
 # pins them together). `--ban-ascii-form ASCII=Normalized` (repeatable)
@@ -537,15 +538,18 @@ def validate(
                 fail(f"row {i}: stray whitespace in {col} (slug '{slug}')")
 
         # 17. Diacritic regression guard: ASCII surname forms retired by
-        #     the normalization lot must not reappear.
+        #     the normalization lot must not reappear in canonical_name.
+        #     Aliases are deliberately exempt (2026-08-14): the rule's
+        #     stated intent binds how a name *should* be written, and an
+        #     alias records how it might be *searched for* — the column
+        #     already holds "Modern Defense" for the same reason.
         if banned_form_re:
-            for col in ("canonical_name", "aliases"):
-                hit = banned_form_re.search(row.get(col) or "")
-                if hit:
-                    fail(f"row {i}: banned ASCII form '{hit.group(0)}' in "
-                         f"{col} (slug '{slug}') — normalized spelling is "
-                         f"'{banned_forms[hit.group(0)]}' "
-                         f"(docs/diacritic-normalization-map.md)")
+            hit = banned_form_re.search(row.get("canonical_name") or "")
+            if hit:
+                fail(f"row {i}: banned ASCII form '{hit.group(0)}' in "
+                     f"canonical_name (slug '{slug}') — normalized "
+                     f"spelling is '{banned_forms[hit.group(0)]}' "
+                     f"(docs/diacritic-normalization-map.md)")
             hit = banned_form_re.search(row.get("notes") or "")
             if hit:
                 warn(f"row {i}: banned ASCII form '{hit.group(0)}' in notes "
