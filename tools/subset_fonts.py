@@ -62,12 +62,20 @@ def coverage(path):
 
 
 def report():
-    missing = 0
+    """Returns (faces with gaps, faces that could not be read).
+
+    The second number exists because this check once printed "unreadable"
+    for all six woff2 faces and then concluded that every face covers the
+    catalogue. A check that cannot open the file has not checked it, and
+    saying so is the whole job.
+    """
+    missing = unreadable = 0
     for p in sorted(FONTS.glob("*.woff2")) + sorted(FONTS.glob("*.ttf")):
         try:
             name, cm = coverage(p)
         except Exception as exc:                                  # noqa: BLE001
             print(f"  {p.name:<30} unreadable ({exc})")
+            unreadable += 1
             continue
         gaps = [c for c, cp in CHECK.items() if cp not in cm]
         # u_DIN is expected to be short; the monograph falls back to Spectral
@@ -79,7 +87,7 @@ def report():
                 else f"missing {' '.join(gaps)}"
                      + (" (expected; falls back to Spectral)" if expected else ""))
         print(f"  {p.name:<30} {len(cm):>4} glyphs   {note}")
-    return missing
+    return missing, unreadable
 
 
 def fetch_and_subset(tmp):
@@ -122,7 +130,11 @@ def main(argv=None):
 
     if not args.write:
         print("web/fonts as installed:")
-        gaps = report()
+        gaps, unreadable = report()
+        if unreadable:
+            print(f"\ncannot answer: {unreadable} face(s) unreadable — "
+                  "pip install brotli, then run this again")
+            return 2
         print(f"\n{'every face covers the catalogue' if not gaps else 'run with --write'}")
         return 0 if not gaps else 1
 

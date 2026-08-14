@@ -180,9 +180,25 @@ scratch directory into `tools/`. Print readiness, the InDesign question and the
 ordered next steps are in [`monograph-and-print.md`](monograph-and-print.md);
 the full account of the run is in
 [`session-handoff-2026-08-05.md`](session-handoff-2026-08-05.md).
-Two blockers it exposed sit on this roadmap's own path: the shipped font
-subsets lack four characters the catalogue uses, and `web/dist` has been stale
-since 2026-07-31 while the catalogue changed on 08-03.
+Two blockers it exposed sat on this roadmap's own path: the shipped font
+subsets lacking four characters the catalogue uses, and `web/dist` stale since
+2026-07-31 while the catalogue changed on 08-03. **Both closed 2026-08-14.**
+The fonts were never the problem — the 08-05 subsetting worked and all six
+woff2 faces carry `ć č ė ř`; what was broken was the check, which printed
+"unreadable" for every face it could not open and then concluded that every
+face covers the catalogue. It says "cannot answer" now. The explorer was
+rebuilt and deployed to production, and `ocn.vercel.app` serves the same bytes
+as the local build.
+
+**2026-08-14 — the four open decisions.** All four answered and applied. The
+diacritic rule now binds `canonical_name` only, which released the 30 parked
+Lichess aliases; `build_chronicle.py` merges instead of overwriting, which
+released the two `analysed-in` claims and, more to the point, stopped a
+regeneration from being able to erase 59 reviewed identities and 388 curated
+claims; the `named-after-person` proposal converted, 200 claims and the 150
+people they name, after the population test was re-run rather than trusted.
+The chessgames.com letter is the one still unsent, and it is a decision rather
+than a task.
 
 *(append entries as horizons land: date, IDs completed, release, evidence)*
 
