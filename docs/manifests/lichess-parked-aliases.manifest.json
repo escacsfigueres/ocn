@@ -1,0 +1,341 @@
+{
+  "kind": "ocn.attribution_manifest.v1",
+  "title": "Import the 30 Lichess aliases the diacritic rule had parked",
+  "description": "The remainder of docs/manifests/lichess-exact-aliases.manifest.json. Those 155 rows passed five filters; these passed all of them except one — BANNED_ASCII_NAME_FORMS, which rejected the ASCII spelling of an eponym in the aliases column. That rule now binds canonical_name only (see the 2026-08-14 amendment in docs/diacritic-normalization-map.md), because an alias records how a name is searched for rather than how it should be written, and 'Ruy Lopez' is what the world's databases and search boxes type. Same provenance as the 155: exact position match against lichess-org/chess-openings, the name identifies exactly one row in the cross-reference, the row had no alias at all, and nothing here is already another row's canonical name or alias. Evidence: docs/evidence/provenance/lichess-alias-import.md.",
+  "mode": "aliases_only",
+  "expected_catalog_rows": 5899,
+  "expected_changed_rows": [
+    "C.RyL.Mor.Opn.MLn.dxe5.Be6",
+    "C.RyL.Mar.MLn.Rxe5.c6.d4",
+    "C.RyL.Mor.Opn.MLn.Ber",
+    "C.RyL.Mor.Opn.MLn.Brn",
+    "C.RyL.Mor.Opn.MLn.Lut",
+    "C.RyL.Mor.Opn.MLn.Brs",
+    "C.RyL.Mor.Opn.MLn.Ita",
+    "C.RyL.Mor.Opn.MLn.Krp",
+    "C.RyL.Mor.Opn.MLn.Mlk",
+    "C.RyL.Mor.Opn.MLn.Mot",
+    "C.RyL.Mor.Opn.MLn.Nen",
+    "C.RyL.Mor.Opn.MLn.StP",
+    "C.RyL.Mor.Opn.MLn.Tar",
+    "C.RyL.Mor.Ba4.Nf6.O-O.Avb",
+    "C.RyL.Mor.Ba4.Nf6.O-O.Bas",
+    "C.RyL.Mor.Ba4.Nf6.O-O.Cen",
+    "C.RyL.Mor.Ba4.Nf6.O-O.Ba2",
+    "C.RyL.Mor.Ba4.Nf6.O-O.DEx",
+    "C.RyL.Mor.Ba4.Nf6.O-O.Mrt",
+    "C.RyL.Mor.Ba4.Nf6.O-O.Mor",
+    "C.RyL.Mor.Ba4.Nf6.O-O.Trj",
+    "C.RyL.Mor.Ba4.Nf6.O-O.Wor",
+    "C.RyL.Mor.Ba4.Nf6.O-O.Dly",
+    "C.Ita.Giu.Mol.MLn.Mll",
+    "C.Ita.Giu.Mol.MLn.Ml2",
+    "C.RyL.Ber.Hal",
+    "C.RyL.Mor.Opn.Hwl.Eks",
+    "C.RyL.Mor.Wor.MLn.Gru",
+    "C.RyL.Stn.d4.Bd7.Nc3.Bxc6",
+    "C.PhD.d4.f5.Bc4.exd4.Nxh7"
+  ],
+  "changes": [
+    {
+      "ocn1": "C.RyL.Mor.Opn.MLn.dxe5.Be6",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "catalog/ocn-1.lichess-xref.tsv: C.RyL.Mor.Opn.MLn.dxe5.Be6 matches lichess-org/chess-openings by exact position (16 of 16 plies, C80), where the line is called 'Ruy Lopez: Open, Main Line'"
+      ],
+      "fields": {
+        "aliases": "Ruy Lopez: Open, Main Line"
+      }
+    },
+    {
+      "ocn1": "C.RyL.Mar.MLn.Rxe5.c6.d4",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "catalog/ocn-1.lichess-xref.tsv: C.RyL.Mar.MLn.Rxe5.c6.d4 matches lichess-org/chess-openings by exact position (23 of 23 plies, C89), where the line is called 'Ruy Lopez: Marshall Attack, Main Line'"
+      ],
+      "fields": {
+        "aliases": "Ruy Lopez: Marshall Attack, Main Line"
+      }
+    },
+    {
+      "ocn1": "C.RyL.Mor.Opn.MLn.Ber",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "catalog/ocn-1.lichess-xref.tsv: C.RyL.Mor.Opn.MLn.Ber matches lichess-org/chess-openings by exact position (18 of 18 plies, C82), where the line is called 'Ruy Lopez: Open, Berlin Variation'"
+      ],
+      "fields": {
+        "aliases": "Ruy Lopez: Open, Berlin Variation"
+      }
+    },
+    {
+      "ocn1": "C.RyL.Mor.Opn.MLn.Brn",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "catalog/ocn-1.lichess-xref.tsv: C.RyL.Mor.Opn.MLn.Brn matches lichess-org/chess-openings by exact position (17 of 17 plies, C80), where the line is called 'Ruy Lopez: Open, Bernstein Variation'"
+      ],
+      "fields": {
+        "aliases": "Ruy Lopez: Open, Bernstein Variation"
+      }
+    },
+    {
+      "ocn1": "C.RyL.Mor.Opn.MLn.Lut",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "catalog/ocn-1.lichess-xref.tsv: C.RyL.Mor.Opn.MLn.Lut matches lichess-org/chess-openings by exact position (19 of 19 plies, C80), where the line is called 'Ruy Lopez: Open, Bernstein Variation, Luther Line'"
+      ],
+      "fields": {
+        "aliases": "Ruy Lopez: Open, Bernstein Variation, Luther Line"
+      }
+    },
+    {
+      "ocn1": "C.RyL.Mor.Opn.MLn.Brs",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "catalog/ocn-1.lichess-xref.tsv: C.RyL.Mor.Opn.MLn.Brs matches lichess-org/chess-openings by exact position (22 of 22 plies, C83), where the line is called 'Ruy Lopez: Open, Breslau Variation'"
+      ],
+      "fields": {
+        "aliases": "Ruy Lopez: Open, Breslau Variation"
+      }
+    },
+    {
+      "ocn1": "C.RyL.Mor.Opn.MLn.Ita",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "catalog/ocn-1.lichess-xref.tsv: C.RyL.Mor.Opn.MLn.Ita matches lichess-org/chess-openings by exact position (18 of 18 plies, C82), where the line is called 'Ruy Lopez: Open, Italian Variation'"
+      ],
+      "fields": {
+        "aliases": "Ruy Lopez: Open, Italian Variation"
+      }
+    },
+    {
+      "ocn1": "C.RyL.Mor.Opn.MLn.Krp",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "catalog/ocn-1.lichess-xref.tsv: C.RyL.Mor.Opn.MLn.Krp matches lichess-org/chess-openings by exact position (21 of 21 plies, C80), where the line is called 'Ruy Lopez: Open, Karpov Gambit'"
+      ],
+      "fields": {
+        "aliases": "Ruy Lopez: Open, Karpov Gambit"
+      }
+    },
+    {
+      "ocn1": "C.RyL.Mor.Opn.MLn.Mlk",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "catalog/ocn-1.lichess-xref.tsv: C.RyL.Mor.Opn.MLn.Mlk matches lichess-org/chess-openings by exact position (21 of 21 plies, C83), where the line is called 'Ruy Lopez: Open, Malkin Variation'"
+      ],
+      "fields": {
+        "aliases": "Ruy Lopez: Open, Malkin Variation"
+      }
+    },
+    {
+      "ocn1": "C.RyL.Mor.Opn.MLn.Mot",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "catalog/ocn-1.lichess-xref.tsv: C.RyL.Mor.Opn.MLn.Mot matches lichess-org/chess-openings by exact position (19 of 19 plies, C82), where the line is called 'Ruy Lopez: Open, Motzko Attack'"
+      ],
+      "fields": {
+        "aliases": "Ruy Lopez: Open, Motzko Attack"
+      }
+    },
+    {
+      "ocn1": "C.RyL.Mor.Opn.MLn.Nen",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "catalog/ocn-1.lichess-xref.tsv: C.RyL.Mor.Opn.MLn.Nen matches lichess-org/chess-openings by exact position (20 of 20 plies, C82), where the line is called 'Ruy Lopez: Open, Motzko Attack, Nenarokov Variation'"
+      ],
+      "fields": {
+        "aliases": "Ruy Lopez: Open, Motzko Attack, Nenarokov Variation"
+      }
+    },
+    {
+      "ocn1": "C.RyL.Mor.Opn.MLn.StP",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "catalog/ocn-1.lichess-xref.tsv: C.RyL.Mor.Opn.MLn.StP matches lichess-org/chess-openings by exact position (19 of 19 plies, C82), where the line is called 'Ruy Lopez: Open, St. Petersburg Variation'"
+      ],
+      "fields": {
+        "aliases": "Ruy Lopez: Open, St. Petersburg Variation"
+      }
+    },
+    {
+      "ocn1": "C.RyL.Mor.Opn.MLn.Tar",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "catalog/ocn-1.lichess-xref.tsv: C.RyL.Mor.Opn.MLn.Tar matches lichess-org/chess-openings by exact position (25 of 25 plies, C83), where the line is called 'Ruy Lopez: Open, Tarrasch Trap'"
+      ],
+      "fields": {
+        "aliases": "Ruy Lopez: Open, Tarrasch Trap"
+      }
+    },
+    {
+      "ocn1": "C.RyL.Mor.Ba4.Nf6.O-O.Avb",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "catalog/ocn-1.lichess-xref.tsv: C.RyL.Mor.Ba4.Nf6.O-O.Avb matches lichess-org/chess-openings by exact position (12 of 12 plies, C87), where the line is called 'Ruy Lopez: Closed, Averbakh Variation'"
+      ],
+      "fields": {
+        "aliases": "Ruy Lopez: Closed, Averbakh Variation"
+      }
+    },
+    {
+      "ocn1": "C.RyL.Mor.Ba4.Nf6.O-O.Bas",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "catalog/ocn-1.lichess-xref.tsv: C.RyL.Mor.Ba4.Nf6.O-O.Bas matches lichess-org/chess-openings by exact position (15 of 15 plies, C84), where the line is called 'Ruy Lopez: Closed, Basque Gambit'"
+      ],
+      "fields": {
+        "aliases": "Ruy Lopez: Closed, Basque Gambit"
+      }
+    },
+    {
+      "ocn1": "C.RyL.Mor.Ba4.Nf6.O-O.Cen",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "catalog/ocn-1.lichess-xref.tsv: C.RyL.Mor.Ba4.Nf6.O-O.Cen matches lichess-org/chess-openings by exact position (11 of 11 plies, C84), where the line is called 'Ruy Lopez: Closed, Center Attack'"
+      ],
+      "fields": {
+        "aliases": "Ruy Lopez: Closed, Center Attack"
+      }
+    },
+    {
+      "ocn1": "C.RyL.Mor.Ba4.Nf6.O-O.Ba2",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "catalog/ocn-1.lichess-xref.tsv: C.RyL.Mor.Ba4.Nf6.O-O.Ba2 matches lichess-org/chess-openings by exact position (16 of 16 plies, C84), where the line is called 'Ruy Lopez: Closed, Center Attack, Basque Gambit'"
+      ],
+      "fields": {
+        "aliases": "Ruy Lopez: Closed, Center Attack, Basque Gambit"
+      }
+    },
+    {
+      "ocn1": "C.RyL.Mor.Ba4.Nf6.O-O.DEx",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "catalog/ocn-1.lichess-xref.tsv: C.RyL.Mor.Ba4.Nf6.O-O.DEx matches lichess-org/chess-openings by exact position (11 of 11 plies, C85), where the line is called 'Ruy Lopez: Closed, Delayed Exchange'"
+      ],
+      "fields": {
+        "aliases": "Ruy Lopez: Closed, Delayed Exchange"
+      }
+    },
+    {
+      "ocn1": "C.RyL.Mor.Ba4.Nf6.O-O.Mrt",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "catalog/ocn-1.lichess-xref.tsv: C.RyL.Mor.Ba4.Nf6.O-O.Mrt matches lichess-org/chess-openings by exact position (11 of 11 plies, C84), where the line is called 'Ruy Lopez: Closed, Martinez Variation'"
+      ],
+      "fields": {
+        "aliases": "Ruy Lopez: Closed, Martinez Variation"
+      }
+    },
+    {
+      "ocn1": "C.RyL.Mor.Ba4.Nf6.O-O.Mor",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "catalog/ocn-1.lichess-xref.tsv: C.RyL.Mor.Ba4.Nf6.O-O.Mor matches lichess-org/chess-openings by exact position (11 of 11 plies, C84), where the line is called 'Ruy Lopez: Closed, Morphy Attack'"
+      ],
+      "fields": {
+        "aliases": "Ruy Lopez: Closed, Morphy Attack"
+      }
+    },
+    {
+      "ocn1": "C.RyL.Mor.Ba4.Nf6.O-O.Trj",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "catalog/ocn-1.lichess-xref.tsv: C.RyL.Mor.Ba4.Nf6.O-O.Trj matches lichess-org/chess-openings by exact position (14 of 14 plies, C88), where the line is called 'Ruy Lopez: Closed, Trajkovic Counterattack'"
+      ],
+      "fields": {
+        "aliases": "Ruy Lopez: Closed, Trajkovic Counterattack"
+      }
+    },
+    {
+      "ocn1": "C.RyL.Mor.Ba4.Nf6.O-O.Wor",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "catalog/ocn-1.lichess-xref.tsv: C.RyL.Mor.Ba4.Nf6.O-O.Wor matches lichess-org/chess-openings by exact position (11 of 11 plies, C86), where the line is called 'Ruy Lopez: Closed, Worrall Attack'"
+      ],
+      "fields": {
+        "aliases": "Ruy Lopez: Closed, Worrall Attack"
+      }
+    },
+    {
+      "ocn1": "C.RyL.Mor.Ba4.Nf6.O-O.Dly",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "catalog/ocn-1.lichess-xref.tsv: C.RyL.Mor.Ba4.Nf6.O-O.Dly matches lichess-org/chess-openings by exact position (14 of 14 plies, C86), where the line is called 'Ruy Lopez: Closed, Worrall Attack, Delayed Castling Line'"
+      ],
+      "fields": {
+        "aliases": "Ruy Lopez: Closed, Worrall Attack, Delayed Castling Line"
+      }
+    },
+    {
+      "ocn1": "C.Ita.Giu.Mol.MLn.Mll",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "catalog/ocn-1.lichess-xref.tsv: C.Ita.Giu.Mol.MLn.Mll matches lichess-org/chess-openings by exact position (23 of 23 plies, C54), where the line is called 'Italian Game: Classical Variation, Greco Gambit, Moeller-Bayonet Attack'"
+      ],
+      "fields": {
+        "aliases": "Italian Game: Classical Variation, Greco Gambit, Moeller-Bayonet Attack"
+      }
+    },
+    {
+      "ocn1": "C.Ita.Giu.Mol.MLn.Ml2",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "catalog/ocn-1.lichess-xref.tsv: C.Ita.Giu.Mol.MLn.Ml2 matches lichess-org/chess-openings by exact position (17 of 17 plies, C54), where the line is called 'Italian Game: Classical Variation, Greco Gambit, Moeller-Therkatz Attack'"
+      ],
+      "fields": {
+        "aliases": "Italian Game: Classical Variation, Greco Gambit, Moeller-Therkatz Attack"
+      }
+    },
+    {
+      "ocn1": "C.RyL.Ber.Hal",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "catalog/ocn-1.lichess-xref.tsv: C.RyL.Ber.Hal matches lichess-org/chess-openings by exact position (7 of 7 plies, C65), where the line is called 'Ruy Lopez: Halloween Attack'"
+      ],
+      "fields": {
+        "aliases": "Ruy Lopez: Halloween Attack"
+      }
+    },
+    {
+      "ocn1": "C.RyL.Mor.Opn.Hwl.Eks",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "catalog/ocn-1.lichess-xref.tsv: C.RyL.Mor.Opn.Hwl.Eks matches lichess-org/chess-openings by exact position (24 of 24 plies, C81), where the line is called 'Ruy Lopez: Open, Howell Attack, Ekstrom Variation'"
+      ],
+      "fields": {
+        "aliases": "Ruy Lopez: Open, Howell Attack, Ekstrom Variation"
+      }
+    },
+    {
+      "ocn1": "C.RyL.Mor.Wor.MLn.Gru",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "catalog/ocn-1.lichess-xref.tsv: C.RyL.Mor.Wor.MLn.Gru matches lichess-org/chess-openings by exact position (16 of 16 plies, C77), where the line is called 'Ruy Lopez: Wormald Attack, Grünfeld Variation'"
+      ],
+      "fields": {
+        "aliases": "Ruy Lopez: Wormald Attack, Grünfeld Variation"
+      }
+    },
+    {
+      "ocn1": "C.RyL.Stn.d4.Bd7.Nc3.Bxc6",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "catalog/ocn-1.lichess-xref.tsv: C.RyL.Stn.d4.Bd7.Nc3.Bxc6 matches lichess-org/chess-openings by exact position (11 of 11 plies, C62), where the line is called 'Ruy Lopez: Steinitz Defense, Nimzowitsch Attack'"
+      ],
+      "fields": {
+        "aliases": "Ruy Lopez: Steinitz Defense, Nimzowitsch Attack"
+      }
+    },
+    {
+      "ocn1": "C.PhD.d4.f5.Bc4.exd4.Nxh7",
+      "evidence_grade": "CLEAR",
+      "source_refs": [
+        "catalog/ocn-1.lichess-xref.tsv: C.PhD.d4.f5.Bc4.exd4.Nxh7 matches lichess-org/chess-openings by exact position (11 of 11 plies, C41), where the line is called 'Philidor Defense: Lopez Countergambit, Jaenisch Variation'"
+      ],
+      "fields": {
+        "aliases": "Philidor Defense: Lopez Countergambit, Jaenisch Variation"
+      }
+    }
+  ]
+}

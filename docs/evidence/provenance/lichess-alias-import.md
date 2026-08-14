@@ -1,7 +1,9 @@
 # The names Lichess already gave us
 
-**Status: 155 applied 2026-08-05; 30 parked on a policy question.** Companion
-to `docs/manifests/lichess-exact-aliases.manifest.json`.
+**Status: 185 applied — 155 on 2026-08-05, the last 30 on 2026-08-14 once the
+policy question was answered. Nothing is parked.** Companion to
+`docs/manifests/lichess-exact-aliases.manifest.json` and
+`docs/manifests/lichess-parked-aliases.manifest.json`.
 
 ## Why
 
@@ -23,18 +25,34 @@ name is the one millions of players actually see.
 | a Lichess name exists and differs from ours | 2,105 | 39 already agree |
 | **exact position match only** | 367 | a prefix match names a *shallower* line; importing it would give dozens of rows one alias and identify nothing |
 | the name identifies exactly one row in the cross-reference | 186 | Lichess reuses names across positions |
-| no ASCII-folded eponym | 156 | see below |
+| no ASCII-folded eponym ~~(lifted 2026-08-14)~~ | 156 | see below |
 | not already another row's canonical name or alias | **155** | the registrar guard rejects cross-row collisions |
 
 Two of those filters exist because the repository's own guards refused the
 batch and were right to. The diacritic validator rejected `Ruy Lopez: …`, and
 the alias registrar rejected giving `C.KPO.b3` the string *King's Pawn
-Opening*, which is the canonical name of `B.KPG`.
+Opening*, which is the canonical name of `B.KPG`. One of the two refusals
+turned out to be the guard overreaching rather than the batch being wrong —
+which is the exception to the rule that the guards are right, and it took a
+policy decision rather than an import to establish it.
 
 Applied with `--validate --strict`: 5,899 rows before and after, 155 changed,
 validator clean. Rows with no alias: **2,144 to 1,989**.
 
-## The 30 that are parked, and why it is a policy question
+## The 30 that were parked, and how the question was answered
+
+**Answered 2026-08-14: option (1).** The rule now binds `canonical_name` only,
+recorded as an amendment in `docs/diacritic-normalization-map.md`, and the 30
+are in. Re-derived by replaying the five filters against the post-155
+catalogue: 1,989 rows with no alias, 1,950 where a Lichess name exists and
+differs, 212 by exact position, 31 whose name identifies exactly one row — of
+which 30 carry an ASCII-folded eponym and are this lot. The 31st is
+`C.KPO.b3`, still held by the registrar because *King's Pawn Opening* is
+already `B.KPG`'s canonical name; that filter has not moved.
+
+Rows with no alternative name: **1,989 to 1,959**. The argument that was
+recorded and not acted on, kept here because it is the reasoning the amendment
+rests on:
 
 They are held back by `BANNED_ASCII_NAME_FORMS`: 28 contain `Lopez` and two
 contain `Moeller`, where the catalogue requires `López` and `Møller`.
@@ -66,14 +84,15 @@ matched? Three ways to go:
 3. **Add a separate `search_forms` column.** Correct, and it is a schema change
    affecting every consumer and the published packages.
 
-The recommendation is (1), on the grounds that an alias nobody searches for is
-not an alias. It is recorded here rather than acted on because the diacritic
-policy was applied deliberately, in three tiers, under explicit GO, and
-narrowing it is not a decision to take inside an import.
+The recommendation was (1), on the grounds that an alias nobody searches for is
+not an alias, and it was recorded rather than acted on because the diacritic
+policy had been applied deliberately, in three tiers, under explicit GO, and
+narrowing it is not a decision to take inside an import. It was taken on its
+own, nine days later, as its own commit with its own test.
 
 ## What this does not solve
 
-1,989 rows still carry no alternative name, and the 1,738 prefix matches are
+1,959 rows still carry no alternative name, and the 1,738 prefix matches are
 not a source for them: a name that describes a shallower line is not a name for
 this one. Those need the thing the README now asks readers for — the name they
 use and where they got it. See [[ocn-open-decisions-sheet]] and the `known-as`
