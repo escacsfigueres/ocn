@@ -118,38 +118,47 @@ def parse_args(argv: list[str]) -> argparse.Namespace:
     return parser.parse_args(argv)
 
 
+def shown(directory: Path, name: str) -> str:
+    """The path as a reader can use it — `git add` has to accept this."""
+    path = (directory / name).resolve()
+    try:
+        return str(path.relative_to(Path.cwd()))
+    except ValueError:
+        return str(path)
+
+
 def main() -> int:
     args = parse_args(sys.argv[1:])
     payload = build_payload(args.catalog_dir)
     targets = [
-        (args.data_dir, payload, "python"),
-        (args.rust_data_dir, rust_payload(payload), "rust"),
+        (args.data_dir, payload),
+        (args.rust_data_dir, rust_payload(payload)),
     ]
 
     stale = [
-        (directory, target, label, drifted(target, directory))
-        for directory, target, label in targets
+        (directory, target, drifted(target, directory))
+        for directory, target in targets
     ]
     total = sum(len(names) for *_, names in stale)
-    files = sum(len(target) for _, target, _ in targets)
+    files = sum(len(target) for _, target in targets)
 
     if not total:
         print(f"OK bundled data is current ({files} files, 2 targets)")
         return 0
 
     if not args.apply:
-        for _, _, label, names in stale:
+        for directory, _, names in stale:
             for name in names:
-                print(f"DRIFT {label}/{name}")
+                print(f"DRIFT {shown(directory, name)}")
         print(f"{total} file(s) stale — rerun with --apply", file=sys.stderr)
         return 1
 
-    for directory, target, label, names in stale:
+    for directory, target, names in stale:
         if not names:
             continue
         write_payload(target, directory)
         for name in names:
-            print(f"WROTE {label}/{name}")
+            print(f"WROTE {shown(directory, name)}")
     return 0
 
 
