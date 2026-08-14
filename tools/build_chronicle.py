@@ -16,6 +16,14 @@ inferred from a corpus spelling, because a wrong identifier is worse
 than a missing one -- it silently attaches an opening to the wrong human.
 Those columns are filled by review, one person at a time.
 
+It **merges** into the three tables rather than replacing them. The map
+is one source of rows and no longer the only one: the files now carry 59
+Wikidata identities filled in by review, 119 place claims, seven print
+attestations and the publication events a manuscript needs, none of which
+the map can produce. A row the builder does not generate is kept, an
+empty cell takes the generated value, and a cell that already says
+something keeps saying it and prints the disagreement.
+
 Usage:
     python3 tools/build_chronicle.py --out-dir catalog
     python3 tools/build_chronicle.py --dry-run          # counts only
@@ -85,6 +93,79 @@ def person_id(name: str) -> str:
 def read_wch(path: Path) -> list[dict[str, str]]:
     with path.open(newline="", encoding="utf-8") as handle:
         return list(csv.DictReader(handle, delimiter="\t"))
+
+
+def read_tsv(path: Path) -> list[dict[str, str]]:
+    """The table as it stands, or nothing if this is the first run."""
+    if not path.is_file():
+        return []
+    with path.open(newline="", encoding="utf-8") as handle:
+        return list(csv.DictReader(handle, delimiter="\t"))
+
+
+def identity(row: dict[str, str], key: str | tuple[str, ...]) -> str | tuple[str, ...]:
+    """What makes this row this row. Events and people have an id column;
+    claims are identified by opening, relation and subject together."""
+    if isinstance(key, str):
+        return row[key]
+    return tuple(row[column] for column in key)
+
+
+def merge_rows(
+    existing: list[dict[str, str]],
+    generated: list[dict[str, str]],
+    key: str | tuple[str, ...],
+) -> tuple[list[dict[str, str]], dict]:
+    """Fold a regeneration into the table on disk without losing anything.
+
+    The championship map is one source of rows, not the only one. The
+    files have since accumulated Wikidata identities filled in one person
+    at a time, thirteen corrected participant spellings, 119 place claims
+    and the publication events a manuscript needs. Overwriting is how all
+    of that disappears, so:
+
+    - a row the builder does not generate is kept;
+    - a row it generates that is not on disk is added;
+    - an empty cell takes the generated value;
+    - a cell that already says something keeps saying it, and the
+      disagreement is reported rather than resolved.
+
+    The last rule is the one that matters. A regeneration cannot know
+    whether a value on disk is a correction or staleness, and guessing
+    either way is worse than printing it and letting a human look.
+    """
+    generated_by_key = {identity(row, key): row for row in generated}
+    report: dict = {"kept": 0, "added": 0, "filled": 0,
+                    "diverged": 0, "divergences": []}
+    merged: list[dict[str, str]] = []
+
+    for row in existing:
+        fresh = generated_by_key.get(identity(row, key))
+        if fresh is None:
+            report["kept"] += 1
+            merged.append(dict(row))
+            continue
+        out = dict(row)
+        for column, value in fresh.items():
+            current = out.get(column, "")
+            if not current:
+                if value:
+                    report["filled"] += 1
+                out[column] = value
+            elif value and value != current:
+                report["diverged"] += 1
+                report["divergences"].append(
+                    (identity(row, key), column, current, value)
+                )
+        merged.append(out)
+
+    on_disk = {identity(row, key) for row in existing}
+    for row in generated:
+        if identity(row, key) not in on_disk:
+            report["added"] += 1
+            merged.append(dict(row))
+
+    return merged, report
 
 
 def build(rows: list[dict[str, str]]) -> dict[str, list[dict[str, str]]]:
@@ -181,11 +262,19 @@ def build(rows: list[dict[str, str]]) -> dict[str, list[dict[str, str]]]:
 
 
 def write_tsv(path: Path, columns: tuple[str, ...], rows: list[dict[str, str]]) -> None:
+    """Written the way `csv.DictReader` reads it.
+
+    Joining on tabs was enough while every row came from the map. It
+    stopped being enough once curated rows arrived: a source_ref quotes
+    the sentence it rests on, and a value that *begins* with a quote is
+    silently truncated when the reader takes it back.
+    """
     path.parent.mkdir(parents=True, exist_ok=True)
     with path.open("w", encoding="utf-8", newline="") as handle:
-        handle.write("\t".join(columns) + "\n")
+        writer = csv.writer(handle, delimiter="\t", lineterminator="\n")
+        writer.writerow(columns)
         for row in rows:
-            handle.write("\t".join(str(row.get(column, "")) for column in columns) + "\n")
+            writer.writerow([str(row.get(column, "")) for column in columns])
 
 
 def main(argv: list[str] | None = None) -> int:
@@ -227,13 +316,33 @@ def main(argv: list[str] | None = None) -> int:
         for reason, count in dropped.most_common(10):
             print(f"  {count:4d}  {reason}")
 
+    tables = [
+        ("ocn-1.people.tsv", PEOPLE_COLUMNS, people, "person_id"),
+        ("ocn-1.events.tsv", EVENT_COLUMNS, events, "event_id"),
+        ("ocn-1.claims.tsv", CLAIM_COLUMNS, claims,
+         ("ocn1", "relation", "subject_id")),
+    ]
+    merged = []
+    print()
+    for name, columns, rows, key in tables:
+        path = args.out_dir / name
+        result, report = merge_rows(read_tsv(path), rows, key)
+        merged.append((path, columns, result))
+        print(f"{name:20s} {len(result):5d} rows  "
+              f"kept {report['kept']}, added {report['added']}, "
+              f"filled {report['filled']}, diverged {report['diverged']}")
+        for row_id, column, on_disk, generated_value in report["divergences"][:20]:
+            print(f"    {row_id} {column}: on disk '{on_disk}', "
+                  f"generated '{generated_value}' — kept the file's")
+        if report["diverged"] > 20:
+            print(f"    ... and {report['diverged'] - 20} more")
+
     if args.dry_run:
         print("\ndry run: nothing written")
         return 0
 
-    write_tsv(args.out_dir / "ocn-1.people.tsv", PEOPLE_COLUMNS, people)
-    write_tsv(args.out_dir / "ocn-1.events.tsv", EVENT_COLUMNS, events)
-    write_tsv(args.out_dir / "ocn-1.claims.tsv", CLAIM_COLUMNS, claims)
+    for path, columns, rows in merged:
+        write_tsv(path, columns, rows)
     print(f"\nwrote {args.out_dir}/ocn-1.{{people,events,claims}}.tsv")
     return 0
 

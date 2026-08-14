@@ -12,6 +12,7 @@ from __future__ import annotations
 
 import csv
 import sys
+import tempfile
 import unittest
 from pathlib import Path
 
@@ -179,6 +180,102 @@ class SidecarTests(unittest.TestCase):
         kinds = {e["kind"] for e in self.read("ocn-1.events.tsv")}
         self.assertIn("wch_match", kinds)
         self.assertIn("wch_match_women", kinds)
+
+
+class MergeTests(unittest.TestCase):
+    """A regeneration must not be able to destroy a reviewed fact.
+
+    The builder derives its three tables from the championship map, but
+    the files it writes have since accumulated things the map cannot
+    know: Wikidata identities filled in one person at a time, corrected
+    participant spellings, place claims, publication events. Overwriting
+    is how all of that disappears.
+    """
+
+    def test_a_row_the_builder_does_not_generate_survives(self) -> None:
+        existing = [{"event_id": "pub-1561-segura", "kind": "publication",
+                     "display_name": "Libro del axedrez"}]
+        merged, _ = bc.merge_rows(existing, [], "event_id")
+        self.assertEqual(merged, existing)
+
+    def test_a_generated_row_is_added(self) -> None:
+        generated = [{"event_id": "wch-1886-steinitz-zukertort", "kind": "wch_match"}]
+        merged, report = bc.merge_rows([], generated, "event_id")
+        self.assertEqual(merged, generated)
+        self.assertEqual(report["added"], 1)
+
+    def test_a_reviewed_identity_is_not_erased_by_an_empty_cell(self) -> None:
+        existing = [{"person_id": "steinitz", "display_name": "Steinitz, Wilhelm",
+                     "wikidata_qid": "Q106648"}]
+        generated = [{"person_id": "steinitz", "display_name": "Steinitz, Wilhelm",
+                      "wikidata_qid": ""}]
+        merged, _ = bc.merge_rows(existing, generated, "person_id")
+        self.assertEqual(merged[0]["wikidata_qid"], "Q106648")
+
+    def test_an_empty_cell_takes_the_generated_value(self) -> None:
+        existing = [{"person_id": "steinitz", "display_name": ""}]
+        generated = [{"person_id": "steinitz", "display_name": "Steinitz, Wilhelm"}]
+        merged, report = bc.merge_rows(existing, generated, "person_id")
+        self.assertEqual(merged[0]["display_name"], "Steinitz, Wilhelm")
+        self.assertEqual(report["filled"], 1)
+
+    def test_a_correction_wins_over_the_generated_value_and_is_reported(self) -> None:
+        """The 13 misspelled participants were corrected in the file, not
+        in the map. Regenerating must not put them back."""
+        existing = [{"event_id": "wch-2011", "participants": "hou|koneru-humpy"}]
+        generated = [{"event_id": "wch-2011", "participants": "hou|koneru"}]
+        merged, report = bc.merge_rows(existing, generated, "event_id")
+        self.assertEqual(merged[0]["participants"], "hou|koneru-humpy")
+        self.assertEqual(report["diverged"], 1)
+        self.assertIn(("wch-2011", "participants", "hou|koneru-humpy", "hou|koneru"),
+                      report["divergences"])
+
+    def test_a_quoted_source_survives_a_round_trip(self) -> None:
+        """Source refs quote the sentence they rest on, so they contain
+        quote characters — and a claim's note can begin with one. Merging
+        reads the file and writes it back, so a writer that does not quote
+        what the reader unquotes corrupts the value on the next rebuild,
+        and rewrites four curated claims even when it does not.
+        """
+        rows = [
+            {"ocn1": "B.Mod.Std", "relation": "known-as",
+             "subject_id": 'Hooper & Whyld: "Robatsch Defence. 1276"'},
+            {"ocn1": "B.Sic.Naj.Rg1", "relation": "renamed",
+             "subject_id": '"Freak Attack" is what it was called'},
+        ]
+        columns = ("ocn1", "relation", "subject_id")
+        with tempfile.TemporaryDirectory() as tmp:
+            path = Path(tmp) / "claims.tsv"
+            bc.write_tsv(path, columns, rows)
+            first = path.read_bytes()
+            read_back = bc.read_tsv(path)
+            self.assertEqual(read_back, rows)
+
+            bc.write_tsv(path, columns, read_back)
+            self.assertEqual(path.read_bytes(), first,
+                             "a rebuild rewrote the file it just read")
+
+    def test_a_claim_is_identified_by_more_than_one_column(self) -> None:
+        """Claims have no id column: the same opening carries a wch-game
+        claim and a named-after-place claim, and only the three columns
+        together tell them apart."""
+        existing = [{"ocn1": "C.RyL", "relation": "named-after-person",
+                     "subject_id": "lopez-de-segura", "note": "reviewed"}]
+        generated = [{"ocn1": "C.RyL", "relation": "wch-game",
+                      "subject_id": "wch-1886", "note": ""}]
+        merged, report = bc.merge_rows(
+            existing, generated, ("ocn1", "relation", "subject_id")
+        )
+        self.assertEqual(len(merged), 2)
+        self.assertEqual(report["kept"], 1)
+        self.assertEqual(report["added"], 1)
+
+    def test_the_curated_rows_keep_their_place_and_new_ones_follow(self) -> None:
+        existing = [{"event_id": "pub-1561-segura"}, {"event_id": "wch-1886"}]
+        generated = [{"event_id": "wch-1886"}, {"event_id": "wch-1890"}]
+        merged, _ = bc.merge_rows(existing, generated, "event_id")
+        self.assertEqual([r["event_id"] for r in merged],
+                         ["pub-1561-segura", "wch-1886", "wch-1890"])
 
 
 if __name__ == "__main__":
