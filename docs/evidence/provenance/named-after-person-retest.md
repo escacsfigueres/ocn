@@ -1,10 +1,36 @@
 # `named-after-person`: adversarial re-test of all 240 claims
 
-**Status: analysis, nothing applied.** Re-test of
-`docs/evidence/provenance/named-after-person.proposed.tsv` (240 claims over
-224 slugs), run 2026-08-02 before any conversion. The re-test was asked for
-because every evidence file in this project has so far asserted more than
-its quotes prove; the question was whether that holds here too.
+**Status: applied 2026-08-14 — 200 claims and the 150 people they name.**
+Re-test of `docs/evidence/provenance/named-after-person.proposed.tsv` (240
+claims over 224 slugs), run 2026-08-02 before any conversion. The re-test was
+asked for because every evidence file in this project has so far asserted more
+than its quotes prove; the question was whether that holds here too.
+
+## The second run, 2026-08-14
+
+The test was re-run against the file as it stands before anything was written,
+rather than trusting these numbers. It reproduces them on a file that has since
+gained one claim (the Worrall retraction retargeted a proposal on 2026-08-04):
+
+| outcome | 2026-08-02 | 2026-08-14 |
+|---|---:|---:|
+| name in `canonical_name` | 172 | 171 |
+| name in `aliases` only | 20 | 21 |
+| in neither | 48 | 49 |
+
+The small drift is the second matcher being stricter about transliteration,
+and **nine of its misses are real names it could not see**: Ramírez de Lucena
+for the Lucena Variation, Ilyin-Genevsky for Ilyin-Zhenevsky, Lisitsin for
+Lisitsyn, Katalymov for Katalimov, Bonch- for Bonsch-Osmolovsky, van 't Kruijs
+for Van't Kruijs, O'Kelly de Galway for the O'Kelly, and the contractions
+Bogo-Indian and Nimzo-Indian. Each was restored with the reason written into
+its claim note, which is a stronger record than the count.
+
+**One row the mechanical test would have converted and inspection stopped:**
+Count Dracula on `C.Vie.Fal.MLn`. The alias there is *Frankenstein-Dracula
+Variation*, so a substring test finds the person's "surname" in the row and
+passes it. Frankenstein's monster failed the same test only by accident of
+spelling. A population test is necessary and it is not sufficient.
 
 ## Method: population, not sample
 

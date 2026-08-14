@@ -148,6 +148,16 @@ class SidecarTests(unittest.TestCase):
                           and c["subject_id"] not in events})
         self.assertEqual(missing[:5], [])
 
+    def test_every_person_claim_points_at_a_real_person(self) -> None:
+        """The mirror of the event check, and it only started mattering
+        on 2026-08-14: until then no claim had a person for a subject, so
+        nothing could dangle. Two hundred do now."""
+        people = {p["person_id"] for p in self.read("ocn-1.people.tsv")}
+        missing = sorted({c["subject_id"] for c in self.read("ocn-1.claims.tsv")
+                          if c["subject_type"] == "person"
+                          and c["subject_id"] not in people})
+        self.assertEqual(missing[:5], [])
+
     def test_every_claim_declares_a_subject_type_we_know(self) -> None:
         """The guard the previous test was silently doing: a subject type
         nobody handles would slip past every check that scopes by it."""

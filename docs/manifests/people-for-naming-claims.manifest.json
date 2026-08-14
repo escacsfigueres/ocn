@@ -1,0 +1,2109 @@
+{
+  "kind": "ocn.sidecar_manifest.v1",
+  "title": "Add the 150 people the naming claims are about",
+  "description": "The people table has held 60 rows since it was built: the players of world championship games, because that is what the builder derives it from. The named-after-person conversion asserts that 200 catalogue names carry a person's name, and a claim whose subject is not in the table is a dangling reference. These are exactly the people those claims name — no more, so the table stays a record of people this catalogue says something about rather than a directory. Identities come from docs/evidence/people/wikidata-resolved.tsv, where 243 person_ids were resolved against Wikidata on 2026-07-31 and every surname collision was recorded. Only high-confidence identities carry a QID: the ten with none, and the one medium-confidence candidate, keep an empty column and a note saying so, because a wrong identifier silently attaches an opening to the wrong human and a missing one asks a visible question. Chess.com, Frankenstein's monster and Count Dracula are not here, and neither are their claims.",
+  "target": "catalog/ocn-1.people.tsv",
+  "expected_file_rows": 60,
+  "operations": [
+    {
+      "op": "insert",
+      "unique_by": "person_id",
+      "expected_rows": 1,
+      "evidence": "docs/evidence/people/wikidata-resolved.tsv, abonyi row: Wikidata Q732901, Hungarian chess player 1886-1942, chessgames id 84291, credited as the eponym of the Abonyi Variation of the Budapest Gambit in OCN's eponym evidence file.",
+      "row": {
+        "person_id": "abonyi",
+        "display_name": "Abonyi, István",
+        "wikidata_qid": "Q732901",
+        "born": "1886",
+        "died": "1942",
+        "note": "identity resolved"
+      }
+    },
+    {
+      "op": "insert",
+      "unique_by": "person_id",
+      "expected_rows": 1,
+      "evidence": "docs/evidence/people/wikidata-resolved.tsv, adams-weaver row: Wikidata Q983313 'Weaver W. Adams', American chess player and author 1901-1963, enwiki 'Weaver W. Adams'; the Najdorf 6.h3 Adams Attack is credited to Weaver Adams, who first played it in the 1940s (chess.com history of the line). Wikidata's label carries the middle initial, 'Weaver W. Adams', if th",
+      "row": {
+        "person_id": "adams-weaver",
+        "display_name": "Adams, Weaver",
+        "wikidata_qid": "Q983313",
+        "born": "1901",
+        "died": "1963",
+        "note": "identity resolved"
+      }
+    },
+    {
+      "op": "insert",
+      "unique_by": "person_id",
+      "expected_rows": 1,
+      "evidence": "docs/evidence/people/wikidata-resolved.tsv, adler row: The eponym is the Hungarian amateur Mór Adler who played the first known Budapest Gambit game against Géza Maróczy in Budapest on 5 March 1896, but no Wikidata item exists for him: a CirrusSearch for 'Adler' constrained to occupation chess player (P106=Q10873124) returns only Viktor Adler (Q27522824",
+      "row": {
+        "person_id": "adler",
+        "display_name": "Adler, Mór",
+        "wikidata_qid": "",
+        "born": "",
+        "died": "",
+        "note": "no Wikidata item found on a fresh search. DECOY: Q504223 is 'Mór Adler', Hungarian painter (1826-1902), an exact name match with occupation painter only and no chess connection. A mechanical name lookup will return it. Do not use it."
+      }
+    },
+    {
+      "op": "insert",
+      "unique_by": "person_id",
+      "expected_rows": 1,
+      "evidence": "docs/evidence/people/wikidata-resolved.tsv, alapin row: Wikidata Q371391 'Semyon Alapin', Russian chess player 1856-1923 (occupation chess player, chessgames id 10538), credited in OCN's own docs/evidence/eponyms/named-after-people.tsv as the eponym of both 1.e4 e5 2.Ne2 and the Sicilian 2.c3.",
+      "row": {
+        "person_id": "alapin",
+        "display_name": "Alapin, Semyon",
+        "wikidata_qid": "Q371391",
+        "born": "1856",
+        "died": "1923",
+        "note": "identity resolved"
+      }
+    },
+    {
+      "op": "insert",
+      "unique_by": "person_id",
+      "expected_rows": 1,
+      "evidence": "docs/evidence/people/wikidata-resolved.tsv, albin row: Wikidata Q360771 'Adolf Albin', Romanian chess player 1848-1920, en.wikipedia article; eponym of the Albin Counter-Gambit.",
+      "row": {
+        "person_id": "albin",
+        "display_name": "Albin, Adolf",
+        "wikidata_qid": "Q360771",
+        "born": "1848",
+        "died": "1920",
+        "note": "identity resolved"
+      }
+    },
+    {
+      "op": "insert",
+      "unique_by": "person_id",
+      "expected_rows": 1,
+      "evidence": "docs/evidence/people/wikidata-resolved.tsv, alburt row: Wikidata Q525884 'Lev Alburt', human, Ukrainian-American GM, FIDE ID 2000156; enwiki eponym list credits him with the Alburt Variation of Alekhine's Defence (1.e4 Nf6 2.e5 Nd5 3.d4 d6 4.Nf3 g6), the Alekhine Modern/King's Indian line listed. Wikidata carries three conflicting birth values (1945-08-2",
+      "row": {
+        "person_id": "alburt",
+        "display_name": "Alburt, Lev",
+        "wikidata_qid": "Q525884",
+        "born": "1945",
+        "died": "",
+        "note": "identity resolved"
+      }
+    },
+    {
+      "op": "insert",
+      "unique_by": "person_id",
+      "expected_rows": 1,
+      "evidence": "docs/evidence/people/wikidata-resolved.tsv, allgaier row: en.wikipedia 'Johann Baptist Allgaier' carries wikibase_item Q64939, and Wikipedia's list gives the Allgaier Gambit as King's Gambit 5.Ng5 named after him; forename expanded to the full 'Johann Baptist' that both Wikidata's English label and the article title use.",
+      "row": {
+        "person_id": "allgaier",
+        "display_name": "Allgaier, Johann Baptist",
+        "wikidata_qid": "Q64939",
+        "born": "1763",
+        "died": "1823",
+        "note": "identity resolved"
+      }
+    },
+    {
+      "op": "insert",
+      "unique_by": "person_id",
+      "expected_rows": 1,
+      "evidence": "docs/evidence/people/wikidata-resolved.tsv, amar row: Wikidata Q63125130 \"Charles Amar\" — human, male, occupation chess player (P106 → Q10873124), sport chess (P641), floruit 1930s (P1317, decade precision); the Amar Opening item Q642339 carries P138 (named after) → Q63125130, so Wikidata itself designates this item as the opening's eponym. The item is",
+      "row": {
+        "person_id": "amar",
+        "display_name": "Amar, Charles",
+        "wikidata_qid": "Q63125130",
+        "born": "",
+        "died": "",
+        "note": "identity resolved"
+      }
+    },
+    {
+      "op": "insert",
+      "unique_by": "person_id",
+      "expected_rows": 1,
+      "evidence": "docs/evidence/people/wikidata-resolved.tsv, anderssen row: Wikidata \"Anderssen's Opening\" (Q491725) has named-after (P138) = Q57155, Adolf Anderssen, unofficial world champion.",
+      "row": {
+        "person_id": "anderssen",
+        "display_name": "Anderssen, Adolf",
+        "wikidata_qid": "Q57155",
+        "born": "1818",
+        "died": "1879",
+        "note": "identity resolved"
+      }
+    },
+    {
+      "op": "insert",
+      "unique_by": "person_id",
+      "expected_rows": 1,
+      "evidence": "docs/evidence/people/wikidata-resolved.tsv, averbakh row: English Wikipedia's King's Indian Defence article states \"The Averbakh Variation (named for Yuri Averbakh)\" and links to the article backed by Q434808.",
+      "row": {
+        "person_id": "averbakh",
+        "display_name": "Averbakh, Yuri",
+        "wikidata_qid": "Q434808",
+        "born": "1922",
+        "died": "2022",
+        "note": "identity resolved"
+      }
+    },
+    {
+      "op": "insert",
+      "unique_by": "person_id",
+      "expected_rows": 1,
+      "evidence": "docs/evidence/people/wikidata-resolved.tsv, balogh row: Wikidata Q79081 'János Balogh', Hungarian over-the-board and correspondence chess player (1892-1980), enwiki 'János Balogh (chess player)'; eponym of the Balogh Defence (1.e4 d6 2.d4 f5), the listed Rat Defence line.",
+      "row": {
+        "person_id": "balogh",
+        "display_name": "Balogh, János",
+        "wikidata_qid": "Q79081",
+        "born": "1892",
+        "died": "1980",
+        "note": "identity resolved"
+      }
+    },
+    {
+      "op": "insert",
+      "unique_by": "person_id",
+      "expected_rows": 1,
+      "evidence": "docs/evidence/people/wikidata-resolved.tsv, barnes row: Q2553573 'Thomas Wilson Barnes', British chess player (1825-1874), enwiki article, the London player of Morphy's era after whom the Barnes Opening 1.f3 is named.",
+      "row": {
+        "person_id": "barnes",
+        "display_name": "Barnes, Thomas",
+        "wikidata_qid": "Q2553573",
+        "born": "1825",
+        "died": "1874",
+        "note": "identity resolved"
+      }
+    },
+    {
+      "op": "insert",
+      "unique_by": "person_id",
+      "expected_rows": 1,
+      "evidence": "docs/evidence/people/wikidata-resolved.tsv, becker row: Wikidata Q84930 (human, chess player, Austrian-Argentine master); enwiki's list entry 'Becker Defense of the King's Gambit, 3...h6' links to [[Albert Becker (chess player)]], which is precisely this item's enwiki sitelink.",
+      "row": {
+        "person_id": "becker",
+        "display_name": "Becker, Albert",
+        "wikidata_qid": "Q84930",
+        "born": "1896",
+        "died": "1984",
+        "note": "identity resolved"
+      }
+    },
+    {
+      "op": "insert",
+      "unique_by": "person_id",
+      "expected_rows": 1,
+      "evidence": "docs/evidence/people/wikidata-resolved.tsv, benko row: Wikidata Q465247 'Pal Benko', Hungarian-American chess player and composer (1928-2019), FIDE ID 2000687 — eponym of the Benko Gambit and the Hungarian/Benko Opening.",
+      "row": {
+        "person_id": "benko",
+        "display_name": "Benko, Pal",
+        "wikidata_qid": "Q465247",
+        "born": "1928",
+        "died": "2019",
+        "note": "identity resolved"
+      }
+    },
+    {
+      "op": "insert",
+      "unique_by": "person_id",
+      "expected_rows": 1,
+      "evidence": "docs/evidence/people/wikidata-resolved.tsv, bird row: Wikidata Q376098 'Henry Bird' (alias Henry Edward Bird), English player who popularised 1.f4 and the Ruy Lopez 3...Nd4; born year reported as 1829 following Wikipedia's baptismal-record correction and OCN's existing CSV attribution, but note Wikidata still records 1830-07-14, so the date disagrees w",
+      "row": {
+        "person_id": "bird",
+        "display_name": "Bird, Henry",
+        "wikidata_qid": "Q376098",
+        "born": "1829",
+        "died": "1908",
+        "note": "identity resolved"
+      }
+    },
+    {
+      "op": "insert",
+      "unique_by": "person_id",
+      "expected_rows": 1,
+      "evidence": "docs/evidence/people/wikidata-resolved.tsv, blackburne row: enwiki 'Joseph Henry Blackburne' maps to Q352459 (British player 1841-1924), the only chess Blackburne on Wikidata, and the Blackburne-Kostić Gambit 3...Nd4 is the line Wikipedia also calls the Blackburne Shilling Gambit; Wikidata's full form is 'Joseph Henry Blackburne' if you want the middle name.",
+      "row": {
+        "person_id": "blackburne",
+        "display_name": "Blackburne, Joseph",
+        "wikidata_qid": "Q352459",
+        "born": "1841",
+        "died": "1924",
+        "note": "identity resolved"
+      }
+    },
+    {
+      "op": "insert",
+      "unique_by": "person_id",
+      "expected_rows": 1,
+      "evidence": "docs/evidence/people/wikidata-resolved.tsv, blackmar row: Wikidata \"Blackmar-Diemer Gambit\" (Q880889) has named-after (P138) = Q3443632 plus Q90375 (Emil Josef Diemer); the New Orleans music publisher Armand Edward Blackmar also carries occupation chess player and published Blackmar's Gambit in 1882.",
+      "row": {
+        "person_id": "blackmar",
+        "display_name": "Blackmar, Armand",
+        "wikidata_qid": "Q3443632",
+        "born": "1826",
+        "died": "1888",
+        "note": "identity resolved"
+      }
+    },
+    {
+      "op": "insert",
+      "unique_by": "person_id",
+      "expected_rows": 1,
+      "evidence": "docs/evidence/people/wikidata-resolved.tsv, bogoljubov row: Wikidata Q57310 'Efim Bogoljubov' (enwiki title 'Efim Bogoljubow'), chess player 1889-1952, is credited by Wikipedia's openings list as the Bogo-Indian eponym; display name kept at the Wikidata English label spelling, but note enwiki uses the -ow ending.",
+      "row": {
+        "person_id": "bogoljubov",
+        "display_name": "Bogoljubov, Efim",
+        "wikidata_qid": "Q57310",
+        "born": "1889",
+        "died": "1952",
+        "note": "identity resolved"
+      }
+    },
+    {
+      "op": "insert",
+      "unique_by": "person_id",
+      "expected_rows": 1,
+      "evidence": "docs/evidence/people/wikidata-resolved.tsv, boleslavsky row: enwiki 'Isaac Boleslavsky' maps to Q357815 (Soviet GM 1919-1977), and Wikipedia's openings list credits the Sicilian Boleslavsky Variation to Isaac Boleslavsky; he is the only chess Boleslavsky on Wikidata.",
+      "row": {
+        "person_id": "boleslavsky",
+        "display_name": "Boleslavsky, Isaac",
+        "wikidata_qid": "Q357815",
+        "born": "1919",
+        "died": "1977",
+        "note": "identity resolved"
+      }
+    },
+    {
+      "op": "insert",
+      "unique_by": "person_id",
+      "expected_rows": 1,
+      "evidence": "docs/evidence/people/wikidata-resolved.tsv, bonaparte row: Wikidata Q517 'Napoleon', Emperor of the French (1769-1821), enwiki 'Napoleon'; he carries a chessgames.com player ID (77025) and the Napoleon Opening (1.e4 e5 2.Qf3) is named for him.",
+      "row": {
+        "person_id": "bonaparte",
+        "display_name": "Bonaparte, Napoleon",
+        "wikidata_qid": "Q517",
+        "born": "1769",
+        "died": "1821",
+        "note": "identity resolved"
+      }
+    },
+    {
+      "op": "insert",
+      "unique_by": "person_id",
+      "expected_rows": 1,
+      "evidence": "docs/evidence/people/wikidata-resolved.tsv, bonschosmolovsky row: Wikidata Q21089346, English label 'Mikhail Osmolovsky' with alias 'Mikhail Bonch-Osmolovsky', Soviet chess player 1919-1975, ru.wikipedia 'Бонч-Осмоловский, Михаил Александрович' (dates confirmed there); independent sources name the King's Gambit 3...Ne7 line after this Soviet national master. Displ",
+      "row": {
+        "person_id": "bonschosmolovsky",
+        "display_name": "Bonch-Osmolovsky, Mikhail",
+        "wikidata_qid": "Q21089346",
+        "born": "1919",
+        "died": "1975",
+        "note": "identity resolved"
+      }
+    },
+    {
+      "op": "insert",
+      "unique_by": "person_id",
+      "expected_rows": 1,
+      "evidence": "docs/evidence/people/wikidata-resolved.tsv, brentano row: OCN's own catalogue row C.RyL.Bre already quotes Hooper and Whyld's Oxford Companion to Chess: 'Franz Clemens Honoratus Hermann Josef Brentano (1838-1917), a well-known German philosopher who lived in Vienna, frequently published analyses of the openings' — that exact full name is a registered Engli",
+      "row": {
+        "person_id": "brentano",
+        "display_name": "Brentano, Franz",
+        "wikidata_qid": "Q57196",
+        "born": "1838",
+        "died": "1917",
+        "note": "identity resolved"
+      }
+    },
+    {
+      "op": "insert",
+      "unique_by": "person_id",
+      "expected_rows": 1,
+      "evidence": "docs/evidence/people/wikidata-resolved.tsv, breyer row: Wikidata Q559260 'Gyula Breyer', human, Hungarian chess player 1893-1921, huwiki 'Breyer Gyula'; enwiki eponym list credits him with the Breyer Variation of the King's Gambit (1.e4 e5 2.f4 exf4 3.Qf3), the KGA Breyer Gambit listed, and separately with the Ruy Lopez Breyer.",
+      "row": {
+        "person_id": "breyer",
+        "display_name": "Breyer, Gyula",
+        "wikidata_qid": "Q559260",
+        "born": "1893",
+        "died": "1921",
+        "note": "identity resolved"
+      }
+    },
+    {
+      "op": "insert",
+      "unique_by": "person_id",
+      "expected_rows": 1,
+      "evidence": "docs/evidence/people/wikidata-resolved.tsv, caro row: Wikidata Q1627984 'Horatio Caro', British chess player 1862-1920, occupation chess player, en.wikipedia 'Horatio Caro'; the co-eponym (with Marcus Kann) of the Caro-Kann Defence.",
+      "row": {
+        "person_id": "caro",
+        "display_name": "Caro, Horatio",
+        "wikidata_qid": "Q1627984",
+        "born": "1862",
+        "died": "1920",
+        "note": "identity resolved"
+      }
+    },
+    {
+      "op": "insert",
+      "unique_by": "person_id",
+      "expected_rows": 1,
+      "evidence": "docs/evidence/people/wikidata-resolved.tsv, carrera row: Wikidata Q631673 (human, chess player, historian and priest of the Kingdom of Sicily); enwiki's list entry 'Carrera Gambit of the King's Gambit, 3.Qh5' links to [[Pietro Carrera]], this item's enwiki sitelink.",
+      "row": {
+        "person_id": "carrera",
+        "display_name": "Carrera, Pietro",
+        "wikidata_qid": "Q631673",
+        "born": "1573",
+        "died": "1647",
+        "note": "identity resolved"
+      }
+    },
+    {
+      "op": "insert",
+      "unique_by": "person_id",
+      "expected_rows": 1,
+      "evidence": "docs/evidence/people/wikidata-resolved.tsv, chekhover row: Wikidata Q363772, Soviet IM and endgame study composer (1908-1965), is the Chekhover of the Sicilian Chekhover Variation; only chess player with this surname on Wikidata.",
+      "row": {
+        "person_id": "chekhover",
+        "display_name": "Chekhover, Vitaly",
+        "wikidata_qid": "Q363772",
+        "born": "1908",
+        "died": "1965",
+        "note": "identity resolved"
+      }
+    },
+    {
+      "op": "insert",
+      "unique_by": "person_id",
+      "expected_rows": 1,
+      "evidence": "docs/evidence/people/wikidata-resolved.tsv, chigorin row: Wikidata Q298286 (human, chess player, Russian Empire); enwiki credits him with both the Chigorin Defence 1.d4 d5 2.c4 Nc6 and the French Defence 2.Qe2 Chigorin Variation, matching both listed openings.",
+      "row": {
+        "person_id": "chigorin",
+        "display_name": "Chigorin, Mikhail",
+        "wikidata_qid": "Q298286",
+        "born": "1850",
+        "died": "1908",
+        "note": "identity resolved"
+      }
+    },
+    {
+      "op": "insert",
+      "unique_by": "person_id",
+      "expected_rows": 1,
+      "evidence": "docs/evidence/people/wikidata-resolved.tsv, clemenz row: Wikidata's Clemenz Opening item (Q867941) carries an explicit named-after (P138) statement pointing to Q1107839 'Hermann Clemenz', Estonian chess player (1846-1908).",
+      "row": {
+        "person_id": "clemenz",
+        "display_name": "Clemenz, Hermann",
+        "wikidata_qid": "Q1107839",
+        "born": "1846",
+        "died": "1908",
+        "note": "identity resolved"
+      }
+    },
+    {
+      "op": "insert",
+      "unique_by": "person_id",
+      "expected_rows": 1,
+      "evidence": "docs/evidence/people/wikidata-resolved.tsv, cochrane row: Wikidata Q964982, Scottish lawyer and chess player (1798-1878), is confirmed by his English Wikipedia article as the player who first used the Cochrane Gambit against Petrov's Defence, against Bannerjee in 1848.",
+      "row": {
+        "person_id": "cochrane",
+        "display_name": "Cochrane, John",
+        "wikidata_qid": "Q964982",
+        "born": "1798",
+        "died": "1878",
+        "note": "identity resolved"
+      }
+    },
+    {
+      "op": "insert",
+      "unique_by": "person_id",
+      "expected_rows": 1,
+      "evidence": "docs/evidence/people/wikidata-resolved.tsv, colle row: Wikidata Q499915 'Edgard Colle', Belgian chess master 1897-1932, enwiki 'Edgard Colle'; the catalogue row D.QPG.Zuk.Nf6.e3 already attributes the Colle System to him with an Oxford Companion citation.",
+      "row": {
+        "person_id": "colle",
+        "display_name": "Colle, Edgard",
+        "wikidata_qid": "Q499915",
+        "born": "1897",
+        "died": "1932",
+        "note": "identity resolved"
+      }
+    },
+    {
+      "op": "insert",
+      "unique_by": "person_id",
+      "expected_rows": 1,
+      "evidence": "docs/evidence/people/wikidata-resolved.tsv, colman row: Q5407213, enwiki 'Eugene Ernest Colman', British chess player 1878-1964, Singapore's leading pre-war player and eponym of the Two Knights Defence Colman Variation (C58, 8.Qf3 Rb8).",
+      "row": {
+        "person_id": "colman",
+        "display_name": "Colman, Eugene",
+        "wikidata_qid": "Q5407213",
+        "born": "1878",
+        "died": "1964",
+        "note": "identity resolved"
+      }
+    },
+    {
+      "op": "insert",
+      "unique_by": "person_id",
+      "expected_rows": 1,
+      "evidence": "docs/evidence/people/wikidata-resolved.tsv, cozio row: Sole Wikidata match Q1042083, 'Italian chess player', Kingdom of Sardinia, dates recorded as 1715-1780 (both approximate in the literature), author of the treatise that gives the Ruy Lopez Cozio Defence its name.",
+      "row": {
+        "person_id": "cozio",
+        "display_name": "Cozio, Carlo",
+        "wikidata_qid": "Q1042083",
+        "born": "1715",
+        "died": "1780",
+        "note": "identity resolved"
+      }
+    },
+    {
+      "op": "insert",
+      "unique_by": "person_id",
+      "expected_rows": 1,
+      "evidence": "docs/evidence/people/wikidata-resolved.tsv, cunningham row: Wikidata Q283083, enwiki 'Alexander Cunningham (jurist)', Scottish critic and classical scholar (1655-1730) whose article states 'It was as a chess-player that Alexander Cunningham was famous at the Hague' and names the Cunningham Gambit (1.e4 e5 2.f4 exf4 3.Nf3 Be7).",
+      "row": {
+        "person_id": "cunningham",
+        "display_name": "Cunningham, Alexander",
+        "wikidata_qid": "Q283083",
+        "born": "1655",
+        "died": "1730",
+        "note": "identity resolved"
+      }
+    },
+    {
+      "op": "insert",
+      "unique_by": "person_id",
+      "expected_rows": 1,
+      "evidence": "docs/evidence/people/wikidata-resolved.tsv, damiano row: Wikidata Q442521 'Pedro Damiano', Portuguese chess player, theoretician and writer (1480-1544), eponym of the Damiano Defence.",
+      "row": {
+        "person_id": "damiano",
+        "display_name": "Damiano, Pedro",
+        "wikidata_qid": "Q442521",
+        "born": "1480",
+        "died": "1544",
+        "note": "identity resolved"
+      }
+    },
+    {
+      "op": "insert",
+      "unique_by": "person_id",
+      "expected_rows": 1,
+      "evidence": "docs/evidence/people/wikidata-resolved.tsv, diemer row: Wikidata Q90375 'Emil Josef Diemer', German chess player 1908-1990, enwiki 'Emil Josef Diemer'; the Blackmar-Diemer Gambit is his lifelong advocacy. Wikidata and enwiki both use the fuller 'Emil Josef Diemer' if the catalogue wants the middle name.",
+      "row": {
+        "person_id": "diemer",
+        "display_name": "Diemer, Emil",
+        "wikidata_qid": "Q90375",
+        "born": "1908",
+        "died": "1990",
+        "note": "identity resolved"
+      }
+    },
+    {
+      "op": "insert",
+      "unique_by": "person_id",
+      "expected_rows": 1,
+      "evidence": "docs/evidence/people/wikidata-resolved.tsv, dory row: no Wikidata item exists for the chess Ladislaus Döry von Jobbaháza: Wikipedia's openings list gives 'named after Ladislaus Döry' as plain text with no article, the Wikidata Döry Defence item (Q3707350) has no 'named after' claim, and an exhaustive sweep of all 28 Wikidata people bearing the Dőry/Dör",
+      "row": {
+        "person_id": "dory",
+        "display_name": "Döry, Ladislaus",
+        "wikidata_qid": "",
+        "born": "",
+        "died": "",
+        "note": "no Wikidata item found on a fresh search. Jenő Döry (Q27579527), Hungarian chess player b. 1951, shares the surname; do not use him. Q111270511 (László Dőry de Jobaháza, 1891-1975, theologian) is a name-alike trap, not the player."
+      }
+    },
+    {
+      "op": "insert",
+      "unique_by": "person_id",
+      "expected_rows": 1,
+      "evidence": "docs/evidence/people/wikidata-resolved.tsv, dunst row: Wikidata Q63125490 'Ted A. Dunst' (alias Theodore Alexander Dunst), US chess player 1907-1985, chessgames id 102164, is the target of a 'named after' (P138) statement on the Dunst Opening item Q596219 itself; the listed 'Van Geet Opening' is the same 1.Nc3 opening under an alternative name whose oth",
+      "row": {
+        "person_id": "dunst",
+        "display_name": "Dunst, Ted A.",
+        "wikidata_qid": "Q63125490",
+        "born": "1907",
+        "died": "1985",
+        "note": "identity resolved"
+      }
+    },
+    {
+      "op": "insert",
+      "unique_by": "person_id",
+      "expected_rows": 1,
+      "evidence": "docs/evidence/people/wikidata-resolved.tsv, eisenberg row: Wikidata Q2063513 'Louis Eisenberg', Ukrainian-American chess master born 1876 in Odesa (death recorded as unknown value; enwiki says 'after 1920'); the KGA Eisenberg Variation 3.Nh3 is credited to Louis R. Eisenberg of Odessa/Monte Carlo 1902.",
+      "row": {
+        "person_id": "eisenberg",
+        "display_name": "Eisenberg, Louis",
+        "wikidata_qid": "Q2063513",
+        "born": "1876",
+        "died": "",
+        "note": "identity resolved"
+      }
+    },
+    {
+      "op": "insert",
+      "unique_by": "person_id",
+      "expected_rows": 1,
+      "evidence": "docs/evidence/people/wikidata-resolved.tsv, englund row: Wikidata \"Englund Gambit\" (Q511293) has named-after (P138) = Q1465925, and the enwiki article confirms \"The Swedish player Fritz Englund (1871-1933)\" sponsored the 1932-33 thematic tournament that gave the gambit its name.",
+      "row": {
+        "person_id": "englund",
+        "display_name": "Englund, Fritz",
+        "wikidata_qid": "Q1465925",
+        "born": "1871",
+        "died": "1933",
+        "note": "identity resolved"
+      }
+    },
+    {
+      "op": "insert",
+      "unique_by": "person_id",
+      "expected_rows": 1,
+      "evidence": "docs/evidence/people/wikidata-resolved.tsv, evans row: Wikidata \"Evans Gambit\" (Q681934) has named-after (P138) = Q456905, William Davies Evans, Welsh sea captain and chess player; full form of the name is William Davies Evans.",
+      "row": {
+        "person_id": "evans",
+        "display_name": "Evans, William",
+        "wikidata_qid": "Q456905",
+        "born": "1790",
+        "died": "1872",
+        "note": "identity resolved"
+      }
+    },
+    {
+      "op": "insert",
+      "unique_by": "person_id",
+      "expected_rows": 1,
+      "evidence": "docs/evidence/people/wikidata-resolved.tsv, fajarowicz row: Wikidata Q112004 'Sammi Fajarowicz', German chess player (1908-1940) of Leipzig; the same search returns Q1393612 'Fajarowicz Gambit' as the opening named for him in the Budapest Defence.",
+      "row": {
+        "person_id": "fajarowicz",
+        "display_name": "Fajarowicz, Sammi",
+        "wikidata_qid": "Q112004",
+        "born": "1908",
+        "died": "1940",
+        "note": "identity resolved"
+      }
+    },
+    {
+      "op": "insert",
+      "unique_by": "person_id",
+      "expected_rows": 1,
+      "evidence": "docs/evidence/people/wikidata-resolved.tsv, falkbeer row: Wikidata Q442552 'Ernst Falkbeer', Austro-Hungarian chess player and journalist (1819-1885), sole eponym of the Falkbeer Countergambit classified under the King's Gambit Declined.",
+      "row": {
+        "person_id": "falkbeer",
+        "display_name": "Falkbeer, Ernst",
+        "wikidata_qid": "Q442552",
+        "born": "1819",
+        "died": "1885",
+        "note": "identity resolved"
+      }
+    },
+    {
+      "op": "insert",
+      "unique_by": "person_id",
+      "expected_rows": 1,
+      "evidence": "docs/evidence/people/wikidata-resolved.tsv, flohr row: Wikidata Q317890 'Salo Flohr', Czechoslovak/Soviet chess player, theoretician and writer (1908-1983); both listed lines (the Flohr subvariation of the English Mikėnas-Carls and the Caro-Kann Classical Flohr) carry his name.",
+      "row": {
+        "person_id": "flohr",
+        "display_name": "Flohr, Salo",
+        "wikidata_qid": "Q317890",
+        "born": "1908",
+        "died": "1983",
+        "note": "identity resolved"
+      }
+    },
+    {
+      "op": "insert",
+      "unique_by": "person_id",
+      "expected_rows": 1,
+      "evidence": "docs/evidence/people/wikidata-resolved.tsv, from row: Wikidata Q641093 \"Martin Severin From\", Danish chess master (1828–1895); the From Gambit item Q1363985 carries P138 (named after) → Q641093. Forename expanded from \"Martin\" to the full \"Martin Severin\" that Wikidata and the chess literature use.",
+      "row": {
+        "person_id": "from",
+        "display_name": "From, Martin Severin",
+        "wikidata_qid": "Q641093",
+        "born": "1828",
+        "died": "1895",
+        "note": "identity resolved"
+      }
+    },
+    {
+      "op": "insert",
+      "unique_by": "person_id",
+      "expected_rows": 1,
+      "evidence": "docs/evidence/people/wikidata-resolved.tsv, furman row: Wikidata Q2005726 'Semyon Furman', Soviet GM and chess coach (1920-1978), enwiki 'Semyon Furman' — eponym of the QGA Furman Variation; Karpov's long-time trainer.",
+      "row": {
+        "person_id": "furman",
+        "display_name": "Furman, Semyon",
+        "wikidata_qid": "Q2005726",
+        "born": "1920",
+        "died": "1978",
+        "note": "identity resolved"
+      }
+    },
+    {
+      "op": "insert",
+      "unique_by": "person_id",
+      "expected_rows": 1,
+      "evidence": "docs/evidence/people/wikidata-resolved.tsv, gajewski row: Wikidata Q4131618, Polish grandmaster born 1985-07-19, FIDE id 1116207, credited with the Gajewski Gambit in OCN's eponym evidence file and in Wikipedia's list of chess openings named after people.",
+      "row": {
+        "person_id": "gajewski",
+        "display_name": "Gajewski, Grzegorz",
+        "wikidata_qid": "Q4131618",
+        "born": "1985",
+        "died": "",
+        "note": "identity resolved"
+      }
+    },
+    {
+      "op": "insert",
+      "unique_by": "person_id",
+      "expected_rows": 1,
+      "evidence": "docs/evidence/people/wikidata-resolved.tsv, galway row: Wikidata Q1269539 'Albéric O'Kelly de Galway', Belgian chess grandmaster 1911-1980, en.wikipedia article; the Sicilian O'Kelly Variation (2...a6) is his. Input name was mechanically split — the surname is 'O'Kelly de Galway', not 'Galway'.",
+      "row": {
+        "person_id": "galway",
+        "display_name": "O'Kelly de Galway, Albéric",
+        "wikidata_qid": "Q1269539",
+        "born": "1911",
+        "died": "1980",
+        "note": "identity resolved"
+      }
+    },
+    {
+      "op": "insert",
+      "unique_by": "person_id",
+      "expected_rows": 1,
+      "evidence": "docs/evidence/people/wikidata-resolved.tsv, glek row: Wikidata Q664157 'Igor Glek', Russian chess grandmaster and coach born 1961; eponym of the Four Knights Glek System (4.g3), matching the listed openings.",
+      "row": {
+        "person_id": "glek",
+        "display_name": "Glek, Igor",
+        "wikidata_qid": "Q664157",
+        "born": "1961",
+        "died": "",
+        "note": "identity resolved"
+      }
+    },
+    {
+      "op": "insert",
+      "unique_by": "person_id",
+      "expected_rows": 1,
+      "evidence": "docs/evidence/people/wikidata-resolved.tsv, goglidze row: Wikidata Q4140994, the first Georgian chess master and Soviet IM (1905-1964), is the eponym of the Goglidze Attack; no English Wikipedia article exists, so identification rests on the Wikidata item plus ChessBase's 'Victor Arsentievich Goglidze' profile.",
+      "row": {
+        "person_id": "goglidze",
+        "display_name": "Goglidze, Victor",
+        "wikidata_qid": "Q4140994",
+        "born": "1905",
+        "died": "1964",
+        "note": "identity resolved"
+      }
+    },
+    {
+      "op": "insert",
+      "unique_by": "person_id",
+      "expected_rows": 1,
+      "evidence": "docs/evidence/people/wikidata-resolved.tsv, goring row: Wikidata Q69142 'Carl Göring', German chess player and philosopher 1841-1879, named by Wikipedia's list of openings named after people as the Göring Gambit eponym (the gambit itself is Q2651993).",
+      "row": {
+        "person_id": "goring",
+        "display_name": "Göring, Carl",
+        "wikidata_qid": "Q69142",
+        "born": "1841",
+        "died": "1879",
+        "note": "identity resolved"
+      }
+    },
+    {
+      "op": "insert",
+      "unique_by": "person_id",
+      "expected_rows": 1,
+      "evidence": "docs/evidence/people/wikidata-resolved.tsv, grob row: enwiki 'Henri Grob' maps to Q684458 (Swiss IM 1904-1974), credited by Wikipedia's openings list with 1.g4; he is the only chess Grob on Wikidata.",
+      "row": {
+        "person_id": "grob",
+        "display_name": "Grob, Henri",
+        "wikidata_qid": "Q684458",
+        "born": "1904",
+        "died": "1974",
+        "note": "identity resolved"
+      }
+    },
+    {
+      "op": "insert",
+      "unique_by": "person_id",
+      "expected_rows": 1,
+      "evidence": "docs/evidence/people/wikidata-resolved.tsv, grunfeld row: Wikidata Q93742 'Ernst Grünfeld', chess international grandmaster (1893-1962), Austrian, enwiki 'Ernst Grünfeld' — eponym of the Grünfeld Defence.",
+      "row": {
+        "person_id": "grunfeld",
+        "display_name": "Grünfeld, Ernst",
+        "wikidata_qid": "Q93742",
+        "born": "1893",
+        "died": "1962",
+        "note": "identity resolved"
+      }
+    },
+    {
+      "op": "insert",
+      "unique_by": "person_id",
+      "expected_rows": 1,
+      "evidence": "docs/evidence/people/wikidata-resolved.tsv, gunderam row: Forename corrected Gerhard -> Gerhart. Wikidata Q1512937 'Gerhart Gunderam', human, German chess player/theoretician 1904-1992; dewiki lead reads 'Heinz Gerhart Gunderam (* 26. November 1904 in Großenhain; † 1992 in Husum) war ein deutscher Schachtheoretiker', and enwiki 'Gunderam Defense' names him",
+      "row": {
+        "person_id": "gunderam",
+        "display_name": "Gunderam, Gerhart",
+        "wikidata_qid": "Q1512937",
+        "born": "1904",
+        "died": "1992",
+        "note": "identity resolved"
+      }
+    },
+    {
+      "op": "insert",
+      "unique_by": "person_id",
+      "expected_rows": 1,
+      "evidence": "docs/evidence/people/wikidata-resolved.tsv, gurgenidze row: Wikidata Q650054 'Bukhuti Gurgenidze', Soviet (Georgian) chess player 1933-2008, en.wikipedia article; the Gurgenidze systems in the Modern and Caro-Kann are his, as is the catalogue's Rossolimo Gurgenidze row.",
+      "row": {
+        "person_id": "gurgenidze",
+        "display_name": "Gurgenidze, Bukhuti",
+        "wikidata_qid": "Q650054",
+        "born": "1933",
+        "died": "2008",
+        "note": "identity resolved"
+      }
+    },
+    {
+      "op": "insert",
+      "unique_by": "person_id",
+      "expected_rows": 1,
+      "evidence": "docs/evidence/people/wikidata-resolved.tsv, gusev row: Deliberately unresolved rather than matched to the obvious candidate: the Wikibooks chess-opening-theory page for 1.d4 d5 2.c4 c5 3.cxd5 Nf6 states the Gusev Countergambit is 'named after the Soviet Master of Sports Nikolai Nikolaevich Gusev', and no Wikidata item exists for that player; the plausib",
+      "row": {
+        "person_id": "gusev",
+        "display_name": "Gusev, Yuri",
+        "wikidata_qid": "",
+        "born": "",
+        "died": "",
+        "note": "no Wikidata item found on a fresh search. Wikidata holds five chess Gusevs (Q21638545 Yury, Q27525608 Aleksey, Q27525609 Vladimir A, Q71316177 Nikita, Q134176649 Mikhail) and none is the Nikolai Nikolaevich Gusev the sources name as eponym. Needs a human decision plus possibly a new Wikidata item."
+      }
+    },
+    {
+      "op": "insert",
+      "unique_by": "person_id",
+      "expected_rows": 1,
+      "evidence": "docs/evidence/people/wikidata-resolved.tsv, hanham row: Wikidata Q6135487 (human, chess player, United States); enwiki names him for the Hanham Variation of the Philidor Defence 1.e4 e5 2.Nf3 d6 3.d4 Nd7, citing Hooper and Whyld. Full name Major James Moore Hanham, but Wikidata's label and the enwiki title are both 'James Hanham', so the display name sta",
+      "row": {
+        "person_id": "hanham",
+        "display_name": "Hanham, James",
+        "wikidata_qid": "Q6135487",
+        "born": "1840",
+        "died": "1923",
+        "note": "identity resolved"
+      }
+    },
+    {
+      "op": "insert",
+      "unique_by": "person_id",
+      "expected_rows": 1,
+      "evidence": "docs/evidence/people/wikidata-resolved.tsv, harrwitz row: en.wikipedia 'Daniel Harrwitz' carries wikibase_item Q62035, and Wikipedia's list gives the Harrwitz Attack as QGD 1.d4 d5 2.c4 e6 3.Nc3 Nf6 4.Bf4, named after him.",
+      "row": {
+        "person_id": "harrwitz",
+        "display_name": "Harrwitz, Daniel",
+        "wikidata_qid": "Q62035",
+        "born": "1821",
+        "died": "1884",
+        "note": "identity resolved"
+      }
+    },
+    {
+      "op": "insert",
+      "unique_by": "person_id",
+      "expected_rows": 1,
+      "evidence": "docs/evidence/people/wikidata-resolved.tsv, hopton row: No Wikidata item exists for any chess player named Hopton — a SPARQL scan of items with occupation chess player returned zero Hopton rows, and every Wikidata 'Hopton' is an English village, a surname item, or an unrelated person; Wikipedia's list says only 'named after Hopton', with no forename and ",
+      "row": {
+        "person_id": "hopton",
+        "display_name": "Hopton",
+        "wikidata_qid": "",
+        "born": "",
+        "died": "",
+        "note": "no Wikidata item found on a fresh search"
+      }
+    },
+    {
+      "op": "insert",
+      "unique_by": "person_id",
+      "expected_rows": 1,
+      "evidence": "docs/evidence/people/wikidata-resolved.tsv, horwitz row: Wikidata Q62031 is 'German-British chess player (1807-1885)' with occupations chess player and chess composer, the Horwitz of the Horwitz Defence and Horwitz bishops.",
+      "row": {
+        "person_id": "horwitz",
+        "display_name": "Horwitz, Bernhard",
+        "wikidata_qid": "Q62031",
+        "born": "1807",
+        "died": "1885",
+        "note": "identity resolved"
+      }
+    },
+    {
+      "op": "insert",
+      "unique_by": "person_id",
+      "expected_rows": 1,
+      "evidence": "docs/evidence/people/wikidata-resolved.tsv, hromadka row: Wikidata Q934788 \"Karel Hromádka\", Czech chess player (1887–1956); the English Wikipedia article states the Hromádka Indian Defense — 1.d4 Nf6 2.Nf3 c5 3.d5 d6, the Czech/Old Benoni — is named after him, matching the listed opening \"Benoni Defence d5, d6\".",
+      "row": {
+        "person_id": "hromadka",
+        "display_name": "Hromádka, Karel",
+        "wikidata_qid": "Q934788",
+        "born": "1887",
+        "died": "1956",
+        "note": "identity resolved"
+      }
+    },
+    {
+      "op": "insert",
+      "unique_by": "person_id",
+      "expected_rows": 1,
+      "evidence": "docs/evidence/people/wikidata-resolved.tsv, ilyingenevsky row: enwiki 'Alexander Ilyin-Genevsky' maps to Q1970497 (Soviet player and official, 1894-1941), the eponym Wikipedia's openings list names for the Dutch Defence Ilyin-Genevsky Variation; the catalogue's 'Ilyin-Zhenevsky' is the alternative transliteration of the same man.",
+      "row": {
+        "person_id": "ilyingenevsky",
+        "display_name": "Ilyin-Genevsky, Alexander",
+        "wikidata_qid": "Q1970497",
+        "born": "1894",
+        "died": "1941",
+        "note": "identity resolved"
+      }
+    },
+    {
+      "op": "insert",
+      "unique_by": "person_id",
+      "expected_rows": 1,
+      "evidence": "docs/evidence/people/wikidata-resolved.tsv, jaenisch row: Wikidata Q32743 'Carl Jaenisch', Finnish-Russian chess player and theorist (1813-1872), enwiki 'Carl Jaenisch' — the Schliemann Defence is also known as the Jaenisch Gambit.",
+      "row": {
+        "person_id": "jaenisch",
+        "display_name": "Jaenisch, Carl",
+        "wikidata_qid": "Q32743",
+        "born": "1813",
+        "died": "1872",
+        "note": "identity resolved"
+      }
+    },
+    {
+      "op": "insert",
+      "unique_by": "person_id",
+      "expected_rows": 1,
+      "evidence": "docs/evidence/people/wikidata-resolved.tsv, janowski row: en.wikipedia 'Dawid Janowski' carries wikibase_item Q378839, and Wikipedia's list gives the Janowski Variation 1.d4 Nf6 2.c4 d6 3.Nc3 Bf5 — the Old Indian line — as named after him.",
+      "row": {
+        "person_id": "janowski",
+        "display_name": "Janowski, Dawid",
+        "wikidata_qid": "Q378839",
+        "born": "1868",
+        "died": "1927",
+        "note": "identity resolved"
+      }
+    },
+    {
+      "op": "insert",
+      "unique_by": "person_id",
+      "expected_rows": 1,
+      "evidence": "docs/evidence/people/wikidata-resolved.tsv, jerome row: English Wikipedia's Jerome Gambit article names the eponym as Alonzo Wheeler Jerome (1834-1902) of Paxton, Illinois, but no Wikidata item exists for him: label search, full-text search and a CirrusSearch for chess players named Jerome return only unrelated people who have Jerome as a forename, and t",
+      "row": {
+        "person_id": "jerome",
+        "display_name": "Jerome, Alonzo Wheeler",
+        "wikidata_qid": "",
+        "born": "1834",
+        "died": "1902",
+        "note": "no Wikidata item found on a fresh search"
+      }
+    },
+    {
+      "op": "insert",
+      "unique_by": "person_id",
+      "expected_rows": 1,
+      "evidence": "docs/evidence/people/wikidata-resolved.tsv, kan row: Wikidata Q2348754 \"Ilya Kan\", Russian chess player (1909–1978); the English Wikipedia article states his opening contribution was the Sicilian line bearing his name, 1.e4 c5 2.Nf3 e6 3.d4 cxd4 4.Nxd4 a6, which is the Sicilian Kan.",
+      "row": {
+        "person_id": "kan",
+        "display_name": "Kan, Ilya",
+        "wikidata_qid": "Q2348754",
+        "born": "1909",
+        "died": "1978",
+        "note": "identity resolved"
+      }
+    },
+    {
+      "op": "insert",
+      "unique_by": "person_id",
+      "expected_rows": 1,
+      "evidence": "docs/evidence/people/wikidata-resolved.tsv, kann row: en.wikipedia 'Marcus Kann' carries wikibase_item Q86090, and the Caro-Kann Defence article states the opening is named after Horatio Caro and 'the Austrian player Marcus Kann', both analysing it in 1886.",
+      "row": {
+        "person_id": "kann",
+        "display_name": "Kann, Marcus",
+        "wikidata_qid": "Q86090",
+        "born": "1820",
+        "died": "1886",
+        "note": "identity resolved"
+      }
+    },
+    {
+      "op": "insert",
+      "unique_by": "person_id",
+      "expected_rows": 1,
+      "evidence": "docs/evidence/people/wikidata-resolved.tsv, karklins row: Input forename 'Chicago' was a mechanical artefact; Wikidata Q71293221 'Andrew Karklins' (b. 14 April 1947, FIDE ID 2001730, FIDE Master, Chicago-based US master) is the Karklins of the Petrov Karklins-Martinovsky 4.Nd3, a line he experimented with.",
+      "row": {
+        "person_id": "karklins",
+        "display_name": "Karklins, Andrew",
+        "wikidata_qid": "Q71293221",
+        "born": "1947",
+        "died": "",
+        "note": "identity resolved"
+      }
+    },
+    {
+      "op": "insert",
+      "unique_by": "person_id",
+      "expected_rows": 1,
+      "evidence": "docs/evidence/people/wikidata-resolved.tsv, katalymov row: Wikidata Q15116820, Kazakhstani IM (1932-2013), is the eponym of the Katalimov Variation; kept the input spelling 'Katalymov' because that is the English Wikipedia article title, though the Wikidata English label reads 'Boris Katalimov'.",
+      "row": {
+        "person_id": "katalymov",
+        "display_name": "Katalymov, Boris",
+        "wikidata_qid": "Q15116820",
+        "born": "1932",
+        "died": "2013",
+        "note": "identity resolved"
+      }
+    },
+    {
+      "op": "insert",
+      "unique_by": "person_id",
+      "expected_rows": 1,
+      "evidence": "docs/evidence/people/wikidata-resolved.tsv, keene row: Wikidata Q946506, English grandmaster, author and organiser (born 1948), is the eponym of the Keene Defence in the King's Gambit; sole chess Keene on Wikidata.",
+      "row": {
+        "person_id": "keene",
+        "display_name": "Keene, Raymond",
+        "wikidata_qid": "Q946506",
+        "born": "1948",
+        "died": "",
+        "note": "identity resolved"
+      }
+    },
+    {
+      "op": "insert",
+      "unique_by": "person_id",
+      "expected_rows": 1,
+      "evidence": "docs/evidence/people/wikidata-resolved.tsv, keres row: Wikidata Q207727, Estonian grandmaster (1916-1975), is the eponym of the Keres Attack in the Scheveningen and of the Keres/Kangaroo Defence.",
+      "row": {
+        "person_id": "keres",
+        "display_name": "Keres, Paul",
+        "wikidata_qid": "Q207727",
+        "born": "1916",
+        "died": "1975",
+        "note": "identity resolved"
+      }
+    },
+    {
+      "op": "insert",
+      "unique_by": "person_id",
+      "expected_rows": 1,
+      "evidence": "docs/evidence/people/wikidata-resolved.tsv, kieseritzky row: Wikidata Q313177 'Lionel Kieseritzky', Baltic German chess player 1806-1853, enwiki 'Lionel Kieseritzky'; the King's Gambit Kieseritzky Gambit (5.Ne5) is his.",
+      "row": {
+        "person_id": "kieseritzky",
+        "display_name": "Kieseritzky, Lionel",
+        "wikidata_qid": "Q313177",
+        "born": "1806",
+        "died": "1853",
+        "note": "identity resolved"
+      }
+    },
+    {
+      "op": "insert",
+      "unique_by": "person_id",
+      "expected_rows": 1,
+      "evidence": "docs/evidence/people/wikidata-resolved.tsv, knorre row: His enwiki article (Wikidata Q62371) explicitly lists \"the Knorre variation of the Open defense in the Ruy Lopez\" (ECO C80) alongside the Two Knights Knorre Variation; the item carries both astronomer and chess player as occupations.",
+      "row": {
+        "person_id": "knorre",
+        "display_name": "Knorre, Viktor",
+        "wikidata_qid": "Q62371",
+        "born": "1840",
+        "died": "1919",
+        "note": "identity resolved"
+      }
+    },
+    {
+      "op": "insert",
+      "unique_by": "person_id",
+      "expected_rows": 1,
+      "evidence": "docs/evidence/people/wikidata-resolved.tsv, kondratiyev row: Wikidata Q117532 'Pavel Kondratyev', Soviet chess player and coach 1924-1984; German Wikipedia states that a French Defence variation he proposed was published in 1940 in Schachmaty w SSSR, tying him to the Winawer line. Left as 'Kondratiyev' to match the catalogue's opening name and Wikipedia's che",
+      "row": {
+        "person_id": "kondratiyev",
+        "display_name": "Kondratiyev, Pavel",
+        "wikidata_qid": "Q117532",
+        "born": "1924",
+        "died": "1984",
+        "note": "identity resolved"
+      }
+    },
+    {
+      "op": "insert",
+      "unique_by": "person_id",
+      "expected_rows": 1,
+      "evidence": "docs/evidence/people/wikidata-resolved.tsv, konikowski row: His enwiki article (Wikidata Q88227) credits him with the gambit 1.e4 e5 2.Nf3 Nc6 3.Bb5 Bc5 4.c3 d5!? in the Ruy Lopez Cordel/Classical Defence, which is precisely the Konikowski Gambit line.",
+      "row": {
+        "person_id": "konikowski",
+        "display_name": "Konikowski, Jerzy",
+        "wikidata_qid": "Q88227",
+        "born": "1947",
+        "died": "",
+        "note": "identity resolved"
+      }
+    },
+    {
+      "op": "insert",
+      "unique_by": "person_id",
+      "expected_rows": 1,
+      "evidence": "docs/evidence/people/wikidata-resolved.tsv, konstantinopolsky row: en.wikipedia 'Alexander Konstantinopolsky' carries wikibase_item Q710798, and Wikipedia's list defines the Konstantinopolsky Opening as 1.e4 e5 2.Nf3 Nc6 3.g3, matching the catalogue's King's Knight Opening Main Line, g3.",
+      "row": {
+        "person_id": "konstantinopolsky",
+        "display_name": "Konstantinopolsky, Alexander",
+        "wikidata_qid": "Q710798",
+        "born": "1910",
+        "died": "1990",
+        "note": "identity resolved"
+      }
+    },
+    {
+      "op": "insert",
+      "unique_by": "person_id",
+      "expected_rows": 1,
+      "evidence": "docs/evidence/people/wikidata-resolved.tsv, kruijs row: Wikidata Q2247859 'Maarten van 't Kruijs', Dutch chess player 1813-1885, eponym of 1.e3; surname corrected because the family name is 'van 't Kruijs', not 'Kruijs' — the mechanical extraction dropped the nobiliary particle.",
+      "row": {
+        "person_id": "kruijs",
+        "display_name": "van 't Kruijs, Maarten",
+        "wikidata_qid": "Q2247859",
+        "born": "1813",
+        "died": "1885",
+        "note": "identity resolved"
+      }
+    },
+    {
+      "op": "insert",
+      "unique_by": "person_id",
+      "expected_rows": 1,
+      "evidence": "docs/evidence/people/wikidata-resolved.tsv, lamb row: No Wikidata entity found: a SPARQL sweep of items with occupation 'chess player' (Q10873124) whose English label contains 'Lamb' returned only Hans Lambert (Q27969667), Francois Xavier Lambert (Q55105165) and Koen Lambrechts (Q71315189), none of them an F. Lamb; web sources on the Blackmar-Diemer De",
+      "row": {
+        "person_id": "lamb",
+        "display_name": "Lamb, F.",
+        "wikidata_qid": "",
+        "born": "",
+        "died": "",
+        "note": "no Wikidata item found on a fresh search"
+      }
+    },
+    {
+      "op": "insert",
+      "unique_by": "person_id",
+      "expected_rows": 1,
+      "evidence": "docs/evidence/people/wikidata-resolved.tsv, lange row: Wikidata Q62453, German chess master, bookseller and chess theoretician 1832-1899, the only chess Max Lange and eponym of the Max Lange Attack.",
+      "row": {
+        "person_id": "lange",
+        "display_name": "Lange, Max",
+        "wikidata_qid": "Q62453",
+        "born": "1832",
+        "died": "1899",
+        "note": "identity resolved"
+      }
+    },
+    {
+      "op": "insert",
+      "unique_by": "person_id",
+      "expected_rows": 1,
+      "evidence": "docs/evidence/people/wikidata-resolved.tsv, larsen row: Wikidata Q108807 \"Bent Larsen\", Danish chess grandmaster and author (1935–2010); the Larsen's Opening item Q645666 carries P138 (named after) → Q108807.",
+      "row": {
+        "person_id": "larsen",
+        "display_name": "Larsen, Bent",
+        "wikidata_qid": "Q108807",
+        "born": "1935",
+        "died": "2010",
+        "note": "identity resolved"
+      }
+    },
+    {
+      "op": "insert",
+      "unique_by": "person_id",
+      "expected_rows": 1,
+      "evidence": "docs/evidence/people/wikidata-resolved.tsv, leonard row: Wikidata Q6128173 'James A. Leonard', American chess player 1841-1862; Wikipedia's list of openings named after people gives the Leonardis Variation to James A. Leonard, and the repo's own named-after-people.tsv row C.KPO.d3 records the same attribution. Wikidata's label carries the middle initial (",
+      "row": {
+        "person_id": "leonard",
+        "display_name": "Leonard, James",
+        "wikidata_qid": "Q6128173",
+        "born": "1841",
+        "died": "1862",
+        "note": "identity resolved"
+      }
+    },
+    {
+      "op": "insert",
+      "unique_by": "person_id",
+      "expected_rows": 1,
+      "evidence": "docs/evidence/people/wikidata-resolved.tsv, leonhardt row: Wikidata Q66451 (human, chess player, Germany); enwiki's list gives 'Leonhardt Variation of the Evans Gambit, 4.b4 Bxb4 5.c3 Ba5 6.d4 b5' citing Hooper and Whyld, matching the listed line. Display name gains 'Saladin', which both the Wikidata label and the enwiki title carry.",
+      "row": {
+        "person_id": "leonhardt",
+        "display_name": "Leonhardt, Paul Saladin",
+        "wikidata_qid": "Q66451",
+        "born": "1877",
+        "died": "1934",
+        "note": "identity resolved"
+      }
+    },
+    {
+      "op": "insert",
+      "unique_by": "person_id",
+      "expected_rows": 1,
+      "evidence": "docs/evidence/people/wikidata-resolved.tsv, levenfish row: Wikidata Q585366 'Grigory Levenfish', Soviet chess player 1889-1961, en.wikipedia article; both catalogue rows (Sicilian Dragon 6.f4 Levenfish Attack and the Grünfeld Russian Hungarian ...b6 Levenfish Variation) name him.",
+      "row": {
+        "person_id": "levenfish",
+        "display_name": "Levenfish, Grigory",
+        "wikidata_qid": "Q585366",
+        "born": "1889",
+        "died": "1961",
+        "note": "identity resolved"
+      }
+    },
+    {
+      "op": "insert",
+      "unique_by": "person_id",
+      "expected_rows": 1,
+      "evidence": "docs/evidence/people/wikidata-resolved.tsv, levitsky row: Wikidata Q166086 'Stepan Levitsky', Russian chess player 1876-1924, en.wikipedia article; the Levitsky Attack (1.d4 d5 2.Bg5) is his, the same line the catalogue also records under Julian Hodgson's name as the Hodgson Attack.",
+      "row": {
+        "person_id": "levitsky",
+        "display_name": "Levitsky, Stepan",
+        "wikidata_qid": "Q166086",
+        "born": "1876",
+        "died": "1924",
+        "note": "identity resolved"
+      }
+    },
+    {
+      "op": "insert",
+      "unique_by": "person_id",
+      "expected_rows": 1,
+      "evidence": "docs/evidence/people/wikidata-resolved.tsv, lisitsin row: the Wikidata item for the Lisitsin Gambit (Q23047455) carries P138 'named after' pointing at Q3760783, and enwiki 'Georgy Lisitsin' maps to that same item (Soviet player 1909-1972).",
+      "row": {
+        "person_id": "lisitsin",
+        "display_name": "Lisitsin, Georgy",
+        "wikidata_qid": "Q3760783",
+        "born": "1909",
+        "died": "1972",
+        "note": "identity resolved"
+      }
+    },
+    {
+      "op": "insert",
+      "unique_by": "person_id",
+      "expected_rows": 1,
+      "evidence": "docs/evidence/people/wikidata-resolved.tsv, lolli row: Wikidata Q932335 'Giambattista Lolli', Italian chess player, composer and writer of the Modenese school (1698-1769), eponym of the Lolli Attack in the Two Knights Defence.",
+      "row": {
+        "person_id": "lolli",
+        "display_name": "Lolli, Giambattista",
+        "wikidata_qid": "Q932335",
+        "born": "1698",
+        "died": "1769",
+        "note": "identity resolved"
+      }
+    },
+    {
+      "op": "insert",
+      "unique_by": "person_id",
+      "expected_rows": 1,
+      "evidence": "docs/evidence/people/wikidata-resolved.tsv, lucena row: Wikidata Q357782, Spanish chess player and author of the 1497 Repetición de amores y arte de ajedrez, credited with the Lucena Variation in OCN's eponym evidence file; surname corrected on the same principle given for Lopez de Segura, since the compound surname is 'Ramírez de Lucena' and the mechani",
+      "row": {
+        "person_id": "lucena",
+        "display_name": "Ramírez de Lucena, Luis",
+        "wikidata_qid": "Q357782",
+        "born": "1465",
+        "died": "1530",
+        "note": "identity resolved"
+      }
+    },
+    {
+      "op": "insert",
+      "unique_by": "person_id",
+      "expected_rows": 1,
+      "evidence": "docs/evidence/people/wikidata-resolved.tsv, lutikov row: Wikidata Q488017 'Anatoly Lutikov', Soviet/Russian chess grandmaster 1933-1989, en.wikipedia article; the catalogue's Grünfeld Sämisch row carries the alias 'Grünfeld Defense: Lutikov Variation' (lichess), and three further catalogue rows carry his name.",
+      "row": {
+        "person_id": "lutikov",
+        "display_name": "Lutikov, Anatoly",
+        "wikidata_qid": "Q488017",
+        "born": "1933",
+        "died": "1989",
+        "note": "identity resolved"
+      }
+    },
+    {
+      "op": "insert",
+      "unique_by": "person_id",
+      "expected_rows": 1,
+      "evidence": "docs/evidence/people/wikidata-resolved.tsv, macleod row: enwiki 'Nicholas MacLeod' maps to Q7025815 (British-Canadian player Nicholas Menalaus MacLeod, 1870-1965), the eponym Wikipedia's openings list names for the MacLeod Attack 1.e4 e5 2.c3.",
+      "row": {
+        "person_id": "macleod",
+        "display_name": "MacLeod, Nicholas",
+        "wikidata_qid": "Q7025815",
+        "born": "1870",
+        "died": "1965",
+        "note": "identity resolved"
+      }
+    },
+    {
+      "op": "insert",
+      "unique_by": "person_id",
+      "expected_rows": 1,
+      "evidence": "docs/evidence/people/wikidata-resolved.tsv, makogonov row: Wikidata Q517045 'Vladimir Makogonov', Azerbaijani/Soviet chess player (1904-1993), IM 1950 and honorary GM 1987, eponym of the KID Makogonov (h3) system.",
+      "row": {
+        "person_id": "makogonov",
+        "display_name": "Makogonov, Vladimir",
+        "wikidata_qid": "Q517045",
+        "born": "1904",
+        "died": "1993",
+        "note": "identity resolved"
+      }
+    },
+    {
+      "op": "insert",
+      "unique_by": "person_id",
+      "expected_rows": 1,
+      "evidence": "docs/evidence/people/wikidata-resolved.tsv, maroczy row: Wikidata Q305054 'Géza Maróczy', Hungarian GM 1870-1951, sole notable Maróczy and eponym of the Maróczy Bind.",
+      "row": {
+        "person_id": "maroczy",
+        "display_name": "Maróczy, Géza",
+        "wikidata_qid": "Q305054",
+        "born": "1870",
+        "died": "1951",
+        "note": "identity resolved"
+      }
+    },
+    {
+      "op": "insert",
+      "unique_by": "person_id",
+      "expected_rows": 1,
+      "evidence": "docs/evidence/people/wikidata-resolved.tsv, martinovsky row: Wikidata Q65697695 'Eugene Simeon Martinovsky', US correspondence chess player (ICCM 2000, ICCF ID 510198) and the only chess Martinovsky on Wikidata; the distinctive full name matches the ChessBase over-the-board record for the Chicago master who co-names the Petrov Karklins-Martinovsky, and source",
+      "row": {
+        "person_id": "martinovsky",
+        "display_name": "Martinovsky, Eugene",
+        "wikidata_qid": "",
+        "born": "",
+        "died": "",
+        "note": "no identity asserted: Q65697695 is a medium-confidence candidate only. Do not confuse with the Serbian GM Slobodan Martinović (different surname spelling) who surfaces in the same searches; the co-eponym Karklins is a separate American player, Andrew Karklins."
+      }
+    },
+    {
+      "op": "insert",
+      "unique_by": "person_id",
+      "expected_rows": 1,
+      "evidence": "docs/evidence/people/wikidata-resolved.tsv, master row: Input name 'Master, International' is a source-text parse artifact, not a person; the row's sole opening resolves the eponym to Wikidata Q1512937 'Gerhart Gunderam', German chess theoretician (1904-1992), dewiki 'Gerhart Gunderam' — both dewiki and enwiki 'Gunderam Defense' confirm 1.e4 e5 2.Nf3 Qe7",
+      "row": {
+        "person_id": "master",
+        "display_name": "Gunderam, Gerhart",
+        "wikidata_qid": "Q1512937",
+        "born": "1904",
+        "died": "1992",
+        "note": "identity resolved"
+      }
+    },
+    {
+      "op": "insert",
+      "unique_by": "person_id",
+      "expected_rows": 1,
+      "evidence": "docs/evidence/people/wikidata-resolved.tsv, mccutcheon row: Q55653977 is labelled (under the 'mul' language code) 'John Lindsay McCutcheon', described 'lawyer and chess player', American, 1857-1905, matching the Pittsburgh lawyer who played the line against Steinitz in 1885.",
+      "row": {
+        "person_id": "mccutcheon",
+        "display_name": "McCutcheon, John",
+        "wikidata_qid": "Q55653977",
+        "born": "1857",
+        "died": "1905",
+        "note": "identity resolved"
+      }
+    },
+    {
+      "op": "insert",
+      "unique_by": "person_id",
+      "expected_rows": 1,
+      "evidence": "docs/evidence/people/wikidata-resolved.tsv, mcdonnell row: Wikidata Q555043 'Alexander McDonnell', Irish chess master 1798-1835, enwiki 'Alexander McDonnell (chess player)'; the catalogue's own row C.KGm.Acc.Nf3.KKn.Bc4.McD quotes the Oxford Companion, 'successfully introduced by McDONNELL in the first game of his third match against [La] BOURDONNAIS', whic",
+      "row": {
+        "person_id": "mcdonnell",
+        "display_name": "McDonnell, Alexander",
+        "wikidata_qid": "Q555043",
+        "born": "1798",
+        "died": "1835",
+        "note": "identity resolved"
+      }
+    },
+    {
+      "op": "insert",
+      "unique_by": "person_id",
+      "expected_rows": 1,
+      "evidence": "docs/evidence/people/wikidata-resolved.tsv, mieses row: Wikidata Q77379 \"Jacques Mieses\", German-British chess player and chess author, 1865-02-27 to 1954-02-23; the Mieses Opening item Q1540957 carries P138 (named after) → Q77379.",
+      "row": {
+        "person_id": "mieses",
+        "display_name": "Mieses, Jacques",
+        "wikidata_qid": "Q77379",
+        "born": "1865",
+        "died": "1954",
+        "note": "identity resolved"
+      }
+    },
+    {
+      "op": "insert",
+      "unique_by": "person_id",
+      "expected_rows": 1,
+      "evidence": "docs/evidence/people/wikidata-resolved.tsv, mikenas row: His enwiki article (Wikidata Q715582) names both the Mikėnas Variation of the Modern Benoni and the Flohr-Mikėnas Variation of the English Opening, matching both listed openings.",
+      "row": {
+        "person_id": "mikenas",
+        "display_name": "Mikėnas, Vladas",
+        "wikidata_qid": "Q715582",
+        "born": "1910",
+        "died": "1992",
+        "note": "identity resolved"
+      }
+    },
+    {
+      "op": "insert",
+      "unique_by": "person_id",
+      "expected_rows": 1,
+      "evidence": "docs/evidence/people/wikidata-resolved.tsv, miles row: Wikidata Q203644 'Tony Miles', human, British chess player 1955-2001 (enwiki lead: Anthony John Miles, first English GM); enwiki eponym list credits him with the Miles Variation of the Queen's Indian (1.d4 Nf6 2.c4 e6 3.Nf3 b6 4.Bf4), the QID line listed. Kept as 'Tony' because that is the Wikidata ",
+      "row": {
+        "person_id": "miles",
+        "display_name": "Miles, Tony",
+        "wikidata_qid": "Q203644",
+        "born": "1955",
+        "died": "2001",
+        "note": "identity resolved"
+      }
+    },
+    {
+      "op": "insert",
+      "unique_by": "person_id",
+      "expected_rows": 1,
+      "evidence": "docs/evidence/people/wikidata-resolved.tsv, morozevich row: enwiki 'Alexander Morozevich' maps to Q312918, the only chess player named Morozevich on Wikidata, and the French Tarrasch 3...Be7 Morozevich Variation is named for his practice with it.",
+      "row": {
+        "person_id": "morozevich",
+        "display_name": "Morozevich, Alexander",
+        "wikidata_qid": "Q312918",
+        "born": "1977",
+        "died": "",
+        "note": "identity resolved"
+      }
+    },
+    {
+      "op": "insert",
+      "unique_by": "person_id",
+      "expected_rows": 1,
+      "evidence": "docs/evidence/people/wikidata-resolved.tsv, morphy row: Wikidata Q105589 'Paul Morphy', US chess player 1837-1884 (enwiki 'Paul Morphy', 64 sitelinks), the unrivalled Morphy of the Ruy Lopez Morphy Defence and French Morphy Gambit.",
+      "row": {
+        "person_id": "morphy",
+        "display_name": "Morphy, Paul",
+        "wikidata_qid": "Q105589",
+        "born": "1837",
+        "died": "1884",
+        "note": "identity resolved"
+      }
+    },
+    {
+      "op": "insert",
+      "unique_by": "person_id",
+      "expected_rows": 1,
+      "evidence": "docs/evidence/people/wikidata-resolved.tsv, nadanian row: Wikidata Q719163, Armenian grandmaster and opening theoretician (born 1972), is the originator of the Na4 line in the Gruenfeld Exchange that bears his name; sole chess Nadanian on Wikidata.",
+      "row": {
+        "person_id": "nadanian",
+        "display_name": "Nadanian, Ashot",
+        "wikidata_qid": "Q719163",
+        "born": "1972",
+        "died": "",
+        "note": "identity resolved"
+      }
+    },
+    {
+      "op": "insert",
+      "unique_by": "person_id",
+      "expected_rows": 1,
+      "evidence": "docs/evidence/people/wikidata-resolved.tsv, najdorf row: Wikidata Q310532 'Miguel Najdorf', Polish-Argentine chess player (1910-1997), occupation chess player; sole eponym of the Sicilian Najdorf.",
+      "row": {
+        "person_id": "najdorf",
+        "display_name": "Najdorf, Miguel",
+        "wikidata_qid": "Q310532",
+        "born": "1910",
+        "died": "1997",
+        "note": "identity resolved"
+      }
+    },
+    {
+      "op": "insert",
+      "unique_by": "person_id",
+      "expected_rows": 1,
+      "evidence": "docs/evidence/people/wikidata-resolved.tsv, neumann row: Wikidata Q62176 'Gustav Neumann', Prussian chess player 1838-1881, the only chess Gustav Neumann and the Neumann named in Wikipedia's list of openings named after people.",
+      "row": {
+        "person_id": "neumann",
+        "display_name": "Neumann, Gustav",
+        "wikidata_qid": "Q62176",
+        "born": "1838",
+        "died": "1881",
+        "note": "identity resolved"
+      }
+    },
+    {
+      "op": "insert",
+      "unique_by": "person_id",
+      "expected_rows": 1,
+      "evidence": "docs/evidence/people/wikidata-resolved.tsv, nimzowitsch row: enwiki 'Aron Nimzowitsch' maps to Q295114 (Latvian-born Danish chess player and theoretician, 1886-1935), and Wikipedia's List of chess openings named after people credits the Nimzo-Indian to Aron Nimzowitsch.",
+      "row": {
+        "person_id": "nimzowitsch",
+        "display_name": "Nimzowitsch, Aron",
+        "wikidata_qid": "Q295114",
+        "born": "1886",
+        "died": "1935",
+        "note": "identity resolved"
+      }
+    },
+    {
+      "op": "insert",
+      "unique_by": "person_id",
+      "expected_rows": 1,
+      "evidence": "docs/evidence/people/wikidata-resolved.tsv, opocensky row: Wikidata Q1389121 'Karel Opočenský', Czech chess master 1892-1975, en.wikipedia article; the Trompowsky is also known as the Opočenský Opening and 6.Be2 in the Najdorf is the Opočenský Variation. Two other Wikidata items share the name (Q64447624 a Czech evangelical priest 1811-1900, Q95395082 a lan",
+      "row": {
+        "person_id": "opocensky",
+        "display_name": "Opočenský, Karel",
+        "wikidata_qid": "Q1389121",
+        "born": "1892",
+        "died": "1975",
+        "note": "identity resolved"
+      }
+    },
+    {
+      "op": "insert",
+      "unique_by": "person_id",
+      "expected_rows": 1,
+      "evidence": "docs/evidence/people/wikidata-resolved.tsv, owen row: Wikidata Q1386704 'John Owen', English cleric and chess player (1827-1901), enwiki 'John Owen (chess player)', eponym of Owen's Defence 1.e4 b6.",
+      "row": {
+        "person_id": "owen",
+        "display_name": "Owen, John",
+        "wikidata_qid": "Q1386704",
+        "born": "1827",
+        "died": "1901",
+        "note": "identity resolved"
+      }
+    },
+    {
+      "op": "insert",
+      "unique_by": "person_id",
+      "expected_rows": 1,
+      "evidence": "docs/evidence/people/wikidata-resolved.tsv, panov row: Wikidata \"Panov-Botvinnik Attack\" (Q2869895) has named-after (P138) = Q2032954 plus Q178865 (Botvinnik), matching the Caro-Kann line exactly.",
+      "row": {
+        "person_id": "panov",
+        "display_name": "Panov, Vasily",
+        "wikidata_qid": "Q2032954",
+        "born": "1906",
+        "died": "1973",
+        "note": "identity resolved"
+      }
+    },
+    {
+      "op": "insert",
+      "unique_by": "person_id",
+      "expected_rows": 1,
+      "evidence": "docs/evidence/people/wikidata-resolved.tsv, paulsen row: Wikidata Q60377 'Louis Paulsen', German chess player (1833-1891), enwiki 'Louis Paulsen' — eponym of the Petrov Paulsen Attack and the Sicilian Paulsen.",
+      "row": {
+        "person_id": "paulsen",
+        "display_name": "Paulsen, Louis",
+        "wikidata_qid": "Q60377",
+        "born": "1833",
+        "died": "1891",
+        "note": "identity resolved"
+      }
+    },
+    {
+      "op": "insert",
+      "unique_by": "person_id",
+      "expected_rows": 1,
+      "evidence": "docs/evidence/people/wikidata-resolved.tsv, petrov row: Wikidata Q550980, enwiki 'Alexander Petrov (chess player)' = Alexander Dmitrievich Petrov, which states he analysed with Jaenisch the opening later called Petrov's Defence; caution, Wikidata's P569 statement says 1799-02-02 sourced only to a Wikipedia import while the item description and enwiki bot",
+      "row": {
+        "person_id": "petrov",
+        "display_name": "Petrov, Alexander",
+        "wikidata_qid": "Q550980",
+        "born": "1794",
+        "died": "1867",
+        "note": "identity resolved"
+      }
+    },
+    {
+      "op": "insert",
+      "unique_by": "person_id",
+      "expected_rows": 1,
+      "evidence": "docs/evidence/people/wikidata-resolved.tsv, philidor row: Wikidata Q203229 (human, chess player and composer); enwiki's openings-named-after-people list names him as eponym of both the Philidor Defence 1.e4 e5 2.Nf3 d6 and the Philidor Countergambit 3.d4 f5. Wikidata's full label is 'François-André Danican Philidor'; the shorter conventional form is kept. ",
+      "row": {
+        "person_id": "philidor",
+        "display_name": "Philidor, François-André",
+        "wikidata_qid": "Q203229",
+        "born": "1726",
+        "died": "1795",
+        "note": "identity resolved"
+      }
+    },
+    {
+      "op": "insert",
+      "unique_by": "person_id",
+      "expected_rows": 1,
+      "evidence": "docs/evidence/people/wikidata-resolved.tsv, pirc row: Sole Wikidata match Q277836, 'Slovenian chess player (1907-1980)', GM and IM titles, enwiki 'Vasja Pirc', the eponym of the Pirc Defence.",
+      "row": {
+        "person_id": "pirc",
+        "display_name": "Pirc, Vasja",
+        "wikidata_qid": "Q277836",
+        "born": "1907",
+        "died": "1980",
+        "note": "identity resolved"
+      }
+    },
+    {
+      "op": "insert",
+      "unique_by": "person_id",
+      "expected_rows": 1,
+      "evidence": "docs/evidence/people/wikidata-resolved.tsv, polerio row: Wikidata Q555315 \"Giulio Cesare Polerio\", Italian chess player; the Polerio Variation item Q2101209 carries P138 (named after) → Q555315, matching the Kieseritzky Gambit ...Be7 line. Both dates are year-precision with an explicit circa qualifier (c. 1548 – c. 1612). Forename expanded to the full \"Gi",
+      "row": {
+        "person_id": "polerio",
+        "display_name": "Polerio, Giulio Cesare",
+        "wikidata_qid": "Q555315",
+        "born": "1548",
+        "died": "1612",
+        "note": "identity resolved"
+      }
+    },
+    {
+      "op": "insert",
+      "unique_by": "person_id",
+      "expected_rows": 1,
+      "evidence": "docs/evidence/people/wikidata-resolved.tsv, pollock row: Wikidata Q8010308 'William H.K. Pollock', British chess player (1859-1896), enwiki sitelink 'William H. K. Pollock'; ECO C60 names 3...Na5 the 'Ruy Lopez, Pollock defence' after him. Full name William Henry Krause Pollock.",
+      "row": {
+        "person_id": "pollock",
+        "display_name": "Pollock, William",
+        "wikidata_qid": "Q8010308",
+        "born": "1859",
+        "died": "1896",
+        "note": "identity resolved"
+      }
+    },
+    {
+      "op": "insert",
+      "unique_by": "person_id",
+      "expected_rows": 1,
+      "evidence": "docs/evidence/people/wikidata-resolved.tsv, polugaevsky row: Sole Wikidata match Q434000, 'chess player (1934-1995)', Soviet GM, the Polugaevsky of the Sicilian Najdorf Polugaevsky Variation he authored.",
+      "row": {
+        "person_id": "polugaevsky",
+        "display_name": "Polugaevsky, Lev",
+        "wikidata_qid": "Q434000",
+        "born": "1934",
+        "died": "1995",
+        "note": "identity resolved"
+      }
+    },
+    {
+      "op": "insert",
+      "unique_by": "person_id",
+      "expected_rows": 1,
+      "evidence": "docs/evidence/people/wikidata-resolved.tsv, ponziani row: Wikidata Q715023 'Domenico Lorenzo Ponziani', Italian chess player, priest and theoretician (1719-1796), eponym of the Ponziani Opening; full name carries the middle name Lorenzo, left out of display_name as it is not the forename.",
+      "row": {
+        "person_id": "ponziani",
+        "display_name": "Ponziani, Domenico",
+        "wikidata_qid": "Q715023",
+        "born": "1719",
+        "died": "1796",
+        "note": "identity resolved"
+      }
+    },
+    {
+      "op": "insert",
+      "unique_by": "person_id",
+      "expected_rows": 1,
+      "evidence": "docs/evidence/people/wikidata-resolved.tsv, quinteros row: Wikidata Q653351 'Miguel Quinteros', Argentine GM b. 1947, FIDE ID 100021, enwiki 'Miguel Quinteros' — eponym of the Sicilian Quinteros Variation.",
+      "row": {
+        "person_id": "quinteros",
+        "display_name": "Quinteros, Miguel",
+        "wikidata_qid": "Q653351",
+        "born": "1947",
+        "died": "",
+        "note": "identity resolved"
+      }
+    },
+    {
+      "op": "insert",
+      "unique_by": "person_id",
+      "expected_rows": 1,
+      "evidence": "docs/evidence/people/wikidata-resolved.tsv, rauzer row: Wikidata Q1975121 (human, chess player); enwiki states the Richter-Rauzer Variation of the Sicilian was named in honour of him and the German master Kurt Richter.",
+      "row": {
+        "person_id": "rauzer",
+        "display_name": "Rauzer, Vsevolod",
+        "wikidata_qid": "Q1975121",
+        "born": "1908",
+        "died": "1941",
+        "note": "identity resolved"
+      }
+    },
+    {
+      "op": "insert",
+      "unique_by": "person_id",
+      "expected_rows": 1,
+      "evidence": "docs/evidence/people/wikidata-resolved.tsv, reti row: Wikidata Q312985 'Richard Réti', Czechoslovak chess player, chess theoretician and study composer (1889-1929), eponym of the Réti Opening 1.Nf3.",
+      "row": {
+        "person_id": "reti",
+        "display_name": "Réti, Richard",
+        "wikidata_qid": "Q312985",
+        "born": "1889",
+        "died": "1929",
+        "note": "identity resolved"
+      }
+    },
+    {
+      "op": "insert",
+      "unique_by": "person_id",
+      "expected_rows": 1,
+      "evidence": "docs/evidence/people/wikidata-resolved.tsv, rice row: Wikipedia's Rice Gambit article says the line 'was heavily promoted by wealthy German-born, American businessman Isaac Rice', linking to 'Isaac Rice (businessman)', which carries wikibase_item Q473770, described on Wikidata as lawyer, inventor, capitalist and chess writer 1850-1915.",
+      "row": {
+        "person_id": "rice",
+        "display_name": "Rice, Isaac",
+        "wikidata_qid": "Q473770",
+        "born": "1850",
+        "died": "1915",
+        "note": "identity resolved"
+      }
+    },
+    {
+      "op": "insert",
+      "unique_by": "person_id",
+      "expected_rows": 1,
+      "evidence": "docs/evidence/people/wikidata-resolved.tsv, richter row: Wikidata Q65956, German chess player 1900-1969, named in OCN's eponym evidence file as the Richter of both the Richter-Rauzer Attack and the Richter-Veresov Attack.",
+      "row": {
+        "person_id": "richter",
+        "display_name": "Richter, Kurt",
+        "wikidata_qid": "Q65956",
+        "born": "1900",
+        "died": "1969",
+        "note": "identity resolved"
+      }
+    },
+    {
+      "op": "insert",
+      "unique_by": "person_id",
+      "expected_rows": 1,
+      "evidence": "docs/evidence/people/wikidata-resolved.tsv, riumin row: Wikidata Q2262497 'Nikolai Riumin', Russian/Soviet chess player 1908-1942, enwiki 'Nikolai Riumin'; the sole notable chess Riumin, matching the Queen's Indian Riumin Variation. Also transliterated Ryumin, but Wikidata and enwiki both use Riumin.",
+      "row": {
+        "person_id": "riumin",
+        "display_name": "Riumin, Nikolai",
+        "wikidata_qid": "Q2262497",
+        "born": "1908",
+        "died": "1942",
+        "note": "identity resolved"
+      }
+    },
+    {
+      "op": "insert",
+      "unique_by": "person_id",
+      "expected_rows": 1,
+      "evidence": "docs/evidence/people/wikidata-resolved.tsv, rossolimo row: Wikidata Q932226 'Nicolas Rossolimo', instance-of human, occupation chess player, 1910-1975; enwiki lead confirms Russian-born Paris/US champion, and the enwiki eponym list credits him with the Rossolimo Variation of the Sicilian (1.e4 c5 2.Nf3 Nc6 3.Bb5), matching the listed opening.",
+      "row": {
+        "person_id": "rossolimo",
+        "display_name": "Rossolimo, Nicolas",
+        "wikidata_qid": "Q932226",
+        "born": "1910",
+        "died": "1975",
+        "note": "identity resolved"
+      }
+    },
+    {
+      "op": "insert",
+      "unique_by": "person_id",
+      "expected_rows": 1,
+      "evidence": "docs/evidence/people/wikidata-resolved.tsv, rubinstein row: Wikidata Q318597 'Akiba Rubinstein', Russian-Polish chess player (1880-1961), confirmed as the Wikidata item linked from the en.wikipedia Akiba Rubinstein article, the eponym of the Rubinstein French and Four Knights Rubinstein.",
+      "row": {
+        "person_id": "rubinstein",
+        "display_name": "Rubinstein, Akiba",
+        "wikidata_qid": "Q318597",
+        "born": "1880",
+        "died": "1961",
+        "note": "identity resolved"
+      }
+    },
+    {
+      "op": "insert",
+      "unique_by": "person_id",
+      "expected_rows": 1,
+      "evidence": "docs/evidence/people/wikidata-resolved.tsv, samisch row: Wikidata Q60860 'Friedrich Sämisch', German chess player (1896-1975), GM 1950, the only chess Sämisch and the eponym of the King's Indian and Nimzo-Indian Sämisch systems.",
+      "row": {
+        "person_id": "samisch",
+        "display_name": "Sämisch, Friedrich",
+        "wikidata_qid": "Q60860",
+        "born": "1896",
+        "died": "1975",
+        "note": "identity resolved"
+      }
+    },
+    {
+      "op": "insert",
+      "unique_by": "person_id",
+      "expected_rows": 1,
+      "evidence": "docs/evidence/people/wikidata-resolved.tsv, schallopp row: Wikidata Q62455 'Emil Schallopp', German chess player and chess writer (1843-1919), eponym of the King's Gambit Accepted Schallopp Defence.",
+      "row": {
+        "person_id": "schallopp",
+        "display_name": "Schallopp, Emil",
+        "wikidata_qid": "Q62455",
+        "born": "1843",
+        "died": "1919",
+        "note": "identity resolved"
+      }
+    },
+    {
+      "op": "insert",
+      "unique_by": "person_id",
+      "expected_rows": 1,
+      "evidence": "docs/evidence/people/wikidata-resolved.tsv, schlechter row: Wikidata Q320017 'Carl Schlechter', Austro-Hungarian chess player 1874-1918, enwiki 'Carl Schlechter'; he is the only notable chess Schlechter, so the From's Gambit Schlechter Gambit (1.f4 e5 2.fxe5 Nc6) is unambiguous.",
+      "row": {
+        "person_id": "schlechter",
+        "display_name": "Schlechter, Carl",
+        "wikidata_qid": "Q320017",
+        "born": "1874",
+        "died": "1918",
+        "note": "identity resolved"
+      }
+    },
+    {
+      "op": "insert",
+      "unique_by": "person_id",
+      "expected_rows": 1,
+      "evidence": "docs/evidence/people/wikidata-resolved.tsv, segura row: Wikidata Q297457 \"Ruy López de Segura\", Spanish priest and chess player; the Ruy Lopez item Q1290671 carries P138 (named after) → Q297457; both dates are year-precision with a circa qualifier (c. 1530 – c. 1580).",
+      "row": {
+        "person_id": "segura",
+        "display_name": "López de Segura, Ruy",
+        "wikidata_qid": "Q297457",
+        "born": "1530",
+        "died": "1580",
+        "note": "identity resolved"
+      }
+    },
+    {
+      "op": "insert",
+      "unique_by": "person_id",
+      "expected_rows": 1,
+      "evidence": "docs/evidence/people/wikidata-resolved.tsv, shabalov row: Wikidata Q722108, Latvian-born American grandmaster (born 1967), is the Shabalov of the Shirov-Shabalov Gambit in the Semi-Slav Anti-Meran; sole chess Shabalov on Wikidata.",
+      "row": {
+        "person_id": "shabalov",
+        "display_name": "Shabalov, Alexander",
+        "wikidata_qid": "Q722108",
+        "born": "1967",
+        "died": "",
+        "note": "identity resolved"
+      }
+    },
+    {
+      "op": "insert",
+      "unique_by": "person_id",
+      "expected_rows": 1,
+      "evidence": "docs/evidence/people/wikidata-resolved.tsv, shirov row: Wikidata Q214713 'Alexei Shirov', Latvian-Spanish GM b. 1972, FIDE ID 2209390 — the Shirov-Shabalov Attack in the Anti-Meran is named jointly for him and Alexander Shabalov.",
+      "row": {
+        "person_id": "shirov",
+        "display_name": "Shirov, Alexei",
+        "wikidata_qid": "Q214713",
+        "born": "1972",
+        "died": "",
+        "note": "identity resolved"
+      }
+    },
+    {
+      "op": "insert",
+      "unique_by": "person_id",
+      "expected_rows": 1,
+      "evidence": "docs/evidence/people/wikidata-resolved.tsv, smith row: Wikidata Q16014510 'Ken Smith', American chess and poker player 1930-1999 (enwiki 'Ken Smith (chess player)'), the Texas master Wikipedia's list of openings named after people credits for the Smith-Morra.",
+      "row": {
+        "person_id": "smith",
+        "display_name": "Smith, Ken",
+        "wikidata_qid": "Q16014510",
+        "born": "1930",
+        "died": "1999",
+        "note": "identity resolved"
+      }
+    },
+    {
+      "op": "insert",
+      "unique_by": "person_id",
+      "expected_rows": 1,
+      "evidence": "docs/evidence/people/wikidata-resolved.tsv, sokolsky row: Wikidata Q1388100 (human, chess player, Soviet Union); enwiki states 1.b4 became known as the Sokolsky Opening, also called the Polish Opening, and that he wrote a book on it.",
+      "row": {
+        "person_id": "sokolsky",
+        "display_name": "Sokolsky, Alexey",
+        "wikidata_qid": "Q1388100",
+        "born": "1908",
+        "died": "1969",
+        "note": "identity resolved"
+      }
+    },
+    {
+      "op": "insert",
+      "unique_by": "person_id",
+      "expected_rows": 1,
+      "evidence": "docs/evidence/people/wikidata-resolved.tsv, soldatenkov row: Wikidata Q109323731 'Vassily Soldatenkov', Russian chess player and racing driver 1879-1944, enwiki 'Vassily Soldatenkov'; Edward Winter's chesshistory.com piece on Soldatenkov states his name became attached to 1.e4 e5 2.f4 Bc5 3.Nf3 d6 4.fxe5, the 'Soldatenkov Attack/Variation', via the Marco and ",
+      "row": {
+        "person_id": "soldatenkov",
+        "display_name": "Soldatenkov, Vassily",
+        "wikidata_qid": "Q109323731",
+        "born": "1879",
+        "died": "1944",
+        "note": "identity resolved"
+      }
+    },
+    {
+      "op": "insert",
+      "unique_by": "person_id",
+      "expected_rows": 1,
+      "evidence": "docs/evidence/people/wikidata-resolved.tsv, soultanbeieff row: en.wikipedia 'Victor Soultanbeieff' carries wikibase_item Q7926356, and Wikipedia's list attributes the Slav line 1.d4 d5 2.c4 c6 3.Nf3 Nf6 4.Nc3 dxc4 5.a4 e6 to him.",
+      "row": {
+        "person_id": "soultanbeieff",
+        "display_name": "Soultanbeieff, Victor",
+        "wikidata_qid": "Q7926356",
+        "born": "1895",
+        "died": "1972",
+        "note": "identity resolved"
+      }
+    },
+    {
+      "op": "insert",
+      "unique_by": "person_id",
+      "expected_rows": 1,
+      "evidence": "docs/evidence/people/wikidata-resolved.tsv, stamma row: Sole Wikidata match Q453641, 'Syrian chess master', occupations chess player, chess composer and author, dates 1705-1755 (both approximate), the Stamma of the King's Gambit Stamma Gambit.",
+      "row": {
+        "person_id": "stamma",
+        "display_name": "Stamma, Philipp",
+        "wikidata_qid": "Q453641",
+        "born": "1705",
+        "died": "1755",
+        "note": "identity resolved"
+      }
+    },
+    {
+      "op": "insert",
+      "unique_by": "person_id",
+      "expected_rows": 1,
+      "evidence": "docs/evidence/people/wikidata-resolved.tsv, staunton row: Wikidata Q311631 'Howard Staunton', English chess master and Shakespearean scholar (1810-1874), eponym of the Staunton Gambit against the Dutch.",
+      "row": {
+        "person_id": "staunton",
+        "display_name": "Staunton, Howard",
+        "wikidata_qid": "Q311631",
+        "born": "1810",
+        "died": "1874",
+        "note": "identity resolved"
+      }
+    },
+    {
+      "op": "insert",
+      "unique_by": "person_id",
+      "expected_rows": 1,
+      "evidence": "docs/evidence/people/wikidata-resolved.tsv, sveshnikov row: Wikidata Q675955, Latvian-Russian GM 1950-2021 (FIDE 4100638), the theoretician who rehabilitated and gave his name to the Sicilian Sveshnikov.",
+      "row": {
+        "person_id": "sveshnikov",
+        "display_name": "Sveshnikov, Evgeny",
+        "wikidata_qid": "Q675955",
+        "born": "1950",
+        "died": "2021",
+        "note": "identity resolved"
+      }
+    },
+    {
+      "op": "insert",
+      "unique_by": "person_id",
+      "expected_rows": 1,
+      "evidence": "docs/evidence/people/wikidata-resolved.tsv, szen row: Wikidata Q695893 \"József Szén\", Hungarian chess player (1805–1857), leader of the Budapest team in the 1842–46 correspondence match against Paris; ECO B44 \"Sicilian, Szén variation\" (and its Szén hedgehog and Dely-Kasparov sub-lines) is attributed to him in the standard opening databases, and he is ",
+      "row": {
+        "person_id": "szen",
+        "display_name": "Szén, József",
+        "wikidata_qid": "Q695893",
+        "born": "1805",
+        "died": "1857",
+        "note": "identity resolved"
+      }
+    },
+    {
+      "op": "insert",
+      "unique_by": "person_id",
+      "expected_rows": 1,
+      "evidence": "docs/evidence/people/wikidata-resolved.tsv, taimanov row: Wikidata item \"Sicilian Defence, Taimanov Variation\" (Q3483039) carries named-after (P138) = Q348037, Soviet chess player Mark Taimanov, occupation chess player (Q10873124), enwiki \"Mark Taimanov\".",
+      "row": {
+        "person_id": "taimanov",
+        "display_name": "Taimanov, Mark",
+        "wikidata_qid": "Q348037",
+        "born": "1926",
+        "died": "2016",
+        "note": "identity resolved"
+      }
+    },
+    {
+      "op": "insert",
+      "unique_by": "person_id",
+      "expected_rows": 1,
+      "evidence": "docs/evidence/people/wikidata-resolved.tsv, torre row: enwiki 'Carlos Torre Repetto' maps to Q544520 (Mexican GM), the eponym Wikipedia's openings list names for the Torre Attack; born-year taken from the preferred-rank P569 claim of 1904 (a normal-rank 1905 claim also exists), and the Wikidata full form is 'Carlos Torre Repetto' if you prefer the doubl",
+      "row": {
+        "person_id": "torre",
+        "display_name": "Torre, Carlos",
+        "wikidata_qid": "Q544520",
+        "born": "1904",
+        "died": "1978",
+        "note": "identity resolved"
+      }
+    },
+    {
+      "op": "insert",
+      "unique_by": "person_id",
+      "expected_rows": 1,
+      "evidence": "docs/evidence/people/wikidata-resolved.tsv, traxler row: Wikidata Q700827 'Karel Traxler', Czech chess player, composer and Catholic priest (1866-1936), eponym of the Traxler Counterattack in the Two Knights Defence.",
+      "row": {
+        "person_id": "traxler",
+        "display_name": "Traxler, Karel",
+        "wikidata_qid": "Q700827",
+        "born": "1866",
+        "died": "1936",
+        "note": "identity resolved"
+      }
+    },
+    {
+      "op": "insert",
+      "unique_by": "person_id",
+      "expected_rows": 1,
+      "evidence": "docs/evidence/people/wikidata-resolved.tsv, trompowsky row: en.wikipedia 'Octávio Trompowsky' carries wikibase_item Q1333231, described as Brazilian chess player 1897-1984, the champion the Trompowsky Attack is named for; display name kept in Wikidata's English label form (the Portuguese spelling takes an acute, Octávio).",
+      "row": {
+        "person_id": "trompowsky",
+        "display_name": "Trompowsky, Octavio",
+        "wikidata_qid": "Q1333231",
+        "born": "1897",
+        "died": "1984",
+        "note": "identity resolved"
+      }
+    },
+    {
+      "op": "insert",
+      "unique_by": "person_id",
+      "expected_rows": 1,
+      "evidence": "docs/evidence/people/wikidata-resolved.tsv, urusov row: English Wikipedia's Bishop's Opening article states \"The Urusov Gambit is named after Russian Prince Sergey Semyonovich Urusov (1827-1897)\", whose item is Q1428416 (enwiki \"Sergey Urusov (chess player)\").",
+      "row": {
+        "person_id": "urusov",
+        "display_name": "Urusov, Sergey",
+        "wikidata_qid": "Q1428416",
+        "born": "1827",
+        "died": "1897",
+        "note": "identity resolved"
+      }
+    },
+    {
+      "op": "insert",
+      "unique_by": "person_id",
+      "expected_rows": 1,
+      "evidence": "docs/evidence/people/wikidata-resolved.tsv, veresov row: Wikidata Q2708388 'Gavriil Veresov', human, Soviet/Belarusian chess player and IM 1912-1979; enwiki eponym list credits him (with Kurt Richter) for the Richter-Veresov Attack 1.d4 d5 2.Nc3 Nf6 3.Bg5, the queen's-pawn Veresov setup listed.",
+      "row": {
+        "person_id": "veresov",
+        "display_name": "Veresov, Gavriil",
+        "wikidata_qid": "Q2708388",
+        "born": "1912",
+        "died": "1979",
+        "note": "identity resolved"
+      }
+    },
+    {
+      "op": "insert",
+      "unique_by": "person_id",
+      "expected_rows": 1,
+      "evidence": "docs/evidence/people/wikidata-resolved.tsv, villemson row: Wikidata Q20528953 'Martin Villemson', Estonian chess player and sports journalist (1897-1933) of Pärnu; sources on the KGA Villemson Gambit 3.d4 name exactly this Pärnu editor of Eesti Maleilm who mentored Keres.",
+      "row": {
+        "person_id": "villemson",
+        "display_name": "Villemson, Martin",
+        "wikidata_qid": "Q20528953",
+        "born": "1897",
+        "died": "1933",
+        "note": "identity resolved"
+      }
+    },
+    {
+      "op": "insert",
+      "unique_by": "person_id",
+      "expected_rows": 1,
+      "evidence": "docs/evidence/people/wikidata-resolved.tsv, vinogradov row: No verifiable chess player of this name exists. DO NOT USE Q1976412 — Wikipedia's 'List of chess openings named after people' blue-links 'Paul Vinogradov' to Sir Paul Vinogradoff (Q1976412), the Russian-British legal historian 1854-1925 whose article never mentions chess; that link is spurious and t",
+      "row": {
+        "person_id": "vinogradov",
+        "display_name": "Vinogradov, Paul",
+        "wikidata_qid": "",
+        "born": "",
+        "died": "",
+        "note": "no Wikidata item found on a fresh search. Several unrelated chess Vinogradovs exist on Wikidata, and the far bigger trap is the homonymous legal historian Sir Paul Vinogradoff (Q1976412), whom Wikipedia already mislinks here."
+      }
+    },
+    {
+      "op": "insert",
+      "unique_by": "person_id",
+      "expected_rows": 1,
+      "evidence": "docs/evidence/people/wikidata-resolved.tsv, wade row: Wikipedia's list gives the Wade Defence as 1.d4 d6 2.Nf3 Bg4 named after Robert Wade — identical moves to OCN row A.OID.Wad — and 'Robert Wade (chess player)' carries wikibase_item Q722263 (alias Robert Graham Wade).",
+      "row": {
+        "person_id": "wade",
+        "display_name": "Wade, Robert",
+        "wikidata_qid": "Q722263",
+        "born": "1921",
+        "died": "2008",
+        "note": "identity resolved"
+      }
+    },
+    {
+      "op": "insert",
+      "unique_by": "person_id",
+      "expected_rows": 1,
+      "evidence": "docs/evidence/people/wikidata-resolved.tsv, ware row: Wikidata Q7242011 'Preston Ware', American chess player 1821-1890 (enwiki 'Preston Ware'), named by Wikipedia's list of openings named after people as the Ware Opening eponym, which also carries the Ware Defence.",
+      "row": {
+        "person_id": "ware",
+        "display_name": "Ware, Preston",
+        "wikidata_qid": "Q7242011",
+        "born": "1821",
+        "died": "1890",
+        "note": "identity resolved"
+      }
+    },
+    {
+      "op": "insert",
+      "unique_by": "person_id",
+      "expected_rows": 1,
+      "evidence": "docs/evidence/people/wikidata-resolved.tsv, winawer row: Wikidata Q376206 'Szymon Winawer', Polish chess player (1838-1919), enwiki sitelink 'Szymon Winawer'; forename corrected from the anglicised 'Simon' used in older chess literature to the Wikidata/Wikipedia form.",
+      "row": {
+        "person_id": "winawer",
+        "display_name": "Winawer, Szymon",
+        "wikidata_qid": "Q376206",
+        "born": "1838",
+        "died": "1919",
+        "note": "identity resolved"
+      }
+    },
+    {
+      "op": "insert",
+      "unique_by": "person_id",
+      "expected_rows": 1,
+      "evidence": "docs/evidence/people/wikidata-resolved.tsv, worrall row: No Wikidata item exists: SPARQL on his chessgames.com id 39970 (P1665) returns nothing, SPARQL for humans with occupation chess player labelled 'Worrall' returns no rows, and English Wikipedia has no article; the only 'Thomas Worrall' item (Q75545278, 1782-1866) carries no occupation and dates incon",
+      "row": {
+        "person_id": "worrall",
+        "display_name": "Worrall, Thomas Herbert",
+        "wikidata_qid": "",
+        "born": "",
+        "died": "",
+        "note": "no Wikidata item found on a fresh search. Do not substitute Robert B. Wormald (Q16597044, 1834-1876), a different person. The attached row C.RyL.Mor.Wor is canonically the Wormald Attack (C77, 5.Qe2), yet OCN's evidence file credits it to Thomas Herbert Worrall of the Worrall Attack (C86, 6.Qe2), and the catalogue separately carries C86 rows named 'Worrall Attack'. The catalogue conflates the two "
+      }
+    },
+    {
+      "op": "insert",
+      "unique_by": "person_id",
+      "expected_rows": 1,
+      "evidence": "docs/evidence/people/wikidata-resolved.tsv, zaitsev-alexander row: Wikidata Q1339147 'Alexander Zaitsev', human, Russian/Soviet chess grandmaster 1935-1971, enwiki sitelink 'Alexander Zaitsev (chess player)'. Raw wikitext of enwiki 'List of chess openings named after people' assigns the two Zaitsev openings separately: 'Zaitsev Gambit of the Grünfeld Defence - 1.d4",
+      "row": {
+        "person_id": "zaitsev-alexander",
+        "display_name": "Zaitsev, Alexander",
+        "wikidata_qid": "Q1339147",
+        "born": "1935",
+        "died": "1971",
+        "note": "identity resolved"
+      }
+    },
+    {
+      "op": "insert",
+      "unique_by": "person_id",
+      "expected_rows": 1,
+      "evidence": "docs/evidence/people/wikidata-resolved.tsv, zilbermints row: No Wikidata person item exists. Searching \"Zilbermints\" returns only Q3171706 \"Zilbermintsgambiet\" — verified as instance of (P31) chess opening Q208544, with a single Dutch Wikipedia sitelink (Zilbermintzgambiet), no named-after (P138) statement and no linked person — plus the mineral zilbermintsit",
+      "row": {
+        "person_id": "zilbermints",
+        "display_name": "Zilbermints, Lev",
+        "wikidata_qid": "",
+        "born": "",
+        "died": "",
+        "note": "no Wikidata item found on a fresh search"
+      }
+    }
+  ]
+}

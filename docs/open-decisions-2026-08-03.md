@@ -42,7 +42,28 @@ corrupt, which is the repo tool refusing by design.
 | 6 | Dates: greco (1634 vs 1630), harrwitz (1821 vs 1823) | Both historically uncertain. **Leave as they are and note the divergence** rather than picking a side without a source |
 | 7 | dunst vs Van Geet; ~~worrall vs wormald~~ **worrall/wormald DONE 2026-08-03**, retracted rather than moved, and the proposal retargeted | Naming decisions, not identity ones. See D below |
 
-## C. `named-after-person`: 240 claims, re-tested over the whole population
+## C. `named-after-person`: 240 claims, re-tested over the whole population — DONE
+
+**Applied 2026-08-14. 200 claims and the 150 people they are about.** The
+population test was re-run first, on the file as it stands (241 claims now,
+one added on 2026-08-04 when the Worrall retraction retargeted a proposal),
+and it reproduced the first run: 171 names in `canonical_name`, 21 in an
+alias only. Nine more were restored by inspection, where the catalogue
+spells the person's name a way a substring test cannot match —
+Ramírez de Lucena for the Lucena Variation, Ilyin-Genevsky for
+Ilyin-Zhenevsky, O'Kelly de Galway for the O'Kelly, Bogo- and Nimzo- for
+their contractions — each with the reason in its claim note. Forty-one are
+parked as recommended below, and four dropped: Chess.com, Frankenstein's
+monster, Count Dracula, and the Gunderam Defence's "person", which is a
+corrupted PGN string that had been resolved to a Brazilian archbishop.
+
+The non-persons are also why the **182-row additions file** left open in B
+is not applied wholesale. Only the 150 people the claims actually name went
+in, so the table stays a record of people this catalogue says something
+about. Manifests: `people-for-naming-claims`,
+`named-after-person-conversion`.
+
+*The original recommendation follows.*
 
 Not a sample. Each claim asserts one checkable thing — "catalogue name X
 carries this person's name" — so all 240 were tested against
